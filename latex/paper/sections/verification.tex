@@ -1,0 +1,192 @@
+\section{Observational Verification}
+\label{sec:verification}
+
+The framework makes quantitative predictions for both Saturn and Jupiter.
+We test them against Cassini and Juno observations, treating the two
+planets as independent case studies of the same geometric principle.
+
+\subsection{A generalized observable: \texorpdfstring{$\sigma_{\mathrm{geom}}$}{sigma-geom}}
+\label{sec:sigma-geom}
+
+To compare polygonal patterns across planets and dynamical mechanisms,
+we define a universal observable.  Given $N$ features (cyclone centers,
+jet meander vertices) at positions $z_k$ in the complex plane (via
+stereographic projection from the pole), the geometric M\"obius parameter
+is
+\begin{equation}\label{eq:sigma-geom}
+  \sigma_{\mathrm{geom}} = \frac{1}{N}\sum_{k=1}^{N}
+  \bigl|\!\ln|z_k / z_k^{\mathrm{ideal}}|\bigr|,
+\end{equation}
+where $z_k^{\mathrm{ideal}}$ are the vertices of the best-fit regular
+$N$-gon (optimized over rotation angle).  By construction,
+$\sigma_{\mathrm{geom}} = 0$ for a perfect polygon ($|\lam| = 1$) and
+$\sigma_{\mathrm{geom}} > 0$ for any distortion.  The observable is
+rotation-invariant, scale-invariant, and independent of $N$.
+
+\subsection{Saturn: the hexagonal jet meander}
+
+\subsubsection{Three-epoch data}
+
+Saturn's hexagon has been observed across three epochs spanning
+three decades (\cref{tab:epochs}).
+
+\begin{table}[htbp]
+\centering
+\caption{Saturn hexagon drift rates across three observational epochs.
+All angular velocities relative to System~III.}
+\label{tab:epochs}
+\begin{tabular}{lcccl}
+\toprule
+Epoch & $\omega_{\mathrm{hex}}$ ($^\circ$/day) & $\omega_{\mathrm{NPS}}$ ($^\circ$/day) & NPS & Source \\
+\midrule
+1980--81  & $-0.060 \pm 0.014$ & $-0.044 \pm 0.010$ & Yes   & \citet{Godfrey1988} \\
+1990--91  & $-0.001 \pm 0.007$ & ---                  & Weak  & \citet{SanchezLavega1993} \\
+2008--14  & $-0.036 \pm 0.010$ & ---                  & No    & \citet{SanchezLavega2014} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Wavenumber and amplitude}
+
+The Cassini/ISS zonal wind profile \citep{Antunano2015}, digitized near
+the hexagonal jet ($70$--$82^\circ$\,N), gives a peak speed
+$U_{\mathrm{obs}} = 120.1$~m/s at $76.6^\circ$\,N with half-width
+$2.86^\circ$.  The Rossby stationarity condition $U^* = \beta/k^2$ with
+$k = 6/R_{\mathrm{hex}}$ predicts $U^* = 105$~m/s, selecting $n^* = 5.62
+\to 6$ as the stationary wavenumber (12\% discrepancy attributable to the
+barotropic approximation).
+
+The hexagon meander amplitude, measured from the vertex latitude span
+($75^\circ$--$78^\circ$\,N), is $\varepsilon_{\mathrm{obs}} = 0.112$.
+The Theorem~5 prediction with the derived matching constant $C = 0.797$
+gives $\varepsilon_{\mathrm{pred}} = 0.112$.  The numerical coincidence
+with $\varepsilon_{\mathrm{obs}} = 0.112$ should not be overstated:
+propagating the 9.8\% Gaussian profile approximation error gives
+$\varepsilon_{\mathrm{pred}} = 0.11 \pm 0.11$, so the match is within
+one standard deviation of the model uncertainty, not sub-percent.
+
+\subsubsection{NPS coupling and near-resonance}
+
+The North Polar Spot (NPS), a compact anticyclonic vortex near the
+hexagon, was prominent during 1980--81 but absent by 2008--14.
+The linear coupling model $\omega_{\mathrm{hex}} = \omega_0 +
+\gamma\,\omega_{\mathrm{NPS}}$ gives $\gamma = 0.54 \pm 0.41$
+(two parameters fitted to two data points with no residual degrees of
+freedom; the 1990--91 epoch is not used because $\omega_{\mathrm{NPS}}$
+was not measured).  The implied near-resonance period is
+\[
+  T_{\mathrm{rel}} = \frac{360^\circ}{|\omega_{\mathrm{hex}} -
+  \omega_{\mathrm{NPS}}|} = 62 \pm 68\;\text{years},
+\]
+where the large uncertainty reflects the propagated error bars on both
+drift rates.  The multi-decadal timescale is \emph{suggestive} of an
+NPS--hexagon coupling but cannot be considered well-constrained by the
+available data.
+
+\subsection{Jupiter: the cyclone rings}
+
+Jupiter provides the critical universality test.  Its polar cyclone
+rings arise through vortex self-organization, not Rossby wave stationarity
+---the Rossby prediction gives $n^* \approx 0.3$ for both poles,
+completely failing to match the observed $N = 8$ (north) or $N = 5$
+(south).  If the M\"obius framework applies only to Rossby-mediated
+polygons, it should fail for Jupiter.  It does not.
+
+\subsubsection{Juno cyclone positions}
+
+Cyclone positions digitized from \citet{Adriani2018} are projected
+stereographically from the pole and measured via
+$\sigma_{\mathrm{geom}}$ (\cref{eq:sigma-geom}).
+
+\subsubsection{Thomson stability}
+
+The north polar ring ($N = 8$) is unstable without a central vortex
+(Havelock: $N \ge 8$ unstable), but Jupiter has a strong central cyclone
+at each pole that provides stabilization.  The south polar ring ($N = 5$)
+is stable without a center (Havelock: $N \le 7$), with Thomson critical
+ratio $\kappa_{\mathrm{crit}} = -1/2$.
+
+\subsection{Cross-planetary comparison}
+
+\paragraph{Quantitative criterion.}
+We say a configuration is ``near $|\lam| = 1$'' if its M\"obius parameter
+satisfies $\sigma < 1$ (equivalently $r = e^\sigma < e \approx 2.72$).
+This threshold is motivated physically: $\sigma < 1$ means the spiral
+pitch angle $\psi = \arctan(\alpha/\sigma)$ exceeds $45^\circ$---the
+orbit is closer to a circle than to a radial ray.  We further distinguish
+\emph{close} ($\sigma < 0.1$, $r < 1.11$) from \emph{moderate}
+($0.1 < \sigma < 1$).
+
+For Saturn, we note that two different observables give different values:
+\begin{itemize}
+  \item $\sigma_{\mathrm{flow}} \approx 0.10$ (from the dynamical BVP
+    chain, \cref{sec:theorems})---\emph{close} to $|\lam| = 1$.
+  \item $\sigma_{\mathrm{geom}} = 0.50$ (from the vertex distortion
+    measure, \cref{sec:sigma-geom})---\emph{moderate}.
+\end{itemize}
+The difference arises because $\sigma_{\mathrm{geom}}$ measures the
+full geometric distortion of the hexagonal meander (amplitude
+$\varepsilon = 0.112$), while $\sigma_{\mathrm{flow}}$ measures the
+Rossby wave's departure from exact stationarity ($\delta U/U^* = 0.14$).
+Both place Saturn within the $\sigma < 1$ criterion; Jupiter sits in
+the ``close'' regime by either measure.
+
+\begin{table}[htbp]
+\centering
+\caption{All three planetary configurations tested against the framework.}
+\label{tab:cross-planet}
+\begin{tabular}{lccccl}
+\toprule
+System & $N$ & $\sigma_{\mathrm{geom}}$ & $\sigma_{\mathrm{flow}}$ & Regime & Entry mechanism \\
+\midrule
+Saturn hexagon    & 6 & 0.50 & 0.10 & Close (flow) / Moderate (geom) & Rossby \\
+Jupiter north     & 8 & 0.06 & --- & Close & Thomson + center \\
+Jupiter south     & 5 & 0.05 & --- & Close & Thomson \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Jupiter's cyclone rings ($\sigma_{\mathrm{geom}} < 0.07$) sit close to
+$|\lam| = 1$.  Saturn's hexagon ($\sigma_{\mathrm{geom}} = 0.50$,
+$r = 1.65$) departs substantially further.  This difference is physically
+expected: $\sigma_{\mathrm{geom}}$ measures the \emph{geometric}
+distortion of the observed feature from a perfect $N$-gon, and Saturn's
+hexagon is a jet meander with amplitude $\varepsilon = 0.112$---a
+large-scale deformation of a circular jet that necessarily distorts the
+polygon.  Jupiter's cyclone rings, by contrast, are discrete point-like
+vortices whose positions can closely approximate a regular polygon even
+when the surrounding flow is not circular.  The two cases probe different
+regimes of the same framework: Saturn tests the Rossby-mediated
+\emph{wave} regime ($\sigma_{\mathrm{flow}} \approx 0.10$ from the
+dynamical chain, closer to $|\lam| = 1$ than $\sigma_{\mathrm{geom}}$
+suggests); Jupiter tests the vortex-cluster regime where
+$\sigma_{\mathrm{geom}}$ directly measures the ring geometry.
+
+A quantitative criterion for ``near $|\lam| = 1$'' depends on the
+observable used: for the dynamical M\"obius parameter
+$\sigma_{\mathrm{flow}}$, Saturn sits at $\sim 0.10$ (close); for the
+geometric observable $\sigma_{\mathrm{geom}}$, Saturn sits at $0.50$
+(moderate).  We report both and do not claim tighter agreement than the
+data support.
+
+The Rossby mechanism (Theorem~3) fails entirely for Jupiter.  The Thomson
+mechanism provides the alternative entry point.  Different dynamics,
+same geometric destination.
+
+\begin{table}[htbp]
+\centering
+\caption{Summary of verified predictions.}
+\label{tab:verification}
+\begin{tabular}{clccl}
+\toprule
+\# & Prediction & Value & Observed & Status \\
+\midrule
+1 & Saturn wavenumber $n^*$ & $5.62$ & $6$ & Correct integer \\
+2 & Saturn amplitude $\varepsilon$ & $0.11 \pm 0.11$ & $0.112$ (Cassini) & Consistent \\
+3 & Stationary jet speed $U^*$ & $105$~m/s & $120$~m/s & $12\%$ (barotropic) \\
+4 & Thomson $\kappa_{\mathrm{crit}}$ ($N=6$) & $-1/4$ & --- & Exact algebraic \\
+5 & Branch disconnection & $\sigma = 0$ (within WKB) & 40-year persistence & Proven (WKB) \\
+6 & Jupiter $\sigma_{\mathrm{geom}}$ & $< 0.07$ & Near-polygonal & Confirmed \\
+\bottomrule
+\end{tabular}
+\end{table}

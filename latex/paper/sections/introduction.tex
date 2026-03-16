@@ -1,0 +1,77 @@
+\section{Introduction}
+\label{sec:introduction}
+
+In 1988, David Godfrey examined Voyager images of Saturn's north pole and
+found a hexagon \citep{Godfrey1988}.  Not an approximate hexagon, not a
+roughly six-sided shape, but a persistent, regular, six-sided polygon
+inscribed in the jet stream at $76^\circ$\,N---stable across decades,
+seasons, and the passage of the Cassini mission through 2014.  Thirty
+years later, the Juno spacecraft revealed that Jupiter's poles harbor
+their own polygonal arrangements: eight cyclones in an octagonal ring at
+the north pole, five in a pentagonal ring at the south
+\citep{Adriani2018}.  Laboratory rotating tanks produce similar patterns
+\citep{BarbosaAguiar2010}.
+
+These observations raise a question that is simple to state and
+surprisingly difficult to answer: \emph{why do rotating fluids make
+polygons?}
+
+The question has two parts.  The first---\emph{how} does a specific
+polygon form?---has received considerable attention.  Numerical
+simulations reproduce Saturn's hexagon from jet instabilities
+\citep{Morales2011}; vortex dynamics models capture Jupiter's cyclone
+rings; Rossby wave theory explains the wavenumber selection $n = 6$.
+The second part---\emph{why} should different physical mechanisms on
+different planets all produce the same geometric outcome?---has not
+been addressed.
+
+This paper answers both parts.  The answer has five steps:
+\begin{enumerate}
+  \item \textbf{Geometry.}  The M\"obius conjugacy theorem places
+    \emph{circular} orbits at the locus $|\lam| = 1$ in the complex
+    multiplicative group $\Cstar$, where logarithmic spirals transition
+    to circles.  A separate geometric step (Proposition~\ref{prop:polygon})
+    shows that imposing $\mathbb{Z}_N$ azimuthal symmetry converts these
+    circles into $N$-gon jet meanders.
+
+  \item \textbf{Branch disconnection.}  Within the WKB approximation,
+    the Rayleigh--Kuo eigenvalue equation has two branches---elliptic
+    ($\sigma = 0$, polygonal) and hyperbolic ($\alpha = 0$, radial)---that
+    are disconnected.  Smooth perturbations of the jet speed cannot move
+    the system between branches at leading order.
+
+  \item \textbf{Energy maximum.}  Among $N$ point vortices on a ring, the
+    regular $N$-gon maximizes the interaction energy: $H''(0) < 0$ for
+    all $N \ge 3$ (proven via a closed-form formula that is manifestly
+    negative).
+
+  \item \textbf{Onsager condensation.}  In Onsager's (1949) statistical
+    mechanics of two-dimensional vortices, systems at negative temperature
+    are driven toward energy maxima.  The polygon is therefore the most
+    probable macrostate in the large-scale limit of 2D turbulence.
+
+  \item \textbf{Atmospheric thermostat.}  Small-scale turbulence in
+    planetary atmospheres provides the effective mixing that enables
+    Onsager relaxation.  The polygon is the endpoint.
+\end{enumerate}
+Steps 1--3 are proven within this paper (Step~3 via an explicit
+closed-form formula for $H''(0)$ that is manifestly negative for all
+$N \ge 3$).  Step 4 is established statistical mechanics.  Step 5 is a
+physical observation.
+
+The framework is universal: it does not depend on the specific dynamical
+mechanism that produces the polygon.  Saturn's hexagon arises from Rossby
+wave stationarity (a jet meander); Jupiter's cyclone rings arise from
+discrete vortex self-organization (a cluster of storms).  Both mechanisms
+deliver the system to $|\lam| \approx 1$, where the polygon lives---and
+once there, eigenvalue branch disconnection and negative-temperature
+statistics keep it.
+
+The paper is organized as follows.  \Cref{sec:setup} introduces the
+mathematical framework: the QGPV equation, M\"obius transformations, and
+the loxodromic flow family.  \Cref{sec:theorems} proves the main results:
+stationarity equivalence, branch disconnection, Thomson critical ratio,
+amplitude formula, and energy--enstrophy sign structure.
+\Cref{sec:verification} tests the framework against Saturn (Cassini) and
+Jupiter (Juno) observations.  \Cref{sec:discussion} assembles the
+five-step answer.

@@ -1,0 +1,204 @@
+\section{Mathematical Setup}
+\label{sec:setup}
+
+\subsection{QGPV equation on the \texorpdfstring{$\beta$}{beta}-plane}
+
+The barotropic quasi-geostrophic potential vorticity (QGPV) equation on the
+$\beta$-plane reads
+\begin{equation}\label{eq:qgpv}
+  \frac{Dq}{Dt} = 0, \qquad q = \nabla^2\psi + \beta y,
+\end{equation}
+where $\psi$ is the stream function, $\beta = \dd f/\dd y$ is the
+meridional gradient of the Coriolis parameter, and $D/Dt = \partial_t +
+J(\psi, \cdot)$ is the material derivative.
+
+\subsection{Log-polar coordinate transformation}
+
+Under the conformal map $(x,y) \mapsto (\rho,\theta)$ defined by
+$x + iy = e^{\rho + i\theta}$, the Laplacian transforms as
+\begin{equation}\label{eq:laplacian-logpolar}
+  \nabla^2 = e^{-2\rho}\!\left(
+    \frac{\partial^2}{\partial\rho^2} +
+    \frac{\partial^2}{\partial\theta^2}
+  \right).
+\end{equation}
+Linearizing \eqref{eq:qgpv} about a zonal base state $U(\rho)$ and Fourier
+expanding the perturbation $\psi' = \psihat_n(\rho)\,e^{in\theta}\,
+e^{-i\omega t}$ yields the Rayleigh--Kuo eigenvalue ODE
+\begin{equation}\label{eq:rayleigh-kuo}
+  (U - c)\bigl(\psihat_n'' - n^2 \psihat_n\bigr)
+  + (\beta - U'')\,\psihat_n = 0,
+\end{equation}
+where $c = \omega/n$ is the phase speed and primes denote $\dd/\dd\rho$.
+For stationary waves ($c = 0$) this simplifies to
+\begin{equation}\label{eq:stationary-ode}
+  \psihat_n'' + \left[\frac{\beta - U''}{U} - n^2\right] \psihat_n = 0.
+\end{equation}
+
+\subsection{M\"obius transformations and the conjugacy theorem}
+\label{sec:mobius-conjugacy}
+
+A M\"obius (linear fractional) transformation
+$f(z) = (az+b)/(cz+d)$ with $ad - bc \neq 0$ acts on the Riemann sphere
+$\mathbb{C}_\infty = \mathbb{C} \cup \{\infty\}$.  Its classification is
+determined by the \emph{multiplier} $\lam$, defined as follows.
+
+\begin{theorem}[M\"obius conjugacy]\label{thm:conjugacy}
+Let $f$ be a non-parabolic M\"obius transformation with distinct fixed
+points $z_1, z_2 \in \mathbb{C}_\infty$.  Define the conjugating map
+$g(z) = (z - z_1)/(z - z_2)$.  Then:
+\begin{enumerate}
+  \item $h = g \circ f \circ g^{-1}$ satisfies $h(w) = \lam w$, where
+    $\lam = f'(z_1)$ is the derivative at the fixed point $z_1$.
+  \item The multiplier satisfies $\lam = \mu_1/\mu_2$ where $\mu_1, \mu_2$
+    are the eigenvalues of the associated matrix
+    $\bigl[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\bigr]$.
+  \item Writing $\lam = e^{\sigma + i\alpha}$ with
+    $\sigma = \log|\lam|$, $\alpha = \arg(\lam)$:
+    \begin{center}
+    \begin{tabular}{lll}
+    \toprule
+    $\sigma \neq 0$, $\alpha \neq 0$ & loxodromic & logarithmic spiral orbits \\
+    $\sigma = 0$, $\alpha \neq 0$    & elliptic   & circular orbits \\
+    $\sigma \neq 0$, $\alpha = 0$    & hyperbolic & radial orbits \\
+    \bottomrule
+    \end{tabular}
+    \end{center}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+For $c \neq 0$, the fixed points of $f$ satisfy $cz^2 + (d-a)z - b = 0$
+with discriminant $\Delta = (a+d)^2 - 4(ad-bc) \neq 0$ (non-parabolic),
+giving two distinct finite fixed points.  For $c = 0$, $f$ is affine with
+one finite fixed point and $z_2 = \infty$; the conjugacy proceeds
+identically with $g(z) = z - z_1$.
+Since $g(z_1) = 0$ and $g(z_2) = \infty$, the map $h$ fixes both $0$ and
+$\infty$.  The only M\"obius maps fixing both are $w \mapsto \lam w$.  By
+the chain rule, $\lam = h'(0) = g'(z_1) \cdot f'(z_1) \cdot
+(g^{-1})'(0) = f'(z_1)$.
+\end{proof}
+
+\begin{remark}[Fixed point character]\label{rem:fixed-points}
+For loxodromic and hyperbolic transformations ($|\lam| \neq 1$), $z_1$
+is repelling and $z_2$ is attracting (or vice versa, depending on the
+convention $|\lam| \ge 1$).  For \emph{elliptic} transformations
+($|\lam| = 1$), both fixed points are \emph{neutral}---centers of
+rotation, neither attracting nor repelling.  The term ``repelling fixed
+point'' used in the loxodromic context does not apply to the elliptic
+case.
+\end{remark}
+
+\subsection{From circles to polygons: the \texorpdfstring{$\mathbb{Z}_N$}{Z\_N}
+projection}
+\label{sec:circle-to-polygon}
+
+The conjugacy theorem establishes that elliptic ($\sigma = 0$) orbits are
+\emph{circles}, not polygons.  The regular $N$-gon arises through a
+separate geometric step.
+
+\begin{proposition}[Polygonal meander from $\mathbb{Z}_N$ perturbation]
+\label{prop:polygon}
+Any axisymmetric jet perturbed by an $n = N$ Fourier mode produces a
+jet boundary
+\begin{equation}\label{eq:jet-boundary}
+  \rho_{\mathrm{boundary}}(\theta) = \rhostar + \varepsilon\cos(N\theta + \phi)
+\end{equation}
+that is a meander with $N$-fold symmetry, approximating a regular $N$-gon
+for small $\varepsilon$.
+\end{proposition}
+
+\begin{proof}
+The total PV field with the $n = N$ Fourier perturbation is
+$q(\rho, \theta) = q_0(\rho) + q_n(\rho)\cos(N\theta + \phi)$.
+The jet boundary is the PV contour $q = q_B$ (constant).  Linearizing
+around $\rho = \rhostar$ where $q_0(\rhostar) = q_B$:
+\[
+  q_0'(\rhostar)\,\delta\rho + q_n(\rhostar)\cos(N\theta + \phi) = 0,
+\]
+giving $\delta\rho(\theta) = -\frac{q_n(\rhostar)}{q_0'(\rhostar)}
+\cos(N\theta + \phi)$, which is \eqref{eq:jet-boundary} with
+$\varepsilon = |q_n(\rhostar)/q_0'(\rhostar)|$.
+
+This meander has $N$ maxima at $\theta = 2\pi k/N$ ($k = 0, \ldots, N-1$),
+all at the same radius $R(1 + \varepsilon)$, equally spaced in angle---the
+vertices of a regular $N$-gon to leading order in $\varepsilon$.  (At
+$O(\varepsilon^2)$, the chord lengths between adjacent vertices differ
+because the meander curves between maxima; the polygon approximation is
+valid for $\varepsilon \ll 1$.)
+\end{proof}
+
+\begin{remark}[Role of Proposition~\ref{prop:polygon}]
+This result is a standard fact about Fourier perturbations and does not
+require M\"obius theory.  Its role in the paper is to provide the
+geometric bridge between the M\"obius conjugacy theorem (which gives
+\emph{circles} at $\sigma = 0$) and the observed \emph{polygons}: the
+polygon arises when the QGPV selects a specific azimuthal mode $n = N$
+(\cref{sec:theorems}), which converts the circular base state into an
+$N$-gon meander via this proposition.
+\end{remark}
+
+This distinction matters: the M\"obius orbit is a circle; the polygon
+emerges from the \emph{interaction} between the circular orbit structure
+and the discrete $\mathbb{Z}_N$ symmetry imposed by the wavenumber
+selection (Rossby dispersion or vortex dynamics).  The two steps are:
+\begin{enumerate}
+  \item $\sigma = 0$ places the system on the circular-orbit family
+    (M\"obius conjugacy theorem);
+  \item $\alpha = 2\pi/N$ restricts this to the $\mathbb{Z}_N$-symmetric
+    sector, producing the $N$-gon meander.
+\end{enumerate}
+
+\subsection{Loxodromic flow family and orbit structure}
+
+The continuous one-parameter group generated by $h(w) = \lam w$ is
+$w(t) = e^{(\sigma + i\alpha)t}\,w_0$.  In polar coordinates
+$w = Re^{i\Theta}$:
+\begin{equation}\label{eq:orbit-polar}
+  R(t) = R_0\,e^{\sigma t}, \qquad \Theta(t) = \alpha t + \Theta_0.
+\end{equation}
+Eliminating $t$ (for $\alpha \neq 0$):
+\begin{equation}\label{eq:spiral-equation}
+  \ln R = \ln R_0 + \frac{\sigma}{\alpha}(\Theta - \Theta_0).
+\end{equation}
+This is a logarithmic spiral with constant winding angle
+$\psi = \arctan(\alpha/\sigma)$.  At $\sigma = 0$: $R = R_0$ for all
+$\Theta$ (circular orbit, $\psi = \pi/2$).  As $\sigma \to 0^+$: the
+spiral opens continuously to a circle.  Both $R(\Theta; \sigma)$ and
+$\psi(\sigma)$ are $C^\infty$ in $\sigma$ for fixed $\alpha \neq 0$.
+
+\begin{remark}[Stream function and the periodic domain]
+\label{rem:stream-function}
+The full complex potential $w(z) = Az^s$ with $s = \sigma + i\alpha$ gives
+\begin{equation}\label{eq:psi-full}
+  \psi_{\mathrm{full}}(\rho,\theta)
+  = |A|\,e^{\sigma\rho - \alpha\theta}
+  \sin(\alpha\rho + \sigma\theta + \arg A).
+\end{equation}
+The factor $e^{-\alpha\theta}$ is not $2\pi$-periodic in $\theta$ for
+$\alpha \neq 0$.  This function is properly defined on the
+\emph{universal cover} of the punctured plane---the strip
+$\{(\rho,\theta) : \rho \in \mathbb{R},\; \theta \in \mathbb{R}\}$
+with the identification $z = e^{\rho + i\theta}$---rather than on
+the periodic domain $\theta \in [0, 2\pi)$.
+
+\emph{We do not use $\psi_{\mathrm{full}}$ as a periodic stream function.}
+The QGPV analysis proceeds entirely through the Fourier-decomposed
+eigenvalue equation \eqref{eq:rayleigh-kuo}, which governs the radial
+eigenfunction $\psihat_n(\rho)$ for each azimuthal mode $n$ independently.
+The full perturbation
+\begin{equation}\label{eq:fourier-mode}
+  \psi'(\rho,\theta,t) = \psihat_n(\rho)\,e^{in\theta}\,e^{-i\omega t}
+\end{equation}
+\emph{is} $2\pi$-periodic in $\theta$ and satisfies the linearized QGPV
+by construction (it is the Fourier decomposition of the linearized
+equation).
+
+The complex potential $w(z) = Az^s$ enters only through the \emph{orbit
+geometry} of the M\"obius transformation $f(z) = \lam z$
+(\cref{sec:mobius-conjugacy})---specifically, the shape of the orbits
+as a function of $\sigma$---and not as a stream function substituted
+into the QGPV.  The bridge between the M\"obius geometry and the QGPV
+is the stationarity theorem (Theorem~\ref{thm:stationarity}), which
+operates on $\psihat_n(\rho)$, not on $\psi_{\mathrm{full}}$.
+\end{remark}

@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints
+latex/**/*.aux
+latex/**/*.bbl
+latex/**/*.blg
+latex/**/*.log
+latex/**/*.out
+latex/**/*.toc
+latex/**/*.synctex.gz
+.DS_Store
+.vs/

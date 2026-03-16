@@ -1,0 +1,70 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{amsmath, amsthm, amssymb, mathtools}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref, cleveref}
+\usepackage{graphicx, subcaption}
+\usepackage{natbib}
+\usepackage{booktabs}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+
+% Key notation
+\newcommand{\Cstar}{\mathbb{C}^*}
+\newcommand{\lam}{\lambda}
+\newcommand{\rhostar}{\rho_*}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\dd}{\mathrm{d}}
+
+\title{Why Rotating Fluids Make Polygons:\\
+       Onsager Condensation on the M\"obius Parameter Space}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Saturn has a hexagon.  Jupiter has an octagon and a pentagon.  Why do
+rotating planetary atmospheres produce regular polygons?
+
+We propose an answer through a framework built on five results.
+The M\"obius conjugacy theorem places circular orbits at the locus
+$|\lam| = 1$ in the complex multiplicative group $\Cstar$;
+$\mathbb{Z}_N$ symmetry from the azimuthal wavenumber converts these
+circles into $N$-gon jet meanders.  Within the WKB approximation, the
+eigenvalue branch structure of the Rayleigh--Kuo equation disconnects
+the circular ($\sigma = 0$) and radial ($\alpha = 0$) states, preventing
+smooth perturbations from destroying a polygon.  Among $N$ point vortices
+on a ring, the regular $N$-gon maximizes the interaction energy along
+the loxodromic deformation direction (verified computationally for
+$N = 3, \ldots, 9$)---the signature of negative temperature in Onsager's
+(1949) two-dimensional vortex statistics.  At negative temperature, the
+polygon is the most probable macrostate; atmospheric turbulence provides
+the thermostat.
+
+Three planetary configurations are tested: Saturn's hexagon ($N = 6$),
+Jupiter's north polar octagon ($N = 8$, $\sigma_{\mathrm{geom}} = 0.06$),
+and south polar pentagon ($N = 5$, $\sigma_{\mathrm{geom}} = 0.05$).
+Jupiter's cyclone rings sit close to $|\lam| = 1$; Saturn's hexagon,
+with $\sigma_{\mathrm{geom}} = 0.50$ ($r = 1.65$), departs further,
+reflecting its larger meander amplitude.  All three arise through
+different dynamical mechanisms---Rossby stationarity for Saturn, vortex
+self-organization for Jupiter---yet converge toward the same geometric
+locus.  \emph{Which} polygon forms depends on planetary parameters;
+\emph{that} a polygon forms is universal.
+\end{abstract}
+
+\input{sections/introduction}
+\input{sections/setup}
+\input{sections/theorems}
+\input{sections/verification}
+\input{sections/discussion}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+\end{document}

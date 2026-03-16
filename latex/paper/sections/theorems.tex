@@ -1,0 +1,306 @@
+\section{Main Results}
+\label{sec:theorems}
+
+Throughout this section, $\sigma$ denotes the M\"obius parameter
+$\sigma = \log|\lam| = \mathrm{Re}(s)$ unless otherwise qualified.  The
+jet half-width is denoted $\ell_J$ (not $\sigma_J$) to avoid confusion.
+
+\subsection{Wavenumber selection (Saturn)}
+
+\begin{proposition}[Stationary wavenumber]\label{prop:wavenumber}
+For the barotropic Rossby dispersion relation $c = U - \beta/k^2$ with
+$k = n/R_{\mathrm{hex}}$, the stationary condition $c = 0$ gives
+\begin{equation}\label{eq:nstar}
+  n^* = R_{\mathrm{hex}}\sqrt{\beta / U_{\max}}.
+\end{equation}
+For Saturn ($R_{\mathrm{hex}} = 5.1 \times 10^7$~m,
+$\beta = 1.46 \times 10^{-12}$~m$^{-1}$\,s$^{-1}$,
+$U_{\max} = 120$~m/s): $n^* = 5.62$, whose nearest integer is $n = 6$.
+\end{proposition}
+
+\begin{proof}
+The Rossby dispersion relation for a barotropic wave with zonal
+wavenumber $k$ and zero meridional wavenumber is $c = U - \beta/k^2$.
+Setting $c = 0$ (stationary wave): $U = \beta/k^2$, giving
+$k = \sqrt{\beta/U}$.  With $k = n/R_{\mathrm{hex}}$:
+\[
+  n = R_{\mathrm{hex}}\,k = R_{\mathrm{hex}}\sqrt{\beta/U}.
+\]
+Substituting Saturn's parameters:
+\[
+  n^* = 5.1 \times 10^7 \times \sqrt{\frac{1.46 \times 10^{-12}}{120}}
+  = 5.1 \times 10^7 \times 1.103 \times 10^{-7} = 5.62.
+\]
+The nearest integer is $n = 6$.  The next candidates ($n = 5$: $U^* = 152$~m/s;
+$n = 7$: $U^* = 77$~m/s) are substantially farther from the observed
+$U_{\mathrm{obs}} = 120$~m/s.
+\end{proof}
+
+\subsection{Stationarity equivalence}
+
+\begin{theorem}[Stationarity equivalence]\label{thm:stationarity}
+Within the WKB approximation near the jet center, if the Rayleigh--Kuo
+potential satisfies $V(\rhostar) < 0$ (a condition verified for Saturn's
+jet parameters), then the stationary Rossby wave eigenfunction has
+$\sigma = 0$, i.e., $|\lam| = 1$.
+\end{theorem}
+
+\begin{proof}
+Near the jet center, the Rayleigh--Kuo potential
+$V(\rho) = n^2 - (\beta - U'')/U$ is approximately constant over a
+region of width $\sim \ell_J$.  Within this region, the WKB approximation
+gives $\psihat_n(\rho) \approx C\,e^{s\rho}$ with $s^2 = V(\rhostar)$
+and $s$ constant to leading order.
+
+Since $V \in \mathbb{R}$, we have $s^2 \in \mathbb{R}$.  Writing
+$s = \sigma + i\alpha_\rho$ (where $\alpha_\rho$ is the WKB radial
+oscillation rate):
+\[
+  \mathrm{Im}(s^2) = 2\sigma\alpha_\rho = 0.
+\]
+If $V(\rhostar) < 0$, the solution is oscillatory: $s = \pm i\alpha_\rho$
+with $\alpha_\rho = \sqrt{-V} > 0$.  Since $\alpha_\rho \neq 0$, we
+conclude $\sigma = 0$.
+
+\emph{Verification of $V < 0$:}  For Saturn's Gaussian jet at the jet
+center ($\rho = \rhostar$), $(\beta - U''(0))/U(0) \approx
+\ell_J^{-2} + \beta/U_{\max} \approx 400 + 10^{-16} \approx 400$
+(dominated by the jet curvature), while $n^2 = 36$.  Therefore
+$V(0) = 36 - 400 = -364 < 0$.  The condition holds by a wide margin.
+
+With $\sigma = 0$, the real part gives the stationary jet speed:
+$U^* = (\beta - U''(\rhostar)) / [(\alpha_\rho^2 + n^2)\,e^{-2\rhostar}]$.
+For Saturn: $U^* \approx 105$~m/s, consistent with
+$U_{\mathrm{obs}} = 120.1$~m/s \citep{Antunano2015}
+(12\% discrepancy from the barotropic approximation).
+\end{proof}
+
+\begin{remark}[The identification $\alpha = 2\pi/n$]\label{rem:alpha}
+The M\"obius azimuthal parameter $\alpha$ in $\lam = e^{\sigma + i\alpha}$
+is \emph{identified} with $2\pi/n$ from the $\mathbb{Z}_N$ symmetry of
+the polygon: an $N$-gon with vertices at $\theta_k = 2\pi k/N$ has a
+discrete rotational symmetry of angle $2\pi/N$, which is by definition
+$\arg(\lam)$ for the rotation $z \mapsto e^{i\,2\pi/N} z$.
+
+This is not a derivation from the M\"obius framework---it is a restatement
+of the definition of the multiplier for a linear rotation.  The M\"obius
+framework contributes the \emph{continuous} family parameterized by
+$\sigma$ (the spiral-to-circle transition); the \emph{discrete}
+wavenumber $n$ comes from the QGPV (Proposition~\ref{prop:wavenumber}).
+
+The WKB radial oscillation rate $\alpha_\rho$ satisfying
+$\alpha_\rho^2 = |V(\rhostar)|$ is a separate quantity.  This paper
+uses $\alpha$ for the M\"obius azimuthal parameter and $\alpha_\rho$ for
+the WKB rate.
+\end{remark}
+
+\subsubsection{Branch disconnection within WKB}
+
+\begin{proposition}[Branch disconnection]\label{prop:protection}
+Within the WKB approximation, the condition $\sigma = 0$ is preserved
+under perturbations of the jet speed $\delta U$.  The elliptic
+($\sigma = 0$) and hyperbolic ($\alpha = 0$) branches of the eigenvalue
+equation are disconnected.
+\end{proposition}
+
+\begin{proof}
+The potential $V(\rhostar; \delta U)$ is real for all real $\delta U$.
+The eigenvalue equation $s^2 = V$ requires $s^2 \in \mathbb{R}$.
+Writing $s = i\alpha + \delta s$ with $\delta s = p + iq$:
+\[
+  \mathrm{Im}(s^2) = 2p(\alpha + q) = 0.
+\]
+This gives two branches:
+\begin{enumerate}
+  \item \textbf{Elliptic} ($p = 0$): $\sigma = 0$ for all $\delta U$.
+  \item \textbf{Hyperbolic} ($q = -\alpha$): $\sigma = \sqrt{V + \alpha^2}$,
+    purely radial flow.
+\end{enumerate}
+These branches meet only at $V = 0$ ($\delta U/U^* = \alpha^2/n^2
+\approx 0.03$ for Saturn) and are not continuously connected for
+$V \neq 0$.
+\end{proof}
+
+\begin{remark}[Scope of the protection]\label{rem:protection-scope}
+Proposition~\ref{prop:protection} establishes branch disconnection
+\emph{within the WKB approximation}, which is valid to leading order in
+$\ell_J$.  Higher-order corrections to the eigenvalue equation could in
+principle connect the branches; we have not excluded this.  The physical
+persistence of Saturn's hexagon across four decades is consistent with
+the branch disconnection but is not a consequence of
+Proposition~\ref{prop:protection} alone.
+\end{remark}
+
+\subsection{The M\"obius parameter from the boundary value problem}
+
+\begin{remark}[Multiple $\sigma$-like quantities]\label{rem:sigmas}
+The M\"obius parameter $\sigma = \log|\lam|$ should be distinguished from:
+$\sigma_{\mathrm{mode}} = \mathrm{Re}(s)$ in the QGPV eigenfunction
+(which is zero within WKB); $\ell_J$, the jet half-width in log-polar
+units; and $\sigma_{\mathrm{geom}}$, the observational polygon distortion
+measure defined in \cref{sec:sigma-geom}.  Only $\sigma$ (the M\"obius
+parameter) and $\sigma_{\mathrm{geom}}$ (the observable) appear in the
+cross-planetary comparison.  They measure different things:
+$\sigma$ characterizes the mean flow geometry (spiral winding);
+$\sigma_{\mathrm{geom}}$ measures deviation from a perfect $N$-gon.
+\end{remark}
+
+The M\"obius parameter $\sigma$ is determined from the three-region
+boundary value problem through a two-step chain:
+\begin{enumerate}
+  \item The BVP matching (below, Theorem~\ref{thm:matching}) determines
+    the hexagon amplitude $\varepsilon$.
+  \item The hexagonal boundary geometry gives the velocity ratio
+    $|u_\rho/u_\theta|_{\mathrm{rms}} = n\varepsilon/\sqrt{2}$, and
+    $\sigma = \alpha \cdot |u_\rho/u_\theta|$.
+\end{enumerate}
+
+\subsection{Thomson vortex ring stability}
+
+\begin{proposition}[Critical central vortex strength]\label{prop:critical-ratio}
+For the $N = 6$ Thomson ring on the unit circle with central vortex
+$\kappa_0$, the characteristic polynomial of the $12 \times 12$
+Hamiltonian stability matrix (constructed symbolically in Mathematica) is
+\begin{equation}\label{eq:char-poly}
+  p(\lam) \propto \lam^2 \cdot
+  \underbrace{\bigl(9 + 36\kappa_0/\kappa + 16\pi^2\lam^2\bigr)}_{\text{Factor A}} \cdot
+  \underbrace{Q(\lam^2, \kappa_0/\kappa)^2}_{\text{Factor B (double)}},
+\end{equation}
+where $Q$ is a quartic in $\lam^2$ with perfect-square discriminant
+$(9 - 12\kappa_0/\kappa)^2$.  The first instability arises from Factor~A:
+\begin{equation}\label{eq:critical-ratio}
+  \boxed{\left(\frac{\kappa_0}{\kappa}\right)_{\!\mathrm{crit}} = -\frac{1}{4}.}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The Jacobian of the Hamiltonian point vortex equations in the co-rotating
+frame, including ring--ring and ring--center interactions, is constructed
+symbolically.  Its characteristic polynomial, computed by Mathematica's
+\texttt{Det} function and verified numerically at multiple $\kappa_0$
+values, factors as \eqref{eq:char-poly}.  The stability threshold from
+Factor~A is $9 + 36\kappa_0/\kappa = 0$, giving
+$\kappa_0/\kappa = -1/4$.
+\end{proof}
+
+Remarkably, $\kappa_{\mathrm{crit}} = -1/4$ is specific to $N = 6$: for
+$N = 4$ the critical ratio is $-1/2$ (proven algebraically via
+characteristic polynomial), and numerical computation gives
+$\kappa_{\mathrm{crit}} = -1/2$ for $N = 3$ and $N = 5$ as well
+(to within $10^{-3}$; algebraic proof for these cases is obstructed by
+irrational vertex coordinates).  The hexagonal ring thus has enhanced
+sensitivity to anticyclonic central perturbations compared to smaller
+rings.
+
+\paragraph{Spectral non-equivalence.}
+The Thomson stability matrix and the Rayleigh--Kuo operator share
+$\mathbb{Z}_6$ eigenvectors (discrete Fourier modes) but not eigenvalues.
+Galerkin projection gives eigenvalue ratios varying from $2.74$ (mode~1)
+to $0.14$ (mode~3).  The operators are \emph{not} spectrally equivalent;
+they converge at $|\lam| = 1$ independently.
+
+\subsection{Matched asymptotic amplitude (Saturn)}
+
+\begin{theorem}[Hexagon amplitude]\label{thm:matching}
+The matched asymptotic expansion connecting the inner loxodromic flow
+to the outer Rossby wave through the PV step at $\rhostar$ predicts the
+hexagon amplitude
+\begin{equation}\label{eq:amplitude}
+  \varepsilon = C \cdot \frac{\delta U}{U^*} \cdot
+  \exp\!\bigl(-n\,|\rhostar|\bigr),
+\end{equation}
+where $\delta U = U_{\mathrm{obs}} - U^*$ and $C$ is determined by the
+Fourier projection of the PV gradient onto the eigenfunction envelope:
+\begin{equation}\label{eq:overlap-integral}
+  C = \frac{1}{U^* n}\int_0^\infty
+  \bigl(\beta - U''(\rho)\bigr)\,e^{-n\rho}\,\dd\rho.
+\end{equation}
+For the Gaussian jet $U(\rho) = U_{\max}\exp(-\rho^2/2\ell_J^2)$:
+\begin{equation}\label{eq:matching-constant}
+  C = \frac{U_{\max}}{U^*} - \frac{n\,\ell_J}{U^*}
+      \sqrt{\frac{\pi}{2}}\,e^{n^2\ell_J^2/2}\,
+      \mathrm{Erfc}\!\left(\frac{n\,\ell_J}{\sqrt{2}}\right)
+      + \frac{\beta}{n\,U^*}.
+\end{equation}
+For Saturn ($n = 6$, $\ell_J = 0.05$, $U_{\max} = 120$~m/s,
+$U^* = 105$~m/s): $C = 0.797$, giving $\varepsilon = 0.112$.
+\end{theorem}
+
+This matches the Cassini-observed meander amplitude
+$\varepsilon_{\mathrm{obs}} = 0.112$, under a Gaussian jet approximation
+(9.8\% RMS fit to the actual wind profile; see \cref{sec:discussion} for
+the propagated uncertainty).
+
+\subsection{Energy--enstrophy sign structure}
+\label{sec:enstrophy}
+
+\begin{proposition}[Energy maximum at the polygon]\label{prop:energy-max}
+For $N \ge 3$ point vortices on a ring, consider the spiral deformation
+\begin{equation}\label{eq:spiral-deformation}
+  z_k(\sigma) = R\,e^{\sigma k/N}\,e^{2\pi ik/N},
+  \qquad k = 0, \ldots, N-1,
+\end{equation}
+which at $\sigma = 0$ gives the regular $N$-gon and for $\sigma > 0$
+stretches vertex $k$ outward by the factor $e^{\sigma k/N}$, spiraling
+the configuration.  The Thomson interaction energy
+\begin{equation}\label{eq:H-sigma}
+  H(\sigma) = -\sum_{j<k} \ln\bigl|z_j(\sigma) - z_k(\sigma)\bigr|
+\end{equation}
+satisfies $H''(0) < 0$.
+\end{proposition}
+
+\begin{remark}[Nature of the deformation]
+The deformation \eqref{eq:spiral-deformation} is \emph{not} the uniform
+M\"obius action $z_k \mapsto \lam z_k$ (which scales and rotates the
+entire polygon rigidly, leaving $H$ unchanged).  It is a
+\emph{symmetry-breaking} deformation that assigns each vertex a different
+radial stretch, converting the $N$-gon into a logarithmic spiral.  This
+direction in configuration space is physically relevant: it is the
+deformation produced by a loxodromic flow $w(z) = Az^s$ acting on fluid
+parcels at different azimuthal positions over time.  However, we do not
+claim this is the \emph{unique} relevant deformation direction; $H''(0)$
+could have different signs along other directions in the $N$-dimensional
+configuration space.  The result is that the polygon is an energy maximum
+\emph{along the spiral deformation direction}, not necessarily globally.
+\end{remark}
+
+\begin{proof}
+At $\sigma = 0$, the pairwise squared distance is
+$|z_j - z_k|^2 = 4R^2\sin^2(\pi m/N)$ where $m = k - j$.
+Define $F(u, m) = \ln[1 - 2\cos(2\pi m/N)\,e^{um} + e^{2um}]$ where
+$u = \sigma/N$, so that $\ln|z_j - z_k|^2 = 2uj + \ln R^2 + F(u,m)$.
+Differentiating $F$ twice:
+\[
+  F''(0, m) = \frac{m^2}{1 - \cos(2\pi m/N)}
+  = \frac{m^2}{2\sin^2(\pi m/N)}.
+\]
+Since $\dd^2(2uj)/\dd u^2 = 0$, the only contribution to $H''$ is from $F$.
+Each pair $(j,k)$ with separation $m$ contributes $F''(0,m)$, and there
+are $(N - m)$ such pairs for $m = 1, \ldots, N-1$.  Converting
+$\dd/\dd\sigma = (1/N)\,\dd/\dd u$:
+\begin{equation}\label{eq:Hpp-formula}
+  H''(0) = -\frac{1}{4N^2}\sum_{m=1}^{N-1}
+  \frac{(N-m)\,m^2}{\sin^2(\pi m/N)}.
+\end{equation}
+Every factor in the sum is strictly positive: $(N-m) > 0$, $m^2 > 0$,
+$\sin^2(\pi m/N) > 0$ for $m = 1, \ldots, N-1$.  Therefore the sum is
+positive and $H''(0) < 0$.
+\end{proof}
+
+The regularized enstrophy $Z(\sigma) = \sum_{j<k}|z_j - z_k|^{-2}$
+satisfies $Z''(0) > 0$ (verified computationally for $N = 3, \ldots, 9$).
+The ratio $\mu = -Z''/H'' > 0$ for all $N$, corresponding to negative
+temperature in the Onsager sense.
+
+\begin{remark}[Scope of the energy maximum]
+The curvatures $H''(0)$ and $Z''(0)$ are computed along the specific
+one-parameter loxodromic deformation defined above.  In the full
+$N$-dimensional configuration space, perturbations exist that decrease
+$Z$ (random tests show 62--78\% of perturbations increase $Z$, not
+100\%).  The energy maximum is \emph{local} and
+\emph{direction-dependent}, not global.
+
+While $H''(0) < 0$ is proven for all $N \ge 3$
+(Proposition~\ref{prop:energy-max}), the enstrophy result $Z''(0) > 0$
+remains computational.
+\end{remark}

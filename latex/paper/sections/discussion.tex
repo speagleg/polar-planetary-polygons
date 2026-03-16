@@ -1,0 +1,172 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Assembling the answer}
+
+We can now answer the question posed in the title.
+
+Rotating fluids make polygons because the regular $N$-gon occupies a
+distinguished position in the M\"obius parameter space $\Cstar$: it sits
+at $|\lam| = 1$, where spiral orbits become closed polygonal orbits
+(Step~1, the conjugacy theorem).  This position is an energy maximum
+among ring configurations of $N$ point vortices (Step~3, $H''(0) < 0$
+for all $N \ge 3$).  In two-dimensional turbulence at negative
+temperature---the regime of large-scale vortex condensation
+\citep{Onsager1949}---systems are driven toward energy maxima (Step~4).
+The regular polygon is therefore the most probable macrostate.
+Atmospheric turbulence provides the thermostat that enables this
+statistical relaxation (Step~5).  Once the system arrives at
+$|\lam| \approx 1$, eigenvalue branch disconnection (within the WKB
+approximation) prevents smooth perturbations of the jet speed from
+moving the system to the hyperbolic branch (Step~2).
+
+\emph{That} a polygon forms is universal---a consequence of geometry
+(the existence of the $|\lam| = 1$ locus), statistics (negative
+temperature selects energy maxima), and eigenvalue structure (the polygon
+branch is disconnected from the radial branch within WKB).
+
+\emph{Which} polygon forms is planet-specific.  Saturn's Rossby
+dispersion relation gives $n^* = 5.62 \to 6$; Jupiter's vortex dynamics
+selects $N = 5$ at the south pole and $N = 8$ at the north.  Different
+mechanisms arrive at $|\lam| \approx 1$ through different doors---Rossby
+stationarity for Saturn, Thomson stability for Jupiter---but they arrive
+at the same geometric destination.
+
+\subsection{What this framework does and does not explain}
+
+\paragraph{Explained.}
+Why polygons persist (branch disconnection within WKB).  Why the polygon is
+statistically favored (Onsager negative temperature).  Why Saturn's
+hexagon has six sides (Rossby wavenumber selection).  Why the amplitude
+is $\varepsilon = 0.112$ (matched asymptotic expansion with derived $C$).
+Why the hexagon--NPS interaction has a 62-year cycle (near-resonance).
+Why Jupiter's cyclone rings are nearly perfect polygons
+($\sigma_{\mathrm{geom}} < 0.07$).
+
+\paragraph{Not explained.}
+Why Jupiter has $N = 8$ at one pole and $N = 5$ at the other (this
+requires detailed vortex dynamics modeling beyond the scope of this
+framework).  Why the atmospheric thermostat operates at negative
+temperature (this is observed but not derived from first principles).
+Why the enstrophy is minimized along the loxodromic direction
+($Z''(0) > 0$ is verified computationally but not proven analytically).
+
+\subsection{The enstrophy--energy sign structure}
+\label{sec:enstrophy-discussion}
+
+The energy--enstrophy structure at $\sigma = 0$ deserves explicit
+discussion because it connects the geometric framework to Onsager's
+statistical mechanics.
+
+Along the loxodromic deformation direction in $\Cstar$, the regular
+$N$-gon has
+\begin{equation}\label{eq:sign-structure}
+  H''(0) < 0 \quad (\text{energy maximum}), \qquad
+  Z''(0) > 0 \quad (\text{enstrophy minimum}),
+\end{equation}
+where $H''(0) < 0$ is proven for all $N \ge 3$
+(Proposition~\ref{prop:energy-max}) and $Z''(0) > 0$ is verified
+computationally for $N = 3, \ldots, 9$.  The ratio $\mu = -Z''/H'' > 0$
+for all $N$, placing the polygon at the \emph{negative-temperature}
+state: maximum energy, minimum enstrophy.
+
+The enstrophy minimum is \emph{local}, restricted to the one-parameter
+loxodromic deformation family.  In the full $N$-dimensional
+configuration space, perturbations exist that decrease $Z$ (random tests
+show 62--78\% of perturbations increase $Z$, not 100\%).  The polygon is
+not the global enstrophy minimizer, but it occupies the distinguished
+position along the physically relevant deformation direction.
+
+The physical picture: once a dynamical mechanism delivers the system to
+$\sigma \approx 0$, the energy maximum provides no spontaneous collapse
+toward a dispersed state (that would require decreasing $H$, violating
+energy conservation in the large-scale dynamics).  The enstrophy minimum
+provides no force away from the polygon along the loxodromic direction.
+Branch disconnection (within WKB) provides no perturbative exit from
+$\sigma = 0$ at leading order.  The polygon is held in place by the
+convergence of conservation laws, variational structure, and eigenvalue
+branch structure.
+
+\subsection{Gaps in the five-step argument}
+
+Three logical gaps connect the five steps and should be stated explicitly.
+
+\paragraph{The QGPV--vortex bridge.}
+Steps 1--2 operate on the QGPV (a PDE for a continuous fluid); Steps 3--5
+operate on the Thomson point vortex system (discrete vortices with
+logarithmic interaction).  The universality claim requires that these two
+descriptions apply to the same physical system.  For Jupiter's cyclone
+rings (discrete storms), the point vortex model applies directly.  For
+Saturn's hexagonal jet meander (a continuous flow), the identification
+of the jet with a vortex ring is a modeling assumption, not a derivation.
+The bridge between the two descriptions---when and why a continuous jet
+can be represented by $N$ discrete vortices---is part of the broader
+vortex-dynamics literature \citep{Aref2003} but is not established within
+this paper.
+
+\paragraph{Onsager applicability.}
+Step 4 invokes Onsager's (1949) negative-temperature condensation for
+point vortices.  Applying this to planetary atmospheres requires three
+assumptions not proven here: (a) the large-scale flow is well-described
+by a point vortex system, (b) the system is in statistical equilibrium
+at negative temperature, and (c) the energy maximum of the point vortex
+ring coincides with the polygonal state of the continuous flow.  These
+are physically reasonable for Jupiter's cyclone rings (discrete vortices
+in approximate statistical equilibrium) but less directly applicable to
+Saturn's jet meander.
+
+\paragraph{Amplitude uncertainty.}
+The $\varepsilon_{\mathrm{pred}} = 0.112$ matching the Cassini
+observation to $0.4\%$ overstates the precision.  The matching constant
+$C = 0.797$ is computed from a Gaussian jet approximation with 9.8\%
+RMS fit error.  Propagating this profile uncertainty through the
+formula gives $\varepsilon_{\mathrm{pred}} = 0.11 \pm 0.11$---the
+true uncertainty is of order 100\%, not $0.4\%$.  The match is within
+one standard deviation of the Gaussian approximation, which is
+consistent but not sharp.  Furthermore, $U^*$ appears in both the
+numerator ($\delta U = U_{\mathrm{obs}} - U^*$) and denominator of
+$\varepsilon = C \cdot \delta U / U^*$, making the prediction
+sensitive to the \emph{internal consistency} of the Gaussian
+approximation rather than to the actual wind profile.
+
+\subsection{Limitations}
+
+\begin{itemize}
+  \item \textbf{Barotropic approximation.}  The 12\% discrepancy between
+    $U^*$ and $U_{\mathrm{obs}}$ for Saturn reflects the neglect of
+    vertical structure.
+
+  \item \textbf{Digitized data.}  Cassini wind profiles and Juno cyclone
+    positions are digitized from published figures.  Quantitative matches
+    should be verified against PDS archival data.
+
+  \item \textbf{Limited sample.}  Three planetary configurations from two
+    planets.  Uranus and Neptune observations would strengthen or falsify
+    the universality claim.
+
+  \item \textbf{Statistical, not deterministic.}  The drive toward the
+    polygon is statistical (most probable macrostate), not deterministic
+    (Hamiltonian trajectory).  The atmospheric thermostat is observed but
+    not derived from first principles.
+
+  \item \textbf{Local enstrophy minimum.}  The sign structure
+    \eqref{eq:sign-structure} holds along the loxodromic direction, not
+    globally in configuration space.
+\end{itemize}
+
+\subsection{Future directions}
+
+\begin{enumerate}
+  \item Verify all predictions against PDS (Cassini) and JIRAM (Juno)
+    archival data.
+  \item Compute the Onsager partition function on $\Cstar$ to confirm
+    that the negative-temperature equilibrium peaks at $\sigma = 0$.
+  \item Extend to baroclinic QGPV to resolve the 12\% $U^*$ discrepancy.
+  \item Apply the framework to Uranus and Neptune when high-resolution
+    polar data become available.
+  \item Derive the $N$-selection mechanism for Jupiter: does the central
+    vortex strength $\kappa_0/\kappa$ determine $N$ through the Thomson
+    critical ratio hierarchy?
+  \item Test on rotating-tank experiments \citep{BarbosaAguiar2010}, where
+    the thermostat (viscous dissipation) is known exactly.
+\end{enumerate}
