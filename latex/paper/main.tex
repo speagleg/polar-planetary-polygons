@@ -150,7 +150,15 @@ one-parameter family
 At $\sigma = 0$: the regular $N$-gon.  The centering ensures
 $H(\sigma) = H(-\sigma)$ by the symmetry $k \mapsto N-1-k$
 (which sends $\sigma \to -\sigma$ while preserving $H$), so
-$H'(0) = 0$.
+$H'(0) = 0$.  The spiral deformation is chosen for analytical
+tractability: it is the natural one-parameter family in the
+M\"obius-group classification (Section~\ref{sec:geom}), corresponding
+to the loxodromic orbit through the $N$-gon, and it is the unique
+$\mathbb{Z}_N$-equivariant deformation that preserves the ring topology
+while breaking rotational symmetry to discrete.  Other perturbation
+directions (individual Fourier modes, radial displacements) are analyzed
+through the full constrained Hessian in
+Theorem~\ref{thm:constrained-min}.
 
 %% ====================================================================
 \section{Main Results}
@@ -431,6 +439,25 @@ and Jupiter (Thomson);
 and (5)~the observation that the logarithmic interaction's borderline
 status in the sign rule makes it the ``least robust'' polygon
 producer---any other qualifying interaction gives stronger selection.
+
+\medskip\noindent\textbf{Relation to prior work.}
+The connection between Onsager statistics and large-scale vortex
+formation is developed in \citet{BouchetVenaille2012} and
+\citet{ChavanisSommeria1996}, who classify self-organized vortex states
+in bounded domains using statistical mechanical methods.
+\citet{Aref2003} reviews vortex crystal configurations and their
+stability.  The present contribution differs in three respects: (i)~the
+closed-form formula for $H''(0)$ (equation~\eqref{eq:Hpp}) does not
+appear in the Thomson--Havelock stability literature or in these
+reviews, which analyze stability through eigenvalues of the dynamical
+matrix rather than energy curvature along a specific deformation;
+(ii)~the analytic sign rule (Theorem~\ref{thm:sign-rule}) identifying
+the precise conditions on $h$ that guarantee $H''(0) < 0$ is new;
+and (iii)~the constrained Hessian result
+(Theorem~\ref{thm:constrained-min}), showing the $N$-gon is an energy
+\emph{minimum} rather than maximum on the conserved surface, corrects a
+widespread assumption in the Onsager vortex literature that polygonal
+configurations are energy maxima selected by negative temperature.
 
 \subsection{Limitations and scope}
 
