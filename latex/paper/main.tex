@@ -1455,10 +1455,16 @@ are properties of the discrete rotation group $\mathbb{Z}_N$---not
 of the specific Green's function.  The Green's function enters
 only through: $H_{rt}^{(m)} = 0$ (anti-symmetry of the sine sum,
 requiring only that $G$ depends on geodesic distance) and
-$H_{tt}^{(m)} = -H_{rr}^{(m)}$ (tracelessness, from harmonicity
-of $G$ away from sources).  These two conditions hold for the
-Green's function of the Laplace--Beltrami operator on \emph{any}
-2D Riemannian surface.
+$H_{tt}^{(m)} + H_{rr}^{(m)} = \delta$, where
+$\delta = -\sum_p \nabla^2_{\mathrm{LB}} h(d_p)/(N{-}1)$ is a
+surface-dependent constant \emph{independent of the Fourier mode~$m$}
+(the mode-independence follows from the uniform distribution of
+vortices on the ring: each mode sees the same set of pairwise
+distances).  On the plane, harmonicity gives $\delta = 0$ (exact
+tracelessness); on curved surfaces, $\delta \ne 0$ but shifts
+$C_1$ without affecting $f(m,N)$, preserving the Havelock structure.
+These conditions hold for the Green's function of the
+Laplace--Beltrami operator on any 2D Riemannian surface.
 
 The stability threshold $N_{\mathrm{crit}}$ is therefore determined by
 $C_1(\text{surface}) \ge \max_m m(N{-}m)/2$: a condition involving the
