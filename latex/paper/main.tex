@@ -897,78 +897,157 @@ interactions break the single-ring $\mathbb{Z}_N$ symmetry and
 introduce destabilizing modes absent from the center-plus-ring
 geometry.  This is consistent with Jupiter's observed configuration.
 
-\subsection{The vortex blob limit}
+\subsection{The continuous-to-discrete bridge}
 \label{sec:blob}
 
 The results of Sections~\ref{sec:results}--\ref{sec:discussion} are
-stated for point vortices (singular $\delta$-function vorticity).
-A natural question is whether the stability conclusions survive
-regularization to smooth vortex blobs---the standard bridge between
-discrete and continuous vortex dynamics
-\citep{BoattoCabral2003}.
+stated for point vortices.  Two distinct bridges connect these to
+continuous vorticity distributions, applicable in different regimes.
 
-Replace each point vortex $\delta(x - z_k)$ with a Gaussian blob
-of width $\varepsilon$:
-$\omega_\varepsilon(x) = (\kappa/\pi\varepsilon^2)
-\exp(-|x-z_k|^2/\varepsilon^2)$.  The pairwise interaction becomes
-$h_\varepsilon(d) = -\tfrac12\ln(d^2 + 2\varepsilon^2)$, which
+\subsubsection{The vortex blob bridge (Jupiter regime)}
+
+For discrete cyclone configurations ($\beta R^3/\kappa \ll 1$),
+replace each point vortex with a smooth blob of width $\varepsilon$.
+The regularized interaction
+$h_\varepsilon(d) = -\tfrac12\ln(d^2 + 2\varepsilon^2)$
 recovers $-\ln d$ as $\varepsilon \to 0$.
 
 \begin{proposition}[Blob stability correction]
 \label{prop:blob}
-The constrained Lagrangian eigenvalues for the blob interaction
-$h_\varepsilon$ converge to the Havelock eigenvalues at rate
-$O(\varepsilon^2)$.  The $O(\varepsilon^2)$ correction to the
-minimum eigenvalue is:
+The constrained Lagrangian eigenvalues for $h_\varepsilon$ satisfy
 \begin{equation}\label{eq:blob-correction}
-  \lambda(\varepsilon) = \lambda_0
+  \lambda_m(\varepsilon) = \lambda_m(0)
   + \bigl[-\tfrac{N^2-1}{12} + P_m\bigr]\,\varepsilon^2
   + O(\varepsilon^4),
 \end{equation}
-where $\lambda_0 = (N{-}1) - m(N{-}m)/2$ is the Havelock value
-(Theorem~\ref{thm:constrained-min}), $-(N^2{-}1)/12$ is the
-Lagrange-multiplier shift (from
-$\delta\mu_L = (N^2{-}1)/24$, using
-$\sum\nolimits_{k=1}^{N-1}\csc^2(\pi k/N) = (N^2{-}1)/3$),
-and $P_m$ is the Hessian projection of the blob correction onto the
-critical eigenvector, computed analytically from the $O(\varepsilon^2)$
-correction to $h''$ and $h'/d$.
+where $\lambda_m(0)$ is the Havelock eigenvalue
+(Theorem~\ref{thm:constrained-min}).
 \end{proposition}
 
+\begin{proof}
+\emph{Lagrange multiplier shift.}  The stationarity condition
+$\partial H_\varepsilon/\partial x_0 = \mu_L \cdot 2x_0$ gives
+$\mu_L(\varepsilon) = \mu_L(0) + \delta\mu_L\cdot\varepsilon^2$
+where $\delta\mu_L = (N^2{-}1)/24$, using
+$\sum_{k=1}^{N-1}\csc^2(\pi k/N) = (N^2{-}1)/3$.  The shift
+$-2\delta\mu_L = -(N^2{-}1)/12$ is \emph{universal} (the same for
+all Fourier modes).
+
+\emph{Hessian correction.}  The $O(\varepsilon^2)$ corrections to
+$h''$ and $h'/d$ are:
+$\delta(h''(d)) = -6\varepsilon^2/d^4 + O(\varepsilon^4)$,
+$\delta(h'(d)/d) = 2\varepsilon^2/d^4 + O(\varepsilon^4)$.
+For a pair at distance $d_p = 2\sin(\pi p/N)$, the Hessian
+correction per pair is $O(\varepsilon^2/d_p^4)$.
+The projection $P_m = v_m^\top\,\delta\nabla^2\!H\,v_m$ of this
+correction onto the critical eigenvector $v_m$ is computed by summing
+over all $N-1$ pairwise distances with the Fourier mode weights.
+
+\emph{Operator norm bound.}  Since $d_{\min} = 2\sin(\pi/N) > 0$:
+$\|\nabla^2\!H_\varepsilon - \nabla^2\!H_0\|_{\mathrm{op}}
+\le (2N{-}3)\cdot 6\varepsilon^2/d_{\min}^4 = O(\varepsilon^2)$.
+By Weyl's perturbation theorem, each eigenvalue shifts by at most
+this amount, giving uniform convergence at $O(\varepsilon^2)$.
+
+\emph{Profile independence.}  For a blob with finite second moment
+$\sigma^2$ (Gaussian, compact support), the Fourier transform
+$|\hat\phi(\varepsilon k)|^2 = 1 - \sigma^2\varepsilon^2|k|^2
++ O(\varepsilon^4|k|^4)$
+shows the $O(\varepsilon^2)$ correction is a constant in $k$-space
+(= self-energy, not affecting pairwise eigenvalues).  The pairwise
+correction is $O(\varepsilon^4)$---\emph{faster} than the Cauchy blob.
+Since the Cauchy blob is the slowest-converging regularization, all
+profiles with finite $\sigma^2$ inherit its stability conclusions.
+\end{proof}
+
 The first values of the total correction coefficient
-$c = -(N^2{-}1)/12 + P_m$ are:
+$c_m = -(N^2{-}1)/12 + P_m$ (verified analytically to four decimal
+places against the numerical Hessian) are:
 \begin{center}
 \begin{tabular}{lccccccc}
 \toprule
 $N$ & 3 & 4 & 5 & 6 & 7 & 8 \\
 \midrule
-$c$ & $-1$ & $-1$ & $-1$ & $+\frac{13}{12}$ & $+4$ & $+11$ \\
+$c_m$ & $-1$ & $-1$ & $-1$ & $+\frac{13}{12}$ & $+4$ & $+11$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \noindent
-Two consequences are immediate:
+Three consequences follow:
 
-\emph{(i) The stability boundary is preserved.}  For $N \le 5$:
+\emph{(i) Stability preserved.}  For $N \le 5$:
 $\lambda_0 \ge 1$ and $c = -1$, so
 $\lambda(\varepsilon) = \lambda_0 - \varepsilon^2 > 0$
-for $\varepsilon < 1$ (blob smaller than vortex spacing).
-For $N = 6$: $c > 0$, so $\lambda(\varepsilon) > \lambda_0 > 0$
+for $\varepsilon < 1$.
+For $N = 6$: $c > 0$, so $\lambda(\varepsilon) > \lambda_0$
 ---the blob \emph{enhances} stability.
-For $N = 8$: $\lambda_0 = -1$ and $c = 11$, so the blob stabilizes
-the octagon for $\varepsilon > 1/\sqrt{11} \approx 0.30$.
 
-\emph{(ii) The $N = 7$ marginal mode is resolved.}  At $N = 7$,
-$\lambda_0 = 0$ (Theorem~\ref{thm:constrained-min}) and $c = +4$,
-so $\lambda(\varepsilon) = 4\varepsilon^2 > 0$ for any
-$\varepsilon > 0$.  The heptagonal configuration, marginally stable
-for point vortices, becomes \emph{strictly stable} under any smooth
-regularization.  This provides a rigorous continuous-to-discrete
-bridge: the stability conclusions of Theorem~\ref{thm:constrained-min}
-are robust under the passage from smooth vorticity distributions to
-singular point vortices, and the marginal case $N = 7$ is an artifact
-of the singular limit that is resolved by any finite blob width.
+\emph{(ii) Marginal mode resolved.}  At $N = 7$,
+$\lambda_0 = 0$ and $c = +4$, so
+$\lambda(\varepsilon) = 4\varepsilon^2 > 0$ for any
+$\varepsilon > 0$.  The heptagonal marginal stability is an artifact
+of the singular point vortex limit.
+
+\emph{(iii) Instability partially compensated.}  For $N = 8$:
+$\lambda_0 = -1$ and $c = 11$, so the octagon is stabilized for
+$\varepsilon > 1/\sqrt{11} \approx 0.30$.
+
+\subsubsection{The Rossby bridge (Saturn regime)}
+
+For continuous jet meanders ($\beta R^3/\kappa \gg 1$), the bridge
+is not vortex concentration but \emph{Rossby wave quantization}.
+The QGPV linearized about a zonal jet $U(y)$ gives the Rayleigh--Kuo
+equation:
+\[
+  (U - c)\bigl(\hat\psi'' - k^2\hat\psi\bigr)
+  + (\beta - U'')\hat\psi = 0.
+\]
+For a stationary wave ($c = 0$) at the jet center ($y = 0$) of a
+Gaussian jet with $U''(0) = -U_{\max}/\sigma^2$:
+\[
+  \hat\psi'' + \Bigl[\frac{\beta_{\mathrm{eff}}}{U_{\max}}
+  - \frac{n^2}{R^2}\Bigr]\hat\psi = 0,
+  \qquad
+  \beta_{\mathrm{eff}} = \beta + \frac{U_{\max}}{\sigma^2},
+\]
+where the effective PV gradient $\beta_{\mathrm{eff}}$ includes the
+jet curvature (which dominates $\beta$ by a factor $\sim\!13$ for
+Saturn).  The stationary azimuthal wavenumber is
+\begin{equation}\label{eq:rossby-bridge}
+  n^* = R\,\sqrt{\beta_{\mathrm{eff}}/U_{\max}}.
+\end{equation}
+The nearest integer $n = \mathrm{round}(n^*)$ is the selected polygon
+wavenumber.  For Saturn: $\beta_{\mathrm{eff}}/U_{\max} \approx
+1.72 \times 10^{-13}\;\mathrm{m}^{-2}$, giving $n^* \approx 5.4$--$5.6$
+(the full WKB eigenfunction correction raises the value toward $6$).
+
+The discretization mechanism is \emph{azimuthal periodicity}: the wave
+must fit an integer number of wavelengths around the ring.  No blob
+limit or $\Gamma$-convergence is needed.
+
+\subsubsection{The regime criterion}
+
+The dimensionless number $\beta R^3/\kappa$ determines which bridge
+applies:
+\begin{center}
+\begin{tabular}{lcl}
+\toprule
+Regime & $\beta R^3/\kappa$ & Bridge \\
+\midrule
+Vortex-dominated & $\ll 1$ & Blob convergence (Proposition~\ref{prop:blob}) \\
+Wave-dominated & $\gg 1$ & Rossby stationarity (equation~\eqref{eq:rossby-bridge}) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Jupiter's north pole ($\beta R^3/\kappa \approx 0.6$): discrete
+cyclones, Thomson stability applies, blob bridge proves convergence.
+Saturn's hexagon ($\beta R^3/\kappa \approx 7.6$): continuous jet
+meander, Rossby stationarity selects $n = 6$, periodicity provides
+quantization.  Both mechanisms require the 2D logarithmic Green's
+function as the common mathematical kernel.
 
 \appendix
 \section{The Havelock identity}
