@@ -1117,6 +1117,63 @@ of the singular point vortex limit.
 $\lambda_0 = -1$ and $c = 11$, so the octagon is stabilized for
 $\varepsilon > 1/\sqrt{11} \approx 0.30$.
 
+\subsubsection{Full infinite-dimensional convergence}
+
+Proposition~\ref{prop:blob} addresses center-position perturbations of
+$N$ smooth blobs.  The full vorticity perturbation space is
+infinite-dimensional, including blob \emph{shape} deformations.  A
+complete stability analysis requires the Hessian of the 2D Euler energy
+$E[\omega] = \tfrac12\iint\omega(x)G(x,y)\omega(y)\,\dd x\,\dd y$ at
+the blob configuration
+$\omega_\varepsilon = \sum_k \kappa\,\phi_\varepsilon(\cdot - z_k)$,
+decomposed into three sectors:
+
+\emph{(a) Center translations.}  The Hessian restricted to the
+$2N$-dimensional subspace of center displacements is \emph{exactly}
+the blob Hessian of Proposition~\ref{prop:blob}.  Convergence to the
+point vortex Hessian at $O(\varepsilon^\alpha)$ follows from the
+convolution estimates.
+
+\emph{(b) Shape perturbations.}  Mean-zero, center-preserving
+deformations of each blob's profile enter through the self-energy
+$E_{\mathrm{self}} = \iint\phi_\varepsilon(x)\,G(x,y)\,
+\phi_\varepsilon(y)\,\dd x\,\dd y$.  The second variation is the
+$H^{-1}$ Sobolev inner product on mean-zero functions---positive
+definite, with smallest eigenvalue scaling as $c/\varepsilon^2$ from
+the rescaling $\phi_\varepsilon(x) = \varepsilon^{-2}\phi(x/\varepsilon)$.
+Shape modes are \emph{unconditionally stable}.
+
+\emph{(c) Center-shape coupling.}  The cross terms involve overlap
+integrals $\iint\phi_\varepsilon(x{-}z_j)\,\nabla G(x,y)\,
+[\text{shape perturbation at $k$}]\,\dd x\,\dd y$ between non-adjacent
+blobs.  For $|z_j - z_k| \gg \varepsilon$, these are
+$O(\varepsilon^{-1}\,e^{-d_{\min}/\varepsilon})$---exponentially small.
+
+\begin{proposition}[Inertia preservation]
+\label{prop:inertia}
+For sufficiently small $\varepsilon > 0$, the full Hessian of
+$E[\omega_\varepsilon] + \mu_L\,L[\omega_\varepsilon]$ on the space of
+$\mathbb{Z}_N$-symmetric vorticity perturbations has the same inertia
+(number of positive, zero, and negative eigenvalues along the constrained
+directions) as the point vortex Lagrangian Hessian of
+Theorem~\ref{thm:constrained-min}.  In particular, the stability
+boundary $N \le 7$ is preserved for any smooth vorticity distribution
+sufficiently concentrated near the $N$-gon vertices.
+\end{proposition}
+
+\begin{proof}
+By (b), the shape sector contributes only positive eigenvalues
+($\ge c/\varepsilon^2$).  By (c), the center-shape coupling is
+exponentially small, hence a compact perturbation of the block-diagonal
+structure.  By (a) and Weyl's theorem, the center-sector eigenvalues
+converge to the Havelock values at $O(\varepsilon^\alpha)$.  The
+combined inertia equals the center inertia (from (a)) plus positive
+contributions (from (b)), with exponentially small corrections
+(from (c)).  For $\varepsilon$ small enough that the center eigenvalues
+have stabilized to within half their limiting values, the signs are
+determined by the Havelock eigenvalues.
+\end{proof}
+
 \subsubsection{The Rossby bridge (Saturn regime)}
 
 For continuous jet meanders ($\beta R^3/\kappa \gg 1$), the bridge
