@@ -1505,17 +1505,28 @@ $h(|f(z){-}f(w)|) = h(|z{-}w|) + \text{local terms}$ if and only
 if $h$ is logarithmic.
 
 The threshold $N_{\mathrm{crit}}$ on any surface is the largest $N$
-with $C_1(\text{surface}) \ge \max_m m(N{-}m)/2$.  Since
-$C_1 \le N{-}1$ for all surfaces (with equality on the flat plane,
-by conformal invariance), the threshold satisfies
-$N_{\mathrm{crit}} \le 7$ universally.  The flat plane is the
-\emph{most stable} 2D geometry for polygon formation: any positive
-curvature reduces $C_1$ and lowers the threshold.
-The number $7$ is therefore the \emph{supremum} of
-$N_{\mathrm{crit}}$ over all 2D surfaces with harmonic Green's
-function---achieved only on the flat plane (or at the pole of any
-surface, where curvature vanishes locally).  No 2D geometry can
-support a stable octagonal vortex ring without a central vortex.
+with $C_1(\text{surface}) \ge \max_m m(N{-}m)/2$.
+Gaussian curvature $K$ is the control parameter:
+\begin{center}
+\begin{tabular}{lcl}
+\toprule
+Curvature & $N_{\mathrm{crit}}$ & Mechanism \\
+\midrule
+$K > 0$ (sphere) & $< 7$ & Positive curvature destabilizes \\
+$K = 0$ (plane) & $= 7$ & Critical transition \\
+$K < 0$ (hyperbolic) & $> 7$ & Negative curvature stabilizes \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+On the hyperbolic plane with curvature radius~$a$, numerical
+computation gives $N_{\mathrm{crit}} = 12$ at $R/a = 1$ and
+$N_{\mathrm{crit}} > 14$ at $R/a = 2$: the $N = 8$ ring is
+\emph{stabilized} for $R/a \gtrsim 0.5$ (the hyperbolic interaction
+is class~(i) at scales $d \gg a$, strengthening stability).
+The number $7$ is the stability threshold at \emph{zero Gaussian
+curvature}---the transition between geometries that suppress polygon
+formation ($K > 0$) and geometries that enhance it ($K < 0$).
 
 \appendix
 \section{The Havelock identity}
