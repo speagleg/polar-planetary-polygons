@@ -361,9 +361,21 @@ $\lambda_m^+$ over $m$ occurs at $m = \lfloor N/2 \rfloor$:
 Both expressions are $> 0$ for $N \le 6$, equal to zero at $N = 7$,
 and $< 0$ for $N \ge 8$.  Thus $N \le 6$ is \emph{strictly} stable
 (positive definite Lagrangian), $N = 7$ is \emph{neutrally} stable
-(positive semi-definite, with a zero eigenvalue at $m = 3$ permitting
-marginally stable deformations), consistent with the classical result
-of \citet{Havelock1931}, and $N \ge 8$ is unstable.
+(positive semi-definite, with a zero eigenvalue at $m = 3$),
+consistent with \citet{Havelock1931}, and $N \ge 8$ is unstable.
+
+To classify the $N = 7$ bifurcation, we compute the quartic term of
+$H$ along the $m = 3$ neutral direction on the constraint surface.
+The $\mathbb{Z}_7$-equivariant normal form is
+$H = (\lambda/2)|z|^2 + (\alpha/4)|z|^4 + \cdots$
+where $z$ is the complex amplitude of the $m = 3$ mode and $\lambda = 0$
+at $N = 7$.  Numerical evaluation (tracing $H$ along the
+Newton-projected constraint surface) gives $\alpha \approx +1.9 > 0$.
+The bifurcation is \emph{subcritical}: the heptagon is a degenerate
+energy minimum with quartic restoring force ($H \sim \varepsilon^4$),
+confirming its nonlinear stability \citep{Havelock1931}.  The weaker
+confinement (quartic vs.\ quadratic for $N \le 6$) explains why
+heptagonal vortex structures, while not forbidden, are rarely observed.
 \end{proof}
 
 The value $\mu_L = -(N-1)/4$ follows from the constrained stationarity
