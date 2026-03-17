@@ -358,8 +358,12 @@ $\lambda_m^+$ over $m$ occurs at $m = \lfloor N/2 \rfloor$:
     (N{-}1) - N^2/8 & N \text{ even}.
   \end{cases}
 \]
-Both expressions are $\ge 0$ for $N \le 7$ (with equality at $N = 7$)
-and $< 0$ for $N \ge 8$.
+Both expressions are $> 0$ for $N \le 6$, equal to zero at $N = 7$,
+and $< 0$ for $N \ge 8$.  Thus $N \le 6$ is \emph{strictly} stable
+(positive definite Lagrangian), $N = 7$ is \emph{neutrally} stable
+(positive semi-definite, with a zero eigenvalue at $m = 3$ permitting
+marginally stable deformations), consistent with the classical result
+of \citet{Havelock1931}, and $N \ge 8$ is unstable.
 \end{proof}
 
 The value $\mu_L = -(N-1)/4$ follows from the constrained stationarity
@@ -520,11 +524,18 @@ where $z_k^{\mathrm{ideal}}$ are the best-fit regular $N$-gon vertices.
 \begin{table}[htbp]
 \centering
 \caption{Planetary polygon configurations.  $\kappa_0/\kappa$ is the
-ratio of central to ring cyclone circulation, estimated from Juno
-imagery as an area ratio of the central polar cyclone to a typical
-ring cyclone \citep{Adriani2018}; ``---'' indicates the value is not
-relevant to the stability argument (since $N = 5 \le 7$, no central
-vortex is required).}
+ratio of central to ring cyclone circulation.  For Jupiter north, this
+is estimated from Juno imagery \citep{Adriani2018} using the cyclone
+area ratio as a proxy; assuming approximately uniform vorticity within
+each cyclone, $\kappa \propto \omega \cdot A$, so the circulation ratio
+equals the area ratio times the vorticity ratio.  Both cyclone types
+have comparable peak vorticities, giving
+$\kappa_0/\kappa \approx A_0/A_{\mathrm{ring}} \sim 1$ with a
+systematic uncertainty of order $30\%$ from the vorticity profile
+assumption.  This does not affect the qualitative conclusion
+($\kappa_{\mathrm{crit}} = 0.50$ for $N = 8$).  ``---'' indicates the
+value is not relevant (since $N = 5 \le 7$, no central vortex is
+required).}
 \label{tab:planets}
 \begin{tabular}{lcccl}
 \toprule
