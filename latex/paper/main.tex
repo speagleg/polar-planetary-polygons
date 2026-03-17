@@ -698,9 +698,13 @@ to cluster \emph{formation} while the polygon \emph{arrangement}
 is deterministic stability;
 (4)~the complementary selection framework unifying Saturn (Rossby)
 and Jupiter (Thomson);
-and (5)~the observation that the logarithmic interaction's borderline
+(5)~the observation that the logarithmic interaction's borderline
 status in the sign rule makes it the ``least robust'' polygon
-producer---any other qualifying interaction gives stronger selection.
+producer---any other qualifying interaction gives stronger selection;
+and (6)~the extensions to curved surfaces (the sphere provides
+additional stabilization), finite deformation radius (polygon
+suppression at $R/R_d \approx 1.29$ for $N = 6$), and the $N = 7$
+quartic bifurcation (Section~\ref{sec:extensions}).
 
 \medskip\noindent\textbf{Relation to prior work.}
 The connection between Onsager statistics and large-scale vortex
@@ -823,12 +827,35 @@ $\bar\lambda(\eta_{\mathrm{crit}}, N) = 0$, where the dimensionless
 eigenvalue $\bar\lambda(\eta, N) = R^2 \cdot \lambda_{\min}(\eta)$
 interpolates smoothly from the Havelock value
 $\bar\lambda(0, N) = (N{-}1) - \lfloor N/2\rfloor
-(N{-}\lfloor N/2\rfloor)/2$ to zero.  The $K_0$ analog of the Havelock
-sum does not admit a closed form (the summand
-$K_0(2\eta\sin(\pi p/N))$ is non-algebraic in $\sin(\pi p/N)$, so the
-orthogonality trick fails), but the implicit equation is well-posed
-and the critical $\eta$ is uniquely determined by bisection for each
-$N$.
+(N{-}\lfloor N/2\rfloor)/2$ to zero.
+
+The Lagrange multiplier has the closed form
+\begin{equation}\label{eq:mu-k0}
+  -2\mu_L = \frac{1}{R}\sum_{p=1}^{N-1}
+  \frac{(1-\cos\theta_p)\,K_1(2\eta\sin(\pi p/N))}
+       {2\sin(\pi p/N)},
+  \quad \theta_p = 2\pi p/N,
+\end{equation}
+which reduces to $(N{-}1)/2$ as $\eta \to 0$
+(using $K_1(x) \sim 1/x$).  For $N = 6$, the critical mode $m = 3$
+has zero Havelock weight at $p = 2, 4$ (since
+$\cos(2\pi \cdot 2 \cdot 3/6) = 1$), so the critical eigenvalue
+depends on $K_0$ and $K_1$ at only \emph{two} distinct arguments,
+$\eta$ and $2\eta$, rather than three.
+
+The $K_0$ analog of the Havelock identity does not admit a closed form:
+the summand $K_0(2\eta\sin(\pi p/N))$ is transcendental in
+$\sin(\pi p/N)$, so the orthogonality trick that closes the
+logarithmic sum to $m(N{-}m)/2$ fails.  A perturbative expansion
+$K_0(x) \approx -\ln x + O(x^2)$ gives $\eta_{\mathrm{crit}} \approx
+0.9$ for $N = 6$---30\% below the exact value---because the critical
+ratio lies in the non-perturbative regime where $K_0$ departs
+significantly from $-\ln$.  The transition occurs precisely where the
+exponential decay of $K_0$ (destroying long-range correlations between
+non-adjacent vortices) overtakes the logarithmic regime, making the
+suppression inherently non-perturbative.  The implicit equation is
+nevertheless well-posed, and the critical $\eta$ is uniquely determined
+by bisection for each $N$.
 
 \subsection{The $N = 7$ bifurcation}
 \label{sec:n7}
