@@ -1482,19 +1482,26 @@ $\partial H/\partial x_0$, regardless of the separation~$k$.  This
 is because $h'(d_k)(x_0{-}x_k)/d_k = -(1{-}\cos(2\pi k/N))/
 (4R\sin^2(\pi k/N)) = -1/(2R)$: the geometric factor
 $(1{-}\cos)$ cancels against the denominator $\sin^2 = (1{-}\cos)/2$.
-The cancellation is the \emph{scale invariance} of the logarithmic
-interaction ($h' \propto 1/d$ compensates the $d$-dependence of the
-chord geometry), which is a consequence of \emph{conformal invariance}
-in two dimensions.  No other interaction has this equal-contribution
-property.
+The cancellation is the \emph{scale invariance} of $h' = -1/d$:
+the force law $h' \propto 1/d$ precisely compensates the
+$d$-dependence of the chord geometry, making each pair's contribution
+independent of the separation.  This property characterizes the
+logarithm \emph{uniquely}: among radially symmetric pairwise
+interactions on $\mathbb{R}^2$, $h = -\ln|z{-}w|$ is the unique
+function satisfying $h(d\lambda) = h(d) + h(\lambda)$ (additivity
+under rescaling---Cauchy's functional equation with continuity).
+This additivity is precisely M\"obius invariance: under a conformal
+map $f$, $|f(z){-}f(w)| = |z{-}w|\cdot|f'|^{1/2}|f'|^{1/2}$, so
+$h(|f(z){-}f(w)|) = h(|z{-}w|) + \text{local terms}$ if and only
+if $h$ is logarithmic.
 
 The number $7$ is therefore the meeting point of two structures:
 \emph{algebra} ($\mathbb{Z}_N$ orthogonality gives $f = m(N{-}m)/2$,
-universal across all surfaces) and \emph{geometry} (2D conformal
-invariance gives $C_1 = N{-}1$, specific to the plane).  The threshold
+universal across all surfaces) and \emph{conformal invariance}
+(the unique M\"obius-invariant pairwise interaction gives
+$C_1 = N{-}1$ through its scale-invariant force law).  The threshold
 $N_{\mathrm{crit}} = 7$ is the largest integer satisfying
-$(N{-}1) \ge \lfloor N/2\rfloor(N{-}\lfloor N/2\rfloor)/2$---a
-universal constant of 2D conformal geometry.
+$(N{-}1) \ge \lfloor N/2\rfloor(N{-}\lfloor N/2\rfloor)/2$.
 
 \appendix
 \section{The Havelock identity}
