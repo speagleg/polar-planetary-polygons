@@ -1375,8 +1375,14 @@ $\varphi$ ($\approx 1.31 \times 10^7\;\mathrm{m}$ for Saturn at
 $76^\circ$\,N).  The nearest integer $n = \mathrm{round}(n^*)$ is
 the selected polygon wavenumber.  For Saturn:
 $\beta_{\mathrm{eff}}/U_{\max} \approx 1.72 \times
-10^{-13}\;\mathrm{m}^{-2}$, giving $n^* \approx 5.4$--$5.6$
-(the full WKB eigenfunction correction raises the value toward $6$).
+10^{-13}\;\mathrm{m}^{-2}$, giving $n^* \approx 5.4$ from the
+leading-order dispersion relation.  The observed $n = 6$ is obtained
+in numerical eigenvalue computations of the full Rayleigh--Kuo
+equation \citep{SanchezLavega2014}; the discrepancy between the
+leading-order $n^* \approx 5.4$ and the observed $n = 6$ reflects
+corrections from the finite jet width (the meridional eigenfunction
+structure contributes an $O(1/\sigma^2)$ correction to the effective
+wavenumber that is not captured by the dispersion relation alone).
 
 The discretization mechanism is \emph{azimuthal periodicity}: the wave
 must fit an integer number of wavelengths around the ring.
