@@ -109,12 +109,16 @@ The Green's function of the 2D Laplacian is
 $G(r) = -\ln r / (2\pi)$,
 satisfying $G'(r) = -1/(2\pi r) < 0$ for all $r > 0$.
 
-For $N$ point vortices with equal circulations $\kappa$, the interaction
-energy is
+For $N$ point vortices with equal circulations $\kappa$ on the
+collision-free configuration space $\{|z_j - z_k| > 0 \text{ for all }
+j \ne k\}$, where $H$ is smooth and $\mathbb{Z}_N$-invariant, the
+interaction energy is
 \begin{equation}\label{eq:thomson-H}
   H = -\sum_{j < k} \ln|z_j - z_k|,
 \end{equation}
 where we absorb $\kappa^2/(4\pi)$ into the normalization.
+By the equivariant critical point theorem, the regular $N$-gon---a
+fixed point of $\mathbb{Z}_N$---is a critical point of $H$.
 
 Point vortex dynamics conserves three quantities: the energy $H$,
 the angular impulse $L = \sum|z_k|^2$, and the linear impulse
@@ -251,7 +255,14 @@ $\kappa_{\mathrm{crit}}$ & 0 & 0.50 & 1.00 & 1.75 & 2.50 & 3.50 \\
 These values agree with the classical Thomson dynamical stability
 analysis \citep{Thomson1883, Havelock1931} to within 0.01, confirming
 that energy stability and dynamical stability give equivalent criteria
-for this system.
+for this system.  For $N = 6$ with central vortex $\kappa_0$,
+symbolic computation of the $12 \times 12$ stability matrix yields
+the characteristic polynomial
+$p(\lambda) \propto \lambda^2 (9 + 36\kappa_0/\kappa + 16\pi^2\lambda^2)
+\cdot Q(\lambda, \kappa_0)^2$,
+giving the exact critical ratio $\kappa_0/\kappa = -1/4$ from the
+vanishing of the quadratic factor (Mathematica code in supplementary
+material).
 
 \subsection{The two-scale mechanism}
 
