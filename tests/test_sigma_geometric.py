@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from sigma_geometric import sigma_geom, sigma_from_positions
+from planetary_polygons.verification.sigma_geometric import sigma_geom, sigma_from_positions
 
 
 class TestSigmaGeom:

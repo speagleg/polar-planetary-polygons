@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from cassini_winds import (
+from planetary_polygons.data.saturn import (
     load_cassini_profile, measure_delta_U, measure_hexagon_epsilon,
 )
 
