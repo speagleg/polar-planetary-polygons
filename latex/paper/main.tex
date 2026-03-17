@@ -1527,12 +1527,21 @@ $K < 0$ (hyperbolic) & $> 7$ & Negative curvature stabilizes \\
 \noindent
 On the hyperbolic plane with curvature radius~$a$, numerical
 computation gives $N_{\mathrm{crit}} = 12$ at $R/a = 1$ and
-$N_{\mathrm{crit}} > 14$ at $R/a = 2$: the $N = 8$ ring is
-\emph{stabilized} for $R/a \gtrsim 0.5$ (the hyperbolic interaction
-is class~(i) at scales $d \gg a$, strengthening stability).
-The number $7$ is the stability threshold at \emph{zero Gaussian
-curvature}---the transition between geometries that suppress polygon
-formation ($K > 0$) and geometries that enhance it ($K < 0$).
+$N_{\mathrm{crit}} \ge 14$ at $R/a = 2$ (tested up to $N = 14$;
+the exact value is not determined).  The $N = 8$ ring, unstable for
+$R/a \lesssim 0.4$, becomes stable at $R/a \approx 0.5$
+($N_{\mathrm{crit}}$ increases through integer jumps as $R/a$ grows,
+with the $7 \to 8$ transition at $R/a \approx 0.5$).
+$N_{\mathrm{crit}}(R/a)$ is non-decreasing (verified numerically;
+the monotonicity follows physically from the hyperbolic interaction
+transitioning from class~(ii) at $R \ll a$ to class~(i) at $R \gg a$,
+strengthening stability).
+
+For any fixed ratio $R/a$ of ring radius to curvature radius, the
+Gaussian curvature $K$ controls the threshold: $K > 0$ reduces
+$N_{\mathrm{crit}}$ below~$7$, $K < 0$ raises it above~$7$, and
+$K = 0$ gives exactly~$7$.  The number~$7$ is the stability threshold
+at zero Gaussian curvature \emph{at the scale of the polygon ring}.
 
 \appendix
 \section{The Havelock identity}
