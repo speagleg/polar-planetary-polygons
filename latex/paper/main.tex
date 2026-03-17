@@ -952,6 +952,52 @@ interactions break the single-ring $\mathbb{Z}_N$ symmetry and
 introduce destabilizing modes absent from the center-plus-ring
 geometry.  This is consistent with Jupiter's observed configuration.
 
+\subsection{BEC vortex predictions}
+\label{sec:bec}
+
+In a quasi-2D Bose--Einstein condensate in a circular trap, quantized
+vortices interact logarithmically at scales above the healing length
+$\xi$.  The circulation is quantized:
+$\kappa = q \cdot h/m$ with integer winding number $q$.
+The $\kappa_0/\kappa$ ratio of Proposition~\ref{prop:kappa-crit}
+becomes the winding number ratio $q_0/q$, yielding sharp integer-valued
+predictions:
+
+\begin{center}
+\begin{tabular}{lcl}
+\toprule
+Configuration & $\kappa_{\mathrm{crit}}$ & Prediction \\
+\midrule
+$N \le 7$ ring & 0 & Stable without central vortex \\
+$N = 8$ ring & $1/2$ & Unstable alone; stable with $q_0 \ge 1$ \\
+$N = 9$ ring & $1$ & Marginally stable with $q_0 = 1$;
+  stable with $q_0 \ge 2$ \\
+$N = 10$ ring & $7/4$ & Unstable with $q_0 = 1$;
+  stable with $q_0 \ge 2$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The $N = 8$ prediction is the sharpest: a ring of $8$ unit-winding
+vortices should be unstable alone and stable upon adding a single
+central vortex ($q_0 = 1 > \kappa_{\mathrm{crit}} = 1/2$).
+
+The $N = 7$ case offers a distinct signature.  The quartic restoring
+force ($\alpha \approx +1.9$, Section~\ref{sec:n7}) produces an
+\emph{amplitude-dependent} oscillation frequency for the $m = 3$ mode:
+$\omega \propto \varepsilon$ (where $\varepsilon$ is the perturbation
+amplitude), rather than the constant $\omega$ of the quadratic modes
+at $N \le 6$.  This nonlinear frequency shift is measurable through
+BEC vortex imaging.
+
+The healing length $\xi$ provides a natural blob width
+$\varepsilon = \xi/R$.  For typical BEC parameters
+($\xi \sim 0.3\;\mu\mathrm{m}$, $R \sim 50\;\mu\mathrm{m}$):
+$\varepsilon \approx 0.006$, well within the point vortex regime.
+The blob correction (Proposition~\ref{prop:blob}) is negligible:
+$\lambda(0.006) \approx \lambda_0 + O(10^{-4})$.
+
 \subsection{The continuous-to-discrete bridge}
 \label{sec:blob}
 
