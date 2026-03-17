@@ -336,23 +336,49 @@ whose Hessian is \eqref{eq:lagr-hess}.  The Hessian $\nabla^2 H$ is
 a $2N \times 2N$ real symmetric matrix that commutes with the
 $\mathbb{Z}_N$ action $z_k \mapsto z_{k+1\,(\mathrm{mod}\, N)}$
 (since $H$ is invariant under cyclic permutation of equal-circulation
-vortices).  By Schur's lemma for real representations of finite
-abelian groups, $\nabla^2 H$ block-diagonalizes in the discrete
-Fourier basis $\delta z_k \propto e^{2\pi imk/N}$ into $2 \times 2$
-blocks, one per mode $m \in \{0, \ldots, N-1\}$.  Each block
-contributes a pair of eigenvalues $\pm \sigma_m$ where
+vortices).  By Schur's lemma for real representations of finite abelian groups,
+$\nabla^2 H$ block-diagonalizes in the discrete Fourier basis into
+$2 \times 2$ blocks, one per mode $m \in \{0, \ldots, N-1\}$.
+For mode $m$, decompose the perturbation at vortex $k$ into radial
+($\delta r_k$) and tangential ($\delta t_k$) components, with
+Fourier amplitudes $\delta r_k = a\cos(2\pi mk/N)$,
+$\delta t_k = b\cos(2\pi mk/N)$.  The $2\times 2$ Hessian block
+for the pair $(a, b)$ involves two sums over separations
+$p = 1, \ldots, N-1$:
+\begin{align*}
+  H_{rr}^{(m)} &= \textstyle\sum_p
+    \bigl[\tfrac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
+    + \tfrac{1+\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}\bigr]
+    \;-\; 2\textstyle\sum_p
+    \tfrac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}, \\[3pt]
+  H_{rt}^{(m)} &= \textstyle\sum_p
+    \tfrac{\sin(2\pi pm/N)}{4\sin^2(\pi p/N)}, \\[3pt]
+  H_{tt}^{(m)} &= -H_{rr}^{(m)}.
+\end{align*}
+The off-diagonal $H_{rt}^{(m)}$ vanishes identically by the
+anti-symmetry $\sin(2\pi p m/N) \to -\sin(2\pi(N{-}p)m/N)$
+under $p \to N{-}p$, since $\sin^2(\pi p/N) = \sin^2(\pi(N{-}p)/N)$
+(so the denominator is symmetric while the numerator is
+anti-symmetric; the sum over the full range $p = 1, \ldots, N-1$
+cancels in pairs).  Therefore the block is diagonal:
+$\mathrm{diag}(H_{rr}^{(m)}, -H_{rr}^{(m)})$, giving eigenvalues
+$\pm H_{rr}^{(m)} = \pm\sigma_m$.
+
+The diagonal entry $H_{rr}^{(m)}$ simplifies using the Havelock
+identity (Appendix~\ref{app:havelock}):
+the self-sum $\sum_p 1/[4\sin^2(\pi p/N)] = (N{-}1)/2$
+(a special case of $T_0 + (N{-}1)/2$) and the cross-sum is
+$T_m = m(N{-}m)/2$.  Thus
 \begin{equation}\label{eq:sigma-m}
-  \sigma_m = \frac{N-1}{2} - \frac{m(N-m)}{2}.
+  \sigma_m = H_{rr}^{(m)} = \frac{N-1}{2} - \frac{m(N-m)}{2},
 \end{equation}
-This uses the identity
+using
 \begin{equation}\label{eq:havelock}
-  \sum_{p=1}^{N-1}\frac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
-  = \frac{m(N-m)}{2},
+  T_m := \sum_{p=1}^{N-1}\frac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
+  = \frac{m(N-m)}{2}
 \end{equation}
-which we prove in Appendix~\ref{app:havelock} (the result appears
-implicitly in \citet{Havelock1931}, \S3, equation~(3.5), in the
-context of the stability eigenvalue computation for the $N$-vortex
-ring).  The Lagrangian eigenvalues are thus
+(proven in Appendix~\ref{app:havelock}; cf.\
+\citet{Havelock1931}, \S3).  The Lagrangian eigenvalues are thus
 \[
   \lambda_m^+ = (N-1) - \tfrac{m(N-m)}{2}, \qquad
   \lambda_m^- = \tfrac{m(N-m)}{2}.
@@ -418,11 +444,16 @@ which has eigenvalue $+\kappa_0/R^2$ for radial perturbations
 $(\cos\theta_k, \sin\theta_k)$ and $-\kappa_0/R^2$ for tangential.
 For $N \ge 8$, the critical eigenvector of the ring-only Lagrangian
 (the most negative eigenvalue direction) is \emph{purely radial} at
-every vortex position (verified numerically to $10^{-6}$).  The
-radial-tangential decoupling follows from the vanishing of the mixed
-Hessian sum $\sum_{p=1}^{N-1}\sin(2\pi pm/N)/[4\sin^2(\pi p/N)] = 0$
-for all $m$, which holds by the anti-symmetry $p \to N{-}p$ and is
-specific to the logarithmic (harmonic) interaction.  Therefore
+every vortex position.  This follows analytically from the vanishing of
+the off-diagonal Hessian block $H_{rt}^{(m)}$ (proved in the Theorem~3
+derivation above): the mixed sum
+$\sum_{p=1}^{N-1}\sin(2\pi pm/N)/[4\sin^2(\pi p/N)] = 0$
+vanishes for all $m$ because $\sin(2\pi pm/N)$ is anti-symmetric
+under $p \to N{-}p$ while $\sin^2(\pi p/N)$ is symmetric, so the
+summand cancels in pairs $(p, N{-}p)$ over the full range.  This
+decoupling is specific to the logarithmic (harmonic) interaction,
+for which the radial and tangential Hessian components are equal
+and opposite ($H_{tt} = -H_{rr}$).  Therefore
 $\langle v_{\mathrm{crit}} | \nabla^2\!H_{\mathrm{center}} |
 v_{\mathrm{crit}} \rangle = +\kappa_0$.
 
