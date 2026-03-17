@@ -327,8 +327,19 @@ $\sum_{p=1}^{N-1}[1-\cos(2\pi pm/N)]/[4\sin^2(\pi p/N)] = m(N-m)/2$
   \lambda_m^- = \tfrac{m(N-m)}{2}.
 \]
 Since $\lambda_m^- \ge 0$ always, positive semi-definiteness requires
-$\lambda_m^+ \ge 0$ for all modes $m = 2, \ldots, N-2$ (the constraint
-surface removes $m = 0$ and $m = 1, N-1$).  The minimum of
+$\lambda_m^+ \ge 0$ for the modes tangent to the constraint surface.
+Three modes are removed:
+\emph{Mode $m = 0$} corresponds to uniform dilation
+$\delta z_k \propto z_k$, which changes $L = \sum|z_k|^2$ and is
+therefore not tangent to $\{L = NR^2\}$.
+\emph{Modes $m = 1$ and $m = N-1$} generate infinitesimal translation
+($\delta z_k = \mathrm{const}$, changing $\mathbf{P} = \sum z_k$) and
+overall rotation ($\delta z_k = iz_k$, a Goldstone mode of the $SO(2)$
+symmetry of $H$).  Both have $\sigma_m = 0$, consistent with the
+continuous symmetry group; they lie in the kernel of $\nabla^2 H$ and
+produce the zero eigenvalues.
+The remaining modes $m = 2, \ldots, N-2$ are tangent to the constraint
+surface and carry the stability information.  The minimum of
 $\lambda_m^+$ over $m$ occurs at $m = \lfloor N/2 \rfloor$:
 \[
   \min_m \lambda_m^+ = \begin{cases}
@@ -354,9 +365,13 @@ of that direction changing the conserved quantity $L$.
 
 \subsection{Central vortex stabilization}
 
-For $N \ge 8$, three negative eigenvalues of the constrained Lagrangian
-appear.  A central vortex of strength $\kappa_0$ restores positive
-definiteness when $\kappa_0/\kappa \ge \kappa_{\mathrm{crit}}(N)$:
+The analytic proof of Theorem~\ref{thm:constrained-min} covers the
+case $\kappa_0 = 0$ (no central vortex).  When a central vortex of
+circulation $\kappa_0$ is present at the origin, the Fourier eigenvalues
+acquire $\kappa_0$-dependent corrections that break the closed-form
+structure.  The following table gives \emph{numerically determined}
+critical ratios $\kappa_0/\kappa$ at which the constrained Lagrangian
+Hessian transitions from indefinite to positive semi-definite:
 
 \begin{center}
 \begin{tabular}{lcccccc}
@@ -368,17 +383,31 @@ $\kappa_{\mathrm{crit}}$ & 0 & 0.50 & 1.00 & 1.75 & 2.50 & 3.50 \\
 \end{tabular}
 \end{center}
 
-These values agree with the classical Thomson dynamical stability
-analysis \citep{Thomson1883, Havelock1931} to within 0.01, confirming
-that energy stability and dynamical stability give equivalent criteria
-for this system.  For $N = 6$ with central vortex $\kappa_0$,
-symbolic computation of the $12 \times 12$ stability matrix yields
-the characteristic polynomial
-$p(\lambda) \propto \lambda^2 (9 + 36\kappa_0/\kappa + 16\pi^2\lambda^2)
-\cdot Q(\lambda, \kappa_0)^2$,
-giving the exact critical ratio $\kappa_0/\kappa = -1/4$ from the
-vanishing of the quadratic factor (Mathematica code in supplementary
-material).
+\noindent
+These values are computed by bisection on the minimum eigenvalue of
+the constrained Lagrangian (code in supplementary material) and agree
+with the classical Thomson dynamical stability analysis
+\citep{Thomson1883, Havelock1931} to within $0.01$, confirming that
+energy and dynamical stability criteria are equivalent for this system.
+
+For $N = 6$ with central vortex $\kappa_0$, an exact result is
+available.  The $12 \times 12$ stability matrix (whose explicit form
+follows from the Hamiltonian point vortex equations linearized about
+the hexagonal equilibrium; see \citet{Havelock1931} for the general
+construction) has characteristic polynomial
+\[
+  p(\lambda) \propto \lambda^2
+  \bigl(9 + 36\kappa_0/\kappa + 16\pi^2\lambda^2\bigr)
+  \cdot Q(\lambda, \kappa_0)^2,
+\]
+computed by symbolic algebra (Mathematica; code and intermediate
+factorization steps in supplementary material).  The quadratic factor
+$9 + 36\kappa_0/\kappa + 16\pi^2\lambda^2$ vanishes at $\lambda = 0$
+when $9 + 36\kappa_0/\kappa = 0$, i.e.\
+$\kappa_0/\kappa = -9/36 = -1/4$.  This is the exact critical ratio
+for the $N = 6$ ring: for $\kappa_0/\kappa > -1/4$ the hexagonal
+configuration is stable; for $\kappa_0/\kappa < -1/4$ an anticyclonic
+central vortex destabilizes it.
 
 \subsection{The two-scale mechanism}
 
