@@ -281,11 +281,15 @@ and $d_m^2/(1{-}\cos\phi) = 4R^2$.  Summing over $m = 1, \ldots, N-1$
 yields \eqref{eq:Hpp-general}.
 
 \emph{Step 5: Sign determination.}
-Under $h'(r) < 0$: the second term $h'(d_m)\,m^2(N{-}m)/(N^2 d_m) < 0$.
+Under $h'(r) < 0$: the second term $h'(d_m)\,m^2(N{-}m)/(N^2 d_m) < 0$
+for all $m = 1, \ldots, N-1$ (including $m = N{-}1$, where
+$S_{N-1} = 0$ but the second term is still negative).
 Under $(rh'(r))' \le 0$: the first coefficient
 $d_m^2 h''(d_m) + d_m h'(d_m) = d_m \cdot (rh')'\big|_{r=d_m} \le 0$,
-so the first term is $\le 0$ since $S_m \ge 0$.  Therefore
-$H''(0) < 0$.
+so the first term is $\le 0$ since $S_m \ge 0$.  (At $m = N{-}1$:
+$S_{N-1} = 0$ and the first term vanishes regardless of the sign
+condition; the inequality $H''(0) < 0$ follows from the strictly
+negative second terms alone.)  Therefore $H''(0) < 0$.
 \end{proof}
 
 \begin{remark}[Borderline status of the logarithmic interaction]
@@ -298,10 +302,11 @@ interactions into three classes:
     Examples: $h = -r^\alpha$ ($\alpha > 0$), for which
     $(rh')' = -\alpha^2 r^{\alpha-1} < 0$.
   \item[(ii)] $h' < 0$ and $(rh')' = 0$: the first term vanishes
-    and only the second contributes.  The \emph{unique} interaction
-    satisfying this is $h(r) = -a\ln r + b$ (since $(rh')' = 0$
-    implies $rh' = \mathrm{const}$, hence $h' = c/r$, hence
-    $h = c\ln r + b$; combined with $h' < 0$ gives $c < 0$).
+    and only the second contributes.  For smooth $h$ on $(0,\infty)$,
+    this class contains a unique interaction:
+    $(rh')' = 0 \Rightarrow rh' = c \Rightarrow h' = c/r
+    \Rightarrow h = c\ln r + b$; combined with $h' < 0$ gives
+    $c < 0$, i.e.\ $h(r) = -a\ln r + b$ with $a > 0$.
   \item[(iii)] $h' < 0$ and $(rh')' > 0$ at some $r$: the sign of
     the first term is indefinite and $H''(0) < 0$ is not guaranteed.
 \end{enumerate}
