@@ -729,21 +729,35 @@ $R_d$, the Green's function is $K_0(r/R_d)$ (modified Bessel function),
 which recovers $-\ln r$ for $r \ll R_d$.  The interaction $h(r) =
 K_0(r/R_d)$ satisfies $h'(r) = -K_1(r/R_d)/R_d < 0$ and
 $(rh'(r))' = rK_0(r/R_d)/R_d^2 > 0$ (class~(iii)).  Numerical
-computation of $H''(0)$ and the constrained Lagrangian Hessian as a
-function of $R/R_d$ (polygon ring radius over deformation radius)
-reveals a \emph{polygon-suppression transition}: the $N = 6$ polygon is
-a constrained energy minimum for $R/R_d \lesssim 1$, loses stability
-near $R/R_d \approx 1.5$, and becomes trivially stable (negligible
-interaction) for $R/R_d \gg 1$.  The critical ratio $R/R_d \approx 1.5$
-at which the constrained Hessian becomes indefinite predicts that
-stratified atmospheres with polygon-scale radius comparable to the
-deformation radius should suppress polygonal vortex structures.  For
-Saturn, the barotropic deformation radius ($\sim\!2000$--$3000\,$km)
-gives $R/R_d \approx 8$--$12$ at the hexagonal jet, placing it in the
-weak-interaction regime; the observed hexagonal persistence is
-consistent with the deep barotropic layer having a much larger effective
-$R_d$, as suggested by gravity-field measurements
-\citep{SanchezLavega2014}.
+computation of the constrained Lagrangian Hessian as a function of
+$R/R_d$ reveals an $N$-dependent \emph{polygon-suppression transition}:
+
+\begin{center}
+\begin{tabular}{lccl}
+\toprule
+$N$ & Barotropic $\lambda_{\min}$ & Critical $R/R_d$ & Status \\
+\midrule
+$\le 5$ & $\ge 1$ & none & Stable for all $R/R_d$ \\
+$6$ & $1/2$ & $\approx 1.29$ & Suppressed for $R/R_d > 1.29$ \\
+$7$ & $0$ & $\approx 0$ & Unstable for any finite $R/R_d$ \\
+$\ge 8$ & $< 0$ & N/A & Unstable (barotropic) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Polygons with $N \le 5$ are robust against stratification effects.
+The hexagon ($N = 6$) is the first polygon sensitive to $R_d$: it
+requires $R/R_d < 1.29$.  The heptagon ($N = 7$), neutrally stable
+in the barotropic limit, is destabilized by any finite $R/R_d$---providing
+an additional mechanism for its rarity beyond the quartic confinement.
+
+For Saturn, the barotropic deformation radius
+($\sim\!2000$--$3000\,$km) gives $R/R_d \approx 8$--$12$ at the
+hexagonal jet, placing it above the critical ratio.  The observed
+hexagonal persistence requires the deep barotropic layer to have an
+effectively large $R_d$, consistent with Cassini gravity-field
+measurements of deep zonal winds \citep{SanchezLavega2014}.
 
 \subsection{What is novel}
 
