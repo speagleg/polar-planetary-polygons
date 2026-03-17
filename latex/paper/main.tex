@@ -1499,10 +1499,16 @@ logarithm \emph{uniquely}: among radially symmetric pairwise
 interactions on $\mathbb{R}^2$, $h = -\ln|z{-}w|$ is the unique
 function satisfying $h(d\lambda) = h(d) + h(\lambda)$ (additivity
 under rescaling---Cauchy's functional equation with continuity).
-This additivity is precisely M\"obius invariance: under a conformal
-map $f$, $|f(z){-}f(w)| = |z{-}w|\cdot|f'|^{1/2}|f'|^{1/2}$, so
-$h(|f(z){-}f(w)|) = h(|z{-}w|) + \text{local terms}$ if and only
-if $h$ is logarithmic.
+This additivity under the dilation subgroup $z \mapsto \lambda z$
+(for which $|f(z){-}f(w)| = |\lambda|\,|z{-}w|$) is Cauchy's
+multiplicative functional equation $h(ab) = h(a) + h(b)$,
+whose unique continuous solution is $h = c\ln$.  More generally,
+the energy $H = -\sum\ln|z_j{-}z_k|$ is M\"obius \emph{covariant}
+(not invariant): under a conformal map $f$,
+$H \mapsto H + \sum_k \tfrac12\ln|f'(z_k)|$, i.e.\ $H$ transforms
+by addition of single-site terms.  The \emph{equations of motion}
+are M\"obius-invariant (single-site terms have zero gradient with
+respect to other vortex positions), but the energy itself is not.
 
 The threshold $N_{\mathrm{crit}}$ on any surface is the largest $N$
 with $C_1(\text{surface}) \ge \max_m m(N{-}m)/2$.
