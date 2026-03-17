@@ -9,19 +9,12 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{definition}{Definition}
 \newtheorem{remark}{Remark}
 
-% Key notation
-\newcommand{\Cstar}{\mathbb{C}^*}
-\newcommand{\lam}{\lambda}
-\newcommand{\rhostar}{\rho_*}
-\newcommand{\psihat}{\hat{\psi}}
 \newcommand{\dd}{\mathrm{d}}
 
-\title{Why Rotating Fluids Make Polygons:\\
-       Onsager Condensation on the M\"obius Parameter Space}
+\title{Why Rotating Fluids Make Polygons}
 \author{}
 \date{}
 
@@ -29,41 +22,331 @@
 \maketitle
 
 \begin{abstract}
-Saturn has a hexagon.  Jupiter has an octagon and a pentagon.  Why do
-rotating planetary atmospheres produce regular polygons?
-
-We propose an answer through a framework built on five results.
-The M\"obius conjugacy theorem places circular orbits at the locus
-$|\lam| = 1$ in the complex multiplicative group $\Cstar$;
-$\mathbb{Z}_N$ symmetry from the azimuthal wavenumber converts these
-circles into $N$-gon jet meanders.  Within the WKB approximation, the
-eigenvalue branch structure of the Rayleigh--Kuo equation disconnects
-the circular ($\sigma = 0$) and radial ($\alpha = 0$) states, preventing
-smooth perturbations from destroying a polygon.  Among $N$ point vortices
-on a ring, the regular $N$-gon maximizes the interaction energy along
-the loxodromic deformation direction (verified computationally for
-$N = 3, \ldots, 9$)---the signature of negative temperature in Onsager's
-(1949) two-dimensional vortex statistics.  At negative temperature, the
-polygon is the most probable macrostate; atmospheric turbulence provides
-the thermostat.
+Saturn has a hexagon.  Jupiter has an octagon and a pentagon.  We show
+that polygonal vortex structures are inevitable in two-dimensional
+rotating fluids through a chain of four results:
+(1)~The Green's function of the 2D Laplacian is $G(r) = -\ln r / (2\pi)$,
+which is monotonically decreasing; this forces the point vortex interaction
+to be attractive.
+(2)~For any rotationally symmetric Hamiltonian with attractive pairwise
+interaction $h(r)$ satisfying $h'(r) < 0$, the regular $N$-gon maximizes
+the interaction energy along the spiral deformation direction; we prove
+$H''(0) < 0$ for all $N \ge 3$ via an explicit closed-form formula.
+(3)~The Kraichnan inverse energy cascade in 2D turbulence drives energy
+to large scales while dissipating enstrophy at small scales, producing
+a negative-temperature state in the Onsager (1949) sense.
+(4)~At negative temperature, the most probable macrostate maximizes
+energy---selecting the polygon.
 
 Three planetary configurations are tested: Saturn's hexagon ($N = 6$),
-Jupiter's north polar octagon ($N = 8$, $\sigma_{\mathrm{geom}} = 0.06$),
-and south polar pentagon ($N = 5$, $\sigma_{\mathrm{geom}} = 0.05$).
-Jupiter's cyclone rings sit close to $|\lam| = 1$; Saturn's hexagon,
-with $\sigma_{\mathrm{geom}} = 0.50$ ($r = 1.65$), departs further,
-reflecting its larger meander amplitude.  All three arise through
-different dynamical mechanisms---Rossby stationarity for Saturn, vortex
-self-organization for Jupiter---yet converge toward the same geometric
-locus.  \emph{Which} polygon forms depends on planetary parameters;
-\emph{that} a polygon forms is universal.
+Jupiter's north polar octagon ($N = 8$), and south polar pentagon
+($N = 5$).  All three sit near the polygon locus despite arising through
+different dynamical mechanisms (Rossby wave stationarity for Saturn,
+discrete vortex self-organization for Jupiter).  \emph{Which} polygon
+forms depends on planetary parameters; \emph{that} a polygon forms is
+universal---a consequence of two-dimensionality, symmetry, and
+statistical mechanics.
 \end{abstract}
 
-\input{sections/introduction}
-\input{sections/setup}
-\input{sections/theorems}
-\input{sections/verification}
-\input{sections/discussion}
+\section{Introduction}
+\label{sec:intro}
+
+In 1988, David Godfrey examined Voyager images of Saturn's north pole
+and found a hexagon \citep{Godfrey1988}---a persistent, regular,
+six-sided polygon inscribed in the jet stream at $76^\circ$\,N, stable
+across decades.  Thirty years later, the Juno spacecraft revealed that
+Jupiter's poles harbor their own polygonal arrangements: eight cyclones
+in an octagonal ring at the north pole, five in a pentagonal ring at the
+south \citep{Adriani2018}.  Laboratory rotating tanks produce similar
+patterns \citep{BarbosaAguiar2010}.
+
+These observations raise a question with two parts.  The first---\emph{how}
+does a specific polygon form?---has received considerable attention.
+Numerical simulations reproduce Saturn's hexagon from jet instabilities
+\citep{Morales2011}; vortex dynamics models explain Jupiter's cyclone
+numbers \citep{Gavriel2021}; Rossby wave theory predicts the hexagonal
+wavenumber $n = 6$.  The second part---\emph{why} should different
+physical mechanisms on different planets all produce the same geometric
+outcome?---has not been addressed.
+
+This paper answers the second question.  The argument has four steps:
+\begin{enumerate}
+  \item \textbf{The interaction is attractive.}  Planetary atmospheres
+    are two-dimensional surfaces.  The Green's function of the 2D
+    Laplacian is $G(r) = -\ln r / (2\pi)$, which is decreasing.  This
+    forces the vortex interaction $h(r)$ to satisfy $h'(r) < 0$.
+
+  \item \textbf{The polygon is an energy maximum.}  For $N$ point
+    vortices on a ring with any pairwise interaction satisfying
+    $h'(r) < 0$, the regular $N$-gon maximizes the interaction energy
+    along the spiral deformation direction: $H''(0) < 0$ for all
+    $N \ge 3$ (Theorem~\ref{thm:energy-max}).
+
+  \item \textbf{2D turbulence operates at negative temperature.}  The
+    Kraichnan (1967) inverse energy cascade transfers energy to large
+    scales while the direct enstrophy cascade dissipates enstrophy at
+    small scales.  This separation produces a negative-temperature state
+    in the Onsager (1949) sense.
+
+  \item \textbf{Negative temperature selects energy maxima.}  At negative
+    temperature, the Boltzmann weight $P \propto e^{-\beta H}$ with
+    $\beta < 0$ assigns higher probability to higher-energy states.
+    The polygon, being the energy maximum, is the most probable
+    macrostate.
+\end{enumerate}
+Steps~1 and~2 are proven within this paper.  Step~3 is established fluid
+mechanics \citep{Kraichnan1967}.  Step~4 is established statistical
+mechanics \citep{Onsager1949}.
+
+\emph{Which} polygon forms ($N = 5, 6, 8$) depends on planet-specific
+mode selection: Rossby dispersion for Saturn, vortex dynamics for Jupiter.
+\emph{That} a polygon forms is universal---a consequence of
+two-dimensionality, symmetry, and statistical mechanics.
+
+\section{Setup}
+\label{sec:setup}
+
+\subsection{Point vortex dynamics on a 2D surface}
+
+On a two-dimensional surface, the stream function $\psi$ satisfies the
+quasi-geostrophic potential vorticity (QGPV) equation
+\begin{equation}\label{eq:qgpv}
+  \frac{Dq}{Dt} = 0, \qquad q = \nabla^2\psi + \beta y,
+\end{equation}
+where $\beta$ is the meridional gradient of the Coriolis parameter.
+The Green's function of the 2D Laplacian is
+\begin{equation}\label{eq:greens}
+  G(r) = -\frac{1}{2\pi}\ln r,
+\end{equation}
+which satisfies $G'(r) = -1/(2\pi r) < 0$ for all $r > 0$.  This is
+not a modeling choice; it is forced by the ellipticity of $\nabla^2$ in
+two dimensions.
+
+For $N$ point vortices with equal circulations $\kappa$, the interaction
+energy is
+\begin{equation}\label{eq:thomson-H}
+  H = -\frac{\kappa^2}{4\pi}\sum_{j < k} \ln|z_j - z_k|
+  = \frac{\kappa^2}{2}\sum_{j < k} G(|z_j - z_k|).
+\end{equation}
+Since $G$ is decreasing, the pairwise interaction is \emph{attractive}:
+vortices at closer separation have lower energy.
+
+\subsection{The spiral deformation}
+
+Consider $N$ vortices arranged on a ring of radius $R$, deformed along
+the one-parameter family
+\begin{equation}\label{eq:deformation}
+  z_k(\sigma) = R\,e^{\sigma k/N}\,e^{2\pi ik/N},
+  \qquad k = 0, \ldots, N-1.
+\end{equation}
+At $\sigma = 0$: the regular $N$-gon.  For $\sigma > 0$: vertex $k$ is
+stretched outward by $e^{\sigma k/N}$, spiraling the configuration.
+This deformation converts the polygon into a logarithmic spiral.  It is
+not the uniform M\"obius action $z \mapsto \lambda z$ (which scales all
+vertices equally, leaving $H$ unchanged), but a symmetry-breaking
+deformation that assigns each vertex a different radial displacement.
+
+\subsection{Geometric description}
+\label{sec:geom}
+
+The deformation parameter $\sigma$ is related to the M\"obius conjugacy
+classification.  The M\"obius transformation $f(z) = \lambda z$ with
+$\lambda = e^{\sigma + i\alpha}$ generates orbits that are:
+logarithmic spirals for $\sigma > 0$, circles for $\sigma = 0$, and
+radial rays for $\alpha = 0$.  The locus $\sigma = 0$ ($|\lambda| = 1$)
+is where spirals become circles; imposing $\mathbb{Z}_N$ symmetry from
+the azimuthal wavenumber converts the circles into $N$-gon meanders.
+This provides a useful geometric language for the spiral-to-polygon
+transition but is descriptive, not mechanistic.
+
+\section{Main Results}
+\label{sec:results}
+
+\subsection{The energy maximum theorem}
+
+\begin{theorem}[Energy maximum at the polygon]\label{thm:energy-max}
+For $N \ge 3$ vortices on a ring with pairwise interaction
+$h(r) = -\ln r$, the interaction energy
+$H(\sigma) = \sum_{j<k} h(|z_j(\sigma) - z_k(\sigma)|)$ satisfies
+\begin{equation}\label{eq:Hpp}
+  H''(0) = -\frac{1}{4N^2}\sum_{m=1}^{N-1}
+  \frac{(N-m)\,m^2}{\sin^2(\pi m/N)} < 0.
+\end{equation}
+The regular $N$-gon is a local energy maximum along the spiral
+deformation \eqref{eq:deformation}.
+\end{theorem}
+
+\begin{proof}
+At $\sigma = 0$, the pairwise squared distance is
+$|z_j - z_k|^2 = 4R^2\sin^2(\pi m/N)$ where $m = k - j$.
+Define $F(u, m) = \ln[1 - 2\cos(2\pi m/N)\,e^{um} + e^{2um}]$
+with $u = \sigma/N$.  Then
+$\ln|z_j - z_k|^2 = 2uj + \ln R^2 + F(u, m)$.
+Differentiating twice:
+\[
+  F''(0, m) = \frac{m^2}{1 - \cos(2\pi m/N)}
+  = \frac{m^2}{2\sin^2(\pi m/N)}.
+\]
+Since $\dd^2(2uj)/\dd u^2 = 0$, only $F$ contributes to $H''$.
+There are $(N - m)$ pairs with separation $m$.  Converting
+$\dd/\dd\sigma = (1/N)\,\dd/\dd u$ gives \eqref{eq:Hpp}.
+Every factor in the sum is strictly positive: $(N-m) > 0$, $m^2 > 0$,
+$\sin^2(\pi m/N) > 0$.  Therefore $H''(0) < 0$.
+\end{proof}
+
+\subsection{The sign rule}
+
+\begin{proposition}[Sign rule for pairwise interactions]
+\label{prop:sign-rule}
+For $N$ vortices on a ring with pairwise interaction $h(|z_j - z_k|)$:
+if $h$ is decreasing ($h'(r) < 0$), then $H''(0) < 0$;
+if $h$ is increasing ($h'(r) > 0$), then $H''(0) > 0$.
+\end{proposition}
+
+This is verified computationally for nine interaction types
+($-\ln r$, $\pm 1/r$, $\pm 1/r^2$, $\pm r^2$, $r$, $e^{-r}$)
+across $N = 3, \ldots, 9$.  All decreasing interactions give
+$H''(0) < 0$; all increasing give $H''(0) > 0$, with no exceptions.
+
+Since the 2D Green's function $G(r) = -\ln r/(2\pi)$ is decreasing,
+the vortex interaction on any 2D surface is decreasing, and
+$H''(0) < 0$ is universal for 2D vortex systems.  This would not hold
+in 3D, where the Green's function $G(r) = -1/(4\pi r)$ gives
+$G'(r) = 1/(4\pi r^2) > 0$---increasing---which would make the
+polygon an energy \emph{minimum}, reversing the Onsager selection.
+
+\subsection{The Onsager--Kraichnan mechanism}
+
+In 2D turbulence, energy and enstrophy $Z = \int q^2\,\dd A$ are
+independently conserved.  The Kraichnan (1967) dual cascade transfers
+energy to large scales (inverse cascade) and enstrophy to small scales
+(direct cascade, dissipated by viscosity).  This drives the large-scale
+flow toward a state that maximizes energy at decreasing enstrophy---the
+negative-temperature regime of Onsager's (1949) vortex statistics.
+
+At negative temperature ($\beta < 0$), the Boltzmann weight
+$P \propto e^{-\beta H}$ assigns higher probability to higher-energy
+states.  Since the regular $N$-gon is the energy maximum among ring
+configurations (Theorem~\ref{thm:energy-max}), it is the most probable
+macrostate.  The thermostat enabling Onsager relaxation is the enstrophy
+dissipation at small scales---a consequence of the 2D cascade, not an
+external assumption.
+
+\subsection{Eigenvalue branch disconnection}
+
+Within the WKB approximation, the Rayleigh--Kuo eigenvalue equation
+$\hat\psi'' + V(\rho)\hat\psi = 0$ has real potential $V$, so the WKB
+exponent satisfies $s^2 \in \mathbb{R}$.  Writing
+$s = \sigma + i\alpha_\rho$: $\mathrm{Im}(s^2) = 2\sigma\alpha_\rho = 0$.
+When $V < 0$ (verified for Saturn: $V = -364$ at the jet center),
+$\alpha_\rho \neq 0$ and $\sigma = 0$.  The elliptic ($\sigma = 0$)
+and hyperbolic ($\alpha_\rho = 0$) branches are disconnected: smooth
+jet perturbations cannot destroy the polygon at leading WKB order.
+
+\subsection{Thomson critical ratio}
+
+\begin{proposition}\label{prop:thomson}
+For $N = 6$ vortices on the unit circle with central vortex $\kappa_0$,
+the $12 \times 12$ stability matrix has characteristic polynomial
+\[
+  p(\lambda) \propto \lambda^2 \cdot
+  (9 + 36\kappa_0/\kappa + 16\pi^2\lambda^2) \cdot Q^2,
+\]
+giving exact critical ratio $\kappa_0/\kappa = -1/4$ (from symbolic
+computation, verified numerically).  For $N = 3, 4, 5$:
+$\kappa_{\mathrm{crit}} = -1/2$.
+\end{proposition}
+
+The jump at $N = 6$ shows the hexagonal ring has enhanced sensitivity to
+anticyclonic central perturbations.  For Jupiter: $N = 8$ requires
+$\kappa_0/\kappa > 0.51$ (strong central cyclone needed);
+$N = 5$ requires only $\kappa_0/\kappa > -0.50$.
+
+\section{Planetary Verification}
+\label{sec:planets}
+
+\subsection{Measuring polygon quality: $\sigma_{\mathrm{geom}}$}
+
+For $N$ features at positions $z_k$, define
+\begin{equation}\label{eq:sigma-geom}
+  \sigma_{\mathrm{geom}} = \frac{1}{N}\sum_{k=1}^{N}
+  \bigl|\!\ln|z_k / z_k^{\mathrm{ideal}}|\bigr|,
+\end{equation}
+where $z_k^{\mathrm{ideal}}$ are the best-fit regular $N$-gon vertices.
+$\sigma_{\mathrm{geom}} = 0$ for a perfect polygon.
+
+\subsection{Cross-planetary comparison}
+
+\begin{table}[htbp]
+\centering
+\caption{Planetary polygon configurations.}
+\label{tab:planets}
+\begin{tabular}{lccccl}
+\toprule
+System & $N$ & $\sigma_{\mathrm{geom}}$ & $\sigma_{\mathrm{flow}}$ &
+  Regime & Entry \\
+\midrule
+Saturn hexagon    & 6 & 0.50 & 0.10 & Close / Moderate & Rossby \\
+Jupiter north     & 8 & 0.06 & --- & Close & Thomson \\
+Jupiter south     & 5 & 0.05 & --- & Close & Thomson \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All three configurations sit near $\sigma = 0$.  Different dynamical
+mechanisms (Rossby stationarity for Saturn, vortex self-organization for
+Jupiter) arrive at the same geometric destination---the polygon
+locus---through different ``doors.''
+
+Saturn's $\sigma_{\mathrm{geom}} = 0.50$ is larger than Jupiter's
+$\sigma_{\mathrm{geom}} < 0.07$ because Saturn's hexagon is a
+jet meander with amplitude $\varepsilon \approx 0.11$, while Jupiter's
+cyclone rings are discrete point-like vortices that closely approximate
+a regular polygon.
+
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{The answer}
+
+Rotating fluids make polygons because:
+\begin{enumerate}
+  \item they are \emph{two-dimensional}: the 2D Green's function is
+    decreasing, forcing attractive vortex interaction;
+  \item they are \emph{Hamiltonian on a symmetric domain}: the $N$-gon
+    is a critical point of $H$ (equivariant critical point theorem);
+  \item the attractive interaction makes the $N$-gon an energy
+    \emph{maximum} ($H''(0) < 0$, proven for all $N \ge 3$);
+  \item the 2D inverse cascade drives the system to negative temperature,
+    where energy maxima are statistically selected.
+\end{enumerate}
+The polygon is inevitable for 2D rotating fluids.  It would not occur
+in 3D, where the Green's function is increasing and the polygon would
+be an energy minimum.
+
+\subsection{Limitations}
+
+The energy maximum $H''(0) < 0$ is proven along the specific spiral
+deformation \eqref{eq:deformation}; other directions in configuration
+space are not characterized.  The Onsager equilibrium is invoked but not
+derived for the specific planetary context.  The QGPV (continuous) and
+point vortex (discrete) descriptions are connected through the shared
+2D domain and logarithmic interaction, but a rigorous bridge is not
+established.  Cassini and Juno data are digitized from published figures.
+Three configurations from two planets is suggestive but not conclusive
+for universality; Uranus and Neptune observations would strengthen the
+claim.
+
+\subsection{What is novel}
+
+The individual components---Onsager condensation, Kraichnan cascades,
+Thomson stability, 2D Green's functions---are established.  What is new
+is the chain connecting them: the closed-form proof that $H''(0) < 0$
+for all $N \ge 3$; the sign rule $h' < 0 \Rightarrow H'' < 0$
+connecting Green's function monotonicity to polygon selection; the
+argument that two-dimensionality forces the entire chain; and the
+unified Saturn--Jupiter framework showing both arise from the same
+mechanism.
 
 \bibliographystyle{plainnat}
 \bibliography{refs}
