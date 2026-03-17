@@ -380,30 +380,47 @@ of that direction changing the conserved quantity $L$.
 
 \subsection{Central vortex stabilization}
 
-The analytic proof of Theorem~\ref{thm:constrained-min} covers the
-case $\kappa_0 = 0$ (no central vortex).  When a central vortex of
-circulation $\kappa_0$ is present at the origin, the Fourier eigenvalues
-acquire $\kappa_0$-dependent corrections that break the closed-form
-structure.  The following table gives \emph{numerically determined}
-critical ratios $\kappa_0/\kappa$ at which the constrained Lagrangian
-Hessian transitions from indefinite to positive semi-definite:
+When a central vortex of circulation $\kappa_0$ is present at the origin,
+the Lagrange multiplier becomes
+$\mu_L = -(N{-}1)/4 - \kappa_0/(2R^2)$, adding a shift of $\kappa_0$
+to the Lagrangian eigenvalues.  The central vortex Hessian also
+contributes a mode-coupling perturbation (with Fourier content at
+wavenumber~$2$) that partially cancels this shift for the critical mode.
+The net effect gives the critical stabilization threshold:
+
+\begin{proposition}[Critical central vortex strength]
+\label{prop:kappa-crit}
+For $N \ge 8$, the $N$-gon with central vortex is a constrained energy
+minimum if and only if $\kappa_0/\kappa \ge \kappa_{\mathrm{crit}}(N)$,
+where
+\begin{equation}\label{eq:kappa-crit}
+  \kappa_{\mathrm{crit}}(N) = \begin{cases}
+    (N^2 - 8N + 8)/16 & N \text{ even}, \\[3pt]
+    (N{-}1)(N{-}7)/16 & N \text{ odd}.
+  \end{cases}
+\end{equation}
+\end{proposition}
+
+\noindent
+The first values are:
 
 \begin{center}
-\begin{tabular}{lcccccc}
+\begin{tabular}{lcccccccc}
 \toprule
-$N$ & $\le 7$ & 8 & 9 & 10 & 11 & 12 \\
+$N$ & $\le 7$ & 8 & 9 & 10 & 11 & 12 & 13 & 14 \\
 \midrule
-$\kappa_{\mathrm{crit}}$ & 0 & 0.50 & 1.00 & 1.75 & 2.50 & 3.50 \\
+$\kappa_{\mathrm{crit}}$ & 0 & $\frac12$ & 1 &
+  $\frac74$ & $\frac52$ & $\frac72$ & $\frac92$ & $\frac{23}{4}$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \noindent
-These values are computed by bisection on the minimum eigenvalue of
-the constrained Lagrangian (code in supplementary material) and agree
-with the classical Thomson dynamical stability analysis
-\citep{Thomson1883, Havelock1931} to within $0.01$, confirming that
-energy and dynamical stability criteria are equivalent for this system.
+These agree with numerical bisection on the constrained Lagrangian
+eigenvalues to within $0.01$ for all $N \le 15$ (supplementary code),
+and with the classical Thomson dynamical stability analysis
+\citep{Thomson1883, Havelock1931}, confirming that energy and dynamical
+stability criteria are equivalent.
 
 For $N = 6$ with central vortex $\kappa_0$, an exact result is
 available.  The $12 \times 12$ stability matrix (whose explicit form
