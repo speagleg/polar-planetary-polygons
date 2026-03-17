@@ -235,8 +235,8 @@ a more negative $H''(0)$.
 
 \begin{theorem}[Constrained energy minimum]\label{thm:constrained-min}
 The regular $N$-gon minimizes $H$ on the conserved-quantity surface
-$\{L = NR^2,\, \mathbf{P} = 0\}$ for $N \le 7$.  Specifically,
-the Lagrangian Hessian
+$\{L = NR^2,\, \mathbf{P} = 0\}$ if and only if $N \le 7$.
+The Lagrangian Hessian
 \begin{equation}\label{eq:lagr-hess}
   \nabla^2\!\mathcal{L} = \nabla^2 H - 2\mu_L\, I,
   \qquad \mu_L = -\frac{N-1}{4},
@@ -245,10 +245,35 @@ restricted to the constraint tangent space, is positive semi-definite
 for $N \le 7$ and indefinite for $N \ge 8$.
 \end{theorem}
 
-This is verified numerically for $N = 3, \ldots, 12$ (code in
-supplementary material) and confirmed by direct perturbation: random
-perturbations projected onto the constraint surface via Newton iteration
-always increase $H$ for $N \le 7$.
+\begin{proof}
+The energy-Casimir functional is $\mathcal{H} = H + |\mu_L|\, L$,
+whose Hessian is \eqref{eq:lagr-hess}.  By $\mathbb{Z}_N$ symmetry,
+$\nabla^2 H$ block-diagonalizes in the discrete Fourier basis:
+Fourier mode $m \in \{0, \ldots, N-1\}$ contributes a pair of
+eigenvalues $\pm \sigma_m$ where
+\[
+  \sigma_m = \frac{N-1}{2} - \frac{m(N-m)}{2},
+\]
+using the Havelock identity
+$\sum_{p=1}^{N-1}[1-\cos(2\pi pm/N)]/[4\sin^2(\pi p/N)] = m(N-m)/2$
+\citep{Havelock1931}.  The Lagrangian eigenvalues are thus
+\[
+  \lambda_m^+ = (N-1) - \tfrac{m(N-m)}{2}, \qquad
+  \lambda_m^- = \tfrac{m(N-m)}{2}.
+\]
+Since $\lambda_m^- \ge 0$ always, positive semi-definiteness requires
+$\lambda_m^+ \ge 0$ for all modes $m = 2, \ldots, N-2$ (the constraint
+surface removes $m = 0$ and $m = 1, N-1$).  The minimum of
+$\lambda_m^+$ over $m$ occurs at $m = \lfloor N/2 \rfloor$:
+\[
+  \min_m \lambda_m^+ = \begin{cases}
+    (N{-}1)(7{-}N)/8 & N \text{ odd}, \\
+    (N{-}1) - N^2/8 & N \text{ even}.
+  \end{cases}
+\]
+Both expressions are $\ge 0$ for $N \le 7$ (with equality at $N = 7$)
+and $< 0$ for $N \ge 8$.
+\end{proof}
 
 The Lagrange multiplier $\mu_L = -(N-1)/4$ shifts all eigenvalues of
 $\nabla^2 H$ upward by $(N-1)/2$.  This overwhelms the $H''(0) < 0$
@@ -476,9 +501,7 @@ $H$ in an appropriate limit---has not been established.
 The Onsager negative-temperature hypothesis is a physical assumption
 whose applicability to these specific planetary configurations is not
 tested here.  Cassini and Juno data are digitized from published
-figures.  The constrained energy minimum is verified numerically, not
-proven analytically; an analytic proof via the energy-Casimir method
-\citep{BoattoCabral2003} would strengthen the result.
+figures.
 
 Three configurations from two planets is consistent with the proposed
 mechanism but not sufficient to establish universality.  Uranus and
