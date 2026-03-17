@@ -144,8 +144,8 @@ def measure_delta_U(profile: CassiniWindProfile = None) -> dict:
     if profile is None:
         profile = load_cassini_profile()
 
-    from .saturn import SaturnParameters
-    from ..core.rossby import stationary_jet_speed
+    from saturn_data import SaturnParameters
+    from rossby import stationary_jet_speed
 
     saturn = SaturnParameters()
 
@@ -165,7 +165,7 @@ def measure_delta_U(profile: CassiniWindProfile = None) -> dict:
     ratio = delta_U / U_star
 
     # Compare Gaussian fit with actual profile
-    from ..core.qgpv import gaussian_jet_profile
+    from qgpv import gaussian_jet_profile
     sigma_logpolar = hw_m / saturn.hexagon_radius
     rho_grid = np.linspace(-0.2, 0.2, 100)
     U_gaussian = gaussian_jet_profile(rho_grid, U_obs, 0.0, sigma_logpolar)

@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from spiral_hexagon.data.jupiter import (
+from jupiter_data import (
     JupiterParameters, juno_cyclone_positions,
     jupiter_sigma_test, jupiter_full_convergence,
 )

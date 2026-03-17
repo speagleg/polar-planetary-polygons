@@ -6,7 +6,7 @@ confirming the Mobius framework is universal across planets?
 """
 
 import numpy as np
-from ..data.jupiter import (
+from jupiter_data import (
     JupiterParameters, jupiter_full_convergence,
     rossby_wavenumber_prediction,
 )

@@ -34,8 +34,23 @@ from scipy.integrate import quad
 from scipy.optimize import brentq
 from typing import Optional
 
-from ..core.mobius import LoxodromicFlow
-from ..core.rossby import RossbyWavePacket
+# LoxodromicFlow and RossbyWavePacket are used by the MatchedAsymptoticSolver
+# class but are not yet ported to this repo. The standalone functions
+# matching_constant() and hexagon_amplitude_analytic() work without them.
+try:
+    from rossby import RossbyWavePacket
+except ImportError:
+    RossbyWavePacket = None
+
+# Minimal stub for type annotations
+class LoxodromicFlow:
+    """Stub — full implementation in spiral-hexagon working repo."""
+    def __init__(self, **kwargs):
+        self.sigma = kwargs.get('sigma', 0.0)
+        self.alpha = kwargs.get('alpha', 0.0)
+        self.A = kwargs.get('A', 1.0)
+    def stream_function(self, rho, theta):
+        return rho * 0  # placeholder
 
 
 def matching_constant(n: int = 6, sigma_jet: float = 0.05,
