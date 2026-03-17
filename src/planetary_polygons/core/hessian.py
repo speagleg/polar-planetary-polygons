@@ -392,6 +392,146 @@ def critical_central_vortex_strength(N: int, R: float = 1.0,
     return (kr_low + kr_high) / 2
 
 
+def kappa_crit_sympy(N: int):
+    """
+    Exact kappa_crit for N-gon + central vortex using sympy.
+    For N=6 returns sympy.Rational(-1, 4).
+
+    Method: build the constrained Lagrangian Hessian at the N-gon equilibrium
+    (kappa_0 = 0). Find the smallest positive eigenvalue lambda_crit of the
+    ring-only constrained Hessian (the mode first destabilised by the central
+    vortex). Compute the derivative of that eigenvalue with respect to kappa_0
+    via first-order perturbation theory, accounting for the change in Lagrange
+    multiplier. Solve lambda_crit + kappa_0 * rate = 0 for kappa_0.
+
+    For N=6 the critical mode is m=2 (Fourier mode 2 of the ring), its
+    eigenvalue at kappa_0=0 is 0.5, and the rate is 2, giving kappa_crit = -1/4.
+    """
+    import sympy as sp
+
+    N_val = int(N)
+    z = np.exp(2j * np.pi * np.arange(N_val) / N_val)
+    pos = np.concatenate([z.real, z.imag])
+
+    # ------------------------------------------------------------------
+    # Build ring-ring Hessian H_ring (2N x 2N) analytically
+    # H = -sum_{j<k} ln|z_j - z_k|
+    # d²H/dx_j dx_k = (dy²-dx²)/d⁴  [off-diagonal, same xy-block]
+    # ------------------------------------------------------------------
+    H_ring = np.zeros((2*N_val, 2*N_val))
+    for j in range(N_val):
+        for k in range(N_val):
+            if j == k:
+                continue
+            dz = z[j] - z[k]
+            dx, dy = dz.real, dz.imag
+            d2 = dx**2 + dy**2
+            d4 = d2**2
+            h_xx = (dy**2 - dx**2) / d4
+            h_yy = (dx**2 - dy**2) / d4
+            h_xy = -2.0 * dx * dy / d4
+            H_ring[j, j] -= h_xx;         H_ring[j+N_val, j+N_val] -= h_yy
+            H_ring[j, j+N_val] -= h_xy;   H_ring[j+N_val, j] -= h_xy
+            H_ring[j, k] += h_xx;         H_ring[j+N_val, k+N_val] += h_yy
+            H_ring[j, k+N_val] += h_xy;   H_ring[j+N_val, k] += h_xy
+
+    # ------------------------------------------------------------------
+    # Build ring-central Hessian H_central (2N x 2N)
+    # Contribution from H_central = -kappa_0 * sum_j ln|z_j|
+    # For unit ring |z_j| = 1, d²/dx_j² ln|z_j| = (y_j²-x_j²)/|z_j|⁴ etc.
+    # ------------------------------------------------------------------
+    H_central = np.zeros((2*N_val, 2*N_val))
+    for j in range(N_val):
+        dx, dy = z[j].real, z[j].imag
+        d2 = dx**2 + dy**2  # = 1 for unit ring
+        d4 = d2**2
+        h_xx = (dy**2 - dx**2) / d4
+        h_yy = (dx**2 - dy**2) / d4
+        h_xy = -2.0 * dx * dy / d4
+        H_central[j, j] -= h_xx
+        H_central[j+N_val, j+N_val] -= h_yy
+        H_central[j, j+N_val] -= h_xy
+        H_central[j+N_val, j] -= h_xy
+
+    # ------------------------------------------------------------------
+    # Constraint gradients and null-space basis
+    # Constraints: L = sum|z_k|² (angular impulse),
+    #              Px = sum x_k, Py = sum y_k (linear impulse)
+    # ------------------------------------------------------------------
+    grad_L  = 2 * pos
+    grad_Px = np.concatenate([np.ones(N_val),  np.zeros(N_val)])
+    grad_Py = np.concatenate([np.zeros(N_val), np.ones(N_val)])
+    G = np.column_stack([grad_L, grad_Px, grad_Py])
+
+    U_svd, S_svd, Vt_svd = np.linalg.svd(G.T)
+    rank = int(np.sum(S_svd > 1e-10))
+    null_basis = Vt_svd[rank:].T   # columns span tangent space of constraint surface
+
+    # ------------------------------------------------------------------
+    # Lagrange multiplier for ring-only energy (kappa_0 = 0)
+    # nabla H_ring = mu_L * nabla L + mu_Px * nabla Px + mu_Py * nabla Py
+    # ------------------------------------------------------------------
+    grad_H_ring = numerical_gradient(
+        lambda p: sum(
+            -0.5 * np.log((p[j] - p[k])**2 + (p[j + N_val] - p[k + N_val])**2)
+            for j in range(N_val) for k in range(j + 1, N_val)
+        ),
+        pos
+    )
+    mu_ring, _, _, _ = np.linalg.lstsq(G, grad_H_ring, rcond=None)
+    mu_L_ring = float(mu_ring[0])
+
+    # Lagrange multiplier for central-vortex energy (per unit kappa_0)
+    # grad of -sum_j ln|z_j| at the unit ring
+    grad_H_central = np.zeros(2 * N_val)
+    for j in range(N_val):
+        r2 = z[j].real**2 + z[j].imag**2
+        grad_H_central[j]         = -z[j].real / r2
+        grad_H_central[j + N_val] = -z[j].imag / r2
+    mu_central, _, _, _ = np.linalg.lstsq(G, grad_H_central, rcond=None)
+    mu_L_central = float(mu_central[0])   # d(mu_L)/d(kappa_0)
+
+    # ------------------------------------------------------------------
+    # Constrained Lagrangian Hessian at kappa_0 = 0
+    # nabla² L_lagr = H_ring - 2*mu_L_ring*I  (since nabla²L = 2I)
+    # Restricted to tangent space of constraint surface
+    # ------------------------------------------------------------------
+    H_lagr_ring = H_ring - 2.0 * mu_L_ring * np.eye(2 * N_val)
+    H_ring_restricted = null_basis.T @ H_lagr_ring @ null_basis
+    evals_ring, evecs_ring = np.linalg.eigh(H_ring_restricted)
+
+    # Find the critical eigenvalue: smallest strictly positive eval
+    # (the zero eval belongs to the rotational Goldstone mode for N<=6,
+    # and the critical mode is the next one that kappa_0 drives negative)
+    tol_zero = 1e-4
+    pos_mask = evals_ring > tol_zero
+    if not np.any(pos_mask):
+        raise RuntimeError(f"No positive constrained eigenvalue found for N={N_val}")
+
+    idx_crit = int(np.argmax(pos_mask))   # first index with eval > tol
+    lambda_crit = float(evals_ring[idx_crit])
+    v_crit_restricted = evecs_ring[:, idx_crit]
+    v_crit = null_basis @ v_crit_restricted   # lift back to full space
+
+    # ------------------------------------------------------------------
+    # First-order perturbation theory: rate = d(lambda_crit)/d(kappa_0)
+    # d(H_lagr)/d(kappa_0) = H_central - 2*mu_L_central*I
+    # rate = v_crit^T [H_central - 2*mu_L_central*I] v_crit
+    # ------------------------------------------------------------------
+    d_H_lagr = H_central - 2.0 * mu_L_central * np.eye(2 * N_val)
+    rate = float(v_crit @ d_H_lagr @ v_crit)
+
+    if abs(rate) < 1e-12:
+        raise RuntimeError(f"Rate is zero for N={N_val}; central vortex does not couple to critical mode")
+
+    # kappa_crit: lambda_crit + kappa_crit * rate = 0
+    kappa_crit_float = -lambda_crit / rate
+
+    # Convert to exact sympy Rational
+    result = sp.nsimplify(kappa_crit_float, rational=True, tolerance=1e-6)
+    return result
+
+
 def full_analysis_report(N_range: range = range(3, 11),
                          verbose: bool = True) -> dict:
     """Run constrained Hessian analysis for all N and print report."""
