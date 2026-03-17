@@ -193,14 +193,21 @@ Substituting $d_m = 2\sin(\pi m/N)$ yields \eqref{eq:Hpp}.
 Every factor in the sum is strictly positive, so $H''(0) < 0$.
 \end{proof}
 
-\begin{remark}
-This proves the $N$-gon is a local energy \emph{maximum along the
-spiral direction}.  We show below (Theorem~\ref{thm:constrained-min})
-that on the full conserved-quantity surface, the $N$-gon is actually
-an energy \emph{minimum}.  There is no contradiction: the spiral
-deformation \eqref{eq:deformation} changes $L$ at $O(\sigma^2)$,
-so it is not tangent to the conserved surface at second order.
-\end{remark}
+\medskip
+\noindent\textbf{Warning (energy maximum vs.\ minimum).}
+Theorem~\ref{thm:energy-curv} proves $H''(0) < 0$ along the spiral
+direction \emph{only}.  This does \textbf{not} imply the $N$-gon is
+an energy maximum on the physically accessible surface.  The spiral
+deformation \eqref{eq:deformation} changes the angular impulse
+$L = \sum|z_k|^2$ at $O(\sigma^2)$, so it leaves the conserved
+surface at second order.  Theorem~\ref{thm:constrained-min} below
+proves that on the conserved surface $\{L = NR^2,\,\mathbf{P} = 0\}$,
+the $N$-gon is a constrained energy \emph{minimum} for $N \le 7$
+---the opposite conclusion.  The Lagrange multiplier shift
+$\mu_L = -(N{-}1)/4$ overwhelms the negative $H''(0)$ when the
+perturbation is projected onto the constraint tangent space.
+The reader should carry the \emph{minimum} (not maximum) as the
+correct physical picture throughout.
 
 \subsection{The sign rule (proven)}
 
