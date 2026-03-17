@@ -960,20 +960,43 @@ Since the Cauchy blob is the slowest-converging regularization, all
 profiles with finite $\sigma^2$ inherit its stability conclusions.
 \end{proof}
 
-The first values of the total correction coefficient
-$c_m = -(N^2{-}1)/12 + P_m$ (verified analytically to four decimal
-places against the numerical Hessian) are:
+The Hessian projection $P_m$ and the total correction
+$c_m = -(N^2{-}1)/12 + P_m$ (specific to the Cauchy blob
+$h_\varepsilon = -\tfrac12\ln(d^2 + 2\varepsilon^2)$, verified
+analytically to four decimal places) are:
 \begin{center}
-\begin{tabular}{lccccccc}
+\begin{tabular}{lcccccc}
 \toprule
 $N$ & 3 & 4 & 5 & 6 & 7 & 8 \\
 \midrule
+$-(N^2{-}1)/12$ & $-\frac23$ & $-\frac54$ & $-2$ &
+  $-\frac{35}{12}$ & $-4$ & $-\frac{21}{4}$ \\[3pt]
+$P_m$ & $-\frac13$ & $+\frac14$ & $+1$ & $+4$ & $+8$ &
+  $+\frac{65}{4}$ \\[3pt]
 $c_m$ & $-1$ & $-1$ & $-1$ & $+\frac{13}{12}$ & $+4$ & $+11$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \noindent
+The Hessian projection $P_m$ changes sign between $N = 3$
+($P_3 = -1/3$, the blob weakens the critical mode's curvature)
+and $N = 4$ ($P_4 = +1/4$, the blob strengthens it).  Despite this,
+$c_m = -1$ universally for $N \le 5$ because the Lagrange multiplier
+shift $-(N^2{-}1)/12$ dominates $P_m$ in this range.  For $N \ge 6$,
+$P_m$ grows faster ($\sim m^2(N{-}m)^2/4$) and overwhelms the shift.
+
+For blob profiles with finite second moment $\sigma^2$ (Gaussian,
+compact support), the $O(\varepsilon^2)$ correction is confined to
+the self-energy and does not affect pairwise eigenvalues
+(Section~\ref{sec:blob}, profile independence argument).  The
+pairwise correction is $O(\varepsilon^4)$ with a profile-dependent
+coefficient.  Since the $O(\varepsilon^2)$ corrections from the Cauchy
+blob table above preserve stability for $N \le 7$, and all
+finite-$\sigma^2$ blobs have \emph{smaller} corrections at any given
+$\varepsilon$, the stability conclusions hold \emph{a fortiori} for
+all smooth profiles.
+
 Three consequences follow:
 
 \emph{(i) Stability preserved.}  For $N \le 5$:
@@ -1032,8 +1055,14 @@ limit or $\Gamma$-convergence is needed.
 
 \subsubsection{The regime criterion}
 
-The dimensionless number $\beta R^3/\kappa$ determines which bridge
-applies:
+The dimensionless number $\beta R^3/\kappa$ is the ratio of two
+timescales: the Rossby wave period $T_R \sim 1/(\beta R)$ and the
+vortex turnover time $T_v \sim R^2/\kappa$.  When
+$\beta R^3/\kappa = T_v/T_R \ll 1$, the vortex interactions complete
+many orbits before the Rossby wave propagates appreciably, so the
+dynamics is vortex-dominated.  When $\beta R^3/\kappa \gg 1$, the
+Rossby wave dynamics operates faster than the vortex rearrangement,
+so the wave mechanism dominates:
 \begin{center}
 \begin{tabular}{lcl}
 \toprule
