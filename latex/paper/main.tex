@@ -1156,22 +1156,31 @@ $E[\omega_\varepsilon] + \mu_L\,L[\omega_\varepsilon]$ on the space of
 $\mathbb{Z}_N$-symmetric vorticity perturbations has the same inertia
 (number of positive, zero, and negative eigenvalues along the constrained
 directions) as the point vortex Lagrangian Hessian of
-Theorem~\ref{thm:constrained-min}.  In particular, the stability
-boundary $N \le 7$ is preserved for any smooth vorticity distribution
-sufficiently concentrated near the $N$-gon vertices.
+Theorem~\ref{thm:constrained-min}.  The point vortex model is therefore
+the \emph{exact} limit of smooth vorticity dynamics for stability
+analysis: no eigenvalue is lost, no sign is changed, and no new
+instability arises from the infinite-dimensional shape degrees of
+freedom.  The stability boundary $N \le 7$ is not an approximation of
+the smooth result---it \emph{is} the smooth result in the
+$\varepsilon \to 0$ limit.
 \end{proposition}
 
 \begin{proof}
-By (b), the shape sector contributes only positive eigenvalues
-($\ge c/\varepsilon^2$).  By (c), the center-shape coupling is
-exponentially small, hence a compact perturbation of the block-diagonal
-structure.  By (a) and Weyl's theorem, the center-sector eigenvalues
-converge to the Havelock values at $O(\varepsilon^\alpha)$.  The
-combined inertia equals the center inertia (from (a)) plus positive
-contributions (from (b)), with exponentially small corrections
-(from (c)).  For $\varepsilon$ small enough that the center eigenvalues
-have stabilized to within half their limiting values, the signs are
-determined by the Havelock eigenvalues.
+The full Hessian on the constrained perturbation space has
+block-diagonal structure (up to exponentially small coupling from~(c)):
+the center sector (dimension $2N{-}3$, eigenvalues converging to
+Havelock) and the shape sector (infinite-dimensional, all eigenvalues
+$\ge c/\varepsilon^2 > 0$).  Since the shape eigenvalues are positive
+and bounded away from zero, they cannot produce instabilities.
+Since the center-shape coupling from~(c) is
+$O(\varepsilon^{-1}e^{-d_{\min}/\varepsilon})$ (a compact
+perturbation), it cannot change the sign of any eigenvalue that is
+bounded away from zero.  By~(a) and Weyl's perturbation theorem,
+the center eigenvalues converge to the Havelock values uniformly at
+$O(\varepsilon^\alpha)$.  Therefore, for $\varepsilon$ small enough
+that the center eigenvalues are within half their limiting values,
+the full Hessian inertia equals the center inertia---which is the
+point vortex Lagrangian inertia of Theorem~\ref{thm:constrained-min}.
 \end{proof}
 
 \subsubsection{The Rossby bridge (Saturn regime)}
