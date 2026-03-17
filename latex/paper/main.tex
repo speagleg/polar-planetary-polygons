@@ -182,7 +182,15 @@ with $u = \sigma/N$.  Direct differentiation gives
 $F''(0, m) = m^2/[2\sin^2(\pi m/N)]$.
 There are $(N-m)$ pairs with separation $m$, and the chain rule
 $\dd/\dd\sigma = (1/N)\,\dd/\dd u$ contributes $1/N^2$.
-Every factor is strictly positive, so $H''(0) < 0$.
+This derivation uses the specific structure of $h = -\ln r$:
+the general formula \eqref{eq:Hpp-general} has two terms, but for the
+logarithmic interaction $(rh')' = (-1)' = 0$, so the $S_m$ terms
+(first term in \eqref{eq:Hpp-general}) vanish identically.  Only the
+second term survives, giving \eqref{eq:Hpp} as a special case of
+\eqref{eq:Hpp-general} with $A_m = 0$ and
+$B_m = h'(d_m)\,m^2(N{-}m)/(N^2 d_m) = -m^2(N{-}m)/(N^2 d_m^2)$.
+Substituting $d_m = 2\sin(\pi m/N)$ yields \eqref{eq:Hpp}.
+Every factor in the sum is strictly positive, so $H''(0) < 0$.
 \end{proof}
 
 \begin{remark}
