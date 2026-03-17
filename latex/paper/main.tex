@@ -682,6 +682,28 @@ the domain scale.  The class~(i)/(ii)/(iii) partition thus applies
 on curved surfaces, but the sufficient condition $(rh')' \le 0$ is
 specific to the plane; on the sphere, $h' < 0$ alone suffices.
 
+\medskip\noindent\textbf{Finite deformation radius.}
+In quasi-geostrophic dynamics with finite Rossby deformation radius
+$R_d$, the Green's function is $K_0(r/R_d)$ (modified Bessel function),
+which recovers $-\ln r$ for $r \ll R_d$.  The interaction $h(r) =
+K_0(r/R_d)$ satisfies $h'(r) = -K_1(r/R_d)/R_d < 0$ and
+$(rh'(r))' = rK_0(r/R_d)/R_d^2 > 0$ (class~(iii)).  Numerical
+computation of $H''(0)$ and the constrained Lagrangian Hessian as a
+function of $R/R_d$ (polygon ring radius over deformation radius)
+reveals a \emph{polygon-suppression transition}: the $N = 6$ polygon is
+a constrained energy minimum for $R/R_d \lesssim 1$, loses stability
+near $R/R_d \approx 1.5$, and becomes trivially stable (negligible
+interaction) for $R/R_d \gg 1$.  The critical ratio $R/R_d \approx 1.5$
+at which the constrained Hessian becomes indefinite predicts that
+stratified atmospheres with polygon-scale radius comparable to the
+deformation radius should suppress polygonal vortex structures.  For
+Saturn, the barotropic deformation radius ($\sim\!2000$--$3000\,$km)
+gives $R/R_d \approx 8$--$12$ at the hexagonal jet, placing it in the
+weak-interaction regime; the observed hexagonal persistence is
+consistent with the deep barotropic layer having a much larger effective
+$R_d$, as suggested by gravity-field measurements
+\citep{SanchezLavega2014}.
+
 \subsection{What is novel}
 
 The individual components---Onsager condensation, Kraichnan cascades,
