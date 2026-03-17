@@ -363,21 +363,8 @@ and $< 0$ for $N \ge 8$.  Thus $N \le 6$ is \emph{strictly} stable
 (positive definite Lagrangian), $N = 7$ is \emph{neutrally} stable
 (positive semi-definite, with a zero eigenvalue at $m = 3$),
 consistent with \citet{Havelock1931}, and $N \ge 8$ is unstable.
-
-To classify the $N = 7$ bifurcation, we compute the quartic term of
-$H$ along the $m = 3$ neutral direction on the constraint surface.
-The $\mathbb{Z}_7$-equivariant normal form is
-$H = (\lambda/2)|z|^2 + (\alpha/4)|z|^4 + \cdots$
-where $z$ is the complex amplitude of the $m = 3$ mode and $\lambda = 0$
-at $N = 7$.  Numerical evaluation (tracing $H$ along the
-Newton-projected constraint surface) gives $\alpha \approx +1.9 > 0$.
-Since $\alpha > 0$, the heptagonal configuration is a
-\emph{degenerate energy minimum} with quartic restoring force
-($H \sim +\varepsilon^4$), confirming its nonlinear stability
-\citep{Havelock1931}.  The weaker quartic confinement (compared to
-the quadratic confinement for $N \le 6$) explains the relative
-rarity of heptagonal vortex configurations in observations and
-simulations.
+(The $N = 7$ marginal case is further analyzed in
+Section~\ref{sec:n7}.)
 \end{proof}
 
 The value $\mu_L = -(N-1)/4$ follows from the constrained stationarity
@@ -489,21 +476,8 @@ for the $N = 6$ ring: for $\kappa_0/\kappa > -1/4$ the hexagonal
 configuration is stable; for $\kappa_0/\kappa < -1/4$ an anticyclonic
 central vortex destabilizes it.
 
-\begin{remark}
-The stabilization in Proposition~\ref{prop:kappa-crit} requires the
-additional vortex to be at the \emph{center} (the $\mathbb{Z}_N$
-fixed point), not merely on an inner ring.  Two-ring configurations
-($M$ inner vortices at radius $R_1$, $N$ outer at $R_2$) are a
-classical topic \citep{Aref2003}; our constrained Hessian computation
-for representative cases (tested for $M = 1, \ldots, 8$,
-$N = 5, 6, 8$, $R_2/R_1 \in \{1.5, 2, 3\}$; supplementary
-code)---e.g., $(N,M) = (8,4)$ at $R_2/R_1 = 2$
-gives $3$ negative Lagrangian eigenvalues; $(6,3)$ at $R_2/R_1 = 2$
-gives $3$ negative eigenvalues---shows that the inter-ring
-interactions break the single-ring $\mathbb{Z}_N$ symmetry and
-introduce destabilizing modes absent from the center-plus-ring
-geometry.  This is consistent with Jupiter's observed configuration.
-\end{remark}
+The center-vs-ring geometry is essential: multi-ring configurations
+are generically less stable (Section~\ref{sec:multiring}).
 
 \subsection{The two-scale mechanism}
 
@@ -704,60 +678,9 @@ is not an energy extremum along the spiral, and the stability analysis
 gives different results.  The present mechanism---sign rule plus
 energy-Casimir stability---does not operate in 3D; whether other
 mechanisms can produce persistent polygonal vortex structures in
-three dimensions is a separate question.
-
-The sign rule extends naturally to \emph{curved} 2D surfaces.
-On the 2-sphere, the standard point vortex interaction uses chord
-distance: $h(\theta) = -\ln(2\sin(\theta/2))$, which satisfies
-$h'(\theta) = -\frac12\cot(\theta/2) < 0$.  The curvature-corrected
-analog of $(rh')'$ is $(\sin\theta\cdot h'(\theta))' = \tfrac12\sin\theta > 0$
-(class~(iii) of Remark~\ref{rem:borderline}: the positive curvature
-correction exceeds the planar borderline).  Numerical computation
-shows $H''(0) > 0$ for the spherical $N$-gon at all tested colatitudes
-and $N \le 8$: the polygon is an energy minimum along the spiral
-\emph{even in the unconstrained problem}.  The spherical geometry
-provides additional stabilization beyond the planar mechanism.  On the
-flat torus, $H''(0) < 0$ approaches the planar value for polygons
-small relative to the domain, with periodic corrections entering at
-the domain scale.  The class~(i)/(ii)/(iii) partition thus applies
-on curved surfaces, but the sufficient condition $(rh')' \le 0$ is
-specific to the plane; on the sphere, $h' < 0$ alone suffices.
-
-\medskip\noindent\textbf{Finite deformation radius.}
-In quasi-geostrophic dynamics with finite Rossby deformation radius
-$R_d$, the Green's function is $K_0(r/R_d)$ (modified Bessel function),
-which recovers $-\ln r$ for $r \ll R_d$.  The interaction $h(r) =
-K_0(r/R_d)$ satisfies $h'(r) = -K_1(r/R_d)/R_d < 0$ and
-$(rh'(r))' = rK_0(r/R_d)/R_d^2 > 0$ (class~(iii)).  Numerical
-computation of the constrained Lagrangian Hessian as a function of
-$R/R_d$ reveals an $N$-dependent \emph{polygon-suppression transition}:
-
-\begin{center}
-\begin{tabular}{lccl}
-\toprule
-$N$ & Barotropic $\lambda_{\min}$ & Critical $R/R_d$ & Status \\
-\midrule
-$\le 5$ & $\ge 1$ & none & Stable for all $R/R_d$ \\
-$6$ & $1/2$ & $\approx 1.29$ & Suppressed for $R/R_d > 1.29$ \\
-$7$ & $0$ & $\approx 0$ & Unstable for any finite $R/R_d$ \\
-$\ge 8$ & $< 0$ & N/A & Unstable (barotropic) \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\noindent
-Polygons with $N \le 5$ are robust against stratification effects.
-The hexagon ($N = 6$) is the first polygon sensitive to $R_d$: it
-requires $R/R_d < 1.29$.  The heptagon ($N = 7$), neutrally stable
-in the barotropic limit, is destabilized by any finite $R/R_d$---providing
-an additional mechanism for its rarity beyond the quartic confinement.
-
-For Saturn, the barotropic deformation radius
-($\sim\!2000$--$3000\,$km) gives $R/R_d \approx 8$--$12$ at the
-hexagonal jet, placing it above the critical ratio.  The observed
-hexagonal persistence requires the deep barotropic layer to have an
-effectively large $R_d$, consistent with Cassini gravity-field
-measurements of deep zonal winds \citep{SanchezLavega2014}.
+three dimensions is a separate question.  Extensions to curved 2D
+surfaces and finite deformation radius are developed in
+Section~\ref{sec:extensions}.
 
 \subsection{What is novel}
 
@@ -822,6 +745,126 @@ mechanism but not sufficient to establish universality.  Uranus and
 Neptune observations would substantially strengthen the case.  We use
 ``consistent with a general mechanism'' rather than ``universal'' to
 reflect the available evidence.
+
+%% ====================================================================
+\section{Extensions}
+\label{sec:extensions}
+
+The results of Sections~\ref{sec:results}--\ref{sec:discussion} are
+proven for point vortices on the Euclidean plane with logarithmic
+interaction.  This section extends the analysis to curved surfaces,
+finite deformation radius, the $N = 7$ marginal case, and multi-ring
+configurations.
+
+\subsection{Curved 2D surfaces}
+\label{sec:curved}
+
+On the 2-sphere, the standard point vortex interaction uses chord
+distance: $h(\theta) = -\ln(2\sin(\theta/2))$, which satisfies
+$h'(\theta) = -\frac12\cot(\theta/2) < 0$.  The curvature-corrected
+analog of $(rh')'$ is
+$(\sin\theta\cdot h'(\theta))' = \tfrac12\sin\theta > 0$
+(class~(iii) of Remark~\ref{rem:borderline}: the positive curvature
+correction exceeds the planar borderline).  Numerical computation
+shows $H''(0) > 0$ for the spherical $N$-gon at all tested colatitudes
+and $N \le 8$: the polygon is an energy minimum along the spiral
+\emph{even in the unconstrained problem}.  The spherical geometry
+provides additional stabilization beyond the planar mechanism.
+
+On the flat torus, $H''(0) < 0$ approaches the planar value for
+polygons small relative to the domain, with periodic corrections
+entering at the domain scale.  The class~(i)/(ii)/(iii) partition
+thus applies on curved surfaces, but the sufficient condition
+$(rh')' \le 0$ is specific to the plane; on the sphere, $h' < 0$
+alone suffices.
+
+\subsection{Finite Rossby deformation radius}
+\label{sec:deformation}
+
+In quasi-geostrophic dynamics with finite Rossby deformation radius
+$R_d$, the Green's function is $K_0(r/R_d)$ (modified Bessel function),
+which recovers $-\ln r$ for $r \ll R_d$.  The interaction $h(r) =
+K_0(r/R_d)$ satisfies $h'(r) = -K_1(r/R_d)/R_d < 0$ and
+$(rh'(r))' = rK_0(r/R_d)/R_d^2 > 0$ (class~(iii)).  Numerical
+computation of the constrained Lagrangian Hessian as a function of
+$\eta = R/R_d$ (polygon ring radius over deformation radius) reveals
+an $N$-dependent \emph{polygon-suppression transition}:
+
+\begin{center}
+\begin{tabular}{lccl}
+\toprule
+$N$ & Barotropic $\lambda_{\min}$ & Critical $R/R_d$ & Status \\
+\midrule
+$\le 5$ & $\ge 1$ & none & Stable for all $R/R_d$ \\
+$6$ & $1/2$ & $\approx 1.29$ & Suppressed for $R/R_d > 1.29$ \\
+$7$ & $0$ & $\approx 0$ & Unstable for any finite $R/R_d$ \\
+$\ge 8$ & $< 0$ & N/A & Unstable (barotropic) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Polygons with $N \le 5$ are robust against stratification effects.
+The hexagon ($N = 6$) is the first polygon sensitive to $R_d$: it
+requires $R/R_d < 1.29$.  The heptagon ($N = 7$), neutrally stable
+in the barotropic limit, is destabilized by any finite
+$R/R_d$---providing an additional mechanism for its rarity beyond the
+quartic confinement.
+
+For Saturn, the barotropic deformation radius
+($\sim\!2000$--$3000\,$km) gives $R/R_d \approx 8$--$12$ at the
+hexagonal jet, placing it above the critical ratio.  The observed
+hexagonal persistence requires the deep barotropic layer to have an
+effectively large $R_d$, consistent with Cassini gravity-field
+measurements of deep zonal winds \citep{SanchezLavega2014}.
+
+The critical ratio is defined implicitly by the equation
+$\bar\lambda(\eta_{\mathrm{crit}}, N) = 0$, where the dimensionless
+eigenvalue $\bar\lambda(\eta, N) = R^2 \cdot \lambda_{\min}(\eta)$
+interpolates smoothly from the Havelock value
+$\bar\lambda(0, N) = (N{-}1) - \lfloor N/2\rfloor
+(N{-}\lfloor N/2\rfloor)/2$ to zero.  The $K_0$ analog of the Havelock
+sum does not admit a closed form (the summand
+$K_0(2\eta\sin(\pi p/N))$ is non-algebraic in $\sin(\pi p/N)$, so the
+orthogonality trick fails), but the implicit equation is well-posed
+and the critical $\eta$ is uniquely determined by bisection for each
+$N$.
+
+\subsection{The $N = 7$ bifurcation}
+\label{sec:n7}
+
+At $N = 7$, the minimum constrained Lagrangian eigenvalue is zero
+(mode $m = 3$).  To classify the bifurcation, we compute the quartic
+term of $H$ along the $m = 3$ neutral direction on the constraint
+surface.  The $\mathbb{Z}_7$-equivariant normal form is
+$H = (\lambda/2)|z|^2 + (\alpha/4)|z|^4 + \cdots$
+where $z$ is the complex amplitude of the $m = 3$ mode and
+$\lambda = 0$ at $N = 7$.  Numerical evaluation (tracing $H$ along
+the Newton-projected constraint surface) gives $\alpha \approx +1.9 > 0$.
+Since $\alpha > 0$, the heptagonal configuration is a
+\emph{degenerate energy minimum} with quartic restoring force
+($H \sim +\varepsilon^4$), confirming its nonlinear stability
+\citep{Havelock1931}.  The weaker quartic confinement (compared to
+the quadratic confinement for $N \le 6$) explains the relative
+rarity of heptagonal vortex configurations in observations and
+simulations.
+
+\subsection{Multi-ring configurations}
+\label{sec:multiring}
+
+The stabilization in Proposition~\ref{prop:kappa-crit} requires the
+additional vortex to be at the \emph{center} (the $\mathbb{Z}_N$
+fixed point), not merely on an inner ring.  Two-ring configurations
+($M$ inner vortices at radius $R_1$, $N$ outer at $R_2$) are a
+classical topic \citep{Aref2003}; our constrained Hessian computation
+for representative cases (tested for $M = 1, \ldots, 8$,
+$N = 5, 6, 8$, $R_2/R_1 \in \{1.5, 2, 3\}$; supplementary
+code)---e.g., $(N,M) = (8,4)$ at $R_2/R_1 = 2$
+gives $3$ negative Lagrangian eigenvalues; $(6,3)$ at $R_2/R_1 = 2$
+gives $3$ negative eigenvalues---shows that the inter-ring
+interactions break the single-ring $\mathbb{Z}_N$ symmetry and
+introduce destabilizing modes absent from the center-plus-ring
+geometry.  This is consistent with Jupiter's observed configuration.
 
 \appendix
 \section{The Havelock identity}
