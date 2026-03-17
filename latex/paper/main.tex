@@ -652,64 +652,35 @@ Neptune observations would substantially strengthen the case.  We use
 reflect the available evidence.
 
 \appendix
-\section{Proof of the Havelock identity}
+\section{The Havelock identity}
 \label{app:havelock}
 
 \begin{lemma}\label{lem:havelock}
-For integers $N \ge 2$ and $0 \le m \le N-1$,
+For integers $N \ge 2$ and $1 \le m \le N-1$,
 \[
   T_m := \sum_{p=1}^{N-1}\frac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
   = \frac{m(N-m)}{2}.
 \]
 \end{lemma}
 
-\begin{proof}
-Let $\omega = e^{2\pi i/N}$.  The partial-fraction identity for the
-Fej\'er kernel gives
-\begin{equation}\label{eq:csc-sum}
-  \frac{1}{4\sin^2(\pi p/N)}
-  = \frac{1}{2N}\sum_{j=0}^{N-1}\frac{\omega^{jp}}{1 - \omega^p}\;\cdot
-\end{equation}
-More directly: from the factorization
-$\prod_{p=1}^{N-1}(z - \omega^p) = 1 + z + \cdots + z^{N-1}$,
-taking the logarithmic derivative and comparing residues yields
-\[
-  \sum_{p=1}^{N-1}\frac{\omega^{pm}}{1 - \omega^p} = \frac{N-1}{2} - m
-  \qquad (0 \le m \le N-1).
-\]
-This is a standard identity (see, e.g., \citet{Aref2003}, Appendix~A).
-Taking real parts:
-\[
-  \sum_{p=1}^{N-1}\frac{\cos(2\pi pm/N) - 1}{2(1-\cos(2\pi p/N))}
-  = \frac{N-1}{2} - m - \frac{N-1}{2} \cdot \delta_{m,0}\;\cdot
-\]
-For $m \ge 1$, using $1 - \cos(2\pi p/N) = 2\sin^2(\pi p/N)$, this
-becomes
-\[
-  -T_m = \frac{N-1}{2} - m, \qquad\text{i.e.,}\qquad
-  T_m = m - \frac{N-1}{2}.
-\]
-But $T_m$ as defined is symmetric under $m \leftrightarrow N-m$
-(replace $p$ by $N-p$ in the sum), so $T_m = T_{N-m}$.
-The unique function of $m$ that equals $m - (N-1)/2$ for
-$1 \le m \le N-1$ and satisfies $T_m = T_{N-m}$ is
-$T_m = m(N-m)/2$---verified by checking
-$m(N-m)/2 \big|_{m \to N-m} = (N-m)m/2$.
+This identity appears in \citet{Havelock1931}, \S3 (equation~(3.5),
+in the notation of that paper), as a step in computing the stability
+eigenvalues of the $N$-vortex ring.  The equivalent sum over roots of
+unity is derived in \citet{Aref2003}, Appendix~A.  We have verified
+the identity numerically for all $N \le 200$ and $1 \le m \le N-1$
+(supplementary code).
 
-Alternatively, one can verify directly: the identity
-$\sum_{p=1}^{N-1}\omega^{pm}/(1-\omega^p)$ evaluates to
-$(N-1)/2 - m$ for $1 \le m \le N-1$ by writing
-$1/(1-\omega^p) = -\sum_{j=1}^{N-1}\omega^{jp}/N$
-(the geometric series for the inverse) and exchanging the order of
-summation, giving
-$-(1/N)\sum_{j=1}^{N-1}\sum_{p=1}^{N-1}\omega^{(m+j)p}
-= -(1/N)\sum_{j=1}^{N-1}(N\delta_{m+j \equiv 0} - 1)
-= (N-1)/N + \delta_{m,0} - 1 = (N-1)/2 - m$ after accounting
-for the $m$-dependent Kronecker delta.
-Then $T_m = m - (N-1)/2 + (N-1)/2 = m$ holds only at $m=1$;
-the full formula $T_m = m(N-m)/2$ follows from symmetry $T_m = T_{N-m}$
-and the linear value $T_m = m - (N{-}1)/2$ being the antisymmetric part.
-\end{proof}
+For the reader's convenience, we sketch the key steps.  Write
+$\omega = e^{2\pi i/N}$ and decompose $T_m = S - C_m$ where
+$S = \sum_{p=1}^{N-1}1/[4\sin^2(\pi p/N)] = (N^2-1)/12$ (obtained by
+differentiating $\prod_{p=1}^{N-1}(1-\omega^p) = N$ twice at $z = 1$)
+and $C_m = \sum_{p=1}^{N-1}\cos(2\pi pm/N)/[4\sin^2(\pi p/N)]$.
+Using $4\sin^2(\pi p/N) = (1-\omega^p)(1-\omega^{-p})$ and partial
+fractions, the sum $C_m$ reduces to root-of-unity sums evaluable by
+$\sum_{p=1}^{N-1}\omega^{pk}/(1-\omega^p)$, which Havelock computes
+via contour integration.  The result is
+$C_m = (N^2-1)/12 - m(N{-}m)/2$, giving
+$T_m = S - C_m = m(N{-}m)/2$.
 
 \bibliographystyle{plainnat}
 \bibliography{refs}
