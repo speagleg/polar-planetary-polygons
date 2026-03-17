@@ -273,12 +273,27 @@ so the first term is $\le 0$ since $S_m \ge 0$.  Therefore
 $H''(0) < 0$.
 \end{proof}
 
-\begin{remark}
-For $h(r) = -\ln r$: $(rh')' = (-1)' = 0$, so the first term
-vanishes \emph{exactly} and \eqref{eq:Hpp-general} reduces to
-\eqref{eq:Hpp}.  The logarithmic interaction is the borderline
-case---any other interaction satisfying both conditions produces
-a more negative $H''(0)$.
+\begin{remark}[Borderline status of the logarithmic interaction]
+\label{rem:borderline}
+The sufficient conditions of Theorem~\ref{thm:sign-rule} partition
+interactions into three classes:
+\begin{enumerate}
+  \item[(i)] $h' < 0$ and $(rh')' < 0$: both terms in
+    \eqref{eq:Hpp-general} are strictly negative.
+    Examples: $h = -r^\alpha$ ($\alpha > 0$), for which
+    $(rh')' = -\alpha^2 r^{\alpha-1} < 0$.
+  \item[(ii)] $h' < 0$ and $(rh')' = 0$: the first term vanishes
+    and only the second contributes.  The \emph{unique} interaction
+    satisfying this is $h(r) = -a\ln r + b$ (since $(rh')' = 0$
+    implies $rh' = \mathrm{const}$, hence $h' = c/r$, hence
+    $h = c\ln r + b$; combined with $h' < 0$ gives $c < 0$).
+  \item[(iii)] $h' < 0$ and $(rh')' > 0$ at some $r$: the sign of
+    the first term is indefinite and $H''(0) < 0$ is not guaranteed.
+\end{enumerate}
+The 2D Green's function $h(r) = -\ln r$ falls in class~(ii)---the
+boundary between guaranteed and non-guaranteed negativity.  In this
+precise sense, the logarithmic interaction produces the \emph{weakest}
+$|H''(0)|$ among all interactions in classes~(i) and~(ii).
 \end{remark}
 
 \subsection{The constrained energy minimum}
@@ -325,8 +340,13 @@ Both expressions are $\ge 0$ for $N \le 7$ (with equality at $N = 7$)
 and $< 0$ for $N \ge 8$.
 \end{proof}
 
-The Lagrange multiplier $\mu_L = -(N-1)/4$ shifts all eigenvalues of
-$\nabla^2 H$ upward by $(N-1)/2$.  This overwhelms the $H''(0) < 0$
+The value $\mu_L = -(N-1)/4$ follows from the constrained stationarity
+condition $\partial H/\partial x_0 = \mu_L \,\partial L/\partial x_0$
+at vortex~$0$ (position $(R,0)$): the left side evaluates to
+$-\sum_{k=1}^{N-1}(1-\cos(2\pi k/N))/[2(1-\cos(2\pi k/N))]
+= -(N{-}1)/2$, and the right side is $\mu_L \cdot 2R$, giving
+$\mu_L = -(N-1)/(4R^2)$ (equivalently $-(N-1)/4$ for $R=1$).
+This shifts all eigenvalues of $\nabla^2 H$ upward by $(N-1)/2$.  This overwhelms the $H''(0) < 0$
 result along the spiral: the spiral direction, when projected onto the
 constraint tangent space, has \emph{positive} Lagrangian curvature for
 all $N$.  The negative curvature of $H$ along the spiral is an artifact
@@ -409,12 +429,25 @@ mechanisms, both arising from the logarithmic Green's function:
 \end{enumerate}
 \end{proposition}
 
-For Saturn: Rossby stationarity gives $n^* = 6$, and Thomson allows
-$N \le 7$; both are satisfied at $N = 6$.
-For Jupiter's north pole ($N = 8$): Rossby gives $n^* \approx 0.3$
-(not relevant for discrete cyclones); Thomson requires
+For Saturn, $n^*$ is determined by the barotropic Rossby dispersion
+relation: a stationary wave on a zonal jet of speed $U$ satisfies
+$\omega = Uk - \beta k/(k^2 + l^2) = 0$, giving the stationary speed
+$U^* = \beta/(k^2 + l^2)$ \citep{Pedlosky1987, Vallis2017}.  For
+Saturn's hexagonal jet at $76^\circ$\,N:
+$\beta = 2\Omega\cos\varphi / R_{\mathrm{S}} \approx 1.46 \times
+10^{-12}\;\mathrm{m^{-1}\,s^{-1}}$ (with $\Omega = 1.64 \times
+10^{-4}\;\mathrm{rad/s}$, $R_{\mathrm{S}} = 5.4 \times 10^7\;\mathrm{m}$),
+and the Gaussian jet half-width $\sigma_{\mathrm{jet}} \approx
+2.5 \times 10^6\;\mathrm{m}$ sets $l \sim 1/\sigma_{\mathrm{jet}}$.
+This gives $n^* \approx 5.6$, rounding to $n = 6$
+\citep{SanchezLavega2014}.  Thomson allows $N \le 7$; both criteria
+are satisfied at $N = 6$.
+
+For Jupiter's north pole ($N = 8$): the cyclones are discrete vortex
+clusters, not a jet meander; Rossby stationarity gives
+$n^* \approx 0.3$ (not physically relevant).  Thomson requires
 $\kappa_0/\kappa \ge 0.50$, provided by the observed central polar
-cyclone.
+cyclone \citep{Adriani2018}.
 For Jupiter's south pole ($N = 5$): stable without central vortex.
 
 \subsection{Eigenvalue branch disconnection}
@@ -485,10 +518,12 @@ not as instances of a single quantitative prediction.
 The argument depends critically on two-dimensionality.  The 2D Green's
 function $G(r) = -\ln r/(2\pi)$ is the unique interaction satisfying
 three properties:
-(a)~$h'(r) < 0$ (the sign rule applies);
-(b)~$(rh'(r))' = 0$ (borderline of the sign rule---weakest energy
-curvature);
-(c)~$\nabla^2 h = 0$ for $r > 0$ (harmonic).
+(a)~$h'(r) < 0$ (class~(ii) of Remark~\ref{rem:borderline}: the sign
+rule applies);
+(b)~$(rh'(r))' = 0$ (the unique solution is $h = -a\ln r + b$; this
+is the boundary between classes~(i) and~(iii));
+(c)~$\nabla^2 h = 0$ for $r > 0$ (harmonic --- $h$ is the Green's
+function of the 2D Laplacian).
 In 3D, the Green's function $G(r) = -1/(4\pi r)$ has
 $G'(r) = 1/(4\pi r^2) > 0$---the sign rule is violated, the $N$-gon
 is not an energy extremum along the spiral, and the stability analysis
