@@ -1418,6 +1418,49 @@ meander, Rossby stationarity selects $n = 6$, periodicity provides
 quantization.  Both mechanisms require the 2D logarithmic Green's
 function as the common mathematical kernel.
 
+\subsection{The Riemannian Havelock identity}
+\label{sec:riemannian}
+
+On the sphere, the constrained Lagrangian eigenvalues at \emph{every}
+tested colatitude ($\varphi_0 = 5^\circ$ through $90^\circ$, for
+$N = 6$) satisfy:
+\begin{equation}\label{eq:riemannian-havelock}
+  \lambda_m = C_1(\varphi_0) - \frac{m(N-m)}{2},
+\end{equation}
+with $C_1$ depending on the surface geometry but $f(m,N) = m(N{-}m)/2$
+\emph{universal}---the same on the sphere as on the plane (verified:
+$C_2 = 1.000$ at all colatitudes, to four decimal places; eigenvalue
+pair sums $\lambda_m^+ + \lambda_m^- = 2C_1$ constant across all
+modes at each colatitude).
+
+The universality follows from the proof structure of Appendix~A:
+the Havelock identity $T_m = m(N{-}m)/2$ is derived from (i)~the
+algebraic factorization $|{\sum_{k=0}^{m-1}\omega^{pk}}|^2$ and
+(ii)~the orthogonality of $\mathbb{Z}_N$ characters, both of which
+are properties of the discrete rotation group $\mathbb{Z}_N$---not
+of the specific Green's function.  The Green's function enters
+only through: $H_{rt}^{(m)} = 0$ (anti-symmetry of the sine sum,
+requiring only that $G$ depends on geodesic distance) and
+$H_{tt}^{(m)} = -H_{rr}^{(m)}$ (tracelessness, from harmonicity
+of $G$ away from sources).  These two conditions hold for the
+Green's function of the Laplace--Beltrami operator on \emph{any}
+2D Riemannian surface.
+
+The stability threshold $N_{\mathrm{crit}}$ is therefore determined by
+$C_1(\text{surface}) \ge \max_m m(N{-}m)/2$: a condition involving the
+\emph{universal} function $f$ and a single surface-dependent constant.
+On the plane: $C_1 = N{-}1$, giving $N_{\mathrm{crit}} = 7$ (the
+largest integer with $(N{-}1) \ge \lfloor N/2\rfloor(N{-}\lfloor
+N/2\rfloor)/2$).  On the sphere:
+$C_1(\varphi_0) < N{-}1$ for $\varphi_0 > 0$, giving the
+colatitude-dependent threshold of Section~\ref{sec:curved}.
+
+The number $7$ is thus a universal constant of \emph{planar} harmonic
+geometry---the combinatorial consequence of $\mathbb{Z}_N$ symmetry
+meeting the planar Lagrange multiplier $C_1 = N{-}1$.  On other
+surfaces, $C_1$ changes but the combinatorial structure $m(N{-}m)/2$
+does not.
+
 \appendix
 \section{The Havelock identity}
 \label{app:havelock}
