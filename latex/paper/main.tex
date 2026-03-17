@@ -1185,8 +1185,11 @@ profiles with finite $\sigma^2$ inherit its stability conclusions.
 
 The Hessian projection $P_m$ and the total correction
 $c_m = -(N^2{-}1)/12 + P_m$ (specific to the Cauchy blob
-$h_\varepsilon = -\tfrac12\ln(d^2 + 2\varepsilon^2)$, verified
-analytically to four decimal places) are:
+$h_\varepsilon = -\tfrac12\ln(d^2 + 2\varepsilon^2)$) are exact
+rational numbers, derived from the finite sum of the
+$O(\varepsilon^2)$ Hessian correction
+$\delta H_{xx} = (2\varepsilon^2/d^6)(d_y^2 - 3d_x^2)$ over all
+pairs, projected onto the critical radial Fourier mode:
 \begin{center}
 \begin{tabular}{lcccccc}
 \toprule
@@ -1203,11 +1206,14 @@ $c_m$ & $-1$ & $-1$ & $-1$ & $+\frac{13}{12}$ & $+4$ & $+11$ \\
 
 \noindent
 The Hessian projection $P_m$ changes sign between $N = 3$
-($P_3 = -1/3$, the blob weakens the critical mode's curvature)
-and $N = 4$ ($P_4 = +1/4$, the blob strengthens it).  Despite this,
+($P_3 = -1/3$) and $N = 4$ ($P_4 = +1/4$): for the triangle, the blob
+softening reduces the nearest-neighbor curvature (all pairs are at the
+same short distance $d = \sqrt{3}$), while for the square and larger
+polygons, the long-range pairs increasingly dominate the projection
+and $P_m > 0$.  Despite this sign change,
 $c_m = -1$ universally for $N \le 5$ because the Lagrange multiplier
 shift $-(N^2{-}1)/12$ dominates $P_m$ in this range.  For $N \ge 6$,
-$P_m$ grows faster ($\sim m^2(N{-}m)^2/4$) and overwhelms the shift.
+$P_m$ grows faster and overwhelms the shift.
 
 For blob profiles with finite second moment $\sigma^2$ (Gaussian,
 compact support), the $O(\varepsilon^2)$ correction is confined to
