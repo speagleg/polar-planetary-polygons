@@ -835,13 +835,13 @@ $\bar\lambda(0, N) = (N{-}1) - \lfloor N/2\rfloor
 
 The Lagrange multiplier has the closed form
 \begin{equation}\label{eq:mu-k0}
-  -2\mu_L = \frac{1}{R}\sum_{p=1}^{N-1}
+  -2\mu_L = \frac{\eta}{R}\sum_{p=1}^{N-1}
   \frac{(1-\cos\theta_p)\,K_1(2\eta\sin(\pi p/N))}
        {2\sin(\pi p/N)},
   \quad \theta_p = 2\pi p/N,
 \end{equation}
-which reduces to $(N{-}1)/2$ as $\eta \to 0$
-(using $K_1(x) \sim 1/x$).  For $N = 6$, the critical mode $m = 3$
+which reduces to $(N{-}1)/(2R^2)$ as $\eta \to 0$
+(using $K_1(x) \sim 1/x$ and $\eta/R = 1/R_d$).  For $N = 6$, the critical mode $m = 3$
 has zero Havelock weight at $p = 2, 4$ (since
 $\cos(2\pi \cdot 2 \cdot 3/6) = 1$), so the critical eigenvalue
 depends on $K_0$ and $K_1$ at only \emph{two} distinct arguments,
@@ -1015,11 +1015,15 @@ where the effective PV gradient $\beta_{\mathrm{eff}}$ includes the
 jet curvature (which dominates $\beta$ by a factor $\sim\!13$ for
 Saturn).  The stationary azimuthal wavenumber is
 \begin{equation}\label{eq:rossby-bridge}
-  n^* = R\,\sqrt{\beta_{\mathrm{eff}}/U_{\max}}.
+  n^* = R_{\mathrm{S}}\cos\varphi
+  \,\sqrt{\beta_{\mathrm{eff}}/U_{\max}},
 \end{equation}
-The nearest integer $n = \mathrm{round}(n^*)$ is the selected polygon
-wavenumber.  For Saturn: $\beta_{\mathrm{eff}}/U_{\max} \approx
-1.72 \times 10^{-13}\;\mathrm{m}^{-2}$, giving $n^* \approx 5.4$--$5.6$
+where $R_{\mathrm{S}}\cos\varphi$ is the ring radius at latitude
+$\varphi$ ($\approx 1.31 \times 10^7\;\mathrm{m}$ for Saturn at
+$76^\circ$\,N).  The nearest integer $n = \mathrm{round}(n^*)$ is
+the selected polygon wavenumber.  For Saturn:
+$\beta_{\mathrm{eff}}/U_{\max} \approx 1.72 \times
+10^{-13}\;\mathrm{m}^{-2}$, giving $n^* \approx 5.4$--$5.6$
 (the full WKB eigenfunction correction raises the value toward $6$).
 
 The discretization mechanism is \emph{azimuthal periodicity}: the wave
