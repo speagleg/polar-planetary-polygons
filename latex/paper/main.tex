@@ -1056,22 +1056,24 @@ where $z$ is the complex amplitude of the $m = 3$ mode and
 $\lambda = 0$ at $N = 7$.  Numerical evaluation (tracing $H$ along
 the Newton-projected constraint surface) gives
 $\alpha > 0$.  At $N = 7$, three independent near-zero eigenvectors
-span the neutral subspace.  The quartic coefficient $\alpha_i$ for
-each (defined by $\mathcal{H} = (\alpha_i/4)\,t^4 + O(t^6)$ where
-$t$ is the unit-eigenvector amplitude) is positive for all three:
-$\alpha_0 \approx 0.68$, $\alpha_1 \approx 3.5$, $\alpha_2 \approx 3.1$
-(stable to four significant figures across multiple resolutions and
-amplitude ranges).  For the radial $m = 3$ Fourier mode, the
-\emph{unconstrained} quartic is computed exactly as a finite sum:
-$\dd^4\!H/\dd t^4 = 153/7$, with each of the $21$ pairs contributing
-$6C^2/A^2 - 12B^2C/A^3 + 3B^4/A^4 \ge 0$
+span the neutral subspace.  For each, the \emph{unconstrained} quartic
+$\dd^4\!H/\dd t^4$ (where $t$ is the unit-eigenvector amplitude) is
+a positive finite sum over $21$ pairs: each pair contributes
+$6C^2/A^2 - 12B^2C/A^3 + 3B^4/A^4$
 (where $A = d_p^2$, $B = 2\mathbf{z}\cdot\mathbf{u}$,
-$C = |\mathbf{u}|^2$).  The constraint correction (from the quadratic
-curvature of $L = \sum|z_k|^2$ on the neutral path) is verified
-numerically to preserve the sign.  The minimum $\alpha_0 \approx 0.68$
-determines the weakest restoring direction and is the value relevant
-to the BEC oscillation frequency prediction
-(Section~\ref{sec:bec}).
+$C = |\mathbf{u}|^2$), giving unconstrained values
+$4.1$, $21.2$, $18.8$ for the three directions
+(the radial $m = 3$ mode gives $153/7$ exactly).
+The constraint-surface correction from the curvature of
+$L = \sum|z_k|^2$ is $\approx 2.6$ for all three directions
+(mode-independent, determined by the constraint geometry).
+Since $2.6 < 4.1$ (the smallest unconstrained quartic), the
+constrained quartic is positive for all three directions:
+$1.5$, $18.6$, $16.3$ respectively.  The minimum constrained quartic
+($\approx 1.5$, corresponding to $\alpha_0 \approx 0.25$ in the
+normal form $\mathcal{H} = (\alpha/4)|z|^4$ with $|z|$ the
+unit-eigenvector amplitude) determines the weakest restoring
+direction.
 Since $\alpha > 0$, the energy-Casimir functional
 $\mathcal{H} = H + |\mu_L|L$ has a strict local minimum along the
 $m = 3$ direction at quartic order: $\mathcal{H} \ge \mathcal{H}_0
@@ -1133,7 +1135,7 @@ vortices should be unstable alone and stable upon adding a single
 central vortex ($q_0 = 1 > \kappa_{\mathrm{crit}} = 1/2$).
 
 The $N = 7$ case offers a distinct signature.  The quartic restoring
-force ($\alpha \approx +0.68$, Section~\ref{sec:n7}) produces an
+force ($\alpha_0 \approx +0.25$, Section~\ref{sec:n7}) produces an
 \emph{amplitude-dependent} oscillation frequency for the $m = 3$ mode:
 $\omega \propto \varepsilon$ (where $\varepsilon$ is the perturbation
 amplitude), rather than the constant $\omega$ of the quadratic modes
