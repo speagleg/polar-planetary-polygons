@@ -15,11 +15,7 @@ from planetary_polygons.data.saturn import (
 )
 from planetary_polygons.core.rossby import QGPVSolver, gaussian_jet_profile, stationary_wavenumber, saturn_beta, wavenumber_prediction, stationary_jet_speed
 from planetary_polygons.core.thomson import stability_sweep, thomson_to_mobius_multiplier
-try:
-    from planetary_polygons.core.amplitude import LoxodromicFlow, hexagon_amplitude_analytic
-except ImportError:
-    LoxodromicFlow = None
-    hexagon_amplitude_analytic = None
+from planetary_polygons.core.amplitude import LoxodromicFlow, hexagon_amplitude_analytic
 
 
 def verify_theorem1_log_polar(verbose: bool = True) -> dict:

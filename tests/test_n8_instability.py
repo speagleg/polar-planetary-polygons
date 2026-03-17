@@ -2,7 +2,7 @@
 
 import numpy as np
 import pytest
-from n8_instability import (
+from planetary_polygons.extensions.multiring import (
     analyze_instability,
     jupiter_north_analysis,
     jupiter_south_analysis,
