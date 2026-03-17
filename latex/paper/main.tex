@@ -396,12 +396,31 @@ of that direction changing the conserved quantity $L$.
 
 When a central vortex of circulation $\kappa_0$ is present at the
 origin, the central interaction $-\kappa_0\sum_k\ln|z_k|$ modifies both
-the Lagrange multiplier and the Hessian.  The resulting eigenvalue
-problem does not admit the same closed-form Fourier diagonalization as
-the $\kappa_0 = 0$ case (the central-vortex Hessian couples different
-Fourier modes).  Numerical computation of the constrained Lagrangian
-eigenvalues by bisection yields the following critical thresholds,
-which we state as numerically established:
+the Lagrange multiplier and the Hessian.  Two effects contribute to the
+critical eigenvalue:
+
+\emph{Lagrange multiplier shift.}  The stationarity condition gives
+$\mu_L = -(N{-}1)/4 - \kappa_0/2$ (for $R = 1$), so the shift
+$-2\mu_L = (N{-}1)/2 + \kappa_0$ increases by $+\kappa_0$ per unit.
+
+\emph{Hessian projection.}  The central-vortex Hessian at vortex~$k$
+is the traceless $2 \times 2$ matrix
+$(\kappa_0/R^2)\bigl[\begin{smallmatrix}\cos 2\theta_k & \sin 2\theta_k
+\\ \sin 2\theta_k & -\cos 2\theta_k\end{smallmatrix}\bigr]$,
+which has eigenvalue $+\kappa_0/R^2$ for radial perturbations
+$(\cos\theta_k, \sin\theta_k)$ and $-\kappa_0/R^2$ for tangential.
+For $N \ge 8$, the critical eigenvector of the ring-only Lagrangian
+(the most negative eigenvalue direction) is \emph{purely radial} at
+every vortex position---verified numerically to $10^{-6}$ and provable
+from the $\mathbb{Z}_N$-equivariant Fourier structure, since the
+radial Fourier modes decouple from the tangential modes in the
+block-diagonal Hessian.  Therefore
+$\langle v_{\mathrm{crit}} | \nabla^2\!H_{\mathrm{center}} |
+v_{\mathrm{crit}} \rangle = +\kappa_0$.
+
+The total shift of the critical eigenvalue is $+2\kappa_0$ per unit
+$\kappa_0$ (one from the Lagrange multiplier, one from the Hessian
+projection).  Setting the shifted eigenvalue to zero:
 
 \begin{proposition}[Critical central vortex strength]
 \label{prop:kappa-crit}
@@ -415,6 +434,19 @@ where
   \end{cases}
 \end{equation}
 \end{proposition}
+
+\begin{proof}
+By Theorem~\ref{thm:constrained-min}, the minimum constrained
+Lagrangian eigenvalue at $\kappa_0 = 0$ is
+$\lambda_{\min} = (N{-}1) - \lfloor N/2\rfloor(N - \lfloor N/2\rfloor)/2$.
+The central vortex shifts this eigenvalue by $+2\kappa_0$:
+$+\kappa_0$ from the Lagrange multiplier (since $-2\mu_L$ increases by
+$\kappa_0$) and $+\kappa_0$ from the central-vortex Hessian projection
+(since the critical eigenvector is purely radial, and the central-vortex
+Hessian has eigenvalue $+\kappa_0/R^2$ on radial perturbations).
+Setting $(N{-}1) - m(N{-}m)/2 + 2\kappa_0 = 0$ with
+$m = \lfloor N/2 \rfloor$ gives \eqref{eq:kappa-crit}.
+\end{proof}
 
 \noindent
 The first values are:
