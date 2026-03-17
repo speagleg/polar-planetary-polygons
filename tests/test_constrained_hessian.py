@@ -11,7 +11,7 @@ Verifies:
 
 import numpy as np
 import pytest
-from constrained_hessian import (
+from planetary_polygons.core.hessian import (
     constrained_hessian_analysis,
     constrained_hessian_with_central_vortex,
     instability_directions,

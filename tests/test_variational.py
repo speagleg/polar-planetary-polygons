@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from variational import (
+from planetary_polygons.core.variational import (
     thomson_energy, thomson_enstrophy, variational_analysis,
 )
 

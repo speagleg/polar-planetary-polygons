@@ -3,13 +3,13 @@
 import numpy as np
 import pytest
 
-from thomson import (
+from planetary_polygons.core.thomson import (
     VortexRingConfig, thomson_eigenvalues, stability_sweep,
     is_stable, critical_center_strength,
     mobius_action_on_ring, thomson_to_mobius_multiplier,
     rayleigh_kuo_at_wavenumber,
 )
-from qgpv import gaussian_jet_profile
+from planetary_polygons.core.rossby import gaussian_jet_profile
 
 
 class TestVortexRingConfig:

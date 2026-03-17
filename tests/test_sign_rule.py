@@ -2,7 +2,7 @@
 
 import numpy as np
 import pytest
-from sign_rule_proof import (
+from planetary_polygons.core.sign_rule import (
     H_double_prime_analytic,
     H_double_prime_numerical,
     check_sign_rule_conditions,
