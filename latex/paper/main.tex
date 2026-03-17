@@ -213,14 +213,64 @@ $H''(0) < 0$.
 \end{theorem}
 
 \begin{proof}
-Equation~\eqref{eq:Hpp-general} follows from the chain rule applied to
-$h(\sqrt{d^2(\sigma)})$, where
-$d^2(\sigma) = R^2 e^{2s}[2\cosh(2t) - 2\cos(2\pi m/N)]$
-with $s = \sigma(j+k-(N{-}1))/(2N)$ and $t = \sigma m/(2N)$.
-Under $h'(r) < 0$: the second term in \eqref{eq:Hpp-general} is
-negative.  Under $(rh'(r))' \le 0$: the first coefficient satisfies
-$d_m^2 h''(d_m) + d_m h'(d_m) = d_m(rh')'\big|_{r=d_m} \le 0$,
-making the first term non-positive since $S_m \ge 0$.
+\emph{Step 1: Pairwise distance as a function of $\sigma$.}
+For vortices $j$ and $k$ with separation $m = j - k > 0$, write
+the centered exponent as $(j - (N{-}1)/2)/N = (j' + k')/2 + m/(2N)$
+where $j' = (j-(N{-}1)/2)/N$ and $k' = (k-(N{-}1)/2)/N$.
+Define the mean displacement $s = \sigma(j'+k')/2$ and half-separation
+$t = \sigma m/(2N)$.  Then $z_j(\sigma) = R\,e^{s+t}\,e^{i\theta_j}$,
+$z_k(\sigma) = R\,e^{s-t}\,e^{i\theta_k}$ with
+$\theta_j - \theta_k = 2\pi m/N$, giving
+\[
+  D(\sigma) \;{:=}\; |z_j - z_k|^2
+  = R^2 e^{2s}\bigl[e^{2t} + e^{-2t} - 2\cos(2\pi m/N)\bigr]
+  = R^2 e^{2s}\bigl[2\cosh(2t) - 2\cos(2\pi m/N)\bigr].
+\]
+At $\sigma = 0$: $s = t = 0$, so
+$D(0) = 2R^2[1 - \cos(2\pi m/N)] = 4R^2\sin^2(\pi m/N) = d_m^2$.
+
+\emph{Step 2: First and second derivatives of $D$.}
+Write $c_s = (j'+k')/2$ and $c_t = m/(2N)$, so
+$s = \sigma c_s$, $t = \sigma c_t$.  Direct differentiation gives
+\begin{align*}
+  D'(0) &= 4c_s(1 - \cos\phi), \qquad \phi = 2\pi m/N, \\[3pt]
+  D''(0) &= 8c_s^2(1 - \cos\phi) + 8c_t^2.
+\end{align*}
+
+\emph{Step 3: Chain rule for $h(\sqrt{D})$.}
+Write $d = \sqrt{D}$.  Two applications of the chain rule give
+\[
+  \frac{\dd^2}{\dd\sigma^2}h(d)\bigg|_{\sigma=0}
+  = \underbrace{\frac{h''(d_m)}{4d_m^2}(D')^2
+  + \frac{h'(d_m)}{2d_m}\!\left[D'' - \frac{(D')^2}{2d_m^2}\right]}_{\text{evaluated at each pair $(j,k)$}}.
+\]
+Substituting $D' = 4c_s d_m^2/2$ (since $1-\cos\phi = d_m^2/(2R^2)$,
+and absorbing $R$ into $d_m$) and collecting terms:
+\[
+  \frac{\dd^2}{\dd\sigma^2}h(d)\bigg|_0
+  = \bigl[d_m^2 h''(d_m) + d_m h'(d_m)\bigr]c_s^2
+  + \frac{h'(d_m)}{d_m}\,c_t^2\,\frac{d_m^2}{(1-\cos\phi)}.
+\]
+
+\emph{Step 4: Summation over pairs.}
+For fixed separation $m$, sum over the $N-m$ pairs
+$(k, k{+}m)$ for $k = 0, \ldots, N{-}m{-}1$.  Define
+\[
+  S_m = \sum_{k=0}^{N-m-1} c_{s,k}^2, \quad
+  \text{where } c_{s,k} = \frac{2k + m - (N{-}1)}{2N}.
+\]
+Since $\sum_k c_{s,k} = 0$ by the centering, $S_m \ge 0$ with equality
+only if all $c_{s,k} = 0$ (which requires $N - m = 1$, i.e.\ $m = N-1$).
+The second sum contributes $c_t^2 \cdot (N{-}m) = m^2(N{-}m)/(4N^2)$,
+and $d_m^2/(1{-}\cos\phi) = 4R^2$.  Summing over $m = 1, \ldots, N-1$
+yields \eqref{eq:Hpp-general}.
+
+\emph{Step 5: Sign determination.}
+Under $h'(r) < 0$: the second term $h'(d_m)\,m^2(N{-}m)/(N^2 d_m) < 0$.
+Under $(rh'(r))' \le 0$: the first coefficient
+$d_m^2 h''(d_m) + d_m h'(d_m) = d_m \cdot (rh')'\big|_{r=d_m} \le 0$,
+so the first term is $\le 0$ since $S_m \ge 0$.  Therefore
+$H''(0) < 0$.
 \end{proof}
 
 \begin{remark}
