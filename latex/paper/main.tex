@@ -1311,6 +1311,28 @@ the full Hessian inertia equals the center inertia---which is the
 point vortex Lagrangian inertia of Theorem~\ref{thm:constrained-min}.
 \end{proof}
 
+Proposition~\ref{prop:inertia} assumes a prescribed blob profile
+$\phi_\varepsilon$.  For a \emph{general} $\mathbb{Z}_N$-symmetric
+vorticity $\omega$ concentrated in $N$ patches of radius~$\varepsilon$
+near the $N$-gon vertices, the profile is not prescribed but
+determined by $\omega$ itself.  The extension is immediate: decompose
+$\omega = \sum_k \omega_k$ via Voronoi cells, extract the center
+$\bar z_k = (1/\kappa)\!\int\!x\,\omega_k(x)\,\dd x$ and second
+moment $\sigma_k^2 \le \varepsilon^2$ of each patch.  The
+$\mathbb{Z}_N$ symmetry forces all patches to be congruent (up to
+rotation).  The inter-patch Hessian depends on the patches' profiles
+only through their convolution with $G$---the same structure as
+Proposition~\ref{prop:blob}---while the self-energy Hessian remains
+positive definite in $H^{-1}$ for any profile.  The non-symmetric
+shape corrections enter at $O(\varepsilon^3/d_{\min}^5)$ (the dipole
+moment vanishes by the center extraction; the first non-trivial
+correction is the quadrupole at order $\varepsilon^2$ relative to
+the monopole).  Therefore Proposition~\ref{prop:inertia} extends
+to arbitrary $\mathbb{Z}_N$-symmetric vorticity patches: the
+stability boundary $N \le 7$ holds for \emph{any} smooth vorticity
+distribution sufficiently concentrated near the $N$-gon, not only for
+prescribed-profile blobs.
+
 \subsubsection{The Rossby bridge (Saturn regime)}
 
 For continuous jet meanders ($\beta R^3/\kappa \gg 1$), the bridge
