@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from spiral_hexagon.theorems.variational_principle import (
+from variational import (
     thomson_energy, thomson_enstrophy, variational_analysis,
 )
 

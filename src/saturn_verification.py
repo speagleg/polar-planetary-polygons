@@ -9,15 +9,14 @@ For each theorem, provide:
 """
 
 import numpy as np
-from ..data.saturn import (
+from saturn_data import (
     SaturnParameters, ALL_EPOCHS, intrinsic_drift_rate,
     nps_coupling_coefficient, near_resonance_period, rossby_number_at_jet,
 )
-from ..core.qgpv import QGPVSolver, gaussian_jet_profile, stationary_wavenumber
-from ..core.rossby import saturn_beta, wavenumber_prediction, stationary_jet_speed
-from ..core.thomson import stability_sweep, thomson_to_mobius_multiplier
-from ..core.mobius import LoxodromicFlow
-from ..theorems.theorem5_matching import hexagon_amplitude_analytic
+from qgpv import QGPVSolver, gaussian_jet_profile, stationary_wavenumber
+from rossby import saturn_beta, wavenumber_prediction, stationary_jet_speed
+from thomson import stability_sweep, thomson_to_mobius_multiplier
+from matching import LoxodromicFlow, hexagon_amplitude_analytic
 
 
 def verify_theorem1_log_polar(verbose: bool = True) -> dict:
@@ -56,7 +55,7 @@ def verify_theorem2_mobius(verbose: bool = True) -> dict:
 
     Both should give sigma ~ O(0.1), r ~ O(1).
     """
-    from ..data.saturn import mobius_sigma_kinematic
+    from saturn_data import mobius_sigma_kinematic
 
     # Primary: kinematic identification (observational)
     kin = mobius_sigma_kinematic(epsilon_hex=0.05)
@@ -148,7 +147,7 @@ def verify_theorem4_thomson(verbose: bool = True) -> dict:
     U_profile = lambda rho: gaussian_jet_profile(
         rho, saturn.jet_speed_peak, 0.0, saturn.jet_sigma_logpolar
     )
-    from ..core.thomson import rayleigh_kuo_at_wavenumber
+    from thomson import rayleigh_kuo_at_wavenumber
     rk = rayleigh_kuo_at_wavenumber(6, saturn.beta, U_profile, rho_grid)
     has_crossings = len(rk['critical_rho']) > 0
 
@@ -173,14 +172,14 @@ def verify_cassini_measurements(verbose: bool = True) -> dict:
     This is the INDEPENDENT observational test — using digitized
     Cassini data rather than assumed parameter values.
     """
-    from ..data.cassini_winds import (
+    from cassini_winds import (
         load_cassini_profile, measure_delta_U, measure_hexagon_epsilon,
     )
     dU = measure_delta_U()
     hex_eps = measure_hexagon_epsilon()
 
     # Theorem 5 prediction with CORRECT matching constant
-    from ..theorems.theorem5_matching import matching_constant
+    from matching import matching_constant
     saturn = SaturnParameters()
     C_eff = matching_constant(
         n=6, sigma_jet=saturn.jet_sigma_logpolar,
@@ -227,7 +226,7 @@ def verify_theorem5_amplitude(verbose: bool = True) -> dict:
     U_star = stationary_jet_speed(k, 0, saturn.beta)
     delta_U = saturn.jet_speed_peak - U_star
 
-    from ..theorems.theorem5_matching import matching_constant
+    from matching import matching_constant
     C = matching_constant(n=6, sigma_jet=saturn.jet_sigma_logpolar,
                           U_max=saturn.jet_speed_peak, U_star=U_star)
 
@@ -260,7 +259,7 @@ def predict_nps_perturbation() -> dict:
     T_resonance = near_resonance_period()
 
     # Observed drift difference between epochs
-    from ..data.saturn import EPOCH_1980_81, EPOCH_2008_14
+    from saturn_data import EPOCH_1980_81, EPOCH_2008_14
     delta_omega_obs = EPOCH_1980_81.hexagon_omega - EPOCH_2008_14.hexagon_omega
 
     return {

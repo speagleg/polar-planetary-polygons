@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from spiral_hexagon.data.cassini_winds import (
+from cassini_winds import (
     load_cassini_profile, measure_delta_U, measure_hexagon_epsilon,
 )
 

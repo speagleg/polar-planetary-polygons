@@ -3,13 +3,13 @@
 import numpy as np
 import pytest
 
-from spiral_hexagon.core.thomson import (
+from thomson import (
     VortexRingConfig, thomson_eigenvalues, stability_sweep,
     is_stable, critical_center_strength,
     mobius_action_on_ring, thomson_to_mobius_multiplier,
     rayleigh_kuo_at_wavenumber,
 )
-from spiral_hexagon.core.qgpv import gaussian_jet_profile
+from qgpv import gaussian_jet_profile
 
 
 class TestVortexRingConfig:

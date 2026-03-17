@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from spiral_hexagon.core.sigma_geometric import sigma_geom, sigma_from_positions
+from sigma_geometric import sigma_geom, sigma_from_positions
 
 
 class TestSigmaGeom:
