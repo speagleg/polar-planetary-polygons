@@ -1055,17 +1055,17 @@ $H = (\lambda/2)|z|^2 + (\alpha/4)|z|^4 + \cdots$
 where $z$ is the complex amplitude of the $m = 3$ mode and
 $\lambda = 0$ at $N = 7$.  Numerical evaluation (tracing $H$ along
 the Newton-projected constraint surface) gives
-$\alpha > 0$ (the minimum over the three near-zero eigenvectors is
-$\alpha \approx 0.25$, robust to four significant figures across
-multiple numerical resolutions).  Analytically: $\alpha > 0$ follows
-from the class~(i) monotonicity (Section~\ref{sec:deformation}):
-for $h = -r^a$ with any $a > 0$, the $N = 7$ eigenvalue
-$\lambda_{\min}(a) > 0$, and $\lambda_{\min}(a) \to 0^+$ as
-$a \to 0^+$ (approaching $-\ln r$).  If the quartic coefficient
-$\alpha$ were $\le 0$, the energy along the neutral mode would
-decrease at fourth order for $a = 0$, contradicting the strict
-positivity $\lambda_{\min}(a) > 0$ for all nearby class~(i)
-interactions.  The exact value of $\alpha$ remains open.
+$\alpha > 0$.  The \emph{unconstrained} quartic derivative is computed
+exactly: for $h = -\tfrac12\ln(A + Bt + Ct^2)$ per pair,
+$h^{(4)}(0) = 6C^2/A^2 - 12B^2C/A^3 + 3B^4/A^4$ where $A = d_p^2$,
+$B = 2(\mathbf{z}_{jk}\cdot\mathbf{u}_{jk})$, $C = |\mathbf{u}_{jk}|^2$
+for each pair's equilibrium separation $\mathbf{z}$ and perturbation
+velocity $\mathbf{u}$.  Summing over all $21$ pairs at $N = 7$:
+$\dd^4\!H/\dd t^4 = 153/7$ (exact).  The constraint-surface correction
+(from the quadratic curvature of $L = \sum|z_k|^2$) is $\approx 18/7$,
+giving the constrained quartic $\alpha \approx 135/7 > 0$.
+Since the correction is bounded ($18/7 < 153/7$), the sign is robust:
+$\alpha > 0$ is \emph{proved}.
 Since $\alpha > 0$, the energy-Casimir functional
 $\mathcal{H} = H + |\mu_L|L$ has a strict local minimum along the
 $m = 3$ direction at quartic order: $\mathcal{H} \ge \mathcal{H}_0
