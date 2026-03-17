@@ -371,11 +371,13 @@ $H = (\lambda/2)|z|^2 + (\alpha/4)|z|^4 + \cdots$
 where $z$ is the complex amplitude of the $m = 3$ mode and $\lambda = 0$
 at $N = 7$.  Numerical evaluation (tracing $H$ along the
 Newton-projected constraint surface) gives $\alpha \approx +1.9 > 0$.
-The bifurcation is \emph{subcritical}: the heptagon is a degenerate
-energy minimum with quartic restoring force ($H \sim \varepsilon^4$),
-confirming its nonlinear stability \citep{Havelock1931}.  The weaker
-confinement (quartic vs.\ quadratic for $N \le 6$) explains why
-heptagonal vortex structures, while not forbidden, are rarely observed.
+Since $\alpha > 0$, the heptagonal configuration is a
+\emph{degenerate energy minimum} with quartic restoring force
+($H \sim +\varepsilon^4$), confirming its nonlinear stability
+\citep{Havelock1931}.  The weaker quartic confinement (compared to
+the quadratic confinement for $N \le 6$) explains the relative
+rarity of heptagonal vortex configurations in observations and
+simulations.
 \end{proof}
 
 The value $\mu_L = -(N-1)/4$ follows from the constrained stationarity
@@ -392,13 +394,14 @@ of that direction changing the conserved quantity $L$.
 
 \subsection{Central vortex stabilization}
 
-When a central vortex of circulation $\kappa_0$ is present at the origin,
-the Lagrange multiplier becomes
-$\mu_L = -(N{-}1)/4 - \kappa_0/(2R^2)$, adding a shift of $\kappa_0$
-to the Lagrangian eigenvalues.  The central vortex Hessian also
-contributes a mode-coupling perturbation (with Fourier content at
-wavenumber~$2$) that partially cancels this shift for the critical mode.
-The net effect gives the critical stabilization threshold:
+When a central vortex of circulation $\kappa_0$ is present at the
+origin, the central interaction $-\kappa_0\sum_k\ln|z_k|$ modifies both
+the Lagrange multiplier and the Hessian.  The resulting eigenvalue
+problem does not admit the same closed-form Fourier diagonalization as
+the $\kappa_0 = 0$ case (the central-vortex Hessian couples different
+Fourier modes).  Numerical computation of the constrained Lagrangian
+eigenvalues by bisection yields the following critical thresholds,
+which we state as numerically established:
 
 \begin{proposition}[Critical central vortex strength]
 \label{prop:kappa-crit}
@@ -456,13 +459,15 @@ central vortex destabilizes it.
 \begin{remark}
 The stabilization in Proposition~\ref{prop:kappa-crit} requires the
 additional vortex to be at the \emph{center} (the $\mathbb{Z}_N$
-fixed point), not merely on an inner ring.  Numerical computation
-shows that two-ring configurations ($M$ inner vortices at radius $R_1$,
-$N$ outer vortices at radius $R_2$) are generically \emph{unstable}
-for $M \ge 2$: the inter-ring interactions break the single-ring
-$\mathbb{Z}_N$ symmetry and introduce additional destabilizing modes.
-This is consistent with Jupiter's observed geometry---one central
-cyclone plus a ring---rather than two concentric rings.
+fixed point), not merely on an inner ring.  Two-ring configurations
+($M$ inner vortices at radius $R_1$, $N$ outer at $R_2$) are a
+classical topic \citep{Aref2003}; our constrained Hessian computation
+for representative cases---e.g., $(N,M) = (8,4)$ at $R_2/R_1 = 2$
+gives $3$ negative Lagrangian eigenvalues; $(6,3)$ at $R_2/R_1 = 2$
+gives $3$ negative eigenvalues---shows that the inter-ring
+interactions break the single-ring $\mathbb{Z}_N$ symmetry and
+introduce destabilizing modes absent from the center-plus-ring
+geometry.  This is consistent with Jupiter's observed configuration.
 \end{remark}
 
 \subsection{The two-scale mechanism}
@@ -667,11 +672,12 @@ mechanisms can produce persistent polygonal vortex structures in
 three dimensions is a separate question.
 
 The sign rule extends naturally to \emph{curved} 2D surfaces.
-On the 2-sphere, the Green's function
-$h(\theta) = -\ln(1-\cos\theta)$ satisfies $h'(\theta) < 0$, but the
-curvature-corrected analog of $(rh')'$---namely
-$(\sin\theta\cdot h'(\theta))' = \sin\theta > 0$---is positive
-(class~(iii) of Remark~\ref{rem:borderline}).  Numerical computation
+On the 2-sphere, the standard point vortex interaction uses chord
+distance: $h(\theta) = -\ln(2\sin(\theta/2))$, which satisfies
+$h'(\theta) = -\frac12\cot(\theta/2) < 0$.  The curvature-corrected
+analog of $(rh')'$ is $(\sin\theta\cdot h'(\theta))' = \tfrac12\sin\theta > 0$
+(class~(iii) of Remark~\ref{rem:borderline}: the positive curvature
+correction exceeds the planar borderline).  Numerical computation
 shows $H''(0) > 0$ for the spherical $N$-gon at all tested colatitudes
 and $N \le 8$: the polygon is an energy minimum along the spiral
 \emph{even in the unconstrained problem}.  The spherical geometry
@@ -780,24 +786,36 @@ For integers $N \ge 2$ and $1 \le m \le N-1$,
 \]
 \end{lemma}
 
-This identity appears in \citet{Havelock1931}, \S3 (equation~(3.5),
-in the notation of that paper), as a step in computing the stability
-eigenvalues of the $N$-vortex ring.  The equivalent sum over roots of
-unity is derived in \citet{Aref2003}, Appendix~A.  We have verified
-the identity numerically for all $N \le 200$ and $1 \le m \le N-1$
-(supplementary code).
+This identity appears in \citet{Havelock1931}, \S3, as a step in
+computing the stability eigenvalues of the $N$-vortex ring; see also
+\citet{Aref2003}, Appendix~A.
 
-For the reader's convenience, we sketch the key steps.  Write
-$\omega = e^{2\pi i/N}$ and decompose $T_m = S - C_m$ where
-$S = \sum_{p=1}^{N-1}1/[4\sin^2(\pi p/N)] = (N^2-1)/12$ (obtained by
-differentiating $\prod_{p=1}^{N-1}(1-\omega^p) = N$ twice at $z = 1$)
-and $C_m = \sum_{p=1}^{N-1}\cos(2\pi pm/N)/[4\sin^2(\pi p/N)]$.
-Using $4\sin^2(\pi p/N) = (1-\omega^p)(1-\omega^{-p})$ and partial
-fractions, the sum $C_m$ reduces to root-of-unity sums evaluable by
-$\sum_{p=1}^{N-1}\omega^{pk}/(1-\omega^p)$, which Havelock computes
-via contour integration.  The result is
-$C_m = (N^2-1)/12 - m(N{-}m)/2$, giving
-$T_m = S - C_m = m(N{-}m)/2$.
+\begin{proof}
+Write $\omega = e^{2\pi i/N}$.  Using $2\sin(\pi p/N) =
+|1 - \omega^p|$ and the factorization
+$\sin(\pi pm/N)/\sin(\pi p/N)
+= \sum_{k=0}^{m-1} e^{i\pi p(m-1-2k)/N}$,
+we have
+\[
+  \frac{1 - \cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
+  = \frac12\biggl|\sum_{k=0}^{m-1} \omega^{pk}\biggr|^2
+  - \frac12\biggl(\sum_{k=0}^{m-1}\omega^{pk}\biggr)^{\!\!2}
+  \cdot (\text{phase}).
+\]
+More directly: expand
+$[1 - \cos(2\pi pm/N)] / [4\sin^2(\pi p/N)]
+= \frac12\bigl|\sum_{k=0}^{m-1}\omega^{pk}\bigr|^2
+= \frac{1}{2}\sum_{j=0}^{m-1}\sum_{k=0}^{m-1}\omega^{p(j-k)}$.
+Summing over $p = 1, \ldots, N-1$ and using the orthogonality relation
+$\sum_{p=1}^{N-1}\omega^{p\ell} = N\delta_{\ell \equiv 0\pmod{N}} - 1$:
+\[
+  T_m = \frac{1}{2}\sum_{j,k=0}^{m-1}
+  \bigl(N\delta_{j \equiv k\pmod{N}} - 1\bigr)
+  = \frac{1}{2}(Nm - m^2) = \frac{m(N-m)}{2},
+\]
+where $\delta_{j \equiv k}$ contributes $m$ (since $0 \le j,k \le m-1
+< N$ forces $j = k$) and the $-1$ contributes $-m^2$.
+\end{proof}
 
 \bibliographystyle{plainnat}
 \bibliography{refs}
