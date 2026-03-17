@@ -793,9 +793,13 @@ the relevant mechanism is Rossby wave stationarity of the QGPV
 equation, not the point vortex energy landscape.  The continuous and discrete descriptions share the logarithmic Green's
 function; the vortex blob analysis (Section~\ref{sec:blob}) establishes
 that the stability boundary is preserved under regularization and that
-the $N = 7$ marginal case is resolved.  A full bridge from the QGPV
-eigenvalue problem to the point vortex Lagrangian Hessian in the
-vortex-concentration limit remains open.
+the $N = 7$ marginal case is resolved.  The Saturn bridge
+(Section~\ref{sec:blob}) connects the continuous QGPV eigenvalue
+problem to the point vortex Hessian through the critical-layer
+concentration in the sharp-jet limit; a rigorous proof of the
+critical-layer convergence (showing the cat's-eye patches satisfy
+the conditions of Proposition~\ref{prop:inertia}) requires
+nonlinear critical-layer theory beyond the scope of this paper.
 
 The Onsager negative-temperature hypothesis is a physical assumption
 whose applicability to these specific planetary configurations is not
@@ -1367,8 +1371,23 @@ $\beta_{\mathrm{eff}}/U_{\max} \approx 1.72 \times
 (the full WKB eigenfunction correction raises the value toward $6$).
 
 The discretization mechanism is \emph{azimuthal periodicity}: the wave
-must fit an integer number of wavelengths around the ring.  No blob
-limit or $\Gamma$-convergence is needed.
+must fit an integer number of wavelengths around the ring.
+
+The connection to the point vortex energy landscape proceeds through
+the \emph{critical layer} of the saturated wave.  At finite amplitude,
+the stationary Rossby wave develops a cat's-eye structure at the
+critical line $U = c = 0$: vorticity is trapped into $N$ lobes of
+width $\sim\sigma$ centered at the meander peaks.  As the jet sharpens
+($\sigma/R \to 0$ at fixed wave amplitude), these lobes concentrate
+into $N$ isolated patches near the $N$-gon vertices.  By the general
+vorticity patch result (following Proposition~\ref{prop:inertia}),
+the energy-Casimir Hessian of this $N$-patch configuration converges
+to the point vortex Hessian.  The Saturn bridge thus arrives at the
+\emph{same} energy landscape as the Jupiter bridge, through a different
+limiting procedure: Saturn concentrates a continuous jet meander into
+$N$ patches (jet width $\sigma \to 0$), while Jupiter concentrates
+$N$ discrete cyclones into point vortices (blob width
+$\varepsilon \to 0$).
 
 \subsubsection{The regime criterion}
 
