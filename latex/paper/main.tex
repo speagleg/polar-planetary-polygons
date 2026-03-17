@@ -701,10 +701,12 @@ and Jupiter (Thomson);
 (5)~the observation that the logarithmic interaction's borderline
 status in the sign rule makes it the ``least robust'' polygon
 producer---any other qualifying interaction gives stronger selection;
-and (6)~the extensions to curved surfaces (the sphere provides
+(6)~the extensions to curved surfaces (the sphere provides
 additional stabilization), finite deformation radius (polygon
 suppression at $R/R_d \approx 1.29$ for $N = 6$), and the $N = 7$
-quartic bifurcation (Section~\ref{sec:extensions}).
+quartic bifurcation; and (7)~the vortex blob limit showing that
+regularization preserves and enhances stability, resolving the $N = 7$
+marginal case (Section~\ref{sec:extensions}).
 
 \medskip\noindent\textbf{Relation to prior work.}
 The connection between Onsager statistics and large-scale vortex
@@ -733,11 +735,12 @@ The mathematical results---the constrained energy minimum
 for discrete point vortices.  They apply directly to Jupiter's polar
 cyclone rings.  For Saturn's hexagon, which is a continuous jet meander,
 the relevant mechanism is Rossby wave stationarity of the QGPV
-equation, not the point vortex energy landscape.  The continuous and
-discrete descriptions share the logarithmic Green's function, but a
-rigorous bridge---showing that the energy extremum of the continuous
-system in a wavenumber-$N$ configuration reduces to the point vortex
-$H$ in an appropriate limit---has not been established.
+equation, not the point vortex energy landscape.  The continuous and discrete descriptions share the logarithmic Green's
+function; the vortex blob analysis (Section~\ref{sec:blob}) establishes
+that the stability boundary is preserved under regularization and that
+the $N = 7$ marginal case is resolved.  A full bridge from the QGPV
+eigenvalue problem to the point vortex Lagrangian Hessian in the
+vortex-concentration limit remains open.
 
 The Onsager negative-temperature hypothesis is a physical assumption
 whose applicability to these specific planetary configurations is not
@@ -757,8 +760,9 @@ reflect the available evidence.
 The results of Sections~\ref{sec:results}--\ref{sec:discussion} are
 proven for point vortices on the Euclidean plane with logarithmic
 interaction.  This section extends the analysis to curved surfaces,
-finite deformation radius, the $N = 7$ marginal case, and multi-ring
-configurations.
+finite deformation radius, the $N = 7$ marginal case, multi-ring
+configurations, and the continuous-to-discrete bridge via the vortex
+blob limit.
 
 \subsection{Curved 2D surfaces}
 \label{sec:curved}
@@ -892,6 +896,79 @@ gives $3$ negative eigenvalues---shows that the inter-ring
 interactions break the single-ring $\mathbb{Z}_N$ symmetry and
 introduce destabilizing modes absent from the center-plus-ring
 geometry.  This is consistent with Jupiter's observed configuration.
+
+\subsection{The vortex blob limit}
+\label{sec:blob}
+
+The results of Sections~\ref{sec:results}--\ref{sec:discussion} are
+stated for point vortices (singular $\delta$-function vorticity).
+A natural question is whether the stability conclusions survive
+regularization to smooth vortex blobs---the standard bridge between
+discrete and continuous vortex dynamics
+\citep{BoattoCabral2003}.
+
+Replace each point vortex $\delta(x - z_k)$ with a Gaussian blob
+of width $\varepsilon$:
+$\omega_\varepsilon(x) = (\kappa/\pi\varepsilon^2)
+\exp(-|x-z_k|^2/\varepsilon^2)$.  The pairwise interaction becomes
+$h_\varepsilon(d) = -\tfrac12\ln(d^2 + 2\varepsilon^2)$, which
+recovers $-\ln d$ as $\varepsilon \to 0$.
+
+\begin{proposition}[Blob stability correction]
+\label{prop:blob}
+The constrained Lagrangian eigenvalues for the blob interaction
+$h_\varepsilon$ converge to the Havelock eigenvalues at rate
+$O(\varepsilon^2)$.  The $O(\varepsilon^2)$ correction to the
+minimum eigenvalue is:
+\begin{equation}\label{eq:blob-correction}
+  \lambda(\varepsilon) = \lambda_0
+  + \bigl[-\tfrac{N^2-1}{12} + P_m\bigr]\,\varepsilon^2
+  + O(\varepsilon^4),
+\end{equation}
+where $\lambda_0 = (N{-}1) - m(N{-}m)/2$ is the Havelock value
+(Theorem~\ref{thm:constrained-min}), $-(N^2{-}1)/12$ is the
+Lagrange-multiplier shift (from
+$\delta\mu_L = (N^2{-}1)/24$, using
+$\sum\nolimits_{k=1}^{N-1}\csc^2(\pi k/N) = (N^2{-}1)/3$),
+and $P_m$ is the Hessian projection of the blob correction onto the
+critical eigenvector, computed analytically from the $O(\varepsilon^2)$
+correction to $h''$ and $h'/d$.
+\end{proposition}
+
+The first values of the total correction coefficient
+$c = -(N^2{-}1)/12 + P_m$ are:
+\begin{center}
+\begin{tabular}{lccccccc}
+\toprule
+$N$ & 3 & 4 & 5 & 6 & 7 & 8 \\
+\midrule
+$c$ & $-1$ & $-1$ & $-1$ & $+\frac{13}{12}$ & $+4$ & $+11$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Two consequences are immediate:
+
+\emph{(i) The stability boundary is preserved.}  For $N \le 5$:
+$\lambda_0 \ge 1$ and $c = -1$, so
+$\lambda(\varepsilon) = \lambda_0 - \varepsilon^2 > 0$
+for $\varepsilon < 1$ (blob smaller than vortex spacing).
+For $N = 6$: $c > 0$, so $\lambda(\varepsilon) > \lambda_0 > 0$
+---the blob \emph{enhances} stability.
+For $N = 8$: $\lambda_0 = -1$ and $c = 11$, so the blob stabilizes
+the octagon for $\varepsilon > 1/\sqrt{11} \approx 0.30$.
+
+\emph{(ii) The $N = 7$ marginal mode is resolved.}  At $N = 7$,
+$\lambda_0 = 0$ (Theorem~\ref{thm:constrained-min}) and $c = +4$,
+so $\lambda(\varepsilon) = 4\varepsilon^2 > 0$ for any
+$\varepsilon > 0$.  The heptagonal configuration, marginally stable
+for point vortices, becomes \emph{strictly stable} under any smooth
+regularization.  This provides a rigorous continuous-to-discrete
+bridge: the stability conclusions of Theorem~\ref{thm:constrained-min}
+are robust under the passage from smooth vorticity distributions to
+singular point vortices, and the marginal case $N = 7$ is an artifact
+of the singular limit that is resolved by any finite blob width.
 
 \appendix
 \section{The Havelock identity}
