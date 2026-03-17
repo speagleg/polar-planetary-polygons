@@ -76,11 +76,13 @@ This paper answers the second question.  The argument has four steps:
     Laplacian is $G(r) = -\ln r / (2\pi)$, which is decreasing.  This
     forces the vortex interaction $h(r)$ to satisfy $h'(r) < 0$.
 
-  \item \textbf{The polygon is an energy maximum.}  For $N$ point
-    vortices on a ring with any pairwise interaction satisfying
-    $h'(r) < 0$, the regular $N$-gon maximizes the interaction energy
-    along the spiral deformation direction: $H''(0) < 0$ for all
-    $N \ge 3$ (Theorem~\ref{thm:energy-max}).
+  \item \textbf{The polygon is an energy maximum along the spiral
+    direction.}  For $N$ point vortices on a ring with any pairwise
+    interaction satisfying $h'(r) < 0$, the regular $N$-gon is a
+    critical point and local energy maximum along the centered spiral
+    deformation: $H'(0) = 0$ and $H''(0) < 0$ for all $N \ge 3$
+    (Theorem~\ref{thm:energy-max}).  Whether it is a maximum in the
+    full $(2N-3)$-dimensional configuration space is an open question.
 
   \item \textbf{2D turbulence operates at negative temperature.}  The
     Kraichnan (1967) inverse energy cascade transfers energy to large
@@ -91,8 +93,8 @@ This paper answers the second question.  The argument has four steps:
   \item \textbf{Negative temperature selects energy maxima.}  At negative
     temperature, the Boltzmann weight $P \propto e^{-\beta H}$ with
     $\beta < 0$ assigns higher probability to higher-energy states.
-    The polygon, being the energy maximum, is the most probable
-    macrostate.
+    The polygon, being the energy maximum along the spiral direction,
+    is a candidate for the most probable macrostate.
 \end{enumerate}
 Steps~1 and~2 are proven within this paper.  Step~3 is established fluid
 mechanics \citep{Kraichnan1967}.  Step~4 is established statistical
@@ -131,20 +133,21 @@ energy is
 Since $G$ is decreasing, the pairwise interaction is \emph{attractive}:
 vortices at closer separation have lower energy.
 
-\subsection{The spiral deformation}
+\subsection{The centered spiral deformation}
 
 Consider $N$ vortices arranged on a ring of radius $R$, deformed along
-the one-parameter family
+the centered one-parameter family
 \begin{equation}\label{eq:deformation}
-  z_k(\sigma) = R\,e^{\sigma k/N}\,e^{2\pi ik/N},
+  z_k(\sigma) = R\,e^{\sigma(k - (N-1)/2)/N}\,e^{2\pi ik/N},
   \qquad k = 0, \ldots, N-1.
 \end{equation}
-At $\sigma = 0$: the regular $N$-gon.  For $\sigma > 0$: vertex $k$ is
-stretched outward by $e^{\sigma k/N}$, spiraling the configuration.
-This deformation converts the polygon into a logarithmic spiral.  It is
-not the uniform M\"obius action $z \mapsto \lambda z$ (which scales all
-vertices equally, leaving $H$ unchanged), but a symmetry-breaking
-deformation that assigns each vertex a different radial displacement.
+At $\sigma = 0$: the regular $N$-gon.  For $\sigma \neq 0$: each vertex
+is displaced radially by a different amount, spiraling the configuration.
+The centering $(k - (N-1)/2)$ ensures that $\sigma = 0$ is a
+\emph{critical point} of $H$: under the relabeling $k \mapsto N-1-k$,
+the exponent maps to $-(k - (N-1)/2)/N$, sending $\sigma \to -\sigma$.
+Since all circulations are equal, $H$ is invariant under this relabeling,
+so $H(\sigma) = H(-\sigma)$ and $H'(0) = 0$.
 
 \subsection{Geometric description}
 \label{sec:geom}
@@ -167,16 +170,22 @@ transition but is descriptive, not mechanistic.
 \begin{theorem}[Energy maximum at the polygon]\label{thm:energy-max}
 For $N \ge 3$ vortices on a ring with pairwise interaction
 $h(r) = -\ln r$, the interaction energy
-$H(\sigma) = \sum_{j<k} h(|z_j(\sigma) - z_k(\sigma)|)$ satisfies
-\begin{equation}\label{eq:Hpp}
-  H''(0) = -\frac{1}{4N^2}\sum_{m=1}^{N-1}
-  \frac{(N-m)\,m^2}{\sin^2(\pi m/N)} < 0.
-\end{equation}
-The regular $N$-gon is a local energy maximum along the spiral
-deformation \eqref{eq:deformation}.
+$H(\sigma) = \sum_{j<k} h(|z_j(\sigma) - z_k(\sigma)|)$ along the
+centered spiral deformation \eqref{eq:deformation} satisfies:
+\begin{enumerate}
+  \item[(a)] $H'(0) = 0$ \quad (the $N$-gon is a critical point), and
+  \item[(b)] $H''(0) = -\dfrac{1}{4N^2}\displaystyle\sum_{m=1}^{N-1}
+    \dfrac{(N-m)\,m^2}{\sin^2(\pi m/N)} < 0$ \quad (it is a local maximum).
+\end{enumerate}
 \end{theorem}
 
 \begin{proof}
+\emph{Part (a).}  The centered deformation \eqref{eq:deformation}
+satisfies $H(\sigma) = H(-\sigma)$ by the symmetry $k \mapsto N-1-k$
+(which sends the exponent $(k-(N-1)/2)/N$ to its negative while
+preserving $H$ by the equal-circulation assumption).  Therefore $H'(0) = 0$.
+
+\emph{Part (b).}
 At $\sigma = 0$, the pairwise squared distance is
 $|z_j - z_k|^2 = 4R^2\sin^2(\pi m/N)$ where $m = k - j$.
 Define $F(u, m) = \ln[1 - 2\cos(2\pi m/N)\,e^{um} + e^{2um}]$
@@ -226,9 +235,12 @@ negative-temperature regime of Onsager's (1949) vortex statistics.
 
 At negative temperature ($\beta < 0$), the Boltzmann weight
 $P \propto e^{-\beta H}$ assigns higher probability to higher-energy
-states.  Since the regular $N$-gon is the energy maximum among ring
-configurations (Theorem~\ref{thm:energy-max}), it is the most probable
-macrostate.  The thermostat enabling Onsager relaxation is the enstrophy
+states.  Since the regular $N$-gon is an energy maximum along the spiral
+deformation (Theorem~\ref{thm:energy-max}), it is a candidate for the
+most probable macrostate.  A full characterization of $H$ in the
+$(2N-3)$-dimensional configuration space---determining whether the
+$N$-gon is a global maximum, a saddle, or merely a directional
+maximum---remains open.  The thermostat enabling Onsager relaxation is the enstrophy
 dissipation at small scales---a consequence of the 2D cascade, not an
 external assumption.
 
@@ -316,7 +328,8 @@ Rotating fluids make polygons because:
   \item they are \emph{Hamiltonian on a symmetric domain}: the $N$-gon
     is a critical point of $H$ (equivariant critical point theorem);
   \item the attractive interaction makes the $N$-gon an energy
-    \emph{maximum} ($H''(0) < 0$, proven for all $N \ge 3$);
+    \emph{maximum along the spiral deformation} ($H'(0) = 0$,
+    $H''(0) < 0$, proven for all $N \ge 3$);
   \item the 2D inverse cascade drives the system to negative temperature,
     where energy maxima are statistically selected.
 \end{enumerate}
@@ -326,9 +339,12 @@ be an energy minimum.
 
 \subsection{Limitations}
 
-The energy maximum $H''(0) < 0$ is proven along the specific spiral
-deformation \eqref{eq:deformation}; other directions in configuration
-space are not characterized.  The Onsager equilibrium is invoked but not
+The energy maximum $H'(0) = 0$, $H''(0) < 0$ is proven along the
+centered spiral deformation \eqref{eq:deformation}---one direction in
+the $(2N-3)$-dimensional configuration space.  The full Hessian of $H$
+at the $N$-gon is not characterized; the $N$-gon could be a saddle
+point rather than a true local maximum.  Determining the Hessian
+signature on the constant-angular-momentum surface is an open problem.  The Onsager equilibrium is invoked but not
 derived for the specific planetary context.  The QGPV (continuous) and
 point vortex (discrete) descriptions are connected through the shared
 2D domain and logarithmic interaction, but a rigorous bridge is not
