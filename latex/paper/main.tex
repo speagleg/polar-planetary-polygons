@@ -701,12 +701,16 @@ and Jupiter (Thomson);
 (5)~the observation that the logarithmic interaction's borderline
 status in the sign rule makes it the ``least robust'' polygon
 producer---any other qualifying interaction gives stronger selection;
-(6)~the extensions to curved surfaces (the sphere provides
-additional stabilization), finite deformation radius (polygon
-suppression at $R/R_d \approx 1.29$ for $N = 6$), and the $N = 7$
-quartic bifurcation; and (7)~the vortex blob limit showing that
-regularization preserves and enhances stability, resolving the $N = 7$
-marginal case (Section~\ref{sec:extensions}).
+(6)~the spherical stability boundary
+$\varphi_{\mathrm{crit}}(N)$ showing the sphere \emph{destabilizes}
+relative to the plane (the Lagrange shift vanishes at the equator),
+with Saturn's hexagon inside the stable zone;
+(7)~the $K_0$ suppression transition with two distinct phase
+boundaries (spiral and constrained) and the class~(iii) interaction
+landscape; and (8)~the vortex blob bridge showing regularization
+preserves and enhances stability, resolving the $N = 7$ marginal
+case, with profile independence via a Fourier dominance argument
+(Section~\ref{sec:extensions}).
 
 \medskip\noindent\textbf{Relation to prior work.}
 The connection between Onsager statistics and large-scale vortex
@@ -764,27 +768,56 @@ finite deformation radius, the $N = 7$ marginal case, multi-ring
 configurations, and the continuous-to-discrete bridge via the vortex
 blob limit.
 
-\subsection{Curved 2D surfaces}
+\subsection{Curved 2D surfaces: the spherical stability boundary}
 \label{sec:curved}
 
-On the 2-sphere, the standard point vortex interaction uses chord
-distance: $h(\theta) = -\ln(2\sin(\theta/2))$, which satisfies
-$h'(\theta) = -\frac12\cot(\theta/2) < 0$.  The curvature-corrected
-analog of $(rh')'$ is
-$(\sin\theta\cdot h'(\theta))' = \tfrac12\sin\theta > 0$
-(class~(iii) of Remark~\ref{rem:borderline}: the positive curvature
-correction exceeds the planar borderline).  Numerical computation
-shows $H''(0) > 0$ for the spherical $N$-gon at all tested colatitudes
-and $N \le 8$: the polygon is an energy minimum along the spiral
-\emph{even in the unconstrained problem}.  The spherical geometry
-provides additional stabilization beyond the planar mechanism.
+On the 2-sphere, the point vortex interaction
+$h(\theta) = -\ln(2\sin(\theta/2))$ satisfies $h' < 0$ and
+$(\sin\theta\cdot h')' = \tfrac12\sin\theta > 0$ (class~(iii)).
+While $H''(0) > 0$ along the spiral at all tested colatitudes
+(the polygon is a spiral-direction energy minimum even without
+the Lagrange shift), the \emph{constrained} Hessian tells a
+different story.
+
+The angular impulse on the sphere is
+$L = \sum\cos\theta_k$, with Hessian
+$\partial^2 L/\partial\theta_k^2 = -\cos\varphi_0$ at colatitude
+$\varphi_0$.  The Lagrangian shift from $\mu_L$ is therefore
+proportional to $\cos\varphi_0$: full near the pole ($\varphi_0 \to 0$),
+vanishing at the equator ($\varphi_0 = 90^\circ$).  This
+latitude-dependent shift produces a \emph{colatitude-dependent
+stability boundary}:
+
+\begin{center}
+\begin{tabular}{lcccccc}
+\toprule
+$N$ & 3 & 4 & 5 & 6 & 7 & $\ge 8$ \\
+\midrule
+$\varphi_{\mathrm{crit}}$ & ${>}85^\circ$ & $54.7^\circ$ &
+  $45.0^\circ$ & $26.6^\circ$ & ${\approx}\,0^\circ$ & $0^\circ$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The $N$-gon is a constrained energy minimum on the sphere if and only
+if $\varphi_0 < \varphi_{\mathrm{crit}}(N)$.  The dimensionless
+eigenvalue $\bar\lambda = \sin^2\!\varphi_0 \cdot \lambda$ recovers
+the Havelock values to within $1\%$ at $\varphi_0 = 3^\circ$
+(N=5: $\bar\lambda = 0.99$, Havelock $= 1.0$;
+N=6: $0.49$ vs $0.5$; N=8: $-1.01$ vs $-1.0$).
+
+Saturn's hexagon at $76^\circ$\,N ($\varphi_0 = 14^\circ$) lies
+inside $\varphi_{\mathrm{crit}}(6) = 26.6^\circ$: the hexagonal
+ring is in the stable zone.  If the hexagon were at $60^\circ$\,N
+($\varphi_0 = 30^\circ > 26.6^\circ$), it would cross the boundary
+and the pattern would not persist.  Jupiter's octagon ($N = 8$) is
+unstable at all colatitudes, consistent with the need for a
+central vortex.
 
 On the flat torus, $H''(0) < 0$ approaches the planar value for
 polygons small relative to the domain, with periodic corrections
-entering at the domain scale.  The class~(i)/(ii)/(iii) partition
-thus applies on curved surfaces, but the sufficient condition
-$(rh')' \le 0$ is specific to the plane; on the sphere, $h' < 0$
-alone suffices.
+entering at the domain scale.
 
 \subsection{Finite Rossby deformation radius}
 \label{sec:deformation}
