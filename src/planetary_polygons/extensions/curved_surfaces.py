@@ -2,7 +2,8 @@
 Point vortex stability on curved surfaces: sphere and hyperbolic plane. (§6.1)
 
 Spherical Green's function: G(gamma) = -(1/4pi) ln(2 - 2cos(gamma))
-Hyperbolic Green's function: G(d) = -(1/2pi) ln(tanh(d/(2a)))
+Hyperbolic Hamiltonian: H_hyp = -Σ_{j<k} ln|z_j-z_k| + (N-1)/2·Σ_k ln(a²-|z_k|²)
+  (from h(d) = -ln sinh(d/(2a)) in the Poincaré disk model)
 
 Paper numbers (numerically computed):
   - N=6 stable at Saturn latitude 76°N (colatitude 14°) on sphere
@@ -17,14 +18,18 @@ Implementation notes:
   matches the flat Green function in the azimuthal variable.
   With 3 constraints (L, Px, Py), N=6 and N=7 are marginally stable.
 
-  Hyperbolic: uses the flat constrained Hessian with a curvature correction
-  term proportional to N*(N-1)*R^2/a^2. This correction represents the
-  leading-order effect of negative Gaussian curvature K = -1/a^2 on the
-  stability eigenvalue. The coefficient is calibrated so that N=12 is
-  marginally stable at R/a=1, consistent with the paper's claim.
+  Hyperbolic (exact): uses hyperbolic_ncrit_exact() which implements the exact
+  C₁(H², ξ) = (N-1)(1+ξ²)/(1-ξ)² formula from the Riemannian Havelock identity.
+  The legacy hyperbolic_ncrit() uses a heuristic calibration and is kept for
+  backward compatibility only.
+
+  Exact 7→8 stability threshold: ξ* = 8 - 3√7 ≈ 0.0627 (γ = 127 + 48√7 ≈ 254).
 """
 import numpy as np
 from scipy.linalg import eigvalsh
+
+XI_STAR_78 = 8 - 3 * np.sqrt(7)   # exact 7→8 stability threshold, ξ = r_E²/a²
+GAMMA_78 = 127 + 48 * np.sqrt(7)  # = 1/ξ*², exact
 
 
 def _ring_hessian_generic(N, z, h_second_deriv_func):
@@ -189,6 +194,43 @@ def hyperbolic_ncrit(N, R_over_a, a=1.0):
     curvature_correction = N * (N - 1) * C_geom * R_over_a**2
 
     return flat_min + curvature_correction
+
+
+def hyperbolic_ncrit_exact(N, R_over_a, a=1.0):
+    """
+    Exact minimum Lagrangian eigenvalue for N-ring on H² using the closed-form C₁ formula.
+
+    C₁(H², ξ) = (N-1)(1+ξ²)/(1-ξ)²  where ξ = r_E²/a²
+    r_E = a * tanh(ρ/(2a)), ρ = R_over_a * a (geodesic ring radius)
+
+    λ_m * r_E² = C₁(H², ξ) - m(N-m)/2
+    Ring stable iff min over m=1..N//2 of λ_m ≥ 0.
+
+    Unlike hyperbolic_ncrit (heuristic), this uses the exact Green's function
+    result and is valid for all R/a values.
+
+    Parameters
+    ----------
+    N : int
+        Number of ring vortices.
+    R_over_a : float
+        Geodesic ring radius in units of curvature radius ρ/a.
+    a : float
+        Curvature radius (default 1.0).
+
+    Returns
+    -------
+    float
+        Minimum constrained eigenvalue. Positive = stable, negative = unstable.
+    """
+    rho = R_over_a * a
+    r_E = a * np.tanh(rho / (2 * a))
+    xi = (r_E / a) ** 2
+    if xi >= 1 - 1e-10:
+        return -np.inf
+    C1 = (N - 1) * (1 + xi**2) / (1 - xi)**2
+    lam_min = min(C1 - m * (N - m) / 2 for m in range(1, N // 2 + 1)) / r_E**2
+    return lam_min
 
 
 def spherical_pair_interaction(gamma, R):

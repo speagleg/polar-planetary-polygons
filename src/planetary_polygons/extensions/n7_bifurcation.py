@@ -1,18 +1,22 @@
 """
 N=7 bifurcation: quartic coefficient on the neutral subspace.
 
-The N=7 ring has two marginal (zero-eigenvalue) modes: the angular Fourier
-modes at m=3 and m=4.  By Z_7 symmetry, the unconstrained quartic
-d^4H/dt^4 = 153/7 is constant on the entire 2D neutral sphere (paper eq. 13).
+The N=7 ring has a 2D neutral subspace: the radial cos and sin Fourier modes
+at m=3. These are dz_k = z_k·cos(2πmk/N) and dz_k = z_k·sin(2πmk/N) (radial
+displacements along the equilibrium positions). Note: the tangential m=3 mode
+(dz_k = i·z_k·cos(2πmk/N)) has Lagrangian eigenvalue +6 and is NOT marginal.
 
-The constrained quartic uses Newton projection onto {L = N}: for the angular
+By Z_7 symmetry, the unconstrained quartic d^4H/dt^4 = 153/7 is constant on
+the entire 2D neutral subspace (paper eq. 13).
+
+The constrained quartic uses Newton projection onto {L = N}: for the radial
 m=3 mode u with Re(Σ z_k·conj(u_k)) = 0 and |u|^2 = 1, the projected path is
     z(ε) = (z + ε·u) · sqrt(N / (N + ε²))
-The constrained quartic is extracted by the paper's two-point stencil with
+The constrained quartic is extracted via the log-ratio delta-H method with
 Richardson extrapolation (§6.3), giving ≈ 19.29.
 
-Paper §6.3: unconstrained = 153/7 ≈ 21.86, constrained ≈ 19.28,
-            correction Δ ≈ 2.58, α₀ ≈ 3.2.
+Paper §6.3: unconstrained = 153/7 ≈ 21.86, constrained ≈ 19.29,
+            correction Δ ≈ 2.57, α₀ ≈ 3.21.
 """
 import numpy as np
 from fractions import Fraction
@@ -37,6 +41,25 @@ def _angular_fourier_mode(N, m, imag_part=False):
     eps = np.sin(2 * np.pi * m * k / N) if imag_part else np.cos(2 * np.pi * m * k / N)
     z_ring = np.exp(2j * np.pi * k / N)
     dz = 1j * z_ring * eps          # tangential displacement
+    v = np.concatenate([dz.real, dz.imag])
+    norm = np.linalg.norm(v)
+    return v / norm if norm > 1e-14 else v
+
+
+def _radial_fourier_mode(N, m, imag_part=False):
+    """
+    Radial Fourier mode of the N-vortex ring, as a normalized 2N real vector.
+
+    For ring z_k = exp(2πik/N), the radial perturbation is:
+        dz_k = z_k · ε_k,   ε_k = cos(2πmk/N)  or  sin(2πmk/N)
+
+    This is the correct neutral subspace mode for N=7, m=3.
+    The tangential mode (dz_k = i·z_k·ε_k) has eigenvalue +6, not 0.
+    """
+    k = np.arange(N)
+    eps = np.sin(2 * np.pi * m * k / N) if imag_part else np.cos(2 * np.pi * m * k / N)
+    z_ring = np.exp(2j * np.pi * k / N)
+    dz = z_ring * eps          # radial displacement (NOT 1j * z_ring * eps)
     v = np.concatenate([dz.real, dz.imag])
     norm = np.linalg.norm(v)
     return v / norm if norm > 1e-14 else v
@@ -82,57 +105,53 @@ def quartic_exact_n7():
     return Fraction(153, 7)
 
 
-def _constrained_quartic_at_h(z, u, h):
+def _delta_H_constrained(z, u, h):
     """
-    Paper's two-point stencil for the constrained quartic at step size h.
+    H_constrained(h) - H(0) computed as sum of log-ratios (numerically stable).
 
-    Newton-projected path: z(ε) = (z + ε·u) · sqrt(N / (N + ε²))
-    where L(ε) = N + ε² exactly (since Re(Σ z_k·conj(u_k)) = 0, |u|^2 = 1).
-
-    Stencil: [2·δH(2h) - 8·δH(h)] / h^4 → 24c₄ = d^4H/dε^4
-    (eliminates h^2 leading error; see paper §6.3).
+    Projected path: z_proj = (z + h*u) * sqrt(N / (N + h²))
     """
+    import math
     N = len(z)
+    zp = z + h * u
+    L = np.sum(np.abs(zp)**2)
+    scale = np.sqrt(N / L)
+    zproj = zp * scale
+    dH = 0.0
+    for j in range(N):
+        for l in range(j + 1, N):
+            d_eq = abs(z[j] - z[l])
+            d_pr = abs(zproj[j] - zproj[l])
+            dH -= math.log(d_pr / d_eq)
+    return dH
 
-    def H(z_pts):
-        total = 0.0
-        for j in range(N):
-            for k in range(j + 1, N):
-                d = abs(z_pts[j] - z_pts[k])
-                if d > 1e-14:
-                    total -= np.log(d)
-        return total
 
-    def z_proj(eps):
-        return (z + eps * u) * np.sqrt(N / (N + eps ** 2))
-
-    H0 = H(z)
-    dH_h  = H(z_proj(h))   - H0
-    dH_2h = H(z_proj(2 * h)) - H0
-    return (2.0 * dH_2h - 8.0 * dH_h) / h ** 4
+def _fourth_diff_delta(z, u, h):
+    """[2·dH(2h) - 8·dH(h)] / h^4 → 24·c₄ (the constrained quartic)."""
+    dH1 = _delta_H_constrained(z, u, h)
+    dH2 = _delta_H_constrained(z, u, 2 * h)
+    return (2 * dH2 - 8 * dH1) / h**4
 
 
 def constrained_quartic_n7():
     """
     Constrained quartic on the Newton-projected constraint surface for N=7.
 
-    Uses the angular m=3 mode, the paper's two-point stencil, and
-    Richardson extrapolation in h² to eliminate leading truncation error.
+    Uses the radial m=3 mode, log-ratio delta-H method, and Richardson
+    extrapolation in h² to eliminate leading truncation error.
 
-    Returns ≈ 19.29 (paper gives 19.28).
+    Returns ≈ 19.29 (paper §6.3).
     """
     N = 7
     z = _ring_positions(N)
-    u = _angular_fourier_mode(N, 3)
-    u_c = u[:N] + 1j * u[N:]
+    v = _radial_fourier_mode(N, 3)
+    u_c = v[:N] + 1j * v[N:]
 
-    # Richardson extrapolation: two step sizes that agree to 4 decimal places
     h1, h2 = 0.04, 0.03
-    q1 = _constrained_quartic_at_h(z, u_c, h1)
-    q2 = _constrained_quartic_at_h(z, u_c, h2)
-    # Exact leading error is O(h²): q(h) ≈ q_exact + c·h²
+    q1 = _fourth_diff_delta(z, u_c, h1)
+    q2 = _fourth_diff_delta(z, u_c, h2)
     # Richardson: q_exact ≈ (q2·h1² - q1·h2²) / (h1² - h2²)
-    r = h2 ** 2 / h1 ** 2
+    r = h2**2 / h1**2
     return float((q2 - r * q1) / (1.0 - r))
 
 
