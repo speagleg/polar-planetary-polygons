@@ -155,9 +155,43 @@ def constrained_quartic_n7():
     return float((q2 - r * q1) / (1.0 - r))
 
 
+def constrained_quartic_exact():
+    """
+    Exact constrained quartic for N=7: 135/7.
+
+    Derivation (log-scaling identity):
+    The Newton projection z(ε) = (z + ε·u)·sqrt(N/(N+ε²)) scales all
+    positions by s(ε) = sqrt(N/(N+ε²)).  For the logarithmic energy each
+    of the N(N-1)/2 pairs acquires an additive log(s(ε)), so
+
+        H_constrained(ε) = H_unconstrained(ε) + N(N-1)/4 · ln(1 + ε²/N).
+
+    The 4th derivative of the correction at ε = 0:
+        ln(1+ε²/N) = ε²/N - ε⁴/(2N²) + O(ε⁶)
+        d⁴/dε⁴ [N(N-1)/4 · ln(1+ε²/N)]|₀ = N(N-1)/4 · (-12/N²)
+                                             = -3(N-1)/N.
+
+    For N=7: correction = -3·6/7 = -18/7.
+    Constrained quartic = 153/7 − 18/7 = 135/7 (exact).
+    """
+    N = 7
+    correction = Fraction(-3 * (N - 1), N)  # = -18/7
+    return Fraction(153, 7) + correction     # = 135/7
+
+
+def constraint_correction_exact():
+    """Exact constraint correction: 18/7 (= 153/7 − 135/7)."""
+    return Fraction(18, 7)
+
+
 def constraint_correction_n7():
-    """153/7 minus constrained quartic ≈ 2.57."""
+    """153/7 minus constrained quartic ≈ 2.57 (numerical Richardson estimate)."""
     return float(Fraction(153, 7)) - constrained_quartic_n7()
+
+
+def alpha_0_exact():
+    """Exact leading amplitude coefficient α₀ = 135/7 / 6 = 45/14."""
+    return constrained_quartic_exact() / 6
 
 
 def alpha_0_n7():

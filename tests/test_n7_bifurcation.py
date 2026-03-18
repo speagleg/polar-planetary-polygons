@@ -5,8 +5,11 @@ from planetary_polygons.extensions.n7_bifurcation import (
     quartic_exact_n7,
     unconstrained_quartic,
     constrained_quartic_n7,
+    constrained_quartic_exact,
     constraint_correction_n7,
+    constraint_correction_exact,
     alpha_0_n7,
+    alpha_0_exact,
 )
 
 
@@ -36,3 +39,32 @@ def test_constraint_correction_n7():
 def test_alpha_0_n7():
     a = alpha_0_n7()
     assert 3.0 < a < 3.6, f"Expected ≈3.24, got {a:.4f}"
+
+
+def test_constrained_quartic_exact():
+    """Exact constrained quartic is 135/7 via log-scaling identity."""
+    q = constrained_quartic_exact()
+    assert q == Fraction(135, 7), f"Expected 135/7, got {q}"
+
+
+def test_constraint_correction_exact():
+    """Constraint correction is exactly 18/7 = 153/7 - 135/7."""
+    c = constraint_correction_exact()
+    assert c == Fraction(18, 7), f"Expected 18/7, got {c}"
+    assert quartic_exact_n7() - constrained_quartic_exact() == c
+
+
+def test_alpha_0_exact():
+    """Exact α₀ = 45/14."""
+    a = alpha_0_exact()
+    assert a == Fraction(45, 14), f"Expected 45/14, got {a}"
+
+
+def test_richardson_matches_exact():
+    """Richardson estimate agrees with exact 135/7 to within 0.005."""
+    exact = float(constrained_quartic_exact())
+    numerical = constrained_quartic_n7()
+    assert abs(numerical - exact) < 0.005, (
+        f"Richardson {numerical:.6f} deviates from exact {exact:.6f} "
+        f"by {abs(numerical-exact):.6f}"
+    )

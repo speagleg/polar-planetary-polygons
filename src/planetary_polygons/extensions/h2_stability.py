@@ -129,6 +129,73 @@ def threshold_78_exact():
     return XI_STAR_78, GAMMA_78
 
 
+def h2_geodesic_distance(z_j, z_k, a):
+    """
+    Geodesic distance between z_j and z_k on the Poincaré disk of radius a.
+
+    Formula (Beardon 1983; Kimura 1999):
+        cosh(d/a) = 1 + 2a²|z_j-z_k|² / ((a²-|z_j|²)(a²-|z_k|²))
+
+    Parameters
+    ----------
+    z_j, z_k : complex
+        Points inside the disk |z| < a.
+    a : float
+        Curvature radius.
+
+    Returns
+    -------
+    float
+        Geodesic distance d(z_j, z_k).
+    """
+    dz2 = abs(z_j - z_k) ** 2
+    rj2 = abs(z_j) ** 2
+    rk2 = abs(z_k) ** 2
+    cosh_arg = 1.0 + 2.0 * a ** 2 * dz2 / ((a ** 2 - rj2) * (a ** 2 - rk2))
+    return a * np.arccosh(cosh_arg)
+
+
+def h2_green_identity_residual(N, rho, a=1.0):
+    """
+    Verify the algebraic identity linking the two forms of the H² Hamiltonian.
+
+    The Poincaré-disk form and the geodesic-distance form are related by
+    (derived in §4.3 via the identity sinh(d/(2a)) = a|z_j-z_k|/√((a²-|z_j|²)(a²-|z_k|²))):
+
+        H_hyp(z, a) = Σ_{j<k} −ln sinh(d_{H²}(j,k)/(2a)) + N(N-1)/2 · ln a
+
+    Returns the residual of this identity, which should be ≈ 0 to machine
+    precision for any ring configuration.
+
+    Parameters
+    ----------
+    N : int
+        Number of vortices.
+    rho : float
+        Geodesic ring radius (ρ/a ratio when a=1).
+    a : float
+        Curvature radius.
+
+    Returns
+    -------
+    float
+        |H_hyp − (H_sinh + const)|.  Zero to floating-point precision.
+    """
+    r_E = a * np.tanh(rho / (2.0 * a))
+    z = r_E * np.exp(2j * np.pi * np.arange(N) / N)
+
+    H_disk = H_hyp(z.real, z.imag, a)
+
+    H_sinh = 0.0
+    for j in range(N):
+        for k in range(j + 1, N):
+            d_jk = h2_geodesic_distance(z[j], z[k], a)
+            H_sinh -= np.log(np.sinh(d_jk / (2.0 * a)))
+
+    const = N * (N - 1) / 2.0 * np.log(a)
+    return float(H_disk - (H_sinh + const))
+
+
 def ncrit_h2_table(rho_vals, a=1.0):
     """
     Return dict mapping ρ/a → N_crit (exact formula).

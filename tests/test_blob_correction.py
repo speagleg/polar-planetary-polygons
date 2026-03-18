@@ -37,3 +37,42 @@ def test_stabilization_threshold_n6():
 def test_stabilization_threshold_n3_infinite():
     eps = stabilization_threshold(3)
     assert eps == float('inf'), "N=3: c_m < 0, cannot be stabilized"
+
+
+# ── Multipole far-field expansion tests ──────────────────────────────────────
+
+from planetary_polygons.extensions.blob_correction import multipole_far_field_residual
+
+
+def test_multipole_far_field_d_scaling():
+    """Residual scales as d⁻² for fixed ε (doubling d reduces residual by ≈4)."""
+    K, eps = 1.0, 0.1
+    r1 = multipole_far_field_residual(K, eps, d=10.0)
+    r2 = multipole_far_field_residual(K, eps, d=20.0)
+    ratio = r1 / r2
+    assert 3.5 < ratio < 4.5, (
+        f"Expected d⁻² scaling (ratio≈4), got {ratio:.3f}. "
+        f"residuals: d=10 → {r1:.6f}, d=20 → {r2:.6f}"
+    )
+
+
+def test_multipole_far_field_eps_scaling():
+    """Residual scales as ε² for fixed d (doubling ε increases residual by ≈4)."""
+    K, d = 1.0, 30.0
+    r1 = multipole_far_field_residual(K, eps=0.1, d=d)
+    r2 = multipole_far_field_residual(K, eps=0.2, d=d)
+    ratio = r2 / r1
+    assert 3.5 < ratio < 4.5, (
+        f"Expected ε² scaling (ratio≈4), got {ratio:.3f}. "
+        f"residuals: ε=0.1 → {r1:.6f}, ε=0.2 → {r2:.6f}"
+    )
+
+
+def test_multipole_residual_small_for_large_separation():
+    """Residual is negligible compared to monopole when d >> ε."""
+    K, eps, d = 1.0, 0.05, 50.0
+    residual = multipole_far_field_residual(K, eps, d)
+    monopole = K ** 2 * abs(np.log(d))
+    assert abs(residual) / monopole < 1e-4, (
+        f"Residual {residual:.2e} not small vs monopole {monopole:.2f}"
+    )

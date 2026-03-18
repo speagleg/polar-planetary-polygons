@@ -138,6 +138,66 @@ def stabilization_threshold(N):
     return 1.0 / np.sqrt(cm)
 
 
+def multipole_far_field_residual(K, eps, d, M=400, seed=42):
+    """
+    Far-field interaction residual after subtracting the monopole term.
+
+    Discretises a uniform vortex disk of total circulation K and support
+    radius ε as M sub-vortices drawn from a fixed random unit disk and
+    scaled to radius ε.  The centroid is zeroed exactly so the dipole term
+    in the Taylor expansion vanishes.  A test vortex of strength K sits at
+    distance d on the real axis.
+
+    Returns
+        residual = H_actual - H_monopole
+
+    where H_monopole = -K²·ln d (the leading monopole approximation).
+
+    Theory (Remark 2 multipole derivation):
+        ln|d - z_i| = ln d - Re(z_i/d) - ½ Re(z_i²/d²) + O(ε³/d³).
+    With centroid = 0, the dipole term integrates to zero, leaving
+        residual = K²/(2d²) · Re(Σ wᵢ zᵢ²) + O(ε⁴/d⁴) = O(ε²/d²).
+
+    Implementation note
+    -------------------
+    A fixed seed guarantees that pts(2ε) = 2·pts(ε) exactly (same unit
+    disk points, just rescaled), so ratios R(2ε)/R(ε) and R(d)/R(2d)
+    equal 4 to within the O(ε⁴/d⁴) correction — suitable for power-law
+    scaling tests.
+
+    Parameters
+    ----------
+    K : float
+        Total vortex circulation.
+    eps : float
+        Support radius of the compact patch.
+    d : float
+        Distance to the test vortex.  Must satisfy d >> eps.
+    M : int
+        Number of sub-vortices.
+    seed : int
+        RNG seed for reproducibility.
+
+    Returns
+    -------
+    float
+        Residual = H_actual - H_monopole.
+    """
+    rng = np.random.default_rng(seed)
+    # Draw M points uniformly in the unit disk, then scale to radius ε.
+    r_unit = np.sqrt(rng.uniform(0, 1, M))
+    theta = rng.uniform(0, 2 * np.pi, M)
+    unit_pts = r_unit * np.exp(1j * theta)
+    unit_pts -= unit_pts.mean()        # zero the centroid exactly (kills dipole)
+    pts = eps * unit_pts               # pts(2ε) = 2·pts(ε) for same seed
+
+    z_test = complex(d, 0)
+    wts = np.ones(M) / M
+    H_actual = -np.sum(wts * K * K * np.log(np.abs(pts - z_test)))
+    H_monopole = -K ** 2 * np.log(d)
+    return float(H_actual - H_monopole)
+
+
 if __name__ == "__main__":
     table = blob_correction_table()
     print(f"{'N':>3}  {'shift':>8}  {'P_m':>8}  {'c_m':>8}")

@@ -239,13 +239,13 @@ def mobius_energy_transform(N, a, b, c, d):
     """
     Compute the Thomson energy before and after a Möbius transformation.
 
-    For a Möbius transformation f(z) = (az+b)/(cz+d) with ad-bc ≠ 0,
-    the Thomson energy transforms as:
+    For a Möbius transformation f(z) = (az+b)/(cz+d) with ad-bc ≠ 0 the
+    flat Thomson energy transforms as (proved by expanding ln|f(z_j)-f(z_k)|):
 
-        H(f(z)) = H(z) + (N-1)/2 * sum_k ln|f'(z_k)| + const
+        H(f(z)) = H(z) - (N-1)/2 · Σ_k ln|f'(z_k)|
 
-    This function returns (H_before, H_after, correction) so that the
-    Möbius invariance can be verified numerically.
+    For a pure dilation f(z) = bz: correction = N(N-1)/2·ln b and
+    H(bz) = H(z) - N(N-1)/2·ln b  (Corollary cor:dilation-rg in paper).
 
     Parameters
     ----------
@@ -257,7 +257,8 @@ def mobius_energy_transform(N, a, b, c, d):
     Returns
     -------
     tuple of (float, float, float)
-        (H_original, H_transformed, analytic_correction).
+        (H_original, H_transformed, analytic_correction)
+        where H_transformed = H_original - analytic_correction.
     """
     z = np.exp(2j * np.pi * np.arange(N) / N)
 
@@ -281,10 +282,51 @@ def equations_of_motion_invariant_check(N, a, b, c, d):
     """
     Numerical check that the Möbius energy transformation formula is accurate.
 
-    Returns True if |H_after - H_before - correction| < 0.1.
+    Returns True if |H_after - H_before + correction| < 1e-8.
+    (The correct identity is H_after = H_before - correction.)
     """
     H_b, H_a, correction = mobius_energy_transform(N, a, b, c, d)
-    return abs(H_a - H_b - correction) < 0.1
+    return abs(H_a - H_b + correction) < 1e-8
+
+
+def dilation_rg_residual(N, b):
+    """
+    Residual of the flat-plane dilation identity (Corollary cor:dilation-rg).
+
+    For the N-vortex ring on the unit circle, verify:
+
+        H(b·z) = H(z) - N(N-1)/2 · ln b
+
+    This is the Wilsonian RG fixed-point identity: rescaling all positions
+    by b shifts the Thomson energy by an additive constant.  The eigenvalues
+    λ_m = (N-1) - m(N-m)/2 are therefore scale-independent, which is why
+    N_crit = 7 cannot drift under spatial rescaling.
+
+    Parameters
+    ----------
+    N : int
+        Number of vortices.
+    b : float
+        Dilation factor (b > 0).
+
+    Returns
+    -------
+    float
+        Residual = H(b·z) - H(z) + N(N-1)/2 · ln b.  Zero to machine precision.
+    """
+    z = np.exp(2j * np.pi * np.arange(N) / N)
+
+    def H_flat(pos):
+        s = 0.0
+        for j in range(N):
+            for k in range(j + 1, N):
+                s -= np.log(abs(pos[j] - pos[k]))
+        return s
+
+    H_original = H_flat(z)
+    H_scaled = H_flat(b * z)
+    analytic_shift = N * (N - 1) / 2.0 * np.log(b)
+    return float(H_scaled - H_original + analytic_shift)
 
 
 if __name__ == "__main__":

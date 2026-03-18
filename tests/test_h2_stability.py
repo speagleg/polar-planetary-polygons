@@ -4,6 +4,7 @@ from planetary_polygons.extensions.h2_stability import (
     H_hyp, J_hyp, get_Omega, fourier_eigenvalue, min_eigenvalue,
     ncrit_h2, C1_h2_exact, ncrit_h2_exact, threshold_78_exact,
     ncrit_h2_table, XI_STAR_78, GAMMA_78,
+    h2_geodesic_distance, h2_green_identity_residual,
 )
 
 
@@ -85,3 +86,42 @@ def test_get_Omega_sign():
     """Ω should be negative for standard N-vortex ring (retrograde orbit)."""
     Omega = get_Omega(6, 0.5, 1.0)
     assert Omega < 0, f"Expected Ω < 0, got {Omega:.6f}"
+
+
+# ── H² Green's function identity tests ───────────────────────────────────────
+
+def test_h2_geodesic_distance_origin():
+    """Distance from origin to z = r·e^{iθ} = 2·arctanh(r/a)·a."""
+    a = 1.0
+    for r in [0.2, 0.5, 0.8]:
+        d = h2_geodesic_distance(0.0, r, a)
+        expected = 2.0 * a * np.arctanh(r / a)
+        assert abs(d - expected) < 1e-12, (
+            f"r={r}: d={d:.10f}, expected={expected:.10f}"
+        )
+
+
+def test_h2_geodesic_symmetry():
+    """Geodesic distance is symmetric: d(z_j, z_k) = d(z_k, z_j)."""
+    z1, z2, a = 0.3 + 0.1j, -0.2 + 0.4j, 1.0
+    assert abs(h2_geodesic_distance(z1, z2, a) - h2_geodesic_distance(z2, z1, a)) < 1e-14
+
+
+def test_h2_green_identity_unit_disk():
+    """H_hyp = Σ -ln sinh(d/2) + 0 for a=1 (constant term vanishes)."""
+    for N in [4, 6, 7]:
+        for rho in [0.3, 0.7, 1.2]:
+            residual = h2_green_identity_residual(N, rho, a=1.0)
+            assert abs(residual) < 1e-10, (
+                f"N={N}, rho={rho}: identity residual = {residual:.2e}"
+            )
+
+
+def test_h2_green_identity_rescaled_disk():
+    """Identity holds for a=2.0 (nontrivial constant N(N-1)/2·ln a)."""
+    for N in [5, 8]:
+        for rho in [0.5, 1.5]:
+            residual = h2_green_identity_residual(N, rho, a=2.0)
+            assert abs(residual) < 1e-10, (
+                f"N={N}, rho={rho}, a=2: identity residual = {residual:.2e}"
+            )

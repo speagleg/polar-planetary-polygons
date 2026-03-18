@@ -33,7 +33,7 @@ scale-independent, and $N = 7$ is the threshold where the leading
 eigenvalue $\lambda_3 = 0$ (the linear restoring force vanishes).
 A quartic calculation on the constraint surface confirms that the
 $N = 7$ ring is nonlinearly stable: the quartic coefficient
-$\alpha_0 \approx 3.2 > 0$ (in the normal form
+$\alpha_0 = 45/14 \approx 3.21 > 0$ (in the normal form
 $\mathcal{H} = (\alpha_0/4)\varepsilon^4$) supplies a restoring force
 where the linear one is absent.
 
@@ -267,7 +267,8 @@ interactions into three classes:
     $(rh')' = -\alpha^2 r^{\alpha-1} < 0$.
   \item[(ii)] $h' < 0$ and $(rh')' = 0$: the first term vanishes
     and only the second contributes.  For smooth $h$ on $(0,\infty)$,
-    this class contains a unique interaction:
+    this class contains a unique functional form, up to positive
+    scaling and additive constant:
     $(rh')' = 0 \Rightarrow rh' = c \Rightarrow h' = c/r
     \Rightarrow h = c\ln r + b$; combined with $h' < 0$ gives
     $c < 0$, i.e.\ $h(r) = -a\ln r + b$ with $a > 0$.
@@ -280,17 +281,17 @@ precise sense, the logarithmic interaction produces the \emph{weakest}
 $|H''(0)|$ among all interactions in classes~(i) and~(ii).
 \end{remark}
 
-\begin{remark}[The logarithm as a renormalization-group fixed point]
+\begin{remark}[The logarithm as the unique dilation-invariant interaction]
 \label{rem:rg-fixed-point}
 Among all pairwise interactions $h:(0,\infty)\to\mathbb{R}$ with
-$h'<0$, the logarithmic interaction $h(r)=-\ln r$ occupies a
-distinguished position as the \emph{unique fixed point} of spatial
-coarse-graining.  Define the scale map $T_b[h](r) = h(br)$ (zoom out
-by factor $b>1$).  A fixed point satisfies $h(br) = h(r) + c(b)$ for
-all $r$---that is, scaling changes $h$ only by an additive constant
+$h'<0$, the logarithmic interaction $h(r)=-\ln r$ is the
+\emph{unique interaction invariant under spatial dilation up to an
+additive constant}.  Define the scale map $T_b[h](r) = h(br)$
+($b>0$).  Dilation-invariance means $h(br) = h(r) + c(b)$ for
+all $r$---that is, rescaling changes $h$ only by an additive constant
 (irrelevant to the force $-h'$).  This is a Cauchy functional equation
 whose continuous solutions with $h'<0$ are exactly $h(r)=-a\ln r + b$,
-$a>0$, confirming class~(ii) as the unique fixed-point class.
+$a>0$, confirming class~(ii) as the unique dilation-invariant class.
 The $N$-body lift of this per-pair statement is
 Corollary~\ref{cor:dilation-rg}: the M\"obius covariance of $H$
 (Proposition~\ref{prop:mobius}), restricted to the dilation subgroup,
@@ -298,29 +299,30 @@ gives $H(bz_1,\dots,bz_N)=H(z_1,\dots,z_N)-\tfrac{N(N-1)}{2}\ln b$,
 which is position-independent---the same fixed-point condition at the
 $N$-body level.
 This symmetry is not merely a geometric observation about the
-logarithm: it is the structural reason for the \emph{universality}
+logarithm: it is the structural reason for the \emph{scale-independence}
 of $N_{\mathrm{crit}}=7$.  Because scaling changes $H$ by an
 additive constant (Corollary~\ref{cor:dilation-rg}), the Havelock
 eigenvalue $\lambda_m = (N{-}1) - m(N{-}m)/2$---which determines
 whether the $N$-gon is a stable constrained minimum---is
 scale-independent, and the threshold $N=7$ cannot drift under
-rescaling.  Prior treatments of M\"obius covariance in vortex
+spatial rescaling.  Prior treatments of M\"obius covariance in vortex
 dynamics (e.g.\ \citealt{Newton2001}) identify it as a conformal
 symmetry of the stream function; Corollary~\ref{cor:dilation-rg}
-shows it is simultaneously the $N$-body realization of Wilsonian
-fixed-point universality.
+shows it additionally implies that the stability threshold is
+dilation-invariant.
 
 Under linearization, a perturbation $g(r) = r^\alpha$ transforms as
-$T_b[g](r) = b^\alpha\, r^\alpha$.  The ``RG eigenvalue'' is $b^\alpha$:
+$T_b[g](r) = b^\alpha\, r^\alpha$.  The scaling exponent is $b^\alpha$:
 perturbations with $\alpha < 0$ (decaying at large $r$) are
-\emph{IR-irrelevant}---the coefficient $b^\alpha\to 0$ as $b\to\infty$;
-perturbations with $\alpha>0$ are \emph{IR-relevant}---the coefficient
-grows.  Notably, the class~(i) interactions $h=-r^\beta$ ($\beta>0$)
-are IR-relevant: they depart from the logarithm at large scales,
-flowing toward stronger confining potentials.  Despite this, class~(i)
+\emph{suppressed under rescaling}---the coefficient $b^\alpha\to 0$
+as $b\to\infty$; perturbations with $\alpha>0$ are
+\emph{amplified under rescaling}---the coefficient grows.
+Notably, the class~(i) interactions $h=-r^\beta$ ($\beta>0$)
+are amplified by rescaling: they depart from the logarithm at large
+scales, becoming stronger confining potentials.  Despite this, class~(i)
 still satisfies the sign rule and yields polygon equilibria, so polygon
-formation is robust across both the fixed point and its IR-relevant
-neighbourhood.
+formation is robust across both the dilation-invariant interaction and
+interactions amplified by rescaling.
 
 The \emph{stable manifold} of $h=-\ln r$---interactions of the form
 $-\ln r$ plus corrections that decay at large $r$---arises naturally
@@ -334,29 +336,87 @@ $\int\!\omega(z)\ln|w{-}z|\,\mathrm{d}^2z
 When the vortex centroid lies at the origin the dipole term vanishes,
 leaving an effective pairwise interaction
 $H_\mathrm{eff}(d)=-K^2\ln d + O(\varepsilon^2/d^2)$ for separations
-$d\gg\varepsilon$.  The quadrupole corrections are IR-irrelevant and
-vanish as $d/\varepsilon\to\infty$.  In the Kraichnan inverse-energy-cascade
+$d\gg\varepsilon$.  The quadrupole corrections are suppressed as $d/\varepsilon\to\infty$
+and vanish in the far-field limit.  In the Kraichnan inverse-energy-cascade
 picture~\cite{Kraichnan1967}, vorticity concentrates into compact
 structures of growing scale $L(t)$; at each scale the dominant
 inter-blob interaction is the logarithm, with higher-multipole
 corrections suppressed by $(L/d)^2\to 0$.  The cascade therefore
-drives the system toward the logarithmic fixed point, where the
-sign-rule polygon equilibria apply.  This provides a physical
+drives the system toward the dilation-invariant logarithmic interaction,
+where the sign-rule polygon equilibria apply.  This provides a physical
 explanation for why the sign rule---proved for a specific functional
 form---describes systems whose vorticity is not literally point-like:
 at the relevant scale $d\gg L$, the effective interaction is
 the logarithm to high accuracy.
 
-The Gaussian curvature $K$ is a relevant deformation of this fixed
-point.  On the sphere ($K>0$) the deviation from the logarithm is
-destabilizing, lowering $N_{\mathrm{crit}}$ below~$7$; on the
-hyperbolic plane ($K<0$) it is stabilizing, adding a positive
-$O(|K|)$ correction $12|K|$ to the formerly-marginal $\lambda_3$
-eigenvalue~\eqref{eq:lam3_H2}.  The fixed point $K=0$ is therefore
-the \emph{least stable} point of the family with respect to polygon
-formation: $N_{\mathrm{crit}}=7$ is the minimum over all constant-curvature
+The Gaussian curvature $K$ is a destabilizing perturbation when
+$K>0$ and a stabilizing one when $K<0$.  On the sphere ($K>0$) the
+deviation from the logarithmic Green's function lowers
+$N_{\mathrm{crit}}$ below~$7$; on the hyperbolic plane ($K<0$) it
+adds a positive $O(|K|)$ correction $12|K|$ to the formerly-marginal
+$\lambda_3$ eigenvalue~\eqref{eq:lam3_H2}.  The flat-plane case
+$K=0$ is therefore the \emph{least stable} point of the
+constant-curvature family with respect to polygon formation:
+$N_{\mathrm{crit}}=7$ is the minimum over all constant-curvature
 surfaces.
 \end{remark}
+
+\subsection{M\"obius covariance of the logarithmic energy}
+\label{sec:mobius-cov}
+
+\begin{proposition}[M\"obius covariance]\label{prop:mobius}
+Under a conformal map $f\colon\mathbb{C}\to\mathbb{C}$, the
+logarithmic energy transforms as
+\[
+  H(f(z_1),\dots,f(z_N))
+  = H(z_1,\dots,z_N) - \sum_{k=1}^{N}\tfrac{N-1}{2}\ln|f'(z_k)|.
+\]
+Consequently, the point vortex equations of motion are
+M\"obius-invariant: the single-site correction
+$\tfrac{N-1}{2}\ln|f'(z_k)|$ depends only on~$z_k$, so
+$\partial/\partial \bar z_j$ for $j \ne k$ annihilates it, and the
+Hamiltonian gradient $\partial H/\partial \bar z_j$ is unchanged.
+\end{proposition}
+\begin{proof}
+The identity $|f(z){-}f(w)| = |f'(z)|^{1/2}|f'(w)|^{1/2}|z{-}w|
+\cdot(1 + O(|z{-}w|))$ is exact when $f$ is M\"obius (the error
+term vanishes), so $\ln|f(z_j){-}f(z_k)| = \ln|z_j{-}z_k|
++ \tfrac12\ln|f'(z_j)| + \tfrac12\ln|f'(z_k)|$.  Summing over
+all $\binom{N}{2}$ pairs, each $\ln|f'(z_k)|$ appears $N{-}1$
+times.  Since $\tfrac12\ln|f'(z_k)|$ depends on $z_k$ alone,
+$\partial[\sum_k\tfrac{N-1}{2}\ln|f'(z_k)|]/\partial\bar z_j
+= \tfrac{N-1}{2}\,\partial\ln|f'(z_j)|/\partial\bar z_j$,
+which is the single-site term in the $j$-th equation of motion.
+For M\"obius $f$, $f'$ is rational and $\ln|f'|$ is harmonic away
+from poles, so this term contributes a gauge-like shift to the
+Hamiltonian that does not couple distinct vortices.
+\end{proof}
+
+\begin{corollary}[Dilation subgroup = scale-invariant Hamiltonian]
+\label{cor:dilation-rg}
+Among all M\"obius transformations, the dilation subgroup
+$\{f(z) = bz : b > 0\}$ is uniquely characterised by having
+constant derivative: $f'(z) = b$ for all~$z$.  Substituting
+into Proposition~\ref{prop:mobius} gives a correction that is
+\emph{position-independent}:
+\begin{equation}\label{eq:dilation-rg}
+  H(bz_1,\dots,bz_N)
+  = H(z_1,\dots,z_N) - \tfrac{N(N-1)}{2}\ln b.
+\end{equation}
+This is the $N$-body form of the dilation-invariance condition of
+Remark~\ref{rem:rg-fixed-point}: scaling changes $H$ only by an
+additive constant, so the equations of motion
+$\dot{\bar z}_j = \partial H/\partial z_j$ are dilation-invariant.
+For any other M\"obius map $f$, the derivative $|f'(z_k)|$ varies
+between sites, producing a configuration-dependent correction that
+is not a pure constant; the Hamiltonian is \emph{not}
+scale-invariant under general conformal maps, only under the
+one-parameter dilation subgroup.
+
+Equation~\eqref{eq:dilation-rg} is the $N$-body lift of the per-pair
+uniqueness result in Remark~\ref{rem:rg-fixed-point}: the logarithmic
+energy is the unique $N$-body Hamiltonian that is dilation-invariant.
+\end{corollary}
 
 %% ====================================================================
 \section{Stability of vortex rings on the flat plane}
@@ -401,10 +461,9 @@ content beyond geometric decoration.  Restricted to the dilation
 subgroup $f(z)=bz$, where $f'$ is the constant~$b$, the single-site
 correction becomes position-independent and reduces to
 $H(bz_1,\dots,bz_N) = H(z_1,\dots,z_N) - \tfrac{N(N-1)}{2}\ln b$.
-This is the $N$-body statement that $H$ has an RG fixed point under
-spatial rescaling---the logarithmic energy is scale-invariant up to
-an irrelevant additive constant.  The full development is in
-Corollary~\ref{cor:dilation-rg}.
+This is the $N$-body statement that $H$ is dilation-invariant---the
+logarithmic energy changes only by an additive constant under spatial
+rescaling (Corollary~\ref{cor:dilation-rg} above).
 
 \subsection{Energy curvature along the spiral}
 
@@ -436,6 +495,14 @@ Every factor in the sum is strictly positive, so $H''(0) < 0$.
 \end{proof}
 
 \subsection{The constrained energy minimum}
+
+\noindent\emph{Attribution note.}
+The Havelock eigenvalue formula $\lambda_m = (N{-}1) - m(N{-}m)/2$
+and the linear stability boundary $N \le 7$ are due to
+\citet{Havelock1931}.  The new contribution of the theorem below is
+the reframing: the $N$-gon is a \emph{constrained energy minimum}
+(not a saddle point or maximum), which resolves the apparent tension
+with Onsager's statistical-mechanics picture.
 
 \begin{theorem}[Constrained energy minimum]\label{thm:constrained-min}
 The regular $N$-gon minimizes $H$ on the conserved-quantity surface
@@ -532,16 +599,16 @@ consistent with \citet{Havelock1931}, and $N \ge 8$ is unstable.
 Section~\ref{sec:n7}.)
 \end{proof}
 
-\begin{remark}[Energy minimum, not maximum]
-Some treatments in the literature describe the $N$-gon as an
-energy \emph{maximum} for the discrete vortex system, invoking
-Onsager's argument that vortices cluster at negative temperature
-near the highest-energy states.  Theorem~\ref{thm:constrained-min}
-shows the correct statement: the $N$-gon is a constrained energy
-\emph{minimum} on the conserved-quantity surface $\{L = NR^2,\,
-\mathbf{P} = 0\}$.  The two claims are reconciled by the distinction
-between the unconstrained energy landscape and the constrained one.
+\begin{corollary}[Constrained minimum versus unconstrained saddle]
+\label{cor:min-not-max}
+For $N \le 7$, the $N$-gon is a constrained energy \emph{minimum}
+on $\{L = NR^2,\, \mathbf{P} = 0\}$, yet a saddle point of the
+unconstrained energy $H$.  These two facts are consistent, and their
+reconciliation corrects a widespread description in the statistical-mechanics
+literature of the $N$-gon as an energy maximum.
+\end{corollary}
 
+\begin{proof}
 The unconstrained Hessian $\nabla^2 H$ has $H_{rr}^{(m)} > 0$ and
 $H_{tt}^{(m)} < 0$ at the $N$-gon: radial perturbations raise the
 energy while tangential perturbations lower it (the polygon is a
@@ -565,7 +632,7 @@ the spiral deformation~\eqref{eq:deformation} leaves the conserved
 surface at $O(\sigma^2)$, so it is not a constrained perturbation.
 The negative spiral curvature is an artifact of the angular impulse
 changing along the spiral path.
-\end{remark}
+\end{proof}
 
 \subsection{Central vortex stabilization}
 
@@ -712,52 +779,78 @@ class $p$).  Direct summation over all $21$ pairs gives
 \begin{equation}\label{eq:quartic-153}
   \frac{\dd^4 H}{\dd t^4}\bigg|_{m=3} = \frac{153}{7}.
 \end{equation}
-The value $153/7$ is exactly rational.
 The quartic sum is a polynomial in coordinates of the $N$-gon (whose
 positions are $7$th roots of unity) and is $\mathbb{Z}_7$-invariant:
 simultaneously shifting all vortex labels by one maps the ring to itself
 and maps $u$ to a rotated copy.  By Galois theory, such an invariant
 sum lies in $\mathbb{Q}(\zeta_7)^{\mathbb{Z}_7} = \mathbb{Q}$, so the
-result is necessarily a rational number.  Numerical evaluation to $50$
-decimal places confirms the value is exactly $153/7$.
+result is necessarily a rational number.  The value $153/7$ is then
+identified by the following argument: the $21$ pairs decompose into
+$6$ separation classes $p=1,\dots,6$ with $7$ pairs each, and the
+per-pair quartic~\eqref{eq:quartic-153} depends on $p$ only through
+$A_p = 4\sin^2(\pi p/7)$ and the mode overlap
+$B_p = 2\operatorname{Re}(\Delta z\cdot\overline{\Delta u})$,
+$C_p = |\Delta u|^2$.  These are algebraic numbers in
+$\mathbb{Q}(\zeta_7)$; summing with exact arithmetic (implemented in
+\texttt{n7\_bifurcation.py}) gives $153/7$, verified independently by
+$50$-decimal-place floating-point evaluation.  The Galois rationality
+proof and the direct algebraic summation together constitute an
+exact result, not a numerical conjecture.
 (The $\mathbb{Z}_7$ symmetry forces the degree-$4$ form on
 the $2$-dimensional neutral subspace to be proportional to $|z|^4$,
 so $153/7$ holds for \emph{any} unit vector in the $\{m{=}3,\,m{=}4\}$
 subspace.)
 
-The constraint-surface correction is computed as follows.  The
-Newton projection onto $\{L = N\}$ sends $\varepsilon \mapsto
+The constraint-surface correction admits an exact closed form via
+the \emph{log-scaling identity}.  The Newton projection onto
+$\{L = N\}$ sends $\varepsilon \mapsto
 z(\varepsilon) = (z + \varepsilon u)\,\sqrt{N/L(\varepsilon)}$, where
 $L(\varepsilon) = N + \varepsilon^2$ exactly (since $\operatorname{Re}
 \sum_k z_k\overline{u_k} = 0$ for the radial $m{=}3$ mode and
-$\|u\|^2 = 1$).  The constrained quartic
-$\dd^4 H(z(\varepsilon))/\dd\varepsilon^4\big|_0$ is extracted by the
-symmetric fourth-difference formula
-$[2\,\delta\!H(2h) - 8\,\delta\!H(h)]/h^4 \to 24c_4$
-(where $\delta\!H(h) = H(z(h)) - H(z(0))$ is computed as
-$-\sum_{j<k}\ln(d_{jk}(h)/d_{jk}(0))$ to avoid cancellation), with
-Richardson extrapolation in $h^2$ to remove the leading $O(h^2)$
-truncation error.  Three two-point Richardson pairs at
-$h \in \{0.05, 0.04, 0.03, 0.02\}$ give estimates
-$19.285$, $19.285$, $19.286$ (spread $< 0.001$), giving
+$\|u\|^2 = 1$).  Because the logarithmic energy is a sum of
+$-\ln|\cdot|$ over $N(N-1)/2$ pairs, the overall scale factor
+$s(\varepsilon) = \sqrt{N/(N+\varepsilon^2)}$ contributes an additive
+term:
+\begin{equation}\label{eq:log-scaling-identity}
+  H_{\mathrm{constrained}}(\varepsilon)
+  = H_{\mathrm{unconstrained}}(\varepsilon)
+  + \frac{N(N-1)}{4}\ln\!\left(1 + \frac{\varepsilon^2}{N}\right).
+\end{equation}
+Expanding the logarithm:
+$\ln(1+\varepsilon^2/N)
+  = \varepsilon^2/N - \varepsilon^4/(2N^2) + O(\varepsilon^6)$,
+so the 4th derivative of the correction term at $\varepsilon=0$ is
 \[
-  \left.\frac{\dd^4 H}{\dd t^4}\right|_{\text{constrained}}
-  = 19.285 \pm 0.001,
-  \qquad
-  \Delta = \frac{153}{7} - 19.285 \approx 2.57.
+  \frac{N(N-1)}{4}\cdot\left(-\frac{12}{N^2}\right)
+  = -\frac{3(N-1)}{N}.
 \]
-The constrained quartic is positive and well-separated from zero;
-the $\pm 0.001$ bound is the residual spread across Richardson pairs
-(dominated by the $O(h^4)$ term not eliminated by the two-point
-formula).
+For $N=7$ this is $-18/7$.  Combined with the unconstrained value
+$153/7$, the constrained quartic is therefore
+\begin{equation}\label{eq:constrained-quartic-exact}
+  \left.\frac{\dd^4 H}{\dd t^4}\right|_{\text{constrained}}
+  = \frac{153}{7} - \frac{18}{7} = \frac{135}{7},
+\end{equation}
+an exact rational result.  Richardson extrapolation (three two-point
+pairs at $h \in \{0.05,0.04,0.03,0.02\}$, symmetric fourth-difference
+formula $[2\,\delta\!H(2h)-8\,\delta\!H(h)]/h^4\to 24c_4$ with
+log-ratio cancellation) gives $19.2857\pm 0.0005$, confirming
+$135/7 = 19.285714\ldots$ to four decimal places.
 
-\citet{KurakinYudovich2002} established the nonlinear stability of the
-heptagonal ring using Arnold's energy-Casimir method, identifying the
-same quartic-order confinement.  The present derivation recovers that
-result via the constrained energy-minimum framework
-(Theorem~\ref{thm:constrained-min}), providing an independent proof
-path.  In the normal form $\mathcal{H} = (\alpha_0/4)|z|^4$, the
-constrained quartic gives $\alpha_0 = 19.285/6 \approx 3.2 > 0$:
+\citet{KurakinYudovich2002} established nonlinear stability of the
+heptagonal ring using Arnold's energy-Casimir method, proving
+positivity of the quartic form by Dirichlet's criterion.  Their
+analysis does not yield the explicit coefficient $\alpha_0 = 45/14$;
+rather, it establishes $\alpha_0 > 0$ by a convexity argument.  The
+present derivation gives the exact value via the constrained
+energy-minimum framework (Theorem~\ref{thm:constrained-min}): the
+log-scaling identity~\eqref{eq:log-scaling-identity} yields the exact
+correction $-3(N{-}1)/N$, and the unconstrained value $153/7$ is
+established by the Galois rationality argument combined with direct
+algebraic summation.  In the normal form $\mathcal{H} = (\alpha_0/4)|z|^4$,
+the exact constrained quartic gives
+\begin{equation}\label{eq:alpha0-exact}
+  \alpha_0 = \frac{135/7}{6} = \frac{45}{14} \approx 3.214 > 0\text{:}
+\end{equation}
 the energy-Casimir functional $\mathcal{H} = H + |\mu_L|L$ has a
 strict local minimum along the $m = 3$ direction at quartic order,
 $\mathcal{H} \ge \mathcal{H}_0 + (\alpha_0/4)\varepsilon^4$.  By the
@@ -926,8 +1019,8 @@ stability boundary}:
 \toprule
 $N$ & 3 & 4 & 5 & 6 & 7 & $\ge 8$ \\
 \midrule
-$\varphi_{\mathrm{crit}}$ & ${>}85^\circ$ & $54.7^\circ$ &
-  $45.0^\circ$ & $26.6^\circ$ & ${\approx}\,0^\circ$ & $0^\circ$ \\
+$\varphi_{\mathrm{crit}}$ & $60.0^\circ$ & $48.2^\circ$ &
+  $41.4^\circ$ & $25.8^\circ$ & $0^\circ$ & $0^\circ$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -948,16 +1041,34 @@ and the pattern would not persist.  Jupiter's octagon ($N = 8$) is
 unstable at all colatitudes, consistent with the need for a
 central vortex.
 
-\paragraph{Exact rational thresholds and stereographic geometry.}
-The colatitudes in the table are numerical approximations; the stability
-boundaries are in fact \emph{exact rational fractions} in the stereographic
-parameter $\xi = \tan^2(\varphi_0/2)$.  In stereographic coordinates the
-$\mathbf{S}^2$ Green's function is $-\ln(2\sin(\theta/2))$, and the curvature
-coefficient evaluates to
+\paragraph{Derivation of $C_1(\mathbf{S}^2)$ and exact thresholds.}
+For $N$ vortices on a latitude circle at colatitude $\varphi_0$, the
+great-circle separation satisfies
+$2\sin(\gamma_{jk}/2) = 2\sin\varphi_0\,|\sin(\Delta\phi_{jk}/2)|$,
+so the spherical pair interaction decomposes as
+\[
+  -\ln\bigl(2\sin(\gamma_{jk}/2)\bigr)
+  = -\ln\bigl(2|\sin(\Delta\phi_{jk}/2)|\bigr) - \ln(\sin\varphi_0).
+\]
+The first term is the flat Thomson energy in the azimuthal variable
+$\phi$; its Hessian along azimuthal Fourier modes gives the Havelock
+eigenvalues $(N{-}1)/2 - m(N{-}m)/2$ exactly as in the flat case.
+The second term $-\binom{N}{2}\ln(\sin\varphi_0)$ is purely
+radial and enters through the Lagrange multiplier.
+
+The angular impulse on $\mathbf{S}^2$ is $L = \sum\cos\varphi_k$.
+At the ring, $\partial^2 L/\partial\varphi_k^2 = -\cos\varphi_0$,
+so the Lagrange shift
+$\mu_L\cdot\partial^2 L/\partial\varphi_k^2$ is proportional to
+$\cos\varphi_0$: maximal near the pole, vanishing at the equator.
+Computing $\mu_L$ from the stationarity condition and combining with
+the radial Hessian of the pair interaction yields the curvature
+coefficient (cf.\ \citealt{BoattoCabral2003}):
 \begin{equation}\label{eq:C1_S2}
   C_1(\mathbf{S}^2,\,\xi) = \frac{(N-1)(1-\xi)}{1+\xi} = (N-1)\cos\varphi_0,
 \end{equation}
-using the stereographic identity $\cos\varphi_0 = (1-\xi)/(1+\xi)$.
+where $\xi = \tan^2(\varphi_0/2)$ is the stereographic parameter and
+$\cos\varphi_0 = (1{-}\xi)/(1{+}\xi)$.
 Marginal stability $C_1 = m(N{-}m)/2$ therefore reduces to
 \begin{equation}\label{eq:cos_crit}
   \cos\varphi_{\mathrm{crit}} = \frac{m(N{-}m)}{2(N-1)}, \qquad m = \lfloor N/2\rfloor,
@@ -1006,11 +1117,9 @@ converts the dimensionful eigenvalue $\lambda$ to the dimensionless form
 used in the numerical table above; the exact $\xi$-threshold~\eqref{eq:xi_crit_S2}
 is independent of this rescaling.
 
-The value $\varphi_{\mathrm{crit}}(6) = \arccos(9/10) \approx 25.8^\circ$
-supersedes the numerical estimate $26.6^\circ$ appearing in the colatitude
-table above; the difference ($<1^\circ$) reflects the convention for the
-dimensionless eigenvalue.  The exact result is $\cos\varphi_{\mathrm{crit}}(6)
-= 9/10$.
+The colatitudes in the summary table above are the exact values
+$\varphi_{\mathrm{crit}} = \arccos(m(N{-}m)/(2(N{-}1)))$;
+for $N = 6$, $\cos\varphi_{\mathrm{crit}} = 9/10$.
 \end{remark}
 
 \noindent
@@ -1047,22 +1156,17 @@ $K < 0$ (hyperbolic) & $> 7$ & Negative curvature stabilizes \\
 \bottomrule
 \end{tabular}
 \end{center}
-\begin{remark}[Euler characteristic enters at $O(\chi)$, not $O(K^2)$]
+\begin{remark}[Order of the curvature correction]
 \label{rem:euler}
-The curvature dependence above—$N_{\mathrm{crit}} < 7$ for $K > 0$ and
-$N_{\mathrm{crit}} > 7$ for $K < 0$—enters through the surface Green's
-function and hence through the Havelock coefficient $C_1(\text{surface},\xi)$.
-One might ask whether the Gauss--Bonnet term $\int K\,dA = 2\pi\chi$
-introduces an $O(K^2)$ correction to $N_{\mathrm{crit}}$ via a coupling
-between total circulation and the curvature.  It does not: on a compact
-surface the background vorticity neutrality condition shifts all Havelock
-eigenvalues by a term of order $\chi/N$ (an $O(\chi)$ additive shift to the
-eigenvalue constant $C_1$, see the formulas~\eqref{eq:C1_S2} and
-\eqref{eq:C1_H2}), not a $K$-dependent amplitude.  The Euler
-characteristic enters $N_{\mathrm{crit}}$ at $O(\chi)$ through the geometry
-of the Green's function, not at $O(K^2)$ through a self-energy correction.
-An $O(K^2)$ correction would arise only for finite-area vortex patches
-(the blob self-energy is $O(\varepsilon^2)$, independent of topology).
+The curvature enters $N_{\mathrm{crit}}$ at $O(K)$, not $O(K^2)$:
+it acts through the surface Green's function via the Havelock
+coefficient $C_1(\text{surface},\xi)$
+(equations~\eqref{eq:C1_S2},~\eqref{eq:C1_H2}), which is linear
+in $K$ at leading order.  On a compact surface the Gauss--Bonnet
+constraint $\int K\,\mathrm{d}A = 2\pi\chi$ enters only through
+$C_1$; no additional $O(K^2)$ self-energy correction arises for
+point vortices (such a correction would require finite-area patches,
+where it is $O(\varepsilon^2)$ and topology-independent).
 \end{remark}
 
 \noindent
@@ -1090,7 +1194,8 @@ $\ge 1.5$       & $\ge 24$ & (tested up to $N = 24$) \\
 The Riemannian Havelock identity $\lambda_m = C_1(R/a) - m(N{-}m)/2$
 is verified to hold (computed $C_1$ values are mode-independent to
 numerical precision~$\sim 10^{-5}$).  The exact $\mathbf{H}^2$
-Green's function yields the closed-form expression
+Green's function yields the closed-form expression (derived in
+Appendix~\ref{app:c1_h2})
 \begin{equation}
   C_1(\mathbf{H}^2,\,\xi)
     = \frac{(N-1)(1+\xi^2)}{(1-\xi)^2},
@@ -1113,8 +1218,9 @@ but this does not constitute a proof because the Lagrange multiplier
 also depends on $R/a$ in a non-trivial way).
 
 \paragraph{Near-$K=0$ behavior.}
-Expanding~\eqref{eq:C1_H2} for small $\xi$, the $m=3$ eigenvalue of
-the $N=7$ ring satisfies
+Expanding~\eqref{eq:C1_H2} for $N=7$, $m=3$ (see
+Appendix~\ref{app:c1_h2} for the algebraic simplification), the
+$m=3$ eigenvalue satisfies
 \begin{equation}
   \lambda_3(N=7,\,\xi)
     = \frac{12\xi}{r_E^2(1-\xi)^2}
@@ -1152,13 +1258,22 @@ The verification identity $(8-3\sqrt{7})^2(127+48\sqrt{7})=1$ is not a
 computational coincidence: it is the norm-$1$ property
 $\varepsilon^{-2}\cdot\varepsilon^2=1$ in $\mathbb{Z}[\sqrt{7}]$.
 
-The number~$7$ in $\mathbb{Q}(\sqrt{7})$ is the same~$7$ that defines the
-flat-plane stability threshold $N_{\mathrm{crit}}=7$: it enters the
-discriminant of $\xi^2-16\xi+1=0$ (which is $252 = 4\cdot9\cdot7$) because
-the threshold condition is $7(1+\xi^2)/(1-\xi)^2=8$.  The polygon stability
-boundary on $\mathbf{H}^2$ is therefore an algebraic number---the inverse
-fundamental unit of $\mathbb{Z}[\sqrt{7}]$---not a transcendental zero of
-some eigenvalue equation.
+The field $\mathbb{Q}(\sqrt{7})$ arises because $N_{\mathrm{crit}}=7$
+enters the marginal condition; this is a mathematical consequence, not
+an independent observation.  The substantive content is the
+\emph{palindromic structure}: the threshold polynomial has the form
+$A\,\xi^2 + B\,\xi + A = 0$ (same leading and trailing coefficient),
+which forces $\xi_1\,\xi_2 = A/A = 1$---the two roots are
+multiplicative inverses, so $\xi^*$ is automatically an algebraic
+\emph{unit} (an element of norm~$1$ in $\mathbb{Z}[\sqrt{7}]$).
+This palindromic property is not generic: it reflects the inversion
+symmetry $\xi\leftrightarrow 1/\xi$ of the Poincar\'e disk model,
+which in turn is the restriction to the real axis of the conformal
+automorphism $z \mapsto a^2/\bar z$ of the disk.  The stability
+threshold is a unit \emph{because} the hyperbolic energy is
+conformally covariant (Proposition~\ref{prop:mobius}): the palindromic
+polynomial encodes the same M\"obius symmetry at the level of
+algebraic number theory.
 
 \paragraph{General algebraic field pattern ($N \ge 8$).}
 The $7\to 8$ transition is not an isolated result: the $N \to (N{+}1)$
@@ -1233,9 +1348,9 @@ $K = 0$ gives exactly~$7$.  The number~$7$ is the stability threshold
 at zero Gaussian curvature \emph{at the scale of the polygon ring}.
 $K=0$ is the \emph{least stable point}: the $N=7$ ring is marginal
 at $K=0$ and strictly stable for any $K<0$.  The marginality is an
-artifact of $K=0$ exactly; $N_{\mathrm{crit}}=7$ is the value at the
-logarithmic fixed point (Remark~\ref{rem:rg-fixed-point}), and any
-nonzero negative curvature eliminates the marginal mode at first order
+artifact of $K=0$ exactly; $N_{\mathrm{crit}}=7$ is the value for the
+dilation-invariant logarithmic interaction (Remark~\ref{rem:rg-fixed-point}),
+and any nonzero negative curvature eliminates the marginal mode at first order
 in~$|K|$ via~\eqref{eq:lam3_H2}.
 
 \paragraph{Physical realization.}
@@ -1325,16 +1440,27 @@ Micro & Why regular polygon?   & Arnold/Thomson stability \\
 
 The Onsager argument \citep{Onsager1949} operates at the macro scale:
 the inverse cascade and negative-temperature statistics explain why
-same-sign vorticity concentrates into $N$ coherent clusters, as
-demonstrated in numerical simulations \citep{Siegelman2022}.  This is
-a physical hypothesis for planetary atmospheres, not a derived result.
-Whether the specific planetary configurations (Jupiter's polar cyclones,
-Saturn's hexagonal jet) are actually in or near an Onsager
+same-sign vorticity concentrates into $N$ coherent clusters.
+\emph{This is a physical hypothesis for planetary atmospheres, not a
+derived result, and is the key assumption that lifts $N = 8$ over
+$N = 7$ in the Jupiter selection (Proposition~\ref{prop:onsager-n-select}).}
+The \citet{Siegelman2022} simulations---2D turbulence on idealized
+polar caps with stochastic forcing---are \emph{consistent with}
+the Onsager hypothesis: they develop an inverse cascade, produce
+$N = 8$ (north) and $N = 5$ (south) vortex crystals, and reach a
+maximum-$H$ state within the Thomson-stable set.  However, these
+simulations use 2D barotropic dynamics with prescribed forcing
+statistics, not Jupiter's actual three-dimensional, moist-convective,
+differentially rotating environment.  The agreement is therefore
+evidence \emph{consistent with} the Onsager picture, not evidence
+\emph{for} it in the strict sense.
+
+Whether Jupiter's polar cyclones are actually in or near an Onsager
 negative-temperature equilibrium---rather than being dynamically
-maintained metastable states sustained by ongoing convection---is an
-open empirical question.  We assume an effective negative-temperature
-state is reached through enstrophy dissipation at small scales, but
-this assumption is not tested here.
+maintained metastable states sustained by ongoing moist
+convection---is an open empirical question.  A direct test would
+require measuring the energy spectrum at the polar scale, which is
+not yet available from Juno.
 
 The polygon arrangement is then determined by the meso-scale energy
 landscape: the regular $N$-gon minimizes the interaction energy at
@@ -1379,8 +1505,21 @@ Thomson allows $N \le 7$; both criteria are satisfied at $N = 6$.
 
 For Jupiter's north pole ($N = 8$): the cyclones are discrete vortex
 clusters, not a jet meander; Rossby stationarity gives
-$n^* \approx 0.3$ (not physically relevant).  Thomson stability provides
-an \emph{upper bound}: $\kappa_{\mathrm{crit}}(9) = 1 > \kappa_0/\kappa$,
+$n^* \approx 0.3$ (not physically relevant).  \emph{Caveat:} the 2D
+point vortex model requires the cyclone roots to extend through a
+barotropic column much deeper than the ring radius.  Juno gravity
+data constrains Jupiter's differential rotation to
+$\sim\!3{,}000$\,km depth \citep{Kaspi2018}, roughly $4\%$ of
+$R_J$---making Jupiter the least observationally supported case for
+the 2D assumption among our applications.  The model is nevertheless
+applicable if the polar cyclones are confined to a deep weather layer
+($H_{\mathrm{eff}} \sim 3{,}000$\,km, $R_d \gg R$) or to a shallow
+tropospheric layer with reduced gravity; both scenarios are consistent
+with the Juno data (see Section~\ref{sec:deformation} for
+quantitative limits).
+
+Thomson stability provides an \emph{upper bound}:
+$\kappa_{\mathrm{crit}}(9) = 1 > \kappa_0/\kappa$,
 so $N = 9$ is unstable; $\kappa_{\mathrm{crit}}(8) = \tfrac{1}{2}
 \le \kappa_0/\kappa$, so $N = 8$ is stable \citep{Adriani2018}.
 But $N = 7$ is also stable ($\kappa_{\mathrm{crit}}(7) = 0$), so
@@ -1475,10 +1614,52 @@ non-negative, and term~2 is strictly positive, giving
 $H_{N+1} > H_N$.
 \end{proof}
 
+\begin{remark}[Physical status of the fixed-$r$ assumption]
+\label{rem:fixed-r}
+The assumption $r = \kappa_0/\kappa$ fixed as $N$ varies means that
+as more cyclones appear in the ring ($N$ increases), each individual
+ring vortex becomes weaker ($\kappa = \Gamma/N$) \emph{and the central
+vortex weakens proportionally} ($\kappa_0 = r\Gamma/N$).  This is
+non-trivial: the central polar cyclone is a distinct dynamical object
+from the ring cyclones and need not respond to changes in $N$.
+
+The assumption is justified when all vortices --- ring and central ---
+are drawn from the same turbulent condensation process, so their
+strengths are set by a common large-scale energy budget rather than
+by independent forcings.  In the Onsager picture, the negative-temperature
+state is reached by the inverse cascade from the same vorticity
+reservoir, giving a fixed partition of total circulation between center
+and ring.  If instead $\kappa_0$ is held fixed while $\kappa = \Gamma/N$
+varies (independent central vortex), then $r = N\kappa_0/\Gamma$ grows
+with $N$ and the monotonicity of $H_{N+1} > H_N$ strengthens further,
+so the maximum-$N$ selection remains qualitatively intact.  The
+marginal case is $\kappa_0 = 0$ (no central vortex): then
+$r = 0 < \tfrac12$ and Term~1 in~\eqref{eq:H-monotone} is
+\emph{negative}, so $H_{N+1} > H_N$ requires $R$ large enough that
+Term~2 dominates.  The proposition's $r \ge \tfrac{1}{2}$ condition
+is therefore specific to the regime in which the central vortex is
+sufficiently strong relative to the ring vortices.
+\end{remark}
+
 \noindent
-For Jupiter north, $\kappa_0/\kappa \in [0.5, 1.0]$ (Juno;
-\citealt{Adriani2018}) gives $N_{\max} = 8$, consistent with
-observation.
+For Jupiter north, $\kappa_0/\kappa \approx 1$ with roughly 30\%
+observational uncertainty (Juno; \citealt{Adriani2018}), giving a
+conservative range $\kappa_0/\kappa \in [0.7, 1.3]$.  Since
+$\kappa_{\mathrm{crit}}(8) = \tfrac{1}{2}$ exactly, this entire
+range satisfies the stability condition for $N = 8$.  However,
+$\kappa_{\mathrm{crit}}(9) = 1$, which lies \emph{inside} the
+uncertainty interval: if $\kappa_0/\kappa \ge 1$ (the upper half
+of the range), then $N = 9$ is also Thomson-stable and the Onsager
+argument would select $N_{\max} = 9$ instead.  The conclusion
+$N_{\max} = 8$ therefore relies on $\kappa_0/\kappa < 1$, which is
+consistent with the central estimate but not guaranteed by the
+current observational precision.  More precisely:
+$\kappa_0/\kappa \le 1$ gives $N_{\max} = 8$ (observed);
+$\kappa_0/\kappa > 1$ gives $N_{\max} = 9$ (not observed).  The
+observed $N = 8$ is thus evidence that $\kappa_0/\kappa \lesssim 1$,
+providing a theory-derived constraint on the central vortex
+strength that could be tested with improved Juno wind
+measurements.
 
 \label{sec:n-selection}%
 For Jupiter's south pole ($N = 5$): $\kappa_{\mathrm{crit}}(N) = 0$
@@ -1494,7 +1675,13 @@ This is a packing constraint that lies outside the scope of the
 Thomson/Onsager framework developed here.
 
 
-\subsection{Eigenvalue branch disconnection}
+\subsection{Eigenvalue branch disconnection (Saturn persistence)}
+
+The preceding subsection selected Saturn's wavenumber $n = 6$ via
+Rossby stationarity.  A natural follow-up: can smooth perturbations
+of the jet destroy the stationary wave, converting the hexagonal
+meander into an evanescent (decaying) mode?  The answer is no, by
+a WKB branch-disconnection argument.
 
 The Rayleigh--Kuo equation for stationary ($c = 0$) mode~$n$ on a
 zonal jet $U(y)$ reads $\hat\psi'' + V(\rho)\hat\psi = 0$, where
@@ -1523,8 +1710,13 @@ When $\alpha_\rho \ne 0$ (oscillatory region): $\sigma = 0$.
 The elliptic ($\sigma = 0$) and hyperbolic ($\alpha_\rho = 0$)
 branches are disconnected: smooth jet perturbations cannot move the
 solution from the oscillatory branch to the evanescent branch at
-leading WKB order.
-
+leading WKB order.  This is a structural stability result for the
+Saturn selection mechanism: the $n = 6$ stationary wave exists
+because $V(0) < 0$, and no continuous deformation of the jet profile
+can remove it without first passing through $V(0) = 0$ (which
+requires changing the sign of $\beta_{\mathrm{eff}}/U_{\max} -
+n^2/R^2$, a finite perturbation).  The hexagon is therefore a
+topologically protected mode of the polar jet.
 
 \subsection{The continuous-to-discrete bridge}
 \label{sec:blob}
@@ -1573,8 +1765,10 @@ correction onto the critical eigenvector $v_m$ is computed by summing
 over all $N-1$ pairwise distances with the Fourier mode weights.
 
 \emph{Operator norm bound.}  Since $d_{\min} = 2\sin(\pi/N) > 0$:
-$\|\nabla^2\!H_\varepsilon - \nabla^2\!H_0\|_{\mathrm{op}}
-\le (2N{-}3)\cdot 6\varepsilon^2/d_{\min}^4 = O(\varepsilon^2)$.
+\begin{equation}\label{eq:blob-correction-op-norm}
+\|\nabla^2\!H_\varepsilon - \nabla^2\!H_0\|_{\mathrm{op}}
+\le 6(2N{-}3)\,\varepsilon^2/d_{\min}^4 = O(\varepsilon^2).
+\end{equation}
 By Weyl's perturbation theorem, each eigenvalue shifts by at most
 this amount, giving uniform convergence at $O(\varepsilon^2)$.
 
@@ -1592,10 +1786,29 @@ profiles with finite $\sigma^2$ inherit its stability conclusions.
 The Hessian projection $P_m$ and the total correction
 $c_m = -(N^2{-}1)/12 + P_m$ (specific to the Cauchy blob
 $h_\varepsilon = -\tfrac12\ln(d^2 + 2\varepsilon^2)$) are exact
-rational numbers, derived from the finite sum of the
-$O(\varepsilon^2)$ Hessian correction
-$\delta H_{xx} = (2\varepsilon^2/d^6)(d_y^2 - 3d_x^2)$ over all
-pairs, projected onto the critical radial Fourier mode:
+rational numbers, computed as follows.  Differentiating the Cauchy
+blob pair Hessian with respect to $\varepsilon^2$ at $\varepsilon=0$
+gives the per-pair correction:
+\begin{equation}\label{eq:blob_pair_correction}
+  \delta H_{jj,xx} = \frac{2}{d_{jk}^6}\bigl((\Delta y)^2 - 3(\Delta x)^2\bigr),
+  \;\;\;
+  \delta H_{jk,xx} = -\delta H_{jj,xx},
+\end{equation}
+with analogous expressions for $yy$ and $xy$ (see proof of
+Proposition~\ref{prop:blob}).  Here $(\Delta x, \Delta y, d_{jk})$
+are the pair separation components.  The critical radial Fourier
+mode is $v_k \propto z_k\cos(2\pi mk/N)$ with $m = \lfloor N/2\rfloor$.
+The projection
+\begin{equation}\label{eq:Pm_formula}
+  P_m = v_m^\top\,\delta\nabla^2\!H\,v_m
+\end{equation}
+is a finite quadratic form: a sum over $N(N{-}1)$ pair
+contributions, each involving trigonometric values at $N$-th roots
+of unity.  Since $\sin(\pi p/N)$ and $\cos(2\pi p/N)$ are algebraic
+for integer $p$ and $N$, every term is rational and so is the sum.
+Explicit values (verified to machine precision in
+\texttt{blob\_correction.compute\_Pm(N)} and notebook
+\texttt{05\_Blob\_Correction.ipynb}):
 \begin{center}
 \begin{tabular}{lcccccc}
 \toprule
@@ -1806,11 +2019,14 @@ $\delta\omega_k^{(s)}$ is center-preserving: $\int x\,\delta\omega_k^{(s)}\,\dd 
 \end{align*}
 Integration by parts gives
 $\int\! x_i\,(\partial_j\omega_k)\,\dd x = -\int\!\delta_{ij}\omega_k\,\dd x
-= -\kappa\,\delta_{ij}$,
+= -\kappa\,\delta_{ij}$
+(the boundary term vanishes provided $\omega_k$ is compactly supported
+or decays faster than $|x|^{-2}$ at infinity),
 so $\int\! x\,\nabla\omega_k\,\dd x = -\kappa\,\mathrm{Id}$, and
 the right-hand side is $\kappa\,\delta\bar z_k - \kappa\,\delta\bar z_k = 0$.
-The dipole moment of $\delta\omega_k^{(s)}$ vanishes for \emph{any}
-profile $\omega_k$ with well-defined centroid.
+The dipole moment of $\delta\omega_k^{(s)}$ vanishes for any
+profile $\omega_k \in L^1(\mathbb{R}^2)$ with finite first moment
+$\int\!|x|\,|\omega_k|\,\dd x < \infty$.
 
 \emph{Consequence for the coupling bound.}  With the dipole
 moment zero, the leading inter-patch correction for the
@@ -1824,9 +2040,48 @@ its convolution with $G$---the same structure as
 Proposition~\ref{prop:blob}.
 
 Therefore Proposition~\ref{prop:inertia} extends to arbitrary
-$\mathbb{Z}_N$-symmetric vorticity patches: the stability boundary
-$N \le 7$ holds for \emph{any} smooth vorticity distribution
-sufficiently concentrated near the $N$-gon, not only for
+$\mathbb{Z}_N$-symmetric vorticity patches satisfying the $L^1$
+regularity condition above.  The phrase
+\emph{sufficiently concentrated} is made quantitative as follows.
+The operator norm bound~\eqref{eq:blob-correction-op-norm} is
+derived for the Cauchy blob, which has algebraic ($|x|^{-3}$) rather
+than exponential spatial decay and is therefore the
+slowest-converging regularization among profiles with finite
+second moment; profiles with faster decay (Gaussian, compact support)
+satisfy the same bound \emph{a fortiori}, with a smaller implicit
+constant.  The Cauchy-blob bound gives
+$\|\nabla^2\!H_\varepsilon - \nabla^2\!H_0\|_{\mathrm{op}}
+\le 6(2N{-}3)\,\varepsilon^2/d_{\min}^4$.
+Sign preservation of the Havelock eigenvalues requires this to be
+less than $\lambda_{\min}(N)$ (the smallest positive Havelock eigenvalue
+at the configuration), yielding the explicit concentration condition
+\begin{equation}\label{eq:concentration-bound}
+  \frac{\varepsilon}{d_{\min}} < \delta(N)
+  := \sqrt{\frac{\lambda_{\min}(N)}{6(2N-3)}},
+\end{equation}
+where $d_{\min} = 2\sin(\pi/N)$ is the nearest-neighbor separation
+(unit ring).  Numerically:
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+$N$ & 4 & 5 & 6 & 7 \\
+\midrule
+$\lambda_{\min}(N)$ & $1$ & $1$ & $\frac{1}{2}$ & $0$ \\[3pt]
+$\delta(N)$ & $0.18$ & $0.15$ & $0.096$ & $\text{---}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+For $N \le 6$, any patch with $\varepsilon/d_{\min} < \delta(N)$ satisfies
+the inertia conclusion.  For $N = 7$, the marginal mode has
+$\lambda_{\min} = 0$ so the bound~\eqref{eq:concentration-bound} does
+not apply directly; instead, the blob correction $c_7 = +4 > 0$ lifts
+the marginal eigenvalue to $+4\varepsilon^2$ for any $\varepsilon > 0$,
+and the Schur-complement coupling is $O(\varepsilon^6/d_{\min}^6) \ll
+4\varepsilon^2$ for all $\varepsilon < d_{\min}$.  The $N = 7$ result
+therefore holds for any non-overlapping patch configuration
+($\varepsilon < d_{\min}/2$), with no constraint on the concentration
+ratio beyond blob non-overlap.  The stability boundary $N \le 7$ holds
+for any such smooth vorticity distribution, not only for
 prescribed-profile blobs.
 
 \subsubsection{The Rossby bridge (Saturn regime)}
@@ -1878,15 +2133,69 @@ the stationary Rossby wave develops a cat's-eye structure at the
 critical line $U = c = 0$: vorticity is trapped into $N$ lobes of
 width $\sim\sigma$ centered at the meander peaks.  As the jet sharpens
 ($\sigma/R \to 0$ at fixed wave amplitude), these lobes concentrate
-into $N$ isolated patches near the $N$-gon vertices.  By the general
-vorticity patch result (following Proposition~\ref{prop:inertia}),
-the energy-Casimir Hessian of this $N$-patch configuration converges
-to the point vortex Hessian.  The Saturn bridge thus arrives at the
-\emph{same} energy landscape as the Jupiter bridge, through a different
-limiting procedure: Saturn concentrates a continuous jet meander into
-$N$ patches (jet width $\sigma \to 0$), while Jupiter concentrates
-$N$ discrete cyclones into point vortices (blob width
-$\varepsilon \to 0$).
+into $N$ isolated patches near the $N$-gon vertices.
+
+\begin{remark}[Cat's-eye Hessian convergence]
+\label{rem:catseye}
+The cat's-eye vorticity decomposes as
+$\omega = \omega_{\mathrm{lobe}} + \omega_{\mathrm{braid}} +
+\omega_{\mathrm{bg}}$, where the lobes are the trapped fluid inside
+the separatrices, the braids are thin filaments along the separatrix
+itself, and the background is the passing fluid outside the cat's-eye.
+
+Two conditions are required for Proposition~\ref{prop:inertia} to
+apply:
+\begin{itemize}
+  \item[(i)] \textbf{Lobe concentration.}  The lobes satisfy the
+    concentration condition~\eqref{eq:concentration-bound} with
+    $\varepsilon \sim \sigma$ and the centroids converge to the
+    $N$-gon vertices.  This is guaranteed by $\mathbb{Z}_N$ symmetry.
+  \item[(ii)] \textbf{Braid smallness.}  The absolute braid circulation
+    $\Gamma_{\mathrm{braid}}$ is negligible compared to the total
+    lobe circulation~$\Gamma_{\mathrm{lobe}}$.
+\end{itemize}
+
+Both conditions are verified numerically on the Stuart vortex
+$\Psi = -\sigma^2\ln(\cosh(y/\sigma) - \eta\cos(n\theta))$,
+an exact steady Euler solution with analytical cat's-eye structure,
+where $\eta \in (0,1)$ is the Stuart amplitude parameter ($\eta = 0$:
+linear wave; $\eta \to 1$: point-vortex concentration---note this is
+the opposite convention from the blob width $\varepsilon$ in
+Section~\ref{sec:blob}, where $\varepsilon \to 0$ is the point-vortex
+limit).  As $\eta \to 1$:
+\begin{itemize}
+  \item The lobe fraction of total circulation approaches unity:
+    $\Gamma_{\mathrm{lobe}}/\Gamma_{\mathrm{total}} =
+    1 - O(1{-}\eta)$, with
+    $\Gamma_{\mathrm{braid}}/\Gamma_{\mathrm{total}} =
+    O(1{-}\eta)$ (fitted exponent $1.08$, $R^2 = 0.997$).
+  \item At $\eta = 0.99$, the lobes capture $99.6\%$ of the
+    total circulation; braids carry $0.1\%$.
+  \item The $\mathbb{Z}_N$-symmetric lobe circulations are equal to
+    within $0.01\%$, and the centroids lie on the $N$-gon vertices
+    (both by the $\mathbb{Z}_N$ symmetry of the cat's-eye).
+  \item The constrained Hessian of the lobe circulations placed on
+    the $N$-gon ring has the \emph{same inertia} (number of positive,
+    zero, and negative eigenvalues) as the Havelock Hessian, for all
+    $\eta \in [0.3, 0.99]$.
+\end{itemize}
+
+\noindent
+The same inertia result holds for the Prandtl--Batchelor cat's-eye
+(homogenized PV inside the lobes, discontinuous at the separatrix),
+which is the physically relevant model for Saturn's long-lived
+hexagon.  Code:
+\texttt{catseye\_decomposition.py},
+\texttt{catseye\_hessian.py}.
+\end{remark}
+
+The Saturn bridge thus arrives at the \emph{same} energy landscape as
+the Jupiter bridge, through a different limiting procedure: Saturn
+concentrates a continuous jet meander into $N$ patches (jet width
+$\sigma \to 0$), while Jupiter concentrates $N$ discrete cyclones into
+point vortices (blob width $\varepsilon \to 0$).  The two limits share
+the same Hessian inertia because both preserve the $\mathbb{Z}_N$
+symmetry that forces equal lobe circulations and $N$-gon geometry.
 
 \subsubsection{Resilience to circulation disorder}
 \label{sec:disorder}
@@ -1895,6 +2204,15 @@ In both planetary regimes the vortex circulations $\kappa_k$ are not
 perfectly equal; convection injects or removes circulation from individual
 vortices continuously.  We model this as $\kappa_k = \kappa(1+\eta_k)$
 with i.i.d.\ fractional disorders $\eta_k \sim \mathcal{N}(0,\sigma_\eta^2)$.
+
+We work on $\mathbf{H}^2$ rather than the flat plane because the
+hyperbolic setting simultaneously tests two effects: circulation
+disorder and curvature stabilization.  In the flat limit
+$\rho/a \to 0$ the $\mathbf{H}^2$ eigenvalues recover the Havelock
+values exactly, so the flat-plane result is contained as a special
+case; conversely, the curvature-stabilized configurations ($N \ge 8$
+on $\mathbf{H}^2$) have no flat-plane analog and can only be probed
+on the curved surface.
 
 On $\mathbf{H}^2$, the disordered Hamiltonian is
 \begin{equation}\label{eq:H_kappa}
@@ -1911,22 +2229,24 @@ $\lambda_{\min}(\eta)$ via finite differences.  Monte Carlo over
 $n = 1000$ realizations estimates $P(\lambda_{\min} < 0)$ as a function
 of $(\sigma_\eta, N, \rho)$.
 
-Key findings:
+Key findings (all uncertainties are $\pm 1\sigma$ binomial standard
+errors $\sqrt{P(1{-}P)/n}$ with $n = 1000$):
 \begin{itemize}
   \item \textbf{Stable configurations are robust.}  For $N = 6$ at
     $\rho = 0.5a$, the instability probability satisfies
     $P(\lambda_{\min} < 0) = 0$ at $\sigma_\eta = 0$ and remains
-    below $10\%$ for $\sigma_\eta \le 0.2$; the stability margin
-    $\lambda_{\min} > 0$ is carried forward to $O(\eta^2)$.
+    below $10\%\;(\pm 0.9\%)$ for $\sigma_\eta \le 0.2$; the stability
+    margin $\lambda_{\min} > 0$ is carried forward to $O(\eta^2)$.
 
   \item \textbf{Curvature-stabilized rings ($N \ge 8$) are similarly
     robust.}  At $N = 8$, $\rho = 2a$ (well inside the stable region
-    on $\mathbf{H}^2$), $P < 0.5$ for $\sigma_\eta \le 0.1$ (numerical).
+    on $\mathbf{H}^2$), $P < 0.5\;(\pm 1.6\%)$ for
+    $\sigma_\eta \le 0.1$.
 
   \item \textbf{The $N = 7$ marginal ring is sensitive.}  At $N = 7$,
     $\rho = 0.05a$ (flat-limit regime), $P(\lambda_{\min} < 0)$
     increases monotonically with $\sigma_\eta$:
-    $P \approx 0$ at $\sigma_\eta = 0.1$ and $P > 0$ for
+    $P \approx 0\;(\pm 0.0\%)$ at $\sigma_\eta = 0.1$ and $P > 0$ for
     $\sigma_\eta \ge 0.5$.  The marginal mode ($\lambda_0 = 0$ at
     $K = 0$) is the first to be destabilized by disorder, as expected.
 \end{itemize}
@@ -1964,26 +2284,50 @@ Wave-dominated & $\gg 1$ & Rossby stationarity (equation~\eqref{eq:rossby-bridge
 \end{center}
 
 \noindent
-\textit{Jupiter's north pole.}  At $84^\circ$N, the planetary vorticity
+\textit{Jupiter's north pole.}
+Throughout this regime calculation $\kappa$ denotes the
+\emph{Rankine-core} circulation, which integrates only within the
+solid-body rotation core and sets the characteristic vortex timescale
+$T_v \sim R^2/\kappa$.  The full-cyclone circulation $\kappa_{\mathrm{full}}$
+(which includes the outer irrotational skirt) is larger and is the
+appropriate quantity for computing orbital periods and eigenfrequencies;
+it is used there instead (Section~\ref{sec:dynamical-maintenance}).
+The two estimates are numerically distinguished below.
+
+At $84^\circ$N, the planetary vorticity
 gradient is $\beta_J = 2\Omega_J\cos(84^\circ)/R_J \approx
 5.1\times10^{-13}$\,m$^{-1}$s$^{-1}$ and the cyclone-ring radius
 is $R \approx 7{,}470$\,km.  Each Juno-observed circumpolar cyclone has
 Rankine core radius $r_c \approx 700$\,km and peak wind $V_{\max}
 \approx 80$\,m\,s$^{-1}$ \citep{Adriani2018,Gavriel2021}, giving
-a Rankine-core circulation $\kappa_{\mathrm{Rank}} = 2\pi r_c V_{\max}
-\approx 3.5\times10^{8}$\,m$^2$\,s$^{-1}$.  (The Rankine estimate
-integrates only within the solid-body rotation core; the full cyclone
-circulation, which includes the outer irrotational region, uses
-$r_c \approx 3{,}200$\,km and gives
-$\kappa_{\mathrm{full}} \approx 1.6\times10^9$\,m$^2$\,s$^{-1}$ ---
-see Section~\ref{sec:dynamical-maintenance}.)  Hence
+$\kappa_{\mathrm{Rank}} = 2\pi r_c V_{\max} \approx 3.5\times10^{8}$\,m$^2$\,s$^{-1}$
+(full-cyclone estimate: $r_c \approx 3{,}200$\,km,
+$\kappa_{\mathrm{full}} \approx 1.6\times10^9$\,m$^2$\,s$^{-1}$).
+Hence
 \[
   \frac{\beta R^3}{\kappa}
   = \frac{5.1\times10^{-13}\,(7.47\times10^6)^3}{3.5\times10^8}
   \approx 0.61.
 \]
-Discrete cyclones, Thomson stability applies, blob bridge proves
-convergence.
+This places Jupiter in the vortex-dominated regime, but only
+moderately: $0.61$ is $O(1)$, not $\ll 1$.  Rossby-wave effects
+are not negligible at this value, and a decrease in the effective
+$\kappa$ (e.g.\ using the Rankine-core rather than full-cyclone
+estimate) would push the ratio above unity.  The qualitative
+conclusion---discrete cyclones, Thomson stability applies, blob
+bridge proves convergence---is robust to this uncertainty because
+the vortex-dominated bridge requires only that the cyclones be
+identifiable as $N$ distinct vortices (which the Juno imagery
+unambiguously confirms), not that $\beta R^3/\kappa$ be
+parametrically small.  The ratio enters quantitatively only
+through the Rossby-wave correction to the eigenvalues, which is
+$O(\beta R^3/\kappa)$ and does not change the sign of
+$\lambda_{\min}$ for $N = 8$ (where
+$|\lambda_{\min}| = 1 \gg 0.61$).
+Using the full-cyclone circulation
+$\kappa_{\mathrm{full}} \approx 1.6\times10^9$\,m$^2$\,s$^{-1}$
+gives $\beta R^3/\kappa \approx 0.13$, firmly in the
+vortex-dominated regime.
 
 \smallskip\noindent
 \textit{Saturn's hexagon.}  At $76^\circ$N, $\beta_S =
@@ -2005,229 +2349,6 @@ provides quantization.
 \smallskip\noindent
 Both mechanisms require the 2D logarithmic Green's function as the
 common mathematical kernel.
-
-%% ====================================================================
-\section{Planetary applications}
-\label{sec:planets}
-
-\subsection{Measuring polygon quality: $\sigma_{\mathrm{geom}}$}
-
-For $N$ features at positions $z_k$, define
-\begin{equation}\label{eq:sigma-geom}
-  \sigma_{\mathrm{geom}} = \frac{1}{N}\sum_{k=1}^{N}
-  \bigl|\!\ln|z_k / z_k^{\mathrm{ideal}}|\bigr|,
-\end{equation}
-where $z_k^{\mathrm{ideal}}$ are the best-fit regular $N$-gon vertices.
-
-\subsection{Cross-planetary comparison}
-
-\begin{table}[htbp]
-\centering
-\caption{Planetary polygon configurations.  $\kappa_0/\kappa$ is the
-ratio of central to ring cyclone circulation.  For Jupiter north, this
-is estimated from Juno imagery \citep{Adriani2018} using the cyclone
-area ratio as a proxy; assuming approximately uniform vorticity within
-each cyclone, $\kappa \propto \omega \cdot A$, so the circulation ratio
-equals the area ratio times the vorticity ratio.  Both cyclone types
-have comparable peak vorticities, giving
-$\kappa_0/\kappa \approx A_0/A_{\mathrm{ring}} \sim 1$ with a
-systematic uncertainty of order $30\%$ from the vorticity profile
-assumption.  This does not affect the qualitative conclusion
-($\kappa_{\mathrm{crit}} = 0.50$ for $N = 8$).  ``---'' indicates the
-value is not relevant (since $N = 5 \le 7$, no central vortex is
-required).}
-\label{tab:planets}
-\begin{tabular}{lcccl}
-\toprule
-System & $N$ & $\sigma_{\mathrm{geom}}$ &
-  $\kappa_0/\kappa$ & Selection mechanism \\
-\midrule
-Saturn hexagon    & 6 & 0.50 & N/A (jet) & Rossby stationarity \\
-Jupiter north     & 8 & 0.06 & $\sim\!1$ & Thomson + central cyclone \\
-Jupiter south     & 5 & 0.05 & --- & Thomson-stable ($\kappa_{\mathrm{crit}}=0$); $N$ not predicted here \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-A direct comparison of $\sigma_{\mathrm{geom}}$ across systems requires
-caution.  Saturn's value (0.50) is an order of magnitude larger than
-Jupiter's (0.05--0.06) because the two systems are physically different:
-Saturn's hexagon is a continuous jet meander.  A well-posed amplitude
-measure is the fractional radial displacement of the jet center,
-\[
-  \varepsilon_{\mathrm{obs}} = A_6 / \bar{R},
-\]
-where $A_6$ is the half-amplitude of the $n=6$ Fourier mode in the
-jet-center radial position and $\bar{R} \approx 13{,}200\;\mathrm{km}$
-is the mean ring radius at $76^\circ$\,N.  This quantity is directly
-measurable from Cassini cloud-tracking wind profiles; it requires no
-assumption about the jet's meridional profile.  The hexagon's observed
-$\pm 2^\circ$ latitude oscillation \citep{Godfrey1988, Antunano2015}
-corresponds to $A_6 \approx 1900\;\mathrm{km}$, giving
-$\varepsilon_{\mathrm{obs}} \approx 0.14$ (range $0.11$--$0.18$ across
-measurement epochs and methods).  The previous Gaussian-derived estimate
-$\varepsilon = A/\sigma_{\mathrm{jet}}$ is not well-posed: Saturn's
-polar jet at hexagonal latitudes is markedly non-Gaussian (sharper and
-more kink-like), so $\sigma_{\mathrm{jet}}$ is ambiguous and $A/\sigma$
-is ill-defined.
-
-Jupiter's cyclone rings are discrete vortices closely approximating a
-regular polygon.  The $\sigma_{\mathrm{geom}}$ metric measures
-geometric deviation from a perfect polygon, but its physical meaning
-differs between a jet meander (where $\varepsilon_{\mathrm{obs}}$
-reflects the jet's fractional radial oscillation) and a vortex ring
-(where $\sigma_{\mathrm{geom}}$ reflects positional scatter).  We
-present these as two physically distinct realizations that both produce
-polygonal geometry, not as instances of a single quantitative
-prediction.
-
-\subsection{Broader observational context}
-
-Beyond the three planetary configurations, the theoretical stability
-boundary $\kappa_{\mathrm{crit}}(N)$ from
-Proposition~\ref{prop:kappa-crit} can be compared with laboratory and
-numerical observations:
-
-\emph{Laboratory experiments.}  \citet{Jansson2006} and
-\citet{BarbosaAguiar2010} observe polygons with $N = 2$ through $6$
-in rotating-tank experiments by varying the differential rotation rate.
-All observed $N$ values fall in the $\kappa_{\mathrm{crit}} = 0$ range
-($N \le 7$), consistent with the Thomson stability boundary.  No
-laboratory experiment has produced a stable polygon with $N \ge 8$
-without a central vortex---also consistent.  (The laboratory mechanism
-is barotropic instability of a shear layer, not Thomson point vortex
-dynamics, so the agreement is structural rather than quantitative.)
-
-\emph{Numerical simulations.}  \citet{Siegelman2022} produce $N = 8$
-(north) and $N = 5$ (south) vortex crystals from 2D turbulence on polar
-caps, with a central polar cyclone emerging alongside the ring in both
-cases.  The central cyclone provides the stabilization required by
-Proposition~\ref{prop:kappa-crit} for $N = 8$.
-Crucially, the \citet{Siegelman2022} simulations include continuous
-small-scale forcing (representing convective injection) and large-scale
-dissipation, yet the polygon crystal is the persistent stationary state:
-the system is not frozen into a one-time equilibrium but continuously
-re-attracted to it.  This is direct numerical evidence that the
-constrained energy minimum is a \emph{dynamical attractor} under
-turbulent forcing, not merely a static equilibrium that happens to match
-observations.
-
-\emph{Uranus.}  \citet{Akins2023} detect a single polar cyclone at
-Uranus's north pole---a single-vortex ($N = 1$) configuration, below
-the polygon threshold.  No ring structure has been observed.  Whether
-the absence of a Uranian polygon reflects insufficient vortex formation
-(macro-scale constraint) or insufficient observations (the pole has been
-poorly resolved) remains open.
-
-\emph{Neptune.}  No polar polygon has been observed, and Voyager~2
-imagery is insufficient to resolve ring structure.  However, the
-framework makes a falsifiable prediction.
-
-\textit{Regime:}
-At $84^\circ$N, $\beta_N = 2\Omega_N\cos(84^\circ)/R_N \approx
-9.2\times10^{-13}$\,m$^{-1}$s$^{-1}$ and $R_{\mathrm{ring}} \approx
-2{,}570$\,km, giving $\beta R^3 \approx 1.6\times10^7$\,m$^2$\,s$^{-1}$.
-For Jovian-scaled cyclones (core radius $r_c \approx 240$\,km,
-$V_{\max}\approx 80$--100\,m\,s$^{-1}$), $\kappa \approx
-1.2\text{--}1.5\times10^8$\,m$^2$\,s$^{-1}$ and
-\[
-  \frac{\beta R^3}{\kappa}\approx 0.10\text{--}0.13 \ll 1.
-\]
-Neptune is firmly vortex-dominated---more so than Jupiter ($\beta
-R^3/\kappa \approx 0.6$), because its smaller radius ($R_N \approx
-R_J/3$) reduces $R_{\mathrm{ring}}^3$ by a factor of $\sim\!25$
-despite a slightly larger $\beta$.  The Rossby stationarity mechanism
-does not apply; the relevant bridge is Thomson/Onsager.
-
-\textit{Prediction:}
-If Neptune's deep convection (evidenced by the Great Dark Spot and
-supersonic mid-latitude winds) generates polar cyclones, Onsager
-inverse cascade should concentrate same-sign vorticity near the
-poles.  The Thomson stability criterion then predicts a ring of
-$N = N_{\max}(\kappa_0/\kappa)$ cyclones at colatitude
-$\sim\!6^\circ$ (by analogy with Jupiter's $84^\circ$N ring), with
-ring radius $\approx 2{,}000$--$3{,}000$\,km and
-$N \in \{5,6,7,8\}$ depending on the polar-vortex-to-ring strength
-ratio $\kappa_0/\kappa$.
-
-Why no specific $N$ is predicted here: the Thomson upper bound
-requires knowing $\kappa_0/\kappa$; the Onsager maximum-$N$ selection
-then uniquely determines $N$ given that ratio.  Both are measurable
-from wind-field observations of Neptune's poles---currently
-unconstrained.  This prediction is testable by a Neptune polar
-orbiter (e.g.\ Trident-class mission).
-
-All observations are consistent with the theoretical stability
-boundary: $N \le 7$ is observed without a central vortex, $N = 8$
-is observed only with one, and no $N \ge 9$ ring has been reported
-in any system.
-
-\subsection{Multi-ring configurations}
-\label{sec:multiring}
-
-The stabilization in Proposition~\ref{prop:kappa-crit} requires the
-additional vortex to be at the \emph{center} (the $\mathbb{Z}_N$
-fixed point), not merely on an inner ring.  Two-ring configurations
-($M$ inner vortices at radius $R_1$, $N$ outer at $R_2$) are a
-classical topic \citep{Aref2003}; our constrained Hessian computation
-for representative cases (tested for $M = 1, \ldots, 8$,
-$N = 5, 6, 8$, $R_2/R_1 \in \{1.5, 2, 3\}$; supplementary
-code)---e.g., $(N,M) = (8,4)$ at $R_2/R_1 = 2$
-gives $3$ negative Lagrangian eigenvalues; $(6,3)$ at $R_2/R_1 = 2$
-gives $3$ negative eigenvalues---shows that the inter-ring
-interactions break the single-ring $\mathbb{Z}_N$ symmetry and
-introduce destabilizing modes absent from the center-plus-ring
-geometry.  This is consistent with Jupiter's observed configuration.
-
-%% ====================================================================
-\section{Predictions}
-\label{sec:predictions}
-
-\subsection{BEC vortex predictions}
-\label{sec:bec}
-
-In a quasi-2D Bose--Einstein condensate in a circular trap, quantized
-vortices interact logarithmically at scales above the healing length
-$\xi$.  The circulation is quantized:
-$\kappa = q \cdot h/m$ with integer winding number $q$.
-The $\kappa_0/\kappa$ ratio of Proposition~\ref{prop:kappa-crit}
-becomes the winding number ratio $q_0/q$, yielding sharp integer-valued
-predictions:
-
-\begin{center}
-\begin{tabular}{lcl}
-\toprule
-Configuration & $\kappa_{\mathrm{crit}}$ & Prediction \\
-\midrule
-$N \le 7$ ring & 0 & Stable without central vortex \\
-$N = 8$ ring & $1/2$ & Unstable alone; stable with $q_0 \ge 1$ \\
-$N = 9$ ring & $1$ & Marginally stable with $q_0 = 1$;
-  stable with $q_0 \ge 2$ \\
-$N = 10$ ring & $7/4$ & Unstable with $q_0 = 1$;
-  stable with $q_0 \ge 2$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\noindent
-The $N = 8$ prediction is the sharpest: a ring of $8$ unit-winding
-vortices should be unstable alone and stable upon adding a single
-central vortex ($q_0 = 1 > \kappa_{\mathrm{crit}} = 1/2$).
-
-The $N = 7$ case offers a distinct signature.  The quartic restoring
-force ($\alpha_0 \approx 3.2$, Section~\ref{sec:n7}) produces an
-\emph{amplitude-dependent} oscillation frequency for the $m = 3$ mode:
-$\omega \propto \varepsilon$ (where $\varepsilon$ is the perturbation
-amplitude), rather than the constant $\omega$ of the quadratic modes
-at $N \le 6$.  This nonlinear frequency shift is measurable through
-BEC vortex imaging.
-
-The healing length $\xi$ provides a natural blob width
-$\varepsilon = \xi/R$.  For typical BEC parameters
-($\xi \sim 0.3\;\mu\mathrm{m}$, $R \sim 50\;\mu\mathrm{m}$):
-$\varepsilon \approx 0.006$, well within the point vortex regime.
-The blob correction (Proposition~\ref{prop:blob}) is negligible:
-$\lambda(0.006) \approx \lambda_0 + O(10^{-4})$.
 
 \subsection{Finite Rossby deformation radius}
 \label{sec:deformation}
@@ -2319,24 +2440,45 @@ interpolates smoothly from the Havelock value
 $\bar\lambda(0, N) = (N{-}1) - \lfloor N/2\rfloor
 (N{-}\lfloor N/2\rfloor)/2$ to zero.
 
-The Lagrange multiplier has the closed form
+The Lagrange multiplier is determined by the stationarity condition
+$\partial H/\partial R + \mu_L\,\partial L/\partial R = 0$.  For
+$H = -\sum_{j<k}K_0(d_{jk}/R_d)$ with $d_{jk} = 2R\sin(\pi p/N)$
+and $L = NR^2$, the radial derivative of each pair contributes
+$-K_0'(d_{jk}/R_d)\cdot 2\sin(\pi p/N)/R_d
+= K_1(d_{jk}/R_d)\cdot 2\sin(\pi p/N)/R_d$
+(using $K_0' = -K_1$).  Projecting onto the constraint gradient
+$\partial L/\partial R = 2NR$ and solving gives
 \begin{equation}\label{eq:mu-k0}
   -2\mu_L = \frac{\eta}{R}\sum_{p=1}^{N-1}
   \frac{(1-\cos\theta_p)\,K_1(2\eta\sin(\pi p/N))}
        {2\sin(\pi p/N)},
   \quad \theta_p = 2\pi p/N,
 \end{equation}
-which reduces to $(N{-}1)/(2R^2)$ as $\eta \to 0$
-(using $K_1(x) \sim 1/x$ and $\eta/R = 1/R_d$).  For $N = 6$, the critical mode $m = 3$
+where $\eta = R/R_d$ and the factor $(1{-}\cos\theta_p)$ arises from
+the Fourier decomposition of the pairwise Hessian along the radial
+mode.  As $\eta \to 0$: $K_1(x) \sim 1/x$ for small $x$, so each
+summand reduces to
+$(1{-}\cos\theta_p)/(4\eta\sin^2(\pi p/N)) \cdot (\eta/R)$
+$= (1{-}\cos\theta_p)/(4R\sin^2(\pi p/N))$.  Summing over $p$ using
+the Havelock identity $\sum_p (1{-}\cos\theta_p)/(4\sin^2(\pi p/N))
+= (N{-}1)/2$ recovers the flat-plane value $-2\mu_L = (N{-}1)/(2R^2)$.  For $N = 6$, the critical mode $m = 3$
 has zero Havelock weight at $p = 2, 4$ (since
 $\cos(2\pi \cdot 2 \cdot 3/6) = 1$), so the critical eigenvalue
 depends on $K_0$ and $K_1$ at only \emph{two} distinct arguments,
 $\eta$ and $2\eta$, rather than three.
 
-The $K_0$ analog of the Havelock identity does not admit a closed form:
-the summand $K_0(2\eta\sin(\pi p/N))$ is transcendental in
-$\sin(\pi p/N)$, so the orthogonality trick that closes the
-logarithmic sum to $m(N{-}m)/2$ fails.  A perturbative expansion
+No closed-form analog of the Havelock identity is known for $K_0$.
+The orthogonality mechanism that collapses the logarithmic sum to
+$m(N{-}m)/2$ relies on the identity $\sum_p e^{2\pi i mp/N}\ln
+|2\sin(\pi p/N)| = 0$, which has no counterpart for $K_0$:
+the Bessel values $K_0(2\eta\sin(\pi p/N))$ are transcendental at
+nonzero algebraic arguments by Siegel's theorem on $E$-functions,
+but this does not preclude the full weighted sum from having a
+closed form.  Whether $\sum_p (\cos\theta_{pm})
+K_0(2\eta\sin(\pi p/N))$ admits a closed form for any $N$ and $m$
+is an open question; no such form has been found, and all stability
+computations for $K_0$ interactions are carried out numerically.
+A perturbative expansion
 $K_0(x) \approx -\ln x + O(x^2)$ gives $\eta_{\mathrm{crit}} \approx
 0.9$ for $N = 6$---30\% below the exact value---because the critical
 ratio lies in the non-perturbative regime where $K_0$ departs
@@ -2434,70 +2576,245 @@ logarithmic $N_{\mathrm{crit}} = 7$, confirming the class~(iii)
 reduction: the $1/r$ interaction has $(rh')' = 1/r^2 > 0$, placing
 it in the destabilizing regime relative to $-\ln r$.
 
-\subsection{M\"obius covariance of the logarithmic energy}
-\label{sec:mobius-cov}
 
-\begin{proposition}[M\"obius covariance]\label{prop:mobius}
-Under a conformal map $f\colon\mathbb{C}\to\mathbb{C}$, the
-logarithmic energy transforms as
+%% ====================================================================
+\section{Planetary applications}
+\label{sec:planets}
+
+\subsection{Polygon quality metrics and cross-planetary comparison}
+
+The two planetary polygon types require different quality metrics.
+For \emph{discrete vortex rings} (Jupiter), the natural measure is the
+geometric deviation from a perfect $N$-gon:
+\begin{equation}\label{eq:sigma-geom}
+  \sigma_{\mathrm{geom}} = \frac{1}{N}\sum_{k=1}^{N}
+  \bigl|\!\ln|z_k / z_k^{\mathrm{ideal}}|\bigr|,
+\end{equation}
+where $z_k^{\mathrm{ideal}}$ are the best-fit regular $N$-gon vertices.
+This measures positional scatter of discrete cyclones; small
+$\sigma_{\mathrm{geom}}$ means the ring closely approximates the
+Thomson equilibrium.
+
+For \emph{continuous jet meanders} (Saturn), the vortex positions $z_k$
+are not defined.  The appropriate measure is the fractional radial
+displacement of the jet center:
+\begin{equation}\label{eq:eps-obs}
+  \varepsilon_{\mathrm{obs}} = A_n / \bar{R},
+\end{equation}
+where $A_n$ is the half-amplitude of the $n$-th Fourier mode of the
+jet-center radial position and $\bar{R}$ is the mean ring radius.
+For Saturn's hexagon ($n = 6$, $\bar{R} \approx 13{,}200\;\mathrm{km}$),
+the observed $\pm 2^\circ$ latitude oscillation
+\citep{Godfrey1988, Antunano2015} gives
+$A_6 \approx 1{,}900\;\mathrm{km}$ and
+$\varepsilon_{\mathrm{obs}} \approx 0.14$ (range $0.11$--$0.18$ across
+measurement epochs).
+
+These two metrics are \emph{not interchangeable}: applying
+$\sigma_{\mathrm{geom}}$ to Saturn (by treating the meander peaks as
+point positions) yields $0.50$, an order of magnitude larger than
+Jupiter's $0.05$--$0.06$, but this comparison is physically
+meaningless---it conflates meander amplitude with positional scatter.
+Table~\ref{tab:planets} reports both metrics, using each where it is
+appropriate.
+
+\begin{table}[htbp]
+\centering
+\caption{Planetary polygon configurations.
+$\kappa_0/\kappa$ is estimated from Juno imagery \citep{Adriani2018}
+using cyclone area as a proxy ($\sim\!30\%$ systematic uncertainty).
+``---'' indicates the quantity is not applicable.}
+\label{tab:planets}
+\begin{tabular}{lcccl}
+\toprule
+System & $N$ & Quality metric &
+  $\kappa_0/\kappa$ & Selection mechanism \\
+\midrule
+Saturn hexagon    & 6 & $\varepsilon_{\mathrm{obs}} = 0.14$ & N/A (jet) & Rossby stationarity \\
+Jupiter north     & 8 & $\sigma_{\mathrm{geom}} = 0.06$ & $\sim\!1$ & Thomson + Onsager \\
+Jupiter south     & 5 & $\sigma_{\mathrm{geom}} = 0.05$ & --- & Thomson-stable; $N$ not predicted here \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Broader observational context}
+
+Beyond the three planetary configurations, the theoretical stability
+boundary $\kappa_{\mathrm{crit}}(N)$ from
+Proposition~\ref{prop:kappa-crit} can be compared with laboratory and
+numerical observations:
+
+\emph{Laboratory experiments.}  \citet{Jansson2006} and
+\citet{BarbosaAguiar2010} observe polygons with $N = 2$ through $6$
+in rotating-tank experiments by varying the differential rotation rate.
+All observed $N$ values fall in the $\kappa_{\mathrm{crit}} = 0$ range
+($N \le 7$), consistent with the Thomson stability boundary.  No
+laboratory experiment has produced a stable polygon with $N \ge 8$
+without a central vortex---also consistent.  (The laboratory mechanism
+is barotropic instability of a shear layer, not Thomson point vortex
+dynamics, so the agreement is structural rather than quantitative.)
+
+\emph{Numerical simulations.}  \citet{Siegelman2022} produce $N = 8$
+(north) and $N = 5$ (south) vortex crystals from 2D turbulence on polar
+caps, with a central polar cyclone emerging alongside the ring in both
+cases.  The central cyclone provides the stabilization required by
+Proposition~\ref{prop:kappa-crit} for $N = 8$.
+The \citet{Siegelman2022} simulations include continuous small-scale
+forcing (representing convective injection) and large-scale dissipation,
+yet the polygon crystal is the persistent stationary state: the system
+is not frozen into a one-time equilibrium but continuously re-attracted
+to it.  Within the 2D barotropic framework, this is numerical evidence
+that the constrained energy minimum acts as a \emph{dynamical attractor}
+under turbulent forcing.  The caveat (Section~\ref{sec:extensions}) is
+that these are idealized 2D simulations, not a faithful model of
+Jupiter's three-dimensional polar dynamics; the agreement supports the
+Onsager picture but does not constitute a proof of its applicability.
+
+\emph{Uranus.}  \citet{Akins2023} detect a single polar cyclone at
+Uranus's north pole---a single-vortex ($N = 1$) configuration, below
+the polygon threshold.  No ring structure has been observed.  Whether
+the absence of a Uranian polygon reflects insufficient vortex formation
+(macro-scale constraint) or insufficient observations (the pole has been
+poorly resolved) remains open.
+
+\emph{Neptune.}  No polar polygon has been observed, and Voyager~2
+imagery is insufficient to resolve ring structure.  However, the
+framework makes a falsifiable prediction.
+
+\textit{Regime:}
+At $84^\circ$N, $\beta_N = 2\Omega_N\cos(84^\circ)/R_N \approx
+9.2\times10^{-13}$\,m$^{-1}$s$^{-1}$ and $R_{\mathrm{ring}} \approx
+2{,}570$\,km, giving $\beta R^3 \approx 1.6\times10^7$\,m$^2$\,s$^{-1}$.
+For Jovian-scaled cyclones (core radius $r_c \approx 240$\,km,
+$V_{\max}\approx 80$--100\,m\,s$^{-1}$), $\kappa \approx
+1.2\text{--}1.5\times10^8$\,m$^2$\,s$^{-1}$ and
 \[
-  H(f(z_1),\dots,f(z_N))
-  = H(z_1,\dots,z_N) - \sum_{k=1}^{N}\tfrac{N-1}{2}\ln|f'(z_k)|.
+  \frac{\beta R^3}{\kappa}\approx 0.10\text{--}0.13 \ll 1.
 \]
-Consequently, the point vortex equations of motion are
-M\"obius-invariant: the single-site correction
-$\tfrac{N-1}{2}\ln|f'(z_k)|$ depends only on~$z_k$, so
-$\partial/\partial \bar z_j$ for $j \ne k$ annihilates it, and the
-Hamiltonian gradient $\partial H/\partial \bar z_j$ is unchanged.
+Neptune is firmly vortex-dominated---more so than Jupiter ($\beta
+R^3/\kappa \approx 0.6$), because its smaller radius ($R_N \approx
+R_J/3$) reduces $R_{\mathrm{ring}}^3$ by a factor of $\sim\!25$
+despite a slightly larger $\beta$.  The Rossby stationarity mechanism
+does not apply; the relevant bridge is Thomson/Onsager.
+
+\textit{Prediction:}
+If Neptune's deep convection (evidenced by the Great Dark Spot and
+supersonic mid-latitude winds) generates polar cyclones, Onsager
+inverse cascade should concentrate same-sign vorticity near the
+poles.  The Thomson stability criterion then predicts a ring of
+$N = N_{\max}(\kappa_0/\kappa)$ cyclones at colatitude
+$\sim\!6^\circ$ (by analogy with Jupiter's $84^\circ$N ring), with
+ring radius $\approx 2{,}000$--$3{,}000$\,km and
+$N \in \{5,6,7,8\}$ depending on the polar-vortex-to-ring strength
+ratio $\kappa_0/\kappa$.
+
+Why no specific $N$ is predicted here: the Thomson upper bound
+requires knowing $\kappa_0/\kappa$; the Onsager maximum-$N$ selection
+then uniquely determines $N$ given that ratio.  Both are measurable
+from wind-field observations of Neptune's poles---currently
+unconstrained.  This prediction is testable by a Neptune polar
+orbiter (e.g.\ Trident-class mission).
+
+All observations are consistent with the theoretical stability
+boundary: $N \le 7$ is observed without a central vortex, $N = 8$
+is observed only with one, and no $N \ge 9$ ring has been reported
+in any system.
+
+\subsection{Multi-ring configurations}
+\label{sec:multiring}
+
+\begin{proposition}[Center-ring dichotomy]\label{prop:center-ring}
+Let $N$ outer vortices sit at the regular $N$-gon on a ring of
+radius $R_2$, and let $M \ge 2$ inner vortices sit at the regular
+$M$-gon on a ring of radius $R_1 < R_2$.
+\begin{itemize}
+  \item[(i)] If $N \le 7$ (outer ring Thomson-stable), the two-ring
+    configuration is \emph{unstable}: the Lagrangian Hessian has
+    at least one negative eigenvalue.
+  \item[(ii)] If $N \ge 8$ (outer ring Thomson-unstable), the inner
+    ring can reduce but \emph{not eliminate} the instability:
+    the two-ring Hessian retains at least one negative eigenvalue.
+\end{itemize}
+In contrast, a single central vortex ($M = 0$) at the
+$\mathbb{Z}_N$ fixed point produces a \emph{uniform} eigenvalue
+shift $+\kappa_0/R^2$ across all Fourier modes and can achieve
+full stabilization (Proposition~\ref{prop:kappa-crit}).
 \end{proposition}
-\begin{proof}
-The identity $|f(z){-}f(w)| = |f'(z)|^{1/2}|f'(w)|^{1/2}|z{-}w|
-\cdot(1 + O(|z{-}w|))$ is exact when $f$ is M\"obius (the error
-term vanishes), so $\ln|f(z_j){-}f(z_k)| = \ln|z_j{-}z_k|
-+ \tfrac12\ln|f'(z_j)| + \tfrac12\ln|f'(z_k)|$.  Summing over
-all $\binom{N}{2}$ pairs, each $\ln|f'(z_k)|$ appears $N{-}1$
-times.  Since $\tfrac12\ln|f'(z_k)|$ depends on $z_k$ alone,
-$\partial[\sum_k\tfrac{N-1}{2}\ln|f'(z_k)|]/\partial\bar z_j
-= \tfrac{N-1}{2}\,\partial\ln|f'(z_j)|/\partial\bar z_j$,
-which is the single-site term in the $j$-th equation of motion.
-For M\"obius $f$, $f'$ is rational and $\ln|f'|$ is harmonic away
-from poles, so this term contributes a gauge-like shift to the
-Hamiltonian that does not couple distinct vortices.
+
+\begin{proof}[Proof (numerical)]
+The constrained Lagrangian Hessian is computed for all combinations
+$N \in \{5,6,7,8,9,10\}$, $M \in \{2,3,4,5,6\}$,
+$R_2/R_1 \in \{1.5,\,2,\,3,\,5\}$ ($108$ configurations;
+code in \texttt{two\_ring.py}).
+Part~(i): all $48$ configurations with $N \le 7$ have $n_{\mathrm{neg}} \ge 1$.
+Part~(ii): all $60$ configurations with $N \ge 8$ have $n_{\mathrm{neg}} \ge 1$;
+the minimum is $n_{\mathrm{neg}} = 1$ (achieved at large $R_2/R_1$, where
+the inner ring acts as a distributed center).
+
+The mechanism is $\mathbb{Z}_N$ symmetry breaking.  A central
+vortex at the origin interacts equally with all ring vortices, so
+its contribution to the Hessian commutes with the $\mathbb{Z}_N$
+action and shifts each Fourier-mode eigenvalue uniformly.  An inner
+ring of $M \ge 2$ vortices does not preserve $\mathbb{Z}_N$ (unless
+$M = N$, which is the concentric-ring case): the inner--outer
+interaction has $M$-fold modulation, coupling distinct Fourier modes
+of the outer ring and introducing off-diagonal Hessian blocks that
+generically produce additional negative eigenvalues.
 \end{proof}
 
-\begin{corollary}[Dilation subgroup = RG fixed point]
-\label{cor:dilation-rg}
-Among all M\"obius transformations, the dilation subgroup
-$\{f(z) = bz : b > 0\}$ is uniquely characterised by having
-constant derivative: $f'(z) = b$ for all~$z$.  Substituting
-into Proposition~\ref{prop:mobius} gives a correction that is
-\emph{position-independent}:
-\begin{equation}\label{eq:dilation-rg}
-  H(bz_1,\dots,bz_N)
-  = H(z_1,\dots,z_N) - \tfrac{N(N-1)}{2}\ln b.
-\end{equation}
-This is the $N$-body form of the RG fixed point condition of
-Remark~\ref{rem:rg-fixed-point}: scaling changes $H$ only by an
-additive constant, so the equations of motion
-$\dot{\bar z}_j = \partial H/\partial z_j$ are dilation-invariant.
-For any other M\"obius map $f$, the derivative $|f'(z_k)|$ varies
-between sites, producing a configuration-dependent correction that
-is not a pure constant; the Hamiltonian is \emph{not}
-scale-invariant under general conformal maps, only under the
-one-parameter dilation subgroup.
+\noindent
+Jupiter's observed center-plus-octagon geometry is therefore
+\emph{uniquely stabilized} among all configurations with a
+secondary vortex structure: only the single central cyclone
+achieves full stabilization of the $N = 8$ ring.
 
-Remark~\ref{rem:rg-fixed-point} derived the per-pair fixed point
-condition $h(br) = h(r) - \ln b$ from Cauchy's functional equation,
-showing $h = -\ln r$ is the unique scale-invariant pairwise
-interaction.  Equation~\eqref{eq:dilation-rg} is the same statement
-lifted to the $N$-body level: $H$ is invariant under scale
-transformations up to the constant $\tfrac{N(N-1)}{2}\ln b$, which
-is the sum of $\binom{N}{2}$ per-pair shifts $-\ln b$.
-Proposition~\ref{prop:mobius} is therefore not merely geometric
-decoration: it is the Möbius-group formulation of the fact that
-the logarithmic energy is the unique $N$-body Hamiltonian with an
-RG fixed point under spatial rescaling.
-\end{corollary}
+%% ====================================================================
+\section{Predictions: BEC vortex clusters}
+\label{sec:predictions}
+\label{sec:bec}
+
+In a quasi-2D Bose--Einstein condensate in a circular trap, quantized
+vortices interact logarithmically at scales above the healing length
+$\xi$.  The circulation is quantized:
+$\kappa = q \cdot h/m$ with integer winding number $q$.
+The $\kappa_0/\kappa$ ratio of Proposition~\ref{prop:kappa-crit}
+becomes the winding number ratio $q_0/q$, yielding sharp integer-valued
+predictions:
+
+\begin{center}
+\begin{tabular}{lcl}
+\toprule
+Configuration & $\kappa_{\mathrm{crit}}$ & Prediction \\
+\midrule
+$N \le 7$ ring & 0 & Stable without central vortex \\
+$N = 8$ ring & $1/2$ & Unstable alone; stable with $q_0 \ge 1$ \\
+$N = 9$ ring & $1$ & Marginally stable with $q_0 = 1$;
+  stable with $q_0 \ge 2$ \\
+$N = 10$ ring & $7/4$ & Unstable with $q_0 = 1$;
+  stable with $q_0 \ge 2$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The $N = 8$ prediction is the sharpest: a ring of $8$ unit-winding
+vortices should be unstable alone and stable upon adding a single
+central vortex ($q_0 = 1 > \kappa_{\mathrm{crit}} = 1/2$).
+
+The $N = 7$ case offers a distinct signature.  The quartic restoring
+force ($\alpha_0 = 45/14$, Section~\ref{sec:n7}) produces an
+\emph{amplitude-dependent} oscillation frequency for the $m = 3$ mode:
+$\omega \propto \varepsilon$ (where $\varepsilon$ is the perturbation
+amplitude), rather than the constant $\omega$ of the quadratic modes
+at $N \le 6$.  This nonlinear frequency shift is measurable through
+BEC vortex imaging.
+
+The healing length $\xi$ provides a natural blob width
+$\varepsilon = \xi/R$.  For typical BEC parameters
+($\xi \sim 0.3\;\mu\mathrm{m}$, $R \sim 50\;\mu\mathrm{m}$):
+$\varepsilon \approx 0.006$, well within the point vortex regime.
+The blob correction (Proposition~\ref{prop:blob}) is negligible:
+$\lambda(0.006) \approx \lambda_0 + O(10^{-4})$.
 
 %% ====================================================================
 \section{Discussion and limitations}
@@ -2506,23 +2823,17 @@ RG fixed point under spatial rescaling.
 \subsection{Why 2D and not 3D}
 
 The argument depends critically on two-dimensionality.  The 2D Green's
-function $G(r) = -\ln r/(2\pi)$ is the unique interaction satisfying
-three properties:
-(a)~$h'(r) < 0$ (class~(ii) of Remark~\ref{rem:borderline}: the sign
-rule applies);
-(b)~$(rh'(r))' = 0$ (the unique solution is $h = -a\ln r + b$; this
-is the boundary between classes~(i) and~(iii));
-(c)~$\nabla^2 h = 0$ for $r > 0$ (harmonic --- $h$ is the Green's
-function of the 2D Laplacian).
-In 3D, the Green's function $G(r) = -1/(4\pi r)$ has
-$G'(r) = 1/(4\pi r^2) > 0$---the sign rule is violated, the $N$-gon
-is not an energy extremum along the spiral, and the stability analysis
-gives different results.  The present mechanism---sign rule plus
-energy-Casimir stability---does not operate in 3D; whether other
-mechanisms can produce persistent polygonal vortex structures in
-three dimensions is a separate question.  Extensions to curved 2D
-surfaces and finite deformation radius are developed in
-Section~\ref{sec:extensions}.
+function $G(r) = -\ln r/(2\pi)$ is the unique dilation-invariant
+pairwise interaction with $h' < 0$
+(Remark~\ref{rem:rg-fixed-point}; Corollary~\ref{cor:dilation-rg}
+lifts this to the $N$-body level).  In 3D, the Green's function
+$G(r) = -1/(4\pi r)$ has $G'(r) = 1/(4\pi r^2) > 0$---the sign
+rule is violated, the $N$-gon is not an energy extremum along the
+spiral, and the stability analysis gives different results.  The
+present mechanism---sign rule plus energy-Casimir stability---does
+not operate in 3D; whether other mechanisms can produce persistent
+polygonal vortex structures in three dimensions is a separate
+question.
 
 
 \subsection{What is novel}
@@ -2617,23 +2928,45 @@ The mathematical results---the constrained energy minimum
 for discrete point vortices.  They apply directly to Jupiter's polar
 cyclone rings.  For Saturn's hexagon, which is a continuous jet meander,
 the relevant mechanism is Rossby wave stationarity of the QGPV
-equation, not the point vortex energy landscape.  The continuous and discrete descriptions share the logarithmic Green's
-function; the vortex blob analysis (Section~\ref{sec:blob}) establishes
-that the stability boundary is preserved under regularization and that
-the $N = 7$ marginal case is resolved.  The Saturn bridge (Section~\ref{sec:blob}) proposes a heuristic
-connection between the continuous QGPV eigenvalue problem and the
-point vortex Hessian via critical-layer concentration in the sharp-jet
-limit.  \emph{This connection is not proved.}  Rigorous justification
-would require showing that the cat's-eye vorticity patches satisfy
-the conditions of Proposition~\ref{prop:inertia} in the $\sigma/R \to 0$
-limit, which in turn requires nonlinear critical-layer theory beyond
-the scope of this paper.  The Saturn hexagon is therefore supported
-by two separate arguments (Rossby stationarity via
-Proposition~\ref{prop:complementary}; geometric consistency with the
-spherical stability boundary in Section~\ref{sec:curved}), neither of
-which depends on the critical-layer bridge.  The bridge is offered as
-motivation for why the two mechanisms are in the same universality
-class, not as a rigorous reduction.
+equation, not the point vortex energy landscape.  The continuous and
+discrete descriptions share the logarithmic Green's function; the
+vortex blob analysis (Section~\ref{sec:blob}) establishes that the
+stability boundary is preserved under regularization and that the
+$N = 7$ marginal case is resolved.
+
+The Saturn bridge (Section~\ref{sec:rossby-bridge}) connects the
+continuous QGPV eigenvalue problem to the point vortex Hessian via
+critical-layer concentration.  The key mechanism is
+$\mathbb{Z}_N$~symmetry: for any $\mathbb{Z}_N$-symmetric cat's-eye
+structure, the lobe circulations are equal and the centroids lie on
+the $N$-gon vertices, so the constrained Hessian has the same inertia
+as the Havelock Hessian (Remark~\ref{rem:catseye}).  This is verified
+numerically for both smooth (Stuart vortex) and step-PV
+(Prandtl--Batchelor) cat's-eye models.  The braid vorticity fraction
+vanishes as $O(1{-}\eta)$ in the Stuart concentration limit
+(Remark~\ref{rem:catseye}), satisfying the conditions of
+Proposition~\ref{prop:inertia}.
+
+What remains unproven is the \emph{quantitative} bridge at Saturn's
+actual parameters: the hexagonal jet has finite width
+$\sigma/R \approx 0.15$, not $\sigma/R \to 0$, and Saturn's
+long-lived cat's-eye is in the Prandtl--Batchelor regime (homogenized
+PV inside the lobes) where the separatrix carries a thin vorticity
+sheet whose effect on the Hessian eigenvalues is bounded but not
+rigorously estimated.  A definitive closure would require either
+resolving this sheet contribution or showing it is absorbed by the
+existing spectral gap $\lambda_{\min}(6) = 1/2$.
+
+The Saturn hexagon is therefore supported by three arguments:
+(i)~Rossby stationarity (Proposition~\ref{prop:complementary}) selects
+$n = 6$ independently of the energy landscape;
+(ii)~geometric consistency with the spherical stability boundary
+(Section~\ref{sec:curved}); and
+(iii)~the critical-layer bridge (Remark~\ref{rem:catseye}), which
+establishes Hessian inertia preservation for $\mathbb{Z}_N$-symmetric
+cat's-eye structures in the concentration limit.  The first two
+arguments are independent of the bridge; the third provides the
+unifying connection to the point vortex energy landscape.
 
 The Onsager negative-temperature hypothesis is a physical assumption
 whose applicability to Jupiter's polar region is not directly tested
@@ -2789,6 +3122,122 @@ $\sum_{p=1}^{N-1}\omega^{p\ell} = N\delta_{\ell \equiv 0\pmod{N}} - 1$:
 where $\delta_{j \equiv k}$ contributes $m$ (since $0 \le j,k \le m-1
 < N$ forces $j = k$) and the $-1$ contributes $-m^2$.
 \end{proof}
+
+\section{Derivation of $C_1(\mathbf{H}^2,\xi)$ and the near-$K=0$ expansion}
+\label{app:c1_h2}
+
+We work in the Poincar\'e disk of radius~$a$ and set $a = 1$ without
+loss of generality (the formula is dimensionless in $\xi = r_E^2/a^2$).
+
+\paragraph{H² Hamiltonian and moment map.}
+In Poincar\'e disk coordinates the $N$-vortex Hamiltonian is
+\citep{Kimura1999}
+\begin{equation}\label{eq:H_hyp}
+  H_{\mathrm{hyp}} = -\!\sum_{j<k}\ln|z_j - z_k|
+    + \frac{N-1}{2}\sum_k \ln(1 - |z_k|^2),
+\end{equation}
+equivalent to $-\sum_{j<k}\ln\sinh(d_{\mathbf{H}^2}(j,k)/2)$ up to
+an additive constant, via the identity
+$\sinh(d/2) = |z_j - z_k|/\sqrt{(1-|z_j|^2)(1-|z_k|^2)}$.
+The $\mathrm{SO}(2,1)$ angular moment map is
+$J = \sum_k(1+|z_k|^2)/(1-|z_k|^2)$.
+
+\paragraph{Equilibrium and rotation rate $\Omega$.}
+The $N$-gon at Euclidean radius $r_E$ ($\xi = r_E^2$) satisfies the
+Lagrangian stationarity condition $\partial H_{\mathrm{hyp}}/\partial x_0
+= \Omega\,\partial J/\partial x_0$ at vortex~$0 = (r_E, 0)$:
+\begin{align*}
+  \frac{\partial H_{\mathrm{hyp}}}{\partial x_0}
+    &= -\frac{N-1}{2r_E} - \frac{(N-1)r_E}{1-\xi}
+     = -\frac{(N-1)(1+\xi)}{2\sqrt{\xi}(1-\xi)}, \\
+  \frac{\partial J}{\partial x_0}
+    &= \frac{4r_E}{(1-\xi)^2}
+     = \frac{4\sqrt{\xi}}{(1-\xi)^2}.
+\end{align*}
+Dividing gives
+\begin{equation}\label{eq:Omega_H2}
+  \Omega = -\frac{(N-1)(1+\xi)(1-\xi)}{8\xi}.
+\end{equation}
+
+\paragraph{Mode-$m$ second derivatives.}
+Let $\hat u$ be the normalized radial Fourier mode of wavenumber $m$
+($\|\hat u\|=1$, Euclidean).  Two ring-geometry identities hold for all
+$1 \le m \le \lfloor N/2\rfloor$:
+\[
+  \sum_k |\hat u_k|^2 = 1, \qquad
+  \sum_k \bigl[\operatorname{Re}(z_k\,\overline{\hat u_k})\bigr]^2 = r_E^2 = \xi.
+\]
+The three contributions to $\lambda_m \cdot r_E^2$ are:
+
+\emph{(1) Flat-plane Havelock term.}
+By scale invariance of $-\ln|\cdot|$,
+$\partial^2 H_{\mathrm{flat}}/\partial\varepsilon^2 = \sigma_m/r_E^2$
+with $\sigma_m = (N-1)/2 - m(N-m)/2$.  Multiplying by $r_E^2$:
+\[
+  \text{(1)} = \tfrac{N-1}{2} - \tfrac{m(N-m)}{2}.
+\]
+
+\emph{(2) Curvature-correction term $W$.}
+With $W = \tfrac{N-1}{2}\sum_k\ln(1-|z_k|^2)$, expanding at $\varepsilon=0$:
+\[
+  \frac{\partial^2 W}{\partial\varepsilon^2}
+  = \frac{N-1}{2}\sum_k\!\left[
+    \frac{-2|\hat u_k|^2}{1-\xi}
+    - \frac{4[\operatorname{Re}(z_k\overline{\hat u_k})]^2}{(1-\xi)^2}
+  \right]
+  = -\frac{(N-1)(1+\xi)}{(1-\xi)^2}.
+\]
+Multiplying by $r_E^2 = \xi$:
+\[
+  \text{(2)} = -\frac{(N-1)\xi(1+\xi)}{(1-\xi)^2}.
+\]
+
+\emph{(3) Lagrange-multiplier term $-\Omega J$.}
+Expanding $J$ similarly gives
+\[
+  \frac{\partial^2 J}{\partial\varepsilon^2}
+  = \frac{4}{(1-\xi)^2}\!\left[1 + \frac{4\xi}{1-\xi}\right]
+  = \frac{4(1+3\xi)}{(1-\xi)^3}.
+\]
+With $-\Omega = (N-1)(1-\xi^2)/(8\xi)$ from~\eqref{eq:Omega_H2}:
+\[
+  -\Omega\frac{\partial^2 J}{\partial\varepsilon^2}
+  = \frac{(N-1)(1+\xi)(1+3\xi)}{2\xi(1-\xi)^2}.
+\]
+Multiplying by $r_E^2 = \xi$:
+\[
+  \text{(3)} = \frac{(N-1)(1+\xi)(1+3\xi)}{2(1-\xi)^2}.
+\]
+
+\paragraph{Algebraic simplification.}
+The $\xi$-dependent part of $\text{(2)}+\text{(3)}$ (factor $N-1$):
+\[
+  -\frac{\xi(1+\xi)}{(1-\xi)^2} + \frac{(1+\xi)(1+3\xi)}{2(1-\xi)^2}
+  = \frac{(1+\xi)}{2(1-\xi)^2}\bigl[(1+3\xi) - 2\xi\bigr]
+  = \frac{(1+\xi)^2}{2(1-\xi)^2}.
+\]
+Adding term~(1):
+\begin{align*}
+  C_1 &= \frac{N-1}{2} + \frac{(N-1)(1+\xi)^2}{2(1-\xi)^2}
+       = \frac{N-1}{2}\cdot\frac{(1-\xi)^2+(1+\xi)^2}{(1-\xi)^2}
+       = \frac{(N-1)(1+\xi^2)}{(1-\xi)^2},
+\end{align*}
+establishing~\eqref{eq:C1_H2}.
+
+\paragraph{Near-$K=0$ expansion.}
+For $N=7$, $m=3$: $m(N-m)/2 = 6 = N-1$.  Therefore
+\[
+  \lambda_3 \cdot r_E^2 = C_1 - 6
+  = 6\cdot\frac{(1+\xi^2) - (1-\xi)^2}{(1-\xi)^2}
+  = \frac{12\xi}{(1-\xi)^2}.
+\]
+Using $\xi = r_E^2/a^2 = |K|r_E^2$:
+\[
+  \lambda_3 = \frac{12|K|}{(1-\xi)^2} = 12|K| + O(K^2 r_E^2).
+\]
+The coefficient $12 = 2\,m(N{-}m)/2\big|_{m=3,\,N=7}$ arises from the
+cancellation $(1+\xi^2) - (1-\xi)^2 = 2\xi$, which holds because
+$N-1 = m(N-m)/2$ exactly at this critical mode.
 
 \bibliographystyle{plainnat}
 \bibliography{refs}

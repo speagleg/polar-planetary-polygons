@@ -4,6 +4,8 @@ from fractions import Fraction
 from planetary_polygons.extensions.riemannian_havelock import (
     havelock_sum, havelock_exact, trace_formula_delta,
     C1_hyperbolic, C1_sphere, riemannian_havelock_eigenvalue,
+    dilation_rg_residual, mobius_energy_transform,
+    equations_of_motion_invariant_check,
 )
 
 
@@ -52,6 +54,57 @@ def test_riemannian_havelock_eigenvalue_flat():
             expected = (N - 1) - m * (N - m) / 2
             assert abs(lam - expected) < 1e-4, \
                 f"N={N}, m={m}: λ={lam:.6f} != {expected:.6f}"
+
+
+def test_dilation_rg_identity():
+    """
+    Flat Thomson energy satisfies H(b·z) = H(z) - N(N-1)/2·ln b.
+
+    This is the Wilsonian RG fixed-point identity (Corollary cor:dilation-rg):
+    rescaling all vortex positions by b shifts H by a pure additive constant,
+    so the Havelock eigenvalues λ_m = (N-1) - m(N-m)/2 are scale-invariant
+    and N_crit = 7 cannot drift under spatial rescaling.
+    """
+    for N in [4, 6, 8]:
+        for b in [0.5, 2.0, np.e]:
+            residual = dilation_rg_residual(N, b)
+            assert abs(residual) < 1e-10, (
+                f"N={N}, b={b:.3f}: dilation residual = {residual:.2e}"
+            )
+
+
+def test_mobius_covariance_dilation():
+    """
+    equations_of_motion_invariant_check passes for a pure dilation.
+
+    H(b·z) = H(z) - (N-1)/2·Σ_k ln|b| = H(z) - N(N-1)/2·ln b.
+    The fixed-sign check |H_after - H_before + correction| < 1e-8 must hold.
+    """
+    for N in [5, 6]:
+        b = 2.0
+        # Möbius coefficients for f(z) = b·z: a=b, b_=0, c=0, d=1
+        assert equations_of_motion_invariant_check(N, a=b, b=0, c=0, d=1)
+
+
+def test_mobius_covariance_rotation():
+    """
+    Pure rotation f(z) = e^{iθ}z leaves H invariant (correction = 0).
+    """
+    for N in [4, 7]:
+        theta = np.pi / 5
+        a = np.exp(1j * theta)
+        assert equations_of_motion_invariant_check(N, a=a, b=0, c=0, d=1)
+
+
+def test_mobius_transform_returns_three_floats():
+    """mobius_energy_transform returns (H_before, H_after, correction)."""
+    result = mobius_energy_transform(6, a=2.0, b=0, c=0, d=1)
+    assert len(result) == 3
+    H_b, H_a, corr = result
+    # Verify dilation: H_after = H_before - correction
+    assert abs(H_a - H_b + corr) < 1e-8, (
+        f"H_after - H_before + corr = {H_a - H_b + corr:.2e}"
+    )
 
 
 def test_riemannian_havelock_n7_m3_marginal():
