@@ -1344,10 +1344,22 @@ $N = 7$.
 \end{proof}
 
 The family $H_N(\xi) = C_1(\xi)\,I - F_N$ parametrised by
-$\xi \in [0, 1)$ has a monotone spectral flow: as $\xi$
-increases from~$0$ (flat plane) to~$1$ (infinite curvature),
-unstable modes stabilise in pairs $(m, N{-}m)$ from the outermost
-inward.  The total spectral flow equals $\mu(N)$ by monotonicity.
+$\xi \in [0, 1)$ has a monotone spectral flow: since
+$C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$ satisfies
+$\dd C_1/\dd\xi = (N{-}1)\cdot 2(1{+}\xi)/(1{-}\xi)^3 > 0$
+for all $\xi \in [0,1)$, each eigenvalue
+$\lambda_m(\xi) = C_1(\xi) - m(N{-}m)/2$ is strictly increasing
+in~$\xi$.  Every eigenvalue that is negative at $\xi = 0$
+(flat plane) crosses zero exactly once as $\xi \to 1$ (infinite
+curvature).  The total spectral flow therefore equals the
+flat-plane Morse index:
+$\mathrm{SF}(H_N, 0 \to 1) = \mu(N)$.  This is \emph{proven}
+(it follows from Proposition~\ref{prop:morse-index} together with
+the strict monotonicity of $C_1(\xi)$, which is an explicit
+calculation---not the $N_{\mathrm{crit}}$ monotonicity conjecture
+of Section~\ref{sec:curvature-thresholds}, which concerns the
+integer-valued function $N_{\mathrm{crit}}(R/a)$, a different
+quantity).
 
 \begin{conjecture}[Index-theoretic origin of $N_{\mathrm{crit}} = 7$]
 \label{conj:aps-index}
@@ -1362,8 +1374,8 @@ configuration space rather than from the explicit eigenvalue formula.
 \end{conjecture}
 
 \noindent
-The spectral flow $\mathrm{SF}(H_N, 0 \to 1) = \mu(N)$ is proven
-(Proposition~\ref{prop:morse-index}).  By the APS theorem, this
+By the APS theorem, $\mathrm{SF} = \mathrm{ind}(D_N)$ for
+$D_N = \dd/\dd\xi + H_N(\xi)$.  This
 equals $\mathrm{ind}(D_N)$ for $D_N = \dd/\dd\xi + H_N(\xi)$.
 The conjecture asks whether $D_N$ has a geometric construction
 independent of the explicit family $H_N(\xi)$---one that would
