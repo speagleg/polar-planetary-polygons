@@ -416,15 +416,26 @@ and $d_m^2/(1{-}\cos\phi) = 4R^2$.  Summing over $m = 1, \ldots, N-1$
 yields \eqref{eq:Hpp-general}.
 
 \emph{Step 5: Sign determination.}
-Under $h'(r) < 0$: the second term $h'(d_m)\,m^2(N{-}m)/(N^2 d_m) < 0$
-for all $m = 1, \ldots, N-1$ (including $m = N{-}1$, where
-$S_{N-1} = 0$ but the second term is still negative).
+Under $h'(r) < 0$: the second term
+$B_m = h'(d_m)\,m^2(N{-}m)/(N^2 d_m) < 0$
+for every $m = 1, \ldots, N-1$, since $h' < 0$, $d_m > 0$,
+and $m^2(N{-}m) > 0$.
 Under $(rh'(r))' \le 0$: the first coefficient
-$d_m^2 h''(d_m) + d_m h'(d_m) = d_m \cdot (rh')'\big|_{r=d_m} \le 0$,
-so the first term is $\le 0$ since $S_m \ge 0$.  (At $m = N{-}1$:
-$S_{N-1} = 0$ and the first term vanishes regardless of the sign
-condition; the inequality $H''(0) < 0$ follows from the strictly
-negative second terms alone.)  Therefore $H''(0) < 0$.
+$A_m = d_m^2 h''(d_m) + d_m h'(d_m) = d_m \cdot (rh')'\big|_{r=d_m} \le 0$,
+so the first term $A_m S_m \le 0$ since $S_m \ge 0$.
+
+The case $m = N{-}1$ requires separate attention.
+At $m = N{-}1$ there is only one pair $(0, N{-}1)$, and the
+centering sum has a single term:
+$c_{s,0} = (0 + (N{-}1) - (N{-}1))/(2N) = 0$,
+so $S_{N-1} = 0$.  The first term $A_{N-1} S_{N-1} = 0$ therefore
+\emph{vanishes identically}, regardless of the sign of $A_{N-1}$.
+However, the second term $B_{N-1} = h'(d_{N-1})\,(N{-}1)^2/(N^2 d_{N-1})$
+remains strictly negative (since $h' < 0$).  Thus the $m = N{-}1$
+contribution to $H''(0)$ is $B_{N-1} < 0$, and strict negativity
+of $H''(0) = \sum_m (A_m S_m + B_m)$ follows from $A_m S_m \le 0$
+for all $m$ and $B_m < 0$ for all $m$, with at least one term
+strictly negative.
 \end{proof}
 
 \begin{remark}[Borderline status of the logarithmic interaction]
