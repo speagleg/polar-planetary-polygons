@@ -1297,9 +1297,17 @@ Section~\ref{sec:n7}.)
 \label{cor:min-not-max}
 For $N \le 7$, the $N$-gon is a constrained energy \emph{minimum}
 on $\{L = NR^2,\, \mathbf{P} = 0\}$, yet a saddle point of the
-unconstrained energy $H$.  These two facts are consistent, and their
-reconciliation corrects a widespread description in the statistical-mechanics
-literature of the $N$-gon as an energy maximum.
+unconstrained energy $H$.  These two facts are compatible: the
+constrained minimum is the relevant concept for Lyapunov stability
+via Arnold's energy-Casimir method, while the Onsager
+negative-temperature argument operates on the unconstrained energy
+landscape, where the polygon is a maximum-energy \emph{accessible}
+state (not a local maximum of $H$, but the highest-$H$ configuration
+reachable within the Thomson-stable set).  The distinction matters
+because the statistical mechanics literature sometimes describes the
+polygon as an energy maximum without qualification; it is a
+constrained minimum that happens to have higher energy than
+alternative configurations at the same conserved quantities.
 \end{corollary}
 
 \begin{proof}
@@ -3441,13 +3449,19 @@ result, but not via the energy-curvature path);
 (ii)~the analytic sign rule (Theorem~\ref{thm:sign-rule}) identifying
 the precise conditions on $h$ that guarantee $H''(0) < 0$ is new;
 and (iii)~the constrained Hessian result
-(Theorem~\ref{thm:constrained-min}) corrects a widespread assumption
-\emph{in the statistical mechanics literature} that polygonal
-configurations are energy maxima selected by negative temperature
-\citep{BouchetVenaille2012,ChavanisSommeria1996}; this result
+(Theorem~\ref{thm:constrained-min}) clarifies a point of frequent
+confusion \emph{in the statistical mechanics literature}: the polygon
+is described as an energy maximum selected by negative temperature
+\citep{BouchetVenaille2012,ChavanisSommeria1996}, but it is in fact
+a constrained energy \emph{minimum} on the conserved-quantity surface.
+These two descriptions are compatible---the Onsager argument concerns
+the unconstrained landscape while the stability argument concerns the
+constrained surface---but the unqualified ``energy maximum'' language
+obscures the Lyapunov stability mechanism.  This clarification
 is not new to the classical vortex dynamics literature
 \citep{Thomson1883,Havelock1931}, where the stability boundary is
-well established.
+well established; it is new as a bridge to the statistical mechanics
+framing.
 
 
 \subsection{Limitations and scope}
