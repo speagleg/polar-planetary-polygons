@@ -1532,9 +1532,9 @@ This is a deterministic stability result, not a statistical one.
 
 \subsection{Complementary wavenumber selection}
 
-\begin{proposition}[Complementary selection]\label{prop:complementary}
-The observed polygon wavenumber $N$ is constrained by two complementary
-mechanisms, both arising from the logarithmic Green's function:
+\begin{proposition}[Constraint-intersection selection]\label{prop:complementary}
+The observed polygon wavenumber $N$ is determined by the intersection of
+three constraints, all arising from the logarithmic Green's function:
 \begin{enumerate}
   \item \textbf{Rossby stationarity} (for jet meanders): the QGPV
     eigenvalue problem uniquely selects the wavenumber $n^*$ of the
@@ -1548,8 +1548,79 @@ mechanisms, both arising from the logarithmic Green's function:
     $N = N_{\max}$ as the unique maximum-energy stable configuration;
     any dynamics that preferentially populates higher-energy states
     selects this $N$.
+  \item \textbf{Geometric packing} (for finite-size cyclones):
+    $N$ non-overlapping cyclones of exclusion radius $r_{\mathrm{excl}}$
+    on a ring of radius $R$ requires
+    $\sin(\pi/N) \ge r_{\mathrm{excl}}/R$.
+    The exclusion radius exceeds the cyclone core radius by a
+    $\beta$-drift buffer zone \citep{Gavriel2021}:
+    $r_{\mathrm{excl}} \approx 1.3\,r_{\mathrm{core}}$ for Jupiter's
+    south pole.
 \end{enumerate}
+The selected wavenumber is
+\begin{equation}\label{eq:constraint-intersection}
+  N_{\mathrm{selected}} = \max\bigl\{N :
+    N \le N_{\mathrm{Thomson}},\;
+    \sin(\pi/N) \ge r_{\mathrm{excl}}/R,\;
+    n\;\text{Rossby-stationary}\bigr\},
+\end{equation}
+where inapplicable constraints are dropped (e.g.\ Rossby stationarity
+does not apply to discrete cyclone rings, and packing does not constrain
+jet meanders).
 \end{proposition}
+
+\begin{remark}[Constraint-intersection principle]
+\label{rem:constraint-intersection}
+Each planetary system activates a different subset of the three
+constraints in~\eqref{eq:constraint-intersection}:
+\begin{center}
+\begin{tabular}{lcccl}
+\toprule
+System & $N_{\mathrm{Thomson}}$ & $N_{\mathrm{Rossby}}$ & $N_{\mathrm{pack}}$ & Binding \\
+\midrule
+Saturn (76${}^\circ$N)  & $7$ & $6$ & ---  & Rossby \\
+Jupiter north           & $8$ & --- & $>8$ & Thomson \\
+Jupiter south           & $8$ & --- & $5$  & Packing \\
+\bottomrule
+\end{tabular}
+\end{center}
+The framework is unified: all three constraints derive from the 2D
+Laplacian~$\nabla^2$ and its modifications.  The packing constraint
+is \emph{not} an external geometric condition: it is the domain
+admissibility condition for the Green's function
+$G_\varepsilon$ of~$\nabla^2$ on the punctured domain
+$\Omega_N(\varepsilon) = \mathbb{R}^2 \setminus
+\bigcup_{k=1}^N B(z_k, \varepsilon)$, where $\varepsilon$ is the
+vortex core radius.  This Green's function exists and defines a
+well-posed BVP if and only if the excluded discs are pairwise disjoint:
+\[
+  |z_j - z_k| \ge 2\varepsilon
+  \;\Longleftrightarrow\;
+  \sin(\pi/N) \ge \varepsilon/R.
+\]
+On a $\beta$-plane the Coriolis-modified Laplacian
+$\nabla^2 + \beta\,\partial_y$ creates a vortex drift that enlarges
+the effective exclusion radius to
+$\varepsilon_{\mathrm{eff}} \approx 1.3\,\varepsilon$ at Jupiter's
+south pole \citep{Gavriel2021}.
+
+The three Laplacian facets are therefore:
+\begin{enumerate}
+  \item \emph{Spectral positivity} of $G(\nabla^2)$: Havelock
+    eigenvalue $\lambda_m > 0$ $\to$ Thomson bound;
+  \item \emph{Domain admissibility} of $G_\varepsilon(\nabla^2)$:
+    disc non-overlap $\to$ packing bound;
+  \item \emph{Rossby stationarity} of $(\nabla^2 + \beta\,\partial_y)\psi = 0$:
+    stationary mode $n^*$ $\to$ wave quantization.
+\end{enumerate}
+Additionally, the finite-core regularisation $G_\varepsilon$ creates
+a \emph{blob-stable window} for $N = 8$: the constrained Hessian
+eigenvalue, which is negative in the point-vortex limit, becomes
+positive for $\varepsilon/R \in [0.195, \sin(\pi/8)]$.  Jupiter
+north's cyclone-to-ring ratio $\varepsilon/R \approx 0.34$ falls
+squarely within this window, providing an independent (central-vortex-%
+free) consistency check on the $N = 8$ selection.
+\end{remark}
 
 For Saturn, $n^*$ is determined by the Rayleigh--Kuo condition for
 stationary waves on a jet.  All quantities are evaluated in the frame
@@ -1761,15 +1832,30 @@ measurements.
 \label{sec:n-selection}%
 For Jupiter's south pole ($N = 5$): $\kappa_{\mathrm{crit}}(N) = 0$
 for all $N \le 7$, so the Thomson bound alone allows up to $N = 7$
-regardless of the central vortex.  The observed $N = 5$ is
-not explained by Thomson stability.  \citet{Gavriel2021} argue
-that $N = 5$ follows from the $\beta$-drift / vortex-repulsion
-equilibrium at the south-pole colatitude, combined with the fact
-that south-pole cyclones are individually $\approx 2\times$ larger
-in linear size than north-pole cyclones \citep{Adriani2018}:
-fewer large vortices fit at the equilibrium latitude.
-This is a packing constraint that lies outside the scope of the
-Thomson/Onsager framework developed here.
+regardless of the central vortex.  The observed $N = 5$ is selected
+by the geometric packing constraint
+(Proposition~\ref{prop:complementary}, item~3).
+South-pole cyclones are individually $\approx 2\times$ larger in
+linear size than north-pole cyclones ($r_{\mathrm{core}} \approx
+3{,}500$\,km vs.\ $2{,}500$\,km; \citealt{Adriani2018}), and each
+cyclone carries a $\beta$-drift exclusion zone that extends $\approx
+30\%$ beyond the core radius \citep{Gavriel2021}, giving
+$r_{\mathrm{excl}} \approx 1.3\,r_{\mathrm{core}} \approx 4{,}550$\,km.
+At the south-pole ring radius $R \approx 8{,}000$\,km
+($\sim\!7^{\circ}$ from the pole):
+\[
+  \sin(\pi/5) = 0.588 \ge \frac{r_{\mathrm{excl}}}{R}
+  = \frac{4{,}550}{8{,}000} = 0.569,
+  \qquad
+  \sin(\pi/6) = 0.500 < 0.569.
+\]
+Thus $N_{\mathrm{pack}} = 5$, which is tighter than the Thomson bound
+$N_{\mathrm{Thomson}} = 8$: packing, not stability, is the binding
+constraint at Jupiter's south pole.  The $\approx 30\%$ excess of
+$r_{\mathrm{excl}}$ over the bare cyclone radius is physically the
+$\beta$-drift buffer zone identified by \citet{Gavriel2021}---cyclone
+repulsion on a rotating sphere creates an effective ``personal space''
+larger than the vortex itself.
 
 
 \subsection{Eigenvalue branch disconnection (Saturn persistence)}
