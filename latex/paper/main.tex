@@ -728,6 +728,22 @@ direction in which the witness first detects instability.  The
 positivity tools developed for entanglement detection (Choi maps,
 decomposable witnesses, PPT criteria) could in principle be
 brought to bear on multi-ring or non-abelian stability problems.
+
+\emph{4.\ Spectral statistics.}
+The eigenvalues $f(m,N) = m(N{-}m)/2$ lie on a parabola:
+the level spacings $\Delta f_m = f(m{+}1) - f(m) = (N{-}2m{-}1)/2$
+form an arithmetic sequence (linear repulsion), making the spectrum
+\emph{maximally rigid}---more rigid than any random-matrix ensemble.
+However, the \emph{density of states} near the band edge vanishes
+as $\rho(\lambda) \sim \sqrt{\lambda - \lambda_{\min}}$
+(square-root van Hove singularity), the same edge behavior as the
+Wigner semicircle law.
+The gap closure $\Delta(N) \sim -(N{-}7)$ near $N = 7$ has the
+structure of a Landau mean-field transition with potential
+$V(\varepsilon) = (\Delta/2)\varepsilon^2 + (\alpha_0/4)\varepsilon^4$,
+critical exponents $\nu = 1$ (gap), $\beta = 1/2$ (order parameter),
+and critical amplitude $\alpha_0 = 45/14$
+(Section~\ref{sec:n7-bifurcation}).
 \end{remark}
 
 The value $C_1 = N{-}1$ on the plane has a geometric origin: for
@@ -1807,12 +1823,18 @@ are generically less stable (Section~\ref{sec:multiring}).
 \label{sec:n7}
 
 At $N = 7$, the minimum constrained Lagrangian eigenvalue is zero
-(mode $m = 3$).  To classify the bifurcation, we compute the quartic
+(mode $m = 3$).  In the language of critical phenomena
+(Remark~\ref{rem:rep-theory}), this is the critical point of a
+Landau mean-field transition: the spectral gap
+$\Delta(N) = C_1 - f_{\max}(N)$ closes linearly as
+$\Delta \sim -(N{-}7)$ with mean-field exponent $\nu = 1$,
+and the bifurcation is classified by the quartic
 term of $H$ along the $m = 3$ neutral direction on the constraint
-surface.  The $\mathbb{Z}_7$-equivariant normal form is
-$H = (\lambda/2)|z|^2 + (\alpha/4)|z|^4 + \cdots$
-where $z$ is the complex amplitude of the $m = 3$ mode and
-$\lambda = 0$ at $N = 7$.  Numerical evaluation (tracing $H$ along
+surface.  The $\mathbb{Z}_7$-equivariant normal form is the
+Landau potential
+$V(\varepsilon) = (\Delta/2)\varepsilon^2 + (\alpha_0/4)\varepsilon^4$,
+where $\varepsilon = |z|$ is the amplitude of the $m = 3$ mode
+and $\Delta = 0$ at $N = 7$.  Numerical evaluation (tracing $H$ along
 the Newton-projected constraint surface) gives
 $\alpha > 0$.  The neutral subspace of the constrained Hessian consists
 of two modes: the radial Fourier modes at $m = 3$ and $m = 4 = N{-}3$
