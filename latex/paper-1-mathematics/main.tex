@@ -1368,25 +1368,41 @@ of Section~\ref{sec:curvature-thresholds}, which concerns the
 integer-valued function $N_{\mathrm{crit}}(R/a)$, a different
 quantity).
 
-\begin{conjecture}[Index-theoretic origin of $N_{\mathrm{crit}} = 7$]
-\label{conj:aps-index}
-There exists a Dirac-type operator $D_N$ on the $\mathbb{Z}_N$-symmetric
-sector of the vortex configuration space such that
-$\mathrm{ind}(D_N) = \mu(N) = N - 5$ for $N \ge 8$, connecting the
-stability boundary $N_{\mathrm{crit}} = 7$ to an
-Atiyah--Patodi--Singer index theorem.  If true, this would give a
-\emph{topological proof} that the flat-plane stability threshold
-is~$7$: the number would follow from characteristic classes of the
-configuration space rather than from the explicit eigenvalue formula.
-\end{conjecture}
+\begin{theorem}[Algebraic origin of $N_{\mathrm{crit}} = 7$]
+\label{thm:why-7-algebraic}
+$N_{\mathrm{crit}} = 7$ is the unique positive integer $N \ge 3$ at
+which the $\mathbb{Z}_N$ Casimir maximum equals the logarithmic $C_1$:
+\begin{equation}\label{eq:n-crit-factorization}
+  \max_m f(m,N) = C_1
+  \;\Longleftrightarrow\;
+  N^2 - 8N + 7 = (N-1)(N-7) = 0.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+For odd $N$ (the binding case): $\max_m f = (N^2{-}1)/8$
+and $C_1 = N{-}1$.  Setting $(N^2{-}1)/8 = N{-}1$ and
+multiplying by~$8$: $N^2 - 1 = 8(N{-}1)$, i.e.,
+$N^2 - 8N + 7 = 0$.  This factors as $(N{-}1)(N{-}7) = 0$,
+giving $N = 7$ (the root $N = 1$ is below the polygon range).
+For even $N$: $\max_m f = N^2/8$; setting $N^2/8 = N{-}1$
+gives $N^2 - 8N + 8 = 0$ with roots $4 \pm 2\sqrt{2}$
+(irrational, so no even transition exists).
+\end{proof}
 
 \noindent
-By the APS theorem, $\mathrm{SF} = \mathrm{ind}(D_N)$ for
-$D_N = \dd/\dd\xi + H_N(\xi)$.  This
-equals $\mathrm{ind}(D_N)$ for $D_N = \dd/\dd\xi + H_N(\xi)$.
-The conjecture asks whether $D_N$ has a geometric construction
-independent of the explicit family $H_N(\xi)$---one that would
-make the index computable from topology alone.
+The coefficient $8 = 2 \cdot 4$ in~\eqref{eq:n-crit-factorization}
+arises from two intrinsic features of $\mathbb{Z}_N$:
+the Havelock normalization $f(m,N) = m(N{-}m)/\mathbf{2}$
+and the critical-mode evaluation
+$m = (N{-}1)/2$ giving $m(N{-}m) = (N^2{-}1)/\mathbf{4}$.
+The factorization $(N{-}1)(N{-}7)$ is therefore purely
+representation-theoretic: no differential geometry, no index
+theorems, no PDEs---just the intersection of the quadratic
+Casimir with the linear $C_1$ from dilation invariance.
+The number~$7$ is an algebraic shadow of the $\mathbb{Z}_N$
+representation theory combined with the uniqueness of the
+logarithmic interaction.
 
 \paragraph{Physical realization.}
 The hyperbolic plane is no longer a purely mathematical object.
