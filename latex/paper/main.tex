@@ -222,43 +222,83 @@ symmetry of the stream function; Corollary~\ref{cor:dilation-rg}
 shows it additionally implies that the stability threshold is
 dilation-invariant.
 
-Under linearization, a perturbation $g(r) = r^\alpha$ transforms as
-$T_b[g](r) = b^\alpha\, r^\alpha$.  The scaling exponent is $b^\alpha$:
-perturbations with $\alpha < 0$ (decaying at large $r$) are
-\emph{suppressed under rescaling}---the coefficient $b^\alpha\to 0$
-as $b\to\infty$; perturbations with $\alpha>0$ are
-\emph{amplified under rescaling}---the coefficient grows.
-Notably, the class~(i) interactions $h=-r^\beta$ ($\beta>0$)
-are amplified by rescaling: they depart from the logarithm at large
-scales, becoming stronger confining potentials.  Despite this, class~(i)
-still satisfies the sign rule and yields polygon equilibria, so polygon
-formation is robust across both the dilation-invariant interaction and
-interactions amplified by rescaling.
+\begin{proposition}[RG classification of perturbations]
+\label{prop:rg-classification}
+Write $h(r) = -\ln r + \varepsilon\,f(r)$ where $f$ is a perturbation.
+The additive coarse-graining map
+$T_b\colon h \mapsto h(b\,\cdot) - h(b)$ acts on~$f$ as
+$(T_b f)(r) = f(br) - f(b)$.
+\begin{enumerate}
+  \item \emph{Irrelevant} ($f(r) \to 0$ as $r \to \infty$):
+    the perturbation is suppressed at large scales;
+    $h$ flows toward $-\ln r$ under coarse-graining.
+  \item \emph{Relevant} ($f(r) \to \infty$ as $r \to \infty$):
+    the perturbation dominates at large scales;
+    $h$ flows away from $-\ln r$.
+  \item \emph{Marginal} ($f(r) \to \mathrm{const}$):
+    the perturbation shifts $h$ by a constant.
+\end{enumerate}
+Eigenfunctions $f(r) = r^\alpha$:
+$(T_b\, r^\alpha)(r) = b^\alpha(r^\alpha - 1)$,
+so $r^\alpha$ with $\alpha < 0$ is irrelevant and
+$\alpha > 0$ is relevant.
+\end{proposition}
 
-The \emph{stable manifold} of $h=-\ln r$---interactions of the form
-$-\ln r$ plus corrections that decay at large $r$---arises naturally
-from compact vorticity distributions.  For $|z|<\varepsilon\ll|w|=d$,
-expand $\ln|w-z| = \ln d - \mathrm{Re}(z/w) - \tfrac{1}{2}\mathrm{Re}(z^2/w^2)
-+ O(\varepsilon^3/d^3)$.
-Integrating against vorticity $\omega(z)\,\mathrm{d}^2z$ gives
-$\int\!\omega(z)\ln|w{-}z|\,\mathrm{d}^2z
- = K\ln d - d^{-1}\mathrm{Re}\bigl(e^{-i\theta}\!\int\!z\,\omega\,\mathrm{d}^2z\bigr)
- + O(\varepsilon^2/d^2)$.
-When the vortex centroid lies at the origin the dipole term vanishes,
-leaving an effective pairwise interaction
-$H_\mathrm{eff}(d)=-K^2\ln d + O(\varepsilon^2/d^2)$ for separations
-$d\gg\varepsilon$.  The quadrupole corrections are suppressed as $d/\varepsilon\to\infty$
-and vanish in the far-field limit.  In the Kraichnan inverse-energy-cascade
-picture~\cite{Kraichnan1967}, vorticity concentrates into compact
-structures of growing scale $L(t)$; at each scale the dominant
-inter-blob interaction is the logarithm, with higher-multipole
-corrections suppressed by $(L/d)^2\to 0$.  The cascade therefore
-drives the system toward the dilation-invariant logarithmic interaction,
-where the sign-rule polygon equilibria apply.  This provides a physical
-explanation for why the sign rule---proved for a specific functional
-form---describes systems whose vorticity is not literally point-like:
-at the relevant scale $d\gg L$, the effective interaction is
-the logarithm to high accuracy.
+\begin{proof}
+For $f(r) = r^\alpha$ with $\alpha < 0$:
+$|f(br)| = b^\alpha |r^\alpha| \to 0$ as $b \to \infty$ for
+fixed $r$, so coarse-graining suppresses the perturbation.
+For $\alpha > 0$: $|f(br)| = b^\alpha |r^\alpha| \to \infty$,
+so the perturbation grows under coarse-graining.
+\end{proof}
+
+\noindent\emph{Connection to the sign rule.}
+For $h = -\ln r + \varepsilon\,r^\alpha$:
+$h' = -1/r + \varepsilon\alpha r^{\alpha-1}$;
+the sign rule condition $h' < 0$ holds at all $r > 0$ iff
+$\alpha \le 0$ (irrelevant perturbations).  For $\alpha > 0$ the
+sign rule is violated at sufficiently large~$r$:
+\emph{relevant perturbations destroy polygon stability}.
+Thus the sign rule condition~(i) is equivalent to the requirement
+that $h$ lies in the \emph{basin of attraction} of the logarithmic
+fixed point.
+
+\smallskip
+\noindent\emph{The stable manifold from multipole expansion.}
+The basin of attraction arises naturally from compact vorticity.
+For $|z|<\varepsilon\ll|w|=d$, expanding
+$\ln|w-z| = \ln d - \mathrm{Re}(z/w) + O(\varepsilon^2/d^2)$
+and integrating against $\omega(z)$ with centroid at the origin
+gives the effective interaction
+$H_\mathrm{eff}(d)=-K^2\ln d + O(\varepsilon^2/d^2)$ for
+$d\gg\varepsilon$.  The corrections are irrelevant ($\alpha = -2$),
+so \emph{any compact vortex distribution flows to the logarithm
+at large separation} (Proposition~\ref{prop:rg-classification}).
+
+\smallskip
+\noindent\emph{Unifying the blob and $K_0$ bridges.}
+This RG perspective unifies two results proved later in the paper:
+\begin{itemize}
+  \item The blob bridge
+    (Section~\ref{sec:blob}):
+    $h_\varepsilon = -\tfrac{1}{2}\ln(r^2 + 2\varepsilon^2)
+    = -\ln r + O(\varepsilon^2/r^2)$.  The blob correction
+    is an irrelevant perturbation ($\alpha = -2$);
+    the $O(\varepsilon^2)$ convergence rate of
+    Proposition~\ref{prop:blob} is the approach rate to the
+    fixed point.
+  \item The $K_0$ interaction
+    (Section~\ref{sec:k0-interaction}):
+    $K_0(r/R_d) = -\ln r + O(e^{-r/R_d})$ for $r \ll R_d$.
+    The exponential tail is irrelevant (faster than any power);
+    the deformation-radius limit $R_d \to \infty$ is the RG flow
+    toward the fixed point.
+\end{itemize}
+In the Kraichnan inverse cascade~\citep{Kraichnan1967}, vorticity
+concentrates into compact structures of growing scale $L(t)$, driving
+the inter-blob interaction toward the logarithm with corrections
+suppressed as $(L/d)^2 \to 0$.  The cascade is the physical
+RG flow; the sign rule demarcates its basin of attraction.
 
 The Gaussian curvature $K$ is a destabilizing perturbation when
 $K>0$ and a stabilizing one when $K<0$.  On the sphere ($K>0$) the
@@ -351,13 +391,19 @@ acting on~$\mathbb{C}$.
     $\xi \leftrightarrow 1/\xi$ of the Poincar\'e disk, which is a
     M\"obius map exchanging the interior and exterior of the unit
     circle.
+  \item The logarithm is the \emph{IR fixed point} of the
+    coarse-graining flow on interactions
+    (Proposition~\ref{prop:rg-classification}): compact vorticity
+    distributions interact via $-\ln r + O(\varepsilon^2/r^2)$
+    at large separation, with the correction irrelevant under
+    rescaling.  The sign rule demarcates the basin of attraction.
 \end{itemize}
-These four consequences---the interaction, the deformation, the
-threshold, and the algebraic structure---all descend from M\"obius
-covariance (Proposition~\ref{prop:mobius}).  The unifying role of
-the M\"obius group is not merely a symmetry of the equations of
-motion; it is the reason the logarithmic interaction produces
-polygons at all.
+These five consequences---the interaction, the deformation, the
+threshold, the algebraic structure, and the RG flow---all descend
+from M\"obius covariance (Proposition~\ref{prop:mobius}).
+The unifying role of the M\"obius group is not merely a symmetry
+of the equations of motion; it is the reason the logarithmic
+interaction produces polygons at all.
 \end{remark}
 
 \begin{remark}[From sign rule to physical stability]
@@ -1909,8 +1955,11 @@ achieves full stabilization of the $N = 8$ ring.
 \label{sec:blob}
 
 The results of Sections~\ref{sec:results}--\ref{sec:discussion-new} are
-stated for point vortices.  Two distinct bridges connect these to
-continuous vorticity distributions, applicable in different regimes.
+stated for point vortices.  The RG classification
+(Proposition~\ref{prop:rg-classification}) guarantees that
+compact vorticity distributions interact logarithmically at large
+separation, with irrelevant corrections $O(\varepsilon^2/d^2)$.
+Two distinct bridges make this quantitative.
 
 \subsubsection{The vortex blob bridge (Jupiter regime)}
 
@@ -2455,6 +2504,13 @@ $\sigma \to 0$), while Jupiter concentrates $N$ discrete cyclones into
 \section{Finite Rossby deformation radius: the $K_0$ interaction}
 \label{sec:k0-interaction}
 \label{sec:deformation}
+
+The $K_0$ interaction provides a second example of the RG flow
+toward the logarithmic fixed point
+(Proposition~\ref{prop:rg-classification}): the exponential tail
+$K_0(r/R_d) + \ln r = O(e^{-r/R_d})$ is an irrelevant perturbation
+(faster than any power law), and the limit $R_d \to \infty$ is the
+flow to the fixed point.
 
 In quasi-geostrophic dynamics with finite Rossby deformation radius
 $R_d$, the Green's function is $K_0(r/R_d)$ (modified Bessel function),
