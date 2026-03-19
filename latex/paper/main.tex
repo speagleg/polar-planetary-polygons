@@ -2393,91 +2393,21 @@ equals the Havelock inertia---which is the point vortex Lagrangian
 inertia of Theorem~\ref{thm:constrained-min}.
 \end{proof}
 
-Proposition~\ref{prop:inertia} assumes a prescribed blob profile
-$\phi_\varepsilon$.  For a \emph{general} $\mathbb{Z}_N$-symmetric
-vorticity $\omega$ concentrated in $N$ patches near the $N$-gon
-vertices, the profile is not prescribed.  We show the same inertia
-result holds for any such configuration.
-
-\emph{Center extraction and dipole cancellation.}  Decompose
-$\omega = \sum_k \omega_k$ via Voronoi cells and define the centroid
-of each patch:
-\[
-  \bar z_k = \frac{1}{\kappa}\int\! x\,\omega_k(x)\,\dd x.
-\]
-Any perturbation $\delta\omega_k$ decomposes as
-$\delta\omega_k = \delta\omega_k^{(c)} + \delta\omega_k^{(s)}$,
-where $\delta\omega_k^{(c)} = -\delta\bar z_k\cdot\nabla\omega_k$
-is the center-translation component and the residual
-$\delta\omega_k^{(s)}$ is center-preserving: $\int x\,\delta\omega_k^{(s)}\,\dd x = 0$.
-\emph{This is not an assumption but a consequence of the construction:}
-\begin{align*}
-  \int\! x\,\delta\omega_k^{(s)}\,\dd x
-  &= \int\! x\,\delta\omega_k\,\dd x
-    - \int\! x\,(-\delta\bar z_k\cdot\nabla\omega_k)\,\dd x \\
-  &= \kappa\,\delta\bar z_k
-    + \delta\bar z_k\cdot\int\! x\,\nabla\omega_k\,\dd x.
-\end{align*}
+Proposition~\ref{prop:inertia} extends to \emph{general}
+$\mathbb{Z}_N$-symmetric vorticity $\omega$ concentrated in
+$N$ patches (not necessarily a prescribed blob profile).
+Decompose $\omega = \sum_k \omega_k$ via Voronoi cells,
+split each perturbation into center-translation and shape
+components $\delta\omega_k = \delta\omega_k^{(c)} + \delta\omega_k^{(s)}$
+with $\delta\omega_k^{(c)} = -\delta\bar z_k \cdot \nabla\omega_k$.
 Integration by parts gives
-$\int\! x_i\,(\partial_j\omega_k)\,\dd x = -\int\!\delta_{ij}\omega_k\,\dd x
-= -\kappa\,\delta_{ij}$
-(the boundary term vanishes provided $\omega_k$ is compactly supported
-or decays faster than $|x|^{-2}$ at infinity),
-so $\int\! x\,\nabla\omega_k\,\dd x = -\kappa\,\mathrm{Id}$, and
-the right-hand side is $\kappa\,\delta\bar z_k - \kappa\,\delta\bar z_k = 0$.
-The dipole moment of $\delta\omega_k^{(s)}$ vanishes for any
-profile $\omega_k \in L^1(\mathbb{R}^2)$ with finite first moment
-$\int\!|x|\,|\omega_k|\,\dd x < \infty$.
-
-\emph{Coupling bound for general $\omega_k \in L^1$.}
-The center-shape coupling $C_{jk}$ involves the interaction between a
-center translation of patch~$j$ and a shape perturbation
-$\delta\omega_k^{(s)}$ of patch~$k$ ($j \ne k$).  Expanding the
-Green's function $G(x,y) = -\frac{1}{2\pi}\ln|x{-}y|$ around
-the centroid $\bar z_k$:
-\begin{align*}
-  G(x,y) &= G(x,\bar z_k) + \nabla_y G(x,\bar z_k)\cdot(y{-}\bar z_k) \\
-          &\quad + \tfrac{1}{2}(y{-}\bar z_k)^\top
-            \nabla_y^2 G(x,\bar z_k)\,(y{-}\bar z_k) + \cdots
-\end{align*}
-Integrating against $\delta\omega_k^{(s)}(y)\,\dd y$: the zeroth-order
-term vanishes ($\int\delta\omega_k^{(s)} = 0$, mean-zero); the
-first-order (dipole) term vanishes ($\int(y{-}\bar z_k)
-\delta\omega_k^{(s)} = 0$, by the dipole cancellation proved above).
-The leading contribution is therefore the quadrupole:
-\[
-  C_{jk} = \tfrac{1}{2}\int\!\int\!
-  \nabla\phi_j(x)\cdot
-  \bigl[(y{-}\bar z_k)^\top\nabla_y^2 G(x,\bar z_k)\,(y{-}\bar z_k)\bigr]
-  \,\delta\omega_k^{(s)}(y)\,\dd y\,\dd x.
-\]
-The second derivatives $\nabla_y^2 G(x,\bar z_k) = O(1/d_{jk}^2)$
-for $|x - \bar z_k| \ge d_{jk}$, and $|y - \bar z_k| \le \varepsilon$
-within patch~$k$.  The integral over $y$ contributes
-$\int |y{-}\bar z_k|^2\,|\delta\omega_k^{(s)}|\,\dd y
-\le \varepsilon^2\,\|\delta\omega_k^{(s)}\|_{L^1}$, giving
-\[
-  |C_{jk}| \le \frac{C\,\varepsilon^2}{d_{jk}^2}\,
-  \|\delta\omega_k^{(s)}\|_{L^1}\,\|\nabla\phi_j\|_{L^1}
-  = O(\varepsilon^2/d_{\min}^2)
-\]
-for any $\omega_k \in L^1$ with support in $B(\bar z_k, \varepsilon)$.
-(For the Cauchy blob, which has $|x|^{-3}$ tails extending beyond
-$\varepsilon$, the bound worsens to $O(\varepsilon^2/d_{\min}^3)$
-because $\|\nabla\phi_j\|_{L^1}$ grows as $1/d_{\min}$; the
-$O(\varepsilon^2/d_{\min}^2)$ bound holds for compactly supported
-or exponentially decaying profiles.)
-
-The self-energy Hessian~\eqref{eq:self-energy-Hminus1} is positive
-definite for \emph{any} mean-zero profile.  The $\mathbb{Z}_N$
-symmetry forces all patches to be congruent (up to rotation), so
-the inter-patch Hessian depends on the profile only through
-its convolution with $G$---the same structure as
-Proposition~\ref{prop:blob}.
-
-Therefore Proposition~\ref{prop:inertia} extends to arbitrary
-$\mathbb{Z}_N$-symmetric vorticity patches satisfying the $L^1$
-regularity condition above.  The phrase
+$\int x\,\delta\omega_k^{(s)} = 0$ (dipole cancellation),
+so the center-shape coupling is quadrupole:
+$|C_{jk}| = O(\varepsilon^2/d_{\min}^2)$ for compactly supported
+profiles, $O(\varepsilon^2/d_{\min}^3)$ for the Cauchy blob.
+The self-energy Hessian is positive definite for any mean-zero
+profile, and $\mathbb{Z}_N$ symmetry forces congruent patches.
+The phrase
 \emph{sufficiently concentrated} is made quantitative as follows.
 The operator norm bound~\eqref{eq:blob-correction-op-norm} is
 derived for the Cauchy blob, which has algebraic ($|x|^{-3}$) rather
@@ -2508,17 +2438,9 @@ $\delta(N)$ & $0.18$ & $0.15$ & $0.096$ & $\text{---}$ \\
 \end{tabular}
 \end{center}
 \noindent
-\emph{Consistency with the Cauchy coupling bound.}
-The $\delta(N)$ values above are set by the center-sector perturbation
-$\|H_{cc} - H_{cc}^{\mathrm{Hav}}\|_{\mathrm{op}} = O(\varepsilon^2)$,
-not by the coupling $\|H_{cs}\|_{\mathrm{op}}$.  The weakened Cauchy
-coupling $O(\varepsilon^2/d_{\min}^3)$ produces a Schur-complement
-correction $O(\varepsilon^6/d_{\min}^6) = O(\delta(N)^6)$ when the
-concentration condition~\eqref{eq:concentration-bound} is satisfied.
-Since $\delta(N) \le 0.18$ for all $N \le 6$, the Schur correction is
-$O(10^{-5})$---negligible compared to both $\lambda_{\min}(N)$ and
-the center-sector perturbation.  The $\delta(N)$ table is therefore
-unaffected by the Cauchy tail weakening.
+The $\delta(N)$ values are set by the center-sector bound, not
+the coupling; the weakened Cauchy coupling produces a Schur
+correction $O(\delta(N)^6) = O(10^{-5})$, negligible.
 
 \begin{corollary}[Inertia preservation for $N \le 6$]
 \label{cor:inertia-N6}
