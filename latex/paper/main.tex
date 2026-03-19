@@ -1318,11 +1318,42 @@ $N_{\mathrm{crit}}$ below~$7$, $K < 0$ raises it above~$7$, and
 $K = 0$ gives exactly~$7$.  The number~$7$ is the stability threshold
 at zero Gaussian curvature \emph{at the scale of the polygon ring}.
 $K=0$ is the \emph{least stable point}: the $N=7$ ring is marginal
-at $K=0$ and strictly stable for any $K<0$.  The marginality is an
-artifact of $K=0$ exactly; $N_{\mathrm{crit}}=7$ is the value for the
-dilation-invariant logarithmic interaction (Remark~\ref{rem:rg-fixed-point}),
-and any nonzero negative curvature eliminates the marginal mode at first order
-in~$|K|$ via~\eqref{eq:lam3_H2}.
+at $K=0$ and strictly stable for any $K<0$.
+
+\begin{proposition}[Curvature-stability dichotomy]
+\label{prop:curvature-dichotomy}
+On a constant-curvature surface with Gaussian curvature $K$,
+for a ring of $N$ vortices at any nonzero geodesic radius:
+\[
+  \mathrm{sgn}(N_{\mathrm{crit}} - 7) = -\mathrm{sgn}(K).
+\]
+That is: positive curvature destabilises
+($N_{\mathrm{crit}} \le 7$), zero curvature is critical
+($N_{\mathrm{crit}} = 7$), and negative curvature stabilises
+($N_{\mathrm{crit}} \ge 7$), with strict inequality at any
+nonzero ring radius.
+\end{proposition}
+
+\begin{proof}
+On $\mathbf{S}^2$: $C_1 = (N{-}1)\cos\varphi < N{-}1$ for
+$\varphi > 0$, so $C_1 < f_{\max}(N)$ is violated at smaller~$N$.
+On $\mathbf{H}^2$: $C_1 = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2 > N{-}1$
+for $\xi > 0$, so $C_1 \ge f_{\max}(N)$ holds at larger~$N$.
+Both are monotone in their curvature parameter.
+\end{proof}
+
+The \emph{qualitative} classification
+$\{N_{\mathrm{crit}} < 7,\; = 7,\; > 7\}$ depends only on
+$\mathrm{sgn}(K)$, which for constant-curvature surfaces is a
+topological invariant (it determines whether the universal cover
+is $\mathbf{S}^2$, $\mathbb{R}^2$, or~$\mathbf{H}^2$).
+In this sense the stability boundary $N = 7$ separates two
+\emph{topological phases} of vortex polygon stability.
+The \emph{quantitative} value $N_{\mathrm{crit}}(K, R)$ depends
+on the dimensionless product $K R^2$ and is purely geometric.
+Whether an index theorem (relating the Morse index of $H_N$ to a
+topological invariant of the surface) can make this connection
+precise is an open problem in spectral geometry.
 
 \paragraph{Physical realization.}
 The hyperbolic plane is no longer a purely mathematical object.
