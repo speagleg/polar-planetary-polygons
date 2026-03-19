@@ -1234,15 +1234,34 @@ the most curvature; the $N = 23$ transition ($R = 0.48$,
 $\xi^* = 0.382$) requires the least---making
 $\varphi^{-2}$ the most experimentally accessible threshold.
 
-\paragraph{Galois action as conformal inversion.}
+\begin{proposition}[Galois group as conformal inversion group]
+\label{prop:galois-inversion}
 The composite field
 $K = \mathbb{Q}(\sqrt{2}, \sqrt{3}, \sqrt{5}, \sqrt{6}, \sqrt{7})$
-contains all five algebraic-integer thresholds.
-Its Galois group $\mathrm{Gal}(K/\mathbb{Q}) \cong (\mathbb{Z}/2)^4$
-acts by $\sigma_D\colon \sqrt{D} \mapsto -\sqrt{D}$, which sends
-$\xi^*(N) \mapsto 1/\xi^*(N)$---conformal inversion of the
-Poincar\'e disk.  The Galois group of the threshold fields
-\emph{is} the conformal inversion group, realised algebraically.
+contains all five algebraic-integer thresholds.  Its Galois group
+$\mathrm{Gal}(K/\mathbb{Q}) \cong (\mathbb{Z}/2)^4$ acts on the
+threshold set by
+$\sigma_D\colon \xi^*(N) \mapsto 1/\xi^*(N)$
+---the conformal inversion of the Poincar\'e disk.
+The Galois group of the stability threshold fields \emph{is} the
+conformal inversion group, realised algebraically.
+\end{proposition}
+
+\begin{proof}
+Each $\xi^*(N)$ lies in $\mathbb{Q}(\sqrt{D})$ for some squarefree
+$D$ (Proposition~\ref{prop:alg-int}).  The Galois automorphism
+$\sigma_D\colon \sqrt{D} \mapsto -\sqrt{D}$ sends $\xi^* = a + b\sqrt{D}$
+to $a - b\sqrt{D} = 1/\xi^*$ (the palindromic conjugate).
+Since the palindromic property encodes conformal inversion
+$\xi \leftrightarrow 1/\xi$ (Section~\ref{sec:algebraic-structure}),
+$\sigma_D$ acts as conformal inversion on each threshold.
+The composite field $K$ has
+$\mathrm{Gal}(K/\mathbb{Q}) \cong \prod_{D \in \{2,3,5,6,7\}}
+\mathbb{Z}/2 \cong (\mathbb{Z}/2)^4$
+(four independent generators, since $\sqrt{6} = \sqrt{2}\sqrt{3}$
+is algebraically dependent), and each generator acts by conformal
+inversion on the thresholds in its field component.
+\end{proof}
 
 The coefficient $\gamma$ gives the curvature scale at which the polygon threshold is reached:
 the $7\to 8$ jump occurs at $|K|\,r_E^2 = \xi^* = \gamma^{-1/2}$.
@@ -1329,11 +1348,26 @@ $\xi \in [0, 1)$ has a monotone spectral flow: as $\xi$
 increases from~$0$ (flat plane) to~$1$ (infinite curvature),
 unstable modes stabilise in pairs $(m, N{-}m)$ from the outermost
 inward.  The total spectral flow equals $\mu(N)$ by monotonicity.
-Whether this spectral flow equals the index of a Dirac-type
-operator~$D_N$ on the $\mathbb{Z}_N$-symmetric
-sector---connecting the stability boundary to an
-Atiyah--Patodi--Singer index theorem---is an open problem that
-would give a topological proof of $N_{\mathrm{crit}} = 7$.
+
+\begin{conjecture}[Index-theoretic origin of $N_{\mathrm{crit}} = 7$]
+\label{conj:aps-index}
+There exists a Dirac-type operator $D_N$ on the $\mathbb{Z}_N$-symmetric
+sector of the vortex configuration space such that
+$\mathrm{ind}(D_N) = \mu(N) = N - 5$ for $N \ge 8$, connecting the
+stability boundary $N_{\mathrm{crit}} = 7$ to an
+Atiyah--Patodi--Singer index theorem.  If true, this would give a
+\emph{topological proof} that the flat-plane stability threshold
+is~$7$: the number would follow from characteristic classes of the
+configuration space rather than from the explicit eigenvalue formula.
+\end{conjecture}
+
+\noindent
+The spectral flow $\mathrm{SF}(H_N, 0 \to 1) = \mu(N)$ is proven
+(Proposition~\ref{prop:morse-index}).  By the APS theorem, this
+equals $\mathrm{ind}(D_N)$ for $D_N = \dd/\dd\xi + H_N(\xi)$.
+The conjecture asks whether $D_N$ has a geometric construction
+independent of the explicit family $H_N(\xi)$---one that would
+make the index computable from topology alone.
 
 \paragraph{Physical realization.}
 The hyperbolic plane is no longer a purely mathematical object.
