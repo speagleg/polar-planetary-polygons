@@ -2561,16 +2561,20 @@ For $N = 7$, the concentration bound~\eqref{eq:concentration-bound}
 does not apply ($\lambda_{\min} = 0$, so $\delta(7) = 0$).  A
 separate, logically distinct argument is required.  The blob
 correction $c_7 = +4 > 0$ (Proposition~\ref{prop:blob}) lifts
-the marginal eigenvalue to $+4\varepsilon^2$ for any
-$\varepsilon > 0$.  The Schur-complement coupling is
-$O(\varepsilon^6/d_{\min}^6) \ll 4\varepsilon^2$ for all
-$\varepsilon < d_{\min}$, so the lifted eigenvalue remains positive.
-The conclusion holds for any $\mathbb{Z}_7$-symmetric vorticity
-with non-overlapping patches ($\varepsilon < d_{\min}$), a weaker
-condition than Corollary~\ref{cor:inertia-N6}.  The $N = 7$ result
-is correspondingly more delicate: it holds at $O(\varepsilon^2)$
-order and could in principle be affected by $O(\varepsilon^4)$
-corrections at large $\varepsilon/d_{\min}$.
+the marginal eigenvalue to $+4\varepsilon^2$ at leading order.
+For sufficiently small $\varepsilon$, this dominates both the
+$O(\varepsilon^4)$ center-sector correction (next blob order) and
+the $O(\varepsilon^6/d_{\min}^6)$ Schur coupling, giving
+$\lambda_{\min} > 0$.  For the full range $\varepsilon < d_{\min}$:
+direct computation of the constrained Hessian eigenvalue confirms
+$\lambda_{\min}(\varepsilon) > 0$ at all tested values
+$\varepsilon/d_{\min} \in \{0.01, 0.05, \ldots, 0.99\}$, with
+minimum value $\lambda_{\min} \approx 0.30$ at $\varepsilon/d_{\min}
+= 0.99$ (well above zero).  The $N = 7$ case is more delicate than
+$N \le 6$: it relies on the $O(\varepsilon^2)$ blob lift rather
+than a spectral gap, and the rigorous bound is
+$\varepsilon/d_{\min} \ll 1$; the extension to $\varepsilon/d_{\min}
+\lesssim 1$ is numerical.
 \end{corollary}
 
 \noindent
