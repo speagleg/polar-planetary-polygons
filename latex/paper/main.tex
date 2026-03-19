@@ -70,27 +70,30 @@ Green's function on the punctured domain).
 
 On the hyperbolic plane $\mathbf{H}^2$ with curvature $K = -1/a^2$,
 the stability boundary rises monotonically: $N_{\mathrm{crit}} = 12$
-at ring-to-curvature ratio $R/a = 1$.  A 12-vortex ring stable
-without a central vortex is impossible in flat geometry; this is a
-falsifiable prediction for vortex dynamics on hyperbolic lattices
-now realizable in circuit QED \citep{Kollar2019}.
-The $7 \to 8$ transition occurs
-at the unique $\xi^* \in (0,1)$ satisfying
-$7(1+\xi^2)/(1-\xi)^2 = 8$, reducing to
-$\xi^2 - 16\xi + 1 = 0$ with positive root $\xi^* = 8 - 3\sqrt{7}$.
-The threshold polynomial $\xi^2 - 16\xi + 1 = 0$ is \emph{palindromic}
-(equal leading and trailing coefficients), forcing its roots to
-multiply to~$1$: $\xi^*$ is automatically an algebraic unit
-($\xi^* = \varepsilon^{-1}$, where
-$\varepsilon = 8 + 3\sqrt{7}$ is the fundamental unit of
-$\mathbb{Z}[\sqrt{7}]$).  The palindromic structure is not
-accidental---it reflects the conformal inversion symmetry
-$\xi \leftrightarrow 1/\xi$ of the Poincar\'e disk
-(Proposition~\ref{prop:mobius}), connecting the algebraic number
-theory of the threshold to the M\"obius covariance of the
-logarithmic energy.  The~$7$ in $\mathbb{Q}(\sqrt{7})$ appears
-because the threshold condition has discriminant
-$252 = 4 \cdot 9 \cdot 7$.
+at ring-to-curvature ratio $R/a = 1$---a falsifiable prediction
+for circuit-QED hyperbolic lattices \citep{Kollar2019}.
+The $N \to (N{+}1)$ transition threshold $\xi^*(N)$ satisfies
+a \emph{palindromic} quadratic $A\xi^2 + B\xi + A = 0$, whose
+equal leading and trailing coefficients force
+$\xi \cdot \xi' = 1$---the roots are multiplicative inverses.
+This is not a computational coincidence: it encodes the conformal
+inversion $\xi \leftrightarrow 1/\xi$ of the Poincar\'e disk
+(Proposition~\ref{prop:mobius}), connecting stability thresholds
+to the Pell equation $a^2 - Db^2 = 1$ of algebraic number theory.
+
+The threshold $\xi^*(N)$ is an algebraic integer---living in the
+maximal order of $\mathbb{Q}(\sqrt{D})$---for exactly five values:
+$N \in \{8, 9, 11, 15, 23\}$ (characterised by $(N{-}7) \mid 16$;
+differences $\{1,2,4,8\}$, powers of~$2$).  At each, $\xi^*$ is
+a power of the inverse fundamental unit: $\xi^*(8) = (8{+}3\sqrt{7})^{-1}$
+in $\mathbb{Z}[\sqrt{7}]$, $\xi^*(23) = \varphi^{-2}$ where
+$\varphi = (1{+}\sqrt{5})/2$ is the golden ratio.
+The monic polynomial traces $\{16, 10, 6, 4, 3\}$ follow a binary
+subdivision $c(k) = 2 + 2^{4-k}$ at $N = 7 + 2^k$, converging to
+the golden ratio ($c = 3$) as the algebraically simplest
+palindromic unit.  Each threshold has continued fraction
+$1/\xi^* = [c{-}1;\;\overline{1,\, c{-}2}]$, degenerating to
+the all-ones expansion of~$\varphi$ at $N = 23$.
 \end{abstract}
 
 \tableofcontents
