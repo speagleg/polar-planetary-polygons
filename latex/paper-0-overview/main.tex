@@ -1,0 +1,214 @@
+\input{../shared/preamble}
+
+\externaldocument[I-]{../paper-1-mathematics/main}
+\externaldocument[II-]{../paper-2-physics/main}
+\externaldocument[III-]{../paper-3-planets/main}
+\externaldocument[A-]{../paper-A-appendices/main}
+
+\title{\seriestitle\\[6pt]\large Overview and Preface}
+\author{Gordon Speagle}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+On the flat ($K=0$) plane, the regular $N$-gon of point vortices is an
+energy minimum on the surface of conserved angular impulse
+$L = \sum|z_k|^2$ and linear impulse $\mathbf{P} = \sum z_k = 0$ for
+all $N \le 7$, and unstable for $N \ge 8$ without a central vortex.
+This stability boundary is an invariant of
+the two-dimensional Laplacian: the logarithmic Green's function
+$G \propto -\ln r$ is the unique radially symmetric planar interaction
+for which the Havelock eigenvalue $\lambda_m = (N-1) - m(N-m)/2$ is
+scale-independent, and $N = 7$ is the threshold where the leading
+eigenvalue $\lambda_3 = 0$ (the linear restoring force vanishes).
+A quartic calculation on the constraint surface confirms that the
+$N = 7$ ring is nonlinearly stable: the quartic coefficient
+$\alpha_0 = 45/14 \approx 3.21 > 0$ (in the normal form
+$\mathcal{H} = (\alpha_0/4)\varepsilon^4$) supplies a restoring force
+where the linear one is absent.
+
+For $N \ge 8$ the stability boundary requires a central vortex of
+strength $\kappa_0/\kappa \ge \kappa_{\mathrm{crit}}(N)$.  The sharpest
+prediction is at $N = 8$: $\kappa_{\mathrm{crit}}(8) = 1/2$.  In a
+Bose--Einstein condensate, where circulation is quantized, this is an
+integer-valued threshold: a ring of eight unit-winding vortices is
+stable if and only if the central vortex carries winding number
+$q_0 \ge 1$.
+
+The central unifying result is a \emph{constraint-intersection
+principle}: three selection mechanisms constrain the polygon
+wavenumber $N$ from above, and the observed $N$ is determined by
+whichever is tightest.
+Two are fully derived from the 2D Laplacian~$\nabla^2$:
+\emph{Thomson stability} (eigenvalues of the Green's function
+$G(\nabla^2)$) and \emph{Rossby stationarity} (stationary solutions
+of $(\nabla^2 + \beta\,\partial_y)\psi = 0$).
+The third---\emph{geometric packing}---has a Laplacian-derived
+skeleton (the domain admissibility condition
+$\sin(\pi/N) \ge \varepsilon/R$ for the Green's function on the
+punctured domain) but requires one empirical input: the
+$\beta$-drift enlargement $r_{\mathrm{excl}} \approx
+1.3\,r_{\mathrm{core}}$ from nonlinear vortex dynamics on a
+rotating sphere \citep{Gavriel2021}, not derivable from the
+linear operator alone.
+Saturn's hexagon ($N = 6$) is Rossby-limited (fully derived).
+Jupiter's north-pole octagon ($N = 8$) is Thomson-limited
+(fully derived; the prediction $N_{\max} = 8$ relies on
+$\kappa_0/\kappa \lesssim 1$, testable with improved Juno
+wind measurements).
+Jupiter's south-pole pentagon ($N = 5$) is packing-limited
+(Laplacian skeleton plus the empirical $1.3$ factor).
+
+On the hyperbolic plane $\mathbf{H}^2$ with curvature $K = -1/a^2$,
+the stability boundary rises monotonically: $N_{\mathrm{crit}} = 12$
+at ring-to-curvature ratio $R/a = 1$---a falsifiable prediction
+for circuit-QED hyperbolic lattices \citep{Kollar2019}.
+The $N \to (N{+}1)$ transition threshold $\xi^*(N)$ satisfies
+a \emph{palindromic} quadratic $A\xi^2 + B\xi + A = 0$, whose
+equal leading and trailing coefficients force
+$\xi \cdot \xi' = 1$---the roots are multiplicative inverses.
+This is not a computational coincidence: it encodes the conformal
+inversion $\xi \leftrightarrow 1/\xi$ of the Poincar\'e disk
+(Proposition~\ref{prop:mobius}), connecting stability thresholds
+to the Pell equation $a^2 - Db^2 = 1$ of algebraic number theory.
+
+The threshold $\xi^*(N)$ is an algebraic integer---living in the
+maximal order of $\mathbb{Q}(\sqrt{D})$---for exactly five values:
+$N \in \{8, 9, 11, 15, 23\}$ (characterised by $(N{-}7) \mid 16$;
+differences $\{1,2,4,8\}$, powers of~$2$).  At each, $\xi^*$ is
+a power of the inverse fundamental unit: $\xi^*(8) = (8{+}3\sqrt{7})^{-1}$
+in $\mathbb{Z}[\sqrt{7}]$, $\xi^*(23) = \varphi^{-2}$ where
+$\varphi = (1{+}\sqrt{5})/2$ is the golden ratio.
+The monic polynomial traces $\{16, 10, 6, 4, 3\}$ follow a binary
+subdivision $c(k) = 2 + 2^{4-k}$ at $N = 7 + 2^k$, converging to
+the golden ratio ($c = 3$) as the algebraically simplest
+palindromic unit.  Each threshold has continued fraction
+$1/\xi^* = [c{-}1;\;\overline{1,\, c{-}2}]$, degenerating to
+\end{abstract}
+
+\section*{Preface}
+
+This project began years ago when I first encountered the Voyager
+photographs of Saturn's polar hexagonal storm.  Why a polygonal ring?
+Why the persistence?  I researched the relevant evidence and arguments,
+and while informative, the underlying framework did not adequately
+satiate my desire for a clear answer.  I catalogued it as one of
+those interesting intersections between the physical world and
+geometry---crystals, viruses, snowflakes, coral reefs, beehives,
+nautilus shells---many of which have been rigorously explained, yet
+the explanatory framework for polygonal formation in the atmospheres
+of the two largest planets in our Solar System remained disconnected
+and incomplete.
+
+My educational background is primarily philosophy with a mathematical
+timbre.  Formally, I am more familiar with Peano, Frege, Russell, and
+G\"odel than the applied disciplines.  A hobbyist's obsession with
+number theory is an apt description for my post-educational years.
+Professionally, I am a full-stack developer working in healthcare.
+
+Fast-forwarding: I was watching an astronomy video with my children and
+the polar polygons on Jupiter and Saturn immediately astonished them
+and once again piqued my curiosity.  I dove back into the most current
+research.  The Cassini and Juno images hinted at a deeper mathematical
+connection between the multiple $N$-gons on the gas giants.  The hook
+was set.  I ordered a copy of \emph{Geophysical Fluid Dynamics} by
+Joseph Pedlosky and started writing code.
+
+Observationally, the storms show central vortices and logarithmic
+spirals eventually mutating into polygonal rings.  From my wanderings
+in the mathematical literature, I knew there was a formal connection
+between the first two via M\"obius transformations.  This was my
+mathematical starting point and eventual foundation for the resulting
+paper.
+
+I became determined to pull the connecting string until the knot
+unravelled.  This project has crossed many mathematical, physical,
+and astrophysical domains as a result.  I am by no means a subject
+matter expert in all of these fields; my research directions were
+motivated by the singular goal of finding an answer to the original
+question, wherever that led.  Institutional research correctly forces
+disciplinary depth; the cost is that cross-domain connections can go
+unnoticed.  I am unaffiliated, which meant I could follow the
+mathematics wherever it led, without the professional incentive to
+stay within a single field.  Whether that freedom produced something
+worth the lack of expert supervision is for the audience to assess.
+
+My process was iterative: at each step I identify a potential connecting
+point, honestly assess what I do and do not understand about the
+underlying structures, research the applicable domain, study that
+specific subset until I have an intuitive understanding in the context
+of my project, then develop and test software that confirms my
+understanding and verifies against existing mathematics, physics, or
+astrophysics.  At that point I architect code that will support, prove,
+or disprove my connective hypotheses.  Rinse and repeat.
+
+My background gave me a solid logical foundation of what constitutes
+a ``proof'' in the strictest sense.  This mapped well onto the sections
+of the paper that required such reasoning.  The software allowed me to
+quickly assess feasibility, routes to proving, potential logical errors
+or contradictions, and blind spots.
+
+Full transparency: the review process drew on AI-assisted critique.
+With Claude Code, I built structured review agents---a professional
+mathematician, a physicist, and a technical writer.  I needed my
+subjective understanding, writing, and results to be in a language
+conversant with the modern research community.  Once I had my ideas
+fully fleshed out in writing, I used the agents to scrutinise, review,
+and find logical errors.  The philosophical ideas, logic, proof
+scaffolding, development, and insights from the paper are my own.
+This process repeated until I was confident that the paper accurately
+reflected the quality, tone, and accuracy expected of a published
+article in academic journals.
+
+I have made a serious attempt to cite and attribute assiduously, as
+well as to honestly assess any weakness in argumentation.
+Acknowledging vulnerabilities, although in a sense ``knee-capping''
+portions of the paper, is intellectually honest, and since my goal was
+to answer \emph{why}, I do not think the acknowledged shortcomings
+detract from the overall aim.
+
+The paper is admittedly dense in places and broad in scope.  No part
+requires fluency in all parts.  The mathematician will be less inclined
+to devote attention to planetary atmospheric dynamics.  The planetary
+scientist might find the algebraic number field portions less
+interesting than the mechanisms at play in polar storms.
+Experimentalists in circuit QED will be drawn to the BEC predictions.
+I have attempted to build the paper logically, starting with the
+mathematics first and progressing to the applied planetary physics.
+The table of contents will direct the reader to the areas most
+relevant to their interests.
+
+Feedback, comments, and suggestions are welcome.
+
+\begin{flushright}
+\emph{Gordon Speagle}
+\end{flushright}
+
+\section{Guide to the Series}
+
+This work is presented as a series of four papers plus appendices:
+\begin{description}
+\item[Paper~I: Mathematical Foundations.] The logarithmic interaction,
+  sign rule, Havelock identity, stability thresholds on curved surfaces,
+  and algebraic structure (Pell equations, golden ratio, continued fractions).
+\item[Paper~II: Classical and Quantum Physics.] Point vortex dynamics,
+  constrained energy landscape, central vortex stabilization, $N=7$
+  bifurcation, multi-ring dichotomy, blob bridge, $K_0$ interaction,
+  disorder resilience, and BEC predictions.
+\item[Paper~III: Planetary and Astrophysical Applications.] The
+  constraint-intersection framework, Saturn hexagon, Jupiter polygons,
+  Neptune predictions, first-principles prediction chain, and the
+  Onsager--Arnold two-timescale resolution.
+\item[Appendices.] Technical derivations, code availability, and
+  open problems for future research.
+\end{description}
+
+Each paper can be read independently; cross-references to results
+in other papers are marked with the paper number (e.g., Theorem~I-2.1
+refers to Theorem~2.1 in Paper~I).
+
+\bibliographystyle{plainnat}
+\bibliography{../shared/refs}
+\end{document}

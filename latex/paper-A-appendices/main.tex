@@ -1,0 +1,173 @@
+\input{../shared/preamble}
+
+\externaldocument[I-]{../paper-1-mathematics/main}
+\externaldocument[II-]{../paper-2-physics/main}
+\externaldocument[III-]{../paper-3-planets/main}
+
+\title{\seriestitle\\[6pt]\large Appendices: Technical Derivations and Open Problems}
+\author{Gordon Speagle}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This appendix collects the derivation of $C_1(\mathbf{H}^2, \xi)$, code availability information, and a list of open problems identified during this research.
+\end{abstract}
+
+
+\section{Derivation of $C_1(\mathbf{H}^2,\xi)$ and the near-$K=0$ expansion}
+\label{app:c1_h2}
+
+We work in the Poincar\'e disk of radius~$a$ and set $a = 1$ without
+loss of generality (the formula is dimensionless in $\xi = r_E^2/a^2$).
+
+\paragraph{H² Hamiltonian and moment map.}
+In Poincar\'e disk coordinates the $N$-vortex Hamiltonian is
+\citep{Kimura1999}
+\begin{equation}\label{eq:H_hyp}
+  H_{\mathrm{hyp}} = -\!\sum_{j<k}\ln|z_j - z_k|
+    + \frac{N-1}{2}\sum_k \ln(1 - |z_k|^2),
+\end{equation}
+equivalent to $-\sum_{j<k}\ln\sinh(d_{\mathbf{H}^2}(j,k)/2)$ up to
+an additive constant, via the identity
+$\sinh(d/2) = |z_j - z_k|/\sqrt{(1-|z_j|^2)(1-|z_k|^2)}$.
+The $\mathrm{SO}(2,1)$ angular moment map is
+$J = \sum_k(1+|z_k|^2)/(1-|z_k|^2)$.
+
+\paragraph{Equilibrium and rotation rate $\Omega$.}
+The $N$-gon at Euclidean radius $r_E$ ($\xi = r_E^2$) satisfies the
+Lagrangian stationarity condition $\partial H_{\mathrm{hyp}}/\partial x_0
+= \Omega\,\partial J/\partial x_0$ at vortex~$0 = (r_E, 0)$:
+\begin{align*}
+  \frac{\partial H_{\mathrm{hyp}}}{\partial x_0}
+    &= -\frac{N-1}{2r_E} - \frac{(N-1)r_E}{1-\xi}
+     = -\frac{(N-1)(1+\xi)}{2\sqrt{\xi}(1-\xi)}, \\
+  \frac{\partial J}{\partial x_0}
+    &= \frac{4r_E}{(1-\xi)^2}
+     = \frac{4\sqrt{\xi}}{(1-\xi)^2}.
+\end{align*}
+Dividing gives
+\begin{equation}\label{eq:Omega_H2}
+  \Omega = -\frac{(N-1)(1+\xi)(1-\xi)}{8\xi}.
+\end{equation}
+
+\paragraph{Mode-$m$ second derivatives.}
+Let $\hat u$ be the normalized radial Fourier mode of wavenumber $m$
+($\|\hat u\|=1$, Euclidean).  Two ring-geometry identities hold for all
+$1 \le m \le \lfloor N/2\rfloor$:
+\[
+  \sum_k |\hat u_k|^2 = 1, \qquad
+  \sum_k \bigl[\operatorname{Re}(z_k\,\overline{\hat u_k})\bigr]^2 = r_E^2 = \xi.
+\]
+The three contributions to $\lambda_m \cdot r_E^2$ are:
+
+\emph{(1) Flat-plane Havelock term.}
+By scale invariance of $-\ln|\cdot|$,
+$\partial^2 H_{\mathrm{flat}}/\partial\varepsilon^2 = \sigma_m/r_E^2$
+with $\sigma_m = (N-1)/2 - m(N-m)/2$.  Multiplying by $r_E^2$:
+\[
+  \text{(1)} = \tfrac{N-1}{2} - \tfrac{m(N-m)}{2}.
+\]
+
+\emph{(2) Curvature-correction term $W$.}
+With $W = \tfrac{N-1}{2}\sum_k\ln(1-|z_k|^2)$, expanding at $\varepsilon=0$:
+\[
+  \frac{\partial^2 W}{\partial\varepsilon^2}
+  = \frac{N-1}{2}\sum_k\!\left[
+    \frac{-2|\hat u_k|^2}{1-\xi}
+    - \frac{4[\operatorname{Re}(z_k\overline{\hat u_k})]^2}{(1-\xi)^2}
+  \right]
+  = -\frac{(N-1)(1+\xi)}{(1-\xi)^2}.
+\]
+Multiplying by $r_E^2 = \xi$:
+\[
+  \text{(2)} = -\frac{(N-1)\xi(1+\xi)}{(1-\xi)^2}.
+\]
+
+\emph{(3) Lagrange-multiplier term $-\Omega J$.}
+Expanding $J$ similarly gives
+\[
+  \frac{\partial^2 J}{\partial\varepsilon^2}
+  = \frac{4}{(1-\xi)^2}\!\left[1 + \frac{4\xi}{1-\xi}\right]
+  = \frac{4(1+3\xi)}{(1-\xi)^3}.
+\]
+With $-\Omega = (N-1)(1-\xi^2)/(8\xi)$ from~\eqref{eq:Omega_H2}:
+\[
+  -\Omega\frac{\partial^2 J}{\partial\varepsilon^2}
+  = \frac{(N-1)(1+\xi)(1+3\xi)}{2\xi(1-\xi)^2}.
+\]
+Multiplying by $r_E^2 = \xi$:
+\[
+  \text{(3)} = \frac{(N-1)(1+\xi)(1+3\xi)}{2(1-\xi)^2}.
+\]
+
+\paragraph{Algebraic simplification.}
+The $\xi$-dependent part of $\text{(2)}+\text{(3)}$ (factor $N-1$):
+\[
+  -\frac{\xi(1+\xi)}{(1-\xi)^2} + \frac{(1+\xi)(1+3\xi)}{2(1-\xi)^2}
+  = \frac{(1+\xi)}{2(1-\xi)^2}\bigl[(1+3\xi) - 2\xi\bigr]
+  = \frac{(1+\xi)^2}{2(1-\xi)^2}.
+\]
+Adding term~(1):
+\begin{align*}
+  C_1 &= \frac{N-1}{2} + \frac{(N-1)(1+\xi)^2}{2(1-\xi)^2}
+       = \frac{N-1}{2}\cdot\frac{(1-\xi)^2+(1+\xi)^2}{(1-\xi)^2}
+       = \frac{(N-1)(1+\xi^2)}{(1-\xi)^2},
+\end{align*}
+establishing~\eqref{eq:C1_H2}.
+
+\paragraph{Near-$K=0$ expansion.}
+For $N=7$, $m=3$: $m(N-m)/2 = 6 = N-1$.  Therefore
+\[
+  \lambda_3 \cdot r_E^2 = C_1 - 6
+  = 6\cdot\frac{(1+\xi^2) - (1-\xi)^2}{(1-\xi)^2}
+  = \frac{12\xi}{(1-\xi)^2}.
+\]
+Using $\xi = r_E^2/a^2 = |K|r_E^2$:
+\[
+  \lambda_3 = \frac{12|K|}{(1-\xi)^2} = 12|K| + O(K^2 r_E^2).
+\]
+The coefficient $12 = 2\,m(N{-}m)/2\big|_{m=3,\,N=7}$ arises from the
+cancellation $(1+\xi^2) - (1-\xi)^2 = 2\xi$, which holds because
+$N-1 = m(N-m)/2$ exactly at this critical mode.
+
+\section{Code availability and reproducibility}
+\label{app:code}
+All computational results are reproducible from the Python
+package \texttt{planetary\_polygons} accompanying this paper.
+The test suite (398 tests) verifies all numerical claims.
+
+
+\section{Open problems}
+\label{app:open-problems}
+
+The following problems were identified during this research and
+remain unresolved. They are organized by difficulty.
+
+\subsection*{Tractable}
+\begin{enumerate}
+\item Morse--Bott structure of the Thomson energy for all $N$.
+\item Complete critical point census on the constrained configuration space.
+\item Equivariant Euler class sign change at $N = 7 \to 8$.
+\end{enumerate}
+
+\subsection*{Hard}
+\begin{enumerate}\setcounter{enumi}{3}
+\item Geometric construction of the Dirac operator $D_N$ from surface data.
+\item Compute $\mathrm{ind}(D_N) = N - 5$ via characteristic classes.
+\item Is the Thomson energy a perfect Morse function on the configuration space?
+\item Express the $\mathbb{Z}_N$ equivariant signature as a topological invariant.
+\end{enumerate}
+
+\subsection*{Frontier}
+\begin{enumerate}\setcounter{enumi}{7}
+\item Vortex stability on compact hyperbolic surfaces (Bolza surface).
+\item Non-abelian symmetry groups (Platonic solid vortex configurations).
+\item Modular forms on compact hyperbolic surfaces.
+\end{enumerate}
+
+
+\bibliographystyle{plainnat}
+\bibliography{../shared/refs}
+\end{document}

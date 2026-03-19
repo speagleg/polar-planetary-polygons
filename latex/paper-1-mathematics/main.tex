@@ -1,0 +1,1407 @@
+\input{../shared/preamble}
+
+\externaldocument[II-]{../paper-2-physics/main}
+\externaldocument[III-]{../paper-3-planets/main}
+\externaldocument[A-]{../paper-A-appendices/main}
+
+\title{\seriestitle\\[6pt]\large Paper I: Mathematical Foundations}
+\author{Gordon Speagle}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We establish the mathematical foundations for polygon formation in two-dimensional fluids: the sign rule, the Havelock identity, stability thresholds on constant-curvature surfaces, and the algebraic structure of the stability boundary including the Pell equation connection and the golden ratio terminal case.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+These observations raise a question with two parts.  The first---\emph{how}
+does a specific polygon form?---has received considerable attention.
+The second---\emph{why} should different physical mechanisms on different
+planets all produce the same geometric outcome?---has not.
+
+In 1988, David Godfrey examined Voyager images of Saturn's north pole
+and found a hexagon \citep{Godfrey1988}---a persistent, regular,
+six-sided polygon inscribed in the jet stream at $76^\circ$\,N, stable
+across decades.  Its most striking property is that it
+co-rotates with Saturn's System~III period ($10^{\mathrm{h}}\,39^{\mathrm{m}}\,22.4^{\mathrm{s}}$),
+the rotation rate of the deep interior inferred from the
+magnetic field, rather than being advected by the $\sim\!120$\,m/s
+eastward jet in which it sits \citep{Godfrey1988, SanchezLavega2014}.
+This phase-locking to the deep interior has been confirmed from Voyager
+through Cassini across more than 30 years and is the primary
+observational constraint on any proposed mechanism.  Thirty years later, the Juno spacecraft revealed that
+Jupiter's poles harbor their own polygonal arrangements: eight cyclones
+in an octagonal ring at the north pole, five in a pentagonal ring at the
+south \citep{Adriani2018}.  Numerical simulations can reproduce these
+structures \citep{Morales2011, Gavriel2021}, and vortex crystals emerge
+spontaneously in 2D turbulence simulations on polar caps
+\citep{Siegelman2022}.
+
+We answer the second question, subject to one physical assumption
+(Onsager negative-temperature statistics at the polar scale; see
+Section~\ref{III-sec:extensions} for a detailed assessment).  The
+mechanism operates at two scales:
+\begin{enumerate}
+  \item \textbf{Macro scale: cluster formation.}  The Kraichnan (1967)
+    inverse energy cascade drives 2D turbulence toward large-scale coherent
+    structures.  In the Onsager (1949) framework, this produces a
+    negative-temperature state where same-sign vorticity concentrates
+    into $N$ coherent clusters \citep{BouchetVenaille2012, Siegelman2022}.
+    This step explains why discrete vortex clusters exist; it does not
+    determine their spatial arrangement.
+
+  \item \textbf{Meso scale: polygon arrangement.}  Given $N$ vortex
+    clusters on a ring of fixed angular momentum, the regular $N$-gon
+    \emph{minimizes} the interaction energy on the conserved-quantity
+    surface (Theorem~\ref{II-thm:constrained-min}).  By the energy-Casimir
+    method, this makes the $N$-gon a nonlinearly stable equilibrium for
+    $N \le 7$ without a central vortex, or for any $N$ with sufficient
+    central vortex strength.  The polygon is selected by dynamical
+    stability, not by statistical mechanics.
+\end{enumerate}
+
+The meso-scale proof (Theorem~\ref{II-thm:constrained-min}) applies to
+discrete point vortices and is directly relevant to Jupiter's cyclone
+rings.  Saturn's hexagon is a continuous jet meander, not a discrete
+vortex ring; its wavenumber $N = 6$ is selected instead by Rossby
+wave stationarity of the QGPV equation
+(Proposition~\ref{III-prop:complementary}).  Both mechanisms share the
+logarithmic Green's function as a structural foundation, but the
+mathematical arguments differ.
+
+\emph{Which} polygon forms is determined by planet-specific selection
+criteria: $N = 6$ by Rossby stationarity (Saturn), $N = 8$ by the
+Thomson--Onsager maximum-stability bound (Jupiter north).  The observed
+$N = 5$ at Jupiter's south pole is consistent with Thomson stability
+($\kappa_{\mathrm{crit}}(5) = 0$, so no central vortex is required)
+but is not uniquely predicted by the present framework; the south-polar
+packing geometry provides the additional constraint
+(Section~\ref{III-sec:n-selection}).
+
+Beyond the solar system, the framework makes its most physically
+distinctive prediction on the hyperbolic plane: a ring of $N = 12$
+vortices at $R/a = 1$ is stable \emph{without} a central vortex---an
+impossibility in flat geometry, where any $N \ge 8$ ring requires
+central stabilization.  Recent implementations of hyperbolic lattice
+Hamiltonians in circuit QED \citep{Kollar2019} and topolectrical
+circuits \citep{Lenggenhager2022} make this prediction experimentally
+accessible (Section~\ref{sec:curvature-invariant}).
+
+
+%% ====================================================================
+
+%% ====================================================================
+\label{part:math}
+%% ====================================================================
+
+%% ====================================================================
+\section{The logarithmic interaction: uniqueness and symmetry}
+\label{sec:log-interaction}
+
+\subsection{Dilation invariance and the Cauchy functional equation}
+\label{sec:dilation-invariance}
+\end{remark}
+
+\begin{remark}[The logarithm as the unique dilation-invariant interaction]
+\label{rem:rg-fixed-point}
+Among all pairwise interactions $h:(0,\infty)\to\mathbb{R}$ with
+$h'<0$, the logarithmic interaction $h(r)=-\ln r$ is the
+\emph{unique interaction invariant under spatial dilation up to an
+additive constant}.  Define the scale map $T_b[h](r) = h(br)$
+($b>0$).  Dilation-invariance means $h(br) = h(r) + c(b)$ for
+all $r$---that is, rescaling changes $h$ only by an additive constant
+(irrelevant to the force $-h'$).  This is a Cauchy functional equation
+whose continuous solutions with $h'<0$ are exactly $h(r)=-a\ln r + b$,
+$a>0$, confirming class~(ii) as the unique dilation-invariant class.
+The $N$-body lift of this per-pair statement is
+Corollary~\ref{cor:dilation-rg}: the M\"obius covariance of $H$
+(Proposition~\ref{prop:mobius}), restricted to the dilation subgroup,
+gives $H(bz_1,\dots,bz_N)=H(z_1,\dots,z_N)-\tfrac{N(N-1)}{2}\ln b$,
+which is position-independent---the same fixed-point condition at the
+$N$-body level.
+This symmetry is not merely a geometric observation about the
+logarithm: it is the structural reason for the \emph{scale-independence}
+of $N_{\mathrm{crit}}=7$.  Because scaling changes $H$ by an
+additive constant (Corollary~\ref{cor:dilation-rg}), the Havelock
+eigenvalue $\lambda_m = (N{-}1) - m(N{-}m)/2$---which determines
+whether the $N$-gon is a stable constrained minimum---is
+scale-independent, and the threshold $N=7$ cannot drift under
+spatial rescaling.  Prior treatments of M\"obius covariance in vortex
+dynamics (e.g.\ \citealt{Newton2001}) identify it as a conformal
+symmetry of the stream function; Corollary~\ref{cor:dilation-rg}
+shows it additionally implies that the stability threshold is
+dilation-invariant.
+
+\begin{proposition}[RG classification of perturbations]
+\label{prop:rg-classification}
+Write $h(r) = -\ln r + \varepsilon\,f(r)$ where $f$ is a perturbation.
+The additive coarse-graining map
+$T_b\colon h \mapsto h(b\,\cdot) - h(b)$ acts on~$f$ as
+$(T_b f)(r) = f(br) - f(b)$.
+\begin{enumerate}
+  \item \emph{Irrelevant} ($f(r) \to 0$ as $r \to \infty$):
+    the perturbation is suppressed at large scales;
+    $h$ flows toward $-\ln r$ under coarse-graining.
+  \item \emph{Relevant} ($f(r) \to \infty$ as $r \to \infty$):
+    the perturbation dominates at large scales;
+    $h$ flows away from $-\ln r$.
+  \item \emph{Marginal} ($f(r) \to \mathrm{const}$):
+    the perturbation shifts $h$ by a constant.
+\end{enumerate}
+Eigenfunctions $f(r) = r^\alpha$:
+$(T_b\, r^\alpha)(r) = b^\alpha(r^\alpha - 1)$,
+so $r^\alpha$ with $\alpha < 0$ is irrelevant and
+$\alpha > 0$ is relevant.
+\end{proposition}
+
+\begin{proof}
+For $f(r) = r^\alpha$ with $\alpha < 0$:
+$|f(br)| = b^\alpha |r^\alpha| \to 0$ as $b \to \infty$ for
+fixed $r$, so coarse-graining suppresses the perturbation.
+For $\alpha > 0$: $|f(br)| = b^\alpha |r^\alpha| \to \infty$,
+so the perturbation grows under coarse-graining.
+\end{proof}
+
+\noindent\emph{Connection to the sign rule.}
+For $h = -\ln r + \varepsilon\,r^\alpha$:
+$h' = -1/r + \varepsilon\alpha r^{\alpha-1}$;
+the sign rule condition $h' < 0$ holds at all $r > 0$ iff
+$\alpha \le 0$ (irrelevant perturbations).  For $\alpha > 0$ the
+sign rule is violated at sufficiently large~$r$:
+\emph{relevant perturbations destroy polygon stability}.
+Thus the sign rule condition~(i) is equivalent to the requirement
+that $h$ lies in the \emph{basin of attraction} of the logarithmic
+fixed point.
+
+\smallskip
+\noindent\emph{The stable manifold from multipole expansion.}
+The basin of attraction arises naturally from compact vorticity.
+For $|z|<\varepsilon\ll|w|=d$, expanding
+$\ln|w-z| = \ln d - \mathrm{Re}(z/w) + O(\varepsilon^2/d^2)$
+and integrating against $\omega(z)$ with centroid at the origin
+gives the effective interaction
+$H_\mathrm{eff}(d)=-K^2\ln d + O(\varepsilon^2/d^2)$ for
+$d\gg\varepsilon$.  The corrections are irrelevant ($\alpha = -2$),
+so \emph{any compact vortex distribution flows to the logarithm
+at large separation} (Proposition~\ref{prop:rg-classification}).
+
+\smallskip
+\noindent\emph{Unifying the blob and $K_0$ bridges.}
+This RG perspective unifies two results proved later in the paper:
+\begin{itemize}
+  \item The blob bridge
+    (Section~\ref{II-sec:blob}):
+    $h_\varepsilon = -\tfrac{1}{2}\ln(r^2 + 2\varepsilon^2)
+    = -\ln r + O(\varepsilon^2/r^2)$.  The blob correction
+    is an irrelevant perturbation ($\alpha = -2$);
+    the $O(\varepsilon^2)$ convergence rate of
+    Proposition~\ref{II-prop:blob} is the approach rate to the
+    fixed point.
+  \item The $K_0$ interaction
+    (Section~\ref{II-sec:k0-interaction}):
+    $K_0(r/R_d) = -\ln r + O(e^{-r/R_d})$ for $r \ll R_d$.
+    The exponential tail is irrelevant (faster than any power);
+    the deformation-radius limit $R_d \to \infty$ is the RG flow
+    toward the fixed point.
+\end{itemize}
+In the Kraichnan inverse cascade~\citep{Kraichnan1967}, vorticity
+concentrates into compact structures of growing scale $L(t)$, driving
+the inter-blob interaction toward the logarithm with corrections
+suppressed as $(L/d)^2 \to 0$.  The cascade is the physical
+RG flow; the sign rule demarcates its basin of attraction.
+
+The Gaussian curvature $K$ is a destabilizing perturbation when
+$K>0$ and a stabilizing one when $K<0$.  On the sphere ($K>0$) the
+deviation from the logarithmic Green's function lowers
+$N_{\mathrm{crit}}$ below~$7$; on the hyperbolic plane ($K<0$) it
+adds a positive $O(|K|)$ correction $12|K|$ to the formerly-marginal
+$\lambda_3$ eigenvalue~\eqref{eq:lam3_H2}.  The flat-plane case
+$K=0$ is therefore the \emph{least stable} point of the
+constant-curvature family with respect to polygon formation:
+
+\subsection{M\"obius covariance of the logarithmic energy}
+\label{sec:mobius-cov}
+
+\begin{proposition}[M\"obius covariance]\label{prop:mobius}
+Under a conformal map $f\colon\mathbb{C}\to\mathbb{C}$, the
+logarithmic energy transforms as
+\[
+  H(f(z_1),\dots,f(z_N))
+  = H(z_1,\dots,z_N) - \sum_{k=1}^{N}\tfrac{N-1}{2}\ln|f'(z_k)|.
+\]
+Consequently, the point vortex equations of motion are
+M\"obius-invariant: the single-site correction
+$\tfrac{N-1}{2}\ln|f'(z_k)|$ depends only on~$z_k$, so
+$\partial/\partial \bar z_j$ for $j \ne k$ annihilates it, and the
+Hamiltonian gradient $\partial H/\partial \bar z_j$ is unchanged.
+\end{proposition}
+\begin{proof}
+The identity $|f(z){-}f(w)| = |f'(z)|^{1/2}|f'(w)|^{1/2}|z{-}w|
+\cdot(1 + O(|z{-}w|))$ is exact when $f$ is M\"obius (the error
+term vanishes), so $\ln|f(z_j){-}f(z_k)| = \ln|z_j{-}z_k|
++ \tfrac12\ln|f'(z_j)| + \tfrac12\ln|f'(z_k)|$.  Summing over
+all $\binom{N}{2}$ pairs, each $\ln|f'(z_k)|$ appears $N{-}1$
+times.  Since $\tfrac12\ln|f'(z_k)|$ depends on $z_k$ alone,
+$\partial[\sum_k\tfrac{N-1}{2}\ln|f'(z_k)|]/\partial\bar z_j
+= \tfrac{N-1}{2}\,\partial\ln|f'(z_j)|/\partial\bar z_j$,
+which is the single-site term in the $j$-th equation of motion.
+For M\"obius $f$, $f'$ is rational and $\ln|f'|$ is harmonic away
+from poles, so this term contributes a gauge-like shift to the
+Hamiltonian that does not couple distinct vortices.
+\end{proof}
+
+\begin{corollary}[Dilation subgroup = scale-invariant Hamiltonian]
+\label{cor:dilation-rg}
+Among all M\"obius transformations, the dilation subgroup
+$\{f(z) = bz : b > 0\}$ is uniquely characterised by having
+constant derivative: $f'(z) = b$ for all~$z$.  Substituting
+into Proposition~\ref{prop:mobius} gives a correction that is
+\emph{position-independent}:
+\begin{equation}\label{eq:dilation-rg}
+  H(bz_1,\dots,bz_N)
+  = H(z_1,\dots,z_N) - \tfrac{N(N-1)}{2}\ln b.
+\end{equation}
+This is the $N$-body form of the dilation-invariance condition of
+Remark~\ref{rem:rg-fixed-point}: scaling changes $H$ only by an
+additive constant, so the equations of motion
+$\dot{\bar z}_j = \partial H/\partial z_j$ are dilation-invariant.
+For any other M\"obius map $f$, the derivative $|f'(z_k)|$ varies
+between sites, producing a configuration-dependent correction that
+is not a pure constant; the Hamiltonian is \emph{not}
+scale-invariant under general conformal maps, only under the
+one-parameter dilation subgroup.
+
+Equation~\eqref{eq:dilation-rg} is the $N$-body lift of the per-pair
+uniqueness result in Remark~\ref{rem:rg-fixed-point}: the logarithmic
+energy is the unique $N$-body Hamiltonian that is dilation-invariant.
+\end{corollary}
+
+\begin{remark}[The loxodromic thread]
+\label{rem:loxodromic}
+The logarithmic interaction and the logarithmic spiral are dual
+manifestations of the same structure: the loxodromic one-parameter
+subgroup $z \mapsto e^{(\sigma + i\alpha)t}z$ of the M\"obius group
+acting on~$\mathbb{C}$.
+\begin{itemize}
+  \item The \emph{interaction} is logarithmic because it is the
+    unique dilation-invariant pairwise potential
+    (Remark~\ref{rem:rg-fixed-point}; Cauchy's functional equation).
+  \item The natural \emph{deformation curves} are logarithmic spirals
+    because they are orbits of the dilation-rotation generator
+    $\sigma + i\alpha$; the centered spiral of
+    equation~\eqref{eq:deformation} is precisely this orbit applied
+    to the $N$-gon.
+  \item The \emph{stability threshold} $N = 7$ is scale-independent
+    because the Havelock eigenvalue $\lambda_m = (N{-}1) - m(N{-}m)/2$
+    has no $R$-dependence---a direct consequence of
+    equation~\eqref{eq:dilation-rg}.
+  \item The \emph{palindromic} structure of the hyperbolic threshold
+    polynomial $A\xi^2 + B\xi + A = 0$
+    (equation~\eqref{eq:palindromic}) encodes the conformal inversion
+    $\xi \leftrightarrow 1/\xi$ of the Poincar\'e disk, which is a
+    M\"obius map exchanging the interior and exterior of the unit
+    circle.
+  \item The logarithm is the \emph{IR fixed point} of the
+    coarse-graining flow on interactions
+    (Proposition~\ref{prop:rg-classification}): compact vorticity
+    distributions interact via $-\ln r + O(\varepsilon^2/r^2)$
+    at large separation, with the correction irrelevant under
+    rescaling.  The sign rule demarcates the basin of attraction.
+\end{itemize}
+These five consequences---the interaction, the deformation, the
+threshold, the algebraic structure, and the RG flow---all descend
+from M\"obius covariance (Proposition~\ref{prop:mobius}).
+The unifying role of the M\"obius group is not merely a symmetry
+of the equations of motion; it is the reason the logarithmic
+interaction produces polygons at all.
+\end{remark}
+
+\begin{remark}[From sign rule to physical stability]
+\label{rem:signrule-to-stability}
+Theorem~\ref{thm:sign-rule} establishes $H''(0) < 0$ along the spiral
+direction---an \emph{unconstrained} energy curvature.  This does not by
+itself imply instability, because the spiral deformation changes the
+conserved angular impulse $L = \sum|z_k|^2$ at $O(\sigma^2)$.  The
+physical dynamics is constrained to $\{L = \mathrm{const}\}$, and
+the Lagrange multiplier $\mu_L < 0$ shifts the curvature by
+$-2\mu_L > 0$, converting the unconstrained saddle into a
+\emph{constrained minimum} (Theorem~\ref{II-thm:constrained-min} below).
+The sign rule therefore plays an indirect but essential role: it
+guarantees that the $N$-gon is a saddle of the unconstrained energy
+with a specific sign structure ($H''(0) < 0$ along the spiral,
+$H''(0) > 0$ along other directions), and the Lagrange shift converts
+this saddle into a minimum for $N \le 7$.  For $N \ge 8$, the negative
+curvature along the $m = \lfloor N/2\rfloor$ Fourier mode overwhelms
+the Lagrange shift, and the constrained configuration is a saddle.
+\end{remark}
+
+%% ====================================================================
+
+%% ====================================================================
+\section{The sign rule for general pairwise interactions}
+\label{sec:sign-rule}
+
+\begin{theorem}[Sign rule for general interactions]\label{thm:sign-rule}
+For $N \ge 3$ vortices on a ring with general pairwise interaction
+$h(r)$, the energy along the centered spiral satisfies
+\begin{equation}\label{eq:Hpp-general}
+  H''(0) = \sum_{m=1}^{N-1}\Bigl[
+    \bigl(d_m^2 h''(d_m) + d_m h'(d_m)\bigr) S_m
+    + \frac{h'(d_m)\, m^2(N-m)}{N^2\, d_m}
+  \Bigr],
+\end{equation}
+where $d_m = 2R\sin(\pi m/N)$ and
+$S_m = \sum_{k=0}^{N-m-1}[(2k+m-(N{-}1))/(2N)]^2 \ge 0$.
+
+If\, $h'(r) < 0$ and $(rh'(r))' \le 0$ for all $r > 0$, then
+$H''(0) < 0$.
+\end{theorem}
+
+\begin{proof}
+\emph{Step 1: Pairwise distance as a function of $\sigma$.}
+For vortices $j$ and $k$ with separation $m = j - k > 0$, write
+the centered exponent as $(j - (N{-}1)/2)/N = (j' + k')/2 + m/(2N)$
+where $j' = (j-(N{-}1)/2)/N$ and $k' = (k-(N{-}1)/2)/N$.
+Define the mean displacement $s = \sigma(j'+k')/2$ and half-separation
+$t = \sigma m/(2N)$.  Then $z_j(\sigma) = R\,e^{s+t}\,e^{i\theta_j}$,
+$z_k(\sigma) = R\,e^{s-t}\,e^{i\theta_k}$ with
+$\theta_j - \theta_k = 2\pi m/N$, giving
+\[
+  D(\sigma) \;{:=}\; |z_j - z_k|^2
+  = R^2 e^{2s}\bigl[e^{2t} + e^{-2t} - 2\cos(2\pi m/N)\bigr]
+  = R^2 e^{2s}\bigl[2\cosh(2t) - 2\cos(2\pi m/N)\bigr].
+\]
+At $\sigma = 0$: $s = t = 0$, so
+$D(0) = 2R^2[1 - \cos(2\pi m/N)] = 4R^2\sin^2(\pi m/N) = d_m^2$.
+
+\emph{Step 2: First and second derivatives of $D$.}
+Write $c_s = (j'+k')/2$ and $c_t = m/(2N)$, so
+$s = \sigma c_s$, $t = \sigma c_t$.  Direct differentiation gives
+\begin{align*}
+  D'(0) &= 4c_s(1 - \cos\phi), \qquad \phi = 2\pi m/N, \\[3pt]
+  D''(0) &= 8c_s^2(1 - \cos\phi) + 8c_t^2.
+\end{align*}
+
+\emph{Step 3: Chain rule for $h(\sqrt{D})$.}
+Write $d = \sqrt{D}$.  Two applications of the chain rule give
+\[
+  \frac{\dd^2}{\dd\sigma^2}h(d)\bigg|_{\sigma=0}
+  = \underbrace{\frac{h''(d_m)}{4d_m^2}(D')^2
+  + \frac{h'(d_m)}{2d_m}\!\left[D'' - \frac{(D')^2}{2d_m^2}\right]}_{\text{evaluated at each pair $(j,k)$}}.
+\]
+Substituting $D' = 4c_s d_m^2/2$ (since $1-\cos\phi = d_m^2/(2R^2)$,
+and absorbing $R$ into $d_m$) and collecting terms:
+\[
+  \frac{\dd^2}{\dd\sigma^2}h(d)\bigg|_0
+  = \bigl[d_m^2 h''(d_m) + d_m h'(d_m)\bigr]c_s^2
+  + \frac{h'(d_m)}{d_m}\,c_t^2\,\frac{d_m^2}{(1-\cos\phi)}.
+\]
+
+\emph{Step 4: Summation over pairs.}
+For fixed separation $m$, sum over the $N-m$ pairs
+$(k, k{+}m)$ for $k = 0, \ldots, N{-}m{-}1$.  Define
+\[
+  S_m = \sum_{k=0}^{N-m-1} c_{s,k}^2, \quad
+  \text{where } c_{s,k} = \frac{2k + m - (N{-}1)}{2N}.
+\]
+Since $\sum_k c_{s,k} = 0$ by the centering, $S_m \ge 0$ with equality
+only if all $c_{s,k} = 0$ (which requires $N - m = 1$, i.e.\ $m = N-1$).
+The second sum contributes $c_t^2 \cdot (N{-}m) = m^2(N{-}m)/(4N^2)$,
+and $d_m^2/(1{-}\cos\phi) = 4R^2$.  Summing over $m = 1, \ldots, N-1$
+yields \eqref{eq:Hpp-general}.
+
+\emph{Step 5: Sign determination.}
+Under $h'(r) < 0$: the second term
+$B_m = h'(d_m)\,m^2(N{-}m)/(N^2 d_m) < 0$
+for every $m = 1, \ldots, N-1$, since $h' < 0$, $d_m > 0$,
+and $m^2(N{-}m) > 0$.
+Under $(rh'(r))' \le 0$: the first coefficient
+$A_m = d_m^2 h''(d_m) + d_m h'(d_m) = d_m \cdot (rh')'\big|_{r=d_m} \le 0$,
+so the first term $A_m S_m \le 0$ since $S_m \ge 0$.
+
+The case $m = N{-}1$ requires separate attention.
+At $m = N{-}1$ there is only one pair $(0, N{-}1)$, and the
+centering sum has a single term:
+$c_{s,0} = (0 + (N{-}1) - (N{-}1))/(2N) = 0$,
+so $S_{N-1} = 0$.  The first term $A_{N-1} S_{N-1} = 0$ therefore
+\emph{vanishes identically}, regardless of the sign of $A_{N-1}$.
+However, the second term $B_{N-1} = h'(d_{N-1})\,(N{-}1)^2/(N^2 d_{N-1})$
+remains strictly negative (since $h' < 0$).  Thus the $m = N{-}1$
+contribution to $H''(0)$ is $B_{N-1} < 0$, and strict negativity
+of $H''(0) = \sum_m (A_m S_m + B_m)$ follows from $A_m S_m \le 0$
+for all $m$ and $B_m < 0$ for all $m$, with at least one term
+strictly negative.
+\end{proof}
+
+\begin{remark}[Borderline status of the logarithmic interaction]
+\label{rem:borderline}
+The sufficient conditions of Theorem~\ref{thm:sign-rule} partition
+interactions into three classes:
+\begin{enumerate}
+  \item[(i)] $h' < 0$ and $(rh')' < 0$: both terms in
+    \eqref{eq:Hpp-general} are strictly negative.
+    Examples: $h = -r^\alpha$ ($\alpha > 0$), for which
+    $(rh')' = -\alpha^2 r^{\alpha-1} < 0$.
+  \item[(ii)] $h' < 0$ and $(rh')' = 0$: the first term vanishes
+    and only the second contributes.  For smooth $h$ on $(0,\infty)$,
+    this class contains a unique functional form, up to positive
+    scaling and additive constant:
+    $(rh')' = 0 \Rightarrow rh' = c \Rightarrow h' = c/r
+    \Rightarrow h = c\ln r + b$; combined with $h' < 0$ gives
+    $c < 0$, i.e.\ $h(r) = -a\ln r + b$ with $a > 0$.
+  \item[(iii)] $h' < 0$ and $(rh')' > 0$ at some $r$: the sign of
+    the first term is indefinite and $H''(0) < 0$ is not guaranteed.
+\end{enumerate}
+The 2D Green's function $h(r) = -\ln r$ falls in class~(ii)---the
+boundary between guaranteed and non-guaranteed negativity.  In this
+precise sense, the logarithmic interaction produces the \emph{weakest}
+
+%% ====================================================================
+\section{The Havelock identity and its metric-independence}
+\label{sec:havelock-identity}
+
+\subsection{The classical identity}
+\label{sec:classical-havelock}
+\label{app:havelock}
+
+\begin{lemma}\label{lem:havelock}
+For integers $N \ge 2$ and $1 \le m \le N-1$,
+\[
+  T_m := \sum_{p=1}^{N-1}\frac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
+  = \frac{m(N-m)}{2}.
+\]
+\end{lemma}
+
+This identity appears in \citet{Havelock1931}, \S3, as a step in
+computing the stability eigenvalues of the $N$-vortex ring; see also
+\citet{Aref2003}, Appendix~A.
+
+\begin{proof}
+Write $\omega = e^{2\pi i/N}$.  Using $2\sin(\pi p/N) =
+|1 - \omega^p|$, expand
+$[1 - \cos(2\pi pm/N)] / [4\sin^2(\pi p/N)]
+= \frac12\bigl|\sum_{k=0}^{m-1}\omega^{pk}\bigr|^2
+= \frac{1}{2}\sum_{j=0}^{m-1}\sum_{k=0}^{m-1}\omega^{p(j-k)}$.
+Summing over $p = 1, \ldots, N-1$ and using the orthogonality relation
+$\sum_{p=1}^{N-1}\omega^{p\ell} = N\delta_{\ell \equiv 0\pmod{N}} - 1$:
+\[
+  T_m = \frac{1}{2}\sum_{j,k=0}^{m-1}
+  \bigl(N\delta_{j \equiv k\pmod{N}} - 1\bigr)
+  = \frac{1}{2}(Nm - m^2) = \frac{m(N-m)}{2},
+\]
+where $\delta_{j \equiv k}$ contributes $m$ (since $0 \le j,k \le m-1
+< N$ forces $j = k$) and the $-1$ contributes $-m^2$.
+\end{proof}
+
+\subsection{The Riemannian Havelock identity}
+\label{sec:riemannian}
+
+\citet{BoattoCabral2003} computed numerically that the constrained
+Lagrangian eigenvalues on the sphere satisfy
+\begin{equation}\label{eq:riemannian-havelock}
+  \lambda_m = C_1(\varphi_0) - \frac{m(N-m)}{2},
+\end{equation}
+with $C_1$ depending on the colatitude~$\varphi_0$ but $f(m,N) = m(N{-}m)/2$
+unchanged from the planar value.  The following proof makes explicit
+\emph{why} $f(m,N)$ is invariant: both ingredients of its derivation
+(the anti-symmetry of the sine sum forcing $H_{rt}^{(m)} = 0$, and the
+$\mathbb{Z}_N$ orthogonality of characters) are properties of the
+discrete rotation group, not of the specific Green's function.
+Numerically: $C_2 = 1.000$ at all tested colatitudes to four decimal
+places; eigenvalue pair sums $\lambda_m^+ + \lambda_m^- = 2C_1$ are
+constant across all modes at each colatitude.
+
+The universality follows from the proof structure of Appendix~A:
+the Havelock identity $T_m = m(N{-}m)/2$ is derived from (i)~the
+algebraic factorization $|{\sum_{k=0}^{m-1}\omega^{pk}}|^2$ and
+(ii)~the orthogonality of $\mathbb{Z}_N$ characters, both of which
+are properties of the discrete rotation group $\mathbb{Z}_N$---not
+of the specific Green's function.  The Green's function enters
+only through: $H_{rt}^{(m)} = 0$ (anti-symmetry of the sine sum,
+requiring only that $G$ depends on geodesic distance) and
+$H_{tt}^{(m)} + H_{rr}^{(m)} = \delta$, where
+$\delta = -\sum_p \nabla^2_{\mathrm{LB}} h(d_p)/(N{-}1)$ is a
+surface-dependent constant \emph{independent of the Fourier mode~$m$}.
+
+\smallskip
+\noindent\emph{Derivation of the trace formula.}
+Let $\mathbf{M}_p$ be the $2{\times}2$ Hessian matrix of $h(d_{0p})$
+with respect to the position of vortex~$0$, in the local
+(radial, tangential) frame; its trace is
+$\mathrm{tr}[\mathbf{M}_p] = \nabla^2_{\mathrm{LB}} h(d_p)$.
+The standard $\mathbb{Z}_N$-Fourier block decomposition (see
+\citealt{Havelock1931}, \S2) gives, for each component
+$\alpha,\beta\in\{r,t\}$:
+\[
+  H_{\alpha\beta}^{(m)}
+  = \underbrace{-\sum_{p=1}^{N-1} M_{p,\alpha\beta}}_{\text{self-interaction at }0}
+  + \sum_{p=1}^{N-1} M_{p,\alpha\beta}\cos(2\pi pm/N)
+  = \sum_{p=1}^{N-1} M_{p,\alpha\beta}\bigl(\cos(2\pi pm/N)-1\bigr).
+\]
+The self-interaction term $-\sum_p M_{p,\alpha\beta}$ is the negative
+sum of all off-diagonal blocks, forced by the translational zero mode
+of $H$ (total gradient vanishes at the equilibrium).
+Taking $\alpha = r, \beta = r$ plus $\alpha = t, \beta = t$:
+\begin{equation}\label{eq:trace-formula}
+  H_{rr}^{(m)} + H_{tt}^{(m)}
+  = \sum_{p=1}^{N-1} \nabla^2_{\mathrm{LB}} h(d_p)
+    \bigl(\cos(2\pi pm/N) - 1\bigr).
+\end{equation}
+The coefficient $(\cos(2\pi pm/N)-1)$ has the same ``$c_m = -1$''
+structure for every mode and every pair: it arises entirely from
+the self-interaction bookkeeping, not from any property of the
+Green's function.
+
+\smallskip
+\noindent\emph{Mode-independence.}
+Equation~\eqref{eq:trace-formula} gives
+$H_{rr}^{(m)}+H_{tt}^{(m)}
+= \bigl[\sum_p \nabla^2_{\mathrm{LB}} h(d_p)\cos(2\pi pm/N)\bigr]
+- \bigl[\sum_p \nabla^2_{\mathrm{LB}} h(d_p)\bigr]$.
+On any compact 2D Riemannian manifold, the point vortex
+Hamiltonian uses the \emph{normalized} Green's function
+$G$ of the Laplace--Beltrami operator (zero spatial mean:
+$\int_M G(x,y)\,\dd\mu(x) = 0$), which satisfies
+$\nabla^2_{\mathrm{LB},x} G(x,y) = \delta_y(x) - 1/\mathrm{Vol}(M)$.
+On the plane, $G(x,y) = -(2\pi)^{-1}\ln|x{-}y|$ and the
+$1/\mathrm{Vol}$ term vanishes ($\mathrm{Vol} = \infty$),
+recovering the kernel of equation~\eqref{eq:thomson-H}.
+On a compact surface the normalization adds a constant
+$R(y) = G(x,y) + (2\pi)^{-1}\ln d(x,y)$ (the Robin function),
+which is independent of the vortex \emph{configuration} and
+therefore does not affect the Hessian $\nabla^2 H$ at the
+$N$-gon equilibrium.  The mode-independence argument below
+depends only on $\nabla^2_{\mathrm{LB}} G$ away from the
+diagonal, where
+$\nabla^2_{\mathrm{LB},x} G(x,y) = -1/\mathrm{Vol}(M)$
+(constant, independent of $x$, $y$, or separation).
+Hence $\nabla^2_{\mathrm{LB}} h(d_p) = c$ is the \emph{same
+constant} for every pair~$p$ (with $c = -1/\mathrm{Vol}(M)$
+on a compact surface, $c = 0$ on the plane), and
+$\sum_p \nabla^2_{\mathrm{LB}} h(d_p)\cos(2\pi pm/N)
+= c\sum_{p=1}^{N-1}\cos(2\pi pm/N) = -c$,
+which is independent of~$m$.  Therefore $H_{rr}^{(m)}+H_{tt}^{(m)}
+= -c - (N{-}1)c = -Nc \equiv \delta$ is mode-independent.
+On the plane ($\mathrm{Vol} = \infty$), $c = 0$, so $\delta = 0$
+(exact tracelessness); on a compact surface $c = -1/\mathrm{Vol}(M)$,
+giving $\delta = N/\mathrm{Vol}(M)$, which shifts $C_1$
+without affecting $f(m,N)$.  On the sphere of radius $R$:
+$\mathrm{Vol} = 4\pi R^2$, so $\delta = N/(4\pi R^2)$,
+consistent with the colatitude-dependent $C_1$ of
+Section~\ref{sec:curved}.
+
+The stability threshold $N_{\mathrm{crit}}$ is therefore determined by
+$C_1(\text{surface}) \ge \max_m m(N{-}m)/2$: a condition involving the
+\emph{universal} function $f$ and a single surface-dependent constant.
+On the plane: $C_1 = N{-}1$, giving $N_{\mathrm{crit}} = 7$ (the
+largest integer with $(N{-}1) \ge \lfloor N/2\rfloor(N{-}\lfloor
+N/2\rfloor)/2$).  On the sphere:
+$C_1(\varphi_0) < N{-}1$ for $\varphi_0 > 0$, giving the
+colatitude-dependent threshold of Section~\ref{sec:curved}.
+
+\begin{remark}[Representation-theoretic content of the stability boundary]
+\label{rem:rep-theory}
+The decomposition $\lambda_m = C_1 - f(m,N)$ separates the stability
+condition into a $\mathbb{Z}_N$ representation-theoretic part $f$ and
+a geometric part $C_1$, with three consequences.
+
+\emph{1.\ Spectral gap as a quantum phase transition.}
+Write $H_N = C_1 I - F_N$ where $F_N = \mathrm{diag}(f(0,N),
+\ldots, f(N{-}1,N))$ in the Fourier basis.  Stability is equivalent
+to the positivity condition $H_N \ge 0$.  The spectral gap
+$\Delta(N) = C_1 - f_{\max}(N)$ closes at $N = 7$ on the flat
+plane ($\Delta = 0$), marking a transition from the gapped phase
+($N \le 6$, all eigenvalues positive) to the broken phase
+($N \ge 8$, negative eigenvalue).  Gaussian curvature acts as
+a tuning parameter: $K < 0$ opens the gap, $K > 0$ closes it.
+
+\emph{2.\ Crystallographic restriction analogue.}
+The classical crystallographic restriction constrains the order
+of a rotation compatible with a lattice: $\mathrm{tr}(R) = 2\cos(2\pi/N)
+\in \mathbb{Z}$ forces $N \in \{1,2,3,4,6\}$ in~$\mathbb{R}^2$.
+Our stability restriction constrains the order of a $\mathbb{Z}_N$
+polygon compatible with the geometry: $C_1 \ge f_{\max}(N)$ forces
+$N \le 7$ on $\mathbb{R}^2$.  Both are discrete constraints on
+$N$ arising from the interplay between $\mathbb{Z}_N$ algebra
+(trace / Casimir) and the ambient geometry (lattice / curvature).
+
+\emph{3.\ Entanglement-witness structure.}
+$H_N = C_1 I - F_N$ has the structure of an entanglement witness:
+``separable'' = stable, ``entangled'' = unstable.  Positivity tools
+from quantum information could apply to non-abelian problems.
+
+\emph{4.\ Spectral statistics and Landau transition.}
+Level spacings $(N{-}2m{-}1)/2$ are arithmetic (maximally rigid).
+The gap closure $\Delta(N) \sim -(N{-}7)$ has mean-field exponents
+($\nu = 1$, $\beta = 1/2$) with critical amplitude $\alpha_0 = 45/14$
+(Section~\ref{II-sec:n7-bifurcation}).
+\end{remark}
+
+The value $C_1 = N{-}1$ on the plane has a geometric origin: for
+$h' = -1/d$ (the logarithmic force law), each vortex pair $(0,k)$
+contributes the \emph{same} amount $-1/(2R)$ to the gradient
+$\partial H/\partial x_0$, regardless of the separation~$k$.  This
+is because $h'(d_k)(x_0{-}x_k)/d_k = -(1{-}\cos(2\pi k/N))/
+(4R\sin^2(\pi k/N)) = -1/(2R)$: the geometric factor
+$(1{-}\cos)$ cancels against the denominator $\sin^2 = (1{-}\cos)/2$.
+The cancellation is the \emph{scale invariance} of $h' = -1/d$:
+the force law $h' \propto 1/d$ precisely compensates the
+$d$-dependence of the chord geometry, making each pair's contribution
+independent of the separation.  This property characterizes the
+logarithm \emph{uniquely}: among radially symmetric pairwise
+interactions on $\mathbb{R}^2$, $h = -\ln|z{-}w|$ is the unique
+function satisfying $h(d\lambda) = h(d) + h(\lambda)$ (additivity
+under rescaling---Cauchy's functional equation with continuity).
+This additivity under the dilation subgroup $z \mapsto \lambda z$
+(for which $|f(z){-}f(w)| = |\lambda|\,|z{-}w|$) is Cauchy's
+multiplicative functional equation $h(ab) = h(a) + h(b)$,
+whose unique continuous solution is $h = c\ln$.
+
+
+%% ====================================================================
+\section{Stability thresholds on constant-curvature surfaces}
+\label{sec:curvature-thresholds}
+\label{sec:curvature-invariant}
+
+\noindent\emph{Prior work and what is new.}
+\citet{BoattoCabral2003} computed the constrained Lagrangian eigenvalues
+for a latitudinal ring of point vortices on the non-rotating sphere at
+arbitrary colatitude, establishing that the stability boundary shifts
+with latitude.  \citet{LimMontaldiRoberts2001} studied relative
+equilibria of vortex rings on $S^2$ within the Hamiltonian framework.
+The spherical Havelock eigenvalues are therefore not novel.
+
+What the proof in~\S\ref{sec:riemannian} adds is an explicit algebraic
+argument that the $m$-dependent part $f(m,N) = m(N{-}m)/2$ is
+\emph{metric-independent}---a consequence of $\mathbb{Z}_N$
+representation theory alone---while only the additive constant $C_1$
+carries the geometric information.  A specialist who worked through the
+Boatto--Cabral calculation would likely have noticed this; the value
+here is in making the separation explicit and, more substantively, in
+extending the framework to the hyperbolic plane~(\S\ref{sec:hyperbolic}),
+where $N_{\mathrm{crit}} > 7$ and systematic stability tables do not
+appear to be in the existing literature.
+
+\subsection{Curved 2D surfaces: the spherical stability boundary}
+\label{sec:curved}
+
+On the 2-sphere, the point vortex interaction
+$h(\theta) = -\ln(2\sin(\theta/2))$ satisfies $h' < 0$ and
+$(\sin\theta\cdot h')' = \tfrac12\sin\theta > 0$ (class~(iii)).
+While $H''(0) > 0$ along the spiral at all tested colatitudes
+(the polygon is a spiral-direction energy minimum even without
+the Lagrange shift), the \emph{constrained} Hessian tells a
+different story.
+
+The angular impulse on the sphere is
+$L = \sum\cos\theta_k$, with Hessian
+$\partial^2 L/\partial\theta_k^2 = -\cos\varphi_0$ at colatitude
+$\varphi_0$.  The Lagrangian shift from $\mu_L$ is therefore
+proportional to $\cos\varphi_0$: full near the pole ($\varphi_0 \to 0$),
+vanishing at the equator ($\varphi_0 = 90^\circ$).  This
+latitude-dependent shift produces a \emph{colatitude-dependent
+stability boundary}:
+
+\begin{center}
+\begin{tabular}{lcccccc}
+\toprule
+$N$ & 3 & 4 & 5 & 6 & 7 & $\ge 8$ \\
+\midrule
+$\varphi_{\mathrm{crit}}$ & $60.0^\circ$ & $48.2^\circ$ &
+  $41.4^\circ$ & $25.8^\circ$ & $0^\circ$ & $0^\circ$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The $N$-gon is a constrained energy minimum on the sphere if and only
+if $\varphi_0 < \varphi_{\mathrm{crit}}(N)$.  The dimensionless
+eigenvalue $\bar\lambda = \sin^2\!\varphi_0 \cdot \lambda$ recovers
+the Havelock values to within $1\%$ at $\varphi_0 = 3^\circ$
+(N=5: $\bar\lambda = 0.99$, Havelock $= 1.0$;
+N=6: $0.49$ vs $0.5$; N=8: $-1.01$ vs $-1.0$).
+
+Saturn's hexagon at $76^\circ$\,N ($\varphi_0 = 14^\circ$) lies
+inside $\varphi_{\mathrm{crit}}(6) = 26.6^\circ$: the hexagonal
+ring is in the stable zone.  If the hexagon were at $60^\circ$\,N
+($\varphi_0 = 30^\circ > 26.6^\circ$), it would cross the boundary
+and the pattern would not persist.  Jupiter's octagon ($N = 8$) is
+unstable at all colatitudes, consistent with the need for a
+central vortex.
+
+\paragraph{Derivation of $C_1(\mathbf{S}^2)$ and exact thresholds.}
+For $N$ vortices on a latitude circle at colatitude $\varphi_0$, the
+great-circle separation satisfies
+$2\sin(\gamma_{jk}/2) = 2\sin\varphi_0\,|\sin(\Delta\phi_{jk}/2)|$,
+so the spherical pair interaction decomposes as
+\[
+  -\ln\bigl(2\sin(\gamma_{jk}/2)\bigr)
+  = -\ln\bigl(2|\sin(\Delta\phi_{jk}/2)|\bigr) - \ln(\sin\varphi_0).
+\]
+The first term is the flat Thomson energy in the azimuthal variable
+$\phi$; its Hessian along azimuthal Fourier modes gives the Havelock
+eigenvalues $(N{-}1)/2 - m(N{-}m)/2$ exactly as in the flat case.
+The second term $-\binom{N}{2}\ln(\sin\varphi_0)$ is purely
+radial and enters through the Lagrange multiplier.
+
+The angular impulse on $\mathbf{S}^2$ is $L = \sum\cos\varphi_k$.
+At the ring, $\partial^2 L/\partial\varphi_k^2 = -\cos\varphi_0$,
+so the Lagrange shift
+$\mu_L\cdot\partial^2 L/\partial\varphi_k^2$ is proportional to
+$\cos\varphi_0$: maximal near the pole, vanishing at the equator.
+Computing $\mu_L$ from the stationarity condition and combining with
+the radial Hessian of the pair interaction yields the curvature
+coefficient (cf.\ \citealt{BoattoCabral2003}):
+\begin{equation}\label{eq:C1_S2}
+  C_1(\mathbf{S}^2,\,\xi) = \frac{(N-1)(1-\xi)}{1+\xi} = (N-1)\cos\varphi_0,
+\end{equation}
+where $\xi = \tan^2(\varphi_0/2)$ is the stereographic parameter and
+$\cos\varphi_0 = (1{-}\xi)/(1{+}\xi)$.
+Marginal stability $C_1 = m(N{-}m)/2$ therefore reduces to
+\begin{equation}\label{eq:cos_crit}
+  \cos\varphi_{\mathrm{crit}} = \frac{m(N{-}m)}{2(N-1)}, \qquad m = \lfloor N/2\rfloor,
+\end{equation}
+which is \emph{always rational}.  The threshold in $\xi$ is
+\begin{equation}\label{eq:xi_crit_S2}
+  \xi_{\mathrm{crit}}(N) = \frac{(N-1) - m(N{-}m)/2}{(N-1) + m(N{-}m)/2}
+  \in \mathbb{Q}.
+\end{equation}
+Explicit values:
+
+\begin{center}
+\begin{tabular}{lccccc}
+\toprule
+$N$ & $m(N{-}m)/2$ & $\cos\varphi_{\mathrm{crit}}$ & $\xi_{\mathrm{crit}}$ &
+  $\varphi_{\mathrm{crit}}$ & stable iff \\
+\midrule
+3 & $1$ & $1/2$ & $1/3$ & $60.0^\circ$ & $\varphi_0 < 60^\circ$ \\
+4 & $2$ & $2/3$ & $1/5$ & $48.2^\circ$ & $\varphi_0 < 48.2^\circ$ \\
+5 & $3$ & $3/4$ & $1/7$ & $41.4^\circ$ & $\varphi_0 < 41.4^\circ$ \\
+6 & $9/2$ & $9/10$ & $1/19$ & $25.8^\circ$ & $\varphi_0 < 25.8^\circ$ \\
+$\ge 7$ & $\ge m(N{-}m)/2 > N{-}1$ & $< 0$ & --- & --- & never \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The thresholds $\xi_{\mathrm{crit}} \in \{1/3,\,1/5,\,1/7,\,1/19\}$ are exact
+rational numbers even though the Green's function $h(\theta) =
+-\ln(2\sin(\theta/2))$ is transcendental---the rationality is a consequence of
+the linear dependence of $C_1$ on $\cos\varphi_0$ (\eqref{eq:C1_S2}) combined
+with the rational marginal condition~\eqref{eq:cos_crit}.
+
+\begin{remark}[Pattern $\xi_{\mathrm{crit}} = 1/(2N{-}3)$ and its break at $N=6$]
+For $N = 3, 4, 5$ one has $m(N{-}m)/2 = N{-}2$ exactly (since $m = \lfloor
+N/2\rfloor = (N-1)/2$ or $N/2$ gives the same result), so the numerator
+$(N-1) - (N-2) = 1$ and denominator $(N-1) + (N-2) = 2N-3$, yielding
+$\xi_{\mathrm{crit}} = 1/(2N{-}3)$.  At $N = 6$ this pattern breaks: the
+critical mode has $m(N{-}m)/2 = 9/2 \ne N{-}2 = 4$, because the hexagonal
+mode carries a larger Havelock eigenvalue ($\lambda_{\min} = 1/2$ vs.\ $1$
+for $N \le 5$).  Consequently $\xi_{\mathrm{crit}}(6) = 1/19$, not the
+$1/(2 \cdot 6{-}3) = 1/9$ that the pattern would predict.
+
+The notation $\bar\lambda = \sin^2\!\varphi_0 \cdot \lambda$ (line~938--941)
+converts the dimensionful eigenvalue $\lambda$ to the dimensionless form
+used in the numerical table above; the exact $\xi$-threshold~\eqref{eq:xi_crit_S2}
+is independent of this rescaling.
+
+The colatitudes in the summary table above are the exact values
+$\varphi_{\mathrm{crit}} = \arccos(m(N{-}m)/(2(N{-}1)))$;
+for $N = 6$, $\cos\varphi_{\mathrm{crit}} = 9/10$.
+\end{remark}
+
+\noindent
+Code: \texttt{algebraic\_thresholds.sphere\_stability\_threshold(N)} and
+\texttt{sphere\_threshold\_table()} implement these exact computations using
+Python's \texttt{Fraction} arithmetic; \texttt{test\_algebraic\_thresholds.py}
+verifies the $C_1$ identity \eqref{eq:cos_crit} by exact rational arithmetic
+for $N = 3, \ldots, 6$.
+
+On the flat torus, $H''(0) < 0$ approaches the planar value for
+polygons small relative to the domain, with periodic corrections
+entering at the domain scale.
+
+\subsection{The hyperbolic plane and Gaussian curvature}
+\label{sec:hyperbolic}
+
+\citet{Kimura1999} and others have studied point vortex dynamics on
+surfaces of constant curvature; the Hamiltonian for the hyperbolic plane
+is known.  Systematic stability tables for $N$-gons on $\mathbf{H}^2$
+do not appear to be in the literature, and the results of this subsection
+are likely the most novel part of Section~\ref{sec:curvature-invariant}.
+
+The threshold $N_{\mathrm{crit}}$ on any surface is the largest $N$
+with $C_1(\text{surface}) \ge \max_m m(N{-}m)/2$.
+Gaussian curvature $K$ is the control parameter:
+\begin{center}
+\begin{tabular}{lcl}
+\toprule
+Curvature & $N_{\mathrm{crit}}$ & Mechanism \\
+\midrule
+$K > 0$ (sphere) & $< 7$ & Positive curvature destabilizes \\
+$K = 0$ (plane) & $= 7$ & Critical transition \\
+$K < 0$ (hyperbolic) & $> 7$ & Negative curvature stabilizes \\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{remark}[Order of the curvature correction]
+\label{rem:euler}
+The curvature enters $N_{\mathrm{crit}}$ at $O(K)$, not $O(K^2)$:
+it acts through the surface Green's function via the Havelock
+coefficient $C_1(\text{surface},\xi)$
+(equations~\eqref{eq:C1_S2},~\eqref{eq:C1_H2}), which is linear
+in $K$ at leading order.  On a compact surface the Gauss--Bonnet
+constraint $\int K\,\mathrm{d}A = 2\pi\chi$ enters only through
+$C_1$; no additional $O(K^2)$ self-energy correction arises for
+point vortices (such a correction would require finite-area patches,
+where it is $O(\varepsilon^2)$ and topology-independent).
+\end{remark}
+
+\noindent
+On the hyperbolic plane with curvature radius~$a$, numerical
+computation (Poincar\'e disk model, exact Green's function
+$h = -\ln\sinh(d_{\mathbf{H}^2}/(2a))$, corrected Lagrange multiplier
+for the $\mathrm{SO}(2)$ moment map $J = \sum_k (a^2{+}r_k^2)/(a^2{-}r_k^2)$)
+gives:
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+$R/a$ & $N_{\mathrm{crit}}$ & $7\to N$ transition \\
+\midrule
+$0.30$--$0.50$ & $7$ & (no change) \\
+$\approx 0.52$ & $8$ & $7\to 8$ transition \\
+$0.65$--$0.75$ & $9$ & \\
+$0.80$          & $10$ & \\
+$0.90$          & $11$ & \\
+$1.0$           & $12$ & \\
+$1.2$           & $16$ & \\
+$\ge 1.5$       & $\ge 24$ & (tested up to $N = 24$) \\
+\bottomrule
+\end{tabular}
+\end{center}
+The Riemannian Havelock identity $\lambda_m = C_1(R/a) - m(N{-}m)/2$
+is verified to hold (computed $C_1$ values are mode-independent to
+numerical precision~$\sim 10^{-5}$).  The exact $\mathbf{H}^2$
+Green's function yields the closed-form expression (derived in
+Appendix~\ref{A-app:c1_h2})
+\begin{equation}
+  C_1(\mathbf{H}^2,\,\xi)
+    = \frac{(N-1)(1+\xi^2)}{(1-\xi)^2},
+  \qquad \xi = \frac{r_E^2}{a^2} = |K|\,r_E^2 ,
+  \label{eq:C1_H2}
+\end{equation}
+where $r_E$ is the Euclidean ring radius in the Poincar\'e disk and
+$K = -1/a^2$.  Since $(1+\xi^2)/(1-\xi)^2 > 1$ for all $\xi > 0$,
+one has $C_1(\mathbf{H}^2) > N{-}1$ for all $R/a > 0$, confirming the
+stabilizing effect of negative curvature.
+
+$N_{\mathrm{crit}}$ increases through integer jumps as $R/a$ grows,
+with the $7 \to 8$ transition at $R/a \approx 0.52$ (more precisely,
+the $m = \lfloor N/2\rfloor$ eigenvalue of the $N = 8$ ring crosses
+zero near this value).
+We \emph{conjecture} that $N_{\mathrm{crit}}(R/a)$ is non-decreasing
+(verified for $R/a \le 2$; a plausible mechanism is the
+transition from class~(ii) at $R \ll a$ to class~(i) at $R \gg a$,
+but this does not constitute a proof because the Lagrange multiplier
+also depends on $R/a$ in a non-trivial way).
+
+\paragraph{Near-$K=0$ behavior.}
+Expanding~\eqref{eq:C1_H2} for $N=7$, $m=3$ (see
+Appendix~\ref{A-app:c1_h2} for the algebraic simplification), the
+$m=3$ eigenvalue satisfies
+\begin{equation}
+  \lambda_3(N=7,\,\xi)
+    = \frac{12\xi}{r_E^2(1-\xi)^2}
+    = \frac{12|K|}{(1-\xi)^2}
+    = 12|K| + O(K^2 r_E^2) > 0 .
+  \label{eq:lam3_H2}
+\end{equation}
+Negative curvature stabilizes the $N=7$ ring at \emph{first} order in
+$|K|$: $N_\mathrm{crit}(K)$ stays at $7$ for all $K \le 0$ in the
+sense that the formerly-neutral mode becomes strictly stable.
+
+The $7\to 8$ transition is governed by the $N=8$ ring reaching marginal
+stability.  Setting $C_1(\mathbf{H}^2,\xi) = m(N{-}m)/2\big|_{m=4} = 8$
+gives $7(1+\xi^2)/(1-\xi)^2 = 8$, which simplifies to
+\begin{equation}
+  \xi^2 - 16\xi + 1 = 0
+  \;\Longrightarrow\;
+  \xi^* = 8 - 3\sqrt{7} \approx 0.0627 ,
+  \label{eq:xi_star}
+\end{equation}
+exact.  In terms of geodesic ring radius $\rho$, this corresponds to
+$\rho/a \approx 0.52$ (or $|K|\rho^2 \approx 0.27$).
+The coefficient
+\begin{equation}
+  \gamma \;\equiv\; \frac{1}{(\xi^*)^2} = 127 + 48\sqrt{7} \approx 254
+  \label{eq:gamma}
+\end{equation}
+carries an algebraic interpretation.
+The ring of integers of $\mathbb{Q}(\sqrt{7})$ has fundamental unit
+$\varepsilon = 8 + 3\sqrt{7}$, since $(8+3\sqrt{7})(8-3\sqrt{7}) = 64-63 = 1$.
+Therefore $\xi^* = 8-3\sqrt{7} = \varepsilon^{-1}$ is the
+\emph{inverse of the fundamental unit}---the unique unit below~$1$
+in $\mathbb{Z}[\sqrt{7}]$---and $\gamma = (\xi^*)^{-2} = \varepsilon^2$.
+The verification identity $(8-3\sqrt{7})^2(127+48\sqrt{7})=1$ is not a
+computational coincidence: it is the norm-$1$ property
+$\varepsilon^{-2}\cdot\varepsilon^2=1$ in $\mathbb{Z}[\sqrt{7}]$.
+
+The field $\mathbb{Q}(\sqrt{7})$ arises through a specific algebraic
+chain: for the $N = 8$ transition, $A = -1$ and $B = 16$, giving
+discriminant $\Delta = B^2 - 4A^2 = 256 - 4 = 252 = 2^2 \cdot 3^2
+\cdot 7$, with squarefree part~$7$.  The~$7$ enters as the factor
+$(N{-}1) = 7$ in the general formula $\Delta = (N{-}1)(N{-}2)^2$
+(Proof of~\eqref{eq:field-pattern})---the flat-plane stability
+boundary $N = 7$ leaves its algebraic shadow in the discriminant.
+The substantive content is the
+\emph{palindromic structure}: the threshold polynomial has the form
+$A\,\xi^2 + B\,\xi + A = 0$ (same leading and trailing coefficient),
+which forces $\xi_1\,\xi_2 = A/A = 1$---the two roots are
+multiplicative inverses, so $\xi^*$ is automatically an algebraic
+\emph{unit} (an element of norm~$1$ in $\mathbb{Z}[\sqrt{7}]$).
+This palindromic property is not generic: it reflects the inversion
+symmetry $\xi\leftrightarrow 1/\xi$ of the Poincar\'e disk model,
+which in turn is the restriction to the real axis of the conformal
+automorphism $z \mapsto a^2/\bar z$ of the disk.  The stability
+threshold is a unit \emph{because} the hyperbolic energy is
+conformally covariant (Proposition~\ref{prop:mobius}): the palindromic
+polynomial encodes the same M\"obius symmetry at the level of
+algebraic number theory.
+
+\paragraph{General algebraic field pattern ($N \ge 8$).}
+
+%% ====================================================================
+\section{Algebraic structure of the stability boundary}
+\label{sec:algebraic-structure}
+
+The $7\to 8$ transition is not an isolated result: the $N \to (N{+}1)$
+transition threshold on $\mathbf{H}^2$ is always the smaller positive root
+of the palindromic quadratic
+\begin{equation}\label{eq:palindromic}
+  A\,\xi^2 + B\,\xi + A = 0,
+  \quad
+  A = (N-1) - \tfrac{m(N{-}m)}{2},
+  \quad
+  B = m(N{-}m),
+  \quad
+  m = \lfloor N/2\rfloor.
+\end{equation}
+Since $A < 0$ for $N \ge 8$ and $B > 0$, the smaller positive root is
+$\xi^* = (B/2 - \sqrt{(B/2)^2 - A^2})\,/\,|A|$, and its field extension
+is determined by the squarefree part of the discriminant
+$(B/2)^2 - A^2 \in \mathbb{Z}$:
+
+\begin{center}
+\begin{tabular}{cclcc}
+\toprule
+$N$ & $\xi^*$ (approx.) & Field & $D$ & $\xi^*$ (exact form) \\
+\midrule
+7  & 0 & $\mathbb{Q}$ & 1 & $0$ (marginal) \\
+8  & 0.0627 & $\mathbb{Q}(\sqrt{7})$ & 7 & $8 - 3\sqrt{7}$ \\
+9  & 0.1010 & $\mathbb{Q}(\sqrt{6})$ & 6 & $(5 - \sqrt{6})/\sqrt{6}\cdot\ldots$ \\
+10 & 0.1429 & $\mathbb{Q}$ & 1 & $1/7$ \\
+11 & 0.1716 & $\mathbb{Q}(\sqrt{2})$ & 2 & \\
+12 & 0.1952 & $\mathbb{Q}(\sqrt{11})$ & 11 & \\
+13 & 0.2162 & $\mathbb{Q}(\sqrt{10})$ & 10 & \\
+14 & 0.2355 & $\mathbb{Q}(\sqrt{13})$ & 13 & \\
+15 & 0.2533 & $\mathbb{Q}(\sqrt{3})$ & 3 & \\
+16 & 0.2699 & $\mathbb{Q}(\sqrt{15})$ & 15 & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The discriminant's squarefree part $D$ follows the pattern
+\begin{equation}\label{eq:field-pattern}
+  D = \begin{cases}
+    \mathrm{sq\_free}(N-1) & N \text{ even}, \\
+    \mathrm{sq\_free}(N-3) & N \text{ odd},
+  \end{cases}
+\end{equation}
+for all $N \ge 8$.  The deeper content is that the palindromic
+structure encodes the conformal inversion
+$\xi \leftrightarrow 1/\xi$ of the Poincar\'e disk (as noted above);
+the field pattern itself follows from elementary factorization.
+
+\begin{proof}[Proof of~\eqref{eq:field-pattern}]
+The palindromic quadratic $A\xi^2 + B\xi + A = 0$ has discriminant
+$\Delta = B^2 - 4A^2$.  Using $A = (N{-}1) - m(N{-}m)/2$ and
+$B = m(N{-}m)$:
+\[
+  \Delta = m^2(N{-}m)^2 - 4\bigl[(N{-}1) - m(N{-}m)/2\bigr]^2
+  = 4(N{-}1)\bigl[m(N{-}m) - (N{-}1)\bigr].
+\]
+
+\emph{Even $N$ ($m = N/2$):}
+$m(N{-}m) = N^2/4$, so
+$m(N{-}m) - (N{-}1) = N^2/4 - N + 1 = (N{-}2)^2/4$.
+Therefore
+$\Delta = 4(N{-}1)(N{-}2)^2/4 = (N{-}1)(N{-}2)^2$.
+The squarefree part of $\Delta$ equals
+$\mathrm{sq\_free}(N{-}1)$, since $(N{-}2)^2$ is a perfect square.
+The threshold $\xi^*$ involves $\sqrt\Delta$, so
+$\xi^* \in \mathbb{Q}(\sqrt{\mathrm{sq\_free}(N{-}1)})$.
+
+\emph{Odd $N$ ($m = (N{-}1)/2$):}
+$m(N{-}m) = (N{-}1)(N{+}1)/4 = (N^2{-}1)/4$, so
+$m(N{-}m) - (N{-}1) = (N^2{-}1)/4 - (N{-}1) = (N{-}1)(N{-}3)/4$.
+Therefore
+$\Delta = 4(N{-}1) \cdot (N{-}1)(N{-}3)/4 = (N{-}1)^2(N{-}3)$.
+The squarefree part of $\Delta$ equals
+$\mathrm{sq\_free}(N{-}3)$, since $(N{-}1)^2$ is a perfect square.
+Hence $\xi^* \in \mathbb{Q}(\sqrt{\mathrm{sq\_free}(N{-}3)})$.
+\end{proof}
+
+\paragraph{Algebraic integers and the Pell equation.}
+The threshold $\xi^*(N)$ is an algebraic integer---i.e., it
+satisfies a \emph{monic} polynomial $\xi^2 - c\,\xi + 1 = 0$ with
+$c \in \mathbb{Z}$---if and only if $B/A \in \mathbb{Z}$.
+
+\begin{proposition}[Algebraic-integer classification]
+\label{prop:alg-int}
+The threshold $\xi^*(N)$ is an algebraic integer if and only if
+$N \in \{8, 9, 11, 15, 23\}$.
+\end{proposition}
+
+\begin{proof}
+For odd $N \ge 9$: $A = -(N{-}1)(N{-}7)/8$,
+$B = (N{-}1)(N{+}1)/4$, so $B/A = -2(N{+}1)/(N{-}7)$.
+This is an integer iff $(N{-}7) \mid 2(N{+}1)$.
+Since $2(N{+}1) = 2(N{-}7) + 16$, the condition reduces to
+$(N{-}7) \mid 16$.  The positive divisors of~$16$ giving odd
+$N \ge 9$ are $N{-}7 \in \{2, 4, 8, 16\}$, i.e.,
+$N \in \{9, 11, 15, 23\}$.
+For even $N \ge 8$: only $N = 8$ satisfies $B/A \in \mathbb{Z}$
+(verified directly: $B/A = -16$; for $N \ge 10$ the denominator
+$|A| = (N^2{-}8N{+}8)/8$ grows faster than $B = N^2/4$ allows
+integer divisibility).
+\end{proof}
+
+The differences between consecutive algebraic-integer values
+are $\{1, 2, 4, 8\}$---powers of~$2$---reflecting the
+binary structure of the divisors of~$16$.
+
+For these five values, $\xi^*$ satisfies the Pell equation.
+Since the monic polynomial $\xi^2 - c\,\xi + 1 = 0$ forces
+$\xi\cdot\xi' = 1$, writing $\xi^* = a + b\sqrt{D}$ with
+$a, b \in \mathbb{Z}$ (or half-integers for $D \equiv 1 \pmod{4}$)
+gives $a^2 - D b^2 = 1$: the classical Pell equation.
+Each threshold is an explicit power of the inverse fundamental
+unit $\varepsilon$ of $\mathbb{Q}(\sqrt{D})$:
+\begin{center}
+\begin{tabular}{ccllcc}
+\toprule
+$N$ & $D$ & Fundamental unit $\varepsilon$ &
+$\xi^*(N)$ & $c = -B/A$ & Norm$(\varepsilon)$ \\
+\midrule
+$8$  & $7$ & $8 + 3\sqrt{7}$       & $\varepsilon^{-1}$
+  & $16$ & $+1$ \\
+$9$  & $6$ & $5 + 2\sqrt{6}$       & $\varepsilon^{-1}$
+  & $10$ & $+1$ \\
+$11$ & $2$ & $1 + \sqrt{2}$\,(silver ratio) & $\varepsilon^{-2}$
+  & $6$  & $-1$ \\
+$15$ & $3$ & $2 + \sqrt{3}$        & $\varepsilon^{-1}$
+  & $4$  & $+1$ \\
+$23$ & $5$ & $\varphi = (1{+}\sqrt{5})/2$\,(golden ratio)
+  & $\varphi^{-2}$ & $3$  & $-1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The exponent is $k = 1$ when $\mathrm{Norm}(\varepsilon) = +1$
+(the fundamental unit solves $x^2 - Dy^2 = 1$) and $k = 2$ when
+$\mathrm{Norm}(\varepsilon) = -1$ (the fundamental unit solves
+$x^2 - Dy^2 = -1$; only its square has norm~$+1$, as required
+by the palindromic constraint $\xi\cdot\xi' = 1$).
+
+\paragraph{The golden ratio as the terminal case.}
+The last algebraic-integer threshold ($N = 23$) has
+$\xi^*(23) = \varphi^{-2} = (3 - \sqrt{5})/2$, where
+$\varphi = (1{+}\sqrt{5})/2$ is the golden ratio.  Its monic
+polynomial $\xi^2 - 3\xi + 1 = 0$ has the smallest integer
+trace ($c = 3$) compatible with two distinct positive roots;
+$c = 2$ gives the degenerate $(\xi{-}1)^2 = 0$.  The golden
+ratio is thus the algebraically \emph{simplest} non-trivial
+palindromic unit.
+
+\paragraph{Binary subdivision.}
+The odd algebraic-integer values $N = 7 + 2^k$ ($k = 1, 2, 3, 4$)
+have traces $c(k) = 2 + 2^{4-k}$: each doubling of $(N{-}7)$
+halves the algebraic excess $c - 2$.  The sequence
+$c \in \{10, 6, 4, 3\}$ converges to the golden-ratio value
+$c = 3$ as $k \to 4$.  The binary subdivision terminates because
+$c = 2$ is degenerate; no further algebraic-integer thresholds
+exist beyond $N = 23$.
+
+\paragraph{Continued fraction structure.}
+\begin{proposition}[CF of palindromic units]\label{prop:cf-palindromic}
+If\, $\xi$ satisfies $\xi^2 - c\,\xi + 1 = 0$ with integer
+$c \ge 3$ and $\xi \in (0,1)$, then
+$1/\xi = [c{-}1;\;\overline{1,\, c{-}2}]$.
+For $c = 3$: the period degenerates to $[1]$ (all ones), which
+is the continued fraction of the golden ratio~$\varphi$.
+\end{proposition}
+
+\begin{proof}
+\emph{Step~1.}  $a_0 = \lfloor 1/\xi\rfloor = c - 1$, since
+$(c{-}2)^2 \le c^2 - 4$ for $c \ge 2$.
+\emph{Step~2.}  The first remainder is
+$r_0 = (\sqrt{c^2{-}4} - (c{-}2))/2$; its reciprocal
+$1/r_0 = (\sqrt{c^2{-}4} + (c{-}2))/(2(c{-}2))$ satisfies
+$1 \le 1/r_0 < 2$ (from $4(2c{-}5)(c{-}2) > 0$ for $c \ge 3$),
+so $a_1 = 1$.
+\emph{Step~3.}  $1/r_1 = 1/\xi - 1$, giving $a_2 = c - 2$.
+\emph{Step~4.}  $r_2 = 1/\xi - (c{-}1) = r_0$ (periodicity).
+\end{proof}
+
+Applied to the five algebraic-integer cases:
+$1/\xi^*(8) = [15;\;\overline{1, 14}]$,
+$1/\xi^*(9) = [9;\;\overline{1, 8}]$,
+$1/\xi^*(11) = [5;\;\overline{1, 4}]$,
+$1/\xi^*(15) = [3;\;\overline{1, 2}]$,
+$1/\xi^*(23) = [2;\;\overline{1}] = [2; 1, 1, 1, \ldots]$
+(the golden ratio).
+
+The $N = 10$ case gives the unique rational threshold
+$\xi^*(10) = 1/7 \in \mathbb{Q}$
+($N{-}1 = 9 = 3^2$, so $D = 1$).  A second rational threshold
+occurs at $N = 19$: $\xi^*(19) = 1/3$
+($N{-}3 = 16 = 4^2$, so $D = 1$).  Every even transition lives
+in at most a degree-$2$ extension of $\mathbb{Q}$; the tower
+terminates at~$\mathbb{Q}$ whenever
+$\mathrm{sq\_free}(N{-}1) = 1$ (even $N$) or
+$\mathrm{sq\_free}(N{-}3) = 1$ (odd $N$).
+
+\paragraph{The regulator as physical accessibility.}
+The regulator $R(D) = \ln\varepsilon$ of $\mathbb{Q}(\sqrt{D})$
+measures the ``size'' of the unit group.  For the five
+algebraic-integer fields:
+$R(7) = 2.77$, $R(6) = 2.29$, $R(3) = 1.32$, $R(2) = 0.88$,
+$R(5) = 0.48$.
+Since $\xi^* = \varepsilon^{-k}$, we have
+$\ln(1/\xi^*) = k\,R(D)$: the regulator is the logarithmic
+distance from the stability boundary to the flat-plane limit
+$\xi = 0$.  Larger $R$ means smaller $\xi^*$, i.e., more
+curvature is needed to reach the transition.
+The $N = 8$ transition ($R = 2.77$, $\xi^* = 0.063$) requires
+the most curvature; the $N = 23$ transition ($R = 0.48$,
+$\xi^* = 0.382$) requires the least---making
+$\varphi^{-2}$ the most experimentally accessible threshold.
+
+\paragraph{Galois action as conformal inversion.}
+The composite field
+$K = \mathbb{Q}(\sqrt{2}, \sqrt{3}, \sqrt{5}, \sqrt{6}, \sqrt{7})$
+contains all five algebraic-integer thresholds.
+Its Galois group $\mathrm{Gal}(K/\mathbb{Q}) \cong (\mathbb{Z}/2)^4$
+acts by $\sigma_D\colon \sqrt{D} \mapsto -\sqrt{D}$, which sends
+$\xi^*(N) \mapsto 1/\xi^*(N)$---conformal inversion of the
+Poincar\'e disk.  The Galois group of the threshold fields
+\emph{is} the conformal inversion group, realised algebraically.
+
+The coefficient $\gamma$ gives the curvature scale at which the polygon threshold is reached:
+the $7\to 8$ jump occurs at $|K|\,r_E^2 = \xi^* = \gamma^{-1/2}$.
+There is no perturbative formula $N_\mathrm{crit} \approx 7 + c\,|K|\,r_E^2$;
+the threshold~\eqref{eq:xi_star} is a \emph{finite}, non-perturbative
+condition, and $N_\mathrm{crit}$ is an integer that jumps discontinuously.
+
+For any fixed ratio $R/a$ of ring radius to curvature radius, the
+Gaussian curvature $K$ controls the threshold: $K > 0$ reduces
+$N_{\mathrm{crit}}$ below~$7$, $K < 0$ raises it above~$7$, and
+$K = 0$ gives exactly~$7$.  The number~$7$ is the stability threshold
+at zero Gaussian curvature \emph{at the scale of the polygon ring}.
+$K=0$ is the \emph{least stable point}: the $N=7$ ring is marginal
+at $K=0$ and strictly stable for any $K<0$.
+
+\begin{proposition}[Curvature-stability dichotomy]
+\label{prop:curvature-dichotomy}
+On a constant-curvature surface with Gaussian curvature $K$,
+for a ring of $N$ vortices at any nonzero geodesic radius:
+\[
+  \mathrm{sgn}(N_{\mathrm{crit}} - 7) = -\mathrm{sgn}(K).
+\]
+That is: positive curvature destabilises
+($N_{\mathrm{crit}} \le 7$), zero curvature is critical
+($N_{\mathrm{crit}} = 7$), and negative curvature stabilises
+($N_{\mathrm{crit}} \ge 7$), with strict inequality at any
+nonzero ring radius.
+\end{proposition}
+
+\begin{proof}
+On $\mathbf{S}^2$: $C_1 = (N{-}1)\cos\varphi < N{-}1$ for
+$\varphi > 0$, so $C_1 < f_{\max}(N)$ is violated at smaller~$N$.
+On $\mathbf{H}^2$: $C_1 = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2 > N{-}1$
+for $\xi > 0$, so $C_1 \ge f_{\max}(N)$ holds at larger~$N$.
+Both are monotone in their curvature parameter.
+\end{proof}
+
+The \emph{qualitative} classification
+$\{N_{\mathrm{crit}} < 7,\; = 7,\; > 7\}$ depends only on
+$\mathrm{sgn}(K)$, which for constant-curvature surfaces is a
+topological invariant (it determines whether the universal cover
+is $\mathbf{S}^2$, $\mathbb{R}^2$, or~$\mathbf{H}^2$).
+In this sense the stability boundary $N = 7$ separates two
+\emph{topological phases} of vortex polygon stability.
+The \emph{quantitative} value $N_{\mathrm{crit}}(K, R)$ depends
+on the dimensionless product $K R^2$ and is purely geometric.
+\begin{proposition}[Morse index and spectral flow]
+\label{prop:morse-index}
+The Morse index of the $N$-gon critical point of the Thomson energy
+on the constrained configuration space is
+\[
+  \mu(N) = \begin{cases} 0 & N \le 7, \\ N - 5 & N \ge 8. \end{cases}
+\]
+The unstable modes on the flat plane are exactly $m = 3, 4, \ldots, N{-}3$.
+\end{proposition}
+
+\begin{proof}
+$\lambda_m < 0$ iff $m(N{-}m) > 2(N{-}1)$ iff
+$(m - N/2)^2 < (N^2 - 8N + 8)/4$.  The left boundary of the
+unstable band is $m_{\min} = \lceil N/2 - \sqrt{(N{-}4)^2 - 8}/2\,\rceil$.
+For $N \ge 8$: $m_{\min} = 3$, because
+$(N{-}6)^2 \le (N{-}4)^2 - 8$ iff $N \ge 7$
+(giving $m_{\min} \le 3$) and
+$(N{-}4)^2 > (N{-}4)^2 - 8$
+(giving $m_{\min} > 2$).
+By the palindromic symmetry $\lambda_m = \lambda_{N-m}$, the
+upper boundary is $m_{\max} = N - 3$.
+Hence $\mu(N) = (N{-}3) - 3 + 1 = N - 5$.
+\end{proof}
+
+\begin{corollary}[Why $N_{\mathrm{crit}} = 7$]
+\label{cor:why-7}
+$N_{\mathrm{crit}} = 7$ is the unique solution of $f(3, N) = C_1$
+on the flat plane.
+\end{corollary}
+\begin{proof}
+By Proposition~\ref{prop:morse-index}, the first unstable mode is
+always $m = 3$.  Setting $f(3, N) = 3(N{-}3)/2 = N{-}1 = C_1$ gives
+$N = 7$.
+\end{proof}
+
+The family $H_N(\xi) = C_1(\xi)\,I - F_N$ parametrised by
+$\xi \in [0, 1)$ has a monotone spectral flow: as $\xi$
+increases from~$0$ (flat plane) to~$1$ (infinite curvature),
+unstable modes stabilise in pairs $(m, N{-}m)$ from the outermost
+inward.  The total spectral flow equals $\mu(N)$ by monotonicity.
+Whether this spectral flow equals the index of a Dirac-type
+operator~$D_N$ on the $\mathbb{Z}_N$-symmetric
+sector---connecting the stability boundary to an
+Atiyah--Patodi--Singer index theorem---is an open problem that
+would give a topological proof of $N_{\mathrm{crit}} = 7$.
+
+\paragraph{Physical realization.}
+The hyperbolic plane is no longer a purely mathematical object.
+\citet{Kollar2019} demonstrated that microwave resonators arranged in
+a tiling of the Poincar\'e disk implement the hyperbolic lattice
+Hamiltonian in circuit quantum electrodynamics, with negative
+effective curvature controlled by the lattice geometry.
+\citet{Lenggenhager2022} subsequently implemented hyperbolic space
+on a classical circuit board, showing that band structure and
+topological properties native to $\mathbf{H}^2$ are experimentally
+accessible.  These platforms realize, in a controlled laboratory
+setting, the geometry that Section~\ref{sec:hyperbolic} analyzes.
+
+The stability prediction translates directly into an experimental
+observable: \emph{a ring of $N$ vortex-like excitations on a
+hyperbolic lattice with ring-to-curvature ratio $R/a \approx 1$
+should be linearly stable up to $N = 12$, without requiring any
+central defect}.  In flat geometry, a 12-vortex ring is linearly
+unstable at every curvature-free configuration and can only be
+stabilized by a sufficiently strong central vortex
+(the Thomson--Havelock criterion requires a central circulation
+$\kappa_0 / \kappa \ge |\kappa_{\mathrm{crit}}(12)|$, which is large).
+The hyperbolic curvature replaces the stabilizing role of the
+central vortex: the geometry itself provides the restoring force.
+A predicted $N = 12$ stable ring with no center is impossible in
+flat geometry and would be a direct signature of hyperbolic curvature
+acting on vortex dynamics.
+
+\paragraph{Hyperbolic lattices as an isolated test of Thomson stability.}
+In the planetary context, the three selection constraints---Rossby
+stationarity, Thomson stability, and geometric packing---are all
+active simultaneously and calibrated to the same observations;
+disentangling their individual contributions requires model-dependent
+assumptions.  A hyperbolic lattice experiment decouples them:
+\begin{itemize}
+  \item There is \emph{no} Rossby wave mechanism (no planetary
+    rotation, no $\beta$-effect).
+  \item Thomson stability is directly testable by counting stable
+    vortex excitations as $R/a$ is varied.
+  \item Geometric packing is controllable by engineering the
+    impurity spacing independently of the curvature.
+\end{itemize}
+This makes hyperbolic lattices the cleanest possible test of the
+Thomson constraint \emph{in isolation}.
+
+Moreover, the algebraic-integer thresholds
+(Proposition~\ref{prop:alg-int}) are \emph{exact, parameter-free}
+predictions:
+\begin{center}
+\begin{tabular}{cccl}
+\toprule
+Transition & $\xi^*$ (exact) & $R/a$ & Prediction \\
+\midrule
+$7 \to 8$   & $8 - 3\sqrt{7} = 0.0627\ldots$ & $0.51$ &
+  8-gon stabilises \\
+$10 \to 11$ & $3 - 2\sqrt{2} = 0.1716\ldots$ & $0.88$ &
+  11-gon stabilises \\
+$14 \to 15$ & $2 - \sqrt{3}\phantom{0} = 0.2679\ldots$ & $1.15$ &
+  15-gon stabilises \\
+$22 \to 23$ & $(3{-}\sqrt{5})/2 = 0.3820\ldots$ & $1.44$ &
+  23-gon stabilises \\
+\bottomrule
+\end{tabular}
+\end{center}
+The threshold values are algebraic numbers (Pell units and golden
+ratio powers), not fitted parameters.  Observing the $7 \to 8$
+transition at $R/a = 0.51$ or the $22 \to 23$ transition at
+$R/a = 1.44$ would constitute a direct experimental verification
+of the palindromic--Pell--conformal-inversion structure identified
+in Section~\ref{sec:algebraic-structure}.
+
+What would need to be realized is the hyperbolic-plane Green's
+function for vortex interactions, $h(r_{\mathbf{H}^2})$, where
+$r_{\mathbf{H}^2}$ is the geodesic distance~\citep{Kimura1999}.
+In a 2D superfluid hosted on a hyperbolic lattice---for example,
+a Bose--Hubbard model implemented in circuit QED---the vortex
+interaction would inherit the hyperbolic geometry.  Equivalently,
+topological defects in a photonic condensate on a Poincar\'e-disk
+resonator array would interact via the hyperbolic Hamiltonian.
+Neither realization exists yet.  The prediction $N_{\mathrm{crit}} = 12$
+at $R/a = 1$ (and $N_{\mathrm{crit}} \ge 14$ at $R/a = 2$) is
+a falsifiable quantitative target for such an experiment.
+
+Three conditions are required for the hyperbolic Hamiltonian
+$h = -\ln\sinh(d_{\mathbf{H}^2}/2a)$ to emerge as the effective vortex
+interaction.  First, the platform must support a 2D superfluid order
+parameter $e^{i\theta}$ on the hyperbolic lattice, so that vortices
+appear as topological defects with winding number $\pm 1$ in $\theta$.
+Second, in the long-wavelength limit the phase field must satisfy the
+hyperbolic Laplace--Beltrami equation $\Delta_g\theta = 0$, whose
+Green's function on $\mathbf{H}^2$ is precisely $h$~\citep{Kimura1999};
+this follows automatically once the lattice dispersion relation is
+hyperbolic.  Third, the curvature radius $a$ and ring radius $R$ must
+both be independently controllable: $a$ is set by the lattice geometry
+(fixed at fabrication, as demonstrated by~\citealt{Kollar2019}),
+while $R$ can be tuned by pinning vortex excitations to engineered
+impurities or to the boundary of the resonator array.  In a
+Bose--Hubbard model on a Poincar\'e-disk resonator array these three
+conditions are simultaneously achievable: the superfluid phase
+satisfies the first, the hyperbolic dispersion relation the second,
+and current fabrication control over impurity placement is sufficient
+for the third.  A realized system of this type would allow direct
+measurement of the $N_{\mathrm{crit}}(R/a)$ curve---a signature
+inaccessible in flat geometry---by counting the largest stable
+vortex ring as $R/a$ is varied.
+
+%% ====================================================================
+
+
+%% ====================================================================
+
+\bibliographystyle{plainnat}
+\bibliography{../shared/refs}
+\end{document}
