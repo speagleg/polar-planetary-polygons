@@ -557,21 +557,24 @@ Equation~\eqref{eq:trace-formula} gives
 $H_{rr}^{(m)}+H_{tt}^{(m)}
 = \bigl[\sum_p \nabla^2_{\mathrm{LB}} h(d_p)\cos(2\pi pm/N)\bigr]
 - \bigl[\sum_p \nabla^2_{\mathrm{LB}} h(d_p)\bigr]$.
-On any compact 2D Riemannian manifold, the Green's function $G$ of
-the Laplace--Beltrami operator satisfies
-$\nabla^2_{\mathrm{LB},x} G(x,y) = 1/\mathrm{Vol}(M)$ for
-$x \neq y$ (constant, independent of $x$, $y$, or separation).
+On any compact 2D Riemannian manifold, the normalized Green's function
+$G$ of the Laplace--Beltrami operator satisfies
+$\nabla^2_{\mathrm{LB},x} G(x,y) = \delta_y(x) - 1/\mathrm{Vol}(M)$,
+so for $x \ne y$:
+$\nabla^2_{\mathrm{LB},x} G(x,y) = -1/\mathrm{Vol}(M)$
+(constant, independent of $x$, $y$, or separation).
 Hence $\nabla^2_{\mathrm{LB}} h(d_p) = c$ is the \emph{same
-constant} for every pair~$p$, and
+constant} for every pair~$p$ (with $c = -1/\mathrm{Vol}(M)$
+on a compact surface, $c = 0$ on the plane), and
 $\sum_p \nabla^2_{\mathrm{LB}} h(d_p)\cos(2\pi pm/N)
 = c\sum_{p=1}^{N-1}\cos(2\pi pm/N) = -c$,
 which is independent of~$m$.  Therefore $H_{rr}^{(m)}+H_{tt}^{(m)}
 = -c - (N{-}1)c = -Nc \equiv \delta$ is mode-independent.
 On the plane ($\mathrm{Vol} = \infty$), $c = 0$, so $\delta = 0$
-(exact tracelessness); on curved surfaces $c = 1/\mathrm{Vol}(M)
-\ne 0$, giving $\delta = -N/\mathrm{Vol}(M)$, which shifts $C_1$
+(exact tracelessness); on a compact surface $c = -1/\mathrm{Vol}(M)$,
+giving $\delta = N/\mathrm{Vol}(M)$, which shifts $C_1$
 without affecting $f(m,N)$.  On the sphere of radius $R$:
-$\mathrm{Vol} = 4\pi R^2$, so $\delta = -N/(4\pi R^2)$,
+$\mathrm{Vol} = 4\pi R^2$, so $\delta = N/(4\pi R^2)$,
 consistent with the colatitude-dependent $C_1$ of
 Section~\ref{sec:curved}.
 
