@@ -100,3 +100,14 @@ the discriminant contains the factor (N-1)=7, which is the residue of the
 flat-plane marginality at N=7. The appearance of 7 in the number field
 Q(√7) is not a coincidence — it is the algebraic shadow of the N=7
 stability boundary.
+
+## Direction 2: Class Numbers (explored, elementary result)
+
+All 5 algebraic-integer threshold fields have class number h(D)=1 (UFD).
+This is NOT a deep coincidence: (N-7)|16 forces D ∈ {2,3,5,6,7}, and
+all squarefree D ≤ 7 have h=1 by classical results. Worth a brief
+remark in the paper but not a theorem.
+
+Non-UFD fields (h>1) first appear at N=13 (D=10, h=2). These always
+correspond to non-algebraic-integer thresholds. No D with h≥3 appears
+for N ≤ 50.
