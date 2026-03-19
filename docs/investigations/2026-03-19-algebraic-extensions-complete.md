@@ -180,3 +180,28 @@ class iii breaks the sign rule). This is already noted in the paper.
 
 The algebraic structure discovered in this paper is intrinsically 2D —
 and planetary atmospheres provide exactly this 2D constraint.
+
+## Extension A: Torus Stability (explored, negative feasibility)
+
+**Result: The flat torus T² does not directly support the ring stability
+problem.** The analogue of the N-gon ring on the torus is a vortex ROW
+(N equally-spaced vortices along one period). This row decomposes into:
+- In-row (longitudinal) modes: ALWAYS stable for all N and all τ
+- Out-of-row (transverse) modes: ALWAYS unstable (von Kármán instability)
+
+There is no stability THRESHOLD analogous to N=7 on the torus, because:
+1. The torus has no angular impulse (no origin → no L = Σ|z_k|²)
+2. The Lagrange multiplier correction that creates the Havelock eigenvalues
+   does not exist on the torus
+3. The vortex row is always transversely unstable, regardless of N
+
+The j-invariant conjecture (ξ_crit ∈ Q(j(τ))) is therefore NOT applicable
+in this setting. The modular form connection, if it exists, would need a
+different geometric setup — perhaps vortices on a CURVED torus (constant
+negative curvature surface of genus g ≥ 2, whose moduli space IS connected
+to modular forms via the Selberg zeta function).
+
+**Open direction**: The Bolza surface (genus 2, {8,3} tiling) is the
+simplest compact hyperbolic surface. Point vortices on the Bolza surface
+would combine the H² algebraic structure with genus-dependent modular
+corrections. This is a research program, not a quick computation.
