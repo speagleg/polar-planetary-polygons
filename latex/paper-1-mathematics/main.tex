@@ -927,8 +927,7 @@ $\ge 1.5$       & $\ge 24$ & (tested up to $N = 24$) \\
 The Riemannian Havelock identity $\lambda_m = C_1(R/a) - m(N{-}m)/2$
 is verified to hold (computed $C_1$ values are mode-independent to
 numerical precision~$\sim 10^{-5}$).  The exact $\mathbf{H}^2$
-Green's function yields the closed-form expression (derived in
-companion Appendix~A)
+Green's function yields
 \begin{equation}
   C_1(\mathbf{H}^2,\,\xi)
     = \frac{(N-1)(1+\xi^2)}{(1-\xi)^2},
@@ -936,7 +935,25 @@ companion Appendix~A)
   \label{eq:C1_H2}
 \end{equation}
 where $r_E$ is the Euclidean ring radius in the Poincar\'e disk and
-$K = -1/a^2$.  Since $(1+\xi^2)/(1-\xi)^2 > 1$ for all $\xi > 0$,
+$K = -1/a^2$.
+
+\emph{Proof sketch} (full derivation in companion Appendix~A).
+Three contributions determine $C_1$:
+(i)~the \emph{flat-plane Havelock term} $C_1^{(0)} = N{-}1$, which
+gives the inter-vortex interaction in the $\xi \to 0$ limit;
+(ii)~a \emph{curvature correction} arising from the difference
+$h(d_{\mathbf{H}^2}) - h(d_{\mathrm{flat}})$ between the
+hyperbolic and Euclidean pairwise interactions, evaluated at
+the $N$-gon separations; and
+(iii)~a \emph{Lagrange multiplier shift}: on $\mathbf{H}^2$ the
+angular-impulse constraint involves the hyperbolic moment map
+$L = \sum |z_k|^2/(1 - |z_k|^2/a^2)^2$, which changes $\mu_L$
+relative to its flat value $-(N{-}1)/(4R^2)$.
+The three combine into the rational function
+$(N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$, verified by explicit computation
+of each term (Appendix~A, equations~A.1--A.5).
+
+Since $(1+\xi^2)/(1-\xi)^2 > 1$ for all $\xi > 0$,
 one has $C_1(\mathbf{H}^2) > N{-}1$ for all $R/a > 0$, confirming the
 stabilizing effect of negative curvature.
 
