@@ -848,11 +848,12 @@ per-pair quartic~\eqref{eq:quartic-153} depends on $p$ only through
 $A_p = 4\sin^2(\pi p/7)$ and the mode overlap
 $B_p = 2\operatorname{Re}(\Delta z\cdot\overline{\Delta u})$,
 $C_p = |\Delta u|^2$.  These are algebraic numbers in
-$\mathbb{Q}(\zeta_7)$; summing with exact arithmetic (implemented in
-\texttt{n7\_bifurcation.py}) gives $153/7$, verified independently by
-$50$-decimal-place floating-point evaluation.  The Galois rationality
-proof and the direct algebraic summation together constitute an
-exact result, not a numerical conjecture.
+$\mathbb{Q}(\zeta_7)$.  The Galois rationality argument is the
+proof: $\mathbb{Z}_7$-invariant sums over $\mathbb{Q}(\zeta_7)$
+lie in the fixed field $\mathbb{Q}$, so the quartic coefficient is
+rational \emph{a priori}; direct algebraic summation
+(\texttt{n7\_bifurcation.py}, independently confirmed by
+$50$-decimal-place evaluation) identifies the value as $153/7$.
 (The $\mathbb{Z}_7$ symmetry forces the degree-$4$ form on
 the $2$-dimensional neutral subspace to be proportional to $|z|^4$,
 so $153/7$ holds for \emph{any} unit vector in the $\{m{=}3,\,m{=}4\}$
