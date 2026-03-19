@@ -563,10 +563,21 @@ Equation~\eqref{eq:trace-formula} gives
 $H_{rr}^{(m)}+H_{tt}^{(m)}
 = \bigl[\sum_p \nabla^2_{\mathrm{LB}} h(d_p)\cos(2\pi pm/N)\bigr]
 - \bigl[\sum_p \nabla^2_{\mathrm{LB}} h(d_p)\bigr]$.
-On any compact 2D Riemannian manifold, the normalized Green's function
-$G$ of the Laplace--Beltrami operator satisfies
-$\nabla^2_{\mathrm{LB},x} G(x,y) = \delta_y(x) - 1/\mathrm{Vol}(M)$,
-so for $x \ne y$:
+On any compact 2D Riemannian manifold, the point vortex
+Hamiltonian uses the \emph{normalized} Green's function
+$G$ of the Laplace--Beltrami operator (zero spatial mean:
+$\int_M G(x,y)\,\dd\mu(x) = 0$), which satisfies
+$\nabla^2_{\mathrm{LB},x} G(x,y) = \delta_y(x) - 1/\mathrm{Vol}(M)$.
+On the plane, $G(x,y) = -(2\pi)^{-1}\ln|x{-}y|$ and the
+$1/\mathrm{Vol}$ term vanishes ($\mathrm{Vol} = \infty$),
+recovering the kernel of equation~\eqref{eq:thomson-H}.
+On a compact surface the normalization adds a constant
+$R(y) = G(x,y) + (2\pi)^{-1}\ln d(x,y)$ (the Robin function),
+which is independent of the vortex \emph{configuration} and
+therefore does not affect the Hessian $\nabla^2 H$ at the
+$N$-gon equilibrium.  The mode-independence argument below
+depends only on $\nabla^2_{\mathrm{LB}} G$ away from the
+diagonal, where
 $\nabla^2_{\mathrm{LB},x} G(x,y) = -1/\mathrm{Vol}(M)$
 (constant, independent of $x$, $y$, or separation).
 Hence $\nabla^2_{\mathrm{LB}} h(d_p) = c$ is the \emph{same
