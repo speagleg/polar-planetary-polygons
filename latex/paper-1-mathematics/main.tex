@@ -737,7 +737,7 @@ stability boundary}:
 $N$ & 3 & 4 & 5 & 6 & 7 & $\ge 8$ \\
 \midrule
 $\varphi_{\mathrm{crit}}$ & $60.0^\circ$ & $48.2^\circ$ &
-  $41.4^\circ$ & $25.8^\circ$ & $0^\circ$ & $0^\circ$ \\
+  $41.4^\circ$ & $25.8^\circ$ & $0^\circ$ & --- \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -754,9 +754,14 @@ Saturn's hexagon at $76^\circ$\,N ($\varphi_0 = 14^\circ$) lies
 inside $\varphi_{\mathrm{crit}}(6) = 26.6^\circ$: the hexagonal
 ring is in the stable zone.  If the hexagon were at $60^\circ$\,N
 ($\varphi_0 = 30^\circ > 26.6^\circ$), it would cross the boundary
-and the pattern would not persist.  Jupiter's octagon ($N = 8$) is
-unstable at all colatitudes, consistent with the need for a
-central vortex.
+and the pattern would not persist.  For $N = 7$: $\cos\varphi_{\mathrm{crit}} = 6/6 = 1$, so
+$\varphi_{\mathrm{crit}} = 0^\circ$---the $7$-gon is marginally
+stable only at the exact pole, consistent with the flat-plane
+marginality $\lambda_3 = 0$.
+For $N \ge 8$: $\cos\varphi_{\mathrm{crit}} > 1$, which is
+unattainable; no stable latitude exists on the sphere.
+Jupiter's octagon ($N = 8$) is therefore unstable at all
+colatitudes, consistent with the need for a central vortex.
 
 \paragraph{Derivation of $C_1(\mathbf{S}^2)$ and exact thresholds.}
 For $N$ vortices on a latitude circle at colatitude $\varphi_0$, the
@@ -807,7 +812,9 @@ $N$ & $m(N{-}m)/2$ & $\cos\varphi_{\mathrm{crit}}$ & $\xi_{\mathrm{crit}}$ &
 4 & $2$ & $2/3$ & $1/5$ & $48.2^\circ$ & $\varphi_0 < 48.2^\circ$ \\
 5 & $3$ & $3/4$ & $1/7$ & $41.4^\circ$ & $\varphi_0 < 41.4^\circ$ \\
 6 & $9/2$ & $9/10$ & $1/19$ & $25.8^\circ$ & $\varphi_0 < 25.8^\circ$ \\
-$\ge 7$ & $\ge m(N{-}m)/2 > N{-}1$ & $< 0$ & --- & --- & never \\
+7 & $6$ & $1$ & $0$ & $0^\circ$ &
+  pole only (marginal) \\
+$\ge 8$ & $> N{-}1$ & $> 1$ & --- & --- & never \\
 \bottomrule
 \end{tabular}
 \end{center}
