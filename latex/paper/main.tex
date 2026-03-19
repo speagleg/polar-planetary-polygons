@@ -50,23 +50,28 @@ stable if and only if the central vortex carries winding number
 $q_0 \ge 1$.
 
 The central unifying result is a \emph{constraint-intersection
-principle}: three selection mechanisms---Rossby wave stationarity,
-Thomson vortex stability, and geometric packing---each derived from
-the 2D Laplacian, constrain the polygon wavenumber $N$ from above.
-The observed $N$ is determined by whichever constraint is tightest,
-and different planetary parameters activate different constraints.
-Saturn's hexagon ($N = 6$) is Rossby-limited (wave stationarity
-of the QGPV equation selects $n = 6$).
-Jupiter's north-pole octagon ($N = 8$) is Thomson-limited (the
-ring energy $H_N$ is strictly increasing in $N$, so Onsager
-negative-temperature dynamics selects the maximum stable $N$;
-the prediction $N_{\max} = 8$ relies on
+principle}: three selection mechanisms constrain the polygon
+wavenumber $N$ from above, and the observed $N$ is determined by
+whichever is tightest.
+Two are fully derived from the 2D Laplacian~$\nabla^2$:
+\emph{Thomson stability} (eigenvalues of the Green's function
+$G(\nabla^2)$) and \emph{Rossby stationarity} (stationary solutions
+of $(\nabla^2 + \beta\,\partial_y)\psi = 0$).
+The third---\emph{geometric packing}---has a Laplacian-derived
+skeleton (the domain admissibility condition
+$\sin(\pi/N) \ge \varepsilon/R$ for the Green's function on the
+punctured domain) but requires one empirical input: the
+$\beta$-drift enlargement $r_{\mathrm{excl}} \approx
+1.3\,r_{\mathrm{core}}$ from nonlinear vortex dynamics on a
+rotating sphere \citep{Gavriel2021}, not derivable from the
+linear operator alone.
+Saturn's hexagon ($N = 6$) is Rossby-limited (fully derived).
+Jupiter's north-pole octagon ($N = 8$) is Thomson-limited
+(fully derived; the prediction $N_{\max} = 8$ relies on
 $\kappa_0/\kappa \lesssim 1$, testable with improved Juno
 wind measurements).
-Jupiter's south-pole pentagon ($N = 5$) is packing-limited (the
-cyclones are too large for more than five to fit on the ring,
-a constraint derived from domain admissibility of the Laplacian's
-Green's function on the punctured domain).
+Jupiter's south-pole pentagon ($N = 5$) is packing-limited
+(Laplacian skeleton plus the empirical $1.3$ factor).
 
 On the hyperbolic plane $\mathbf{H}^2$ with curvature $K = -1/a^2$,
 the stability boundary rises monotonically: $N_{\mathrm{crit}} = 12$
@@ -3272,28 +3277,28 @@ but remains empirically untested for Jupiter's actual 3D dynamics.
 
 \begin{proposition}[Constraint-intersection selection]\label{prop:complementary}
 The observed polygon wavenumber $N$ is determined by the intersection of
-three constraints, all arising from the logarithmic Green's function:
+three constraints.  Two are fully derived from the 2D Laplacian:
 \begin{enumerate}
-  \item \textbf{Rossby stationarity} (for jet meanders): the QGPV
-    eigenvalue problem uniquely selects the wavenumber $n^*$ of the
-    stationary mode ($\omega = 0$).  For Saturn: leading-order
-    $n^* \approx 5.4$, full Rayleigh--Kuo eigenvalue $n^* = 6$.
-  \item \textbf{Thomson stability} (for discrete cyclone rings):
-    $\kappa_0/\kappa \ge \kappa_{\mathrm{crit}}(N)$ is a
-    \emph{necessary} condition---an upper bound $N \le N_{\max}(\kappa_0/\kappa)$,
-    not a unique selection.  The energy monotonicity $H_{N+1} > H_N$
-    (Proposition~\ref{prop:onsager-n-select}) then identifies
-    $N = N_{\max}$ as the unique maximum-energy stable configuration;
-    any dynamics that preferentially populates higher-energy states
-    selects this $N$.
-  \item \textbf{Geometric packing} (for finite-size cyclones):
-    $N$ non-overlapping cyclones of exclusion radius $r_{\mathrm{excl}}$
-    on a ring of radius $R$ requires
-    $\sin(\pi/N) \ge r_{\mathrm{excl}}/R$.
-    The exclusion radius exceeds the cyclone core radius by a
-    $\beta$-drift buffer zone \citep{Gavriel2021}:
-    $r_{\mathrm{excl}} \approx 1.3\,r_{\mathrm{core}}$ for Jupiter's
-    south pole.
+  \item \textbf{Rossby stationarity} (derived; for jet meanders):
+    the QGPV eigenvalue problem
+    $(\nabla^2 + \beta\,\partial_y)\psi = 0$ selects the stationary
+    wavenumber $n^*$.
+  \item \textbf{Thomson stability} (derived; for discrete cyclone rings):
+    $\kappa_0/\kappa \ge \kappa_{\mathrm{crit}}(N)$ gives an upper
+    bound $N \le N_{\max}(\kappa_0/\kappa)$; the energy monotonicity
+    $H_{N+1} > H_N$ (Proposition~\ref{prop:onsager-n-select}) then
+    selects $N = N_{\max}$.
+\end{enumerate}
+The third has a derived skeleton plus one empirical input:
+\begin{enumerate}\setcounter{enumi}{2}
+  \item \textbf{Geometric packing} (derived skeleton + empirical factor):
+    domain admissibility of $G(\nabla^2)$ on the punctured domain
+    gives $\sin(\pi/N) \ge \varepsilon/R$ where $\varepsilon$ is
+    the vortex core radius (derived).  The effective exclusion radius
+    $r_{\mathrm{excl}} \approx 1.3\,\varepsilon$ includes a
+    $\beta$-drift buffer zone from nonlinear vortex dynamics
+    \citep{Gavriel2021}; the factor $1.3$ is observational, not
+    derivable from the linear operator.
 \end{enumerate}
 The selected wavenumber is
 \begin{equation}\label{eq:constraint-intersection}
