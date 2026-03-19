@@ -1172,12 +1172,31 @@ terminates at~$\mathbb{Q}$ whenever
 $\mathrm{sq\_free}(N{-}1) = 1$ (even $N$) or
 $\mathrm{sq\_free}(N{-}3) = 1$ (odd $N$).
 
-Code: \texttt{algebraic\_thresholds.h2\_stability\_threshold(N)},
-\texttt{h2\_threshold\_polynomial(N)}, and \texttt{h2\_threshold\_table()}
-implement these computations; \texttt{test\_algebraic\_thresholds.py} verifies
-the field-pattern table for $N = 8, \ldots, 16$ and the $C_1$-condition
-$C_1(\mathbf{H}^2,\xi^*) = m(N{-}m)/2$ for each $N$ to $10^{-8}$ relative
-error.
+\paragraph{The regulator as physical accessibility.}
+The regulator $R(D) = \ln\varepsilon$ of $\mathbb{Q}(\sqrt{D})$
+measures the ``size'' of the unit group.  For the five
+algebraic-integer fields:
+$R(7) = 2.77$, $R(6) = 2.29$, $R(3) = 1.32$, $R(2) = 0.88$,
+$R(5) = 0.48$.
+Since $\xi^* = \varepsilon^{-k}$, we have
+$\ln(1/\xi^*) = k\,R(D)$: the regulator is the logarithmic
+distance from the stability boundary to the flat-plane limit
+$\xi = 0$.  Larger $R$ means smaller $\xi^*$, i.e., more
+curvature is needed to reach the transition.
+The $N = 8$ transition ($R = 2.77$, $\xi^* = 0.063$) requires
+the most curvature; the $N = 23$ transition ($R = 0.48$,
+$\xi^* = 0.382$) requires the least---making
+$\varphi^{-2}$ the most experimentally accessible threshold.
+
+\paragraph{Galois action as conformal inversion.}
+The composite field
+$K = \mathbb{Q}(\sqrt{2}, \sqrt{3}, \sqrt{5}, \sqrt{6}, \sqrt{7})$
+contains all five algebraic-integer thresholds.
+Its Galois group $\mathrm{Gal}(K/\mathbb{Q}) \cong (\mathbb{Z}/2)^4$
+acts by $\sigma_D\colon \sqrt{D} \mapsto -\sqrt{D}$, which sends
+$\xi^*(N) \mapsto 1/\xi^*(N)$---conformal inversion of the
+Poincar\'e disk.  The Galois group of the threshold fields
+\emph{is} the conformal inversion group, realised algebraically.
 
 The coefficient $\gamma$ gives the curvature scale at which the polygon threshold is reached:
 the $7\to 8$ jump occurs at $|K|\,r_E^2 = \xi^* = \gamma^{-1/2}$.
@@ -2973,8 +2992,20 @@ is less sensitive to dissipation because it concerns exponential growth
 vs.\ decay, not oscillation frequency; finite temperature adds a damping
 channel but does not change the sign of the eigenvalue.
 
-%% ====================================================================
-
+\emph{The golden ratio on a hyperbolic BEC lattice.}
+On a Poincar\'e-disk BEC lattice (Section~\ref{sec:curvature-thresholds}),
+the five algebraic-integer thresholds
+(Proposition~\ref{prop:alg-int}) give the cleanest stability
+transitions.  Of these, $\xi^*(23) = \varphi^{-2} \approx 0.382$
+requires the least curvature and corresponds to the golden ratio---the
+algebraically simplest palindromic unit.
+Tuning a circuit-QED hyperbolic lattice to
+$\xi \approx \varphi^{-2}$ and nucleating vortex excitations would
+produce a $23$-gon vortex crystal: a direct observation of the
+golden ratio in vortex dynamics.  The intermediate thresholds
+$\xi^*(11) = (1{+}\sqrt{2})^{-2} \approx 0.172$ (silver ratio)
+and $\xi^*(15) = (2{+}\sqrt{3})^{-1} \approx 0.268$ offer
+additional targets.
 
 %% ====================================================================
 \part{Planetary and Astrophysical Applications}
@@ -3979,14 +4010,6 @@ reflect the available evidence.
 
 
 \appendix
-
-\appendix
-
-\section{The Havelock identity}
-\label{app:havelock-redirect}
-The proof of the Havelock identity is now presented in
-Section~\ref{sec:classical-havelock} as part of the
-mathematical foundations.
 
 \section{Derivation of $C_1(\mathbf{H}^2,\xi)$ and the near-$K=0$ expansion}
 \label{app:c1_h2}
