@@ -3478,6 +3478,63 @@ O'Neill for the vorticity source and polarity, and the present
 Thomson/Onsager framework for the organization and stability of
 whatever is produced.
 
+\subsection{Toward first-principles prediction}
+\label{sec:first-principles}
+
+The constraint-intersection framework
+(Proposition~\ref{prop:complementary}) predicts $N$ given
+observational inputs about the vortices themselves ($\kappa_0/\kappa$,
+$r_{\mathrm{cyclone}}$, $R_{\mathrm{ring}}$).  A stronger result
+would predict $N$ from \emph{atmospheric} parameters that are
+independently measurable without observing the polygon structure.
+The deformation-radius chain partially achieves this reduction:
+\begin{enumerate}
+  \item \emph{Planetary parameters} $(\Omega, R, \varphi)$ give
+    $f = 2\Omega\sin\varphi$ and
+    $\beta = 2\Omega\cos\varphi / R$ (exact).
+  \item \emph{Atmospheric structure} $(g', H_{\mathrm{eff}})$---the
+    reduced gravity and effective weather-layer depth, measurable from
+    temperature profiles and gravity data---give the deformation
+    radius $R_d = \sqrt{g' H_{\mathrm{eff}}}/f$ (derived), which
+    sets the cyclone core size $r_{\mathrm{core}} \sim R_d$.
+  \item \emph{Domain admissibility}
+    $\sin(\pi/N) \ge R_d / R_{\mathrm{ring}}$ gives
+    $N_{\mathrm{pack}}$ (derived from the Laplacian).
+  \item \emph{Thomson + Onsager} gives $N_{\mathrm{Thomson}} = 8$
+    for $\kappa_0/\kappa \ge \tfrac{1}{2}$, which is the
+    generic outcome of Onsager condensation when a central vortex
+    is present (derived).
+  \item $N = \min(N_{\mathrm{pack}},\, N_{\mathrm{Thomson}})$
+    (constraint intersection).
+\end{enumerate}
+For Saturn, the Rossby path replaces steps~2--4:
+$n^* = R_{\mathrm{hex}}\sqrt{\beta/U_{\max}}$, where
+$U_{\max}$ is the jet speed (atmospheric observation, not a
+vortex observation).
+
+At Jupiter, the north--south asymmetry ($N = 8$ vs.\ $N = 5$) reduces
+to a single parameter: $\chi = R_d^{(\mathrm{south})}/R_d^{(\mathrm{north})}$,
+the ratio of deformation radii at the two poles.  With
+$R_d^{(\mathrm{north})} \approx 2{,}500$\,km (matching the observed
+north-pole cyclone radius at $H_{\mathrm{eff}} \approx 3{,}000$\,km,
+$g' \approx 0.3$\,m\,s$^{-2}$), the constraint intersection gives
+$N = 8$ (Thomson-limited).  At the south pole,
+$\chi \approx 1.34$ gives $R_d^{(\mathrm{south})} \approx 3{,}350$\,km;
+with the $\beta$-drift exclusion factor $\approx 1.3$
+\citep{Gavriel2021}, the effective exclusion radius
+$r_{\mathrm{excl}} \approx 4{,}350$\,km yields
+$N_{\mathrm{pack}} = 5$ (packing-limited).  The required
+$\chi \approx 1.34$ matches the observed cyclone size ratio
+$r_{\mathrm{cyclone}}^{(\mathrm{south})}/r_{\mathrm{cyclone}}^{(\mathrm{north})}
+\approx 3{,}500/2{,}500 = 1.40$ to within $5\%$.
+
+What remains is to derive $\chi$ itself from atmospheric physics.
+The south pole receives $\approx 22\%$ more insolation at perihelion
+(Jupiter's orbital eccentricity $e = 0.049$), but radiative scaling
+gives only $\chi \sim 1.07$---insufficient.  A complete derivation
+of $\chi$ from moist convective dynamics remains an open problem;
+the framework reduces the prediction to this single parameter.
+
 Three configurations from two planets is consistent with the proposed
 mechanism but not sufficient to establish universality.  Uranus and
 Neptune observations would substantially strengthen the case.  We use
