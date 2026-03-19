@@ -716,33 +716,14 @@ $N$ arising from the interplay between $\mathbb{Z}_N$ algebra
 (trace / Casimir) and the ambient geometry (lattice / curvature).
 
 \emph{3.\ Entanglement-witness structure.}
-In quantum information, a Hermitian operator $W$ is an
-\emph{entanglement witness} if $W \ge 0$ on separable states but
-$\langle\psi|W|\psi\rangle < 0$ for some entangled~$|\psi\rangle$.
-The Havelock Hamiltonian $H_N = C_1 I - F_N$ has exactly this
-structure: ``separable'' corresponds to stable configurations
-(all $\lambda_m \ge 0$), and ``entangled'' to unstable modes
-(some $\lambda_m < 0$).  The critical Fourier mode $m = \lfloor N/2
-\rfloor$ plays the role of the maximally entangled state---the
-direction in which the witness first detects instability.  The
-positivity tools developed for entanglement detection (Choi maps,
-decomposable witnesses, PPT criteria) could in principle be
-brought to bear on multi-ring or non-abelian stability problems.
+$H_N = C_1 I - F_N$ has the structure of an entanglement witness:
+``separable'' = stable, ``entangled'' = unstable.  Positivity tools
+from quantum information could apply to non-abelian problems.
 
-\emph{4.\ Spectral statistics.}
-The eigenvalues $f(m,N) = m(N{-}m)/2$ lie on a parabola:
-the level spacings $\Delta f_m = f(m{+}1) - f(m) = (N{-}2m{-}1)/2$
-form an arithmetic sequence (linear repulsion), making the spectrum
-\emph{maximally rigid}---more rigid than any random-matrix ensemble.
-However, the \emph{density of states} near the band edge vanishes
-as $\rho(\lambda) \sim \sqrt{\lambda - \lambda_{\min}}$
-(square-root van Hove singularity), the same edge behavior as the
-Wigner semicircle law.
-The gap closure $\Delta(N) \sim -(N{-}7)$ near $N = 7$ has the
-structure of a Landau mean-field transition with potential
-$V(\varepsilon) = (\Delta/2)\varepsilon^2 + (\alpha_0/4)\varepsilon^4$,
-critical exponents $\nu = 1$ (gap), $\beta = 1/2$ (order parameter),
-and critical amplitude $\alpha_0 = 45/14$
+\emph{4.\ Spectral statistics and Landau transition.}
+Level spacings $(N{-}2m{-}1)/2$ are arithmetic (maximally rigid).
+The gap closure $\Delta(N) \sim -(N{-}7)$ has mean-field exponents
+($\nu = 1$, $\beta = 1/2$) with critical amplitude $\alpha_0 = 45/14$
 (Section~\ref{sec:n7-bifurcation}).
 \end{remark}
 
@@ -1378,14 +1359,13 @@ Hence $\mu(N) = (N{-}3) - 3 + 1 = N - 5$.
 \begin{corollary}[Why $N_{\mathrm{crit}} = 7$]
 \label{cor:why-7}
 $N_{\mathrm{crit}} = 7$ is the unique solution of $f(3, N) = C_1$
-on the flat plane: $3(N{-}3)/2 = N{-}1$ gives $N = 7$.
-The number~$3$ (the first unstable Fourier mode) is forced by
-the $\mathbb{Z}_N$ representation theory
-(Proposition~\ref{prop:morse-index}); the number~$7 = 8 - 1$ is
-its algebraic consequence.  The stability boundary is not an
-empirical observation but a closed-form output of the
-$\mathbb{Z}_N$ Casimir and the logarithmic $C_1$.
+on the flat plane.
 \end{corollary}
+\begin{proof}
+By Proposition~\ref{prop:morse-index}, the first unstable mode is
+always $m = 3$.  Setting $f(3, N) = 3(N{-}3)/2 = N{-}1 = C_1$ gives
+$N = 7$.
+\end{proof}
 
 The family $H_N(\xi) = C_1(\xi)\,I - F_N$ parametrised by
 $\xi \in [0, 1)$ has a monotone spectral flow: as $\xi$
@@ -2979,10 +2959,6 @@ it in the destabilizing regime relative to $-\ln r$.
 \section{Circulation disorder and stability domain robustness}
 \label{sec:disorder-new}
 
-point vortices (blob width $\varepsilon \to 0$).  The two limits share
-the same Hessian inertia because both preserve the $\mathbb{Z}_N$
-symmetry that forces equal lobe circulations and $N$-gon geometry.
-
 \subsubsection{Resilience to circulation disorder}
 \label{sec:disorder}
 
@@ -3259,50 +3235,15 @@ additional targets.
 \label{sec:two-scale}
 \label{sec:extensions}
 
-The physical picture is:
-
-\medskip
-\begin{tabular}{lll}
-\toprule
-\textbf{Scale} & \textbf{Question} & \textbf{Mechanism} \\
-\midrule
-Macro & Why do $N$ coherent vortices form? & Onsager + inverse cascade \\
-Meso  & Which $N$ is selected? & Onsager max-$N$ (eq.~\eqref{eq:H-monotone}) \\
-      &                        & \quad + Thomson upper bound \\
-      &                        & \quad + Rossby $n^*$ (jets only) \\
-Micro & Why regular polygon?   & Arnold/Thomson stability \\
-\bottomrule
-\end{tabular}
-\medskip
-
-The Onsager argument \citep{Onsager1949} operates at the macro scale:
-the inverse cascade and negative-temperature statistics explain why
-same-sign vorticity concentrates into $N$ coherent clusters.
-\emph{This is a physical hypothesis for planetary atmospheres, not a
-derived result, and is the key assumption that lifts $N = 8$ over
-$N = 7$ in the Jupiter selection (Proposition~\ref{prop:onsager-n-select}).}
-The \citet{Siegelman2022} simulations---2D turbulence on idealized
-polar caps with stochastic forcing---are \emph{consistent with}
-the Onsager hypothesis: they develop an inverse cascade, produce
-$N = 8$ (north) and $N = 5$ (south) vortex crystals, and reach a
-maximum-$H$ state within the Thomson-stable set.  However, these
-simulations use 2D barotropic dynamics with prescribed forcing
-statistics, not Jupiter's actual three-dimensional, moist-convective,
-differentially rotating environment.  The agreement is therefore
-evidence \emph{consistent with} the Onsager picture, not evidence
-\emph{for} it in the strict sense.
-
-Whether Jupiter's polar cyclones are actually in or near an Onsager
-negative-temperature equilibrium---rather than being dynamically
-maintained metastable states sustained by ongoing moist
-convection---is an open empirical question.  A direct test would
-require measuring the energy spectrum at the polar scale, which is
-not yet available from Juno.
-
-The polygon arrangement is then determined by the meso-scale energy
-landscape: the regular $N$-gon minimizes the interaction energy at
-constant angular momentum (Theorem~\ref{thm:constrained-min}).
-This is a deterministic stability result, not a statistical one.
+Three scales cooperate:
+\emph{macro} (Onsager inverse cascade concentrates vorticity into
+$N$ clusters---a physical hypothesis, not derived),
+\emph{meso} (the constraint-intersection principle selects which $N$),
+and \emph{micro} (Arnold/Thomson stability arranges the clusters as
+a regular polygon).
+The Onsager hypothesis is supported by the \citet{Siegelman2022}
+simulations ($N = 8$ north, $N = 5$ south in 2D turbulence)
+but remains empirically untested for Jupiter's actual 3D dynamics.
 
 
 %% ====================================================================
@@ -3916,99 +3857,49 @@ question.
 
 \subsection{What is novel}
 
-The individual components---Onsager condensation, Kraichnan cascades,
-Thomson stability, 2D Green's functions---are established.
+\noindent\textbf{Attribution.}
+The Havelock eigenvalue $\lambda_m = (N{-}1) - m(N{-}m)/2$ and the
+stability boundary $N \le 7$ are classical \citep{Havelock1931}.
+Theorem~\ref{thm:constrained-min} bridges this to the Onsager
+literature, where the polygon is often described as an energy
+maximum: it is a constrained minimum, compatible with but distinct
+from the unconstrained Onsager picture (Corollary~\ref{cor:min-not-max}).
 
-\noindent\textbf{Important attribution note.}
-The Havelock eigenvalue formula $\lambda_m = (N{-}1) - m(N{-}m)/2$ and
-the linear stability boundary $N \le 7$ appear in \citet{Havelock1931},
-\S3, and have been known to the classical vortex dynamics community for
-nearly a century.  Theorem~\ref{thm:constrained-min} is therefore
-\emph{not} new to hydrodynamicists.  Its contribution is to the
-\emph{statistical mechanics community}, where the polygon has been
-treated as an energy maximum selected by Onsager negative temperature
-\citep{Onsager1949, BouchetVenaille2012}: the theorem demonstrates that
-the polygon is an energy \emph{minimum} on the conserved-quantity
-surface, which is the opposite of the common assumption and changes the
-statistical interpretation substantially.  Specialists in classical
-vortex dynamics who encounter Theorem~3 should read it as a bridge
-result, translating a known stability fact into the language of
-energy-Casimir minima.
+\smallskip\noindent
+What is new:
+(1)~the constrained-minimum identification and its
+Lagrange-multiplier derivation;
+(2)~the analytic sign rule (Theorem~\ref{thm:sign-rule});
+(3)~the three-scale separation and two-timescale Onsager--Arnold
+resolution;
+(4)~the constraint-intersection framework
+(Proposition~\ref{prop:complementary});
+(5)~the RG classification of the logarithm as IR fixed point
+(Proposition~\ref{prop:rg-classification});
+(6)~the spherical and hyperbolic stability boundaries
+with exact thresholds;
+(7)~the curvature-stability dichotomy and spectral flow
+(Propositions~\ref{prop:curvature-dichotomy}--\ref{prop:morse-index});
+(8)~the algebraic-integer classification $N \in \{8,9,11,15,23\}$,
+golden ratio terminal case, binary subdivision, Pell--conformal
+inversion equivalence, and continued fraction structure
+(Section~\ref{sec:algebraic-structure});
+(9)~the blob bridge, $K_0$ central-vortex computation, and
+circulation disorder resilience;
+(10)~the first-principles prediction chain reducing planetary
+$N$ to atmospheric parameters.
 
-What is new is:
-(1)~identifying the $N$-gon as a \emph{constrained energy minimum}
-(not maximum) on the conserved surface and deriving this from the
-Lagrange-multiplier structure (new to the Onsager literature;
-classical to Thomson--Havelock);
-(2)~the analytic sign rule
-(Theorem~\ref{thm:sign-rule}) proving $H''(0) < 0$ for all
-interactions with $h' < 0$ and $(rh')' \le 0$;
-(3)~the three-scale separation showing the Onsager argument applies
-to cluster \emph{formation} while the polygon \emph{arrangement}
-is deterministic stability;
-(4)~the constraint-intersection framework unifying Saturn (Rossby
-stationarity), Jupiter north (Thomson + Onsager), and Jupiter south
-(geometric packing from domain admissibility);
-(5)~the observation that the logarithmic interaction's borderline
-status in the sign rule makes it the ``least robust'' polygon
-producer---any other qualifying interaction gives stronger selection;
-(6)~the spherical stability boundary
-$\varphi_{\mathrm{crit}}(N)$ showing the sphere \emph{destabilizes}
-relative to the plane (the Lagrange shift vanishes at the equator),
-with Saturn's hexagon inside the stable zone, and the exact rational
-thresholds $\xi_{\mathrm{crit}}(N) \in \mathbb{Q}$
-(equation~\eqref{eq:xi_crit_S2}) with the geometric identity
-$\cos\varphi_{\mathrm{crit}} = m(N{-}m)/(2(N-1))$;
-(7)~the $K_0$ suppression transition with two distinct phase
-boundaries (spiral and constrained) and the class~(iii) interaction
-landscape; (8)~the vortex blob bridge showing regularization
-preserves and enhances stability, resolving the $N = 7$ marginal
-case, with profile independence via a Fourier dominance argument
-(Section~\ref{sec:extensions});
-(9)~the algebraic field extension pattern
-$\xi^*(N) \in \mathbb{Q}(\sqrt{\mathrm{sq\_free}(N-1)})$ for even $N$
-and $\mathbb{Q}(\sqrt{\mathrm{sq\_free}(N-3)})$ for odd $N \ge 9$,
-with $N = 10$ as the unique rational threshold $\xi^*(10) = 1/7$;
-the classification of algebraic-integer thresholds as exactly
-$N \in \{8, 9, 11, 15, 23\}$ (Proposition~\ref{prop:alg-int}),
-with the golden ratio $\varphi^{-2}$ as the terminal case ($N = 23$)
-and the binary subdivision $c(k) = 2 + 2^{4-k}$ at $N = 7 + 2^k$;
-and the Pell equation connection linking conformal inversion to the
-unit group of real quadratic fields
-(Section~\ref{sec:hyperbolic}, equation~\eqref{eq:field-pattern}); and
-(10)~the circulation disorder resilience analysis showing that the
-$N_{\mathrm{crit}}$ boundary is a stability domain rather than a
-knife-edge, with the $N = 7$ marginal ring identified as the unique
-disorder-sensitive configuration (Section~\ref{sec:disorder}).
-
-\medskip\noindent\textbf{Relation to prior work.}
-The connection between Onsager statistics and large-scale vortex
-formation is developed in \citet{BouchetVenaille2012} and
-\citet{ChavanisSommeria1996}, who classify self-organized vortex states
-in bounded domains using statistical mechanical methods.
-\citet{Aref2003} reviews vortex crystal configurations and their
-stability.  The present contribution differs in three respects: (i)~the
-closed-form formula for $H''(0)$ (equation~\eqref{eq:Hpp}) does not
-appear in these reviews, which analyze stability through eigenvalues
-of the dynamical matrix rather than energy curvature along a specific
-deformation (the Thomson--Havelock literature has this eigenvalue
-result, but not via the energy-curvature path);
-(ii)~the analytic sign rule (Theorem~\ref{thm:sign-rule}) identifying
-the precise conditions on $h$ that guarantee $H''(0) < 0$ is new;
-and (iii)~the constrained Hessian result
-(Theorem~\ref{thm:constrained-min}) clarifies a point of frequent
-confusion \emph{in the statistical mechanics literature}: the polygon
-is described as an energy maximum selected by negative temperature
-\citep{BouchetVenaille2012,ChavanisSommeria1996}, but it is in fact
-a constrained energy \emph{minimum} on the conserved-quantity surface.
-These two descriptions are compatible---the Onsager argument concerns
-the unconstrained landscape while the stability argument concerns the
-constrained surface---but the unqualified ``energy maximum'' language
-obscures the Lyapunov stability mechanism.  This clarification
-is not new to the classical vortex dynamics literature
-\citep{Thomson1883,Havelock1931}, where the stability boundary is
-well established; it is new as a bridge to the statistical mechanics
-framing.
+\smallskip\noindent\textbf{Relation to prior work.}
+\citet{BouchetVenaille2012} and \citet{ChavanisSommeria1996} classify
+self-organized vortex states via statistical mechanics;
+\citet{Aref2003} reviews vortex crystal stability.
+Our contribution adds the energy-curvature sign rule, the
+constrained-minimum clarification, and the planetary
+constraint-intersection framework---none of which appear in
+these references.  The $N = 7$ quartic coefficient $\alpha_0 = 45/14$
+extends \citet{KurakinYudovich2002} (who proved $\alpha_0 > 0$
+without the value) and complements \citet{Schmidt2004} (who computed
+$9/28$ in Sylvester-normalized coordinates).
 
 
 \subsection{Limitations and scope}
@@ -4402,20 +4293,12 @@ The coefficient $12 = 2\,m(N{-}m)/2\big|_{m=3,\,N=7}$ arises from the
 cancellation $(1+\xi^2) - (1-\xi)^2 = 2\xi$, which holds because
 $N-1 = m(N-m)/2$ exactly at this critical mode.
 
-\bibliographystyle{plainnat}
-\bibliography{refs}
-\end{document}
-
 \section{Code availability and reproducibility}
 \label{app:code}
 All computational results are reproducible from the Python
 package \texttt{planetary\_polygons} accompanying this paper.
-Key modules: \texttt{core/hessian.py} (constrained Hessian),
-\texttt{core/universal\_selection.py} (constraint intersection),
-\texttt{core/laplacian\_unification.py} (Laplacian framework),
-\texttt{core/first\_principles.py} (atmospheric prediction chain),
-\texttt{extensions/k0\_central\_vortex.py} ($K_0$ + central vortex),
-\texttt{extensions/two\_ring.py} (multi-ring stability).
-The test suite (325 tests) verifies all numerical claims.
+The test suite (398 tests) verifies all numerical claims.
 
+\bibliographystyle{plainnat}
+\bibliography{refs}
 \end{document}
