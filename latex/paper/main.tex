@@ -6,12 +6,14 @@
 \usepackage{natbib}
 \usepackage{booktabs}
 
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{definition}{Definition}
-\newtheorem{remark}{Remark}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
+
+\numberwithin{equation}{section}
 
 \newcommand{\dd}{\mathrm{d}}
 
@@ -94,6 +96,8 @@ because the threshold condition has discriminant
 $252 = 4 \cdot 9 \cdot 7$.
 \end{abstract}
 
+\tableofcontents
+\newpage
 
 %% ====================================================================
 \section{Introduction}
