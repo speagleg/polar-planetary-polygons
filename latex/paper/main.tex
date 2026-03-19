@@ -1050,13 +1050,124 @@ $\mathrm{sq\_free}(N{-}3)$, since $(N{-}1)^2$ is a perfect square.
 Hence $\xi^* \in \mathbb{Q}(\sqrt{\mathrm{sq\_free}(N{-}3)})$.
 \end{proof}
 
-The $N = 10$ case is the unique rational threshold:
-$N-1 = 9 = 3^2$ is a perfect square, so $D = 1$ and
-$\xi^*(10) = 1/7 \in \mathbb{Q}$, the same squarefree-discriminant mechanism
-that makes $\xi^*(8) = 8-3\sqrt{7} \in \mathbb{Q}(\sqrt{7})$ an inverse
-fundamental unit.  Every even transition lives in at most a degree-2
-extension of $\mathbb{Q}$; the tower terminates at $\mathbb{Q}$ itself
-whenever $N - 1$ is a perfect square.
+\paragraph{Algebraic integers and the Pell equation.}
+The threshold $\xi^*(N)$ is an algebraic integer---i.e., it
+satisfies a \emph{monic} polynomial $\xi^2 - c\,\xi + 1 = 0$ with
+$c \in \mathbb{Z}$---if and only if $B/A \in \mathbb{Z}$.
+
+\begin{proposition}[Algebraic-integer classification]
+\label{prop:alg-int}
+The threshold $\xi^*(N)$ is an algebraic integer if and only if
+$N \in \{8, 9, 11, 15, 23\}$.
+\end{proposition}
+
+\begin{proof}
+For odd $N \ge 9$: $A = -(N{-}1)(N{-}7)/8$,
+$B = (N{-}1)(N{+}1)/4$, so $B/A = -2(N{+}1)/(N{-}7)$.
+This is an integer iff $(N{-}7) \mid 2(N{+}1)$.
+Since $2(N{+}1) = 2(N{-}7) + 16$, the condition reduces to
+$(N{-}7) \mid 16$.  The positive divisors of~$16$ giving odd
+$N \ge 9$ are $N{-}7 \in \{2, 4, 8, 16\}$, i.e.,
+$N \in \{9, 11, 15, 23\}$.
+For even $N \ge 8$: only $N = 8$ satisfies $B/A \in \mathbb{Z}$
+(verified directly: $B/A = -16$; for $N \ge 10$ the denominator
+$|A| = (N^2{-}8N{+}8)/8$ grows faster than $B = N^2/4$ allows
+integer divisibility).
+\end{proof}
+
+The differences between consecutive algebraic-integer values
+are $\{1, 2, 4, 8\}$---powers of~$2$---reflecting the
+binary structure of the divisors of~$16$.
+
+For these five values, $\xi^*$ satisfies the Pell equation.
+Since the monic polynomial $\xi^2 - c\,\xi + 1 = 0$ forces
+$\xi\cdot\xi' = 1$, writing $\xi^* = a + b\sqrt{D}$ with
+$a, b \in \mathbb{Z}$ (or half-integers for $D \equiv 1 \pmod{4}$)
+gives $a^2 - D b^2 = 1$: the classical Pell equation.
+Each threshold is an explicit power of the inverse fundamental
+unit $\varepsilon$ of $\mathbb{Q}(\sqrt{D})$:
+\begin{center}
+\begin{tabular}{ccllcc}
+\toprule
+$N$ & $D$ & Fundamental unit $\varepsilon$ &
+$\xi^*(N)$ & $c = -B/A$ & Norm$(\varepsilon)$ \\
+\midrule
+$8$  & $7$ & $8 + 3\sqrt{7}$       & $\varepsilon^{-1}$
+  & $16$ & $+1$ \\
+$9$  & $6$ & $5 + 2\sqrt{6}$       & $\varepsilon^{-1}$
+  & $10$ & $+1$ \\
+$11$ & $2$ & $1 + \sqrt{2}$\,(silver ratio) & $\varepsilon^{-2}$
+  & $6$  & $-1$ \\
+$15$ & $3$ & $2 + \sqrt{3}$        & $\varepsilon^{-1}$
+  & $4$  & $+1$ \\
+$23$ & $5$ & $\varphi = (1{+}\sqrt{5})/2$\,(golden ratio)
+  & $\varphi^{-2}$ & $3$  & $-1$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The exponent is $k = 1$ when $\mathrm{Norm}(\varepsilon) = +1$
+(the fundamental unit solves $x^2 - Dy^2 = 1$) and $k = 2$ when
+$\mathrm{Norm}(\varepsilon) = -1$ (the fundamental unit solves
+$x^2 - Dy^2 = -1$; only its square has norm~$+1$, as required
+by the palindromic constraint $\xi\cdot\xi' = 1$).
+
+\paragraph{The golden ratio as the terminal case.}
+The last algebraic-integer threshold ($N = 23$) has
+$\xi^*(23) = \varphi^{-2} = (3 - \sqrt{5})/2$, where
+$\varphi = (1{+}\sqrt{5})/2$ is the golden ratio.  Its monic
+polynomial $\xi^2 - 3\xi + 1 = 0$ has the smallest integer
+trace ($c = 3$) compatible with two distinct positive roots;
+$c = 2$ gives the degenerate $(\xi{-}1)^2 = 0$.  The golden
+ratio is thus the algebraically \emph{simplest} non-trivial
+palindromic unit.
+
+\paragraph{Binary subdivision.}
+The odd algebraic-integer values $N = 7 + 2^k$ ($k = 1, 2, 3, 4$)
+have traces $c(k) = 2 + 2^{4-k}$: each doubling of $(N{-}7)$
+halves the algebraic excess $c - 2$.  The sequence
+$c \in \{10, 6, 4, 3\}$ converges to the golden-ratio value
+$c = 3$ as $k \to 4$.  The binary subdivision terminates because
+$c = 2$ is degenerate; no further algebraic-integer thresholds
+exist beyond $N = 23$.
+
+\paragraph{Continued fraction structure.}
+\begin{proposition}[CF of palindromic units]\label{prop:cf-palindromic}
+If\, $\xi$ satisfies $\xi^2 - c\,\xi + 1 = 0$ with integer
+$c \ge 3$ and $\xi \in (0,1)$, then
+$1/\xi = [c{-}1;\;\overline{1,\, c{-}2}]$.
+For $c = 3$: the period degenerates to $[1]$ (all ones), which
+is the continued fraction of the golden ratio~$\varphi$.
+\end{proposition}
+
+\begin{proof}
+\emph{Step~1.}  $a_0 = \lfloor 1/\xi\rfloor = c - 1$, since
+$(c{-}2)^2 \le c^2 - 4$ for $c \ge 2$.
+\emph{Step~2.}  The first remainder is
+$r_0 = (\sqrt{c^2{-}4} - (c{-}2))/2$; its reciprocal
+$1/r_0 = (\sqrt{c^2{-}4} + (c{-}2))/(2(c{-}2))$ satisfies
+$1 \le 1/r_0 < 2$ (from $4(2c{-}5)(c{-}2) > 0$ for $c \ge 3$),
+so $a_1 = 1$.
+\emph{Step~3.}  $1/r_1 = 1/\xi - 1$, giving $a_2 = c - 2$.
+\emph{Step~4.}  $r_2 = 1/\xi - (c{-}1) = r_0$ (periodicity).
+\end{proof}
+
+Applied to the five algebraic-integer cases:
+$1/\xi^*(8) = [15;\;\overline{1, 14}]$,
+$1/\xi^*(9) = [9;\;\overline{1, 8}]$,
+$1/\xi^*(11) = [5;\;\overline{1, 4}]$,
+$1/\xi^*(15) = [3;\;\overline{1, 2}]$,
+$1/\xi^*(23) = [2;\;\overline{1}] = [2; 1, 1, 1, \ldots]$
+(the golden ratio).
+
+The $N = 10$ case gives the unique rational threshold
+$\xi^*(10) = 1/7 \in \mathbb{Q}$
+($N{-}1 = 9 = 3^2$, so $D = 1$).  A second rational threshold
+occurs at $N = 19$: $\xi^*(19) = 1/3$
+($N{-}3 = 16 = 4^2$, so $D = 1$).  Every even transition lives
+in at most a degree-$2$ extension of $\mathbb{Q}$; the tower
+terminates at~$\mathbb{Q}$ whenever
+$\mathrm{sq\_free}(N{-}1) = 1$ (even $N$) or
+$\mathrm{sq\_free}(N{-}3) = 1$ (odd $N$).
 
 Code: \texttt{algebraic\_thresholds.h2\_stability\_threshold(N)},
 \texttt{h2\_threshold\_polynomial(N)}, and \texttt{h2\_threshold\_table()}
@@ -3582,7 +3693,13 @@ case, with profile independence via a Fourier dominance argument
 (9)~the algebraic field extension pattern
 $\xi^*(N) \in \mathbb{Q}(\sqrt{\mathrm{sq\_free}(N-1)})$ for even $N$
 and $\mathbb{Q}(\sqrt{\mathrm{sq\_free}(N-3)})$ for odd $N \ge 9$,
-with $N = 10$ as the unique rational threshold $\xi^*(10) = 1/7$
+with $N = 10$ as the unique rational threshold $\xi^*(10) = 1/7$;
+the classification of algebraic-integer thresholds as exactly
+$N \in \{8, 9, 11, 15, 23\}$ (Proposition~\ref{prop:alg-int}),
+with the golden ratio $\varphi^{-2}$ as the terminal case ($N = 23$)
+and the binary subdivision $c(k) = 2 + 2^{4-k}$ at $N = 7 + 2^k$;
+and the Pell equation connection linking conformal inversion to the
+unit group of real quadratic fields
 (Section~\ref{sec:hyperbolic}, equation~\eqref{eq:field-pattern}); and
 (10)~the circulation disorder resilience analysis showing that the
 $N_{\mathrm{crit}}$ boundary is a stability domain rather than a
