@@ -83,14 +83,14 @@ the stability analysis uses the spiral only as a specific perturbation
 direction (the unique $\mathbb{Z}_N$-equivariant direction that leaves
 the constraint surface at $O(\sigma^2)$, so that the unconstrained
 $H''(0) < 0$ does not contradict the constrained energy minimum).
-However, Proposition~\ref{I-prop:mobius} does carry genuine mathematical
+However, Proposition~Paper~I, Proposition~2.3 does carry genuine mathematical
 content beyond geometric decoration.  Restricted to the dilation
 subgroup $f(z)=bz$, where $f'$ is the constant~$b$, the single-site
 correction becomes position-independent and reduces to
 $H(bz_1,\dots,bz_N) = H(z_1,\dots,z_N) - \tfrac{N(N-1)}{2}\ln b$.
 This is the $N$-body statement that $H$ is dilation-invariant---the
 logarithmic energy changes only by an additive constant under spatial
-rescaling (Corollary~\ref{I-cor:dilation-rg} above).
+rescaling (Corollary~Paper~I, Corollary~2.4 above).
 
 
 %% ====================================================================
@@ -116,11 +116,11 @@ $F''(0, m) = m^2/[2\sin^2(\pi m/N)]$.
 There are $(N-m)$ pairs with separation $m$, and the chain rule
 $\dd/\dd\sigma = (1/N)\,\dd/\dd u$ contributes $1/N^2$.
 This derivation uses the specific structure of $h = -\ln r$:
-the general formula \eqref{eq:Hpp-general} has two terms, but for the
+the general formula Paper~I, eq.~3.1 has two terms, but for the
 logarithmic interaction $(rh')' = (-1)' = 0$, so the $S_m$ terms
-(first term in \eqref{eq:Hpp-general}) vanish identically.  Only the
+(first term in Paper~I, eq.~3.1) vanish identically.  Only the
 second term survives, giving \eqref{eq:Hpp} as a special case of
-\eqref{eq:Hpp-general} with $A_m = 0$ and
+Paper~I, eq.~3.1 with $A_m = 0$ and
 $B_m = h'(d_m)\,m^2(N{-}m)/(N^2 d_m) = -m^2(N{-}m)/(N^2 d_m^2)$.
 Substituting $d_m = 2\sin(\pi m/N)$ yields \eqref{eq:Hpp}.
 Every factor in the sum is strictly positive, so $H''(0) < 0$.
@@ -183,7 +183,7 @@ $\mathrm{diag}(H_{rr}^{(m)}, -H_{rr}^{(m)})$, giving eigenvalues
 $\pm H_{rr}^{(m)} = \pm\sigma_m$.
 
 The diagonal entry $H_{rr}^{(m)}$ simplifies using the Havelock
-identity (Appendix~\ref{I-app:havelock}):
+identity (Appendix~Paper~I, \S4.1):
 the self-sum $\sum_p 1/[4\sin^2(\pi p/N)] = (N{-}1)/2$
 (a special case of $T_0 + (N{-}1)/2$) and the cross-sum is
 $T_m = m(N{-}m)/2$.  Thus
@@ -195,7 +195,7 @@ using
   T_m := \sum_{p=1}^{N-1}\frac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
   = \frac{m(N-m)}{2}
 \end{equation}
-(proven in Appendix~\ref{I-app:havelock}; cf.\
+(proven in Appendix~Paper~I, \S4.1; cf.\
 \citet{Havelock1931}, \S3).  The Lagrangian eigenvalues are thus
 \[
   \lambda_m^+ = (N-1) - \tfrac{m(N-m)}{2}, \qquad
@@ -405,7 +405,7 @@ are generically less stable (Section~\ref{sec:multiring}).
 
 At $N = 7$, the minimum constrained Lagrangian eigenvalue is zero
 (mode $m = 3$).  In the language of critical phenomena
-(Remark~\ref{I-rem:rep-theory}), this is the critical point of a
+(Remark~Paper~I, Remark~4.2), this is the critical point of a
 Landau mean-field transition: the spectral gap
 $\Delta(N) = C_1 - f_{\max}(N)$ closes linearly as
 $\Delta \sim -(N{-}7)$ with mean-field exponent $\nu = 1$,
@@ -645,9 +645,9 @@ achieves full stabilization of the $N = 8$ ring.
 \label{sec:blob-bridge}
 \label{sec:blob}
 
-The results of Sections~\ref{sec:results}--\ref{III-sec:discussion-new} are
+The results of Sections~\ref{sec:results}--Paper~III, \S21 are
 stated for point vortices.  The RG classification
-(Proposition~\ref{I-prop:rg-classification}) guarantees that
+(Proposition~Paper~I, Proposition~2.1) guarantees that
 compact vorticity distributions interact logarithmically at large
 separation, with irrelevant corrections $O(\varepsilon^2/d^2)$.
 Two distinct bridges make this quantitative.
@@ -1123,7 +1123,7 @@ $\sigma \to 0$), while Jupiter concentrates $N$ discrete cyclones into
 
 The $K_0$ interaction provides a second example of the RG flow
 toward the logarithmic fixed point
-(Proposition~\ref{I-prop:rg-classification}): the exponential tail
+(Proposition~Paper~I, Proposition~2.1): the exponential tail
 $K_0(r/R_d) + \ln r = O(e^{-r/R_d})$ is an irrelevant perturbation
 (faster than any power law), and the limit $R_d \to \infty$ is the
 flow to the fixed point.
@@ -1521,7 +1521,7 @@ solid-body rotation core and sets the characteristic vortex timescale
 $T_v \sim R^2/\kappa$.  The full-cyclone circulation $\kappa_{\mathrm{full}}$
 (which includes the outer irrotational skirt) is larger and is the
 appropriate quantity for computing orbital periods and eigenfrequencies;
-it is used there instead (Section~\ref{III-sec:dynamical-maintenance}).
+it is used there instead (Section~Paper~III, \S21.3).
 The two estimates are numerically distinguished below.
 
 At $84^\circ$N, the planetary vorticity
@@ -1661,9 +1661,9 @@ vs.\ decay, not oscillation frequency; finite temperature adds a damping
 channel but does not change the sign of the eigenvalue.
 
 \emph{The golden ratio on a hyperbolic BEC lattice.}
-On a Poincar\'e-disk BEC lattice (Section~\ref{I-sec:curvature-thresholds}),
+On a Poincar\'e-disk BEC lattice (Section~Paper~I, \S5),
 the five algebraic-integer thresholds
-(Proposition~\ref{I-prop:alg-int}) give the cleanest stability
+(Proposition~Paper~I, Proposition~6.2) give the cleanest stability
 transitions.  Of these, $\xi^*(23) = \varphi^{-2} \approx 0.382$
 requires the least curvature and corresponds to the golden ratio---the
 algebraically simplest palindromic unit.

@@ -43,7 +43,7 @@ spontaneously in 2D turbulence simulations on polar caps
 
 We answer the second question, subject to one physical assumption
 (Onsager negative-temperature statistics at the polar scale; see
-Section~\ref{III-sec:extensions} for a detailed assessment).  The
+Paper~III for a detailed assessment).  The
 mechanism operates at two scales:
 \begin{enumerate}
   \item \textbf{Macro scale: cluster formation.}  The Kraichnan (1967)
@@ -57,19 +57,19 @@ mechanism operates at two scales:
   \item \textbf{Meso scale: polygon arrangement.}  Given $N$ vortex
     clusters on a ring of fixed angular momentum, the regular $N$-gon
     \emph{minimizes} the interaction energy on the conserved-quantity
-    surface (Theorem~\ref{II-thm:constrained-min}).  By the energy-Casimir
+    surface (the constrained energy minimum (Paper~II, Theorem~8.2)).  By the energy-Casimir
     method, this makes the $N$-gon a nonlinearly stable equilibrium for
     $N \le 7$ without a central vortex, or for any $N$ with sufficient
     central vortex strength.  The polygon is selected by dynamical
     stability, not by statistical mechanics.
 \end{enumerate}
 
-The meso-scale proof (Theorem~\ref{II-thm:constrained-min}) applies to
+The meso-scale proof (the constrained energy minimum (Paper~II, Theorem~8.2)) applies to
 discrete point vortices and is directly relevant to Jupiter's cyclone
 rings.  Saturn's hexagon is a continuous jet meander, not a discrete
 vortex ring; its wavenumber $N = 6$ is selected instead by Rossby
 wave stationarity of the QGPV equation
-(Proposition~\ref{III-prop:complementary}).  Both mechanisms share the
+(the constraint-intersection principle (Paper~III)).  Both mechanisms share the
 logarithmic Green's function as a structural foundation, but the
 mathematical arguments differ.
 
@@ -80,7 +80,7 @@ $N = 5$ at Jupiter's south pole is consistent with Thomson stability
 ($\kappa_{\mathrm{crit}}(5) = 0$, so no central vortex is required)
 but is not uniquely predicted by the present framework; the south-polar
 packing geometry provides the additional constraint
-(Section~\ref{III-sec:n-selection}).
+(the wavenumber selection (Paper~III)).
 
 Beyond the solar system, the framework makes its most physically
 distinctive prediction on the hyperbolic plane: a ring of $N = 12$
@@ -194,15 +194,15 @@ at large separation} (Proposition~\ref{prop:rg-classification}).
 This RG perspective unifies two results proved later in the paper:
 \begin{itemize}
   \item The blob bridge
-    (Section~\ref{II-sec:blob}):
+    (the blob bridge (Paper~II)):
     $h_\varepsilon = -\tfrac{1}{2}\ln(r^2 + 2\varepsilon^2)
     = -\ln r + O(\varepsilon^2/r^2)$.  The blob correction
     is an irrelevant perturbation ($\alpha = -2$);
     the $O(\varepsilon^2)$ convergence rate of
-    Proposition~\ref{II-prop:blob} is the approach rate to the
+    the blob correction (Paper~II, Proposition~12.1) is the approach rate to the
     fixed point.
   \item The $K_0$ interaction
-    (Section~\ref{II-sec:k0-interaction}):
+    (the $K_0$ interaction (Paper~II)):
     $K_0(r/R_d) = -\ln r + O(e^{-r/R_d})$ for $r \ll R_d$.
     The exponential tail is irrelevant (faster than any power);
     the deformation-radius limit $R_d \to \infty$ is the RG flow
@@ -293,7 +293,7 @@ acting on~$\mathbb{C}$.
   \item The natural \emph{deformation curves} are logarithmic spirals
     because they are orbits of the dilation-rotation generator
     $\sigma + i\alpha$; the centered spiral of
-    equation~\eqref{eq:deformation} is precisely this orbit applied
+    the centered spiral deformation (Paper~II, eq.~7.1) is precisely this orbit applied
     to the $N$-gon.
   \item The \emph{stability threshold} $N = 7$ is scale-independent
     because the Havelock eigenvalue $\lambda_m = (N{-}1) - m(N{-}m)/2$
@@ -329,7 +329,7 @@ conserved angular impulse $L = \sum|z_k|^2$ at $O(\sigma^2)$.  The
 physical dynamics is constrained to $\{L = \mathrm{const}\}$, and
 the Lagrange multiplier $\mu_L < 0$ shifts the curvature by
 $-2\mu_L > 0$, converting the unconstrained saddle into a
-\emph{constrained minimum} (Theorem~\ref{II-thm:constrained-min} below).
+\emph{constrained minimum} (the constrained energy minimum (Paper~II, Theorem~8.2) below).
 The sign rule therefore plays an indirect but essential role: it
 guarantees that the $N$-gon is a saddle of the unconstrained energy
 with a specific sign structure ($H''(0) < 0$ along the spiral,
@@ -569,7 +569,7 @@ $\int_M G(x,y)\,\dd\mu(x) = 0$), which satisfies
 $\nabla^2_{\mathrm{LB},x} G(x,y) = \delta_y(x) - 1/\mathrm{Vol}(M)$.
 On the plane, $G(x,y) = -(2\pi)^{-1}\ln|x{-}y|$ and the
 $1/\mathrm{Vol}$ term vanishes ($\mathrm{Vol} = \infty$),
-recovering the kernel of equation~\eqref{eq:thomson-H}.
+recovering the kernel of the Thomson energy (Paper~II, eq.~7.2).
 On a compact surface the normalization adds a constant
 $R(y) = G(x,y) + (2\pi)^{-1}\ln d(x,y)$ (the Robin function),
 which is independent of the vortex \emph{configuration} and
@@ -638,7 +638,7 @@ from quantum information could apply to non-abelian problems.
 Level spacings $(N{-}2m{-}1)/2$ are arithmetic (maximally rigid).
 The gap closure $\Delta(N) \sim -(N{-}7)$ has mean-field exponents
 ($\nu = 1$, $\beta = 1/2$) with critical amplitude $\alpha_0 = 45/14$
-(Section~\ref{II-sec:n7-bifurcation}).
+(the $N=7$ bifurcation (Paper~II)).
 \end{remark}
 
 The value $C_1 = N{-}1$ on the plane has a geometric origin: for
@@ -887,7 +887,7 @@ The Riemannian Havelock identity $\lambda_m = C_1(R/a) - m(N{-}m)/2$
 is verified to hold (computed $C_1$ values are mode-independent to
 numerical precision~$\sim 10^{-5}$).  The exact $\mathbf{H}^2$
 Green's function yields the closed-form expression (derived in
-Appendix~\ref{A-app:c1_h2})
+the $C_1$ derivation (Appendix~A))
 \begin{equation}
   C_1(\mathbf{H}^2,\,\xi)
     = \frac{(N-1)(1+\xi^2)}{(1-\xi)^2},
@@ -911,7 +911,7 @@ also depends on $R/a$ in a non-trivial way).
 
 \paragraph{Near-$K=0$ behavior.}
 Expanding~\eqref{eq:C1_H2} for $N=7$, $m=3$ (see
-Appendix~\ref{A-app:c1_h2} for the algebraic simplification), the
+the $C_1$ derivation (Appendix~A) for the algebraic simplification), the
 $m=3$ eigenvalue satisfies
 \begin{equation}
   \lambda_3(N=7,\,\xi)

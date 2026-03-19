@@ -181,7 +181,7 @@ the 2D assumption among our applications.  The model is nevertheless
 applicable if the polar cyclones are confined to a deep weather layer
 ($H_{\mathrm{eff}} \sim 3{,}000$\,km, $R_d \gg R$) or to a shallow
 tropospheric layer with reduced gravity; both scenarios are consistent
-with the Juno data (see Section~\ref{II-sec:deformation} for
+with the Juno data (see Section~Paper~II, \S13 for
 quantitative limits).
 
 Thomson stability provides an \emph{upper bound}:
@@ -453,7 +453,7 @@ south-pole pentagon ($N = 5$) is derived in
 Section~\ref{sec:constraint-intersection} via the
 constraint-intersection principle.  The two-dimensionality
 requirement and the barotropic depth question are addressed in
-Section~\ref{II-sec:k0-interaction} (the $K_0$ stability table).
+Section~Paper~II, \S13 (the $K_0$ stability table).
 
 %% ====================================================================
 \section{Broader observational context and predictions}
@@ -520,7 +520,7 @@ Jupiter south     & 5 & $\sigma_{\mathrm{geom}} = 0.05$ & --- & Packing (Prop.~\
 
 Beyond the three planetary configurations, the theoretical stability
 boundary $\kappa_{\mathrm{crit}}(N)$ from
-Proposition~\ref{II-prop:kappa-crit} can be compared with laboratory and
+Proposition~Paper~II, Proposition~9.1 can be compared with laboratory and
 numerical observations:
 
 \emph{Laboratory experiments.}  \citet{Jansson2006} and
@@ -537,7 +537,7 @@ dynamics, so the agreement is structural rather than quantitative.)
 (north) and $N = 5$ (south) vortex crystals from 2D turbulence on polar
 caps, with a central polar cyclone emerging alongside the ring in both
 cases.  The central cyclone provides the stabilization required by
-Proposition~\ref{II-prop:kappa-crit} for $N = 8$.
+Proposition~Paper~II, Proposition~9.1 for $N = 8$.
 The \citet{Siegelman2022} simulations include continuous small-scale
 forcing (representing convective injection) and large-scale dissipation,
 yet the polygon crystal is the persistent stationary state: the system
@@ -633,7 +633,7 @@ in any system.
 The argument depends critically on two-dimensionality.  The 2D Green's
 function $G(r) = -\ln r/(2\pi)$ is the unique dilation-invariant
 pairwise interaction with $h' < 0$
-(Remark~\ref{I-rem:rg-fixed-point}; Corollary~\ref{I-cor:dilation-rg}
+(Remark~Paper~I, Remark~2.2; Corollary~Paper~I, Corollary~2.4
 lifts this to the $N$-body level).  In 3D, the Green's function
 $G(r) = -1/(4\pi r)$ has $G'(r) = 1/(4\pi r^2) > 0$---the sign
 rule is violated, the $N$-gon is not an energy extremum along the
@@ -649,30 +649,30 @@ question.
 \noindent\textbf{Attribution.}
 The Havelock eigenvalue $\lambda_m = (N{-}1) - m(N{-}m)/2$ and the
 stability boundary $N \le 7$ are classical \citep{Havelock1931}.
-Theorem~\ref{II-thm:constrained-min} bridges this to the Onsager
+Theorem~Paper~II, Theorem~8.2 bridges this to the Onsager
 literature, where the polygon is often described as an energy
 maximum: it is a constrained minimum, compatible with but distinct
-from the unconstrained Onsager picture (Corollary~\ref{II-cor:min-not-max}).
+from the unconstrained Onsager picture (Corollary~Paper~II, Corollary~8.3).
 
 \smallskip\noindent
 What is new:
 (1)~the constrained-minimum identification and its
 Lagrange-multiplier derivation;
-(2)~the analytic sign rule (Theorem~\ref{I-thm:sign-rule});
+(2)~the analytic sign rule (Theorem~the sign rule (Paper~I, Theorem~3.1));
 (3)~the three-scale separation and two-timescale Onsager--Arnold
 resolution;
 (4)~the constraint-intersection framework
 (Proposition~\ref{prop:complementary});
 (5)~the RG classification of the logarithm as IR fixed point
-(Proposition~\ref{I-prop:rg-classification});
+(Proposition~Paper~I, Proposition~2.1);
 (6)~the spherical and hyperbolic stability boundaries
 with exact thresholds;
 (7)~the curvature-stability dichotomy and spectral flow
-(Propositions~\ref{I-prop:curvature-dichotomy}--\ref{I-prop:morse-index});
+(Propositions~Paper~I, Proposition~5.5--Paper~I, Proposition~5.6);
 (8)~the algebraic-integer classification $N \in \{8,9,11,15,23\}$,
 golden ratio terminal case, binary subdivision, Pell--conformal
 inversion equivalence, and continued fraction structure
-(Section~\ref{I-sec:algebraic-structure});
+(Section~Paper~I, \S6);
 (9)~the blob bridge, $K_0$ central-vortex computation, and
 circulation disorder resilience;
 (10)~the first-principles prediction chain reducing planetary
@@ -694,29 +694,29 @@ $9/28$ in Sylvester-normalized coordinates).
 \subsection{Limitations and scope}
 
 The mathematical results---the constrained energy minimum
-(Theorem~\ref{II-thm:constrained-min}), the sign rule
-(Theorem~\ref{I-thm:sign-rule}), and the stability table---are proven
+(Theorem~Paper~II, Theorem~8.2), the sign rule
+(Theorem~the sign rule (Paper~I, Theorem~3.1)), and the stability table---are proven
 for discrete point vortices.  They apply directly to Jupiter's polar
 cyclone rings.  For Saturn's hexagon, which is a continuous jet meander,
 the relevant mechanism is Rossby wave stationarity of the QGPV
 equation, not the point vortex energy landscape.  The continuous and
 discrete descriptions share the logarithmic Green's function; the
-vortex blob analysis (Section~\ref{II-sec:blob}) establishes that the
+vortex blob analysis (Section~Paper~II, \S12) establishes that the
 stability boundary is preserved under regularization and that the
 $N = 7$ marginal case is resolved.
 
-The Saturn bridge (Section~\ref{II-sec:rossby-bridge}) connects the
+The Saturn bridge (Section~Paper~II, \S12.3) connects the
 continuous QGPV eigenvalue problem to the point vortex Hessian via
 critical-layer concentration.  The key mechanism is
 $\mathbb{Z}_N$~symmetry: for any $\mathbb{Z}_N$-symmetric cat's-eye
 structure, the lobe circulations are equal and the centroids lie on
 the $N$-gon vertices, so the constrained Hessian has the same inertia
-as the Havelock Hessian (Remark~\ref{II-rem:catseye}).  This is verified
+as the Havelock Hessian (Remark~Paper~II, Remark~12.3).  This is verified
 numerically for both smooth (Stuart vortex) and step-PV
 (Prandtl--Batchelor) cat's-eye models.  The braid vorticity fraction
 vanishes as $O(1{-}\eta)$ in the Stuart concentration limit
-(Remark~\ref{II-rem:catseye}), satisfying the conditions of
-Proposition~\ref{II-prop:inertia}.
+(Remark~Paper~II, Remark~12.3), satisfying the conditions of
+Proposition~Paper~II, Proposition~12.2.
 
 The quantitative bridge at Saturn's actual parameters can be closed
 as follows.  The relevant concentration parameter is the
@@ -725,7 +725,7 @@ $\varepsilon/R = \sigma_{\mathrm{jet}}/R_{\mathrm{hex}}
 = 2.5 \times 10^6/(5.1 \times 10^7) = 0.049$,
 not the log-polar width $\sigma_{\mathrm{lp}} \approx 0.15$
 sometimes quoted.  With $d_{\min} = 2\sin(\pi/6) = 1$, the
-concentration condition~\eqref{eq:concentration-bound} requires
+concentration condition~Paper~II, eq.~12.5 requires
 $\varepsilon/d_{\min} < \delta(6) = 0.096$.  The physical ratio
 $0.049 < 0.096$ satisfies this condition.
 The Weyl perturbation bound gives
@@ -743,8 +743,8 @@ The Saturn hexagon is therefore supported by three arguments:
 (i)~Rossby stationarity (Proposition~\ref{prop:complementary}) selects
 $n = 6$ independently of the energy landscape;
 (ii)~geometric consistency with the spherical stability boundary
-(Section~\ref{I-sec:curved}); and
-(iii)~the critical-layer bridge (Remark~\ref{II-rem:catseye}), which
+(Section~Paper~I, \S5.1); and
+(iii)~the critical-layer bridge (Remark~Paper~II, Remark~12.3), which
 establishes Hessian inertia preservation for $\mathbb{Z}_N$-symmetric
 cat's-eye structures---now verified quantitatively at Saturn's
 physical parameters ($\varepsilon/d_{\min} = 0.049 < \delta(6) = 0.096$,
@@ -777,7 +777,7 @@ Cassini and Juno data are digitized from published figures.
 
 \emph{Dynamical maintenance.}%
 \label{sec:dynamical-maintenance}
-The constrained energy minimum (Theorem~\ref{II-thm:constrained-min}) is
+The constrained energy minimum (Theorem~Paper~II, Theorem~8.2) is
 a static result: it identifies the polygon as the lowest-energy
 arrangement on the conserved-quantity surface, and by Arnold's energy-Casimir
 stability theorem \citep{Arnold1966} this minimum is Lyapunov stable
