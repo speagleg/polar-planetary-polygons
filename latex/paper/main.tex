@@ -1603,20 +1603,26 @@ well-posed BVP if and only if the excluded discs are pairwise disjoint:
   \;\Longleftrightarrow\;
   \sin(\pi/N) \ge \varepsilon/R.
 \]
-On a $\beta$-plane the Coriolis-modified Laplacian
-$\nabla^2 + \beta\,\partial_y$ creates a vortex drift that enlarges
-the effective exclusion radius to
-$\varepsilon_{\mathrm{eff}} \approx 1.3\,\varepsilon$ at Jupiter's
-south pole \citep{Gavriel2021}.
+The domain-admissibility condition establishes
+$r_{\mathrm{excl}} \ge \varepsilon$ (the core radius) from the
+Laplacian alone.  The observed enlargement
+$r_{\mathrm{excl}} \approx 1.3\,\varepsilon$ at Jupiter's south pole
+arises from the nonlinear $\beta$-drift balance of finite-amplitude
+vortices on a rotating sphere \citep{Gavriel2021}; this factor is
+\emph{not} derived from the linear operator $\nabla^2 + \beta\,\partial_y$
+but is an empirical input from the full vortex dynamics.
 
-The three Laplacian facets are therefore:
+The two Laplacian-derived facets and their observational supplement are:
 \begin{enumerate}
   \item \emph{Spectral positivity} of $G(\nabla^2)$: Havelock
-    eigenvalue $\lambda_m > 0$ $\to$ Thomson bound;
+    eigenvalue $\lambda_m > 0$ $\to$ Thomson bound (derived);
   \item \emph{Domain admissibility} of $G_\varepsilon(\nabla^2)$:
-    disc non-overlap $\to$ packing bound;
+    disc non-overlap $\sin(\pi/N) \ge \varepsilon/R$ $\to$ packing
+    bound with $r_{\mathrm{excl}} = \varepsilon$ (derived);
+    the enlargement $r_{\mathrm{excl}} \approx 1.3\,\varepsilon$
+    at Jupiter south is observational;
   \item \emph{Rossby stationarity} of $(\nabla^2 + \beta\,\partial_y)\psi = 0$:
-    stationary mode $n^*$ $\to$ wave quantization.
+    stationary mode $n^*$ $\to$ wave quantization (derived).
 \end{enumerate}
 The finite-core regularisation $G_\varepsilon$ does \emph{not} create
 a blob-stable window for $N = 8$: the corrected constrained Hessian
