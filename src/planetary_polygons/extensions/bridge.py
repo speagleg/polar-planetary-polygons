@@ -57,8 +57,11 @@ def _blob_min_eigenvalue(N, eps):
             dx, dy = dz.real, dz.imag
             d2 = dx**2 + dy**2
             s2 = d2 + 2 * eps**2
-            h_xx = (d2 - 2 * dx**2) / s2**2
-            h_yy = (d2 - 2 * dy**2) / s2**2
+            # BUG FIX: numerator must use s2, not d2.
+            # d²(-½ ln s)/dx_j² = (2dx²-s)/s², so h_xx = (s-2dx²)/s².
+            # The original (d2-2dx²)/s² was missing the 2ε² term.
+            h_xx = (s2 - 2 * dx**2) / s2**2
+            h_yy = (s2 - 2 * dy**2) / s2**2
             h_xy = -2 * dx * dy / s2**2
             H[j, j] -= h_xx;         H[j+N, j+N] -= h_yy
             H[j, j+N] -= h_xy;       H[j+N, j] -= h_xy

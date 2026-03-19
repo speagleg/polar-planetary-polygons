@@ -114,9 +114,10 @@ def blob_constrained_eigenvalue(N, eps_over_R, R=1.0):
             grad_H[j] += -dx / s2
             grad_H[j + N] += -dy / s2
 
-            # Hessian components
-            h_xx = (d2 - 2 * dx**2) / s2**2
-            h_yy = (d2 - 2 * dy**2) / s2**2
+            # Hessian of -0.5*ln(s2): d²h/dx_j² = (2dx²-s2)/s2²
+            # Convention: h_xx = -d²h/dx_j² = (s2-2dx²)/s2²
+            h_xx = (s2 - 2 * dx**2) / s2**2
+            h_yy = (s2 - 2 * dy**2) / s2**2
             h_xy = -2 * dx * dy / s2**2
 
             H[j, j] -= h_xx;           H[j + N, j + N] -= h_yy
@@ -152,28 +153,24 @@ def blob_stable_window(N):
     """
     Find the eps/R range where the N-ring is blob-stable.
 
-    Returns (eps_crit, eps_max) where:
-        eps_crit: minimum eps/R for blob stabilization (eigenvalue crosses zero)
-        eps_max:  maximum eps/R for domain admissibility (sin(pi/N))
+    For N <= 7: stable at all admissible eps (window = [0, sin(pi/N)]).
+    For N >= 8: the corrected blob Hessian shows that the eigenvalue
+    remains negative throughout the admissible domain. No blob-stable
+    window exists — stabilization requires a central vortex.
 
-    For N <= 7: eps_crit = 0 (stable at all eps)
-    For N = 8:  eps_crit ~ 0.195, eps_max = sin(pi/8) ~ 0.383
-    For N >= 9: eps_crit may exceed eps_max (no stable window)
-
-    Returns None if no stable window exists.
+    Returns (eps_crit, eps_max) or None if no stable window.
     """
     eps_max = math.sin(math.pi / N)
 
     # Check if stable at eps=0 (point vortex)
     lam_0 = blob_constrained_eigenvalue(N, 0.001)
     if lam_0 >= -1e-6:
-        # Already stable at eps=0
         return (0.0, eps_max)
 
-    # Check if stable at eps_max
+    # Check if stable at eps_max (boundary of admissible domain)
     lam_max = blob_constrained_eigenvalue(N, eps_max * 0.99)
     if lam_max < -1e-6:
-        return None  # unstable even at maximum eps
+        return None  # unstable even at maximum admissible eps
 
     # Bisect for eps_crit
     lo, hi = 0.001, eps_max * 0.99
@@ -269,7 +266,7 @@ def laplacian_selection(system):
         # Determine if admissibility or eigenvalue is binding
         N_adm = max_admissible_N(eps_over_R)
         binding = 'admissibility' if N_adm <= N_selected else 'spectral'
-        facet = 'G_eps(nabla^2): blob eigenvalue + central vortex'
+        facet = 'G(nabla^2): Thomson eigenvalue + central vortex'
 
     elif system == 'jupiter_south':
         p = JUPITER_SOUTH

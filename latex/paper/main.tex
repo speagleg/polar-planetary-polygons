@@ -1618,13 +1618,15 @@ The three Laplacian facets are therefore:
   \item \emph{Rossby stationarity} of $(\nabla^2 + \beta\,\partial_y)\psi = 0$:
     stationary mode $n^*$ $\to$ wave quantization.
 \end{enumerate}
-Additionally, the finite-core regularisation $G_\varepsilon$ creates
-a \emph{blob-stable window} for $N = 8$: the constrained Hessian
-eigenvalue, which is negative in the point-vortex limit, becomes
-positive for $\varepsilon/R \in [0.195, \sin(\pi/8)]$.  Jupiter
-north's cyclone-to-ring ratio $\varepsilon/R \approx 0.34$ falls
-squarely within this window, providing an independent (central-vortex-%
-free) consistency check on the $N = 8$ selection.
+The finite-core regularisation $G_\varepsilon$ does \emph{not} create
+a blob-stable window for $N = 8$: the corrected constrained Hessian
+(with the full $\partial^2(-\tfrac12\ln s)/\partial x_j^2
+= (2\,\Delta x^2 - s)/s^2$, $s = d^2 + 2\varepsilon^2$, not
+the $O(\varepsilon^2)$ truncation) remains negative throughout
+the admissible domain $\varepsilon/R < \sin(\pi/8)$.
+The $N = 8$ selection therefore requires the central vortex
+($\kappa_0/\kappa \ge \tfrac{1}{2}$); blob regularisation alone
+does not provide an alternative stabilisation mechanism.
 \end{remark}
 
 For Saturn, $n^*$ is determined by the Rayleigh--Kuo condition for

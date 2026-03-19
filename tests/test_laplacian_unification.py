@@ -20,7 +20,6 @@ class TestDomainAdmissibility:
 
     def test_packing_equivalence(self):
         """Domain admissibility reproduces the packing bound."""
-        # sin(pi/6) = 0.5, so eps/R = 0.5 is exactly marginal for N=6
         assert domain_admissible(6, 0.49)
         assert not domain_admissible(7, 0.45)  # sin(pi/7) = 0.434 < 0.45
 
@@ -42,10 +41,11 @@ class TestBlobEigenvalue:
         lam8 = blob_constrained_eigenvalue(8, 0.001)
         assert lam8 < 0, "N=8 should be unstable at eps~0"
 
-    def test_blob_stabilization_N8(self):
-        """N=8 is blob-stabilized at eps/R ~ 0.335 (Jupiter north)."""
-        lam = blob_constrained_eigenvalue(8, 0.335)
-        assert lam > 0, f"N=8 at eps/R=0.335 should be blob-stable, got {lam}"
+    def test_N8_remains_unstable_at_finite_eps(self):
+        """N=8 remains unstable throughout the admissible domain (no blob window)."""
+        # With the corrected Hessian, N=8 never becomes blob-stable
+        lam = blob_constrained_eigenvalue(8, 0.35)
+        assert lam < 0, f"N=8 at eps/R=0.35 should remain unstable, got {lam}"
 
 
 class TestBlobStableWindow:
@@ -55,19 +55,16 @@ class TestBlobStableWindow:
         assert window is not None
         assert window[0] == 0.0
 
-    def test_N8_window_exists(self):
-        """N=8 has a blob-stable window."""
+    def test_N8_no_window(self):
+        """N=8 has NO blob-stable window (corrected Hessian)."""
         window = blob_stable_window(8)
-        assert window is not None
-        assert 0.15 < window[0] < 0.25  # eps_crit ~ 0.195
-        assert abs(window[1] - math.sin(math.pi / 8)) < 0.01
+        assert window is None, \
+            f"N=8 should have no blob-stable window, got {window}"
 
-    def test_jupiter_north_in_window(self):
-        """Jupiter north eps/R = 0.335 falls inside N=8 window."""
-        window = blob_stable_window(8)
-        assert window is not None
-        eps_jn = 2.5e6 / 7.473e6  # ~ 0.335
-        assert window[0] < eps_jn < window[1]
+    def test_N9_no_window(self):
+        """N=9 has no blob-stable window."""
+        window = blob_stable_window(9)
+        assert window is None
 
 
 class TestUnifiedSelection:
@@ -89,7 +86,7 @@ class TestLaplacianSelection:
         assert r['binding'] == 'rossby'
 
     def test_jupiter_north(self):
-        """Jupiter north: spectral (Thomson) from Green's function."""
+        """Jupiter north: spectral (Thomson + central vortex)."""
         r = laplacian_selection('jupiter_north')
         assert r['N_selected'] == 8
         assert r['binding'] == 'spectral'
