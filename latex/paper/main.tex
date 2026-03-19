@@ -47,29 +47,24 @@ integer-valued threshold: a ring of eight unit-winding vortices is
 stable if and only if the central vortex carries winding number
 $q_0 \ge 1$.
 
-Jupiter and Saturn are instances of 2D polygon-formation at different
-dynamical scales, connected by a shared geometric substrate.
-Jupiter's north polar octagon ($N = 8$) is a vortex-dominated ring;
-the ring energy $H_N$ is strictly increasing in $N$ (proven), so the
-Onsager/Thomson framework selects $N_{\max} = \max\{N :
-\kappa_{\mathrm{crit}}(N) \le \kappa_0/\kappa\}$.  The prediction
-$N_{\max} = 8$ relies on $\kappa_0/\kappa < 1$: since
-$\kappa_{\mathrm{crit}}(8) = 1/2$ and
-$\kappa_{\mathrm{crit}}(9) = 1$, Juno's current estimate
-$\kappa_0/\kappa \approx 1 \pm 0.3$ places $\kappa_{\mathrm{crit}}(9)$
-inside the observational uncertainty, and $\kappa_0/\kappa \ge 1$ would
-give $N_{\max} = 9$ instead.  The observed $N = 8$ is thus evidence
-that $\kappa_0/\kappa \lesssim 1$---a theory-derived constraint
-testable with improved Juno wind measurements.
-Saturn's hexagon ($N = 6$) is a wave-dominated meander selected by
-Rossby stationarity of the quasi-geostrophic equation.  The two
-mechanisms are physically distinct: the Jupiter argument uses the point
-vortex Hessian directly; the Saturn argument uses the QGPV eigenvalue
-problem.  Both are governed by the 2D Laplacian---but this shared feature
-reflects two-dimensionality itself, not a deeper algebraic coincidence.
-The unification is structural (same Green's function, same stability
-threshold $N = 7$) rather than mechanistic (the paths to the polygon
-differ).
+The central unifying result is a \emph{constraint-intersection
+principle}: three selection mechanisms---Rossby wave stationarity,
+Thomson vortex stability, and geometric packing---each derived from
+the 2D Laplacian, constrain the polygon wavenumber $N$ from above.
+The observed $N$ is determined by whichever constraint is tightest,
+and different planetary parameters activate different constraints.
+Saturn's hexagon ($N = 6$) is Rossby-limited (wave stationarity
+of the QGPV equation selects $n = 6$).
+Jupiter's north-pole octagon ($N = 8$) is Thomson-limited (the
+ring energy $H_N$ is strictly increasing in $N$, so Onsager
+negative-temperature dynamics selects the maximum stable $N$;
+the prediction $N_{\max} = 8$ relies on
+$\kappa_0/\kappa \lesssim 1$, testable with improved Juno
+wind measurements).
+Jupiter's south-pole pentagon ($N = 5$) is packing-limited (the
+cyclones are too large for more than five to fit on the ring,
+a constraint derived from domain admissibility of the Laplacian's
+Green's function on the punctured domain).
 
 On the hyperbolic plane $\mathbf{H}^2$ with curvature $K = -1/a^2$,
 the stability boundary rises monotonically: $N_{\mathrm{crit}} = 12$
