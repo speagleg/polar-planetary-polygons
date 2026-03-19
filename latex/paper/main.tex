@@ -1351,18 +1351,52 @@ In this sense the stability boundary $N = 7$ separates two
 \emph{topological phases} of vortex polygon stability.
 The \emph{quantitative} value $N_{\mathrm{crit}}(K, R)$ depends
 on the dimensionless product $K R^2$ and is purely geometric.
+\begin{proposition}[Morse index and spectral flow]
+\label{prop:morse-index}
+The Morse index of the $N$-gon critical point of the Thomson energy
+on the constrained configuration space is
+\[
+  \mu(N) = \begin{cases} 0 & N \le 7, \\ N - 5 & N \ge 8. \end{cases}
+\]
+The unstable modes on the flat plane are exactly $m = 3, 4, \ldots, N{-}3$.
+\end{proposition}
+
+\begin{proof}
+$\lambda_m < 0$ iff $m(N{-}m) > 2(N{-}1)$ iff
+$(m - N/2)^2 < (N^2 - 8N + 8)/4$.  The left boundary of the
+unstable band is $m_{\min} = \lceil N/2 - \sqrt{(N{-}4)^2 - 8}/2\,\rceil$.
+For $N \ge 8$: $m_{\min} = 3$, because
+$(N{-}6)^2 \le (N{-}4)^2 - 8$ iff $N \ge 7$
+(giving $m_{\min} \le 3$) and
+$(N{-}4)^2 > (N{-}4)^2 - 8$
+(giving $m_{\min} > 2$).
+By the palindromic symmetry $\lambda_m = \lambda_{N-m}$, the
+upper boundary is $m_{\max} = N - 3$.
+Hence $\mu(N) = (N{-}3) - 3 + 1 = N - 5$.
+\end{proof}
+
+\begin{corollary}[Why $N_{\mathrm{crit}} = 7$]
+\label{cor:why-7}
+$N_{\mathrm{crit}} = 7$ is the unique solution of $f(3, N) = C_1$
+on the flat plane: $3(N{-}3)/2 = N{-}1$ gives $N = 7$.
+The number~$3$ (the first unstable Fourier mode) is forced by
+the $\mathbb{Z}_N$ representation theory
+(Proposition~\ref{prop:morse-index}); the number~$7 = 8 - 1$ is
+its algebraic consequence.  The stability boundary is not an
+empirical observation but a closed-form output of the
+$\mathbb{Z}_N$ Casimir and the logarithmic $C_1$.
+\end{corollary}
+
 The family $H_N(\xi) = C_1(\xi)\,I - F_N$ parametrised by
-$\xi \in [0, 1)$ has a monotone \emph{spectral flow}: as $\xi$
+$\xi \in [0, 1)$ has a monotone spectral flow: as $\xi$
 increases from~$0$ (flat plane) to~$1$ (infinite curvature),
 unstable modes stabilise in pairs $(m, N{-}m)$ from the outermost
-inward, with the central mode $m = \lfloor N/2\rfloor$ last.
-The total spectral flow equals the flat-plane Morse index
-$\mu(N) = N - 5$ for $N \ge 8$ (the unstable modes on the
-plane are exactly $m = 3, 4, \ldots, N{-}3$).  Whether this
-spectral flow equals the index of a Dirac-type operator~$D_N$
-on the $\mathbb{Z}_N$-symmetric sector---connecting the stability
-boundary to an Atiyah--Patodi--Singer index theorem---is an open
-problem that would give a topological proof of $N_{\mathrm{crit}} = 7$.
+inward.  The total spectral flow equals $\mu(N)$ by monotonicity.
+Whether this spectral flow equals the index of a Dirac-type
+operator~$D_N$ on the $\mathbb{Z}_N$-symmetric
+sector---connecting the stability boundary to an
+Atiyah--Patodi--Singer index theorem---is an open problem that
+would give a topological proof of $N_{\mathrm{crit}} = 7$.
 
 \paragraph{Physical realization.}
 The hyperbolic plane is no longer a purely mathematical object.
