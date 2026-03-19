@@ -545,7 +545,7 @@ Numerically: $C_2 = 1.000$ at all tested colatitudes to four decimal
 places; eigenvalue pair sums $\lambda_m^+ + \lambda_m^- = 2C_1$ are
 constant across all modes at each colatitude.
 
-The universality follows from the proof structure of Appendix~A:
+The universality follows from the proof structure of \S\ref{sec:classical-havelock}:
 the Havelock identity $T_m = m(N{-}m)/2$ is derived from (i)~the
 algebraic factorization $|{\sum_{k=0}^{m-1}\omega^{pk}}|^2$ and
 (ii)~the orthogonality of $\mathbb{Z}_N$ characters, both of which
@@ -758,11 +758,12 @@ the Havelock values to within $1\%$ at $\varphi_0 = 3^\circ$
 (N=5: $\bar\lambda = 0.99$, Havelock $= 1.0$;
 N=6: $0.49$ vs $0.5$; N=8: $-1.01$ vs $-1.0$).
 
+\emph{Illustration.}
 Saturn's hexagon at $76^\circ$\,N ($\varphi_0 = 14^\circ$) lies
 inside $\varphi_{\mathrm{crit}}(6) = 26.6^\circ$: the hexagonal
-ring is in the stable zone.  If the hexagon were at $60^\circ$\,N
-($\varphi_0 = 30^\circ > 26.6^\circ$), it would cross the boundary
-and the pattern would not persist.  For $N = 7$: $\cos\varphi_{\mathrm{crit}} = 6/6 = 1$, so
+ring is in the stable zone (the planetary analysis is in Paper~III;
+here we note only the mathematical consistency).
+For $N = 7$: $\cos\varphi_{\mathrm{crit}} = 6/6 = 1$, so
 $\varphi_{\mathrm{crit}} = 0^\circ$---the $7$-gon is marginally
 stable only at the exact pole, consistent with the flat-plane
 marginality $\lambda_3 = 0$.
@@ -927,7 +928,7 @@ The Riemannian Havelock identity $\lambda_m = C_1(R/a) - m(N{-}m)/2$
 is verified to hold (computed $C_1$ values are mode-independent to
 numerical precision~$\sim 10^{-5}$).  The exact $\mathbf{H}^2$
 Green's function yields the closed-form expression (derived in
-the $C_1$ derivation (Appendix~A))
+companion Appendix~A)
 \begin{equation}
   C_1(\mathbf{H}^2,\,\xi)
     = \frac{(N-1)(1+\xi^2)}{(1-\xi)^2},
@@ -943,15 +944,17 @@ $N_{\mathrm{crit}}$ increases through integer jumps as $R/a$ grows,
 with the $7 \to 8$ transition at $R/a \approx 0.52$ (more precisely,
 the $m = \lfloor N/2\rfloor$ eigenvalue of the $N = 8$ ring crosses
 zero near this value).
-We \emph{conjecture} that $N_{\mathrm{crit}}(R/a)$ is non-decreasing
-(verified for $R/a \le 2$; a plausible mechanism is the
-transition from class~(ii) at $R \ll a$ to class~(i) at $R \gg a$,
-but this does not constitute a proof because the Lagrange multiplier
-also depends on $R/a$ in a non-trivial way).
+We \emph{conjecture} that $N_{\mathrm{crit}}(R/a)$ is non-decreasing.
+Numerical evaluation of the constrained Hessian eigenvalues
+(code: \texttt{h2\_stability.py}) confirms this for $R/a \le 2$.
+A plausible mechanism is the transition from class~(ii) at
+$R \ll a$ to class~(i) at $R \gg a$, but the Lagrange multiplier
+also depends on $R/a$ in a non-trivial way, so the monotonicity
+is not proven.
 
 \paragraph{Near-$K=0$ behavior.}
 Expanding~\eqref{eq:C1_H2} for $N=7$, $m=3$ (see
-the $C_1$ derivation (Appendix~A) for the algebraic simplification), the
+companion Appendix~A for the algebraic simplification), the
 $m=3$ eigenvalue satisfies
 \begin{equation}
   \lambda_3(N=7,\,\xi)
