@@ -958,19 +958,39 @@ The discriminant's squarefree part $D$ follows the pattern
     \mathrm{sq\_free}(N-3) & N \text{ odd},
   \end{cases}
 \end{equation}
-for all $N \ge 8$.  This follows from elementary factorization of
-the discriminant (the algebra is straightforward; the deeper content
-is that the palindromic structure itself encodes the conformal
-inversion $\xi \leftrightarrow 1/\xi$ of the Poincar\'e disk, as
-noted above).  Specifically, from the factorization of
-$\Delta = B^2 - 4A^2 = 4(N{-}1)[m(N{-}m)-(N{-}1)]$.  For even $N$
-($m = N/2$): $m(N{-}m) = N^2/4$, so
-$\Delta/4 = (N{-}1)(N{-}2)^2/4$, and
-$\mathrm{sq\_free}(\Delta/4) = \mathrm{sq\_free}(N{-}1)$
-(since $(N{-}2)^2$ and $4$ are perfect squares).  For odd $N$
-($m = (N{-}1)/2$): $m(N{-}m) = (N^2{-}1)/4$, so
-$\Delta/4 = (N{-}1)^2(N{-}3)/4$, and
-$\mathrm{sq\_free}(\Delta/4) = \mathrm{sq\_free}(N{-}3)$.
+for all $N \ge 8$.  The deeper content is that the palindromic
+structure encodes the conformal inversion
+$\xi \leftrightarrow 1/\xi$ of the Poincar\'e disk (as noted above);
+the field pattern itself follows from elementary factorization.
+
+\begin{proof}[Proof of~\eqref{eq:field-pattern}]
+The palindromic quadratic $A\xi^2 + B\xi + A = 0$ has discriminant
+$\Delta = B^2 - 4A^2$.  Using $A = (N{-}1) - m(N{-}m)/2$ and
+$B = m(N{-}m)$:
+\[
+  \Delta = m^2(N{-}m)^2 - 4\bigl[(N{-}1) - m(N{-}m)/2\bigr]^2
+  = 4(N{-}1)\bigl[m(N{-}m) - (N{-}1)\bigr].
+\]
+
+\emph{Even $N$ ($m = N/2$):}
+$m(N{-}m) = N^2/4$, so
+$m(N{-}m) - (N{-}1) = N^2/4 - N + 1 = (N{-}2)^2/4$.
+Therefore
+$\Delta = 4(N{-}1)(N{-}2)^2/4 = (N{-}1)(N{-}2)^2$.
+The squarefree part of $\Delta$ equals
+$\mathrm{sq\_free}(N{-}1)$, since $(N{-}2)^2$ is a perfect square.
+The threshold $\xi^*$ involves $\sqrt\Delta$, so
+$\xi^* \in \mathbb{Q}(\sqrt{\mathrm{sq\_free}(N{-}1)})$.
+
+\emph{Odd $N$ ($m = (N{-}1)/2$):}
+$m(N{-}m) = (N{-}1)(N{+}1)/4 = (N^2{-}1)/4$, so
+$m(N{-}m) - (N{-}1) = (N^2{-}1)/4 - (N{-}1) = (N{-}1)(N{-}3)/4$.
+Therefore
+$\Delta = 4(N{-}1) \cdot (N{-}1)(N{-}3)/4 = (N{-}1)^2(N{-}3)$.
+The squarefree part of $\Delta$ equals
+$\mathrm{sq\_free}(N{-}3)$, since $(N{-}1)^2$ is a perfect square.
+Hence $\xi^* \in \mathbb{Q}(\sqrt{\mathrm{sq\_free}(N{-}3)})$.
+\end{proof}
 
 The $N = 10$ case is the unique rational threshold:
 $N-1 = 9 = 3^2$ is a perfect square, so $D = 1$ and
