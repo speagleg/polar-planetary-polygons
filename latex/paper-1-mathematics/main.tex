@@ -18,78 +18,73 @@ We establish the mathematical foundations for polygon formation in two-dimension
 \section{Introduction}
 \label{sec:intro}
 
-These observations raise a question with two parts.  The first---\emph{how}
-does a specific polygon form?---has received considerable attention.
-The second---\emph{why} should different physical mechanisms on different
-planets all produce the same geometric outcome?---has not.
+When does a regular polygon of point vortices constitute a stable
+equilibrium, and how does the curvature of the ambient surface change
+the answer?  This is the central mathematical question of the present
+paper.  The physical motivation---polygonal storm patterns on Saturn
+and Jupiter \citep{Godfrey1988, Adriani2018}---is developed in
+Paper~III; the point vortex dynamics, constrained energy landscape,
+and continuous-vorticity bridge are developed in Paper~II.
+Paper~I is self-contained: it requires only the definitions of
+point vortex energy and the Havelock eigenvalue, both recalled below.
 
-In 1988, David Godfrey examined Voyager images of Saturn's north pole
-and found a hexagon \citep{Godfrey1988}---a persistent, regular,
-six-sided polygon inscribed in the jet stream at $76^\circ$\,N, stable
-across decades.  Its most striking property is that it
-co-rotates with Saturn's System~III period ($10^{\mathrm{h}}\,39^{\mathrm{m}}\,22.4^{\mathrm{s}}$),
-the rotation rate of the deep interior inferred from the
-magnetic field, rather than being advected by the $\sim\!120$\,m/s
-eastward jet in which it sits \citep{Godfrey1988, SanchezLavega2014}.
-This phase-locking to the deep interior has been confirmed from Voyager
-through Cassini across more than 30 years and is the primary
-observational constraint on any proposed mechanism.  Thirty years later, the Juno spacecraft revealed that
-Jupiter's poles harbor their own polygonal arrangements: eight cyclones
-in an octagonal ring at the north pole, five in a pentagonal ring at the
-south \citep{Adriani2018}.  Numerical simulations can reproduce these
-structures \citep{Morales2011, Gavriel2021}, and vortex crystals emerge
-spontaneously in 2D turbulence simulations on polar caps
-\citep{Siegelman2022}.
-
-We answer the second question, subject to one physical assumption
-(Onsager negative-temperature statistics at the polar scale; see
-Paper~III for a detailed assessment).  The
-mechanism operates at two scales:
+\paragraph{What this paper proves.}
 \begin{enumerate}
-  \item \textbf{Macro scale: cluster formation.}  The Kraichnan (1967)
-    inverse energy cascade drives 2D turbulence toward large-scale coherent
-    structures.  In the Onsager (1949) framework, this produces a
-    negative-temperature state where same-sign vorticity concentrates
-    into $N$ coherent clusters \citep{BouchetVenaille2012, Siegelman2022}.
-    This step explains why discrete vortex clusters exist; it does not
-    determine their spatial arrangement.
-
-  \item \textbf{Meso scale: polygon arrangement.}  Given $N$ vortex
-    clusters on a ring of fixed angular momentum, the regular $N$-gon
-    \emph{minimizes} the interaction energy on the conserved-quantity
-    surface (the constrained energy minimum (Paper~II, Theorem~8.2)).  By the energy-Casimir
-    method, this makes the $N$-gon a nonlinearly stable equilibrium for
-    $N \le 7$ without a central vortex, or for any $N$ with sufficient
-    central vortex strength.  The polygon is selected by dynamical
-    stability, not by statistical mechanics.
+  \item \textbf{The sign rule} (Theorem~\ref{thm:sign-rule}):
+    for any pairwise interaction $h(r)$ with $h' < 0$ and
+    $(rh')' \le 0$, the $N$-gon is a saddle of the unconstrained
+    energy with $H''(0) < 0$ along the centered spiral deformation.
+    The logarithmic interaction $h = -\ln r$ is the unique
+    dilation-invariant borderline case (Section~\ref{sec:log-interaction}).
+  \item \textbf{The Havelock identity and its metric-independence}
+    (Section~\ref{sec:havelock-identity}):
+    the $m$-dependent part $f(m,N) = m(N{-}m)/2$ of the Havelock
+    eigenvalue is a consequence of $\mathbb{Z}_N$ representation
+    theory alone; only the additive constant $C_1$ carries geometric
+    information.
+  \item \textbf{Stability thresholds on constant-curvature surfaces}
+    (Section~\ref{sec:curvature-thresholds}):
+    the curvature-stability dichotomy
+    (Proposition~\ref{prop:curvature-dichotomy}),
+    the Morse index formula $\mu(N) = N - 5$ for $N \ge 8$
+    (Proposition~\ref{prop:morse-index}), the closed-form derivation
+    of $N_{\mathrm{crit}} = 7$ (Corollary~\ref{cor:why-7}), and
+    the monotone spectral flow from flat to hyperbolic geometry.
+  \item \textbf{Algebraic structure of the stability boundary}
+    (Section~\ref{sec:algebraic-structure}):
+    the field extension pattern, the Pell equation connection,
+    the algebraic-integer classification
+    $N \in \{8, 9, 11, 15, 23\}$
+    (Proposition~\ref{prop:alg-int}), the golden ratio terminal case
+    $\xi^*(23) = \varphi^{-2}$, the binary subdivision, and the
+    continued fraction structure
+    (Proposition~\ref{prop:cf-palindromic}).
+  \item \textbf{The RG classification}
+    (Proposition~\ref{prop:rg-classification}):
+    the logarithm is the unique IR fixed point of the additive
+    coarse-graining map, with the sign rule demarcating its basin of
+    attraction.
 \end{enumerate}
 
-The meso-scale proof (the constrained energy minimum (Paper~II, Theorem~8.2)) applies to
-discrete point vortices and is directly relevant to Jupiter's cyclone
-rings.  Saturn's hexagon is a continuous jet meander, not a discrete
-vortex ring; its wavenumber $N = 6$ is selected instead by Rossby
-wave stationarity of the QGPV equation
-(the constraint-intersection principle (Paper~III)).  Both mechanisms share the
-logarithmic Green's function as a structural foundation, but the
-mathematical arguments differ.
+\paragraph{What this paper does not prove.}
+The constrained energy minimum theorem---showing the $N$-gon
+\emph{minimises} interaction energy on the conserved-quantity surface
+for $N \le 7$---is proved in Paper~II (Theorem~8.2), along with the
+central vortex stabilization, the $N = 7$ quartic bifurcation, and the
+blob bridge to continuous vorticity.
+The planetary applications (Saturn hexagon, Jupiter polygons, Neptune
+predictions) and the constraint-intersection selection principle are
+developed in Paper~III.
 
-\emph{Which} polygon forms is determined by planet-specific selection
-criteria: $N = 6$ by Rossby stationarity (Saturn), $N = 8$ by the
-Thomson--Onsager maximum-stability bound (Jupiter north).  The observed
-$N = 5$ at Jupiter's south pole is consistent with Thomson stability
-($\kappa_{\mathrm{crit}}(5) = 0$, so no central vortex is required)
-but is not uniquely predicted by the present framework; the south-polar
-packing geometry provides the additional constraint
-(the wavenumber selection (Paper~III)).
-
-Beyond the solar system, the framework makes its most physically
-distinctive prediction on the hyperbolic plane: a ring of $N = 12$
-vortices at $R/a = 1$ is stable \emph{without} a central vortex---an
-impossibility in flat geometry, where any $N \ge 8$ ring requires
-central stabilization.  Recent implementations of hyperbolic lattice
-Hamiltonians in circuit QED \citep{Kollar2019} and topolectrical
-circuits \citep{Lenggenhager2022} make this prediction experimentally
-accessible (Section~\ref{sec:curvature-invariant}).
+\paragraph{Structure.}
+Section~\ref{sec:log-interaction} establishes the logarithmic
+interaction's uniqueness and symmetry properties.
+Section~\ref{sec:sign-rule} proves the sign rule.
+Sections~\ref{sec:havelock-identity}--\ref{sec:curvature-thresholds}
+develop the Havelock identity, the Riemannian generalisation, and
+the stability thresholds on curved surfaces.
+Section~\ref{sec:algebraic-structure} explores the algebraic number
+theory of the threshold polynomials.
 
 
 %% ====================================================================
