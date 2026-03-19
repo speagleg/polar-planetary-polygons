@@ -141,3 +141,42 @@ Physical interpretation: each doubling of the polygon count (above
 the N=7 baseline) halves the algebraic complexity of the hyperbolic
 stability threshold, converging to the golden ratio as the simplest
 possible algebraic unit.
+
+## Direction 5: Higher-Dimensional Analogues (explored, structural result)
+
+**THEOREM (dimension uniqueness, proven):** The 2D Laplacian is the
+UNIQUE dimension where the sign rule holds for the Green's function.
+
+For all d ≥ 2: h' < 0 (condition i satisfied — interaction is attractive).
+But (rh')' = 0 ONLY for d=2 (the logarithm). For d ≥ 3: (rh')' > 0
+(class iii — condition ii violated). The polygon stability mechanism
+is intrinsically two-dimensional.
+
+d=2 is the borderline case: the logarithm satisfies (rh')' = 0 exactly,
+making it the "least robust" polygon producer (any perturbation toward
+class iii breaks the sign rule). This is already noted in the paper.
+
+**What generalizes:**
+- Conformal inversion symmetry (exists in all dimensions via Kelvin transform)
+- Stability thresholds depending on curvature
+- Block decomposition of the Hessian by symmetry group
+
+**What does NOT generalize:**
+- The logarithmic interaction (unique to d=2)
+- The sign rule for polygon stability (requires (rh')' ≤ 0)
+- The palindromic polynomial (requires 1D radial parameter)
+- The Pell equation / continued fraction / unit structure
+  (specific to real quadratic fields from palindromic quadratics)
+
+**Open directions:**
+- Hyperbolic tilings {p,q}: the {7,3} tiling has p=7 matching the
+  flat-plane stability boundary. Conjecture: the discrete Havelock
+  eigenvalue on {p,q} relates to the continuous H² threshold.
+- Non-abelian symmetry: vortices at Platonic solid vertices have
+  non-abelian symmetry groups (A₄, S₄, A₅). The Hessian decomposes
+  into multi-dimensional irreps, giving a richer eigenvalue structure.
+- Codimension-1 objects (vortex rings in R³) have a single radial
+  parameter and COULD exhibit palindromic structure. Open question.
+
+The algebraic structure discovered in this paper is intrinsically 2D —
+and planetary atmospheres provide exactly this 2D constraint.
