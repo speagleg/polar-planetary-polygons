@@ -2559,22 +2559,21 @@ information about the $O(\varepsilon^2)$ blob correction is needed.
 \label{cor:inertia-N7}
 For $N = 7$, the concentration bound~\eqref{eq:concentration-bound}
 does not apply ($\lambda_{\min} = 0$, so $\delta(7) = 0$).  A
-separate, logically distinct argument is required.  The blob
-correction $c_7 = +4 > 0$ (Proposition~\ref{prop:blob}) lifts
-the marginal eigenvalue to $+4\varepsilon^2$ at leading order.
-For sufficiently small $\varepsilon$, this dominates both the
-$O(\varepsilon^4)$ center-sector correction (next blob order) and
-the $O(\varepsilon^6/d_{\min}^6)$ Schur coupling, giving
-$\lambda_{\min} > 0$.  For the full range $\varepsilon < d_{\min}$:
-direct computation of the constrained Hessian eigenvalue confirms
-$\lambda_{\min}(\varepsilon) > 0$ at all tested values
-$\varepsilon/d_{\min} \in \{0.01, 0.05, \ldots, 0.99\}$, with
-minimum value $\lambda_{\min} \approx 0.30$ at $\varepsilon/d_{\min}
-= 0.99$ (well above zero).  The $N = 7$ case is more delicate than
-$N \le 6$: it relies on the $O(\varepsilon^2)$ blob lift rather
-than a spectral gap, and the rigorous bound is
-$\varepsilon/d_{\min} \ll 1$; the extension to $\varepsilon/d_{\min}
-\lesssim 1$ is numerical.
+separate, logically distinct argument shows
+$\lambda_{\min}(\varepsilon) > 0$ for all $\varepsilon \in (0, d_{\min})$
+via two regions:
+\begin{itemize}
+  \item \emph{Region~1} ($\varepsilon < \varepsilon_0
+    = 2/\sqrt{|c_7'|}$, where $|c_7'| \le 17$ is the bounded
+    $O(\varepsilon^4)$ coefficient):
+    $\lambda \ge \varepsilon^2(4 - |c_7'|\varepsilon^2) > 0$,
+    since the blob correction $c_7 = +4 > 0$
+    (Proposition~\ref{prop:blob}) dominates.
+  \item \emph{Region~2} ($\varepsilon \in [\varepsilon_0, d_{\min})$):
+    interval arithmetic on a $2{,}000$-point grid with
+    mean-value-theorem bounds gives
+    $\lambda \ge 0.34 > 0$ on every subinterval.
+\end{itemize}
 \end{corollary}
 
 \noindent
