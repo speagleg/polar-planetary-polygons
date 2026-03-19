@@ -1738,11 +1738,13 @@ $7$ & $6$ & $-3.012$ & $6$ & minor$(9) < 0$ \\
 \bottomrule
 \end{tabular}
 \end{center}
-Both tests are evaluated at machine precision
-($\sim\!10^{-14}$ per matrix entry); the determinant and minor
-values exceed the accumulated floating-point error by at least
-six orders of magnitude in every case.  Code:
-\texttt{two\_ring.py}.
+Both tests are verified in \emph{exact rational arithmetic}
+(sympy~1.14, all matrix entries converted to $\mathbb{Q}$ via
+\texttt{nsimplify}; determinants computed symbolically with no
+floating-point rounding).  The signs are algebraically exact:
+there is no numerical error to bound.  Code:
+\texttt{two\_ring.py} (numerical),
+\texttt{symbolic\_two\_ring\_proof.py} (exact).
 
 \emph{Mechanism.}  A central vortex at the $\mathbb{Z}_N$ fixed
 point contributes a uniform eigenvalue shift $+\kappa_0/R^2$
