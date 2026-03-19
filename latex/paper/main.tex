@@ -689,6 +689,47 @@ N/2\rfloor)/2$).  On the sphere:
 $C_1(\varphi_0) < N{-}1$ for $\varphi_0 > 0$, giving the
 colatitude-dependent threshold of Section~\ref{sec:curved}.
 
+\begin{remark}[Representation-theoretic content of the stability boundary]
+\label{rem:rep-theory}
+The decomposition $\lambda_m = C_1 - f(m,N)$ separates the stability
+condition into a $\mathbb{Z}_N$ representation-theoretic part $f$ and
+a geometric part $C_1$, with three consequences.
+
+\emph{1.\ Spectral gap as a quantum phase transition.}
+Write $H_N = C_1 I - F_N$ where $F_N = \mathrm{diag}(f(0,N),
+\ldots, f(N{-}1,N))$ in the Fourier basis.  Stability is equivalent
+to the positivity condition $H_N \ge 0$.  The spectral gap
+$\Delta(N) = C_1 - f_{\max}(N)$ closes at $N = 7$ on the flat
+plane ($\Delta = 0$), marking a transition from the gapped phase
+($N \le 6$, all eigenvalues positive) to the broken phase
+($N \ge 8$, negative eigenvalue).  Gaussian curvature acts as
+a tuning parameter: $K < 0$ opens the gap, $K > 0$ closes it.
+
+\emph{2.\ Crystallographic restriction analogue.}
+The classical crystallographic restriction constrains the order
+of a rotation compatible with a lattice: $\mathrm{tr}(R) = 2\cos(2\pi/N)
+\in \mathbb{Z}$ forces $N \in \{1,2,3,4,6\}$ in~$\mathbb{R}^2$.
+Our stability restriction constrains the order of a $\mathbb{Z}_N$
+polygon compatible with the geometry: $C_1 \ge f_{\max}(N)$ forces
+$N \le 7$ on $\mathbb{R}^2$.  Both are discrete constraints on
+$N$ arising from the interplay between $\mathbb{Z}_N$ algebra
+(trace / Casimir) and the ambient geometry (lattice / curvature).
+
+\emph{3.\ Entanglement-witness structure.}
+In quantum information, a Hermitian operator $W$ is an
+\emph{entanglement witness} if $W \ge 0$ on separable states but
+$\langle\psi|W|\psi\rangle < 0$ for some entangled~$|\psi\rangle$.
+The Havelock Hamiltonian $H_N = C_1 I - F_N$ has exactly this
+structure: ``separable'' corresponds to stable configurations
+(all $\lambda_m \ge 0$), and ``entangled'' to unstable modes
+(some $\lambda_m < 0$).  The critical Fourier mode $m = \lfloor N/2
+\rfloor$ plays the role of the maximally entangled state---the
+direction in which the witness first detects instability.  The
+positivity tools developed for entanglement detection (Choi maps,
+decomposable witnesses, PPT criteria) could in principle be
+brought to bear on multi-ring or non-abelian stability problems.
+\end{remark}
+
 The value $C_1 = N{-}1$ on the plane has a geometric origin: for
 $h' = -1/d$ (the logarithmic force law), each vortex pair $(0,k)$
 contributes the \emph{same} amount $-1/(2R)$ to the gradient
