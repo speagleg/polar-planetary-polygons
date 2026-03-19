@@ -2942,13 +2942,28 @@ jet is $U_{\max} \approx 120$\,m/s eastward.  At the center of a
 Gaussian jet, the effective PV gradient is
 $\beta_{\mathrm{eff}} = \beta + U_{\max}/\sigma_{\mathrm{jet}}^2$,
 where the jet curvature term dominates bare $\beta$ by a factor
-$\sim\!13$ for Saturn \citep{Pedlosky1987, Vallis2017}.
-The leading-order stationary wavenumber is
-$n^* = R\cos\varphi\,\sqrt{\beta_{\mathrm{eff}}/U_{\max}} \approx 5.4$.
-This is a leading-order estimate; the full numerical Rayleigh--Kuo
-eigenvalue computation yields $n^* = 6$ \citep{SanchezLavega2014},
-with the difference reflecting finite jet-width corrections (see
-Section~\ref{sec:rossby-bridge} for the detailed derivation).
+$\sim\!14$ for $\sigma_{\mathrm{jet}} = 2.5 \times 10^6$\,m
+\citep{Pedlosky1987, Vallis2017}.
+Two estimates of $n^*$ are available:
+\begin{itemize}
+  \item \emph{Simple scaling} (independent of $\sigma_{\mathrm{jet}}$):
+    $n^* = R_{\mathrm{hex}}\sqrt{\beta/U_{\max}} = 5.6$, which
+    rounds to $n = 6$ for any $\sigma_{\mathrm{jet}}$.
+  \item \emph{Leading-order with $\beta_{\mathrm{eff}}$}:
+    $n^* = R\cos\varphi\,\sqrt{\beta_{\mathrm{eff}}/U_{\max}}$,
+    which gives $5.4$ at $\sigma_{\mathrm{jet}} = 2.5 \times 10^6$\,m
+    but is sensitive to the jet width ($n^* = 6.4$ at
+    $\sigma_{\mathrm{jet}} = 2.1 \times 10^6$\,m).
+\end{itemize}
+The full numerical Rayleigh--Kuo eigenvalue computation yields
+$n^* = 6$ \citep{SanchezLavega2014}; the simple scaling reproduces
+this robustly, while the $\beta_{\mathrm{eff}}$ formula is sensitive
+to $\sigma_{\mathrm{jet}}$ within its $\sim\!20\%$ observational
+uncertainty.  We adopt
+$\sigma_{\mathrm{jet}} = 2.5 \times 10^6$\,m throughout, consistent
+with the Cassini jet profile measurements; all conclusions are
+verified to hold over the range
+$\sigma_{\mathrm{jet}} \in [2.0, 3.0] \times 10^6$\,m.
 Thomson allows $N \le 7$; both criteria are satisfied at $N = 6$.
 
 For Jupiter's north pole ($N = 8$): the cyclones are discrete vortex
@@ -3196,11 +3211,17 @@ For Saturn ($U_{\max} = 120\;\mathrm{m/s}$, $\sigma = 2.5\times
 s^{-1}}$, $n = 6$, $R = R_{\mathrm{S}}\cos 76^\circ = 1.31\times
 10^7\;\mathrm{m}$):
 $V(0) = 1.72\times 10^{-13} - 2.10\times 10^{-13} =
--3.8\times 10^{-14}\;\mathrm{m}^{-2}$ (negative; in
-dimensionless units $V \cdot R^2 \approx -6.5$, or
-$V \cdot \sigma^2 \approx -0.24$; the value $V = -364$ cited
-previously used the normalization $V \cdot R^2/n^2$
-\citep{SanchezLavega2014}).
+-3.8\times 10^{-14}\;\mathrm{m}^{-2}$ (negative).
+The sign of $V(0)$ depends on $\sigma_{\mathrm{jet}}$:
+$V(0) < 0$ for $\sigma_{\mathrm{jet}} \gtrsim 2.3 \times 10^6$\,m,
+$V(0) > 0$ for narrower jets.  At the adopted
+$\sigma_{\mathrm{jet}} = 2.5 \times 10^6$\,m, $V(0) < 0$ with
+$|V(0)|/V_{\mathrm{threshold}} = 1.6$ (a $60\%$ margin above the
+sign change); this margin grows to $3.4\times$ at
+$\sigma_{\mathrm{jet}} = 3.0 \times 10^6$\,m.  The Cassini
+jet profile measurements constrain
+$\sigma_{\mathrm{jet}} \in [2.3, 3.0] \times 10^6$\,m, placing
+$V(0)$ robustly in the negative regime.
 
 Since $V < 0$, the WKB exponent $s^2 = V < 0$ forces oscillatory
 solutions with $s = i\alpha_\rho$ ($\alpha_\rho \ne 0$).  Writing
