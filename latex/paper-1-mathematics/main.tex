@@ -18,15 +18,45 @@ We establish the mathematical foundations for polygon formation in two-dimension
 \section{Introduction}
 \label{sec:intro}
 
-When does a regular polygon of point vortices constitute a stable
-equilibrium, and how does the curvature of the ambient surface change
-the answer?  This is the central mathematical question of the present
-paper.  The physical motivation---polygonal storm patterns on Saturn
+The stability eigenvalue of a regular $N$-gon of point vortices on
+a two-dimensional surface admits a decomposition
+\begin{equation}\label{eq:central-decomposition}
+  \lambda_m = C_1(\text{surface}) - \frac{m(N-m)}{2},
+  \qquad m = 1, \ldots, N-1,
+\end{equation}
+that separates a single surface-dependent number $C_1$ from a
+universal function $f(m,N) = m(N{-}m)/2$ determined entirely by the
+representation theory of the cyclic group $\mathbb{Z}_N$.
+Every stability result on every constant-curvature surface---flat
+plane, sphere, hyperbolic plane---follows from this formula with
+one number substituted in.
+
+This decomposition is not new: it is implicit in
+\citet{Havelock1931} and explicit in \citet{BoattoCabral2003}.
+What has not been made fully explicit is the depth of its
+consequences.  The present paper develops five:
+the $m$-dependent part $f(m,N)$ is metric-independent
+(Section~\ref{sec:havelock-identity});
+the sign rule for $H''(0) < 0$ follows from the logarithm's
+dilation invariance (Section~\ref{sec:sign-rule});
+the stability threshold $N_{\mathrm{crit}} = 7$ is a closed-form
+output of the $\mathbb{Z}_N$ Casimir
+(Corollary~\ref{cor:why-7});
+the curvature-stability dichotomy
+$\mathrm{sgn}(N_{\mathrm{crit}} - 7) = -\mathrm{sgn}(K)$
+is topological
+(Proposition~\ref{prop:curvature-dichotomy});
+and the threshold polynomials on $\mathbf{H}^2$ connect to Pell
+equations, the golden ratio, and algebraic number theory
+(Section~\ref{sec:algebraic-structure}).
+
+The physical motivation---polygonal storm patterns on Saturn
 and Jupiter \citep{Godfrey1988, Adriani2018}---is developed in
-Paper~III; the point vortex dynamics, constrained energy landscape,
-and continuous-vorticity bridge are developed in Paper~II.
+Paper~III.  The constrained energy landscape and
+continuous-vorticity bridge are developed in Paper~II.
 Paper~I is self-contained: it requires only the definitions of
-point vortex energy and the Havelock eigenvalue, both recalled below.
+point vortex energy and the Havelock eigenvalue, both recalled
+below.
 
 \paragraph{What this paper proves.}
 \begin{enumerate}
