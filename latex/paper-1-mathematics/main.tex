@@ -73,7 +73,7 @@ below.
     theory alone; only the additive constant $C_1$ carries geometric
     information.
   \item \textbf{Stability thresholds on constant-curvature surfaces}
-    (Section~\ref{sec:curvature-thresholds}):
+    (Sections~\ref{sec:curvature-thresholds}--\ref{sec:algebraic-structure}):
     the curvature-stability dichotomy
     (Proposition~\ref{prop:curvature-dichotomy}),
     the Morse index formula $\mu(N) = N - 5$ for $N \ge 8$
@@ -317,8 +317,8 @@ acting on~$\mathbb{C}$.
     (Remark~\ref{rem:rg-fixed-point}; Cauchy's functional equation).
   \item The natural \emph{deformation curves} are logarithmic spirals
     because they are orbits of the dilation-rotation generator
-    $\sigma + i\alpha$; the centered spiral of
-    the centered spiral deformation (Paper~II, eq.~7.1) is precisely this orbit applied
+    $\sigma + i\alpha$; the centered spiral deformation (Paper~II, eq.~7.1) is precisely
+    this orbit applied
     to the $N$-gon.
   \item The \emph{stability threshold} $N = 7$ is scale-independent
     because the Havelock eigenvalue $\lambda_m = (N{-}1) - m(N{-}m)/2$
@@ -659,12 +659,7 @@ $N \le 7$ on $\mathbb{R}^2$.  Both are discrete constraints on
 $N$ arising from the interplay between $\mathbb{Z}_N$ algebra
 (trace / Casimir) and the ambient geometry (lattice / curvature).
 
-\emph{3.\ Entanglement-witness structure.}
-$H_N = C_1 I - F_N$ has the structure of an entanglement witness:
-``separable'' = stable, ``entangled'' = unstable.  Positivity tools
-from quantum information could apply to non-abelian problems.
-
-\emph{4.\ Spectral statistics and Landau transition.}
+\emph{3.\ Spectral statistics and Landau transition.}
 Level spacings $(N{-}2m{-}1)/2$ are arithmetic (maximally rigid).
 The gap closure $\Delta(N) \sim -(N{-}7)$ has mean-field exponents
 ($\nu = 1$, $\beta = 1/2$).  The quartic coefficient
@@ -856,11 +851,8 @@ for $N = 6$, $\cos\varphi_{\mathrm{crit}} = 9/10$.
 \end{remark}
 
 \noindent
-Code: \texttt{algebraic\_thresholds.sphere\_stability\_threshold(N)} and
-\texttt{sphere\_threshold\_table()} implement these exact computations using
-Python's \texttt{Fraction} arithmetic; \texttt{test\_algebraic\_thresholds.py}
-verifies the $C_1$ identity \eqref{eq:cos_crit} by exact rational arithmetic
-for $N = 3, \ldots, 6$.
+All exact threshold computations are verified by the companion
+software (Appendix~A, Code Availability).
 
 On the flat torus, $H''(0) < 0$ approaches the planar value for
 polygons small relative to the domain, with periodic corrections
@@ -963,7 +955,7 @@ the $m = \lfloor N/2\rfloor$ eigenvalue of the $N = 8$ ring crosses
 zero near this value).
 We \emph{conjecture} that $N_{\mathrm{crit}}(R/a)$ is non-decreasing.
 Numerical evaluation of the constrained Hessian eigenvalues
-(code: \texttt{h2\_stability.py}) confirms this for $R/a \le 2$.
+confirms this for $R/a \le 2$.
 A plausible mechanism is the transition from class~(ii) at
 $R \ll a$ to class~(i) at $R \gg a$, but the Lagrange multiplier
 also depends on $R/a$ in a non-trivial way, so the monotonicity
@@ -1031,8 +1023,6 @@ threshold is a unit \emph{because} the hyperbolic energy is
 conformally covariant (Proposition~\ref{prop:mobius}): the palindromic
 polynomial encodes the same M\"obius symmetry at the level of
 algebraic number theory.
-
-\paragraph{General algebraic field pattern ($N \ge 8$).}
 
 %% ====================================================================
 \section{Algebraic structure of the stability boundary}
