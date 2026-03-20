@@ -2297,11 +2297,11 @@ $1/8$, and $a_p = 0$ for $3/4$---verified numerically
 for $p < 1000$.
 \end{proof}
 
-\begin{remark}[Physical content]
+\begin{remark}[Physical content and spectral bound]
 \label{rmk:bolza-physics}
-The Hecke eigenvalue $a_p$ of the form $f = 256.1.c.a$
-determines the automorphic correction to vortex stability
-on the Bolza surface at each prime~$p$:
+The Hecke eigenvalue $a_p$ of the form
+$f = \texttt{128.1.d.a}$ determines the automorphic correction
+to vortex stability on the Bolza surface at each prime~$p$:
 $a_p = 2$ (complete splitting, doubled correction),
 $a_p = 0$ (partial or inert, no net correction),
 $a_p = -2$ (central inertia, reversed correction).
@@ -2310,6 +2310,27 @@ selection rule in Proposition~\ref{prop:legendre-selection}:
 the genus-$0$ case uses Dirichlet characters (abelian,
 class field theory), while the genus-$2$ Bolza case requires
 a genuine weight-$1$ modular form (non-abelian, Langlands--Tunnell).
+
+The palindromic quartic~\eqref{eq:bolza-quartic} is derived on
+$\mathbf{H}^2$ (the universal cover), not on the compact Bolza
+surface.  The spectral expansion of the automorphic correction
+$\delta C_1 = \sum_{n \ge 1} A_n/\lambda_n$ (summing over
+Bolza Laplacian eigenfunctions) is bounded by the
+\emph{trivial-representation} eigenvalues: only eigenfunctions
+invariant under the full automorphism group (order~$48$) are
+nonzero at the centre of the fundamental domain
+(confirmed by numerical eigenfunction computation).
+The first trivial-representation eigenvalue of the Bolza surface
+is $\lambda_{\mathrm{triv}} \approx 23.08$
+(\citealt{Strohmaier2013}, multiplicity-$1$ entry), giving
+$|\delta C_1| \lesssim 2/(4\pi\,\lambda_{\mathrm{triv}})
+\approx 0.16$.
+Since the binding eigenvalue at $N_{\mathrm{crit}} = 12$
+is $\lambda_{\mathrm{bind}} = 0.78$, the correction satisfies
+$|\delta C_1| < \lambda_{\mathrm{bind}}$:
+the compact-surface correction does not change $N_{\mathrm{crit}}$,
+and the $\mathbf{H}^2$ palindromic quartic remains the correct
+threshold polynomial on the Bolza surface.
 \end{remark}
 
 \subsection{The Fibonacci threshold tower}
