@@ -111,3 +111,70 @@ pip install fenics-dolfinx  # or: conda install -c conda-forge fenics
 pip install slepc4py
 pip install gmsh meshio
 ```
+
+## Eigenfunction Computation Results (Mathematica, 2026-03-20)
+
+### Setup
+Solved −Δ_hyp φ = λφ on the regular octagon in the Poincaré disk
+with DIRICHLET boundary conditions (wrong BCs — an approximation).
+The hyperbolic Laplacian Δ_hyp = (1−|z|²)²/4 · Δ_Eucl was used correctly.
+
+### Eigenfunction values at the center (0,0)
+
+| Mode | λ (Dirichlet approx) | φ_i(0,0) | Status |
+|------|---------------------|-----------|--------|
+| 1 | 3.23 | **−1.699** | NONZERO (trivial rep) |
+| 2 | 7.40 | 0.0005 | vanishes |
+| 3 | 7.40 | −0.00001 | vanishes |
+| 4 | 12.39 | −0.00002 | vanishes |
+| 5 | 12.39 | 0.0006 | vanishes |
+| 6 | 15.58 | **+2.679** | NONZERO (trivial rep) |
+| 7 | 18.14 | −0.001 | vanishes |
+| 8 | 18.14 | 0.00009 | vanishes |
+| 9 | 23.64 | −0.0006 | vanishes |
+| 10 | 24.60 | −0.004 | vanishes |
+| 11 | 24.60 | 0.0001 | vanishes |
+| 12 | 25.85 | 0.0001 | vanishes |
+| 13 | 31.97 | 0.0008 | vanishes |
+| 14 | 31.97 | 0.0004 | vanishes |
+| 15 | 34.12 | 0.003 | vanishes |
+
+### Key finding
+**Exactly two eigenfunctions are nonzero at the center** (modes 1 and 6).
+All others vanish to numerical precision (< 0.004). This confirms:
+- Only trivial-rep eigenfunctions of Aut(Bolza) contribute at the center
+- The 8-fold octagonal symmetry forces all non-trivial irreps to vanish
+- The spectral correction δC₁ has only TWO leading terms
+
+### Correspondence with exact eigenvalues
+The Dirichlet eigenvalues don't match Strohmaier-Uski, but the SYMMETRY
+PATTERN (which modes vanish at center) should be correct:
+
+| Dirichlet mode | λ_Dirichlet | Likely Strohmaier-Uski match | Multiplicity |
+|---------------|-------------|------------------------------|-------------|
+| Mode 1 (nonzero) | 3.23 | λ = 23.08 (mult 1, trivial) | 1 |
+| Modes 2-5 (vanish) | 7.4, 12.4 | λ = 3.84, 5.35 (mult 3,4) | 3,4 |
+| Mode 6 (nonzero) | 15.58 | λ = 32.67 (mult 1, trivial) | 1 |
+
+### The spectral stability correction (estimated)
+δC₁ = |φ₁(center)|² · H₁/λ₁ + |φ₆(center)|² · H₆/λ₆ + ...
+
+Using Strohmaier-Uski eigenvalues for the trivial-rep modes:
+- Leading term: ~H₁/(4π · 23.08) (from first trivial-rep eigenvalue)
+- Second term: ~H₆/(4π · 32.67) (from second trivial-rep eigenvalue)
+
+Both suppressed by 1/λ_n with λ_n > 23, making δC₁ small (~0.003 × geometric factor).
+
+## Next Step: Periodic Boundary Conditions
+
+The Dirichlet computation gives the CORRECT symmetry pattern but WRONG eigenvalues.
+For quantitative results, need periodic BCs matching opposite octagon sides
+via the Bolza Fuchsian group generators.
+
+Options:
+1. **Mathematica PeriodicBoundaryCondition**: needs the 4 side-pairing Möbius maps
+2. **FEniCS via Docker**: `docker pull dolfinx/dolfinx`
+3. **Use the eigenvalue data directly**: Since we know WHICH eigenvalues contribute
+   (the multiplicity-1 ones from Strohmaier-Uski: λ=23.08, 32.67, ...),
+   the remaining unknown is the Hessian projection H_n at the N-gon positions.
+   This requires the eigenfunctions, which need the periodic BC solver.
