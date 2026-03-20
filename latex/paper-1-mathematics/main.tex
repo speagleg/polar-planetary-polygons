@@ -12,7 +12,7 @@
 \maketitle
 
 \begin{abstract}
-We establish the mathematical foundations for polygon formation in two-dimensional fluids: the sign rule, the Havelock identity, stability thresholds on constant-curvature surfaces, and the algebraic structure of the stability boundary including the Pell equation connection and the golden ratio terminal case.
+We establish the mathematical foundations for polygon formation in two-dimensional fluids: the sign rule, the Havelock identity, stability thresholds on constant-curvature surfaces, and the algebraic structure of the stability boundary. The five algebraic-integer thresholds on the hyperbolic plane are Pell units in quadratic fields, terminating at the golden ratio $\xi^*(23) = \varphi^{-2}$, and correspond to closed geodesics on the modular surface $\mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$ with traces $c = 2 + 16/(N{-}7)$. On arithmetic quotients $\Gamma_0(p)\backslash\mathbf{H}^2$, the Legendre symbol $(\Delta/p)$ determines which thresholds are topologically protected. The palindromic structure generalises to arbitrary genus: on a surface with trace field of degree~$d$, the threshold satisfies a palindromic polynomial of degree~$2d$.
 \end{abstract}
 
 \section{Introduction}
@@ -46,6 +46,10 @@ the curvature-stability dichotomy
 $\mathrm{sgn}(N_{\mathrm{crit}} - 7) = -\mathrm{sgn}(K)$
 is topological
 (Proposition~\ref{prop:curvature-dichotomy});
+$N_{\mathrm{crit}} = 7$ is a topological universal,
+holding on every quotient $\Gamma\backslash\mathbf{H}^2$ at
+the flat-plane limit regardless of $\Gamma$
+(Theorem~\ref{thm:universality});
 and the threshold polynomials on $\mathbf{H}^2$ connect to Pell
 equations, the golden ratio, and algebraic number theory
 (Section~\ref{sec:algebraic-structure}).
@@ -78,17 +82,24 @@ below.
     (Proposition~\ref{prop:curvature-dichotomy}),
     the Morse index formula $\mu(N) = N - 5$ for $N \ge 8$
     (Proposition~\ref{prop:morse-index}), the closed-form derivation
-    of $N_{\mathrm{crit}} = 7$ (Corollary~\ref{cor:why-7}), and
-    the monotone spectral flow from flat to hyperbolic geometry.
+    of $N_{\mathrm{crit}} = 7$ (Corollary~\ref{cor:why-7}),
+    the monotone spectral flow from flat to hyperbolic geometry,
+    and the robustness of $\mu(N)$ under mode-coupling
+    perturbations (Remark~\ref{rmk:topological-protection}).
   \item \textbf{Algebraic structure of the stability boundary}
     (Section~\ref{sec:algebraic-structure}):
     the field extension pattern, the Pell equation connection,
     the algebraic-integer classification
     $N \in \{8, 9, 11, 15, 23\}$
     (Proposition~\ref{prop:alg-int}), the golden ratio terminal case
-    $\xi^*(23) = \varphi^{-2}$, the binary subdivision, and the
-    continued fraction structure
-    (Proposition~\ref{prop:cf-palindromic}).
+    $\xi^*(23) = \varphi^{-2}$, the continued fraction structure
+    (Proposition~\ref{prop:cf-palindromic}),
+    the geodesic correspondence with the modular surface
+    (Proposition~\ref{prop:geodesic-correspondence}),
+    the higher-genus palindromic hierarchy
+    (Proposition~\ref{prop:higher-genus}),
+    and the Legendre-symbol selection rule on arithmetic surfaces
+    (Proposition~\ref{prop:legendre-selection}).
   \item \textbf{The RG classification}
     (Proposition~\ref{prop:rg-classification}):
     the logarithm is the unique IR fixed point of the additive
@@ -129,7 +140,6 @@ theory of the threshold polynomials.
 
 \subsection{Dilation invariance and the Cauchy functional equation}
 \label{sec:dilation-invariance}
-\end{remark}
 
 \begin{remark}[The logarithm as the unique dilation-invariant interaction]
 \label{rem:rg-fixed-point}
@@ -160,6 +170,7 @@ dynamics (e.g.\ \citealt{Newton2001}) identify it as a conformal
 symmetry of the stream function; Corollary~\ref{cor:dilation-rg}
 shows it additionally implies that the stability threshold is
 dilation-invariant.
+\end{remark}
 
 \begin{proposition}[RG classification of perturbations]
 \label{prop:rg-classification}
@@ -238,6 +249,100 @@ concentrates into compact structures of growing scale $L(t)$, driving
 the inter-blob interaction toward the logarithm with corrections
 suppressed as $(L/d)^2 \to 0$.  The cascade is the physical
 RG flow; the sign rule demarcates its basin of attraction.
+
+\begin{proposition}[Isotropic marginality at $\alpha = 2$]
+\label{prop:alpha-2-marginal}
+For $h(r) = -\ln r + \varepsilon\,r^2$, the Havelock eigenvalue
+$\lambda_m$ is independent of $\varepsilon$ at every binding mode
+$m = 2, \ldots, N{-}2$.
+\end{proposition}
+
+\begin{proof}
+The pair Hessian of $g(r) = r^\alpha$ decomposes as
+\begin{equation}\label{eq:anisotropy}
+  \frac{\partial^2 g}{\partial x_i\,\partial x_j}\bigg|_{|x|=d}
+  = \underbrace{\alpha(\alpha{-}2)\,d^{\alpha-2}}_{\displaystyle A(\alpha,d)}\,
+  \frac{x_i x_j}{d^2}
+  \;+\;
+  \underbrace{\alpha\,d^{\alpha-2}}_{\displaystyle B(\alpha,d)}\,
+  \delta_{ij},
+\end{equation}
+where $A$ is the \emph{radial anisotropy} and $B$ is the
+\emph{isotropic part}.
+\emph{Step 1}: at $\alpha = 2$, $A(2,d) = 2(2{-}2)\,d^0 = 0$.
+The Hessian perturbation $\delta\nabla^2 H$ is therefore
+$B\,I = 2\,I$ at every pair, making the off-diagonal blocks
+of the full $2N\times 2N$ Hessian proportional to the identity.
+\emph{Step 2}: since the off-diagonal blocks are proportional
+to~$I_2$, the $xx$ and $yy$ Fourier components are equal and the
+$xy$ component vanishes; each $2 \times 2$ Fourier block is scalar.
+The isotropic Fourier block for mode $m \ge 2$ is therefore
+$\sum_{p=1}^{N-1} 2(e^{-2\pi i pm/N}-1) = -2N$ (each of $xx$,
+$yy$), and
+$\delta\Omega = (1/R)\sum_{p=1}^{N-1} g'(d_p)(x_0{-}x_p)/d_p
+= 2\sum (x_0{-}x_p) = 2N$.
+Since $\delta\lambda_m = -\delta\Omega - v_m^\top\delta\nabla^2 H\,v_m
+= -2N - (-2N) = 0$, the eigenvalue is unchanged.
+Verified to machine precision ($|\delta\lambda_m| < 10^{-14}$)
+for $4 \le N \le 12$
+(\texttt{proofs/rg\_stability\_characterization.py}).
+\end{proof}
+
+\begin{remark}[RG classification versus stability classification]
+\label{rem:rg-vs-stab}
+Proposition~\ref{prop:alpha-2-marginal} shows that the
+\emph{stability-marginal} exponent ($\alpha = 2$) differs from
+the \emph{RG-marginal} exponent ($\alpha = 0$).  The RG
+classification (Proposition~\ref{prop:rg-classification}) concerns
+the behaviour of the interaction under spatial coarse-graining;
+the stability classification concerns the perturbation
+$\delta\lambda_m$ of the Havelock eigenvalue.  Their relationship is:
+
+\smallskip
+\begin{center}
+\begin{tabular}{ccccl}
+\toprule
+$\alpha$ & RG class & $A = \alpha(\alpha{-}2)$ &
+  $\delta\lambda_3(N{=}7)$ & Stability effect \\
+\midrule
+$-2$ & irrelevant & $8$ & $-4\varepsilon$ & destabilising \\
+$-1$ & irrelevant & $3$ & $-0.96\varepsilon$ & destabilising \\
+$1$  & relevant   & $-1$ & $-0.58\varepsilon$ & destabilising \\
+$2$  & relevant   & $0$ & $0$ & isotropic-marginal \\
+$3$  & relevant   & $3$ & $+10.6\varepsilon$ & stabilising \\
+$4$  & relevant   & $8$ & $+56\varepsilon$ & stabilising \\
+\bottomrule
+\end{tabular}
+\end{center}
+\smallskip
+
+\noindent
+All entries with $\alpha < 2$ have $\delta\lambda_3 < 0$
+(destabilising for $\varepsilon > 0$); all entries with
+$\alpha > 2$ have $\delta\lambda_3 > 0$ (stabilising for
+$\varepsilon > 0$).  The crossover is at $\alpha = 2$, where
+the anisotropy $A$ vanishes.
+The Cauchy blob
+($g = -r^{-2}$, i.e.\ $\alpha = -2$ with $\varepsilon < 0$)
+stabilises the $N = 7$ marginal ring because the sign reversal
+$\varepsilon = -\varepsilon_0^2$ converts $\delta\lambda_3
+= (-4)(-\varepsilon_0^2) = 4\varepsilon_0^2 > 0$.
+\end{remark}
+
+\noindent\emph{Validity of first-order theory.}
+The perturbation $\delta\lambda_m$ is first-order in $\varepsilon$
+and reliable when $|\varepsilon\,\delta\lambda_m| \ll |\lambda_m(0)|$.
+For the $N = 7$ marginal ring ($\lambda_3(0) = 0$), any nonzero
+$\delta\lambda_3$ dominates regardless of $\varepsilon$, so the
+\emph{sign} of $\delta\lambda_3$ is the reliable prediction.
+For the $N = 8$ ring with $\alpha = 3$, the mode-resolved
+computation gives $\delta\lambda_3 = 11.8$ and
+$\delta\lambda_4 = 11.3$ (the two binding modes), so
+$\varepsilon = 0.1$ predicts $\lambda_3 = -0.5 + 1.18 = 0.68 > 0$
+and $\lambda_4 = -1.0 + 1.13 = 0.13 > 0$---all modes of the $8$-gon
+become stable, giving $N_{\mathrm{crit}} = 8$ at first order.
+Quantitative predictions for $N \ge 9$ require the full nonlinear
+eigenvalue computation, not the linearised theory.
 
 The Gaussian curvature $K$ is a destabilizing perturbation when
 $K>0$ and a stabilizing one when $K<0$.  On the sphere ($K>0$) the
@@ -489,6 +594,7 @@ possible guarantee of $H''(0) < 0$: only the $B_m$ terms contribute
 interaction has both terms strictly negative.  The logarithm is the
 least robust polygon producer among all interactions satisfying the
 sign rule.
+\end{remark}
 
 %% ====================================================================
 \section{The Havelock identity and its metric-independence}
@@ -1270,6 +1376,288 @@ is algebraically dependent), and each generator acts by conformal
 inversion on the thresholds in its field component.
 \end{proof}
 
+\paragraph{Stability thresholds as closed geodesics.}
+The monic palindromic polynomial $\xi^2 - c\,\xi + 1 = 0$
+with $c \in \mathbb{Z}$ is simultaneously the characteristic polynomial
+of a hyperbolic element $\gamma \in \mathrm{SL}(2,\mathbb{Z})$
+with trace $\mathrm{tr}(\gamma) = c$.  The eigenvalues of $\gamma$
+are $\varepsilon$ and $\varepsilon^{-1} = \xi^*$---exactly the
+stability threshold and its conformal inverse.
+Each such $\gamma$ defines a primitive conjugacy class of
+$\mathrm{SL}(2,\mathbb{Z})$, hence a primitive closed geodesic
+on the modular surface $\mathrm{SL}(2,\mathbb{Z})\backslash
+\mathbf{H}^2$ of length
+$\ell = 2\,\mathrm{arccosh}(c/2) = 2\ln\varepsilon$.
+
+\begin{proposition}[Geodesic correspondence]
+\label{prop:geodesic-correspondence}
+The five algebraic-integer stability thresholds correspond to
+five primitive closed geodesics on the modular surface.
+For odd $N \in \{9, 11, 15, 23\}$ the traces are
+$c = 2 + 16/(N{-}7)$
+(equivalently, $N = 7 + 16/(c{-}2)$);
+for $N = 8$ the trace is $c = 16$ (direct computation).
+The full discriminant $\Delta = c^2 - 4$ decomposes as
+$\Delta = f^2 D$ where $D$ is the squarefree part and $f$ is
+the conductor:
+\begin{center}
+\begin{tabular}{ccccclll}
+\toprule
+$N$ & $c$ & $\Delta$ & $f$ & $D$ &
+  Geodesic & $\mathrm{SL}(2,\mathbb{Z})$ \\
+\midrule
+$23$ & $3$  & $5$   & $1$ & $5$ &
+  $\ell = 1.92$ & $\bigl[\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr]$
+  \emph{(Fibonacci)} \\
+$15$ & $4$  & $12$  & $2$ & $3$ &
+  $\ell = 2.63$ & $\bigl[\begin{smallmatrix}3&2\\1&1\end{smallmatrix}\bigr]$ \\
+$11$ & $6$  & $32$  & $4$ & $2$ &
+  $\ell = 3.53$ & $\bigl[\begin{smallmatrix}5&2\\2&1\end{smallmatrix}\bigr]$ \\
+$9$  & $10$ & $96$  & $4$ & $6$ &
+  $\ell = 4.58$ & $\bigl[\begin{smallmatrix}9&2\\4&1\end{smallmatrix}\bigr]$ \\
+$8$  & $16$ & $252$ & $6$ & $7$ &
+  $\ell = 5.54$ & $\bigl[\begin{smallmatrix}15&7\\2&1\end{smallmatrix}\bigr]$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The terminal case $N = 23$ ($c = 3$) corresponds to
+$Q^2 = \bigl[\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr]$,
+the square of the standard Fibonacci matrix
+$Q = \bigl[\begin{smallmatrix}1&1\\1&0\end{smallmatrix}\bigr]$;
+the eigenvalues of $Q^2$ are $\varphi^2$ and $\varphi^{-2} = \xi^*(23)$.
+$N = 23$ is the unique case with conductor $f = 1$:
+the threshold $\xi^*$ is a unit in the maximal order $O_K$, not
+merely in a suborder.
+\end{proposition}
+
+\begin{proof}
+A $2 \times 2$ integer matrix with trace $c$ and determinant~$1$
+lies in $\mathrm{SL}(2,\mathbb{Z})$; its characteristic polynomial
+is $\lambda^2 - c\,\lambda + 1 = 0$, the same as the palindromic
+threshold equation.  The existence of such a matrix for each
+$c \in \mathbb{Z}_{\ge 3}$ is standard (every hyperbolic conjugacy
+class contains a representative with the given trace).
+The trace formula $c = 2 + 16/(N{-}7)$ follows from
+$c = -B/A = 2(N{+}1)/(N{-}7)$ (Proposition~\ref{prop:alg-int})
+by writing $2(N{+}1)/(N{-}7) = 2 + 16/(N{-}7)$.
+The conductor $f$ satisfies $c^2 - 4 = f^2 D$ where
+$D = \mathrm{sq\_free}(c^2 - 4)$.
+Among the five traces $c \in \{16, 10, 6, 4, 3\}$,
+the monic discriminants $c^2 - 4 = \{252, 96, 32, 12, 5\}$
+have squarefree parts $\{7, 6, 2, 3, 5\}$ and
+conductors $f = \{6, 4, 4, 2, 1\}$.
+Only $c = 3$ ($N = 23$) gives $f = 1$,
+since $5$ is the only squarefree value in the list.
+\end{proof}
+
+\begin{remark}[Automorphic correction on quotient surfaces]
+\label{rmk:automorphic-correction}
+On a quotient surface $\Gamma\backslash\mathbf{H}^2$, the
+point vortex interaction involves the automorphic Green's function
+$G_\Gamma(z,w) = \sum_{\gamma \in \Gamma} G(z, \gamma w)$.
+Each non-trivial $\gamma$ contributes a correction to $C_1$
+whose leading term is proportional to
+$\mathrm{csch}^2(\ell_\gamma/2) = 4/\Delta_\gamma$,
+where $\Delta_\gamma = \mathrm{tr}(\gamma)^2 - 4$ is the
+discriminant of the geodesic
+(since $\sinh(\ell/2) = \sqrt{\Delta}/2$).
+The conductor decomposition
+$\Delta = f^2 D$ gives
+$\mathrm{csch}^2(\ell/2) = 4/(f^2 D)$:
+the correction strength is the inverse discriminant,
+factored through the conductor.
+The palindromic structure of the threshold equation on
+$\mathbf{H}^2$ reflects the conformal inversion
+$\xi \leftrightarrow 1/\xi$; this symmetry is generically
+\emph{broken} on quotient surfaces (it is preserved only
+when $\Gamma$ is invariant under the inversion).
+The stability thresholds on general quotients need not be
+palindromic units.
+\end{remark}
+
+\begin{remark}[Topological sensitivity and the conductor]
+\label{rmk:conductor-sensitivity}
+The automorphic correction strength $4/\Delta = 4/(f^2 D)$
+decreases rapidly with the conductor~$f$:
+for $N = 23$ ($f = 1$, $\Delta = 5$) it is $0.80$, while
+for $N = 8$ ($f = 6$, $\Delta = 252$) it is $0.016$.
+The conductor thus measures the
+\emph{topological sensitivity} of the stability threshold:
+small $f$ (the golden ratio case) couples strongly to the
+global topology of the surface, while large $f$ (the $N = 8$
+case) is effectively insensitive.
+The conductor is an intrinsic invariant of the $N \to (N{+}1)$
+transition---it depends on the $\mathbb{Z}_N$ Casimir but not
+on the surface.
+\end{remark}
+
+\paragraph{Higher-genus generalisation.}
+The palindromic structure extends to vortex stability on
+\emph{any} arithmetic hyperbolic surface.
+If the Fuchsian group $\Gamma$ has trace field $K$ of degree $d$
+over~$\mathbb{Q}$, the geodesic trace $B$ lies in~$K$, and
+eliminating $B$ from $\xi^2 - B\xi + 1 = 0$ and the degree-$d$
+minimal polynomial of $B$ yields a \emph{palindromic} polynomial
+of degree $2d$ in $\xi$ over~$\mathbb{Q}$.
+(Palindromic because $\xi \to 1/\xi$ fixes $B = \xi + 1/\xi$.)
+Its roots are algebraic units of degree~$2d$.
+
+\begin{proposition}[Higher-genus palindromic hierarchy]
+\label{prop:higher-genus}
+On an arithmetic surface $\Gamma\backslash\mathbf{H}^2$ with
+trace field of degree $d$, the vortex stability threshold
+satisfies a palindromic polynomial of degree $2d$
+over~$\mathbb{Q}$.
+For $d = 1$ (the modular surface): palindromic quadratics
+and Pell units (the single-ring results of this paper).
+For $d = 2$ (the Bolza surface, genus~$2$, trace field
+$\mathbb{Q}(\sqrt{2})$): the systole has trace
+$B = 2 + 2\sqrt{2}$, giving the palindromic quartic
+$\xi^4 - 4\xi^3 - 2\xi^2 - 4\xi + 1 = 0$
+with threshold $\xi \approx 0.217$ in the quartic field
+$\mathbb{Q}(\sqrt{2},\,\sqrt{2{+}2\sqrt{2}})$.
+\end{proposition}
+
+\begin{proof}
+The substitution $u = \xi + 1/\xi$ maps $\xi^2 - u\xi + 1 = 0$
+(palindromic quadratic) to a scalar equation $u = B$.
+If $B$ has minimal polynomial $P(u) = 0$ of degree $d$
+over~$\mathbb{Q}$, substituting $u = \xi + 1/\xi$ and
+multiplying by $\xi^d$ gives $Q(\xi) = \xi^d\,P(\xi + 1/\xi)$,
+a degree-$2d$ polynomial.
+It is palindromic: $\xi^{2d}\,Q(1/\xi) = Q(\xi)$, because
+$P(\xi + 1/\xi) = P(1/\xi + \xi)$.
+The constant term of $Q$ equals $P(2)$ up to sign (from the
+$\xi = 0$ limit), and the leading coefficient equals $1$
+(from the $\xi \to \infty$ limit), so the roots are algebraic
+units (product of all roots $= \pm 1$).
+For the Bolza surface: $P(u) = u^2 - 4u - 4$
+(minimal polynomial of $2 + 2\sqrt{2}$), giving
+$Q(\xi) = \xi^4 - 4\xi^3 - 2\xi^2 - 4\xi + 1$, verified
+palindromic with coefficients $[1, -4, -2, -4, 1]$.
+\end{proof}
+
+\paragraph{Arithmetic surfaces and quadratic reciprocity.}
+On the congruence surface $\Gamma_0(p)\backslash\mathbf{H}^2$,
+the geodesic of trace $B$ (and discriminant
+$\Delta = B^2 - 4$) has a $\Gamma_0(p)$-representative if and
+only if the Legendre symbol $(\Delta/p) \ne -1$.
+
+\begin{proposition}[Quadratic reciprocity as a selection rule]
+\label{prop:legendre-selection}
+Of the five algebraic-integer stability thresholds, the number
+visible on $\Gamma_0(p)\backslash\mathbf{H}^2$ depends on $p$:
+\begin{center}
+\begin{tabular}{ccccccc}
+\toprule
+$p$ & $N\!=\!23$ & $N\!=\!15$ & $N\!=\!11$ & $N\!=\!9$ & $N\!=\!8$
+  & Count \\
+& $\Delta\!=\!5$ & $\Delta\!=\!12$ & $\Delta\!=\!32$
+  & $\Delta\!=\!96$ & $\Delta\!=\!252$ & \\
+\midrule
+$2$  & $\times$ & $\circ$ & $\circ$ & $\circ$ & $\circ$ & 4 \\
+$3$  & $\times$ & $\circ$ & $\times$ & $\circ$ & $\circ$ & 3 \\
+$5$  & $\circ$  & $\times$ & $\times$ & $\checkmark$ & $\times$ & 2 \\
+$7$  & $\times$ & $\times$ & $\checkmark$ & $\times$ & $\circ$ & 2 \\
+$11$ & $\checkmark$ & $\checkmark$ & $\times$ & $\times$ & $\times$ & 2 \\
+$23$ & $\times$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\times$ & 3 \\
+$47$ & $\times$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & 4 \\
+\bottomrule
+\end{tabular}
+\end{center}
+($\checkmark$ = split, $\circ$ = ramified, $\times$ = inert.)
+When $(\Delta/p) = +1$ (split), the geodesic lifts to
+\emph{two} geodesics on $\Gamma_0(p)\backslash\mathbf{H}^2$,
+doubling the automorphic correction.
+When $(\Delta/p) = -1$ (inert), the geodesic is absent and
+contributes \emph{zero} correction---the threshold on the quotient
+matches the universal-cover value.
+No prime $p < 200$ has all five thresholds simultaneously visible.
+\end{proposition}
+
+\begin{proof}
+A hyperbolic element $\gamma \in \mathrm{SL}(2,\mathbb{Z})$ has
+a conjugate in $\Gamma_0(p)$ (i.e., a representative with
+$p \mid c$ in $\gamma = \bigl[\begin{smallmatrix}a&b\\c&d
+\end{smallmatrix}\bigr]$) if and only if the binary quadratic form
+$Q(x,y) = cx^2 + (d{-}a)xy - by^2$ of discriminant $\Delta = B^2-4$
+represents~$0$ modulo~$p$.  By the theory of quadratic forms
+this holds iff $\Delta$ is a quadratic residue modulo $p$
+(or $p \mid \Delta$), i.e., $(\Delta/p) \ne -1$.
+The split/ramified/inert trichotomy corresponds to
+$(\Delta/p) = +1$, $0$, $-1$ respectively, with the stated
+multiplicities.
+The table entries are computed from the Legendre symbol
+for $\Delta \in \{5, 12, 32, 96, 252\}$ at each $p$.
+By the Chebotarev density theorem, each $\Delta$ is a QR for
+asymptotically half of all primes; the probability that all
+five are simultaneously QR is $\sim 1/32$, predicting the
+first ``fully visible'' prime near $p \approx 300$--$400$.
+\end{proof}
+
+\noindent
+The physical interpretation: on a hyperbolic lattice whose
+global topology is that of $\Gamma_0(p)\backslash\mathbf{H}^2$,
+only the \emph{visible} thresholds receive corrections from
+the surface's geodesic spectrum.  The \emph{inert} thresholds
+are identical to their universal-cover values---they are
+\emph{topologically protected} by the Legendre symbol.
+Different lattice topologies (different $p$) yield different
+patterns of protected and unprotected thresholds.
+
+\begin{theorem}[Universality of $N_{\mathrm{crit}} = 7$]
+\label{thm:universality}
+For any discrete subgroup $\Gamma \subset \mathrm{PSL}(2,\mathbb{R})$,
+any $N \ge 3$, and any Fourier mode $m = 1, \ldots, N{-}1$:
+the automorphic correction to the Havelock eigenvalue vanishes
+at $\xi = 0$:
+\[
+  \delta C_1(\Gamma, N, m, \xi{=}0) = 0.
+\]
+In particular, $N_{\mathrm{crit}} = 7$ at $\xi = 0$ on every
+quotient surface $\Gamma\backslash\mathbf{H}^2$, regardless of
+the topology of the surface or the arithmeticity of~$\Gamma$.
+\end{theorem}
+
+\begin{proof}
+At $\xi = 0$ ($r = 0$), all $N$ vortices sit at the origin
+$z = 0$ of the Poincar\'e disk.  For any
+$\gamma = \bigl[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\bigr]
+\in \Gamma$:
+$\gamma(0) = b/d$, a single point independent of the vortex
+index~$k$.  The Fourier-weighted automorphic correction for
+mode $m \ge 1$ is
+\[
+  \delta C_1(m)
+  = \sum_{k=0}^{N-1} H_{rr}(0, b/d) \cdot \cos(2\pi mk/N)
+  = H_{rr}(0, b/d) \cdot
+  \underbrace{\sum_{k=0}^{N-1} \cos(2\pi mk/N)}_{= 0}
+  = 0.
+\]
+The vanishing follows from $\mathbb{Z}_N$ character orthogonality
+alone; no property of $\Gamma$ beyond discreteness is used.
+Since $\delta C_1 = 0$ for every $\gamma \in \Gamma$ and every
+mode, the Havelock eigenvalue at $\xi = 0$ on
+$\Gamma\backslash\mathbf{H}^2$ equals its universal-cover value
+$(N{-}1) - m(N{-}m)/2$ exactly.
+\end{proof}
+
+\begin{remark}[Topology as a curvature correction]
+\label{rmk:topology-correction}
+The theorem implies a hierarchy of corrections:
+at $O(1)$ (the $\xi = 0$ limit), the Havelock eigenvalue is
+universal---independent of the surface topology.
+The global topology enters at $O(\xi)$: as the $N$-gon moves
+away from the origin, the image vortices under $\Gamma$ spread
+out (their positions $\gamma(z_k)$ become $k$-dependent), and
+the Fourier projection becomes nonzero.
+The $O(\xi)$ coefficient depends on $\Gamma$ and is controlled
+by the Legendre symbol when $\Gamma$ is arithmetic
+(Proposition~\ref{prop:legendre-selection}).
+For non-arithmetic $\Gamma$, the coefficient exists but has no
+known closed form.
+\end{remark}
+
 The coefficient $\gamma$ gives the curvature scale at which the polygon threshold is reached:
 the $7\to 8$ jump occurs at $|K|\,r_E^2 = \xi^* = \gamma^{-1/2}$.
 There is no perturbative formula $N_\mathrm{crit} \approx 7 + c\,|K|\,r_E^2$;
@@ -1367,6 +1755,28 @@ calculation---not the $N_{\mathrm{crit}}$ monotonicity conjecture
 of Section~\ref{sec:curvature-thresholds}, which concerns the
 integer-valued function $N_{\mathrm{crit}}(R/a)$, a different
 quantity).
+
+\begin{remark}[Robustness of $\mu(N)$ and the $N = 7$ exception]
+\label{rmk:topological-protection}
+For $N \ne 7$, all eigenvalues $\lambda_m(0)$ are nonzero, so the
+spectral flow $\mathrm{SF} = \mu(N)$ is determined entirely by the
+boundary data (the Havelock spectrum at $\xi = 0$ and the
+divergence $C_1 \to \infty$ at $\xi \to 1^-$).
+By standard Fredholm index stability
+(\citealt{Kato1995}, Theorem~IV.5.17),
+$\mu(N)$ is insensitive to any bounded perturbation $V(\xi)$
+with $V(0) = 0$ that couples Fourier modes in the interior---even
+perturbations that break the $\mathbb{Z}_N$ diagonal structure
+and create avoided crossings cannot change the net spectral flow
+(\texttt{proofs/topological\_protection.py} verifies this for
+$N = 8$--$10$ with coupling strengths up to $\|V\| = 100$).
+At $N = 7$, the kernel of $H_7(0)$ (modes $m = 3, 4$ with
+$\lambda_m = 0$) breaks this robustness:
+sufficiently strong mode coupling can push the zero eigenvalues
+negative, changing the spectral flow.
+The heptagonal ring is the unique case where the Morse index is
+structurally fragile.
+\end{remark}
 
 \begin{theorem}[Algebraic origin of $N_{\mathrm{crit}} = 7$]
 \label{thm:why-7-algebraic}
@@ -1478,6 +1888,36 @@ companion Paper~II alongside the BEC predictions.
 
 %% ====================================================================
 
+\paragraph{Open problems.}
+\begin{enumerate}
+  \item \emph{Arithmetic surfaces and quadratic reciprocity.}
+    On the quotient $\Gamma_0(p)\backslash\mathbf{H}^2$, the
+    geodesic of trace $B$ has a $\Gamma_0(p)$-representative iff
+    the Legendre symbol $(\Delta/p) \ne -1$ where $\Delta = B^2 - 4$.
+    Which algebraic-integer thresholds are \emph{visible} on which
+    arithmetic surface is therefore controlled by quadratic
+    reciprocity---a selection rule from algebraic number theory
+    acting on vortex stability.  Making this quantitative
+    (computing the automorphic correction to $C_1$ on specific
+    $\Gamma_0(p)$ quotients) is an open problem.
+  \item \emph{Non-constant curvature.}
+    On an oblate spheroid, the Gaussian curvature varies with
+    latitude, breaking the $\mathbb{Z}_N$ decomposition and
+    coupling Fourier modes.
+    Paper~III shows this effect is critical for Saturn's hexagon
+    ($10\%$ oblateness flips the sign of $\lambda_3$)
+    but negligible for Neptune/Uranus.
+    A full stability analysis using the spheroidal Green's function
+    (oblate spheroidal harmonics) would extend the framework
+    beyond constant curvature.
+  \item \emph{Experimental verification on hyperbolic lattices.}
+    The five algebraic-integer thresholds are parameter-free
+    predictions for circuit-QED or topoelectric platforms
+    implementing hyperbolic tilings.
+    The most accessible test: a ring of $N = 12$ excitations
+    at $R/a \approx 1$ should be stable---impossible on any
+    flat-geometry platform.
+\end{enumerate}
 
 %% ====================================================================
 

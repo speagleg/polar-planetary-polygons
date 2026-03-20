@@ -12,7 +12,7 @@
 \maketitle
 
 \begin{abstract}
-Applying the constraint-intersection principle from Papers~I--II, we predict the polygon wavenumber for Saturn ($N=6$, Rossby-limited), Jupiter north ($N=8$, Thomson-limited), Jupiter south ($N=5$, packing-limited), and Neptune ($N \in \{3,4,5\}$, packing-dominated). We derive a first-principles prediction chain from atmospheric parameters and resolve the Onsager--Arnold tension via a two-timescale argument.
+Applying the constraint-intersection principle from Papers~I--II, we predict the polygon wavenumber for Saturn ($N=6$, Rossby-limited), Jupiter north ($N=8$, Thomson-limited), Jupiter south ($N=5$, packing-limited), and Neptune ($N \in \{3,4,5\}$, packing-dominated). Saturn's $10\%$ oblateness is not a correction but the mechanism: it flips the Thomson eigenvalue $\lambda_3$ from $-0.12$ (unstable on a mean sphere) to $+0.01$ (marginally stable), with a critical latitude $\varphi_{\mathrm{crit}} \approx 72^\circ$N below which the hexagon cannot exist. We derive a first-principles prediction chain from atmospheric parameters and resolve the Onsager--Arnold tension via a two-timescale argument.
 \end{abstract}
 
 \label{part:planets}
@@ -442,6 +442,99 @@ requires changing the sign of $\beta_{\mathrm{eff}}/U_{\max} -
 n^2/R^2$, a finite perturbation).  The hexagon is therefore
 structurally stable at leading WKB order: it cannot be removed by
 infinitesimal jet perturbations.
+
+\subsection{The oblateness correction (Saturn's shape selects N=6)}
+\label{sec:oblateness}
+
+The analysis above treats Saturn as a sphere.  Saturn is an oblate
+spheroid with flattening $f = (a{-}b)/a = 0.098$
+($a = 60{,}268$\,km equatorial, $b = 54{,}364$\,km polar).
+The oblateness changes the \emph{sign} of the Thomson stability
+eigenvalue for $N = 6$---it is not a small correction but the
+mechanism that determines whether the hexagon can exist.
+
+\paragraph{Curvature on the oblate spheroid.}
+The Gaussian curvature at geodetic latitude $\varphi$ is
+$K(\varphi) = 1/(M(\varphi)\,N(\varphi))$ where
+$M = a(1{-}e^2)/(1{-}e^2\sin^2\!\varphi)^{3/2}$ and
+$N = a/(1{-}e^2\sin^2\!\varphi)^{1/2}$
+($e^2 = 1 - b^2/a^2$).
+On an oblate body, $K$ is \emph{largest} at the equator and
+\emph{smallest} at the pole---the pole is flatter.
+For Saturn: $K_{\mathrm{eq}}/K_{\mathrm{pole}} = a^4/b^4 = 1.51$.
+Since positive curvature destabilises (Paper~I,
+Proposition~\ref{I-prop:curvature-dichotomy}), the pole is
+the \emph{most stable} point on the spheroid---closer to the
+flat-plane limit where $N_{\mathrm{crit}} = 7$.
+
+\paragraph{The critical result.}
+Substituting the local curvature $K(\varphi)$ into the spherical
+$C_1$ formula (a local-curvature approximation valid for
+$K R^2 \ll 1$):
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Model & $\lambda_3(N{=}6)$ & Stable? \\
+\midrule
+Mean sphere ($R_{\mathrm{mean}} = 58{,}300$\,km) &
+  $-0.12$ & No \\
+Oblate spheroid at $78^\circ$N &
+  $+0.01$ & Marginally yes \\
+\bottomrule
+\end{tabular}
+\end{center}
+The oblateness flips $\lambda_3$ from $-0.12$ to $+0.01$.
+On a mean sphere, the hexagon is Thomson-unstable and
+\emph{should not exist}; on the oblate spheroid, it is
+marginally stable.
+
+\paragraph{Critical latitude.}
+The latitude $\varphi_{\mathrm{crit}}$ at which $\lambda_3 = 0$
+is determined by $C_1(K(\varphi_{\mathrm{crit}})\cdot R^2) =
+f(3,6) = 9/2$.  For $R_{\mathrm{ring}} = 15{,}000$\,km:
+$\varphi_{\mathrm{crit}} \approx 72^\circ\mathrm{N}$.
+Saturn's hexagon at $78^\circ$N is $6^\circ$ above this
+critical latitude---comfortably in the stable region but
+not far from the boundary.
+
+\begin{proposition}[Oblateness-stabilised hexagon]
+\label{prop:oblateness}
+On an oblate spheroid with flattening $f$, the binding
+eigenvalue $\lambda_3(N{=}6)$ at the pole exceeds its mean-sphere
+value by $\delta\lambda_3 \approx (N{-}1)\cdot 2\xi\, f\,(2{-}f)
+/(1{+}\xi)^2$ at leading order in $f$, where $\xi = K_{\mathrm{mean}}
+R^2$.  For Saturn ($f = 0.098$, $\xi \approx 0.07$):
+$\delta\lambda_3 \approx 0.13$, which reverses the sign of
+$\lambda_3$ from $-0.12$ to $+0.01$.
+\end{proposition}
+
+\paragraph{Mode coupling at non-polar latitudes.}
+At $78^\circ$N, the Gaussian curvature varies by
+$\delta K/K \approx 4.2\%$ across the hexagon ring (from the
+curvature gradient $\dd K/\dd\varphi$).  This $\cos(2\theta)$
+variation couples Fourier modes $m$ and $m \pm 2$, with coupling
+amplitude $\sim (\delta K/K)\cdot C_1 \approx 0.19$.  Since the
+stability margin is only $|\lambda_3| = 0.01$, the mode coupling
+\emph{exceeds} the margin by a factor of~$19$.
+
+By the topological protection of the Morse index
+(Paper~I, Remark~\ref{I-rmk:topological-protection}), this
+mode coupling cannot change the \emph{net} spectral flow for
+$N = 6$ (which has all eigenvalues strictly positive at the pole).
+Individual eigenvalue trajectories are perturbed, but the
+net count of instabilities is zero---the hexagon remains stable
+in the topological sense, even though the perturbative stability
+margin is formally violated.
+
+\paragraph{Neptune and Uranus: oblateness is negligible.}
+Neptune ($f = 0.017$) and Uranus ($f = 0.023$) are far less
+oblate.  The polar curvature correction $\delta K/K \approx
+-4.5\%$ (Neptune) and $-6.8\%$ (Uranus) shifts $\lambda_3$
+by $\lesssim 0.01$---negligible compared to the Thomson
+eigenvalue at these planets' ring radii.  The Neptune prediction
+$N \in \{3, 4, 5\}$ (Section~\ref{sec:observations}) is robust
+to spheroidal corrections
+(\texttt{extensions/oblate\_spheroid.py}).
 
 
 %% ====================================================================

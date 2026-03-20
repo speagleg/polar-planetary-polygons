@@ -14,3 +14,8 @@ latex/**/*.toc
 latex/**/*.synctex.gz
 .DS_Store
 .vs/
+
+.venv-symbolic/
+latex/**/*.pdf
+texput.log
+.claude/
