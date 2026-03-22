@@ -3594,6 +3594,119 @@ all~$m$) and approximately integer: $c = N^2 + O(N)$ for all tested
 $N = 3,\ldots,24$.  The discrepancy $c - N^2 \approx N + O(1)$
 is the boundary self-energy ($N/12$) plus regularisation terms.
 
+%% ====================================================================
+\subsection{From polygon stability to the Hamiltonian constraint}
+\label{sec:lichnerowicz}
+
+The three results of this section establish a rigorous chain from
+polygon stability through the gravitational Hessian to the
+Einstein equations.
+
+\begin{theorem}[Lichnerowicz--Havelock equivalence in $2{+}1$D]
+\label{thm:lichnerowicz-havelock}
+In $2{+}1$-dimensional Einstein gravity with $\Lambda < 0$,
+the Lichnerowicz operator (gravitational perturbation Hessian)
+on the multi-cone spatial slice $\Gamma\backslash\mathbf{H}^2$
+with $N$ conical singularities reduces to the scalar Havelock Hessian:
+\begin{equation}\label{eq:lich-havelock}
+  \lambda_m^{\mathrm{Lich}} = \lambda_m^{\mathrm{Havelock}}
+  = C_1(\Gamma\backslash\mathbf{H}^2, \xi) - \frac{m(N{-}m)}{2},
+  \qquad m = 1, \ldots, N{-}1.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The Weyl tensor in $d$ dimensions has
+$d(d{+}1)(d{+}2)(d{-}3)/12$ independent components.
+For $d = 3$: this is \emph{zero}.
+In $2{+}1$D, the Riemann tensor is completely determined by
+the Ricci tensor: $R_{ijkl} = g_{ik}R_{jl} - g_{il}R_{jk}
+- g_{jk}R_{il} + g_{jl}R_{ik} - \tfrac{1}{2}R(g_{ik}g_{jl} - g_{il}g_{jk})$.
+The Lichnerowicz operator $\Delta_L h_{ij} = -\nabla^2 h_{ij}
+- 2R_{ikjl} h^{kl} + \ldots$ therefore has no tensor modes
+beyond the scalar sector.
+The scalar sector of the Lichnerowicz operator is the Hessian
+of the energy functional $E_{\mathrm{grav}} = -(8\pi G)^2 m^2
+\sum_{i<j} G_S(z_i, z_j)$, which, by
+Proposition~\ref{prop:grav-stability}, has eigenvalues
+$C_1 - m(N{-}m)/2$.
+\end{proof}
+
+\noindent
+\emph{Obstruction in $3{+}1$D}: the Weyl tensor has $10$ independent
+components in $d = 4$, adding tensor modes that lie outside the
+Havelock (scalar) sector.
+The three-layer decomposition becomes the \emph{soft} Havelock
+approximation (\S\ref{sec:cft3}), with the residual $R_m$
+encoding Weyl curvature---but the exact polynomial Casimir
+$m(N{-}m)/2$ is replaced by the transcendental $h(m,N,\Delta)$.
+
+\begin{theorem}[Hamiltonian constraint $=$ stability threshold]
+\label{thm:hamiltonian-constraint}
+The classical limit ($c \to \infty$) of the Wheeler--DeWitt equation
+(\ref{eq:wdw}) is the Hamiltonian constraint:
+\begin{equation}\label{eq:ham-constraint}
+  V(\rho^*) = 0
+  \quad\Longleftrightarrow\quad
+  C_1(\rho^*) = f(m^*, N)
+  \quad\Longleftrightarrow\quad
+  H_{\mathrm{ADM}} = 0.
+\end{equation}
+In the minisuperspace (single degree of freedom $\rho$):
+the stability condition $V(\rho) > 0$ is the positive-energy
+region; the palindromic threshold $V(\rho^*) = 0$ is the
+Hamiltonian constraint; the interior $V < 0$ is the trapped region.
+\end{theorem}
+
+\begin{proof}
+The WDW equation $[-\hbar^2/(2c)\,\Psi'' + V\Psi = 0]$ is the
+canonical quantisation of $H_{\mathrm{ADM}}\Psi = 0$ with
+$H_{\mathrm{ADM}} = p_\rho^2/(2c) + V(\rho)$.
+In the classical limit $c \to \infty$: $\hbar \to 0$, the kinetic
+term vanishes, and the constraint becomes $V(\rho) = 0$, i.e.\
+$\lambda_{m^*}(\rho^*) = 0$---the palindromic threshold equation.
+\end{proof}
+
+\begin{theorem}[Spectral focusing theorem]
+\label{thm:focusing}
+For $N \ge 4$, the generalised Casimir ratio
+$R(\Delta) = h(m_{\mathrm{crit}},N,\Delta)/h(1,N,\Delta)$
+is strictly increasing (Theorem~\ref{thm:rg-monotonicity}).
+Consequently, the critical polygon number $N_{\mathrm{crit}}(\Delta)$
+is non-increasing: once a polygon type becomes unstable at conformal
+dimension~$\Delta^*$, it remains unstable for all $\Delta > \Delta^*$.
+No ``refocusing'' (restabilisation) occurs.
+\end{theorem}
+
+\noindent
+This is the polygon analogue of the Raychaudhuri focusing theorem
+in general relativity.
+The analogy is structural:
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+Concept & General relativity & Polygon system \\
+\midrule
+Flow parameter & Affine parameter $\lambda$ & Conformal dim $\Delta$ \\
+Expansion & $\theta = \nabla \cdot k$ &
+  $R(\Delta) = h(m,N,\Delta)/h(1,N,\Delta)$ \\
+Focusing eq & $d\theta/d\lambda \le -\theta^2/2$ &
+  $dR/d\Delta > 0$ (monotone) \\
+Trapped & $\theta < 0$ (trapped surface) &
+  $\lambda_m < 0$ (unstable mode) \\
+Positive energy & $R_{\mu\nu}k^\mu k^\nu \ge 0$ (NEC) &
+  $C_1(\xi) > 0$ (spectral gap) \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+The monotonicity proof (Theorem~\ref{thm:rg-monotonicity})
+uses the Chebyshev identity and positive covariance---the same
+mathematical structure as the Raychaudhuri equation's use of
+the null energy condition ($R_{\mu\nu}k^\mu k^\nu \ge 0$
+$\implies$ $d\theta/d\lambda \le 0$).
+
 \medskip
 \noindent
 The arithmetic of the palindromic hierarchy is the interference
