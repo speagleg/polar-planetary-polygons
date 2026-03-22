@@ -2874,6 +2874,41 @@ $|\delta C_1| \lesssim 0.05$, which does not shift
 $N_{\mathrm{crit}}$ away from~$7$ on the flat plane.
 On the modular surface ($\lambda_1 \approx 91$):
 $|\delta C_1| \lesssim 0.002$, negligible.
+\paragraph{Lorentzian continuation and the BTZ horizon.}
+The curvature coefficient $C_1 = \log(2\sinh\rho) + b(N)$ admits
+an analytic continuation $\rho \to \rho + i\pi/2$ that interchanges
+the BTZ exterior and interior:
+$\sinh(\rho + i\pi/2) = i\cosh\rho$, so
+$C_1^{\mathrm{int}} = \log(2\cosh\rho) + b(N) + i\pi/2$.
+The three constant-curvature geometries are connected by the imaginary
+part of~$\rho$:
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+$\mathrm{Im}(\rho)$ & $0$ & $\pi/2$ & $\pi$ \\
+\midrule
+Geometry & $\mathbf{H}^2$ ($K{=}{-}1$) & $\mathbb{R}^2$ ($K{=}0$) &
+  $\mathbf{S}^2$ ($K{=}{+}1$) \\
+Kernel & $\log(2\sinh\rho)$ & $\log(2\sin t)$ & $\log(2\cos t)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+At each palindromic threshold $\rho^*(N)$: the critical eigenvalue
+$\lambda_{m^*}$ crosses zero (\emph{real} side), while the interior
+resonance has $\mathrm{Im}(\lambda) = \pi/2$ (universal, independent
+of $N$ and~$m$).
+The polygon--BTZ transition is a \emph{time--space exchange}:
+for $\rho > \rho^*$ the mode oscillates in time
+($\omega = \sqrt{\lambda_{m^*}}$); for $\rho < \rho^*$ it grows
+spatially ($\kappa = \sqrt{|\lambda_{m^*}|}$);
+at $\rho = \rho^*$ the Killing vector degenerates.
+
+Under Lorentzian continuation ($\rho \to \rho + i\varepsilon$),
+the partition function acquires a branch cut at the threshold:
+$Z_L \sim A(N)\,({\rho - \rho^* + i\varepsilon})^{-1/2}$
+with spectral function $\mathrm{Im}[Z_L] \propto |\rho - \rho^*|^{-1/2}$
+(a van~Hove singularity).
+
 \begin{proposition}[Eigenvalue non-crossing at finite $c$]
 \label{prop:non-crossing}
 For $N \ge 6$ and $c \ge N^2$, the mode-dependent part of the
