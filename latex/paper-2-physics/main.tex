@@ -3185,10 +3185,43 @@ identity). This is the \emph{unique} dimension where the Casimir is
 an exact polynomial---because $\csc^2(\pi p/N)$ has a closed discrete
 Fourier transform ($\sum\csc^2\cdot(1{-}\cos) = 2m(N{-}m)$), while
 $\csc^s$ for $s \ne 2$ does not.
-The rich algebraic structure of Paper~I (palindromic polynomials,
-algebraic number fields, modular forms) is therefore a consequence
-of the \emph{uniqueness of the logarithmic interaction} among
-power-law potentials.
+The \emph{exact} algebraic structure of Paper~I (palindromic polynomials,
+algebraic number fields, modular forms) is specific to $d = 2$,
+a consequence of the uniqueness of the $\csc^2$ weight function
+among power-law potentials.
+However, the \emph{structural skeleton} survives in all dimensions:
+
+\begin{enumerate}
+\item \textbf{Mode ordering.}
+  The critical mode is $m = \lfloor N/2\rfloor$ in every $d$
+  (Proposition~\ref{prop:soft-havelock}).
+  The residual $R_m$ is too small to reorder eigenvalues.
+
+\item \textbf{Palindromic symmetry.}
+  The symmetry $\sigma_m = \sigma_{N-m}$ holds exactly for all~$d$
+  (from the discrete cosine: $\cos(2\pi pm/N) = \cos(2\pi p(N{-}m)/N)$).
+  On curved spaces, conformal inversion $\xi \leftrightarrow 1/\xi$ is
+  geometric (a property of the Poincar\'e ball, not of the interaction),
+  so the threshold equation retains palindromic form.
+
+\item \textbf{Finite-$c$ algebraic structure.}
+  The $O(1/c)$ Virasoro block correction
+  $\delta h_m = -f_m^2/c$ is a \emph{polynomial in the Casimir}
+  (equation~\ref{eq:block-1-over-c}),
+  preserving the algebraic structure at every order.
+
+\item \textbf{Weyl anomaly shape.}
+  The normalised anomaly profile $\delta_m/\|\delta\|$
+  has inner products $> 0.98$ between $\Delta = 0$ and
+  $\Delta = 2$ for $N \le 6$: the number-theoretic fingerprint
+  transfers to $d = 3$ with $< 2\%$ distortion.
+\end{enumerate}
+The $d = 2$ case is where the algebra is \emph{exact};
+the $d \ge 3$ case is where it is \emph{approximate but structurally
+preserved}.  The mechanism by which the logarithmic structure
+survives in $3{+}1$D is the soft Havelock decomposition:
+the Casimir $m(N{-}m)/2$ is the dominant term at every~$d$, with
+the interaction-specific residual $R_m$ as a controlled perturbation.
 
 \begin{remark}[Transcendence of the transition dimensions]
 \label{rmk:transcendence}
