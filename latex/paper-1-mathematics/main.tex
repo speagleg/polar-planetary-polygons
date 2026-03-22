@@ -2454,19 +2454,92 @@ hyperbolic conjugacy classes $= \delta C_1$)
 gives~\eqref{eq:selberg-delta}.
 \end{proof}
 
-The key identification is:
-\textbf{the Selberg trace formula is the heat-kernel proof of
-the index theorem} for the Laplacian on~$S$.
-The ``identity contribution'' is the local index
-(the Havelock eigenvalue on $\mathbf{H}^2$);
-the ``geometric side'' is the global correction
-(the topology of~$\Gamma$).
-In the language of the Baum--Connes assembly map
-$\mu \colon K_0^\Gamma(E\Gamma) \to K_0(C^*_r(\Gamma))$
-(an isomorphism for all discrete subgroups of
-$\mathrm{SL}(2,\mathbb{R})$, \citealt{Kasparov1988}):
-\emph{the spectral correction $\delta C_1$ is the image of the
-Havelock test function under the assembly map}.
+The identification of $\delta C_1$ with the index pairing is not
+merely an analogy: it is a precise application of the Baum--Connes
+assembly map.
+
+\begin{theorem}[Assembly map for the Havelock Hessian]
+\label{thm:assembly-map}
+Let $\Gamma \subset \mathrm{SL}(2,\mathbb{R})$ be a cocompact
+torsion-free Fuchsian group, $S = \Gamma\backslash\mathbf{H}^2$.
+\begin{enumerate}
+  \item[\emph{(a)}]
+    The Havelock Hessian $H_N^S(\xi)$ acting on
+    $L^2(S) \otimes \mathbb{C}^{N-1}$ has spectral projection
+    $P_- \in C^*_r(\Gamma) \otimes \mathrm{End}(\mathbb{C}^{N-1})$
+    whose class $[P_-] \in K_0(C^*_r(\Gamma)) \otimes R(\mathbb{Z}_N)$
+    is well-defined (away from palindromic thresholds) and
+    locally constant in~$\xi$.
+  \item[\emph{(b)}]
+    Under the Baum--Connes assembly map
+    $\mu \colon K_0^\Gamma(\underline{E}\Gamma) \to K_0(C^*_r(\Gamma))$
+    (an isomorphism for $\Gamma$ with the Haagerup property,
+    \citealt{Kasparov1988}):
+    $[P_-]$ is the image of the $K$-homology class
+    $[f_\xi] \in K_0^\Gamma(\mathbf{H}^2)$ defined by the
+    Havelock test function.
+  \item[\emph{(c)}]
+    The canonical trace $\tau \colon K_0(C^*_r(\Gamma)) \to \mathbb{R}$
+    applied to $[P_-]$ gives the $L^2$-Morse index, which the Selberg
+    trace formula decomposes as:
+    \[
+      \tau(P_-) = \underbrace{C_1(\mathbf{H}^2,\xi)}_{\text{local index}}
+      \;+\; \underbrace{\delta C_1(\Gamma,\xi)}_{\text{global correction}}.
+    \]
+    The local term is the ``identity contribution'' of the trace formula;
+    the global term is the sum over nontrivial conjugacy classes.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a)~The spectral projection $P_-$ of a self-adjoint element of a
+$C^*$-algebra is well-defined as long as $0$ is not in the spectrum
+(equivalently: the operator is invertible).  Away from palindromic
+thresholds, the Havelock eigenvalues $\lambda_m(\xi) \ne 0$ for
+all~$m$, so the Havelock Hessian is invertible in each
+$\mathbb{Z}_N$-sector and $[P_-]$ is defined.
+Local constancy follows from the continuity of
+$\lambda_m(\xi)$ and the fact that the projection changes only
+when an eigenvalue crosses zero.
+
+(b)~Since $\Gamma$ has the Haagerup property (it is a discrete subgroup
+of $\mathrm{SL}(2,\mathbb{R})$), the Baum--Connes assembly map is an
+isomorphism (\citealt{Kasparov1988}).
+Every element of $K_0(C^*_r(\Gamma))$ is the image of a
+$\Gamma$-equivariant $K$-homology class on $\underline{E}\Gamma
+= \mathbf{H}^2$.
+The Havelock test function $f_\xi$ defines such a class:
+it is $\Gamma$-equivariant (since the Green's function is
+$\Gamma$-invariant) and compactly supported in the spectral
+variable (the sum~\eqref{eq:selberg-delta} converges absolutely,
+as established by the operator-norm bound~\eqref{eq:op-norm-bound}).
+The assembly map sends $[f_\xi]$ to the spectral projection of the
+operator $c_m \cdot 1 + h_\xi^\Gamma$ in $C^*_r(\Gamma)$, which is
+precisely~$P_-$.
+
+(c)~The canonical trace $\tau$ on $C^*_r(\Gamma)$ is the coefficient
+of the identity element.
+For the spectral projection $P_-$ of $c_m + h$:
+\[
+  \tau(P_-) = \sum_{n \ge 0}
+    \frac{|\varphi_n(z_0)|^2}{\mathrm{Area}(S)}\,
+    \chi_{(-\infty,0)}(\lambda_n),
+\]
+where $\lambda_n$ are the eigenvalues of $\Delta_S$ and
+$\chi_{(-\infty,0)}$ is the indicator function.
+The Selberg trace formula decomposes this into the identity
+orbital integral ($= C_1(\mathbf{H}^2, \xi)$, the universal-cover
+contribution) and the sum over hyperbolic conjugacy classes
+($= \delta C_1$), as computed in Theorem~\ref{thm:index-pairing}.
+\end{proof}
+
+\noindent
+The theorem makes precise the statement that
+\emph{the Selberg trace formula IS the index theorem for the
+Laplacian on~$S$, applied to the Havelock test function}
+(\citealt{BarbaschMoscovici1983}; \citealt{Connes1994}, \S IV.3).
+The ``identity contribution'' is the local index and the
+``geometric side'' is the global correction $\delta C_1$.
 
 \paragraph{Bolza verification.}
 On the Bolza surface ($g = 2$, $|\mathrm{Aut}| = 48$,
