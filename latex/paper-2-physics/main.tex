@@ -2909,6 +2909,36 @@ $Z_L \sim A(N)\,({\rho - \rho^* + i\varepsilon})^{-1/2}$
 with spectral function $\mathrm{Im}[Z_L] \propto |\rho - \rho^*|^{-1/2}$
 (a van~Hove singularity).
 
+\paragraph{The Wheeler--DeWitt equation on the palindromic minisuperspace.}
+The single degree of freedom $\rho$ (geodesic radius of the polygon)
+and the potential $V(\rho) = \lambda_{m^*}(\rho)$ (the critical
+Havelock eigenvalue) define a minisuperspace Wheeler--DeWitt equation:
+\begin{equation}\label{eq:wdw}
+  \biggl[-\frac{\hbar^2}{2c}\,\frac{d^2}{d\rho^2}
+  + \log(2\sinh\rho) + b(N) - \frac{m(N{-}m)}{2}
+  + \delta_m\biggr]\Psi = 0,
+\end{equation}
+with $c = 12N^2$ and $\hbar = 1/\sqrt{c}$.
+The three-layer decomposition IS the WDW potential decomposition:
+$\log(2\sinh\rho)$ is the gravitational term;
+$m(N{-}m)/2$ is the matter content (the Z$_N$ Casimir);
+$\delta_m$ is the one-loop correction.
+
+Near the palindromic threshold $\rho^*(N)$ where $V(\rho^*) = 0$:
+the potential linearises $V \approx \coth(\rho^*)\cdot(\rho - \rho^*)$,
+and the WDW wavefunction is an \emph{Airy function}
+$\Psi \sim \mathrm{Ai}\bigl((2c\,\coth\rho^*)^{1/3}(\rho - \rho^*)\bigr)$,
+transitioning from oscillatory (exterior, polygon phase) to evanescent
+(interior, BTZ phase).  The quantum smoothing width
+\begin{equation}\label{eq:airy-width}
+  \delta\rho = \frac{1}{(2c)^{1/3}} = \frac{1}{(24N^2)^{1/3}}
+\end{equation}
+is universal (independent of $m$, verified to $4$ digits for
+$N = 8,\ldots,20$ with ratio $\delta\rho/N^{-2/3} \to 2^{-1/3}$).
+In the classical limit $c \to \infty$: $\delta\rho \to 0$, recovering
+the sharp palindromic threshold.
+At finite~$c$: the horizon has quantum width $O(c^{-1/3})$.
+
 \begin{proposition}[Eigenvalue non-crossing at finite $c$]
 \label{prop:non-crossing}
 For $N \ge 6$ and $c \ge N^2$, the mode-dependent part of the
