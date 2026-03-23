@@ -1272,6 +1272,105 @@ require fundamental revision:
   requires a deep weather layer.
 \end{enumerate}
 
+%% ====================================================================
+\section{Stellar applications}
+\label{sec:stellar}
+
+The polygon stability framework extends beyond gas giants to any
+system with two-dimensional vortex dynamics and a logarithmic
+(or logarithmic-like) interaction.
+
+\subsection{Neutron star superfluid vortices}
+
+The interior of a neutron star contains a superfluid of neutron
+Cooper pairs.  Rotation at angular frequency~$\Omega$ creates
+quantised vortices with circulation
+$\kappa = h/(2m_n) \approx 2.0 \times 10^{-7}$\,m$^2$\,s$^{-1}$
+and areal density $n_v = 2\Omega/\kappa$.
+
+\begin{center}
+\small
+\begin{tabular}{lccc}
+\toprule
+Pulsar & $f$ (Hz) & Vortex density (m$^{-2}$) & Spacing ($\mu$m) \\
+\midrule
+Crab (young) & $30$ & $1.9 \times 10^9$ & $23$ \\
+Vela (glitching) & $11$ & $7.0 \times 10^8$ & $38$ \\
+MSP J1748 & $716$ & $4.6 \times 10^{10}$ & $4.7$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The superfluid vortices interact via the two-dimensional
+logarithmic Green's function---precisely the Havelock kernel.
+Three predictions follow directly:
+
+\begin{enumerate}
+\item \emph{Triangular vortex lattice.}
+  Theorem~\ref{III-thm:triangle-universality} (triangle universality)
+  predicts that the vortex array forms a triangular lattice---the
+  unique stable regular tiling for the logarithmic interaction.
+  This is consistent with theoretical expectations from the
+  Abrikosov lattice in type-II superconductors.
+
+\item \emph{Ring instability at $N = 7$.}
+  Any ring of $N > 7$ co-rotating vortices at the crust--core
+  boundary is unstable by the Havelock theorem and will fragment.
+  Rings of $N \le 7$ can persist as metastable configurations.
+
+\item \emph{Quantised glitch sizes.}
+  Pulsar glitches (sudden spin-up events) arise from the
+  collective unpinning of vortices at the crust--core boundary.
+  If the unpinning occurs in ring-shaped clusters, the
+  Havelock stability limit constrains the cluster size to $N \le 7$.
+  The angular momentum transfer per ring:
+  \[
+    \Delta\Omega_N = \frac{N\kappa}{2\pi R_{\mathrm{pin}}^2}
+  \]
+  is \emph{quantised} in units of $N = 3, 4, 5, 6, 7$.
+  Glitch magnitudes should cluster around these values,
+  with a maximum single-ring contribution at $N = 7$.
+  The $7 \to 8$ instability means that larger clusters
+  break into sub-rings before unpinning.
+\end{enumerate}
+
+\subsection{The solar supergranulation}
+
+The Sun's surface exhibits ${\sim}150$ supergranulation cells
+at the equator (cell size ${\sim}30{,}000$\,km).
+With $N \approx 150 \gg 7$: the equatorial ring of cells
+is \emph{deeply unstable} by the Havelock criterion.
+This is consistent with the observed turbulent, time-varying
+character of the supergranulation pattern---the Sun has no
+stable polygon because $N \gg N_{\mathrm{crit}}$.
+
+\subsection{Rapidly rotating stars}
+
+Stars with extreme oblateness ($\varepsilon > 0.5$, such as
+Vega, Altair, and Achernar) have surface curvature gradients
+analogous to Saturn's oblateness.  If convective or magnetic
+vortices form at the poles of these stars, the oblateness
+correction shifts $N_{\mathrm{crit}}$ (as for Saturn's hexagon,
+\S\ref{sec:oblateness}).  For $\varepsilon > 0.5$:
+$N_{\mathrm{crit}}$ may increase by $1$--$2$ relative to a
+sphere, potentially stabilising polar polygons that would be
+unstable on a non-rotating star.
+This is a prediction for future direct-imaging observations
+of rapid rotators with extreme-adaptive-optics instruments.
+
+\subsection{Magnetic white dwarfs}
+
+In magnetic white dwarfs ($B \sim 10^6$--$10^9$\,G), the
+electron gas supports quantised magnetic flux tubes
+($\Phi_0 = h/(2e) = 2.07 \times 10^{-15}$\,Wb).
+When the London penetration depth exceeds the inter-tube
+spacing, the flux tubes interact via the two-dimensional
+logarithmic kernel---the Havelock regime.
+The tessellation stability theorem predicts a triangular
+flux tube lattice, and ring configurations of flux tubes
+are limited to $N \le 7$ by the Havelock stability boundary.
+
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}
 \end{document}
