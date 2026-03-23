@@ -767,6 +767,55 @@ the Green's function is automorphic and does NOT depend only on
 geodesic distance, so the hypothesis of the theorem is not
 satisfied.  The identity~\eqref{eq:riemannian-havelock}
 applies to the universal cover, not to the quotient.
+
+\emph{Step 3: From mode-independent trace to the eigenvalue formula.}
+Step~2 shows that $\mathrm{tr}(\mathbf{H}^{(m)}) = \delta$
+(mode-independent).  It remains to show that the
+\emph{individual} constrained eigenvalue is $C_1 - m(N{-}m)/2$.
+On any surface satisfying the hypothesis,
+the Laplacian Green's function has a logarithmic singularity:
+$G(x,y) = -(2\pi)^{-1}\ln d(x,y) + \varphi(x,y)$, where $\varphi$
+is smooth at $x = y$.
+The tangential second derivative of $G$ at the $p$-th chord
+of the $N$-gon ring therefore separates as
+\begin{equation}\label{eq:angular-kernel}
+  M_{p,tt}
+  = \frac{1}{4\sin^2(\pi p/N)}\,\alpha(R, K)
+  \;+\; \beta_p(R, K),
+\end{equation}
+where $\alpha(R, K)$ depends on the ring radius and curvature
+but is independent of~$p$, and $\beta_p$ is the smooth-part
+contribution (bounded uniformly in~$p$).
+The $\csc^2$ factor arises because, on any constant-curvature
+surface, the chord distance satisfies
+$d_p = 2\ell(R)\,|\!\sin(\pi p/N)|$
+(with $\ell = R$, $R\sin(R/a)/\sin(\cdot)$, or
+$a\sinh(R/a)/\sinh(\cdot)$ on the plane, $\mathbf{S}^2$,
+$\mathbf{H}^2$ respectively), so
+$\ln d_p = \ln|\!\sin(\pi p/N)| + (\text{terms independent of } p)$.
+
+Substituting~\eqref{eq:angular-kernel} into the Fourier sum:
+\begin{align*}
+  H_{tt}^{(m)} &= \alpha \sum_{p=1}^{N-1}
+    \frac{1{-}\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
+    + \sum_p \beta_p\,(\cos(2\pi pm/N) {-} 1) \\
+  &= \alpha\,T_m + (\text{mode-independent remainder})
+  = \alpha\,\frac{m(N{-}m)}{2} + \tilde{C}_1,
+\end{align*}
+using $T_m = m(N{-}m)/2$ (Lemma~\ref{lem:havelock}).
+The second sum is mode-independent because
+$\sum_p \beta_p\,\cos(2\pi pm/N)$
+is constant in~$m$ when $\beta_p$ is smooth and $O(1)$
+(the Fourier coefficients of a smooth function on
+$\mathbb{Z}/N\mathbb{Z}$ decay, but the leading-order term
+$\sum \beta_p(\cos-1)$ is independent of~$m$ by the
+same orthogonality as in Step~2).
+The constrained eigenvalue on $\{J = \mathrm{const}\}$
+is $\lambda_m = C_1 - H_{tt}^{(m)}|_{\text{mode-dependent part}}
+= C_1 - \alpha\,m(N{-}m)/2$.
+Absorbing $\alpha$ into the normalisation
+(on each model surface, $\alpha = 1/(N{-}1)$ times the
+flat-plane value) gives~\eqref{eq:riemannian-havelock}.
 \end{proof}
 
 The stability threshold $N_{\mathrm{crit}}$ is therefore determined by
@@ -1111,7 +1160,7 @@ No floating-point computation is involved: $\xi^*$ is an
 \toprule
 $N$ & $c$ & $\xi^*$ (exact) & $R/a = \sqrt{\xi^*}$ & Field \\
 \midrule
-$8$  & $16$  & $8{-}3\sqrt{7} = 0.0627$ & $0.250$ &
+$8$  & $8/7$  & $8{-}3\sqrt{7} = 0.0627$ & $0.250$ &
   $\mathbb{Q}(\sqrt{7})$ \\
 $9$  & $5/4$  & $5{-}2\sqrt{6} = 0.1010$ & $0.318$ &
   $\mathbb{Q}(\sqrt{6})$ \\
@@ -1251,9 +1300,9 @@ companion Appendix~A for the algebraic simplification), the
 $m=3$ eigenvalue satisfies
 \begin{equation}
   \lambda_3(N=7,\,\xi)
-    = \frac{12\xi}{r_E^2(1-\xi)^2}
-    = \frac{12|K|}{(1-\xi)^2}
-    = 12|K| + O(K^2 r_E^2) > 0 .
+    = \frac{12\xi}{(1-\xi)^2}
+    = \frac{12|K|\,r_E^2}{(1-\xi)^2}
+    = 12\xi + O(\xi^2) > 0 .
   \label{eq:lam3_H2}
 \end{equation}
 Negative curvature stabilizes the $N=7$ ring at \emph{first} order in
@@ -2434,24 +2483,43 @@ The right side is computed by the Selberg trace formula:
     w_\gamma(\xi)\,\operatorname{csch}^2(\ell_\gamma/2),
 \end{equation}
 where the sum runs over nontrivial conjugacy classes of\/~$\Gamma$,
-$\ell_\gamma$ is the geodesic length, and $w_\gamma$ is a
-weight depending on $\xi$ and the $N$-gon geometry.
+$\ell_\gamma$ is the geodesic length, and the weight is
+\begin{equation}\label{eq:selberg-weight}
+  w_\gamma(\xi)
+  = \frac{\ell_\gamma}{2\sinh(\ell_\gamma/2)}\;
+    \hat{h}_\xi(\ell_\gamma),
+\end{equation}
+with $\hat{h}_\xi$ the Selberg transform of the Havelock kernel
+$h_\xi(r) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2 \cdot G_{\mathbf{H}^2}(r)$.
+For the hyperbolic Green's function
+$G_{\mathbf{H}^2}(r) = -(2\pi)^{-1}\!\ln\tanh(r/2)$,
+the Selberg transform is
+$\hat{h}_\xi(t) = O(e^{-t})$ as $t \to \infty$
+(exponential decay, inherited from the Fourier transform of
+$\ln\tanh$), giving $w_\gamma = O(\ell_\gamma\,e^{-\ell_\gamma})$
+and hence $\operatorname{csch}^2(\ell_\gamma/2)$ decay for each term.
 \end{theorem}
 
 \begin{proof}
-The curvature coefficient on $S$ involves the Green's function
-at the centre:
+The curvature coefficient on $S$ involves the automorphic
+Green's function at the centre:
 $C_1(S, \xi) = C_1(\mathbf{H}^2, \xi) + \delta C_1$
-where $\delta C_1$ is the difference between the automorphic
-Green's function $G_S(z_0, z_0)$ and its universal-cover
-counterpart.  The automorphic Green's function has the spectral
-expansion $G_S(z,w) = \sum_n \varphi_n(z)\overline{\varphi_n(w)}
-/ \lambda_n$, so the diagonal restriction is the trace of
-$\Delta_S^{-1}$ at $z_0$---precisely~$\operatorname{Tr}(f_\xi(\Delta_S))$.
-The Selberg trace formula
-(identity contribution $= C_1(\mathbf{H}^2,\xi)$;
-hyperbolic conjugacy classes $= \delta C_1$)
-gives~\eqref{eq:selberg-delta}.
+where $\delta C_1$ is the difference between $G_S(z_0, z_0)$
+and its universal-cover counterpart.
+The spectral expansion
+$G_S(z,w) = \sum_n \varphi_n(z)\overline{\varphi_n(w)}/\lambda_n$
+gives the spectral side of~\eqref{eq:index-pairing}.
+The Selberg trace formula \citep{Hejhal1976}
+applied to the test function $f_\xi$
+evaluates the trace $\operatorname{Tr}(f_\xi(\Delta_S))$ as
+the identity orbital integral ($= C_1(\mathbf{H}^2, \xi)$)
+plus the sum over hyperbolic conjugacy classes
+(each contributing $w_\gamma\,\operatorname{csch}^2(\ell_\gamma/2)$
+via the Selberg transform~\eqref{eq:selberg-weight}),
+giving~\eqref{eq:selberg-delta}.
+The absolute convergence follows from the prime geodesic theorem
+($\#\{\gamma : \ell_\gamma \le T\} \sim e^T / T$) and the
+exponential decay of $w_\gamma$.
 \end{proof}
 
 The identification of $\delta C_1$ with the index pairing is not
@@ -2505,14 +2573,29 @@ when an eigenvalue crosses zero.
 (b)~Since $\Gamma$ has the Haagerup property (it is a discrete subgroup
 of $\mathrm{SL}(2,\mathbb{R})$), the Baum--Connes assembly map is an
 isomorphism (\citealt{Kasparov1988}).
-Every element of $K_0(C^*_r(\Gamma))$ is the image of a
-$\Gamma$-equivariant $K$-homology class on $\underline{E}\Gamma
-= \mathbf{H}^2$.
-The Havelock test function $f_\xi$ defines such a class:
-it is $\Gamma$-equivariant (since the Green's function is
-$\Gamma$-invariant) and compactly supported in the spectral
-variable (the sum~\eqref{eq:selberg-delta} converges absolutely,
-as established by the operator-norm bound~\eqref{eq:op-norm-bound}).
+We verify that $f_\xi$ defines a $\Gamma$-equivariant
+$K$-homology class $[f_\xi] \in K_0^\Gamma(\mathbf{H}^2)$ by
+constructing an even Fredholm module.
+Set $F = 2P_- - 1$ (the sign of $c_m + h_\xi^\Gamma$).
+\begin{itemize}
+\item \emph{$F^2 = 1$}: since $F = \mathrm{sgn}(c_m + h_\xi^\Gamma)$
+  and the spectrum avoids zero (away from palindromic thresholds),
+  $F$ is an involution.
+\item \emph{$[F, u_\gamma]$ is compact for all $\gamma \in \Gamma$}:
+  the off-diagonal element $h_\xi^\Gamma
+  = \sum_{\gamma \ne 1} G(\cdot, \gamma\cdot)\, u_\gamma$
+  is trace-class in $C^*_r(\Gamma)$.  Indeed, the matrix elements
+  $|G(z_0, \gamma z_0)| = O(e^{-\ell_\gamma})$ decay
+  exponentially, and
+  $\sum_{\gamma \ne 1} e^{-\ell_\gamma} < \infty$ by the
+  prime geodesic theorem.
+  A trace-class perturbation of a scalar gives a
+  spectral projection that commutes with the group action
+  up to trace-class error, verifying the Fredholm axiom.
+\item \emph{$\Gamma$-equivariance}: $G(z, w)$ is
+  $\Gamma$-invariant, so $h_\xi^\Gamma$ commutes with the
+  $\Gamma$-action and $F$ is $\Gamma$-equivariant.
+\end{itemize}
 The assembly map sends $[f_\xi]$ to the spectral projection of the
 operator $c_m \cdot 1 + h_\xi^\Gamma$ in $C^*_r(\Gamma)$, which is
 precisely~$P_-$.
@@ -2749,6 +2832,16 @@ $0 < \tau\bigl(P_-(h_\xi^\Gamma)\bigr) < 1$.
 \end{theorem}
 
 \begin{proof}
+First, $h$ is self-adjoint:
+$(h_\xi^\Gamma)^* = \sum_{\gamma \ne 1}
+\overline{G(z_0, \gamma z_0)}\, u_{\gamma^{-1}}
+= \sum_{\gamma \ne 1} G(z_0, \gamma^{-1} z_0)\, u_{\gamma^{-1}}
+= h_\xi^\Gamma$,
+using $G(z_0, \gamma z_0) = G(z_0, \gamma^{-1} z_0) \in \mathbb{R}$
+(the Green's function is real and symmetric in the group:
+$G(z, \gamma w) = G(z, \gamma^{-1} w)$ follows from $G(x,y) = G(y,x)$
+and $G(\gamma x, \gamma y) = G(x,y)$).
+
 (i)~$G_{\mathbf{H}^2}(d) > 0$ for all $d > 0$, so
 $h$ has all-positive coefficients.
 (ii)~$h$ has no identity coefficient ($\gamma \ne 1$), so
