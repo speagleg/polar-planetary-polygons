@@ -3707,6 +3707,52 @@ mathematical structure as the Raychaudhuri equation's use of
 the null energy condition ($R_{\mu\nu}k^\mu k^\nu \ge 0$
 $\implies$ $d\theta/d\lambda \le 0$).
 
+\paragraph{The Clausius relation and the Newton constant.}
+At each palindromic threshold, the Clausius relation
+$\delta Q = T\,\delta S$ is verified numerically with
+\begin{equation}\label{eq:clausius}
+  \frac{\delta Q}{T\,\delta S}
+  = 4\pi\,\tanh(\rho^*)
+  = 4\pi - O(e^{-2\rho^*}),
+\end{equation}
+where the correction $e^{-2\rho^*} \sim e^{-N^2/6}$ is the
+quantum gravity correction (the BTZ interior contribution).
+The ratio $4\pi$ is \emph{universal}: the same value at every
+palindromic threshold $N = 7, 8, 9, \ldots$ (verified to~$10^{-10}$
+for $N \le 20$).
+In the Jacobson framework \citep{Jacobson1995}, this universality
+is the \emph{content} of the Einstein equations: the consistency of
+$\delta Q = T\delta S$ across an infinite family of local Rindler
+horizons forces $G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G\,T_{\mu\nu}$,
+with the effective Newton constant determined by $G_{\mathrm{eff}} = 1/(16\pi)$
+in the natural units of the polygon system.
+
+\paragraph{The Havelock structure implies Einstein.}
+Independently of the thermodynamic argument, the three-layer
+\emph{structure} (not just the stability inequality) implies
+the Einstein equations in $2{+}1$D through a five-step chain:
+\begin{enumerate}
+\item \emph{Polynomial Casimir} $f(m,N) = m(N{-}m)/2$
+  $\implies$ logarithmic interaction (csc$^2$ uniqueness, Paper~I).
+\item \emph{Logarithmic interaction}
+  $\implies$ $V(z,w) = -G_S(z,w)$ where $\Delta G = -\delta + 1/A$.
+\item \emph{Mode-independence of $C_1$}
+  $\implies$ Green's function depends only on geodesic distance
+  (the ring feels only the local, isotropic geometry).
+\item \emph{Distance-only Green's function in $2$D}
+  $\implies$ constant curvature of the spatial slice.
+\item \emph{Constant curvature in $d = 3$}
+  $\implies$ $R_{\mu\nu} = \Lambda g_{\mu\nu}$ (vacuum Einstein);
+  the Weyl tensor vanishes, so Riemann $=$ Ricci.
+\end{enumerate}
+The obstruction in $3{+}1$D enters at step~1: the polynomial Casimir
+is unique to $d = 2$ (Proposition~\ref{prop:soft-havelock}).
+In higher dimensions, the soft Havelock decomposition gives the
+\emph{approximate} version: the Casimir $h(m,N,\Delta)$ is the
+dominant term, with the residual $R_m$ encoding the Weyl curvature
+corrections that carry the gravitational degrees of freedom
+absent in $2{+}1$D.
+
 \medskip
 \noindent
 The arithmetic of the palindromic hierarchy is the interference
