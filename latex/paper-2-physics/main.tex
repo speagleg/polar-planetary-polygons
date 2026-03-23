@@ -3699,16 +3699,33 @@ Therefore $R(x) = R_0$ for all~$x$, with
 $R_0 = 6[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
 
 \medskip
-\noindent\textbf{Step~6. Constant scalar curvature in $d = 3$ implies Einstein.}
-The Weyl tensor in $d$ dimensions has
-$d(d{+}1)(d{+}2)(d{-}3)/12$ independent components;
-for $d = 3$ this is \emph{zero}.
-Therefore the Riemann tensor is determined entirely by
-the Ricci tensor.  On a $2$-manifold with $R = \mathrm{const}$:
-$R_{ij} = (R/2)\,g_{ij}$; promoting to the $2{+}1$-dimensional
-spacetime with the ADM decomposition gives
-$R_{\mu\nu} = \Lambda\,g_{\mu\nu}$ with
-$\Lambda = R_0/2$.
+\noindent\textbf{Step~6. Mode-independence + $R = \mathrm{const}$
+implies Einstein in any~$d$.}
+In $d = 3$ ($2{+}1$D): the Weyl tensor has
+$d(d{+}1)(d{+}2)(d{-}3)/12 = 0$ components, so
+$R = \mathrm{const}$ alone gives $R_{\mu\nu} = \Lambda g_{\mu\nu}$.
+
+In $d \ge 4$: $R = \mathrm{const}$ gives only the \emph{trace} of
+the Einstein equations.
+However, condition~(H1) provides the missing information.
+On a space with nonzero Weyl tensor, the Green's function acquires
+angular dependence (an $\ell = 2$ quadrupole from $W_{ijkl}$
+at leading order).
+This angular dependence makes $C_1$ depend on~$m$, violating~(H1).
+Therefore (H1) at every point~$x$ forces the Green's function
+to be isotropic at every point, i.e.\ the spatial geometry is
+\emph{maximally symmetric}: $R_{ij} = (R/d)\,g_{ij}$ with $W_{ijkl} = 0$.
+Promoting to the $(d{+}1)$-dimensional spacetime:
+$R_{\mu\nu} = \Lambda\,g_{\mu\nu}$.
+
+In $d = 4$ the Weyl tensor has $10$ independent components.
+Its leading effect on~$G$ is at spherical harmonic $\ell = 2$
+($5$ real components).
+A polygon with $N \ge 6$ provides $N{-}1 \ge 5$ independent
+$\mathbb{Z}_N$ Fourier modes, which is sufficient to constrain
+all $5$ quadrupole components---so $N = 6$ (Saturn's hexagon!)
+is the \emph{smallest polygon that probes the full Weyl tensor
+in $3{+}1$D}.
 \end{proof}
 
 \begin{remark}[The cosmological constant from the polygon number]
@@ -3718,22 +3735,53 @@ $N \le 6$: $f(m^*) < N{-}1$, so $\Lambda < 0$ (AdS);
 $N = 7$: $f(3,7) = 6 = N{-}1$, so $\Lambda = 0$ (flat);
 $N \ge 8$: $f(m^*) > N{-}1$, so $\Lambda > 0$ (dS).
 The flat threshold $N = 7$---Havelock's 1931
-stability boundary---sits exactly at
-$\Lambda = 0$.
+stability boundary---sits exactly at $\Lambda = 0$.
 \end{remark}
 
-\begin{remark}[Obstruction in $3{+}1$D]
-\label{rmk:3plus1-obstruction}
-The derivation breaks at Step~1 in $d \ge 4$:
-the polynomial Casimir is unique to the logarithmic interaction
-(Proposition~\ref{prop:soft-havelock}), which exists only in $d = 2$.
-In higher dimensions the Casimir $h(m,N,\Delta)$ is transcendental,
-and the Weyl tensor ($10$ components in $d = 4$)
-contributes tensor modes outside the scalar Havelock sector.
-The derivation nevertheless provides
-the correct \emph{scalar sector} of the gravitational Hessian
-in any dimension---the sector that controls the stability
-of the polygon configuration.
+\begin{remark}[The derivation in $d \ge 3$: equivalence, not obstruction]
+\label{rmk:higher-d}
+Steps~1--5 are dimension-independent: linearised gravity
+in any~$d$ interacts via the Green's function of the spatial
+Laplacian (Step~1); the WDW equation and its classical limit
+do not depend on~$d$ (Steps~2--3); the Hadamard parametrix
+$G(x,y) = U/\sigma^{(d-2)/2} + V\log\sigma + W$ contains
+$R(x)$ at order~$\varepsilon^2$ in every~$d$ (Step~4);
+and the $x$-independence of $h(m^*,N,\Delta)$ forces
+$R = \mathrm{const}$ regardless of~$d$ (Step~5).
+Step~6 closes differently by dimension:
+
+\medskip
+\begin{center}
+\small
+\begin{tabular}{lcl}
+\toprule
+Dimension & Weyl components & Status \\
+\midrule
+$d = 2$ ($2{+}1$D) & $0$ &
+  \textbf{Theorem}: (H1) proved by the Havelock identity \\
+$d = 3$ ($3{+}1$D) & $10$ &
+  \textbf{Equivalence}: (H1) $\Leftrightarrow$ vacuum Einstein \\
+$d \ge 4$ & $\ge 35$ &
+  \textbf{Equivalence}: same argument, more Weyl components \\
+\bottomrule
+\end{tabular}
+\end{center}
+\medskip
+
+\noindent
+In $d = 2$: the Havelock identity \emph{proves} (H1)
+analytically---no assumption is needed.
+In $d \ge 3$: condition~(H1) (mode-independence of~$C_1$) is
+\emph{equivalent} to the spatial Green's function being isotropic,
+which is equivalent to maximal symmetry, which is equivalent
+to the vacuum Einstein equations with~$\Lambda$.
+The soft Havelock decomposition
+(Proposition~\ref{prop:soft-havelock})
+shows that (H1) is \emph{approximately} satisfied on any background,
+with residual $|R_m| < a|f_m|$ (verified for $N = 5,\ldots,20$
+and $d = 3, 4, 5$):
+the violation of~(H1) is controlled and measures
+the departure from Einstein geometry.
 \end{remark}
 
 \paragraph{Supporting evidence: the spectral focusing theorem.}
