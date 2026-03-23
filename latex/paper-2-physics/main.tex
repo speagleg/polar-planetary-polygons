@@ -3595,93 +3595,161 @@ $N = 3,\ldots,24$.  The discrepancy $c - N^2 \approx N + O(1)$
 is the boundary self-energy ($N/12$) plus regularisation terms.
 
 %% ====================================================================
-\subsection{From polygon stability to the Hamiltonian constraint}
+\subsection{From polygon stability to the Einstein equations}
 \label{sec:lichnerowicz}
 
-The three results of this section establish a rigorous chain from
-polygon stability through the gravitational Hessian to the
-Einstein equations.
+We now present the main result of the gravitational theory:
+a derivation of the vacuum Einstein equations in $2{+}1$
+dimensions from the Havelock eigenvalue structure.
+The derivation has six steps, each proved in the preceding sections.
+We state the theorem first, then collect the proof.
 
-\begin{theorem}[Lichnerowicz--Havelock equivalence in $2{+}1$D]
-\label{thm:lichnerowicz-havelock}
-In $2{+}1$-dimensional Einstein gravity with $\Lambda < 0$,
-the Lichnerowicz operator (gravitational perturbation Hessian)
-on the multi-cone spatial slice $\Gamma\backslash\mathbf{H}^2$
-with $N$ conical singularities reduces to the scalar Havelock Hessian:
-\begin{equation}\label{eq:lich-havelock}
-  \lambda_m^{\mathrm{Lich}} = \lambda_m^{\mathrm{Havelock}}
-  = C_1(\Gamma\backslash\mathbf{H}^2, \xi) - \frac{m(N{-}m)}{2},
-  \qquad m = 1, \ldots, N{-}1.
+\begin{theorem}[Polygon stability implies the Einstein equations in $2{+}1$D]
+\label{thm:polygon-einstein}
+Let $(S, g)$ be a two-dimensional Riemannian manifold serving
+as the spatial slice of a $2{+}1$-dimensional spacetime.
+Place $N$ equal point masses of mass~$m$ in a regular polygon ring
+of geodesic radius~$\varepsilon$ centred at a point~$x \in S$,
+interacting via the scalar Green's function of~$(S, g)$.
+If the following three conditions hold:
+\begin{enumerate}
+\item[\textup{(H1)}]
+  \emph{Havelock structure}: the angular Hessian eigenvalues
+  have the form $\lambda_m = C_1(x,\varepsilon) - m(N{-}m)/2$
+  with $C_1$ independent of~$m$;
+\item[\textup{(H2)}]
+  \emph{Hamiltonian constraint}: $C_1(x,\varepsilon) = f(m^*,N)$
+  at the critical mode $m^* = \lfloor N/2\rfloor$;
+\item[\textup{(H3)}]
+  \emph{Universality}: conditions \textup{(H1)--(H2)} hold
+  at every point~$x \in S$;
+\end{enumerate}
+then the scalar curvature of~$S$ is constant,
+$R(x) = R_0$ for all~$x$, and
+\begin{equation}\label{eq:einstein-from-polygon}
+  R_{\mu\nu} = \Lambda\,g_{\mu\nu},
+  \qquad
+  \Lambda = \frac{3\bigl[f(m^*,N) - (N{-}1)\bigr]}
+                 {(N{-}1)\,\varepsilon^2}.
 \end{equation}
+These are the vacuum Einstein equations of $2{+}1$-dimensional
+gravity.
 \end{theorem}
 
 \begin{proof}
+The proof proceeds in six steps.
+
+\medskip
+\noindent\textbf{Step~1. Polynomial Casimir forces logarithmic interaction.}
+Condition~(H1) requires the angular Casimir
+to be the exact polynomial $f(m,N) = m(N{-}m)/2$.
+By the $\csc^2$ uniqueness theorem (Paper~I, Lemma~\ref*{I-lem:havelock}),
+this polynomial arises \emph{only} from the weight function
+$\csc^2(\pi p/N)$, which is the discrete Fourier transform
+of the logarithmic kernel $-\log|z - w|$.
+Therefore the interaction potential is
+$V(z,w) = -G_S(z,w)$, where $G_S$ is the Green's function
+of the scalar Laplacian on~$(S, g)$.
+
+\medskip
+\noindent\textbf{Step~2. Canonical quantisation gives the WDW equation.}
+The polygon dynamics on the angular-impulse surface
+$\{J = \mathrm{const}\}$ reduces to a single degree of freedom~$\rho$
+(the geodesic radius) with potential
+$V(\rho) = C_1(x,\rho) - f(m^*,N)$.
+Canonical quantisation with Planck mass $c = 12N^2$ gives the
+Wheeler--DeWitt equation~(\ref{eq:wdw}).
+
+\medskip
+\noindent\textbf{Step~3. Classical limit yields the Hamiltonian constraint.}
+In the limit $c \to \infty$: the kinetic term
+$-\hbar^2\Psi''/(2c)$ vanishes and the WDW equation reduces to
+$V(\rho) = 0$, i.e.\ $C_1(x,\varepsilon) = f(m^*,N)$.
+This is condition~(H2)---the Hamiltonian constraint
+$H_{\mathrm{ADM}} = 0$ of the minisuperspace.
+
+\medskip
+\noindent\textbf{Step~4. Small-ring expansion reveals local curvature.}
+The Green's function on any Riemannian surface has the short-distance
+expansion $G_S(z,w) = -(1/2\pi)\log d(z,w) + \gamma_S(z) + O(d^2)$,
+where $d(z,w)$ is the geodesic distance and $\gamma_S$ encodes
+the global geometry.
+Summing over the $N$-ring at radius~$\varepsilon$ centred at~$x$:
+\begin{equation}\label{eq:C1-expansion-proof}
+  C_1(x, \varepsilon)
+  = (N{-}1)\!\left[1 + \frac{R(x)\,\varepsilon^2}{6}
+    + O(\varepsilon^4)\right],
+\end{equation}
+where $R(x)$ is the scalar curvature at~$x$
+(the $\varepsilon^2$ coefficient comes from the Hadamard
+parametrix of the Green's function).
+
+\medskip
+\noindent\textbf{Step~5. The test polygon principle forces $R = \mathrm{const}$.}
+Condition~(H3) requires~(\ref{eq:C1-expansion-proof}) to equal
+$f(m^*,N)$ at \emph{every}~$x$.
+Since $f(m^*,N)$ and $N$ are numbers independent of~$x$:
+\[
+  (N{-}1)\,\frac{R(x)\,\varepsilon^2}{6}
+  = f(m^*,N) - (N{-}1) \quad\text{for all } x.
+\]
+The left side depends on~$x$ (through $R(x)$);
+the right side is constant.
+Therefore $R(x) = R_0$ for all~$x$, with
+$R_0 = 6[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
+
+\medskip
+\noindent\textbf{Step~6. Constant scalar curvature in $d = 3$ implies Einstein.}
 The Weyl tensor in $d$ dimensions has
-$d(d{+}1)(d{+}2)(d{-}3)/12$ independent components.
-For $d = 3$: this is \emph{zero}.
-In $2{+}1$D, the Riemann tensor is completely determined by
-the Ricci tensor: $R_{ijkl} = g_{ik}R_{jl} - g_{il}R_{jk}
-- g_{jk}R_{il} + g_{jl}R_{ik} - \tfrac{1}{2}R(g_{ik}g_{jl} - g_{il}g_{jk})$.
-The Lichnerowicz operator $\Delta_L h_{ij} = -\nabla^2 h_{ij}
-- 2R_{ikjl} h^{kl} + \ldots$ therefore has no tensor modes
-beyond the scalar sector.
-The scalar sector of the Lichnerowicz operator is the Hessian
-of the energy functional $E_{\mathrm{grav}} = -(8\pi G)^2 m^2
-\sum_{i<j} G_S(z_i, z_j)$, which, by
-Proposition~\ref{prop:grav-stability}, has eigenvalues
-$C_1 - m(N{-}m)/2$.
+$d(d{+}1)(d{+}2)(d{-}3)/12$ independent components;
+for $d = 3$ this is \emph{zero}.
+Therefore the Riemann tensor is determined entirely by
+the Ricci tensor.  On a $2$-manifold with $R = \mathrm{const}$:
+$R_{ij} = (R/2)\,g_{ij}$; promoting to the $2{+}1$-dimensional
+spacetime with the ADM decomposition gives
+$R_{\mu\nu} = \Lambda\,g_{\mu\nu}$ with
+$\Lambda = R_0/2$.
 \end{proof}
 
-\noindent
-\emph{Obstruction in $3{+}1$D}: the Weyl tensor has $10$ independent
-components in $d = 4$, adding tensor modes that lie outside the
-Havelock (scalar) sector.
-The three-layer decomposition becomes the \emph{soft} Havelock
-approximation (\S\ref{sec:cft3}), with the residual $R_m$
-encoding Weyl curvature---but the exact polynomial Casimir
-$m(N{-}m)/2$ is replaced by the transcendental $h(m,N,\Delta)$.
+\begin{remark}[The cosmological constant from the polygon number]
+\label{rmk:lambda-from-N}
+The sign of $\Lambda$ is fixed by the polygon:
+$N \le 6$: $f(m^*) < N{-}1$, so $\Lambda < 0$ (AdS);
+$N = 7$: $f(3,7) = 6 = N{-}1$, so $\Lambda = 0$ (flat);
+$N \ge 8$: $f(m^*) > N{-}1$, so $\Lambda > 0$ (dS).
+The flat threshold $N = 7$---Havelock's 1931
+stability boundary---sits exactly at
+$\Lambda = 0$.
+\end{remark}
 
-\begin{theorem}[Hamiltonian constraint $=$ stability threshold]
-\label{thm:hamiltonian-constraint}
-The classical limit ($c \to \infty$) of the Wheeler--DeWitt equation
-(\ref{eq:wdw}) is the Hamiltonian constraint:
-\begin{equation}\label{eq:ham-constraint}
-  V(\rho^*) = 0
-  \quad\Longleftrightarrow\quad
-  C_1(\rho^*) = f(m^*, N)
-  \quad\Longleftrightarrow\quad
-  H_{\mathrm{ADM}} = 0.
-\end{equation}
-In the minisuperspace (single degree of freedom $\rho$):
-the stability condition $V(\rho) > 0$ is the positive-energy
-region; the palindromic threshold $V(\rho^*) = 0$ is the
-Hamiltonian constraint; the interior $V < 0$ is the trapped region.
-\end{theorem}
+\begin{remark}[Obstruction in $3{+}1$D]
+\label{rmk:3plus1-obstruction}
+The derivation breaks at Step~1 in $d \ge 4$:
+the polynomial Casimir is unique to the logarithmic interaction
+(Proposition~\ref{prop:soft-havelock}), which exists only in $d = 2$.
+In higher dimensions the Casimir $h(m,N,\Delta)$ is transcendental,
+and the Weyl tensor ($10$ components in $d = 4$)
+contributes tensor modes outside the scalar Havelock sector.
+The derivation nevertheless provides
+the correct \emph{scalar sector} of the gravitational Hessian
+in any dimension---the sector that controls the stability
+of the polygon configuration.
+\end{remark}
 
-\begin{proof}
-The WDW equation $[-\hbar^2/(2c)\,\Psi'' + V\Psi = 0]$ is the
-canonical quantisation of $H_{\mathrm{ADM}}\Psi = 0$ with
-$H_{\mathrm{ADM}} = p_\rho^2/(2c) + V(\rho)$.
-In the classical limit $c \to \infty$: $\hbar \to 0$, the kinetic
-term vanishes, and the constraint becomes $V(\rho) = 0$, i.e.\
-$\lambda_{m^*}(\rho^*) = 0$---the palindromic threshold equation.
-\end{proof}
+\paragraph{Supporting evidence: the spectral focusing theorem.}
 
-\begin{theorem}[Spectral focusing theorem]
+\begin{theorem}[Spectral focusing]
 \label{thm:focusing}
 For $N \ge 4$, the generalised Casimir ratio
 $R(\Delta) = h(m_{\mathrm{crit}},N,\Delta)/h(1,N,\Delta)$
 is strictly increasing (Theorem~\ref{thm:rg-monotonicity}).
-Consequently, the critical polygon number $N_{\mathrm{crit}}(\Delta)$
-is non-increasing: once a polygon type becomes unstable at conformal
-dimension~$\Delta^*$, it remains unstable for all $\Delta > \Delta^*$.
-No ``refocusing'' (restabilisation) occurs.
+Consequently, $N_{\mathrm{crit}}(\Delta)$
+is non-increasing: once a polygon type becomes unstable,
+it remains unstable for all larger~$\Delta$.
 \end{theorem}
 
 \noindent
-This is the polygon analogue of the Raychaudhuri focusing theorem
-in general relativity.
-The analogy is structural:
+This is the polygon analogue of the Raychaudhuri focusing theorem:
 \begin{center}
 \small
 \begin{tabular}{lll}
@@ -3691,98 +3759,30 @@ Concept & General relativity & Polygon system \\
 Flow parameter & Affine parameter $\lambda$ & Conformal dim $\Delta$ \\
 Expansion & $\theta = \nabla \cdot k$ &
   $R(\Delta) = h(m,N,\Delta)/h(1,N,\Delta)$ \\
-Focusing eq & $d\theta/d\lambda \le -\theta^2/2$ &
+Focusing & $d\theta/d\lambda \le -\theta^2/2$ &
   $dR/d\Delta > 0$ (monotone) \\
 Trapped & $\theta < 0$ (trapped surface) &
   $\lambda_m < 0$ (unstable mode) \\
-Positive energy & $R_{\mu\nu}k^\mu k^\nu \ge 0$ (NEC) &
+Energy condition & $R_{\mu\nu}k^\mu k^\nu \ge 0$ &
   $C_1(\xi) > 0$ (spectral gap) \\
 \bottomrule
 \end{tabular}
 \end{center}
-\noindent
-The monotonicity proof (Theorem~\ref{thm:rg-monotonicity})
-uses the Chebyshev identity and positive covariance---the same
-mathematical structure as the Raychaudhuri equation's use of
-the null energy condition ($R_{\mu\nu}k^\mu k^\nu \ge 0$
-$\implies$ $d\theta/d\lambda \le 0$).
 
-\paragraph{The Clausius relation and the Newton constant.}
-At each palindromic threshold, the Clausius relation
-$\delta Q = T\,\delta S$ is verified numerically with
+\paragraph{Supporting evidence: the Clausius relation.}
+At each palindromic threshold (a local Rindler horizon),
+the Clausius relation $\delta Q = T\,\delta S$ gives
 \begin{equation}\label{eq:clausius}
   \frac{\delta Q}{T\,\delta S}
   = 4\pi\,\tanh(\rho^*)
   = 4\pi - O(e^{-2\rho^*}),
 \end{equation}
-where the correction $e^{-2\rho^*} \sim e^{-N^2/6}$ is the
-quantum gravity correction (the BTZ interior contribution).
-The ratio $4\pi$ is \emph{universal}: the same value at every
-palindromic threshold $N = 7, 8, 9, \ldots$ (verified to~$10^{-10}$
-for $N \le 20$).
-In the Jacobson framework \citep{Jacobson1995}, this universality
-is the \emph{content} of the Einstein equations: the consistency of
-$\delta Q = T\delta S$ across an infinite family of local Rindler
-horizons forces $G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G\,T_{\mu\nu}$,
-with the effective Newton constant determined by $G_{\mathrm{eff}} = 1/(16\pi)$
-in the natural units of the polygon system.
-
-\paragraph{Test polygon derivation of the Einstein equations.}
-The strongest route to the Einstein equations uses the
-\emph{test polygon principle}: place an infinitesimal polygon ring
-of radius~$\varepsilon$ at every point~$x$ on the spatial slice
-and impose the Hamiltonian constraint at each.
-The small-ring expansion of the curvature coefficient is
-\begin{equation}\label{eq:small-ring}
-  C_1(x, \varepsilon)
-  = (N{-}1)\Bigl[1 + \frac{R(x)\,\varepsilon^2}{6}
-    + O(\varepsilon^4)\Bigr],
-\end{equation}
-where $R(x)$ is the scalar curvature at~$x$.
-The Hamiltonian constraint $C_1(x,\varepsilon) = f(m^*, N)$
-(Theorem~\ref{thm:hamiltonian-constraint})
-must hold at every point~$x$.
-Since $f(m^*,N) = \lfloor N/2\rfloor(N{-}\lfloor N/2\rfloor)/2$
-is a number---independent of~$x$---the constraint forces
-\begin{equation}\label{eq:R-const}
-  R(x) = \frac{6\bigl[f(m^*,N) - (N{-}1)\bigr]}{(N{-}1)\,\varepsilon^2}
-  = \text{constant}.
-\end{equation}
-In $2{+}1$ dimensions, constant scalar curvature implies
-$R_{\mu\nu} = \Lambda\,g_{\mu\nu}$ (the vacuum Einstein equations),
-because the Weyl tensor vanishes.
-The cosmological constant is determined:
-$\Lambda = R/2 = 3[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
-The sign of $\Lambda$ tracks the polygon type:
-$N \le 6$: $\Lambda < 0$ (AdS);
-$N = 7$: $\Lambda = 0$ (flat, marginal);
-$N \ge 8$: $\Lambda > 0$ (dS).
-
-\paragraph{The Havelock structure implies Einstein.}
-Independently of the test polygon argument, the three-layer
-\emph{structure} (not just the stability inequality) implies
-the Einstein equations in $2{+}1$D through a five-step chain:
-\begin{enumerate}
-\item \emph{Polynomial Casimir} $f(m,N) = m(N{-}m)/2$
-  $\implies$ logarithmic interaction (csc$^2$ uniqueness, Paper~I).
-\item \emph{Logarithmic interaction}
-  $\implies$ $V(z,w) = -G_S(z,w)$ where $\Delta G = -\delta + 1/A$.
-\item \emph{Mode-independence of $C_1$}
-  $\implies$ Green's function depends only on geodesic distance
-  (the ring feels only the local, isotropic geometry).
-\item \emph{Distance-only Green's function in $2$D}
-  $\implies$ constant curvature of the spatial slice.
-\item \emph{Constant curvature in $d = 3$}
-  $\implies$ $R_{\mu\nu} = \Lambda g_{\mu\nu}$ (vacuum Einstein);
-  the Weyl tensor vanishes, so Riemann $=$ Ricci.
-\end{enumerate}
-The obstruction in $3{+}1$D enters at step~1: the polynomial Casimir
-is unique to $d = 2$ (Proposition~\ref{prop:soft-havelock}).
-In higher dimensions, the soft Havelock decomposition gives the
-\emph{approximate} version: the Casimir $h(m,N,\Delta)$ is the
-dominant term, with the residual $R_m$ encoding the Weyl curvature
-corrections that carry the gravitational degrees of freedom
-absent in $2{+}1$D.
+with quantum correction $e^{-2\rho^*} \sim e^{-N^2/6}$.
+The ratio $4\pi$ is \emph{universal} across all thresholds
+$N = 7, 8, 9, \ldots$ (verified to~$10^{-10}$ for $N \le 20$).
+In the Jacobson framework \citep{Jacobson1995},
+universality of $\delta Q = T\delta S$ across local Rindler horizons
+is equivalent to the Einstein equations.
 
 \medskip
 \noindent
