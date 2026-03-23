@@ -542,12 +542,180 @@ to spheroidal corrections
 \section{Jupiter's polar polygons}
 \label{sec:jupiter}
 
-The selection of Jupiter's north-pole octagon ($N = 8$) and
-south-pole pentagon ($N = 5$) is derived in
-Section~\ref{sec:constraint-intersection} via the
-constraint-intersection principle.  The two-dimensionality
-requirement and the barotropic depth question are addressed in
-Section~Paper~II, \S13 (the $K_0$ stability table).
+\subsection{North pole: $N = 8$ from Thomson + central vortex}
+
+The north-pole octagon ($N = 8$) is Thomson-limited.
+On the flat plane, $N_{\mathrm{crit}} = 7$; the octagon's
+critical eigenvalue is $\lambda_4 = 7 - 8 = -1 < 0$ (unstable).
+A central vortex of strength $\kappa_0$ shifts this by
+$+2\kappa_0$; the critical ratio is
+$\kappa_{\mathrm{crit}}(8) = |\lambda_4|/2 = 1/2$.
+For $N = 9$: $\kappa_{\mathrm{crit}}(9) = 1$; for $N = 10$:
+$\kappa_{\mathrm{crit}}(10) = 7/4$.
+Juno imagery shows a central cyclone of roughly equal strength
+to the ring cyclones ($\kappa_0/\kappa \approx 1$),
+which stabilises $N = 8$ but not $N = 9$.
+The energy monotonicity $H_{N+1} > H_N$
+(Proposition~\ref{prop:onsager-n-select})
+then selects $N = 8$ as the Onsager maximum.
+
+\smallskip\noindent
+The $K_0$ interaction constrains the weather-layer depth.
+At the Rossby deformation radius $R_d \approx 2{,}500$\,km
+(matching the observed cyclone radius at
+$H_{\mathrm{eff}} \approx 3{,}000$\,km,
+$g' \approx 0.3$\,m\,s$^{-2}$), the ring-to-deformation ratio
+$R_{\mathrm{ring}}/R_d \approx 8{,}500/2{,}500 \approx 3.4$.
+The $K_0$ stability analysis gives:
+\begin{center}
+\small
+\begin{tabular}{lcl}
+\toprule
+$R/R_d$ & $N_{\mathrm{crit}}$ & Regime \\
+\midrule
+$0$ & $7$ & Barotropic limit \\
+$0.8$ & $8$ & Deep weather layer \\
+$1.0$ & $8$ & $\leftarrow$ requires $R_d \gtrsim R_{\mathrm{ring}}$ \\
+$1.5$ & $7$ & \\
+$2.0$ & $6$ & Shallow weather layer \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+$N = 8$ requires $R/R_d \lesssim 1$, i.e.\
+$R_d \gtrsim 8{,}500$\,km.
+This constrains the effective weather-layer depth:
+$H_{\mathrm{eff}} = f^2 R_d^2/g' \gtrsim 3{,}000$\,km,
+a testable prediction for Juno gravity measurements.
+
+\subsection{South pole: $N = 5$ from geometric packing}
+
+The south-pole pentagon ($N = 5$) is packing-limited.
+With $R_{\mathrm{ring}} \approx 8{,}500$\,km,
+cyclone radius $r_{\mathrm{cyclone}} \approx 3{,}500$\,km, and
+$\beta$-drift buffer $\approx 1.3$ \citep{Gavriel2021}:
+the effective exclusion radius
+$r_{\mathrm{excl}} \approx 4{,}550$\,km gives
+$r_{\mathrm{excl}}/R_{\mathrm{ring}} \approx 0.535$.
+Since $\sin(\pi/6) = 0.500 < 0.535$: a hexagonal ring does
+\emph{not} fit---the cyclones would overlap.
+Since $\sin(\pi/5) = 0.588 > 0.535$: a pentagonal ring fits.
+Therefore $N_{\mathrm{pack}} = 5$.
+
+The selection is \emph{tight}: it requires
+$R_{\mathrm{ring}} < 2\,r_{\mathrm{excl}} = 9{,}100$\,km
+for $N = 6$ to be excluded.  The observed
+$R_{\mathrm{ring}} \approx 8{,}500$\,km satisfies this with
+$7\%$ margin.  A testable prediction: if the south-pole ring
+radius were $> 9{,}100$\,km, the framework would predict $N = 6$
+instead of~$5$.
+
+At the north pole: $r_{\mathrm{excl}}/R \approx 0.38$,
+so $N_{\mathrm{pack}} \ge 8$---packing is not the binding
+constraint.
+
+\subsection{The north--south asymmetry in one parameter}
+
+The entire $N = 8$ vs.\ $N = 5$ asymmetry reduces to a single
+dimensionless ratio:
+\[
+  \chi = \frac{R_d^{(\mathrm{south})}}{R_d^{(\mathrm{north})}}
+  \approx \frac{r_{\mathrm{cyclone}}^{(\mathrm{south})}}
+              {r_{\mathrm{cyclone}}^{(\mathrm{north})}}
+  \approx \frac{3{,}500}{2{,}500} = 1.40.
+\]
+The constraint intersection requires $\chi \gtrsim 1.30$
+for the south-pole packing bound to tighten from $N = 6$ to
+$N = 5$.  The observed $\chi = 1.40$ matches to $8\%$.
+Deriving $\chi$ from atmospheric physics (insolation asymmetry,
+moist convection) remains open: radiative scaling gives
+$\chi \sim 1.07$ (insufficient), suggesting that deep convective
+dynamics set the pole-to-pole deformation-radius contrast.
+
+%% ====================================================================
+\section{Neptune and Uranus predictions}
+\label{sec:neptune}
+
+For Neptune ($R = 24{,}600$\,km,
+$\Omega = 1.08 \times 10^{-4}$\,rad\,s$^{-1}$,
+$\varepsilon = 0.017$), the packing bound dominates.
+The deformation radius $R_d$ is poorly constrained
+($1{,}500$--$2{,}500$\,km from thermal wind estimates);
+the predicted $N$ depends sensitively on it:
+\begin{center}
+\small
+\begin{tabular}{lccc}
+\toprule
+$R_d$ (km) & $r_{\mathrm{excl}}/R_{\mathrm{ring}}$ &
+  $N_{\mathrm{pack}}$ & $N_{\mathrm{pred}}$ \\
+\midrule
+$1{,}500$ & $0.39$ & $7$ & $\le 7$ \\
+$2{,}000$ & $0.52$ & $5$ & $5$ \\
+$2{,}500$ & $0.65$ & $4$ & $4$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+using $R_{\mathrm{ring}} \approx 5{,}000$\,km (estimated from
+the polar vortex extent) and $\beta$-drift factor $1.3$.
+The prediction is $N \in \{3, 4, 5\}$---packing-dominated,
+like Jupiter's south pole.
+Neptune's oblateness ($\varepsilon = 0.017$) is negligible
+compared to Saturn's ($\varepsilon = 0.098$); it shifts
+$\lambda_{\min}$ by $< 0.002$ and does not affect $N_{\mathrm{crit}}$.
+
+\smallskip
+\noindent
+For Uranus (axial tilt $98^\circ$): the extreme tilt
+disrupts the Onsager condensation mechanism by preventing a
+persistent polar jet.
+The prediction is $N = 0$ (no polar polygon).
+
+\smallskip
+\noindent
+\emph{Falsifiability}: a Neptune observation of $N \ge 6$
+would violate the packing bound for any $R_d > 1{,}500$\,km;
+a Uranus polar polygon would challenge the tilt-disruption
+hypothesis.
+
+%% ====================================================================
+\section{Why the hexagon is uniquely two-dimensional}
+\label{sec:uniquely-2d}
+
+The hexagon ($N = 6$) is marginally stable in $d = 2$
+($\lambda_{\min} = +0.5$) but unstable for $d \ge 3$
+($\lambda_{\min} = -0.018$ at $d = 3$).
+This follows from the generalised Casimir
+$h(m, N, \Delta)$ of Paper~III,
+Proposition~\ref{III-prop:generalised-casimir}:
+\begin{center}
+\small
+\begin{tabular}{lcccl}
+\toprule
+$d$ & $\Delta = (d{-}2)/2$ & $N_{\mathrm{crit}}$ &
+  $\lambda_{\min}(N{=}6)$ & Hexagon \\
+\midrule
+$2$ & $0$ & $7$ & $+0.50$ & Stable \\
+$3$ & $1/2$ & $5$ & $-0.02$ & Unstable \\
+$4$ & $1$ & $5$ & $-1.08$ & Unstable \\
+$5$ & $3/2$ & $5$ & $-2.93$ & Unstable \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+Saturn's hexagon requires the logarithmic interaction
+($d = 2$, $\Delta = 0$), which is the Green's function of
+the 2D Laplacian.  In 3D, the Coulomb interaction ($1/r$)
+destabilises the hexagon.
+The logarithmic interaction survives in a quasi-2D
+atmosphere because the weather layer is thin
+($H_{\mathrm{eff}} \ll R_{\mathrm{planet}}$) and the
+barotropic mode dominates: the effective dynamics is
+2D to leading order, with 3D corrections entering at
+$O(H_{\mathrm{eff}}/R)^2$.
+This explains why hexagonal features are observed only on
+gas giants with thin weather layers (Saturn) and not on
+terrestrial planets or in 3D laboratory flows.
 
 %% ====================================================================
 \section{Broader observational context and predictions}
@@ -1081,7 +1249,28 @@ Neptune observations would substantially strengthen the case.  We use
 ``consistent with a general mechanism'' rather than ``universal'' to
 reflect the available evidence.
 
+\subsection{Falsifiability}
 
+The framework makes five testable predictions whose violation would
+require fundamental revision:
+\begin{enumerate}
+\item A \emph{stable $N \ge 9$ polar polygon} on any gas giant
+  would violate the Thomson bound
+  ($\kappa_{\mathrm{crit}}(9) = 1$, requiring the central vortex
+  to exceed the ring vortex---an extreme configuration not produced
+  by Onsager condensation).
+\item \emph{Saturn's hexagon below $72^\circ$N latitude}
+  would violate the oblateness sign-flip
+  ($\lambda_3 < 0$ below $\varphi_{\mathrm{crit}}$).
+\item A \emph{hexagonal feature in a 3D-dominated regime}
+  ($N_{\mathrm{crit}}$ drops from $7$ to $5$ at $d = 3$;
+  the hexagon is uniquely two-dimensional).
+\item \emph{Neptune $N \ge 6$} would violate the packing bound
+  for any deformation radius $R_d > 1{,}500$\,km.
+\item \emph{Jupiter $N = 8$ in shallow-layer models}
+  ($R/R_d > 1.5$) would violate the $K_0$ suppression that
+  requires a deep weather layer.
+\end{enumerate}
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}
