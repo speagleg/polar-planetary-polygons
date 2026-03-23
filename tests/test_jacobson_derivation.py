@@ -169,6 +169,35 @@ class TestTestPolygonDerivation:
         assert n7['curvature_sign'] == '0'
 
 
+class TestMatterCoupling:
+    def test_functional_form_preserved(self):
+        """Clausius ratio is 4π·tanh on matter background."""
+        from planetary_polygons.extensions.jacobson_derivation import (
+            clausius_with_matter, matter_coupling_verification
+        )
+        result = matter_coupling_verification(N_max=14)
+        assert result['all_preserved'] is True
+
+    def test_ratio_still_4pi(self):
+        """The coefficient 4π is unchanged by matter."""
+        from planetary_polygons.extensions.jacobson_derivation import clausius_with_matter
+        import math
+        for N in [8, 10, 12]:
+            r = clausius_with_matter(N, delta_C1=0.02)
+            # ratio = 4π·tanh(ρ*_matter)
+            expected = 4 * math.pi * math.tanh(r['rho_matter'])
+            assert r['ratio_matter'] == pytest.approx(expected)
+
+    def test_matter_shifts_threshold(self):
+        """Matter correction shifts ρ* but keeps it positive."""
+        from planetary_polygons.extensions.jacobson_derivation import clausius_with_matter
+        for N in [8, 10, 12]:
+            r = clausius_with_matter(N, delta_C1=0.02)
+            assert r['rho_matter'] > 0
+            assert r['rho_matter'] != r['rho_vac']  # shifted
+            assert r['delta_rho'] < 0  # δC₁ > 0 → ρ* decreases
+
+
 class TestFourPaths:
     def test_all_paths(self):
         paths = four_paths_assessment()
