@@ -940,61 +940,18 @@ equals the Havelock inertia---which is the point vortex Lagrangian
 inertia of Theorem~\ref{thm:constrained-min}.
 \end{proof}
 
-Proposition~\ref{prop:inertia} extends to \emph{general}
-$\mathbb{Z}_N$-symmetric vorticity $\omega$ concentrated in
-$N$ patches (not necessarily a prescribed blob profile).
-Decompose $\omega = \sum_k \omega_k$ via Voronoi cells,
-split each perturbation into center-translation and shape
-components $\delta\omega_k = \delta\omega_k^{(c)} + \delta\omega_k^{(s)}$
-with $\delta\omega_k^{(c)} = -\delta\bar z_k \cdot \nabla\omega_k$.
-Integration by parts gives
-$\int x\,\delta\omega_k^{(s)} = 0$ (dipole cancellation),
-so the center-shape coupling is quadrupole:
-$|C_{jk}| = O(\varepsilon^2/d_{\min}^2)$ for compactly supported
-profiles, $O(\varepsilon^2/d_{\min}^3)$ for the Cauchy blob.
-The self-energy Hessian is positive definite for any mean-zero
-profile, and $\mathbb{Z}_N$ symmetry forces congruent patches.
-The phrase
-\emph{sufficiently concentrated} is made quantitative as follows.
-The operator norm bound~\eqref{eq:blob-correction-op-norm} is
-derived for the Cauchy blob, which has algebraic ($|x|^{-3}$) rather
-than exponential spatial decay and is therefore the
-slowest-converging regularization among profiles with finite
-second moment; profiles with faster decay (Gaussian, compact support)
-satisfy the same bound \emph{a fortiori}, with a smaller implicit
-constant.  The Cauchy-blob bound gives
-$\|\nabla^2\!H_\varepsilon - \nabla^2\!H_0\|_{\mathrm{op}}
-\le 6(2N{-}3)\,\varepsilon^2/d_{\min}^4$.
-Sign preservation of the Havelock eigenvalues requires this to be
-less than $\lambda_{\min}(N)$ (the smallest positive Havelock eigenvalue
-at the configuration), yielding the explicit concentration condition
+The result extends to general $\mathbb{Z}_N$-symmetric
+vorticity concentrated in $N$ patches: the center-shape coupling
+is quadrupole ($O(\varepsilon^2/d_{\min}^2)$ for compact profiles),
+and the Schur correction is $O(\varepsilon^6/d_{\min}^6)$.
+The explicit concentration condition for sign preservation is
 \begin{equation}\label{eq:concentration-bound}
   \frac{\varepsilon}{d_{\min}} < \delta(N)
-  := \sqrt{\frac{\lambda_{\min}(N)}{6(2N-3)}},
+  := \sqrt{\frac{\lambda_{\min}(N)}{6(2N{-}3)}},
 \end{equation}
-where $d_{\min} = 2\sin(\pi/N)$ is the nearest-neighbor separation
-(unit ring).  Numerically:
-\begin{center}
-\begin{tabular}{lcccc}
-\toprule
-$N$ & 4 & 5 & 6 & 7 \\
-\midrule
-$\lambda_{\min}(N)$ & $1$ & $1$ & $\frac{1}{2}$ & $0$ \\[3pt]
-$\delta(N)$ & $0.18$ & $0.15$ & $0.096$ & $\text{---}$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-The $\delta(N)$ values are set by the center-sector bound, not
-the coupling.  At $\varepsilon/d_{\min} = \delta(N)/\sqrt{2}$,
-the center-sector eigenvalue shift is at most $\lambda_{\min}/2$
-(from~\eqref{eq:concentration-bound}), leaving each center
-eigenvalue $\ge \lambda_{\min}/2$.  The Schur correction at this
-$\varepsilon$ is $O(\delta^6/8) = O(10^{-6})$, which is smaller
-than $\lambda_{\min}/2$ by a factor of at least $10^{-5}$---so
-the Schur term cannot reverse any eigenvalue sign, and the full
-inertia preservation holds with the explicit bound
-$\varepsilon/d_{\min} < \delta(N)/\sqrt{2}$.
+giving $\delta(4) = 0.18$, $\delta(5) = 0.15$, $\delta(6) = 0.096$
+(set by the center-sector bound; the Cauchy blob, with the slowest
+algebraic decay, provides the worst case).
 
 \begin{corollary}[Inertia preservation for $N \le 6$]
 \label{cor:inertia-N6}

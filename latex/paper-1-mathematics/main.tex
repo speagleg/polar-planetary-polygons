@@ -202,69 +202,16 @@ For $\alpha > 0$: $|f(br)| = b^\alpha |r^\alpha| \to \infty$,
 so the perturbation grows under coarse-graining.
 \end{proof}
 
-\noindent\emph{Connection to the sign rule.}
-For $h = -\ln r + \varepsilon\,r^\alpha$:
-$h' = -1/r + \varepsilon\alpha r^{\alpha-1}$;
-the sign rule condition $h' < 0$ holds at all $r > 0$ iff
-$\alpha \le 0$ (irrelevant perturbations).  For $\alpha > 0$ the
-sign rule is violated at sufficiently large~$r$:
-\emph{relevant perturbations destroy polygon stability}.
-Thus the sign rule condition~(i) is equivalent to the requirement
-that $h$ lies in the \emph{basin of attraction} of the logarithmic
-fixed point.
-
-\smallskip
-\noindent\emph{The stable manifold from multipole expansion.}
-The basin of attraction arises naturally from compact vorticity.
-For $|z|<\varepsilon\ll|w|=d$, expanding
-$\ln|w-z| = \ln d - \mathrm{Re}(z/w) + O(\varepsilon^2/d^2)$
-and integrating against $\omega(z)$ with centroid at the origin
-gives the effective interaction
-$H_\mathrm{eff}(d)=-K^2\ln d + O(\varepsilon^2/d^2)$ for
-$d\gg\varepsilon$.  The corrections are irrelevant ($\alpha = -2$),
-so \emph{any compact vortex distribution flows to the logarithm
-at large separation} (Proposition~\ref{prop:rg-classification}).
-
-\smallskip
-\noindent\emph{Unifying the blob and $K_0$ bridges.}
-This RG perspective unifies two results proved later in the paper:
-\begin{itemize}
-  \item The blob bridge
-    (the blob bridge (Paper~II)):
-    $h_\varepsilon = -\tfrac{1}{2}\ln(r^2 + 2\varepsilon^2)
-    = -\ln r + O(\varepsilon^2/r^2)$.  The blob correction
-    is an irrelevant perturbation ($\alpha = -2$);
-    the $O(\varepsilon^2)$ convergence rate of
-    the blob correction (Paper~II, Proposition~12.1) is the approach rate to the
-    fixed point.
-  \item The $K_0$ interaction
-    (the $K_0$ interaction (Paper~II)):
-    $K_0(r/R_d) = -\ln(r/R_d) - \gamma_E + r^2/(4R_d^2) + O(r^4)$
-    for $r \ll R_d$.
-    The exponential tail is irrelevant (faster than any power);
-    the deformation-radius limit $R_d \to \infty$ is the RG flow
-    toward the fixed point.
-    The interaction falls in class~(iii) of the sign rule
-    ($h' < 0$ but $(rh')' > 0$), so the sign rule does not
-    directly guarantee $H''(0) < 0$.
-    However, the \emph{leading} correction to $-\ln r$ is
-    $r^2/(4R_d^2)$ ($\alpha = 2$), which is isotropic-marginal
-    (Proposition~\ref{prop:alpha-2-marginal} below): it shifts
-    the precession rate but not the stability eigenvalues.
-    The first stability-relevant correction is $O(r^4/R_d^4)$
-    ($\alpha = 4$), so the barotropic $N_{\mathrm{crit}} = 7$
-    persists to $O(\eta^2)$ in the ratio $\eta = R/R_d$.
-    There is no closed-form $C_1(\eta)$ for $K_0$---the Havelock
-    sums involve Bessel functions at the chord distances
-    $d_p = 2R\sin(\pi p/N)$, which do not simplify
-    algebraically---but the numerical thresholds are given in
-    Paper~II, \S13.
-\end{itemize}
-In the Kraichnan inverse cascade~\citep{Kraichnan1967}, vorticity
-concentrates into compact structures of growing scale $L(t)$, driving
-the inter-blob interaction toward the logarithm with corrections
-suppressed as $(L/d)^2 \to 0$.  The cascade is the physical
-RG flow; the sign rule demarcates its basin of attraction.
+\noindent
+The sign rule condition $h' < 0$ holds iff $\alpha \le 0$ (irrelevant
+perturbations): relevant perturbations destroy polygon stability.
+Compact vorticity distributions interact as
+$H_{\mathrm{eff}} = -K^2\ln d + O(\varepsilon^2/d^2)$ at large
+separation; the corrections are irrelevant ($\alpha = -2$),
+so \emph{any compact distribution flows to the logarithm}.
+The blob bridge ($\alpha = -2$) and $K_0$ interaction
+($\alpha = 2$ marginal, then $\alpha = 4$ relevant) of Paper~II
+are both instances of this flow.
 
 \begin{proposition}[Isotropic marginality at $\alpha = 2$]
 \label{prop:alpha-2-marginal}
@@ -453,60 +400,24 @@ energy is the unique $N$-body Hamiltonian that is dilation-invariant.
 \begin{remark}[The loxodromic thread]
 \label{rem:loxodromic}
 The logarithmic interaction and the logarithmic spiral are dual
-manifestations of the same structure: the loxodromic one-parameter
-subgroup $z \mapsto e^{(\sigma + i\alpha)t}z$ of the M\"obius group
-acting on~$\mathbb{C}$.
-\begin{itemize}
-  \item The \emph{interaction} is logarithmic because it is the
-    unique dilation-invariant pairwise potential
-    (Remark~\ref{rem:rg-fixed-point}; Cauchy's functional equation).
-  \item The natural \emph{deformation curves} are logarithmic spirals
-    because they are orbits of the dilation-rotation generator
-    $\sigma + i\alpha$; the centered spiral deformation (Paper~II, eq.~7.1) is precisely
-    this orbit applied
-    to the $N$-gon.
-  \item The \emph{stability threshold} $N = 7$ is scale-independent
-    because the Havelock eigenvalue $\lambda_m = (N{-}1) - m(N{-}m)/2$
-    has no $R$-dependence---a direct consequence of
-    equation~\eqref{eq:dilation-rg}.
-  \item The \emph{palindromic} structure of the hyperbolic threshold
-    polynomial $A\xi^2 + B\xi + A = 0$
-    (equation~\eqref{eq:palindromic}) encodes the conformal inversion
-    $\xi \leftrightarrow 1/\xi$ of the Poincar\'e disk, which is a
-    M\"obius map exchanging the interior and exterior of the unit
-    circle.
-  \item The logarithm is the \emph{IR fixed point} of the
-    coarse-graining flow on interactions
-    (Proposition~\ref{prop:rg-classification}): compact vorticity
-    distributions interact via $-\ln r + O(\varepsilon^2/r^2)$
-    at large separation, with the correction irrelevant under
-    rescaling.  The sign rule demarcates the basin of attraction.
-\end{itemize}
-These five consequences---the interaction, the deformation, the
-threshold, the algebraic structure, and the RG flow---all descend
-from M\"obius covariance (Proposition~\ref{prop:mobius}).
-The unifying role of the M\"obius group is not merely a symmetry
-of the equations of motion; it is the reason the logarithmic
-interaction produces polygons at all.
+manifestations of the loxodromic subgroup
+$z \mapsto e^{(\sigma + i\alpha)t}z$ of the M\"obius group:
+the interaction is the unique dilation-invariant potential
+(Cauchy), the deformation curves are loxodromic orbits,
+$N_{\mathrm{crit}} = 7$ is scale-independent
+(equation~\eqref{eq:dilation-rg}), the palindromic polynomial
+encodes conformal inversion $\xi \leftrightarrow 1/\xi$,
+and the logarithm is the IR fixed point of the RG flow
+(Proposition~\ref{prop:rg-classification}).
 \end{remark}
 
 \begin{remark}[From sign rule to physical stability]
 \label{rem:signrule-to-stability}
-Theorem~\ref{thm:sign-rule} establishes $H''(0) < 0$ along the spiral
-direction---an \emph{unconstrained} energy curvature.  This does not by
-itself imply instability, because the spiral deformation changes the
-conserved angular impulse $L = \sum|z_k|^2$ at $O(\sigma^2)$.  The
-physical dynamics is constrained to $\{L = \mathrm{const}\}$, and
-the Lagrange multiplier $\mu_L < 0$ shifts the curvature by
-$-2\mu_L > 0$, converting the unconstrained saddle into a
-\emph{constrained minimum} (the constrained energy minimum (Paper~II, Theorem~8.2) below).
-The sign rule therefore plays an indirect but essential role: it
-guarantees that the $N$-gon is a saddle of the unconstrained energy
-with a specific sign structure ($H''(0) < 0$ along the spiral,
-$H''(0) > 0$ along other directions), and the Lagrange shift converts
-this saddle into a minimum for $N \le 7$.  For $N \ge 8$, the negative
-curvature along the $m = \lfloor N/2\rfloor$ Fourier mode overwhelms
-the Lagrange shift, and the constrained configuration is a saddle.
+The sign rule ($H''(0) < 0$) is an \emph{unconstrained} statement.
+The physical dynamics constrains $L = \mathrm{const}$; the Lagrange
+multiplier $\mu_L < 0$ shifts the curvature by $-2\mu_L > 0$,
+converting the saddle into a constrained minimum for $N \le 7$
+(Paper~II, Theorem~8.2).
 \end{remark}
 
 %% ====================================================================
@@ -2969,91 +2880,24 @@ The stability of the polygon depends on its
 invisible to the elementary $R(\mathbb{Z}_N)$ invariant
 and to the scalar $\delta C_1$.
 
-\begin{remark}[Topological phases and the integer quantum Hall analogy]
+\begin{remark}[Topological phases]
 \label{rem:topological-phases}
-The palindromic thresholds $\xi^*(N,m)$ are
-\emph{critical values of the SO$(2)$ moment map} on the
-$N$-vortex phase space: the reduced space
-$\{L = \ell\}/\mathrm{SO}(2)$ changes topology at each
-$\ell$ corresponding to $\xi^*(N,m)$, because a degenerate
-critical point ($\lambda_m = 0$) appears in the energy
-landscape.
-The $K_0$ class $[\mu_N(\xi)]$ changes by
-$[\rho_m] + [\rho_{N-m}]$ at each crossing---a
-wall-crossing in the $K$-theory of the vortex Hamiltonian.
+The palindromic thresholds $\xi^*(N,m)$ are critical values
+of the SO$(2)$ moment map: the $K_0$ class
+$[\mu_N(\xi)] \in R(\mathbb{Z}_N) \cong \mathbb{Z}^N$
+changes by $[\rho_m] + [\rho_{N-m}]$ at each crossing.
+The structure parallels the IQHE
+(Bellissard): Chern number $\leftrightarrow$ Morse index,
+gap closing $\leftrightarrow$ palindromic threshold,
+magnetic field $\leftrightarrow$ curvature~$\xi$.
+The vortex classification is richer ($\mathbb{Z}^N$ vs
+$\mathbb{Z}$) because the palindromic algebra determines
+\emph{which} mode crosses in \emph{which} number field.
 
-The structure parallels Bellissard's $K$-theoretic
-classification of the integer quantum Hall effect:
-\begin{center}
-\small
-\begin{tabular}{ll}
-\toprule
-IQHE & Vortex polygon \\
-\midrule
-Filled Landau levels &
-  Stable $\mathbb{Z}_N$ modes \\
-Chern number $n \in \mathbb{Z}$ &
-  Morse index $[\mu_N] \in R(\mathbb{Z}_N) \cong
-  \mathbb{Z}^N$ \\
-Gap closing (level crossing) &
-  Palindromic threshold $\xi^*(N,m)$ \\
-Magnetic field $B$ &
-  Curvature parameter $\xi$ \\
-$\sigma_{xy} = n e^2/h$ &
-  $N_{\mathrm{crit}}(\xi) = \max$ stable polygon \\
-\bottomrule
-\end{tabular}
-\end{center}
-The vortex classification is \emph{richer}:
-$R(\mathbb{Z}_N) \cong \mathbb{Z}^N$ (one component per
-Fourier mode) versus $\mathbb{Z}$ (one Chern number).
-And the palindromic algebra determines \emph{which} mode
-crosses zero and in \emph{which} algebraic number field the
-crossing occurs---structure absent from the IQHE.
-Under geometric quantisation of the $N$-vortex phase space
-(a K\"ahler manifold), the palindromic thresholds become
-gap-closing points of the quantum Hamiltonian, the Morse
-index becomes the number of negative-energy quantum states,
-and the $K_0$ class becomes a genuine Chern number---literal
-topological phase transitions in the Kitaev~(2009) /
-Freed--Hopkins~(2021) classification.
-
-\paragraph{The stability staircase.}
-The Morse index $\mu(N, \xi)$ as a function of curvature
-is a \emph{staircase}: it decreases by~$2$ at each
-palindromic threshold $\xi^*(N,m)$ (the conjugate pair
-$\rho_m + \rho_{N-m}$ stabilises), except for the
-self-conjugate mode $m = N/2$ (even~$N$) which contributes
-$\Delta\mu = 1$.
-The total staircase height is $\mu(N, 0) = N{-}5$, and
-the spectral flow $\mathrm{SF}(H_N,\, 0 \to 1) = N{-}5$
-(Theorem~\ref{thm:spectral-flow}).
-For example ($N = 12$):
-\begin{center}
-\small
-\begin{tabular}{ccccl}
-\toprule
-$\xi^*$ & modes & $\Delta\mu$ & $\mu$ & Field \\
-\midrule
-$0$ & --- & --- & $7$ & --- \\
-$0.093$ & $3, 9$ & $-2$ & $5$ & --- \\
-$0.160$ & $4, 8$ & $-2$ & $3$ & --- \\
-$0.193$ & $5, 7$ & $-2$ & $1$ & --- \\
-$0.202$ & $6, 6$ & $-1$ & $0$ & $\mathbb{Q}(\sqrt{11})$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-The \emph{universal quantum} is $\Delta\mu = 2$
-(one conjugate pair per step), analogous to
-$\Delta\sigma_{xy} = e^2/h$ in the IQHE\@.
-The physical observable that changes depends on the
-realisation:
-instability growth rate (classical vortices),
-polygon lifetime (BEC, Paper~II \S\ref{II-sec:bec}),
-shell transition (superconducting disks, Paper~II
-Remark~\ref{II-rmk:superconductor}),
-or gravitational decay channel (2+1D AdS, Paper~II
-Proposition~\ref{II-prop:grav-ncrit}).
+The Morse index staircase $\mu(N,\xi)$ decreases by~$2$
+at each threshold (conjugate pair), except $\Delta\mu = 1$
+for the self-conjugate mode $m = N/2$ (even~$N$).
+Total: $\mathrm{SF}(H_N,\, 0 \to 1) = N{-}5$.
 \end{remark}
 
 \subsection{Number-theoretic extensions}
