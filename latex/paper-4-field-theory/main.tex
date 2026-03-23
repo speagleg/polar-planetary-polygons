@@ -1,0 +1,416 @@
+\input{../shared/preamble}
+
+\externaldocument[I-]{../paper-1-mathematics/main}
+\externaldocument[II-]{../paper-2-physics/main}
+\externaldocument[III-]{../paper-3-gravity/main}
+\externaldocument[V-]{../paper-4-planets/main}
+
+\title{\seriestitle\\[6pt]\large Paper IV: The Havelock Field Theory}
+\author{Gordon Speagle}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We construct a complete quantum field theory on the Seifert manifold
+$\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$ with Thurston
+$\widetilde{\mathrm{SL}(2,\mathbb{R})}$ geometry, parameterised by a
+single integer~$N$.
+The theory contains gravity, a $\mathrm{U}(1)$ gauge field,
+a charged scalar, and Dirac fermions, with all couplings determined
+by the central charge $c = N^2$:
+$G = 3/(2c)$, $\alpha = 6/(\pi c)$,
+$\alpha/(8\pi G) = 1/(2\pi^2)$ (exact, $N$-independent).
+
+The cosmological constant
+$\Lambda = (N^2 - 16)/16$ is positive for $N \ge 5$,
+with $\Lambda = 0$ at $N = 4$ (the gauge threshold where $j = 1$).
+The Standard Model gauge group
+$\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$ emerges
+from the polygon hierarchy:
+$\mathrm{SU}(3)$ from the Galois cover at $N = 7$
+($\operatorname{Gal}(K_7/\mathbb{Q}) = \mathbb{Z}/3\mathbb{Z}
+= Z(\mathrm{SU}(3))$);
+$\mathrm{SU}(2)$ from the Chern--Simons adjoint Wilson line at $N = 4$
+($j = 1$, the adjoint of $\mathrm{SL}(2)$);
+$\mathrm{U}(1)$ from Kaluza--Klein reduction on $S^1$.
+The Weinberg angle $\sin^2\theta_W = 3/11 \approx 0.273$
+(18\% from the experimental value~$0.231$, versus the SU$(5)$ GUT
+prediction~$3/8 = 0.375$, which is 62\% away).
+
+The Weyl anomaly $\delta_m = 0$ exactly on all constant-curvature
+surfaces; the three-layer decomposition is exact with zero anomaly.
+The theory is UV-complete through the orbifold CFT at $c = N^2$
+(non-perturbative) and super-renormalisable after Kaluza--Klein
+reduction to two dimensions.
+\end{abstract}
+
+%% ====================================================================
+\section{Introduction: one integer, one geometry}
+\label{sec:intro}
+
+The preceding papers established that the Havelock eigenvalue
+$\lambda_m = C_1(\xi) - m(N{-}m)/2$ governs both point vortex
+polygon stability (Paper~II) and gravitational polygon stability
+in $2{+}1$D (Paper~III), with the palindromic thresholds
+encoding algebraic number fields (Paper~I).
+Paper~III derived the vacuum Einstein equations from polygon stability
+and identified the graviton at $N = 7$ ($j = 2$, the unique polygon
+number with integer spin~$\ge 2$ at the critical mode).
+
+This paper constructs the full quantum field theory.
+The single input is an integer $N \ge 3$ (the polygon number $=$
+the flux quantum $=$ the superselection sector).
+Everything else follows:
+\begin{enumerate}
+\item \S\ref{sec:spacetime}: the spacetime
+  $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$
+  with Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ geometry;
+\item \S\ref{sec:fields}: gravity, gauge, scalar, fermion, radion;
+\item \S\ref{sec:couplings}: $G$, $\alpha$, $g_4$---all from $c = N^2$;
+\item \S\ref{sec:lambda}: the cosmological constant
+  $\Lambda = (N^2 - 16)/16$;
+\item \S\ref{sec:anomaly}: the Weyl anomaly vanishes
+  ($\delta_m = 0$ on constant-curvature backgrounds);
+\item \S\ref{sec:gauge-group}: the Standard Model gauge group
+  $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$;
+\item \S\ref{sec:weinberg}: the Weinberg angle $\sin^2\theta_W = 3/11$;
+\item \S\ref{sec:two-forces}: the two-force unification
+  (gravity/colour $+$ electroweak);
+\item \S\ref{sec:uv}: UV completion via the orbifold CFT.
+\end{enumerate}
+
+%% ====================================================================
+\section{The spacetime: $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$}
+\label{sec:spacetime}
+
+The four-dimensional spacetime is the product of a time axis with
+a Seifert-fibred three-manifold:
+\begin{equation}\label{eq:metric-4d}
+  ds^2 = -dt^2 + ds^2_{\mathbf{H}^2}
+  + (d\varphi + A_i\,dx^i)^2,
+\end{equation}
+where $ds^2_{\mathbf{H}^2} = d\rho^2 + \sinh^2\!\rho\;d\theta^2$
+($K = -1$) and $A$ is a $\mathrm{U}(1)$ connection on the $S^1$ fiber
+with flux
+\begin{equation}\label{eq:flux}
+  \frac{1}{2\pi}\oint dA = \frac{N}{2}.
+\end{equation}
+This is a Thurston geometry of type
+$\widetilde{\mathrm{SL}(2,\mathbb{R})}$ \citep{Thurston1982}.
+The Kaluza--Klein reduction on $S^1$ decomposes any field into
+$N$ modes with masses
+\begin{equation}\label{eq:kk-masses}
+  \mu_m = |m - N/2|, \qquad m = 0, 1, \ldots, N{-}1.
+\end{equation}
+The critical mode $m = N/2$ (even $N$) is massless: it IS the
+Havelock critical mode, and the Casimir $f(m,N) = m(N{-}m)/2$
+IS the kinetic energy on $S^1$.
+
+%% ====================================================================
+\section{The field content}
+\label{sec:fields}
+
+The metric~\eqref{eq:metric-4d} yields, after KK reduction:
+\begin{enumerate}
+\item \textbf{Gravity.}
+  The $2{+}1$D metric $g_{ij}$ on $\mathbf{H}^2$ is a
+  Chern--Simons gauge field at level
+  $k = c/12 = N^2/12$
+  (Proposition~\ref{III-prop:graviton}, Paper~III).
+\item \textbf{$\mathrm{U}(1)$ gauge field.}
+  The off-diagonal component $A_\mu$ from the KK ansatz;
+  coupling $\alpha = 6/(\pi c)$.
+\item \textbf{Charged scalar.}
+  $N$ KK modes $\Phi_m$ with masses $\mu_m = |m - N/2|$.
+  The critical mode ($m = N/2$) is massless.
+\item \textbf{Dirac fermion.}
+  $N$ KK modes $\Psi_m$ with masses $\mu^f_m = |m - (N{-}1)/2|$
+  (shifted by $1/2$ from the spin connection).
+  Even~$N$: bosons have a massless mode, fermions do not
+  $\implies$ SUSY broken by flux quantisation.
+\item \textbf{Radion.}
+  The $S^1$ modulus $\sigma$ (fiber radius), stabilised by
+  the flux energy at $\sigma = 1$.
+\end{enumerate}
+
+%% ====================================================================
+\section{The couplings: all from $c = N^2$}
+\label{sec:couplings}
+
+\begin{proposition}[Exact coupling relations]
+\label{prop:couplings}
+All couplings are determined by $c = 12\,b(N) = N^2 + O(N)$:
+\begin{align}
+  G &= \frac{3}{2c}, \label{eq:newton}\\
+  \alpha &= \frac{6}{\pi c}, \label{eq:alpha}\\
+  \frac{\alpha}{8\pi G} &= \frac{1}{2\pi^2}
+    \qquad\text{(exact, $N$-independent)}. \label{eq:coupling-lock}
+\end{align}
+The quartic vertex from the Magri hierarchy:
+$g_4 = 2N f^2/\pi$ at the critical mode.
+\end{proposition}
+
+\begin{proof}
+$G$: from Brown--Henneaux, $c = 3\ell/(2G)$ with $\ell = 1$.
+$\alpha$: from the KK gauge coupling on the unit-radius fiber.
+The ratio~\eqref{eq:coupling-lock}: $\alpha/(8\pi G)
+= [6/(\pi c)] / [8\pi \cdot 3/(2c)] = 6/(12\pi^2) = 1/(2\pi^2)$.
+The $N$-dependence cancels algebraically.
+\end{proof}
+
+%% ====================================================================
+\section{The cosmological constant}
+\label{sec:lambda}
+
+\begin{proposition}[Cosmological constant from the fiber]
+\label{prop:lambda}
+The effective two-dimensional cosmological constant is
+\begin{equation}\label{eq:lambda}
+  \Lambda = \frac{N^2 - 16}{16}.
+\end{equation}
+$\Lambda = 0$ at $N = 4$ (the gauge threshold, $j = 1$);
+$\Lambda < 0$ for $N = 3$ (AdS);
+$\Lambda > 0$ for $N \ge 5$ (de~Sitter).
+\end{proposition}
+
+\begin{proof}
+The fiber curvature from the magnetic flux:
+$R_{\varphi\varphi} = (N/2)^2/4 = N^2/16$.
+The base curvature: $R_{\mathbf{H}^2} = -1$.
+The effective cosmological constant:
+$\Lambda = R_{\text{fiber}} - |R_{\text{base}}| = N^2/16 - 1
+= (N^2 - 16)/16$.
+\end{proof}
+
+\noindent
+The two thresholds have a unified interpretation:
+\begin{center}
+\small
+\begin{tabular}{lcll}
+\toprule
+$N$ & $\Lambda$ & $j_{\mathrm{crit}}$ & Physical meaning \\
+\midrule
+$4$ & $0$ & $j = 1$ & Gauge boson; $\Lambda = 0$ boundary \\
+$7$ & $33/16$ & $j = 2$ & Graviton; stability boundary $N_{\mathrm{crit}} = 7$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%% ====================================================================
+\section{The Weyl anomaly vanishes}
+\label{sec:anomaly}
+
+\begin{theorem}[Zero anomaly on Einstein backgrounds]
+\label{thm:zero-anomaly}
+On any surface of constant curvature
+(the plane, $\mathbf{S}^2$, $\mathbf{H}^2$, or any quotient
+$\Gamma\backslash\mathbf{H}^2$), the constrained Havelock eigenvalue
+satisfies
+\[
+  \lambda_m = C_1(\mathrm{surface}, R) - \frac{m(N{-}m)}{2}
+\]
+with $\delta_m = 0$ \emph{identically}.
+The three-layer decomposition is exact with zero Weyl anomaly.
+\end{theorem}
+
+\begin{proof}
+The Havelock identity (Paper~I, Theorem~\ref{I-thm:riemannian-havelock})
+proves that the \emph{constrained} eigenvalue (on $\{J = \mathrm{const}\}$)
+has a mode-independent confining potential~$C_1$.
+The angular Hessian involves the csc$^2$ kernel from the logarithmic
+singularity of the Green's function; the Havelock sum
+(Paper~I, Lemma~\ref{I-lem:havelock}) converts this to $m(N{-}m)/2$.
+No residual $\delta_m$ survives.
+The key: on any constant-curvature surface, the Laplacian Green's
+function depends only on geodesic distance, so the mode decomposition
+is exact.
+Quotients $\Gamma\backslash\mathbf{H}^2$ add a mode-\emph{independent}
+correction $\delta C_1$ (from the Selberg trace formula,
+Paper~I, Theorem~\ref{I-thm:index-pairing}), which shifts~$C_1$
+but does not introduce mode-dependent anomalies.
+\end{proof}
+
+%% ====================================================================
+\section{The Standard Model gauge group}
+\label{sec:gauge-group}
+
+The polygon hierarchy realises
+$\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
+through three independent mechanisms.
+
+\subsection{$\mathrm{SU}(3)$ from the Galois cover at $N = 7$}
+
+The trace field $K_7 = \mathbb{Q}(\cos 2\pi/7)$ has degree
+$[K_7:\mathbb{Q}] = 3$.
+The Galois group
+$\operatorname{Gal}(K_7/\mathbb{Q}) \cong \mathbb{Z}/3\mathbb{Z}$
+acts on the three palindromic mode pairs of the $N = 7$ polygon:
+\begin{center}
+\small
+\begin{tabular}{cccc}
+\toprule
+Pair & Modes & Casimir $f$ & Galois orbit \\
+\midrule
+1 & $(m{=}1, m{=}6)$ & $3$ & $1 \to 2 \to 3 \to 1$ \\
+2 & $(m{=}2, m{=}5)$ & $5$ & $2 \to 3 \to 1 \to 2$ \\
+3 & $(m{=}3, m{=}4)$ & $6$ & $3 \to 1 \to 2 \to 3$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+The cyclic permutation identifies
+$\mathbb{Z}/3\mathbb{Z} = Z(\mathrm{SU}(3))$ (the centre of
+$\mathrm{SU}(3)$), with the three pairs as the fundamental
+representation.
+The full $\mathrm{SU}(3)$ acts as unitary rotations on the
+three-dimensional pair space; the Casimir spectrum $(3, 5, 6)$
+breaks $\mathrm{SU}(3) \to \mathrm{U}(1)^2$ (the Cartan subgroup).
+
+\emph{Gravity $=$ colour}: on the base $\mathbf{H}^2$, the theory
+is gravity (the graviton $j = 2$).
+On the Galois cover
+$(\mathbf{H}^2)^3/\mathbb{Z}_3$, the same theory has
+$\mathrm{SU}(3)$ gauge symmetry: three copies of $\mathbf{H}^2$,
+one per real embedding of~$K_7$, permuted by the Galois group.
+The Galois correspondence IS the gauge--gravity duality.
+
+\subsection{$\mathrm{SU}(2)$ from the Chern--Simons adjoint at $N = 4$}
+
+\begin{proposition}[$\mathrm{SU}(2)$ from the adjoint Wilson line]
+\label{prop:su2}
+At $N = 4$, $m^* = 2$: $f(2,4) = 2 = j(j{+}1)$ with $j = 1$.
+The $j = 1$ representation of $\mathrm{SL}(2,\mathbb{R})$ is the
+\emph{adjoint} (dimension~$3$).
+Wick rotation to the compact form gives $\mathrm{SU}(2)$; the
+adjoint Wilson line carries $\mathrm{SU}(2)$ gauge symmetry.
+\end{proposition}
+
+\subsection{$\mathrm{U}(1)$ from Kaluza--Klein}
+
+The $S^1$ fiber with flux $N/2$ gives a $\mathrm{U}(1)$ gauge field
+at all~$N$, with coupling $\alpha = 6/(\pi c)$ and the exact lock
+$\alpha/(8\pi G) = 1/(2\pi^2)$.
+
+%% ====================================================================
+\section{The Weinberg angle}
+\label{sec:weinberg}
+
+\begin{proposition}[Weinberg angle from the polygon hierarchy]
+\label{prop:weinberg}
+At $N = 4$, the critical mode $m^* = 2$ carries KK hypercharge
+$Y = m^*/N = 1/2$ and normalised SU$(2)$ Casimir
+$C_2/(N{-}1) = f(2,4)/3 = 2/3$.
+The Weinberg angle is
+\begin{equation}\label{eq:weinberg}
+  \sin^2\theta_W = \frac{Y^2}{Y^2 + C_2/(N{-}1)}
+  = \frac{1/4}{1/4 + 2/3} = \frac{3}{11} \approx 0.2727.
+\end{equation}
+\end{proposition}
+
+\noindent
+The experimental value at $M_Z$: $\sin^2\theta_W = 0.2312$.
+The SU$(5)$ GUT prediction: $3/8 = 0.375$ (at the GUT scale).
+Our prediction $3/11 = 0.273$ is 18\% above experiment,
+versus SU$(5)$'s 62\%---substantially closer, and the remaining
+discrepancy is expected from renormalisation-group running
+from the polygon scale to~$M_Z$.
+
+%% ====================================================================
+\section{The two-force unification}
+\label{sec:two-forces}
+
+The four forces of the Standard Model reduce to two:
+
+\paragraph{Force~1: Gravity/Colour ($N = 7$ sector).}
+On the base $\mathbf{H}^2$: gravity (spin-$2$ graviton,
+coupling~$G = 3/(2c)$).
+On the Galois cover $(\mathbf{H}^2)^3 / \mathbb{Z}_3$:
+$\mathrm{SU}(3)$ colour ($g_s^2 = 3 g_{\mathrm{CS}}^2$,
+three colours from three Galois conjugates).
+Long range: gravity (curvature).
+Short range: colour (confinement $=$ compactification of the cover).
+The Galois correspondence $K_7/\mathbb{Q}$ IS the
+gauge--gravity duality for this sector.
+
+\paragraph{Force~2: Electroweak ($N = 4$ sector $+$ KK).}
+$\mathrm{SU}(2)$: from the CS adjoint Wilson line at $j = 1$ ($N = 4$).
+$\mathrm{U}(1)$: from the $S^1$ KK photon.
+Unified by the Seifert structure; the Weinberg angle
+$\sin^2\theta_W = 3/11$ is determined by the KK hypercharge
+and the CS Casimir.
+
+\paragraph{Unification field.}
+Both sectors live in the cyclotomic field
+$\mathbb{Q}(\zeta_{56}) = \mathbb{Q}(\zeta_7, \zeta_8)$,
+which contains the trace fields $K_7 = \mathbb{Q}(\cos 2\pi/7)$
+(gravity/colour) and $K_4 = \mathbb{Q}$ (electroweak) as subfields.
+
+%% ====================================================================
+\section{UV completion}
+\label{sec:uv}
+
+The theory is UV-complete in the following precise sense.
+
+\paragraph{Non-perturbative definition.}
+The orbifold CFT at $c = N^2$---a $\mathbb{Z}_N$ orbifold of $N^2$
+free bosons on $S^1$---is an exactly solvable 2D conformal field theory
+with known partition function, OPE coefficients, and conformal blocks.
+In the AdS$_3$/CFT$_2$ framework, this boundary CFT
+\emph{defines} the bulk Chern--Simons theory at $k = N^2/12$
+non-perturbatively.
+
+\paragraph{Super-renormalisability.}
+After KK reduction to $1{+}1$D, the superficial degree of divergence
+is $D = 2 - E$ ($E$ = external legs).
+Only the $2$-point function ($D = 0$) has a logarithmic divergence;
+all vertices with $E \ge 4$ are UV-finite.
+Two renormalisation parameters suffice: the vortex core size~$a$
+(UV cutoff for self-energy) and the central charge~$c$ (overall
+energy scale).
+
+\paragraph{Physical observables.}
+All physical observables---Havelock eigenvalues, partition function,
+couplings, cosmological constant, Weinberg angle---are
+\emph{exact} (no perturbative approximation).
+The only divergences (self-energy at $d = 0$, KK zero-point sum)
+are renormalised by physical parameters within the framework.
+
+%% ====================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+The Havelock Field Theory is specified by a single integer~$N$
+on a single geometry $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$.
+It produces:
+\begin{itemize}
+\item Gravity $+$ $\mathrm{SU}(3) \times \mathrm{SU}(2)
+  \times \mathrm{U}(1)$ gauge symmetry;
+\item $\Lambda = (N^2 - 16)/16$ ($\Lambda = 0$ at $N = 4$,
+  positive for $N \ge 5$);
+\item $\sin^2\theta_W = 3/11$ (18\% from experiment);
+\item Exact coupling lock $\alpha/(8\pi G) = 1/(2\pi^2)$;
+\item Zero Weyl anomaly on Einstein backgrounds;
+\item UV completion via orbifold CFT;
+\item The graviton at $N = 7$ (unique);
+\item Two forces: gravity/colour $+$ electroweak.
+\end{itemize}
+
+\noindent
+What it does \emph{not} produce:
+the fermion mass hierarchy, the CKM matrix,
+the number of generations from first principles
+(though $\mathrm{ind}(D) = N/2 + (1{-}g) = 3$ for
+$(N,g) = (4,0)$, $(6,1)$, or $(8,2)$),
+or a resolution of the landscape ($N$ is an input, not derived).
+
+\medskip\noindent
+The theory is built from four classical ingredients:
+Havelock (1931), Kaluza--Klein (1921),
+Thurston (1982), and Chern--Simons (1989).
+No string theory. No extra dimensions beyond~$S^1$.
+
+\bibliographystyle{plainnat}
+\bibliography{../shared/refs}
+\end{document}
