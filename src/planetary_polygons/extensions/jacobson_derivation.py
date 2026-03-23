@@ -244,6 +244,70 @@ def havelock_implies_einstein():
 # THE FOUR CREATIVE PATHS (assessment)
 # =====================================================================
 
+# =====================================================================
+# PATH C: Test polygon derivation of Einstein equations
+# =====================================================================
+
+def small_ring_expansion(N, R_scalar, epsilon):
+    """Small-ring expansion of C₁ at a point with scalar curvature R.
+
+    C₁(x, ε) = (N-1)[1 + R(x)·ε²/6 + O(ε⁴)]
+
+    The Hamiltonian constraint C₁ = f(m*, N) then gives:
+    R(x) = 6[f(m*, N) - (N-1)] / [(N-1)·ε²]
+
+    Since f(m*, N) is x-independent, R(x) must be CONSTANT.
+    """
+    return (N - 1) * (1 + R_scalar * epsilon**2 / 6)
+
+
+def curvature_from_threshold(N, epsilon=1.0):
+    """The scalar curvature R forced by the Hamiltonian constraint.
+
+    R = 6[f(m*, N) - (N-1)] / [(N-1)·ε²]
+
+    R < 0 for N ≤ 6 (negative curvature, H²)
+    R = 0 for N = 7 (flat, marginal)
+    R > 0 for N ≥ 8 (positive curvature needed)
+    """
+    m_star = N // 2
+    f_star = casimir(m_star, N)
+    return 6 * (f_star - (N - 1)) / ((N - 1) * epsilon**2)
+
+
+def test_polygon_derivation():
+    """The complete derivation: test polygons → Einstein equations.
+
+    Step 1: Havelock decomposition gives λ_m = C₁(x,ε) - m(N-m)/2
+    Step 2: WDW equation from canonical quantization
+    Step 3: Classical limit gives C₁(x,ε) = f(m*, N) for all x
+    Step 4: Small-ring expansion: C₁ = (N-1)[1 + R(x)ε²/6 + ...]
+    Step 5: f(m*, N) is x-independent ⟹ R(x) = const
+    Step 6: R = const in d=3 ⟹ R_μν = Λg_μν (Einstein)
+
+    Returns verification data.
+    """
+    results = []
+    for N in range(3, 16):
+        m_star = N // 2
+        f_star = casimir(m_star, N)
+        R_eps2 = curvature_from_threshold(N, epsilon=1.0)
+        Lambda = R_eps2 / 2  # In 2+1D: R = 2Λ for vacuum Einstein
+
+        results.append({
+            'N': N,
+            'm_star': m_star,
+            'f_star': f_star,
+            'f_minus_N1': f_star - (N - 1),
+            'R_times_eps2': R_eps2,
+            'Lambda_times_eps2': Lambda,
+            'curvature_sign': '+' if R_eps2 > 0.001 else
+                              '0' if abs(R_eps2) < 0.001 else '-',
+        })
+
+    return results
+
+
 def four_paths_assessment():
     """Assessment of four paths from polygon stability to Einstein equations.
 

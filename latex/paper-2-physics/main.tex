@@ -3727,8 +3727,39 @@ horizons forces $G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G\,T_{\mu\nu}$,
 with the effective Newton constant determined by $G_{\mathrm{eff}} = 1/(16\pi)$
 in the natural units of the polygon system.
 
+\paragraph{Test polygon derivation of the Einstein equations.}
+The strongest route to the Einstein equations uses the
+\emph{test polygon principle}: place an infinitesimal polygon ring
+of radius~$\varepsilon$ at every point~$x$ on the spatial slice
+and impose the Hamiltonian constraint at each.
+The small-ring expansion of the curvature coefficient is
+\begin{equation}\label{eq:small-ring}
+  C_1(x, \varepsilon)
+  = (N{-}1)\Bigl[1 + \frac{R(x)\,\varepsilon^2}{6}
+    + O(\varepsilon^4)\Bigr],
+\end{equation}
+where $R(x)$ is the scalar curvature at~$x$.
+The Hamiltonian constraint $C_1(x,\varepsilon) = f(m^*, N)$
+(Theorem~\ref{thm:hamiltonian-constraint})
+must hold at every point~$x$.
+Since $f(m^*,N) = \lfloor N/2\rfloor(N{-}\lfloor N/2\rfloor)/2$
+is a number---independent of~$x$---the constraint forces
+\begin{equation}\label{eq:R-const}
+  R(x) = \frac{6\bigl[f(m^*,N) - (N{-}1)\bigr]}{(N{-}1)\,\varepsilon^2}
+  = \text{constant}.
+\end{equation}
+In $2{+}1$ dimensions, constant scalar curvature implies
+$R_{\mu\nu} = \Lambda\,g_{\mu\nu}$ (the vacuum Einstein equations),
+because the Weyl tensor vanishes.
+The cosmological constant is determined:
+$\Lambda = R/2 = 3[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
+The sign of $\Lambda$ tracks the polygon type:
+$N \le 6$: $\Lambda < 0$ (AdS);
+$N = 7$: $\Lambda = 0$ (flat, marginal);
+$N \ge 8$: $\Lambda > 0$ (dS).
+
 \paragraph{The Havelock structure implies Einstein.}
-Independently of the thermodynamic argument, the three-layer
+Independently of the test polygon argument, the three-layer
 \emph{structure} (not just the stability inequality) implies
 the Einstein equations in $2{+}1$D through a five-step chain:
 \begin{enumerate}
