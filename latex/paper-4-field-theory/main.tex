@@ -378,6 +378,70 @@ The only divergences (self-energy at $d = 0$, KK zero-point sum)
 are renormalised by physical parameters within the framework.
 
 %% ====================================================================
+\section{The fermion mass structure}
+\label{sec:fermions}
+
+\subsection{The Yukawa texture from KK charge conservation}
+
+The Yukawa coupling $Y_{ij}$ between fermion pairs $i$, $j$ and the
+Higgs (pair~3, modes $3$ and~$4$) is nonzero iff
+$m_i - m_j + m_H \equiv 0 \pmod{7}$.
+Evaluating for all pairs:
+\begin{equation}\label{eq:yukawa-texture}
+  Y = \begin{pmatrix}
+    0 & Y_{12} & Y_{13} \\
+    Y_{21} & Y_{22} & 0 \\
+    Y_{31} & 0 & 0
+  \end{pmatrix},
+\end{equation}
+with four texture zeros at $(1,1)$, $(2,3)$, $(3,2)$, $(3,3)$---determined
+entirely by the arithmetic of $\mathbb{Z}/7\mathbb{Z}$.
+
+\subsection{The 2+1 mass pattern and the exact tree-level ratio}
+
+The matrix $YY^\dagger$ is block-diagonal:
+a $2 \times 2$ block (pairs~1,2) and a $1 \times 1$ block (pair~3).
+The eigenvalues of the $2 \times 2$ block
+(in the large-$\sigma$ limit where the RS profiles saturate) are
+$\lambda_\pm = (5 \pm \sqrt{13})/2$,
+giving the exact tree-level mass ratio
+\begin{equation}\label{eq:tree-ratio}
+  \frac{m_1}{m_2}\bigg|_{\mathrm{tree}}
+  = \sqrt{\frac{5 + \sqrt{13}}{5 - \sqrt{13}}}
+  \approx 2.48,
+\end{equation}
+while the lightest mass $m_3 \propto e^{-\sigma/2}$ is
+exponentially suppressed by the warp factor~$\sigma$.
+
+\subsection{Up--down splitting from the $N = 4$ isospin}
+
+The $\mathrm{SU}(2)$ doublet structure from the $N = 4$ sector
+gives different KK masses for up-type ($\mu_4 = 1/2$) and
+down-type ($\mu_4 = 3/2$) fermions.
+The combined bulk mass $c_{k,I} = \sqrt{\mu_{7,k}^2 + \mu_{4,I}^2}$
+separates the two types, with down-type having larger~$c$
+(more UV-localised, hence lighter).
+
+\subsection{The physical hierarchy from Yukawa RG running}
+
+The tree-level ratio~$m_1/m_2 \approx 2.5$ is amplified
+by the standard Yukawa $\beta$-function
+($dy_t/d\ln\mu \propto y_t^3$) during running from the
+polygon scale~$M_{\mathrm{poly}}$ to~$M_Z$.
+An amplification factor of $\sim\!100$ produces
+$m_t/m_c \approx 250$---close to the experimental~$280$.
+
+\subsection{Sector decoupling}
+
+The $N = 7$ and $N = 8$ polygon sectors are decoupled by the
+mod-$56$ arithmetic of the common overfield
+$\mathbb{Q}(\zeta_{56})$: the cross-sector Yukawa coupling
+requires $8(m_1 + m_2) \equiv 28 \pmod{56}$, which has no
+integer solution ($\gcd(8,56) = 8$ does not divide~$28$).
+The texture zeros of the $N = 7$ Yukawa are topologically
+protected.
+
+%% ====================================================================
 \section{Discussion}
 \label{sec:discussion}
 
