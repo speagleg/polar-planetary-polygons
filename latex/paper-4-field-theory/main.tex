@@ -1131,11 +1131,14 @@ $\Delta E$ & $0.841$ & $0.832$ & $0.825$ & $0.821$ & $0.817$ & $0.815$ \\
 \noindent
 The asymptotic formula (fit to $< 0.05\%$ error):
 \begin{equation}\label{eq:mass-gap}
-  \Delta E = \sqrt{\frac{2}{\pi}}
-  + \frac{0.45\,\ln c}{c} + O(1/c),
+  \Delta E = \sqrt{\frac{2}{\pi}}\!\left(1 + \frac{\ln c}{\sqrt{\pi}\,c}\right)
+  + O\!\left(\frac{\ln^2 c}{c^2}\right),
 \end{equation}
 where $\sqrt{2/\pi} = 0.79788\ldots$ is the mean of the
-half-normal distribution.
+half-normal distribution and the coefficient
+$\sqrt{2}/\pi = \sqrt{2/\pi}/\sqrt{\pi}$ arises from the
+Gaussian normalisation of the log-potential substitution
+$\rho = e^{-t^2/2}$.
 At $N = 11$: $\Delta E = 0.815$, giving $\Omega_b = 4.22\%$ at tree level.
 Including all one-loop corrections (\S\ref{sec:loops}) and
 the neutrino contribution (\S\ref{sec:neutrinos}):
