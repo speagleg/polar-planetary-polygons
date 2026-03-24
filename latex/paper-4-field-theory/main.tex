@@ -542,28 +542,31 @@ In the $\mathrm{SU}(2)_1$ WZW model, the conformal dimension is
 $h_{\mathrm{WZW}} = j(j{+}1)/(k + h^\vee)
 = 2/(1{+}2) = 2/3$.
 
-\emph{Step~3 (Asymmetric doubling).}
-In the CS formulation of $2{+}1$D gravity
-(Theorem~\ref{thm:su2}), the gauge group is
-$\mathrm{SU}(2)_L \times \mathrm{SU}(2)_R$ at equal levels.
-The physical weak $\mathrm{SU}(2)$ is identified with
-\emph{one} chiral factor ($\mathrm{SU}(2)_L$, say),
-so the physical SU$(2)$ conformal dimension is
+\emph{Step~3 (Kinetic-term normalisation).}
+The effective coupling of the critical mode to each gauge sector
+involves the conformal dimension weighted by the kinetic-term
+normalisation from the action (\S\ref{sec:action}):
+\begin{itemize}
+\item $\mathrm{U}(1)$ (compact boson, $\mathcal{L} = (K/2)(\partial\varphi)^2$):
+  $g_{Y,\mathrm{eff}}^2 = (4\pi/K) \times Q^2
+  = 4\pi \times 2h_{\mathrm{U}(1)} = 8\pi h_{\mathrm{U}(1)}$.
+\item $\mathrm{SU}(2)$ (WZW, $\mathcal{L} = (k/4\pi)\operatorname{Tr}(g^{-1}dg)^2$):
+  $g_{W,\mathrm{eff}}^2 = (4\pi/\tilde{k}) \times j(j{+}1)
+  = 4\pi \times h_{\mathrm{SU}(2)} = 4\pi h_{\mathrm{SU}(2)}$.
+\end{itemize}
+The factor-of-$2$ asymmetry ($8\pi$ vs $4\pi$) arises from
+the $1/2$ in the compact-boson kinetic term
+($h = Q^2/\mathbf{2}K$) versus the WZW ($h = C_2/(k{+}h^\vee)$,
+no factor of~$2$).
+Therefore
 \begin{equation}\label{eq:hbar}
-  \bar{h}_{\mathrm{SU}(2)} = h_{\mathrm{WZW}}/2 = 1/3.
+  \sin^2\theta_W = \frac{8\pi h_{\mathrm{U}(1)}}{8\pi h_{\mathrm{U}(1)}
+  + 4\pi h_{\mathrm{SU}(2)}}
+  = \frac{h_{\mathrm{U}(1)}}{h_{\mathrm{U}(1)} + h_{\mathrm{SU}(2)}/2}
+  = \frac{h_{\mathrm{U}(1)}}{h_{\mathrm{U}(1)} + \bar{h}},
 \end{equation}
-Crucially, this halving applies to $\mathrm{SU}(2)$ but \emph{not}
-to $\mathrm{U}(1)$: the Chern--Simons gauge group doubles
-(because both the vierbein $e$ and spin connection $\omega$
-contribute independently to $A_L = \omega + e$,
-$A_R = \omega - e$),
-while the Kaluza--Klein $\mathrm{U}(1)$ is a \emph{single}
-gauge field $A_\mu = g_{\mu\varphi}$ with no
-left--right doubling.
-The consistent prescription is: each gauge sector contributes
-$h/n_{\mathrm{copies}}$, giving $h_{\mathrm{WZW}}/2$ for
-$\mathrm{SU}(2)$ (two copies) and $h_{\mathrm{U}(1)}$ as-is
-for $\mathrm{U}(1)$ (one copy).
+with $\bar{h} \equiv h_{\mathrm{SU}(2)}/2 = 1/3$.
+This is derived from the action, not prescribed.
 
 \emph{Step~4 (Mixing angle).}
 The electroweak mixing angle at the conformal point is
