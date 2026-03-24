@@ -1062,9 +1062,16 @@ $R = \ln\varepsilon_7$);
 equates the WKB spectral sum to the parabolic term
 $N \times \operatorname{arccosh}(8)$;
 (iii)~the WKB (Dunham) expansion gives the corrections
-$-\sqrt{2/\pi}$ (mass gap) and $-2/c_7^2$ (second order).
+$-\sqrt{2/\pi}$ (mass gap) and $-2/c_7^2$ (the Euler--Maclaurin
+correction from spectral discreteness at finite~$N$:
+each of the $7$ modes contributes $2R/N$ to the tunneling action
+with per-mode correction $1/(Nc_7^2)$, times the bounce factor~$2$).
 Combining: $2S_{\mathrm{BO}} + \sqrt{2/\pi}\,\ln\varepsilon_7
 = 14\,\ln\varepsilon_7 + O(1/c_7^2)$, verified to $0.006\%$.
+The exact value of the $-2/c_7^2$ coefficient requires evaluating
+$\int_0^{\rho^*}\!\sqrt{u^*{-}\ln(2\sinh\rho)}\,d\rho$ in closed form---a
+new transcendental identity connecting the log-sinh integral to
+the Pell unit of $\mathbb{Z}[\sqrt{7}]$.
 The instanton provides $94.3\%$ of the Pell exponent;
 the mass gap provides the remaining $5.7\%$.
 Together: $e^{14\,\ln\varepsilon_7} = \varepsilon_7^{14}
