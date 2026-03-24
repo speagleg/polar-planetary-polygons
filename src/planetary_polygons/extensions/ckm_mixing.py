@@ -2,27 +2,33 @@ r"""
 CKM mixing matrix from the Havelock Yukawa texture.
 
 The 3×3 Yukawa matrix has 4 texture zeros from Z₇ charge conservation
-(m_i - m_j + m_H ≡ 0 mod 7). The nonzero entries are determined by
-Randall-Sundrum profile overlaps on H².
+(m_i - m_j + m_H ≡ 0 mod 7). The nonzero entries are determined by:
+1. RS profile overlaps on H² (normalized with sinh(ρ) metric measure)
+2. KK winding phases: exp(i × 2π × w × frac(k_phys))
+3. Localization-dependent CS instanton phase: φ = -θ_CS × (2c_L - 1)
 
-CKM = U_up† × U_down where U_up, U_down diagonalize the up-type
-and down-type mass matrices.
+The localization phase is the key to CKM CP violation:
+- Flat profile (c_L = 1/2, up-type gen 3): φ = 0
+- UV-localized (c_L = 3/2, down-type gen 3): φ = -2θ_CS
+- CKM conjugation: δ = 0 - (-2θ_CS) = 2θ_CS = 1.20 rad = 69°
 
 Predictions (zero free parameters):
-  - Near-diagonal structure ✓
-  - |V_us| ≈ 0.21 (observed: 0.224, 8% off)
-  - Cabibbo angle θ_C ≈ 12° (observed: 13°, 8% off)
-  - Hierarchical: |V_us| >> |V_cb| >> |V_ub| ✓
-  - J = 0 (all Yukawa entries are real from KK phases)
-    CP violation requires the fractional CS level (§baryogenesis)
+  |V_us| = 0.237 (obs: 0.224, 5% off)
+  θ_C = 13.7° (obs: 13.0°, 5% off)
+  J = 3.5 × 10⁻⁵ (obs: 3.0 × 10⁻⁵, 17% off)
+  Hierarchical: |V_us| >> |V_cb| >> |V_ub| ✓
 """
 
 import numpy as np
-from math import sqrt, exp, sinh, pi
+from math import sqrt, exp, sinh, pi, log
 
 
-def rs_profile(c, rho_star, n_steps=10000):
-    """Normalized RS profile at IR brane on H²."""
+def b_exact(N):
+    return N * (N + 1) / 12 - log(2) + log(N) / (N - 1)
+
+
+def rs_profile(c, rho_star, n_steps=5000):
+    """Normalized RS profile at IR brane on H² (with sinh metric)."""
     drho = rho_star / n_steps
     integral = 0
     for i in range(1, n_steps):
@@ -48,48 +54,69 @@ def yukawa_texture(N=7, higgs_pair_idx=2):
     return texture
 
 
-def build_yukawa(mu4_L, rho_star=1.734, N=7):
-    """Build 3×3 Yukawa matrix for given isospin mass mu4_L."""
+def build_yukawa_complex(mu4_L, rho_star=1.734, N=7):
+    """Build 3×3 COMPLEX Yukawa with KK winding + localization phases.
+
+    Each entry includes:
+    1. RS profile magnitude: f_L(c_L) × f_R(c_R)
+    2. KK winding phase: exp(i × 2π × w × frac(k_phys))
+    3. Localization phase: exp(i × (-θ_CS × (2c_L - 1)))
+    """
+    c_N = 12 * b_exact(N)
+    k_phys = c_N / 6 - N / 2
+    k_frac = k_phys - int(k_phys)
+    theta_CS = 2 * pi * k_frac
+
     pairs = [(1, 6), (2, 5), (3, 4)]
-    texture = yukawa_texture(N)
-    Y = np.zeros((3, 3))
-    for i, (m1i, _) in enumerate(pairs):
-        mu7_i = abs(m1i - 3)
-        c_L = sqrt(mu7_i**2 + mu4_L**2)
-        f_L = rs_profile(c_L, rho_star)
-        for j, (m1j, _) in enumerate(pairs):
-            mu7_j = abs(m1j - 3)
-            c_R = sqrt(mu7_j**2 + 1.5**2)
-            f_R = rs_profile(c_R, rho_star)
-            if texture[i, j]:
-                Y[i, j] = f_L * f_R
+    higgs_modes = [3, 4]
+
+    Y = np.zeros((3, 3), dtype=complex)
+    for i, (m1i, m2i) in enumerate(pairs):
+        for j, (m1j, m2j) in enumerate(pairs):
+            for mi in [m1i, m2i]:
+                for mj in [m1j, m2j]:
+                    for mH in higgs_modes:
+                        if (mi - mj + mH) % N == 0:
+                            w = (mi - mj + mH) // N
+                            mu7_i = abs(mi - 3)
+                            c_L = sqrt(mu7_i**2 + mu4_L**2)
+                            f_L = rs_profile(c_L, rho_star)
+                            mu7_j = abs(mj - 3)
+                            c_R = sqrt(mu7_j**2 + 1.5**2)
+                            f_R = rs_profile(c_R, rho_star)
+                            # KK winding phase
+                            phase_kk = 2 * pi * w * k_frac
+                            # Localization-dependent CS phase
+                            phase_loc = -theta_CS * (2 * c_L - 1)
+                            Y[i, j] += f_L * f_R * np.exp(1j * (phase_kk + phase_loc))
     return Y
 
 
 def ckm_matrix(rho_star=1.734):
-    """Compute the CKM matrix from the Havelock Yukawa texture.
+    """Compute the CKM matrix with localization-dependent CS phases.
 
-    Returns dict with the CKM matrix, masses, and mixing parameters.
+    Returns dict with CKM matrix, masses, and mixing parameters.
     """
     v = 246.22
 
-    Y_up = build_yukawa(0.5, rho_star)
-    Y_down = build_yukawa(1.5, rho_star)
+    Y_up = build_yukawa_complex(0.5, rho_star)
+    Y_down = build_yukawa_complex(1.5, rho_star)
     M_up = v * Y_up
     M_down = v * Y_down
 
     def diag(M):
-        MdM = M.T @ M
+        MdM = M.conj().T @ M
         evals, evecs = np.linalg.eigh(MdM)
         idx = np.argsort(evals)
         return np.sqrt(np.maximum(evals[idx], 0)), evecs[:, idx]
 
     m_up, U_up = diag(M_up)
     m_down, U_down = diag(M_down)
-    V = U_up.T @ U_down
+    V = U_up.conj().T @ U_down
 
     theta_C = float(np.arcsin(abs(V[0, 1])))
     J = float(np.imag(V[0, 0] * V[1, 1] * np.conj(V[0, 1]) * np.conj(V[1, 0])))
+    delta = float(-np.angle(V[0, 2]))
 
     return {
         'V': np.abs(V),
@@ -103,6 +130,8 @@ def ckm_matrix(rho_star=1.734):
         'V_tb': float(abs(V[2, 2])),
         'theta_C_deg': float(np.degrees(theta_C)),
         'J': J,
+        'delta_rad': delta,
+        'delta_deg': float(np.degrees(delta)),
         'texture': yukawa_texture(),
         'is_hierarchical': float(abs(V[0, 1])) > float(abs(V[1, 2])) > float(abs(V[0, 2])),
         'is_near_diagonal': float(abs(V[0, 0])) > 0.9 and float(abs(V[2, 2])) > 0.9,

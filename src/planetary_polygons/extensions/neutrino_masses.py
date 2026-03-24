@@ -32,15 +32,24 @@ EPSILON_7 = 8 + 3 * sqrt(7)
 V_HIGGS = 246.22  # GeV
 
 
-def rs_profile_IR(c, rho_star):
-    """RS zero-mode profile evaluated at the IR brane.
+def rs_profile_IR(c, rho_star, n_steps=10000):
+    """RS zero-mode profile evaluated at the IR brane on H².
 
-    For c > 1/2: UV-localized, exponentially suppressed at IR.
-    For c = 1/2: flat profile, f = 1/√ρ*.
+    Properly normalized with the H² metric measure sinh(ρ):
+      ∫₀^{ρ*} |f(ρ)|² sinh(ρ) dρ = 1
+
+    This gives larger overlaps than the flat-space formula
+    because sinh(ρ) > ρ enhances the IR region.
     """
-    if abs(c - 0.5) < 1e-10:
-        return 1.0 / sqrt(rho_star)
-    return sqrt(abs(2 * c - 1)) * exp((0.5 - c) * rho_star)
+    from math import sinh as msinh
+    drho = rho_star / n_steps
+    integral = 0.0
+    for i in range(1, n_steps):
+        rho = i * drho
+        f_unnorm = exp((0.5 - c) * rho)
+        integral += f_unnorm**2 * msinh(rho) * drho
+    A = 1.0 / sqrt(integral) if integral > 0 else 0.0
+    return A * exp((0.5 - c) * rho_star)
 
 
 def neutrino_seesaw(M_poly_GeV=50000, S_BO=18.274, rho_star=1.734):
