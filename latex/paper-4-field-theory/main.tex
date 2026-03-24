@@ -482,8 +482,8 @@ Baryonic matter $\Omega_b$ & $4.2\%$ & $4.9 \pm 0.06\%$ & $12\sigma$ \\
 The dark energy and dark matter fractions are within $1\sigma$ of the
 Planck measurements.
 The $\Omega_\Lambda/\Omega_{\mathrm{DM}}$ ratio matches to~$0.5\%$.
-The baryon fraction has residual tension ($12\sigma$) that depends
-on the precise value of the mass gap~$\Delta E$.
+The baryon fraction has residual tension that depends
+on the mass gap~$\Delta E$.
 \end{proposition}
 
 \subsection{Why $N = 11$}
@@ -526,11 +526,32 @@ At $N = 11$: $F_{\mathrm{DM}} = 5.193$.
 The Planck value $\Omega_b/\Omega_m = 15.6\%$ requires
 $F_M = 0.96$---slightly above the WDW estimate
 $\Delta E \approx 0.81$.
-The remaining $12\sigma$ tension in $\Omega_b$ thus reduces to
-a ${\sim}18\%$ uncertainty in the mass gap, which is within
-the numerical precision of the WDW computation
-(the FEM boundary condition contributes a systematic error
-at this level for $c \approx 127$).
+\subsection{The mass gap: $\Delta E \to \sqrt{2/\pi}$}
+
+The WDW mass gap, computed via non-uniform FEM mesh
+(quadratically concentrated near $\rho = 0$), gives converged values:
+\begin{center}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+$N$ & $6$ & $7$ & $8$ & $9$ & $10$ & $11$ \\
+\midrule
+$\Delta E$ & $0.841$ & $0.832$ & $0.825$ & $0.821$ & $0.817$ & $0.815$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+The asymptotic formula (fit to $< 0.05\%$ error):
+\begin{equation}\label{eq:mass-gap}
+  \Delta E = \sqrt{\frac{2}{\pi}}
+  + \frac{0.45\,\ln c}{c} + O(1/c),
+\end{equation}
+where $\sqrt{2/\pi} = 0.79788\ldots$ is the mean of the
+half-normal distribution.
+At $N = 11$: $\Delta E = 0.815$, giving $\Omega_b = 4.2\%$
+(observed: $4.9\%$, a $14\%$ discrepancy).
+The remaining tension requires either finite-temperature
+corrections or higher-order loop contributions to~$F_{\mathrm{DM}}$.
 
 %% ====================================================================
 \section{Discussion}
