@@ -463,24 +463,27 @@ Removing the trivial-representation node---which is physically natural,
 since the invariant mode $\eta_0$ decouples---yields the
 \emph{finite} $A_2$ diagram, the Dynkin diagram of~$\mathrm{SU}(3)$.
 
-\emph{Step~5 (Physical realisation in the orbifold CFT).}
-The UV completion (\S\ref{sec:uv}) is the $\mathbb{Z}_7$ orbifold
-of $N^2 = 49$ free bosons on~$S^1$.
-The modular data of this orbifold (the modular $S$-matrix
-acting on the $7$ twisted-sector characters)
-has $(\mathbb{Z}/7\mathbb{Z})^\times \cong \mathbb{Z}/6\mathbb{Z}$
-as a Galois symmetry \citep{DixonHarveyVafaWitten1985}.
-The $\mathbb{Z}/3\mathbb{Z}$ subgroup
-of this Galois symmetry acts on the modular data
-by permuting the characters in orbits of size~$3$.
-By the Reshetikhin--Turaev correspondence between modular tensor
-categories and Chern--Simons theories, the
-$\mathbb{Z}/3\mathbb{Z}$ automorphism of the modular data
-identifies an $\mathrm{SU}(3)_1$ sector within the bulk theory:
-the three characters in each Galois orbit
-transform as the three integrable representations of
-$\mathrm{SU}(3)_1$, which has
-$c = k \dim(\mathrm{SU}(3))/(k + h^\vee) = 1 \cdot 8 / (1{+}3) = 2$.
+\emph{Step~5 (ALE resolution $\to$ SU(3) gauge symmetry).}
+The $\mathbb{C}^2/(\mathbb{Z}/3\mathbb{Z})$ singularity in the
+charged mode space must be \emph{resolved} for the
+Chern--Simons theory to be well-defined on a smooth manifold.
+The minimal (Kronheimer) resolution of
+$\mathbb{C}^2/(\mathbb{Z}/3\mathbb{Z})$
+introduces two exceptional divisors $E_1$, $E_2 \cong \mathbb{P}^1$
+whose intersection matrix is
+\[
+  E_i \cdot E_j = -C_{ij}, \qquad
+  C = \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}
+  = \text{the $A_2$ Cartan matrix}.
+\]
+The harmonic $2$-forms $\omega_1$, $\omega_2$ dual to $E_1$, $E_2$
+expand the CS gauge field: $A = A_0 + a_1\,\omega_1 + a_2\,\omega_2$.
+The gauge transformations preserving the intersection form are
+\emph{exactly} those of $\mathrm{SU}(3)$---the group with
+root system $A_2$---at CS level $k = 1$
+\citep{Kronheimer1989, Nakajima1994}.
+This gives $\widehat{\mathfrak{su}}(3)_1$ with
+$c = k\dim(\mathrm{SU}(3))/(k{+}h^\vee) = 8/4 = 2$.
 \end{proof}
 
 \begin{center}
