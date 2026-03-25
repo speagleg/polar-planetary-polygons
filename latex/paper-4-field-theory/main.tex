@@ -1618,6 +1618,60 @@ it requires the quartic coupling $\lambda_H$,
 which depends on loop corrections from the KK tower---an
 open calculation.
 
+\paragraph{Black hole entropy.}
+The Cardy formula of the orbifold CFT at $c = 12\,b(N)$ gives
+\begin{equation}\label{eq:cardy}
+  S_{\mathrm{BH}} = 2\pi\sqrt{\frac{c}{6}\,E_L}
+  + 2\pi\sqrt{\frac{c}{6}\,E_R},
+\end{equation}
+which reproduces the Bekenstein--Hawking entropy
+$S = \pi r_+/(2G_3)$ via the Brown--Henneaux relation $c = 3\ell/(2G_3)$.
+This is the standard Strominger (1998) microstate counting for
+the BTZ black hole.
+The microstates are Virasoro descendants of the orbifold CFT;
+the Havelock central charge $c = 51.57$ gives $S = 18.4\sqrt{E}$
+with sub-leading correction $-\tfrac{3}{2}\log E + \ldots$
+
+The polygon $\to$ BTZ transition is a \emph{Hawking--Page transition}:
+at each palindromic threshold~$N$, the entropy jumps by
+$\Delta S = \log 2$ per pair (wall-crossing).
+The $\mathbb{Z}/2\mathbb{Z}$ palindromic symmetry ($m \leftrightarrow N{-}m$)
+gives $1$~bit per self-paired mode ($N$~even) and $2$~bits per paired
+mode ($N$~odd).
+
+Under the KK lift to~$4$D, the BTZ entropy becomes the $4$D
+Bekenstein--Hawking entropy via $G_4 = G_3/(2\pi R)$, giving
+$S_{4\mathrm{D}} = A/(4G_4)$ for the $4$D horizon area~$A$.
+
+\paragraph{Dynamical gluons from the boundary WZW.}
+The bulk $\mathrm{SU}(3)_1$ Chern--Simons theory is topological
+($0$ propagating gluons in $2{+}1$D).
+The \emph{dynamical} gluons emerge at the boundary, by the same
+holographic mechanism as the graviton:
+the boundary $\mathrm{SU}(3)_1$ WZW model has Kac--Moody
+currents $J^a(z)$ ($a = 1, \ldots, 8$) with conformal dimension
+$(1,0)$---spin~$1$.
+The current algebra OPE
+\[
+  J^a(z) J^b(w) \sim \frac{k\,\delta^{ab}}{(z{-}w)^2}
+  + \frac{i\,f^{abc}\,J^c(w)}{z{-}w}
+\]
+contains both the kinetic term ($1/(z{-}w)^2$, the gluon propagator)
+and the non-Abelian vertex ($f^{abc}/(z{-}w)$, the three-gluon coupling).
+After KK reduction on~$S^1$, the boundary WZW currents become
+$4$D dynamical gauge bosons with the correct $\mathrm{SU}(3)$
+vertex structure.
+Confinement arises from the topological CS bulk: the coloured modes
+are bound to the $\mathbb{Z}/3\mathbb{Z}$ cover of the orbifold.
+
+The pattern is universal: \emph{all} long-range fields are
+boundary modes of topological CS theories---the graviton
+(boundary stress tensor~$T$, spin~$2$), the gluons
+(boundary WZW currents~$J^a$, spin~$1$), and the electroweak
+gauge bosons (from the $\mathrm{SU}(2)_1$ WZW at~$N = 4$).
+Massive KK modes (graviphoton, radion, heavy KK tower) decouple
+at macroscopic distances.
+
 %% ====================================================================
 \section{Discussion}
 \label{sec:discussion}
@@ -1646,6 +1700,10 @@ The results of the preceding sections:
   (\S\ref{sec:consistency});
 \item Anomaly cancellation inherited from SM content;
   proton exactly stable from $\mathbb{Z}_{56}$ charge conservation;
+\item Dynamical gluons from boundary $\mathrm{SU}(3)_1$ WZW currents
+  (\S\ref{sec:consistency});
+\item Black hole entropy from Cardy formula ($c = 12\,b(N)$)
+  with Hawking--Page wall-crossing (\S\ref{sec:consistency});
 \item Fermion mass ratios quantum-stable at one loop;
 \item Neutrino masses: $\Delta m^2_{\mathrm{sol}}$ to $3\%$,
   normal hierarchy, $\Sigma m_\nu = 0.059$\,eV (\S\ref{sec:neutrinos});
