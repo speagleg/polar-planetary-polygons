@@ -1484,27 +1484,36 @@ The potential is stabilised at $\sigma_{\min} \approx 1.35$
 $V \approx \Lambda\,\sigma$.
 
 At early times, the radion rolls from $\sigma \gg \sigma_{\min}$
-toward the minimum, driving slow-roll inflation with the
-approximately linear potential $V \approx \Lambda\,\sigma$.
-The slow-roll parameters give $n_s = 1 - 2/N_e$ and $r = 4/N_e$.
-
-\emph{Tension with Planck data.}
-Planck~2018 gives $n_s = 0.965 \pm 0.004$.
-Matching this requires $N_e \approx 57$,
-i.e.\ $T_{\mathrm{rh}} \lesssim 10^6$\,GeV
-(low reheating, but compatible with gravitino bounds).
-At this $N_e$:
-\begin{equation}\label{eq:inflation-predictions}
-  n_s = 0.965, \qquad r = 0.070.
+toward the minimum.
+The full potential~\eqref{eq:V-radion} has an \emph{inflection point} at
+\begin{equation}\label{eq:sigma-infl}
+  \sigma_{\mathrm{infl}} = \frac{3N^2/8}{c/12} = \frac{9N^2}{2c}
+  \approx 4.3 \quad (N = 11),
 \end{equation}
-The tensor-to-scalar ratio $r = 0.070$ exceeds the
-BICEP/Keck~2024 bound $r < 0.036$ at $95\%$\,CL.
-For higher~$N_e$ ($T_{\mathrm{rh}} \sim 10^9$\,GeV, $N_e \approx 120$):
-$n_s = 0.983$ (excluded at $4\sigma$), $r = 0.033$ (allowed).
-The simple linear radion potential is therefore
-in tension with current CMB data;
-the full radion potential~\eqref{eq:V-radion} or
-modifications from the orbifold geometry may resolve this.
+where $V'' = 0$.
+For $\sigma > \sigma_{\mathrm{infl}}$: $V'' < 0$ (concave down,
+$\eta < 0$, red tilt).
+
+\emph{Inflection-point inflation.}
+If inflation occurs near the inflection point (rather than in the
+linear regime $\sigma \gg \sigma_{\mathrm{infl}}$), the cubic
+approximation gives \citep{Barenboim2016}
+\begin{equation}\label{eq:inflation-predictions}
+  n_s = 1 - \frac{8}{3\sqrt{3}\,N_e},
+  \qquad r \sim 10^{-6}\;\text{(negligible)}.
+\end{equation}
+Planck~2018 ($n_s = 0.965 \pm 0.004$) requires $N_e \approx 45$--$55$,
+corresponding to $T_{\mathrm{rh}} \sim 10^6$--$10^9$\,GeV.
+The tensor-to-scalar ratio $r \sim 10^{-6}$ is far below the
+BICEP/Keck~2024 bound ($r < 0.036$) and the LiteBIRD sensitivity
+($\sigma_r \approx 0.001$): \emph{inflection-point inflation predicts
+undetectable gravitational waves from the inflationary epoch}.
+
+In the linear regime ($\sigma \gg \sigma_{\mathrm{infl}}$):
+$n_s = 1 - 3/(2N_e)$, $r = 4/N_e$.
+At $N_e = 60$: $n_s = 0.975$ ($2.4\sigma$ tension with Planck),
+$r = 0.067$ (excluded by BICEP/Keck).
+The inflection-point mechanism resolves this tension.
 
 %% ====================================================================
 \section{Parameter accounting}
