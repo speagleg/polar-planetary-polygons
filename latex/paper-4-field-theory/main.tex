@@ -1005,7 +1005,7 @@ decomposes into three components:
   F_{\mathrm{DE}} &= b(N) + \tfrac{N}{4}
     & &\text{(vacuum $+$ radion zero-point)}, \label{eq:F-DE}\\
   F_{\mathrm{DM}} &= \tfrac{1}{2}\!\sum_{m \ne m^*}\!
-    \ln|\lambda_m|
+    \ln|\lambda_m^{(0)}|
     & &\text{(frozen mode one-loop)}, \label{eq:F-DM}\\
   F_{\mathrm{M}}  &= \Delta E
     & &\text{(WDW mass gap = baryonic matter)}. \label{eq:F-M}
@@ -1015,6 +1015,12 @@ energy of the $S^1$ fiber modulus, stabilised at unit radius by
 the flux~$N/2$: the radion mass is $M_{\mathrm{rad}} = N/2$,
 giving $(1/2)M_{\mathrm{rad}} = N/4$.
 This is \emph{not} a free parameter---it is determined by the geometry.
+The eigenvalues $\lambda_m^{(0)} = (N{-}1) - m(N{-}m)/2$ are the flat-plane
+Havelock eigenvalues; for $N = 11$ several are negative ($m = 3, \ldots, 8$),
+reflecting the flat-plane instability.
+The absolute value in~\eqref{eq:F-DM} ensures $F_{\mathrm{DM}}$ is real;
+physically, the frozen modes contribute a one-loop determinant
+whose sign is captured by the Morse index~$\mu(11) = 6$.
 
 \begin{proposition}[Cosmological energy budget at $N = 11$]
 \label{prop:cosmology}
@@ -1452,18 +1458,26 @@ $V \approx \Lambda\,\sigma$.
 
 At early times, the radion rolls from $\sigma \gg \sigma_{\min}$
 toward the minimum, driving slow-roll inflation with the
-linear potential $V \approx \Lambda\,\sigma$.
-The number of $e$-folds depends on the reheating temperature.
-For $T_{\mathrm{rh}} \sim 10^9$\,GeV ($N_e \approx 120$):
+approximately linear potential $V \approx \Lambda\,\sigma$.
+The slow-roll parameters give $n_s = 1 - 2/N_e$ and $r = 4/N_e$.
+
+\emph{Tension with Planck data.}
+Planck~2018 gives $n_s = 0.965 \pm 0.004$.
+Matching this requires $N_e \approx 57$,
+i.e.\ $T_{\mathrm{rh}} \lesssim 10^6$\,GeV
+(low reheating, but compatible with gravitino bounds).
+At this $N_e$:
 \begin{equation}\label{eq:inflation-predictions}
-  n_s = 0.987, \qquad r = 0.034.
+  n_s = 0.965, \qquad r = 0.070.
 \end{equation}
-The spectral index is within the Planck $3\sigma$ range;
-the tensor-to-scalar ratio $r = 0.034$ satisfies the
-BICEP/Keck 2024 bound $r < 0.036$ and is within reach
-of LiteBIRD ($\sigma_r \approx 0.001$).
-For lower reheating ($N_e = 60$): $r = 0.070$
-(excluded by current data, requiring $N_e > 110$).
+The tensor-to-scalar ratio $r = 0.070$ exceeds the
+BICEP/Keck~2024 bound $r < 0.036$ at $95\%$\,CL.
+For higher~$N_e$ ($T_{\mathrm{rh}} \sim 10^9$\,GeV, $N_e \approx 120$):
+$n_s = 0.983$ (excluded at $4\sigma$), $r = 0.033$ (allowed).
+The simple linear radion potential is therefore
+in tension with current CMB data;
+the full radion potential~\eqref{eq:V-radion} or
+modifications from the orbifold geometry may resolve this.
 
 %% ====================================================================
 \section{Parameter accounting}
