@@ -67,7 +67,7 @@ Everything else follows:
   $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$
   with Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ geometry;
 \item \S\ref{sec:fields}: gravity, gauge, scalar, fermion, radion;
-\item \S\ref{sec:graviton}: the propagating 4D graviton
+\item \S\ref{sec:graviton}: the 4D gravitational degrees of freedom
   ($= $ graviphoton $+$ radion, $2$ DOF);
 \item \S\ref{sec:couplings}: $G$, $\alpha$, $g_4$---all from $c = 12\,b(N)$;
 \item \S\ref{sec:lambda}: the cosmological constant
@@ -165,20 +165,21 @@ The metric~\eqref{eq:metric-4d} yields, after KK reduction:
 \end{enumerate}
 
 %% ====================================================================
-\section{The 4D graviton}
+\section{The 4D gravitational degrees of freedom}
 \label{sec:graviton}
 
 A natural concern: $2{+}1$D gravity is topological
 \citep{Witten1988}---it has zero propagating degrees of freedom.
 Where is the graviton?
 
-\begin{theorem}[Propagating 4D graviton]
+\begin{theorem}[Gravitational degrees of freedom]
 \label{thm:graviton-4d}
 The \emph{full} $4$D theory on
 $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$
-has exactly $2$ propagating graviton polarisations,
-identified with the graviphoton $A_i = g_{i\varphi}$
-($1$ DOF) and the radion $\sigma = g_{\varphi\varphi}$ ($1$ DOF)
+has exactly $2$ propagating gravitational degrees of freedom:
+the graviphoton $A_i = g_{i\varphi}$
+(spin-$1$, $1$ DOF) and the radion $\sigma = g_{\varphi\varphi}$
+(spin-$0$, $1$ DOF)
 from Kaluza--Klein reduction.
 \end{theorem}
 
@@ -197,8 +198,8 @@ $10$ components) decomposes under KK reduction on~$S^1$ into:
 Field & Components & Gauge & Constraints & DOF \\
 \midrule
 $g_{ij}$ (3D metric) & $6$ & $3$ & $3$ & $\mathbf{0}$ (topological) \\
-$A_i = g_{i\varphi}$ (graviphoton) & $3$ & $1$ & $1$ & $\mathbf{1}$ (propagating) \\
-$\sigma = g_{\varphi\varphi}$ (radion) & $1$ & $0$ & $0$ & $\mathbf{1}$ (propagating) \\
+$A_i = g_{i\varphi}$ (graviphoton) & $3$ & $1$ & $1$ & $\mathbf{1}$ (spin-$1$) \\
+$\sigma = g_{\varphi\varphi}$ (radion) & $1$ & $0$ & $0$ & $\mathbf{1}$ (spin-$0$) \\
 \midrule
 Total & $10$ & $4$ & $4$ & $\mathbf{2}$ \\
 \bottomrule
@@ -208,18 +209,23 @@ Total & $10$ & $4$ & $4$ & $\mathbf{2}$ \\
 The $3$D gravity sector is topological ($0$ DOF,
 Theorem~\ref{thm:su2}), but the graviphoton and radion are
 dynamical fields that \emph{propagate} on $\mathbb{R} \times \mathbf{H}^2$.
-Together they carry exactly $2$ degrees of freedom---the $2$
-polarisations of the $4$D graviton.
+Together they carry the $2$ gravitational DOF expected in $4$D.
 
-Cross-check from spin-$2$ representation theory:
-a spin-$j$ field in $4$D has $2j{+}1$ substates
-minus $2$ (transversality) minus $1$ (tracelessness)
-$= 2(j{-}1)$ physical DOF.
-For $j = 2$: $5 - 3 = 2$.  This matches the graviton identified at
-$N = 7$ in Paper~III ($f(3,7) = 6 = j(j{+}1)$ with $j = 2$).
+\emph{Important distinction.}
+These $2$ DOF are a spin-$1$ vector and a spin-$0$ scalar, \emph{not}
+the helicity-$\pm 2$ states of a standard $4$D massless graviton.
+The gravitational force arises differently in this framework:
+at $r \gg R$ the topological CS sector gives a logarithmic potential
+($2{+}1$D gravity); at $r \ll R$ the full KK tower restores
+an effective $1/r^2$ Newton's law (\S\ref{rmk:mass-spectrum}).
+The CS representation with $\mathrm{SL}(2,\mathbb{R})$ Casimir
+$j(j{+}1) = 6$ ($j = 2$, Paper~III) carries spin-$2$
+in the topological sense, but this is the $2{+}1$D CS spin,
+not the $4$D Poincar\'e helicity.
 \end{proof}
 
 \begin{remark}[Graviton mass spectrum]
+\label{rmk:mass-spectrum}
 The KK graviton masses are $\mu_m = |m - N/2|$:
 \begin{itemize}
 \item Even~$N$: the zero mode $m = N/2$ is
@@ -1438,8 +1444,8 @@ The proven results:
   exact match at $M_{\mathrm{poly}} \approx 300$\,TeV);
 \item Coupling lock $\alpha/(8\pi G) = 1/(2\pi^2)$,
   exact at all loop orders;
-\item Propagating 4D graviton: $2$ DOF $=$ graviphoton $+$ radion
-  (Theorem~\ref{thm:graviton-4d});
+\item $2$ gravitational DOF $=$ graviphoton (spin-$1$) $+$ radion (spin-$0$),
+  not a standard spin-$2$ graviton (Theorem~\ref{thm:graviton-4d});
 \item Fermion mass ratios quantum-stable at one loop;
 \item Neutrino masses: $\Delta m^2_{\mathrm{atm}}$ to $0.3\%$,
   normal hierarchy, $\Sigma m_\nu = 0.065$\,eV (\S\ref{sec:neutrinos});
