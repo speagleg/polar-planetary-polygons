@@ -864,99 +864,64 @@ The Cabibbo angle $\theta_C = 13.7^\circ$ (observed $13.0^\circ$,
 $5\%$ off).
 The hierarchy $|V_{us}| \gg |V_{cb}| \gg |V_{ub}|$ is predicted.
 
-\begin{theorem}[CKM phase from the APS eta invariant]
+\begin{theorem}[CKM phase from the scattering phase on~$\mathbf{H}^2$]
 \label{thm:ckm-phase}
 The CKM CP-violating phase is
 \begin{equation}
 \label{eq:delta-ckm}
   \delta_{\mathrm{CKM}}
-    = 2\theta_{\mathrm{CS}} \times \tanh(\pi)
-    = 68.63^\circ,
+    = \tfrac{1}{2}\log\cosh(\pi)
+    = 70.2^\circ.
 \end{equation}
-where $\theta_{\mathrm{CS}} = 2\pi\,\mathrm{frac}(k_{\mathrm{phys}})
-= 0.601$\,rad $= 34.44^\circ$ is the fractional Chern--Simons phase
-determined by~$N = 7$.
 The observed value is $\delta = 69^\circ \pm 3^\circ$ (PDG~2024);
-the discrepancy is~$0.37^\circ$ ($12\%$ of~$1\sigma$).
+the discrepancy is~$1.2^\circ$ ($40\%$ of~$1\sigma$).
 \end{theorem}
 
 \begin{proof}
-The argument has six steps.
+The argument has four steps.
 
-\emph{Step~1 (CS phase).}
-The Chern--Simons level $k_{\mathrm{phys}} = c/6 - N/2$
-with $c = 12\,b(N)$ has fractional part $k_{\mathrm{frac}} = 0.0957$,
-giving $\theta_{\mathrm{CS}} = 2\pi k_{\mathrm{frac}} = 0.601$\,rad.
-This is a topological datum, fixed by $N = 7$ and the Euler--Maclaurin
-formula for~$b(N)$.
-
-\emph{Step~2 (Eta invariant).}
-The APS eta invariant of the massive Dirac operator on~$\mathbf{H}^2$
-with mass parameter $m = c - \tfrac{1}{2}$ is
-\begin{equation}
-\label{eq:eta-tanh}
-  \eta(m) = \tanh(\pi m),
-\end{equation}
-derived from
+\emph{Step~1 (Digamma identity).}
+The digamma function satisfies
 $\operatorname{Im}\psi(\tfrac{1}{2} + im)
   = \tfrac{\pi}{2}\tanh(\pi m)$---the
 \textbf{same digamma function} that generates the Havelock eigenvalue
 kernel (Theorem~\ref{thm:havelock}).
+This identity gives the scattering phase density of the massive Dirac
+operator on~$\mathbf{H}^2$ with mass parameter $m = c - \tfrac{1}{2}$.
 
-\emph{Step~3 (BF threshold crossing).}
+\emph{Step~2 (Scattering phase integration).}
+The total scattering phase accumulated as the bulk mass
+transitions from $c_{\mathrm{up}} = \tfrac{1}{2}$ to
+$c_{\mathrm{dn}} = \tfrac{3}{2}$ across the
+Breitenlohner--Freedman bound ($M^2 = c(c{-}1) = 0$ at $c = 1$)
+is
+\begin{equation}
+\label{eq:delta-integral}
+  \delta = \int_0^1 \operatorname{Im}\psi\!\bigl(\tfrac{1}{2} + im\bigr)\,dm
+         = \int_0^1 \tfrac{\pi}{2}\tanh(\pi m)\,dm
+         = \tfrac{1}{2}\log\cosh(\pi).
+\end{equation}
+The integration range $m \in [0,1]$ corresponds to $c \in [\tfrac{1}{2},\tfrac{3}{2}]$,
+the $T_3$ split of the Higgs doublet ($\Delta\mu_4 = 1$).
+The integral is exact: $\arg\Gamma(\tfrac{1}{2}+im)
+= \int_0^{m}\!\operatorname{Im}\psi(\tfrac{1}{2}+it)\,dt
+= \tfrac{1}{2}\log\cosh(\pi m)$.
+
+\emph{Step~3 (BF crossing).}
 For generation~3, mode $m = 3$ ($\mu_7 = 0$):
 the bulk mass $c_L = \mu_4$ transitions from~$\tfrac{1}{2}$
 (up-type) to~$\tfrac{3}{2}$ (down-type), crossing the
-Breitenlohner--Freedman bound $M^2 = c(c{-}1) = 0$ at $c = 1$.
+Breitenlohner--Freedman bound at $c = 1$.
 This is the \textbf{only} mode that crosses:
 all others have $c_{\mathrm{up}} > 1$ (since $\mu_7 \ge 1$ gives
 $c = \sqrt{\mu_7^2 + \tfrac{1}{4}} \ge 1.12$).
 The spectral flow is $\mathrm{SF} = 1$.
 
-\emph{Step~4 (Dominance of the BF mode).}
-The eta invariant difference
-$\Delta\eta_m = \eta(c_{\mathrm{dn}}^{(m)} {-} \tfrac{1}{2})
-              - \eta(c_{\mathrm{up}}^{(m)} {-} \tfrac{1}{2})$
-is computed mode by mode:
-
-\smallskip
-\begin{center}\small
-\begin{tabular}{cccccc}
-\toprule
-Mode $m$ & $\mu_7$ & $c_{\mathrm{up}}$ & $c_{\mathrm{dn}}$
-  & $\Delta\eta$ & \% of total \\
-\midrule
-3 & 0 & 0.500 & 1.500 & 0.996 & 92.6\% \\
-2, 4 & 1 & 1.118 & 1.803 & 0.040 & 3.7\% each \\
-1, 5 & 2 & 2.062 & 2.500 & 0.0001 & $< 0.01\%$ \\
-6 & 3 & 3.041 & 3.354 & $< 10^{-6}$ & $< 0.01\%$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-\smallskip
-
-\noindent
-The $\tanh$ function saturates rapidly: for $m > 0.5$,
-$\tanh(\pi m) > 0.92$, so both $\eta_{\mathrm{up}}$ and
-$\eta_{\mathrm{dn}}$ are near unity and their difference
-is negligible.
-Only mode~3 contributes appreciably, because
-$\eta(0) = 0$ while $\eta(1) = \tanh(\pi) = 0.9963$.
-
-\emph{Step~5 (Weight factor).}
-The $\mathrm{SL}(2,\mathbb{R})$ weight of a Dirac fermion
-with localisation~$c$ is $w = 2c - 1$.
-The weight difference across the BF crossing is
-$\Delta w = (2 \cdot \tfrac{3}{2} - 1) - (2 \cdot \tfrac{1}{2} - 1)
-          = 2 - 0 = 2$.
-Each unit of weight contributes~$\theta_{\mathrm{CS}}$ to the
-instanton phase, so the total is $2\theta_{\mathrm{CS}}$.
-
-\emph{Step~6 (Assembly).}
-Combining the weight factor with the eta invariant:
-$\delta = 2\theta_{\mathrm{CS}} \times \tanh(\pi)
-        = 2 \times 34.44^\circ \times 0.9963
-        = 68.63^\circ$.
+\emph{Step~4 (Evaluation).}
+$\delta = \tfrac{1}{2}\log\cosh(\pi)
+        = \tfrac{1}{2}\log(11.592)
+        = 1.225\;\mathrm{rad}
+        = 70.2^\circ$.
 \end{proof}
 
 \medskip\noindent
@@ -967,34 +932,40 @@ the $w = 0$ and $w = 1$ instanton sectors.
 Since the instanton fugacity
 $K = e^{-2\pi k_{\mathrm{frac}}} = 0.548$ is $O(1)$,
 the perturbative expansion in~$K$ does not converge.
-The APS eta invariant resums \emph{all} instanton sectors exactly,
-giving the non-perturbative result~\eqref{eq:delta-ckm}.
+The scattering phase formula~\eqref{eq:delta-integral}
+resums all sectors exactly via $\arg\Gamma$.
 The rank-1 't~Hooft vertex (the leading non-perturbative correction)
 moves $\delta$ from $15^\circ$ to~$42^\circ$ at natural
-strength---halfway to the exact value, confirming the instanton
-mechanism.
+strength---confirming the instanton mechanism.
 
 \medskip\noindent
-\textbf{Jarlskog invariant.}
-Using~$\delta = 68.63^\circ$ with the observed mixing angles gives
-$J = s_{12} s_{23} s_{13} c_{12} c_{23} c_{13}^2 \sin(68.63^\circ)
-   = 3.09 \times 10^{-5}$
-(observed: $3.0 \times 10^{-5}$, $3\%$ match).
-The CP violation is near-maximal:
-$\sin\delta = \tanh(\pi) = 0.9963$.
+\textbf{Jarlskog invariant (consistency check).}
+Using the predicted $\delta = 70.2^\circ$ with the
+\emph{observed} mixing angles gives
+$J = s_{12} s_{23} s_{13} c_{12} c_{23} c_{13}^2 \sin(70.2^\circ)
+   = 3.12 \times 10^{-5}$
+(observed: $3.0 \times 10^{-5}$, $4\%$ match).
+This is a \emph{consistency check}, not an independent prediction:
+only~$\delta$ is predicted; the mixing angles are experimental inputs.
+The CP violation is near-maximal: $\sin\delta = 0.94$.
+The model's own perturbative CKM matrix gives $J = 3.5 \times 10^{-5}$
+(observed: $3.0 \times 10^{-5}$, $17\%$ match), which \emph{is}
+a genuine prediction since all entries are computed from~$N = 7$.
 
 \medskip\noindent
 \textbf{Resolution of the $|V_{cb}|$ question.}
-The CKM phase~$\delta$ and the Jarlskog invariant~$J$ are
-\emph{geometric} predictions (topological, parameter-free).
+The CKM phase~$\delta$ is a geometric prediction
+(determined by the scattering phase of the Dirac operator
+on~$\mathbf{H}^2$ and the $T_3$ split $\Delta\mu_4 = 1$).
 The individual mixing angle $|V_{cb}|$ depends on the fermion
-mass hierarchy, which is controlled by the single EWSB parameter
+mass hierarchy, which is controlled by the EWSB parameter
 $\mu_4$.
 The constraint $V_{cb} \times V_{ub}
-= J / (V_{us}\, c_{12}\, c_{23}\, c_{13}^2\, \sin\delta)
-= 1.47 \times 10^{-4}$
-(observed: $1.52 \times 10^{-4}$, $3\%$ match)
-fixes the \emph{product} $|V_{cb}| \cdot |V_{ub}|$ parameter-free,
+= J_{\mathrm{obs}} / (V_{us}\, c_{12}\, c_{23}\, c_{13}^2\, \sin\delta)
+= 1.46 \times 10^{-4}$
+(observed: $1.52 \times 10^{-4}$, $4\%$ match)
+constrains the \emph{product} $|V_{cb}| \cdot |V_{ub}|$
+using the predicted~$\delta$ and observed~$J$,
 while their individual values require the mass hierarchy
 from~$\rho^*$.
 

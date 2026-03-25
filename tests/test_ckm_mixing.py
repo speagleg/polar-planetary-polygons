@@ -69,35 +69,37 @@ class TestCPViolation:
         assert ckm_matrix()['sin_delta'] > 0
 
 
-class TestEtaInvariantPhase:
-    """Tests for delta = 2*theta_CS * tanh(pi) from the APS eta invariant."""
+class TestScatteringPhase:
+    """Tests for delta = (1/2)*log(cosh(pi)) from the integrated scattering phase."""
 
     def test_delta_matches_observed(self):
-        """delta = 68.63 deg matches observed 69 +/- 3 deg."""
+        """delta = 70.2 deg matches observed 69 +/- 3 deg."""
         from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
         r = eta_invariant_phase()
         assert abs(r['delta_deg'] - 69) < 3  # within 1 sigma
 
+    def test_delta_is_half_log_cosh_pi(self):
+        """delta = (1/2)*log(cosh(pi)) = 1.2252 rad exactly."""
+        from math import log, cosh, pi
+        from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
+        r = eta_invariant_phase()
+        expected = 0.5 * log(cosh(pi))
+        assert abs(r['delta_rad'] - expected) < 1e-10
+
     def test_bf_crossing_dominates(self):
-        """Gen 3 mode 3 (BF crossing) contributes > 90% of eta difference."""
+        """Gen 3 mode 3 (BF crossing) contributes > 90% of scattering phase density."""
         from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
         r = eta_invariant_phase()
         assert r['bf_fraction'] > 0.90
 
-    def test_j_consistency(self):
-        """Predicted J from eta invariant delta matches observed J to 10%."""
+    def test_j_consistency_check(self):
+        """J check with observed angles and predicted delta matches to 10%."""
         from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
         r = eta_invariant_phase()
-        assert abs(r['J_predicted'] - 3.0e-5) / 3.0e-5 < 0.10
+        assert abs(r['J_check'] - 3.0e-5) / 3.0e-5 < 0.10
 
-    def test_theta_cs_from_n7(self):
-        """theta_CS = 34.44 deg, determined by N=7."""
+    def test_delta_m_is_unity(self):
+        """BF crossing range Delta_m = 1 from the T3 Higgs split."""
         from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
         r = eta_invariant_phase()
-        assert abs(r['theta_CS_deg'] - 34.44) < 0.01
-
-    def test_tanh_pi_near_unity(self):
-        """tanh(pi) = 0.9963, confirming near-maximal CP."""
-        from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
-        r = eta_invariant_phase()
-        assert abs(r['tanh_factor'] - 0.9963) < 0.001
+        assert r['delta_m'] == 1.0

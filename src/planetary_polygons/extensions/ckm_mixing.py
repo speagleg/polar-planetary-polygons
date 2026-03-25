@@ -16,14 +16,13 @@ as the Havelock kernel.
 The BF-crossing mode (gen 3, m=3, μ₇=0) contributes 92.6% of the
 eta invariant difference. With the SL(2,R) weight factor Δw = 2:
 
-  δ_CKM = 2θ_CS × tanh(π) = 68.63°  (observed: 69° ± 3°)
+  δ_CKM = (1/2) log cosh(π) = 70.2°  (observed: 69° ± 3°)
 
 Predictions (no adjustable parameters):
   |V_us| = 0.237 (obs: 0.224, 6% off)
   θ_C = 13.7° (obs: 13.0°, 5% off)
-  δ = 68.63° (obs: 69°, 0.37° off)  ← from APS eta invariant
-  J = 3.09 × 10⁻⁵ (obs: 3.0 × 10⁻⁵, 3% off)
-  V_cb × V_ub = 1.47 × 10⁻⁴ (obs: 1.52 × 10⁻⁴, 3% off)
+  δ = 70.2° (obs: 69°, 1.2° off)  ← from integrated scattering phase
+  J = 3.5 × 10⁻⁵ (obs: 3.0 × 10⁻⁵, 17% off)  ← from perturbative CKM
   |V_us| >> |V_cb| >> |V_ub| ✓ (Wolfenstein hierarchy)
 """
 
@@ -36,25 +35,37 @@ def b_exact(N):
 
 
 def eta_invariant_phase(N=7, mu4_up=0.5, mu4_down=1.5):
-    """CKM phase from the APS eta invariant (non-perturbative, exact).
+    """CKM phase from the integrated scattering phase on H² (exact).
 
-    The eta invariant of the massive Dirac operator on H² is
-    eta(m) = tanh(pi*m) where m = c - 1/2, from the digamma identity
-    Im psi(1/2 + im) = (pi/2)*tanh(pi*m).
+    The digamma identity Im psi(1/2 + im) = (pi/2)*tanh(pi*m) gives
+    the scattering phase density of the massive Dirac operator on H².
+    Integrating over the BF crossing range m in [0, Delta_m]:
 
-    The CKM phase is delta = 2*theta_CS * tanh(pi*(c_down - 1/2))
-    for the BF-crossing mode (gen 3, m=3, mu7=0), which contributes
-    92.6% of the total eta invariant difference.
+      delta = integral_0^{Delta_m} Im psi(1/2 + im) dm
+            = (1/2) log cosh(pi * Delta_m)
 
-    Returns dict with delta, theta_CS, tanh_factor, and mode breakdown.
+    where Delta_m = mu4_down - mu4_up = 3/2 - 1/2 = 1 (the T3 split).
+    This gives delta = (1/2) log cosh(pi) = 70.2 deg (observed 69 +/- 3).
+
+    The same digamma function generates the Havelock eigenvalue kernel.
+
+    Returns dict with delta, mode breakdown, and consistency checks.
     """
-    from math import tanh, sin
+    from math import tanh, sin, cosh
     c_N = 12 * b_exact(N)
     k_phys = c_N / 6 - N / 2
     k_frac = k_phys - int(k_phys)
     theta_CS = 2 * pi * k_frac
 
-    # Mode-by-mode eta invariant difference
+    # The BF crossing range
+    delta_m = mu4_down - mu4_up  # = 1 for the T3 split
+
+    # The prediction: delta = (1/2) log cosh(pi * delta_m)
+    delta_rad = 0.5 * log(cosh(pi * delta_m))
+    delta_deg = float(delta_rad * 180 / pi)
+    sin_delta = sin(delta_rad)
+
+    # Mode-by-mode scattering phase density (tanh is the DENSITY, not the integral)
     pairs = [(1, 6), (2, 5), (3, 4)]
     mode_contributions = []
     total_delta_eta = 0.0
@@ -75,32 +86,27 @@ def eta_invariant_phase(N=7, mu4_up=0.5, mu4_down=1.5):
                 'bf_crossing': c_up < 1.0 < c_dn,
             })
 
-    # BF-crossing mode (gen 3, m=3): dominant contribution
     bf_mode = [mc for mc in mode_contributions if mc['bf_crossing']]
     bf_delta_eta = bf_mode[0]['d_eta'] if bf_mode else 0.0
-    tanh_factor = tanh(pi * (mu4_down - 0.5))
 
-    # The prediction: delta = 2*theta_CS * tanh(pi*(mu4_down - 1/2))
-    delta_rad = 2 * theta_CS * tanh_factor
-    delta_deg = float(delta_rad * 180 / pi)
-
-    # J consistency: using observed mixing angles
+    # J consistency check (uses OBSERVED mixing angles — not a prediction)
     s12, s23, s13 = 0.2243, 0.0422, 0.0036
     c12 = sqrt(1 - s12**2)
     c23 = sqrt(1 - s23**2)
     c13 = sqrt(1 - s13**2)
-    J_predicted = s12 * s23 * s13 * c12 * c23 * c13**2 * sin(delta_rad)
+    J_check = s12 * s23 * s13 * c12 * c23 * c13**2 * sin_delta
 
     return {
         'delta_rad': delta_rad,
         'delta_deg': delta_deg,
+        'sin_delta': sin_delta,
+        'delta_m': delta_m,
         'theta_CS_rad': theta_CS,
         'theta_CS_deg': float(theta_CS * 180 / pi),
-        'tanh_factor': tanh_factor,
         'bf_delta_eta': bf_delta_eta,
         'total_delta_eta': total_delta_eta,
         'bf_fraction': bf_delta_eta / total_delta_eta if total_delta_eta > 0 else 0,
-        'J_predicted': J_predicted,
+        'J_check': J_check,
         'mode_contributions': mode_contributions,
     }
 
