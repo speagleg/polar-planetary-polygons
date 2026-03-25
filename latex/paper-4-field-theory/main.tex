@@ -469,7 +469,7 @@ Removing the trivial-representation node---which is physically natural,
 since the invariant mode $\eta_0$ decouples---yields the
 \emph{finite} $A_2$ diagram, the Dynkin diagram of~$\mathrm{SU}(3)$.
 
-\emph{Step~5 (ALE resolution $\to$ SU(3) gauge symmetry).}
+\emph{Step~5 (ALE resolution $\to$ SU(3) via the $K$-matrix).}
 The $\mathbb{C}^2/(\mathbb{Z}/3\mathbb{Z})$ singularity in the
 charged mode space must be \emph{resolved} for the
 Chern--Simons theory to be well-defined on a smooth manifold.
@@ -484,12 +484,25 @@ whose intersection matrix is
 \]
 The harmonic $2$-forms $\omega_1$, $\omega_2$ dual to $E_1$, $E_2$
 expand the CS gauge field: $A = A_0 + a_1\,\omega_1 + a_2\,\omega_2$.
-The gauge transformations preserving the intersection form are
-\emph{exactly} those of $\mathrm{SU}(3)$---the group with
-root system $A_2$---at CS level $k = 1$
-\citep{Kronheimer1989, Nakajima1994}.
-This gives $\widehat{\mathfrak{su}}(3)_1$ with
-$c = k\dim(\mathrm{SU}(3))/(k{+}h^\vee) = 8/4 = 2$.
+Substituting into the CS action gives a multi-component
+Chern--Simons theory:
+\[
+  S = \frac{C_{ij}}{4\pi}\int a^i \wedge da^j,
+\]
+with $K$-matrix $K_{ij} = C_{ij}$ (the $A_2$ Cartan matrix).
+By the Wen $K$-matrix equivalence \citep{Wen1995},
+a multi-component Abelian CS theory with $K = \text{Cartan}(G)$
+is equivalent to non-Abelian $G_1$ CS theory at level~$1$.
+Therefore $K = C(A_2)$ yields $\mathrm{SU}(3)_1$ CS,
+with $c = k\dim(\mathrm{SU}(3))/(k{+}h^\vee) = 8/4 = 2$.
+
+\emph{Note:} $\mathrm{SU}(3)_1$ CS is topological in $2{+}1$D
+(zero propagating gluons).
+The colour gauge bosons become dynamical in $3{+}1$D through the
+KK reduction on~$S^1$: the Fourier modes of $a^i$ along~$S^1$
+propagate on $\mathbb{R} \times \mathbf{H}^2$, and
+confinement arises from the orbifold compactification
+(the coloured modes are bound to the $\mathbb{Z}/3\mathbb{Z}$ cover).
 \end{proof}
 
 \begin{center}
@@ -1498,7 +1511,9 @@ The theory is built from five classical ingredients:
 Havelock (1931), Kaluza--Klein (1921),
 Thurston (1982), Chern--Simons (1989),
 and the McKay correspondence (1980).
-No string theory.  No extra dimensions beyond~$S^1$.
+No string theory (the $\mathrm{SU}(3)$ derivation uses the
+$K$-matrix formalism of topological order, not wrapped branes).
+No extra dimensions beyond~$S^1$.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}
