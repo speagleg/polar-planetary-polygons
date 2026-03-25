@@ -1077,16 +1077,32 @@ The next ($N = 41$) lies far above the flat-plane stability boundary
 $N_{\mathrm{crit}} = 7$.
 
 \emph{Part (c).}
-The gauge group $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
-is a direct product (Theorems~\ref{thm:su2},~\ref{thm:su3}).
-In any direct-product gauge theory, the $\mathrm{U}(1)$ flux
-through the $S^1$ fiber is the sum of contributions
-from each charged sector (just as in the SM: $Q = T_3 + Y$ gives
-additive electromagnetic flux).
-The $\mathrm{U}(1)$ connection decomposes:
-$A = A_{\mathrm{SU}(2)} + A_{\mathrm{SU}(3)}$, giving
-$N/2 = N_{\mathrm{EW}}/2 + N_{\mathrm{grav}}/2 = 2 + 7/2 = 11/2$,
-hence $N = 4 + 7 = 11$.
+The Seifert fiber $S^1$ is a circle bundle over $\mathbf{H}^2/\mathbb{Z}_N$,
+classified by its degree (= first Chern class $c_1 = N$).
+The two gauge sectors each define a Seifert bundle:
+\begin{itemize}
+\item \emph{Electroweak} (Theorem~\ref{thm:su2}):
+  the $\mathrm{SU}(2)_1$ sector operates at
+  $N_{\mathrm{EW}} = 4$, defining a line bundle $L_{\mathrm{EW}}$
+  with $c_1(L_{\mathrm{EW}}) = 4$.
+\item \emph{Gravity/colour} (Theorem~\ref{thm:su3}):
+  the graviton sector operates at
+  $N_{\mathrm{grav}} = 7$, defining a line bundle $L_{\mathrm{grav}}$
+  with $c_1(L_{\mathrm{grav}}) = 7$.
+\end{itemize}
+The physical Seifert space is the tensor product
+$L = L_{\mathrm{EW}} \otimes L_{\mathrm{grav}}$.
+By the standard additivity of the first Chern class under
+tensor product of line bundles:
+\[
+  c_1(L) = c_1(L_{\mathrm{EW}}) + c_1(L_{\mathrm{grav}})
+  = 4 + 7 = 11,
+\]
+hence $N = 11$.
+Note: this adds \emph{topological charges} (Chern classes, which
+are integers), not non-abelian gauge fields.
+The flux through the $S^1$ fiber decomposes accordingly:
+$N/2 = 4/2 + 7/2 = 11/2$.
 \end{proof}
 
 \begin{corollary}[Three generations from the Pell equation]
