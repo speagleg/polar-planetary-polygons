@@ -5,9 +5,9 @@ The Chern-Simons lift: 2+1D gravity as the bulk of our 2D orbifold CFT.
     S_CS = (k/4pi) int Tr(A dA + 2/3 A^3)
 with gauge group SL(2,R) x SL(2,R) and level k = l/(4G).
 
-The Brown-Henneaux formula: c = 3l/(2G) = 12k + O(1)
+The Brown-Henneaux formula: c = 3l/(2G) = 6k + O(1)
 Our orbifold gives: c = N^2
-Therefore: k = N^2/12 (to leading order)
+Therefore: k = N^2/6 (to leading order)
 
 The vortex polygons are WILSON LINES in the Chern-Simons theory:
     W_m = Tr_R_m P exp(oint A)

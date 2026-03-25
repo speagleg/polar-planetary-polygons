@@ -1067,7 +1067,10 @@ The three polygon numbers are uniquely determined:
 
 \begin{proof}
 \emph{Part (a).}
-For even $N = 4k$: $f(N/2, N) = N^2/8 = 2k^2$.
+For even $N$: $f(N/2, N) = N^2/8$.
+This is an integer only when $8 \mid N^2$, i.e.\ $4 \mid N$
+(since $N^2/8 = (N/4)^2 \cdot 2$ requires $N/4 \in \mathbb{Z}$).
+Writing $N = 4k$: $f(N/2, N) = 2k^2$.
 The condition $j(j{+}1) = 2k^2$ with $j \in \mathbb{Z}$
 requires $1 + 8k^2$ to be a perfect square.
 At $k = 1$ ($N = 4$): $1 + 8 = 9 = 3^2$, giving $j = 1$.
@@ -1439,7 +1442,9 @@ all other quantities are derived):
   $< 0.12$\,eV (Planck bound).\quad\checkmark
 \end{itemize}
 The neutrino contribution
-$\Omega_\nu = 0.15\%$ reduces the baryon tension from $14\%$ to~$11\%$.
+$\Omega_\nu = 0.14\%$ reduces the baryon tension
+from $12\sigma$ to $\sim\!10\sigma$
+($\Omega_b$ shortfall from $14\%$ to~$11\%$).
 
 %% ====================================================================
 \section{Radion inflation}
