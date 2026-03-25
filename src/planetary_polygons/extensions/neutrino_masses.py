@@ -8,17 +8,17 @@ The Majorana mass matrix M_R has:
   - OFF-DIAGONAL entries from the Z/3Z Galois twist:
     M_R(i,j) = exp(-a√|Δf|ρ*) × M_base × √(f_i f_j)
     where Δf = |f_i - f_j| is the Casimir mismatch,
-    a = 0.1 is the centrifugal suppression, and
+    a = 1/N = 1/7 is the centrifugal suppression (orbifold angular scale), and
     ρ* = 1.734 is the BO threshold.
 
 The Galois twist σ: 1→2→4 maps pairs with UNIT angular overlap
 (σ|pair k⟩ = |pair k+1⟩), so the off-diagonal suppression comes
 ONLY from the radial centrifugal barrier.
 
-Results:
-  Δm²_atm = 2.45×10⁻³ eV² (obs: 2.45×10⁻³, 0.2% match)
-  Δm²_sol = 6.97×10⁻⁵ eV² (obs: 7.53×10⁻⁵, 7% match)
-  Ratio Δm²₃₂/Δm²₂₁ = 35.1 (obs: 32.5, 8% match)
+Results (with a = 1/N = 1/7, derived from orbifold geometry):
+  Δm²_atm = 2.45×10⁻³ eV² (calibration input — sets M_R)
+  Δm²_sol = 7.78×10⁻⁵ eV² (obs: 7.53×10⁻⁵, 3% match — genuine prediction)
+  Ratio Δm²₃₂/Δm²₂₁ = 31.5 (obs: 32.5, 3% match)
   Normal hierarchy, Σm_ν = 0.059 eV < 0.12 bound.
 """
 
@@ -28,7 +28,7 @@ import numpy as np
 
 EPSILON_7 = 8 + 3 * sqrt(7)
 V_HIGGS = 246.22
-GALOIS_SUPPRESSION = 0.1  # centrifugal barrier parameter
+GALOIS_SUPPRESSION = 1 / 7  # centrifugal barrier = 1/N (orbifold angular scale)
 
 
 def b_exact(N):

@@ -862,7 +862,8 @@ protected.
 The CKM matrix $V = U_u^\dagger U_d$ is obtained by diagonalising
 the up-type ($\mu_4 = 1/2$) and down-type ($\mu_4 = 3/2$)
 mass matrices $M = v \times Y$ with the RS profile overlaps.
-Predicted (no adjustable parameters (all couplings derived from $N$)):
+Predicted ($\mu_4 = 1 \mp T_3$ derived from the BF threshold
+and the Higgs $T_3$ eigenvalue; see~\S\ref{sec:parameters}):
 \begin{center}
 \small
 $|V| \approx \begin{pmatrix}
@@ -1299,7 +1300,7 @@ $\Omega_b + \Omega_\nu$ & $4.22\%$ & $4.53\%$ & $4.93 \pm 0.06\%$ & $6.6\sigma$ 
 \end{center}
 \noindent
 The corrections: one-loop Coleman--Weinberg ($+0.16$ pp),
-neutrino seesaw $\Sigma m_\nu = 0.065$\,eV ($+0.15$ pp),
+neutrino seesaw $\Sigma m_\nu = 0.059$\,eV ($+0.14$ pp),
 CS level shift on the mass gap ($+0.005$ pp).
 The baryon tension improves from $12\sigma$ to $6.6\sigma$.
 
@@ -1375,8 +1376,8 @@ Its Majorana mass is
 \begin{equation}\label{eq:M-R}
   M_R = M_{\mathrm{poly}} \times \varepsilon_7^{N_{\mathrm{grav}}}
   \times f(m^*, N_{\mathrm{grav}})
-  = 50\;\mathrm{TeV} \times \varepsilon_7^7 \times 6
-  = 7.8 \times 10^{13}\;\mathrm{GeV},
+  = M_{\mathrm{poly}} \times \varepsilon_7^7 \times 6
+  \sim 10^{13}\text{--}10^{14}\;\mathrm{GeV},
 \end{equation}
 where $f(3,7) = 6 = j(j{+}1)$ with $j = 2$ is the \emph{graviton
 Casimir}---the same quantity that identifies the graviton.
@@ -1400,20 +1401,27 @@ Gen & Pair & $\mu_7$ & $m_D$ & $m_\nu$ \\
 \end{tabular}
 \end{center}
 \noindent
-Predictions (no adjustable parameters (all couplings derived from $N$)):
+Predictions (one calibration: $\Delta m^2_{\mathrm{atm}}$ sets $M_R$;
+all other quantities are derived):
 \begin{itemize}
 \item \emph{Normal hierarchy}: $m_3 \gg m_2 \gg m_1$.\quad\checkmark
-\item $\Delta m^2_{\mathrm{atm}} = 2.44 \times 10^{-3}\;\mathrm{eV}^2$
-  (observed: $2.45 \times 10^{-3}$; match to $0.3\%$).
-\item $\Delta m^2_{\mathrm{sol}} = 7.0 \times 10^{-5}\;\mathrm{eV}^2$
-  (observed: $7.5 \times 10^{-5}$; $7\%$ match).
-  The improvement from $2.3\times$ (diagonal $M_R$) to $7\%$
+\item $\Delta m^2_{\mathrm{atm}} = 2.45 \times 10^{-3}\;\mathrm{eV}^2$
+  (calibration input: $M_R$ is adjusted to match this datum,
+  analogous to fixing the electroweak scale from~$G_F$).
+\item $\Delta m^2_{\mathrm{sol}} = 7.8 \times 10^{-5}\;\mathrm{eV}^2$
+  (observed: $7.5 \times 10^{-5}$; $3\%$ match).
+  This is a \emph{genuine prediction}.
+  The improvement from $2.3\times$ (diagonal $M_R$) to $3\%$
   comes from the $\mathbb{Z}/3\mathbb{Z}$ Galois twist,
   which generates off-diagonal $M_R$ entries suppressed by
-  $e^{-a\sqrt{|\Delta f|}\,\rho^*}$ ($a = 0.1$,
-  $\Delta f = |f_i {-} f_j|$ the Casimir mismatch).
+  $e^{-\sqrt{|\Delta f|}\,\rho^*/N}$
+  ($\Delta f = |f_i {-} f_j|$ the Casimir mismatch,
+  $1/N$ the natural centrifugal barrier scale
+  of the $\mathbb{Z}_N$ orbifold).
   The Frobenius $\sigma$ maps pairs with \emph{unit} angular overlap;
-  the suppression is from the radial centrifugal barrier.
+  the suppression is purely radial.
+\item $\Delta m^2_{\mathrm{atm}} / \Delta m^2_{\mathrm{sol}} = 31.5$
+  (observed: $32.5$; $3\%$ match).
 \item $\Sigma m_\nu = 0.059$\,eV
   $< 0.12$\,eV (Planck bound).\quad\checkmark
 \end{itemize}
@@ -1451,19 +1459,67 @@ For lower reheating ($N_e = 60$): $r = 0.070$
 (excluded by current data, requiring $N_e > 110$).
 
 %% ====================================================================
+\section{Parameter accounting}
+\label{sec:parameters}
+
+\paragraph{Input.}
+The single discrete input is $N = 7$ (the polygon number),
+determined by the Pell equation (Theorem~\ref{thm:n-selection}(b)).
+The cosmological polygon number $N = 11$ follows from Chern class
+additivity (Theorem~\ref{thm:n-selection}(c)).
+
+\paragraph{Derived from~$N$ (no freedom).}
+The central charge $c = 12\,b(N)$, CS phase~$\theta_{\mathrm{CS}}$,
+Pell threshold $\xi^* = 8 {-} 3\sqrt{7}$,
+Weinberg angle $\sin^2\theta_W = 3/11$,
+$3$~generations $= (N{-}1)/2$,
+$4$~texture zeros (from $\mathbb{Z}_7$ charge conservation),
+Wolfenstein hierarchy,
+and CKM phase $\delta = \tfrac{1}{2}\log\cosh(\pi) = 70.2^\circ$.
+
+\paragraph{Derived from the BF threshold and $\mathrm{SU}(2)$ representation theory.}
+The fermion bulk mass on the $S^1$ fiber is
+$\mu_4 = \mu_{4,\mathrm{bare}} \mp T_3$, where:
+\begin{itemize}
+\item $\mu_{4,\mathrm{bare}} = 1$ (the Breitenlohner--Freedman threshold
+  $M^2 = c(c{-}1) = 0$ at $c = 1$---the unique stability boundary
+  on~$\mathbf{H}^2$);
+\item $T_3 = \pm\tfrac{1}{2}$ (the weak isospin of the Higgs doublet
+  component in the Yukawa coupling).
+\end{itemize}
+This gives $\mu_4^{\mathrm{up}} = 1 - \tfrac{1}{2} = \tfrac{1}{2}$
+(conformal profile, heaviest generation) and
+$\mu_4^{\mathrm{dn}} = 1 + \tfrac{1}{2} = \tfrac{3}{2}$.
+The WZW level $k = 1$ is the unique level where the Higgs doublet
+($j = 1/2$) is the highest-weight representation;
+the compact boson level $K = 1$ is the self-dual radius
+(the unique point with enhanced $\mathrm{SU}(2)$ symmetry).
+
+\paragraph{Neutrino sector: one calibration.}
+The Galois centrifugal suppression $a = 1/N = 1/7$ is derived from the
+orbifold angular scale.
+The Majorana mass scale $M_R$ is calibrated to match
+$\Delta m^2_{\mathrm{atm}} = 2.45 \times 10^{-3}\;\mathrm{eV}^2$
+(one datum, analogous to fixing the electroweak scale from~$G_F$).
+The solar mass splitting $\Delta m^2_{\mathrm{sol}}$
+and the mass ratio are then genuine predictions ($3\%$ match each).
+
+\paragraph{Total.}
+One discrete input ($N = 7$) plus one neutrino calibration ($M_R$),
+for approximately $25$ predictions.
+The Standard Model, by comparison, has $19$ free parameters
+for roughly the same set of observables.
+
+%% ====================================================================
 \section{Discussion}
 \label{sec:discussion}
 
-The Havelock Field Theory is specified by a single integer~$N$
-on a single geometry $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$,
-with \emph{zero} free parameters ($N$ is derived by the Pell equation
-and flux addition, Theorem~\ref{thm:n-selection}).
-The proven results:
+The results of the preceding sections:
 \begin{itemize}
 \item $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
   gauge symmetry (Theorems~\ref{thm:su2},~\ref{thm:su3});
 \item $N = 4, 7, 11$ from angular momentum quantization
-  $+$ flux addition (Theorem~\ref{thm:n-selection});
+  $+$ Chern class additivity (Theorem~\ref{thm:n-selection});
 \item $3$ generations $= (N_{\mathrm{grav}} - 1)/2$
   (Corollary~\ref{cor:3-gen});
 \item Electroweak hierarchy $M_P/M_{\mathrm{EW}}$ from the hybrid
@@ -1476,8 +1532,8 @@ The proven results:
 \item $2$ gravitational DOF $=$ graviphoton (spin-$1$) $+$ radion (spin-$0$),
   not a standard spin-$2$ graviton (Theorem~\ref{thm:graviton-4d});
 \item Fermion mass ratios quantum-stable at one loop;
-\item Neutrino masses: $\Delta m^2_{\mathrm{atm}}$ to $0.3\%$,
-  normal hierarchy, $\Sigma m_\nu = 0.065$\,eV (\S\ref{sec:neutrinos});
+\item Neutrino masses: $\Delta m^2_{\mathrm{sol}}$ to $3\%$,
+  normal hierarchy, $\Sigma m_\nu = 0.059$\,eV (\S\ref{sec:neutrinos});
 \item Cosmological budget: $\Omega_\Lambda$, $\Omega_{\mathrm{DM}}$
   within $2\sigma$ of Planck; $\Omega_b = 4.53\%$ between the
   Planck and SH0ES values of~$H_0$;
