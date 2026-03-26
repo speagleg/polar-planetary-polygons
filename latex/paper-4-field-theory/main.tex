@@ -255,11 +255,12 @@ The boundary graviton has $2$ independent components
 tensor polarisations.
 Both propagate on $T^2$, giving $n_{\mathrm{phys}} = 2$---matching
 the standard $d(d{-}3)/2 = 2$ count for $4$D gravity.
-The Weinberg--Witten theorem
-(that a massless spin-$2$ particle cannot carry a Lorentz-covariant
-stress-energy tensor) is evaded: the boundary graviton lives
-on the $2$D boundary, not in the $4$D Lorentz-invariant bulk.
-This is the same loophole as in AdS/CFT \citep{Maldacena1997}.
+The Weinberg--Witten theorem is evaded: the theorem requires
+a Lorentz-covariant conserved $T_{\mu\nu}$ in the \emph{same}
+spacetime as the massless spin-$2$ particle.
+Here $T(z)$ is a $2$D boundary operator, not a $4$D bulk tensor;
+the hypothesis ``$T_{\mu\nu}$ is a local operator in the graviton's
+spacetime'' fails \citep{Maldacena1997}.
 \end{proof}
 
 \begin{remark}[Bulk KK decomposition]
@@ -280,9 +281,12 @@ $\sigma = g_{\varphi\varphi}$ (radion) & $0$ & $\mathbf{1}$ & massive, $m \sim M
 \end{center}
 \noindent
 The $2$ bulk DOF (graviphoton $+$ radion) and the $2$ boundary DOF
-($T$ and $\bar T$) are \emph{dual descriptions of the same graviton}
-(proved in Proposition~\ref{prop:graviton-propagator}: the boundary
-$\langle TT\rangle$ correlator reproduces the bulk propagator).
+($T$ and $\bar T$) are \emph{dual descriptions of the same graviton} in the IR
+($r \gg R$): the boundary $\langle TT\rangle$ correlator
+reproduces the bulk propagator
+(Proposition~\ref{prop:graviton-propagator}).
+At energies above $M_{\mathrm{poly}}$, the full KK tower
+contributes and the two descriptions differ.
 In the bulk, the spin-$2$ structure is decomposed into spin $1{+}0$
 under $3$D rotations; on the boundary, the spin-$2$ structure
 is manifest (conformal weight~$2$).
@@ -1518,10 +1522,13 @@ The two gauge sectors each define a Seifert bundle:
   with $c_1(L_{\mathrm{grav}}) = 7$.
 \end{itemize}
 The physical Seifert space carries \emph{both} gauge sectors
-on a single $S^1$ fibre, so its line bundle is the tensor product
-$L = L_{\mathrm{EW}} \otimes L_{\mathrm{grav}}$
-(the unique bundle whose flux includes both the EW and
-gravitational quanta).
+on a single $S^1$ fibre (a single spin connection serves both
+the gravitational and electroweak KK reductions).
+The total line bundle is $L = L_{\mathrm{EW}} \otimes L_{\mathrm{grav}}$:
+the tensor product is the unique bundle operation that
+(i)~preserves the $S^1$ fibre structure,
+(ii)~adds the Chern classes (fluxes), and
+(iii)~is the group law in $H^2(B;\,\mathbb{Z})$.
 By the standard additivity of the first Chern class under
 tensor product of line bundles:
 \[
@@ -1674,8 +1681,9 @@ which \emph{exactly cancels} the Selberg stability denominator
 $1/(2\sinh(\ell_0/2))$
 (this cancellation follows because the WKB spectral measure for
 the $\ln(2\sinh\rho)$ potential reproduces the Harish-Chandra
-$c$-function of $\mathrm{SL}(2,\mathbb{R})$,
-whose Fourier transform is $2\sinh(\ell/2)$).
+$c$-function of $\mathrm{SL}(2,\mathbb{R})$
+\citep[Ch.~IV]{Hejhal1976},
+whose Fourier transform is $\hat{h}(\ell) = 2\sinh(\ell/2)$).
 The net contribution per orbit is therefore simply
 the \emph{geodesic length}~$\ell_0 = 2\ln\varepsilon_7$.
 Summing the seven lifts:
@@ -2049,9 +2057,14 @@ and CKM phase $\delta = \tfrac{1}{2}\log\cosh(\pi) = 70.2^\circ$.
 The fermion bulk mass on the $S^1$ fiber is
 $\mu_4 = \mu_{4,\mathrm{bare}} \mp T_3$, where:
 \begin{itemize}
-\item $\mu_{4,\mathrm{bare}} = 1$ (the Breitenlohner--Freedman threshold
-  $M^2 = c(c{-}1) = 0$ at $c = 1$---the unique stability boundary
-  on~$\mathbf{H}^2$);
+\item $\mu_{4,\mathrm{bare}} = 1$: in the KK reduction, the fiber mass
+  $\mu_4$ maps to the bulk conformal dimension $c$ via $c = \mu_4 + 1/2$
+  (the standard mass--dimension relation for Dirac fields on
+  AdS$_3$).
+  The BF threshold $M^2 = c(c{-}1) = 0$ at $c = 1$ then gives
+  $\mu_4 = c - 1/2 = 1/2$ for the \emph{massless} mode, and
+  $\mu_{4,\mathrm{bare}} = 1$ for the first massive level
+  (the unique stability boundary on~$\mathbf{H}^2$);
 \item $T_3 = \pm\tfrac{1}{2}$ (the weak isospin of the Higgs doublet
   component in the Yukawa coupling).
 \end{itemize}
@@ -2080,7 +2093,9 @@ scale ($v$ or $M_P$, needed to set units in any theory),
 plus the structural framework (Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$
 geometry, BF-threshold identification with the $T_3$ split,
 $k = K = 1$ for the compact gauge levels),
-for approximately $25$~predictions.
+for approximately $25$~predictions ($\sim\!15$ independent,
+since mass ratios are correlated by the Yukawa texture
+and CKM elements are constrained by unitarity).
 The Standard Model, by comparison, has $19$~free parameters
 for roughly the same set of observables.
 The structural choices above are not free parameters (they are
@@ -2249,6 +2264,11 @@ The mixed component $R^{(4)}_{i\varphi} = 0$ is automatically
 satisfied.
 Therefore the full $4$D vacuum Einstein equations hold on the
 Seifert background.
+For general perturbations around this background, the linearised
+equations follow from the graviton propagator
+(Proposition~\ref{prop:graviton-propagator}); the nonlinear
+matter-coupled equations follow from the entanglement argument
+(Step~C below).
 
 \emph{Step~C (Matter coupling from entanglement).}
 The vacuum equations (Steps~A--B) are exact.
@@ -2260,7 +2280,9 @@ Three ingredients suffice:
 \emph{unitary} (manifestly: it is an orbifold of free bosons);
 (ii)~the Ryu--Takayanagi formula
 $S_{\mathrm{EE}} = \mathrm{Area}/(4G)$ holds
-(verified numerically: $R^2 = 0.98$);
+(an assumption of AdS/CFT, tested numerically for the
+$\mathbb{Z}_N$ orbifold: $R^2 = 0.98$ for the block-entropy
+scaling $E(k) = A\log\sin(\pi k/N) + B$);
 (iii)~relative entropy is non-negative,
 $S(\rho\|\sigma) \ge 0$ for all states
 (a theorem of quantum information, automatic for unitary theories).
