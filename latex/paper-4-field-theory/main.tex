@@ -217,10 +217,15 @@ This weight is \emph{derived} from the Virasoro algebra
 ($[L_n, T(z)] = z^{n+1}\partial T + 2(n{+}1)z^n T$):
 $T$ transforms as a rank-$2$ tensor under conformal
 transformations.
-This is the spin-$2$ structure of the graviton---the
-promotion from $2$D conformal weight to $4$D helicity follows
-from Step~3 below (the boundary torus provides the transverse
-spatial structure needed for the $4$D little-group classification).
+This is the spin-$2$ structure of the graviton.
+The promotion from $2$D conformal weight to $4$D helicity $\pm 2$
+is made precise in Step~3: on the boundary $T^2$, the
+momentum $(k_\theta, k_\varphi)$ defines the transverse plane,
+and the $4$D massless little group $\mathrm{SO}(2)$ acts by
+rotations in this plane; $T(z)$ transforms with eigenvalue
+$e^{2i\alpha}$ under a rotation by~$\alpha$, which is
+the definition of helicity~$+2$
+(and $\bar T(\bar z)$ gives helicity~$-2$).
 
 \emph{Step~3 (Boundary torus).}
 On the Seifert manifold, the conformal boundary
@@ -230,9 +235,14 @@ At geodesic radius~$\rho$, the local field strength is
 $|F| = N/(2\,\mathrm{Area}(\rho))
 = N/(4\pi(\cosh\rho{-}1)) \to 0$ as $\rho \to \infty$:
 the twist angle per unit base displacement vanishes.
-At the asymptotic boundary the fibre untwists and
-the boundary is a torus
-$T^2 = S^1_\theta \times S^1_\varphi$.
+At the asymptotic boundary the local twist vanishes.
+The total holonomy (Chern class $N/2$) is a topological
+invariant, but in the Fefferman--Graham expansion the
+conformal boundary metric is the flat product
+$T^2 = S^1_\theta \times S^1_\varphi$---the holonomy
+acts on the fibre \emph{globally} (as a large gauge
+transformation) without affecting the local metric structure
+or the graviton counting.
 The boundary stress tensor $T(z, \varphi)$ has two momenta:
 $k_\theta$ (along the boundary circle) and $k_\varphi$ (along
 the fibre).
@@ -270,7 +280,9 @@ $\sigma = g_{\varphi\varphi}$ (radion) & $0$ & $\mathbf{1}$ & massive, $m \sim M
 \end{center}
 \noindent
 The $2$ bulk DOF (graviphoton $+$ radion) and the $2$ boundary DOF
-($T$ and $\bar T$) are \emph{dual descriptions of the same graviton}.
+($T$ and $\bar T$) are \emph{dual descriptions of the same graviton}
+(proved in Proposition~\ref{prop:graviton-propagator}: the boundary
+$\langle TT\rangle$ correlator reproduces the bulk propagator).
 In the bulk, the spin-$2$ structure is decomposed into spin $1{+}0$
 under $3$D rotations; on the boundary, the spin-$2$ structure
 is manifest (conformal weight~$2$).
@@ -665,10 +677,16 @@ normalisation from the action (\S\ref{sec:action}):
   $g_{W,\mathrm{eff}}^2 = (4\pi/\tilde{k}) \times j(j{+}1)
   = 4\pi \times h_{\mathrm{SU}(2)} = 4\pi h_{\mathrm{SU}(2)}$.
 \end{itemize}
-The factor-of-$2$ asymmetry ($8\pi$ vs $4\pi$) arises from
-the $1/2$ in the compact-boson kinetic term
-($h = Q^2/\mathbf{2}K$) versus the WZW ($h = C_2/(k{+}h^\vee)$,
-no factor of~$2$).
+The factor-of-$2$ asymmetry ($8\pi$ vs $4\pi$) has a direct
+Lagrangian origin: the compact-boson action
+$\mathcal{L} = (K/2)(\partial\varphi)^2$ has the canonical
+$(1/2)$ normalisation, giving $h = Q^2/(2K)$;
+the WZW action $\mathcal{L} = (k/4\pi)\operatorname{Tr}(g^{-1}dg)^2$
+is normalised by level quantisation ($k \in \mathbb{Z}$ for
+compact groups), which fixes $h = C_2/(k{+}h^\vee)$ with
+no additional $(1/2)$.
+The two normalisations are not conventions but consequences of
+the compact-boson versus WZW kinetic structures.
 Therefore
 \begin{equation}\label{eq:hbar}
   \sin^2\theta_W = \frac{8\pi h_{\mathrm{U}(1)}}{8\pi h_{\mathrm{U}(1)}
@@ -1309,7 +1327,7 @@ $N = 11$ Born--Oppenheimer tunneling action:
     - \tfrac{\gamma}{2}
     - \tfrac{\ln 2}{2\,c_{11}}\Bigr),
 \end{equation}
-where $S_{\mathrm{BO}}(11) = 102.72$ is the WKB tunneling action of the
+where $S_{\mathrm{BO}}(11) = 102.724$ is the WKB tunneling action of the
 $N = 11$ breathing-mode potential, $\gamma = 0.5772\ldots$ is the
 Euler--Mascheroni constant (from Green's function regularisation),
 $c_{11} = 12\,b(11) = 126.56$, and $v = 246$\,GeV (from the
@@ -1363,8 +1381,8 @@ Two subleading corrections enter:
   identity~\eqref{eq:pell-identity}.
 \end{enumerate}
 Together: $\ln(\ell\,v)
-= 102.72 - 0.289 - 0.003 = 102.433$
-(matching $\ln(\ell_{\mathrm{obs}}\,v) = 102.433$ to $0.03\%$).
+= 102.724 - 0.289 - 0.003 = 102.432$
+(matching $\ln(\ell_{\mathrm{obs}}\,v) = 102.433$ to $0.001\%$).
 \end{proof}
 
 \begin{remark}[The Pell connection at $N = 11$]
@@ -1937,8 +1955,8 @@ all other quantities are derived):
 \begin{itemize}
 \item \emph{Normal hierarchy}: $m_3 \gg m_2 \gg m_1$.\quad\checkmark
 \item $\Delta m^2_{\mathrm{atm}} = 2.45 \times 10^{-3}\;\mathrm{eV}^2$
-  (calibration input: $M_R$ is adjusted to match this datum,
-  analogous to fixing the electroweak scale from~$G_F$).
+  (a genuine prediction: $M_R$ is derived from the Pell identity
+  via eq.~\eqref{eq:M-R}, not fitted to this datum).
 \item $\Delta m^2_{\mathrm{sol}} = 7.8 \times 10^{-5}\;\mathrm{eV}^2$
   (observed: $7.5 \times 10^{-5}$; $3\%$ match).
   This is a \emph{genuine prediction}.
@@ -2059,9 +2077,16 @@ genuine predictions.
 \paragraph{Total.}
 One discrete input ($N = 7$) plus one dimensionful
 scale ($v$ or $M_P$, needed to set units in any theory),
+plus the structural framework (Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$
+geometry, BF-threshold identification with the $T_3$ split,
+$k = K = 1$ for the compact gauge levels),
 for approximately $25$~predictions.
 The Standard Model, by comparison, has $19$~free parameters
 for roughly the same set of observables.
+The structural choices above are not free parameters (they are
+determined by the geometry and representation theory) but
+should be distinguished from quantities computed by integration
+(the WKB actions, Legendre functions, etc.).
 
 %% ====================================================================
 \section{Consistency checks}

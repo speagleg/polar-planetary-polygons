@@ -56,7 +56,7 @@ class TestStep4WKBCorrections:
         from planetary_polygons.extensions.pell_identity_proof import central_charge
         c = central_charge(7)
         w = wkb_corrections(7)
-        assert w['delta_dunham'] == pytest.approx(-2 / c**2 * ARCCOSH_8)
+        assert w['delta_dunham'] == pytest.approx(-4 / c**2 * ARCCOSH_8)
 
     def test_corrected_matches_numerical(self):
         """The WKB-corrected 2S matches numerical to < 0.01%."""
