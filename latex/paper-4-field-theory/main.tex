@@ -236,13 +236,20 @@ $|F| = N/(2\,\mathrm{Area}(\rho))
 = N/(4\pi(\cosh\rho{-}1)) \to 0$ as $\rho \to \infty$:
 the twist angle per unit base displacement vanishes.
 At the asymptotic boundary the local twist vanishes.
-The total holonomy (Chern class $N/2$) is a topological
-invariant, but in the Fefferman--Graham expansion the
-conformal boundary metric is the flat product
-$T^2 = S^1_\theta \times S^1_\varphi$---the holonomy
-acts on the fibre \emph{globally} (as a large gauge
-transformation) without affecting the local metric structure
-or the graviton counting.
+The Fefferman--Graham expansion of the metric near
+$\rho \to \infty$ takes the standard form
+$ds^2 = d\rho^2 + e^{2\rho}\,g^{(0)}_{ab}\,dx^a dx^b + \ldots$
+where $g^{(0)}$ is the conformal boundary metric.
+For a Seifert manifold with connection~$A$, the induced
+boundary metric is $g^{(0)} = d\theta^2 + (d\varphi + A_\theta\,d\theta)^2$.
+Since $A_\theta = F \times \mathrm{Area}(\rho) \sim N/(4\pi(\cosh\rho{-}1))
+\to 0$ as $\rho \to \infty$, the conformal boundary metric
+$g^{(0)} \to d\theta^2 + d\varphi^2$ (flat product $T^2$).
+The total holonomy (Chern class $N/2$) persists as a
+\emph{global} topological invariant but enters the
+Fefferman--Graham expansion only at subleading order
+$O(e^{-2\rho})$, affecting the boundary stress-tensor
+expectation value but not the graviton zero-mode counting.
 \emph{Explicit helicity derivation.}
 The linearised metric perturbation on $\mathbb{R} \times T^2$
 is $h_{ij}(t,\theta,\varphi)
@@ -1127,11 +1134,21 @@ The key physical insight is that the CKM phase arises from the
 \emph{Dirac propagator phase} of the bulk-to-brane fermion field.
 
 \emph{Step~1 (Yukawa coupling $=$ Dirac propagator).}
-The Yukawa entry $Y_{ij}$ involves the Dirac bulk-to-brane
-propagator $K(c, \rho^*)$ at conformal dimension~$c$, which
-has a \emph{phase}
-$\arg K = \arg\Gamma(c)$
-(from the exact Dirac Green's function on~$\mathbf{H}^2$).
+The Yukawa entry $Y_{ij}$ involves the RS profile overlap
+$\int_0^{\rho^*} f_L(c_L,\rho)\,f_R(c_R,\rho)\,\varphi_H(\rho)\,
+\sinh\rho\;d\rho$,
+where $f(c,\rho) = A\,e^{(1/2-c)\rho}$ is the normalised RS profile.
+For real conformal dimension~$c$, the overlap is real and the
+profile magnitude gives the CKM mixing angles.
+For complex~$c = \tfrac{1}{2} + im$ (which arises at the
+BF crossing, Step~3), the profile $e^{-im\rho}$ is
+\emph{oscillatory} and the overlap integral acquires a phase.
+The exact phase of the Dirac bulk-to-brane propagator
+$K(c, \rho^*)$ is $\arg K = \arg\Gamma(c)$
+(from the standard spectral representation of the
+Dirac Green's function on~$\mathbf{H}^2$,
+which involves $\Gamma(c)$ in the normalisation of the
+conical functions $P_{-1/2+ir}$).
 For real~$c > 0$: $\arg\Gamma(c) = 0$---no CP violation.
 For complex~$c = \tfrac{1}{2} + im$:
 $\arg\Gamma(\tfrac{1}{2} + im)
