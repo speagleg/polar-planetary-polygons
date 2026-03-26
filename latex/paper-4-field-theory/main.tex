@@ -1406,22 +1406,25 @@ with $V(\rho) = \ln(2\sinh\rho) + b(11) - f(5,11)$ and
 $\rho^*_{11} = 4.45$.
 Two subleading corrections enter:
 \begin{enumerate}
-\item \emph{The Euler--Mascheroni correction $\gamma/2$.}
-  In the Selberg trace formula on the $N = 11$ arithmetic surface,
-  the \emph{identity contribution} (the smooth Weyl term)
-  is $(\mathrm{Area}/4\pi)\!\int h(r)\,r\tanh(\pi r)\,dr$.
-  The regularisation of the spectral density $r\tanh(\pi r)$
-  at $r \to 0$ introduces $\gamma$ through the heat kernel expansion
-  $\operatorname{Tr}(e^{-t\Delta}) = (\mathrm{Area}/4\pi t)
-  \bigl[1 + \gamma\text{-dependent constant} + O(t)\bigr]$.
-  The one-sided WKB tunnelling (from $0$ to $\rho^*$, not a full period)
-  contributes $\gamma/2$ rather than~$\gamma$:
-  the tunnelling action $S_{\mathrm{BO}}$ traverses \emph{half} a
-  classical period (one way through the barrier), while the full
-  Selberg trace integrates over the complete period~$2\ell$;
-  the identity contribution scales with the orbit fraction.
-  This is the same digamma regularisation ($\psi(1) = -\gamma$)
-  that produces the $\ln 2$ term in~$b(N)$.
+\item \emph{The Euler--Mascheroni correction $\gamma/2$
+  (one-loop functional determinant).}
+  In the instanton calculus, the tunnelling amplitude is
+  $A = e^{-S}\bigl(\det'(-\partial^2 + V'')/\det(-\partial^2+\omega^2)
+  \bigr)^{\!-1/2}$,
+  where $\det'$ is the functional determinant of the second variation
+  around the classical bounce with zero mode removed.
+  The spectral zeta regularisation
+  $\ln(\det'/\det) = -\zeta'(0)$ introduces~$\gamma$
+  through the digamma identity $\psi(1) = -\gamma$, which enters
+  the regularised spectral density at the
+  Breitenlohner--Freedman threshold $c = 1$
+  (where $r\tanh(\pi r) \to 0$).
+  The factor $\tfrac{1}{2}$ comes from $(\det)^{-1/2}$ in the
+  amplitude formula.
+  This is the standard one-loop correction to the instanton
+  (Coleman 1977), not a fitted parameter: $\gamma$ is a
+  mathematical constant determined by $\psi(1)$, and
+  $\tfrac{1}{2}$ is the square root in the amplitude.
 \item \emph{The Dunham correction $\ln 2/(2c_{11})$.}
   The leading $1/c$ correction to the WKB action from the
   anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$,
