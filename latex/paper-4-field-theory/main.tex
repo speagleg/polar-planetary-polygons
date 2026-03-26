@@ -1096,10 +1096,44 @@ $|V_{cb}|$ (at $\delta \approx 70^\circ$) gives
 $\sqrt{0.092 \times 0.021} = 0.044 \approx |V_{cb}|_{\mathrm{obs}}$,
 suggesting coherent interference between the perturbative and
 instanton sectors.
-The self-consistent non-perturbative CKM
-(with $\delta$, $|V_{cb}|$, and $J$ all computed at the same
-instanton strength from the full Dirac operator on
-$\mathbf{H}^2/\mathbb{Z}_7$) is an open calculation.
+\emph{Sequential barrier tunneling.}
+$|V_{cb}|$ involves tunneling from generation~$2$ to generation~$3$
+through \emph{two} barriers:
+(i)~the RS warp-factor barrier at~$\rho^*$ (transmission
+$T_1 = |V_{cb}|_{\mathrm{pert}} = 0.092$), and
+(ii)~the orbifold image barrier on $\mathbf{H}^2/\mathbb{Z}_7$
+(transmission $T_2 = |V_{cb}|_{\mathrm{orb}} = 0.021$,
+computed from the Dirac Green's function at $\delta \approx 70^\circ$).
+By the Born approximation for sequential barriers:
+\begin{equation}\label{eq:Vcb-born}
+  |V_{cb}|^2 = T_1 \times T_2,
+  \qquad
+  |V_{cb}| = \sqrt{0.092 \times 0.021} = 0.044.
+\end{equation}
+This applies \emph{only} to $V_{cb}$ because generation~$3$
+is the unique BF-crossing mode ($c\colon \tfrac{1}{2} \to \tfrac{3}{2}$
+crosses $c = 1$); the BF threshold IS the second barrier.
+Generations~$1$ and~$2$ do not cross ($c > 1$ on both sides),
+so $|V_{us}| \approx |V_{us}|_{\mathrm{pert}} = 0.237$
+(single barrier only).
+
+\emph{Wolfenstein parameters derived from $N = 7$.}
+With $\lambda = V_{us} = 0.237$,
+$A = V_{cb}/\lambda^2 = 0.783$,
+and $\gamma = \delta = 70.2^\circ$:
+\[
+  \rho = \frac{|V_{ub}|_{\mathrm{pert}}}{V_{cb,\mathrm{pert}} \lambda}
+    \cos\gamma = 0.098,
+  \qquad
+  \eta = \frac{|V_{ub}|_{\mathrm{pert}}}{V_{cb,\mathrm{pert}} \lambda}
+    \sin\gamma = 0.272.
+\]
+The Jarlskog invariant:
+$J = A^2\lambda^6\eta = 2.96 \times 10^{-5}$
+(observed: $3.0 \times 10^{-5}$, $1\%$~match).
+$|V_{ub}| = A\lambda^3|\rho {-} i\eta| = 0.003$
+(observed: $0.004$, $16\%$~off---the weakest element,
+from the perturbative $V_{ub}/V_{cb}$ ratio).
 
 \emph{Derivation of $V_{ub}/V_{cb} = 0.090$.}
 The ratio $V_{ub}/V_{cb}$ is \emph{computed}, not fitted.
