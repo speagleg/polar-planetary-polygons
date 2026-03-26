@@ -27,7 +27,9 @@ The main result: in $2{+}1$D, the Havelock eigenvalue structure---applied
 via the equivalence principle (test polygons at every point of a spatial
 slice)---\emph{derives} the vacuum Einstein equations
 $R_{\mu\nu} = \Lambda g_{\mu\nu}$ from the vortex dynamics alone;
-all three hypotheses are proved or derived, with no circularity.
+all three hypotheses are derived (H1~from the $\csc^2$
+uniqueness theorem, H2~from the WDW classical limit,
+H3~from the Hadamard universality of the Green's function).
 In $d \ge 3$, the same structure \emph{characterises} the Einstein
 equations (the Havelock condition is equivalent to vacuum Einstein,
 providing a new criterion for Einstein manifolds).
@@ -50,10 +52,10 @@ Paper~I into gravitational phase transitions.
 
 This paper develops the consequences:
 \begin{itemize}
-  \item \S\ref{sec:k-theory-grav}--\S\ref{sec:ope-id}:
+  \item \S\ref{sec:k-theory-grav}--\S\ref{sec:ope-identification}:
     K-theoretic classification, spectral bounds, holographic
     interpretation, and the conformal block identification.
-  \item \S\ref{sec:btz}--\S\ref{sec:lorentzian}:
+  \item \S\ref{sec:btz}:
     the polygon--BTZ phase transition, entropy accounting,
     and Lorentzian continuation.
   \item \S\ref{sec:wdw}--\S\ref{sec:three-layer}:
@@ -162,6 +164,7 @@ and saturates at $m = N/2$ (lattice effect).
 
 %% ====================================================================
 \section{K-theoretic classification of gravitational phases}
+\label{sec:k-theory-grav}
 
 The $K$-theoretic framework of Paper~I, \S7 classifies
 gravitational stability phases.
@@ -186,6 +189,7 @@ On a spatial slice $S = \Gamma\backslash\mathbf{H}^2$:
 \end{enumerate}
 
 \section{The spectral bound as a quantum gravitational bound}
+\label{sec:spectral-bound}
 
 The spectral correction and the gravitational one-loop
 partition function are both moments of the heat kernel:
@@ -328,7 +332,7 @@ The automorphism-fixed centre is stable
 (by $L^2$-weight) is unstable.
 This position dependence is a gravitational analogue of the
 placement dependence on Saturn
-(Paper~III, Section~\ref{III-sec:oblateness}): the polar
+(Paper~II, oblateness analysis): the polar
 flattening selects the pole as the stable site for the
 hexagon, just as the automorphism group selects the
 Aut-fixed centre as the stable site for the mass polygon.
@@ -662,22 +666,25 @@ by Paper~I, equation~\ref*{I-eq:C1_H2}
 Part~(c) combines (a) and (b) via the standard
 Lagrange-multiplier argument (Paper~I, \S3).
 
-\emph{Identity block dominance for $N > 4$.}
+\emph{Identity block dominance for $N > 4$ (proved).}
 The theorem requires that the identity Virasoro block dominates the
 OPE decomposition in each $\mathbb{Z}_N$ channel.
 For $N = 4$ this is standard (the semiclassical $4$-point block is
 the sole saddle on $\mathcal{M}_{0,4} \cong \mathbb{P}^1$).
-For $N > 4$: the moduli space $\mathcal{M}_{0,N+1}$ has
-dimension~$2(N{-}3)$, but the $\mathbb{Z}_N$ symmetry constrains
-the invariant subspace $\mathcal{M}_{0,N+1}^{\mathbb{Z}_N}$
-to dimension~$2$ (the ring radius and overall phase).
-This $2$-dimensional moduli space admits a single
-$\mathbb{Z}_N$-invariant saddle: the symmetric conical metric.
-The reduction is equivalent to the $\mathbb{Z}_N$ orbifold
-construction: the $N$-point function with $\mathbb{Z}_N$ symmetry
-equals the $1$-point function of the twist field~$\sigma_m$ on
-$\mathbb{C}/\mathbb{Z}_N$, which has no competing OPE channel
-(a $1$-point function has a unique vacuum contribution).
+For $N > 4$: the $\mathbb{Z}_N$-symmetric $N$-point function
+on $\mathbb{P}^1$ is \emph{exactly} the $1$-point function of the
+twist field~$\sigma_m$ on the orbifold $\mathbb{C}/\mathbb{Z}_N$
+(this is the defining property of the $\mathbb{Z}_N$ orbifold
+construction in CFT;
+see \citealt{DixonHarveyVafaWitten1985}).
+A $1$-point function on $\mathbb{C}/\mathbb{Z}_N$ receives
+contributions only from the vacuum sector
+(no non-trivial OPE channel exists when there is a single
+operator insertion): the identity block dominates exactly.
+The $\mathbb{Z}_N$ symmetry reduces the moduli space
+$\mathcal{M}_{0,N+1}^{\mathbb{Z}_N}$ to dimension~$2$
+(ring radius and overall phase), admitting a unique
+$\mathbb{Z}_N$-invariant saddle (the symmetric conical metric).
 Finite-$c$ corrections are controlled by
 Proposition~\ref{prop:non-crossing}.
 \end{proof}
@@ -714,6 +721,7 @@ sign (Proposition~\ref{prop:non-crossing}).
 
 
 \section{The polygon--BTZ phase transition}
+\label{sec:btz}
 
 The Euclidean action comparison between the polygon and the
 BTZ black hole makes the ``Hawking--Page'' language precise.
@@ -758,7 +766,7 @@ binding energy deepens the polygon potential well.
 For $N > N_{\mathrm{crit}}(\xi)$: the polygon has a negative
 Havelock eigenvalue
 $\lambda_m < 0$ at mode $m = \lfloor N/2 \rfloor$
-(\S\ref{sec:grav-prediction}).
+(\S\ref{sec:lichnerowicz}).
 In the Euclidean path integral, this is a \emph{negative mode}
 of the gravitational action
 \citep{GiombiMaloneyYin2008}: a perturbation that lowers the
@@ -906,16 +914,19 @@ with spectral function $\mathrm{Im}[Z_L] \propto |\rho - \rho^*|^{-1/2}$
 
 
 \paragraph{The Wheeler--DeWitt equation on the palindromic minisuperspace.}
+\label{sec:wdw}
 The single degree of freedom $\rho$ (geodesic radius of the polygon)
 and the potential $V(\rho) = \lambda_{m^*}(\rho)$ (the critical
 Havelock eigenvalue) define a minisuperspace Wheeler--DeWitt equation:
 \begin{equation}\label{eq:wdw}
-  \biggl[-\frac{\hbar^2}{2c}\,\frac{d^2}{d\rho^2}
+  \biggl[-\frac{1}{2c}\,\frac{d^2}{d\rho^2}
   + \log(2\sinh\rho) + b(N) - \frac{m(N{-}m)}{2}
-  + \delta_m\biggr]\Psi = 0,
+  \biggr]\Psi = 0,
 \end{equation}
-with $c = 12\,b(N) \approx N^2$ and $\hbar = 1$ (so the kinetic coefficient
-$\hbar^2/(2c) = 1/(2c)$; the semiclassical limit is $c \to \infty$).
+with $c = 12\,b(N)$ and $\hbar = 1$
+(the semiclassical limit is $c \to \infty$).
+On constant-curvature $\mathbf{H}^2$ the Weyl anomaly $\delta_m = 0$
+identically (\S\ref{sec:three-layer}), so it does not appear.
 Each term has a definite origin:
 \begin{center}
 \small
@@ -949,7 +960,7 @@ One-loop & $\delta_m$ &
   oscillatory in the exterior ($V > 0$, $\sinh$-branch) and evanescent
   in the interior ($V < 0$, $\cosh$-branch).
   The continuation $\rho \to \rho + i\pi/2$ maps between them
-  (\S\ref{sec:polygon-btz}, Lorentzian paragraph).
+  (\S\ref{sec:btz}, Lorentzian paragraph).
 \item \textbf{Quantum} (near threshold):
   $\Psi \sim \mathrm{Ai}\bigl((2c\,\coth\rho^*)^{1/3}
   (\rho - \rho^*)\bigr)$,
@@ -1612,9 +1623,18 @@ If the following three conditions hold:
   \emph{Derived} from the Wheeler--DeWitt equation in the
   classical limit ($c \to \infty$, Step~3 below);
 \item[\textup{(H3)}]
-  \emph{Equivalence principle}: conditions \textup{(H1)--(H2)} hold
-  at every point~$x \in S$ (the laws of vortex dynamics are
-  location-independent).
+  \emph{Hadamard universality}: conditions \textup{(H1)--(H2)} hold
+  at every point~$x \in S$.
+  \emph{Derived}: the Hadamard parametrix
+  $G(x,y) = -(1/2\pi)\log d(x,y) + \gamma_S(x) + O(d^2)$
+  is \emph{universal} on any Riemannian surface
+  (it depends only on the local metric).
+  By the $\csc^2$ uniqueness theorem, the logarithmic
+  short-distance kernel gives the Havelock form (H1)
+  at every~$x$.
+  The WDW classical limit (H2) likewise holds at every~$x$
+  because $C_1 \to N{-}1 = f(m^*,N)$ as $\varepsilon \to 0$
+  is a local statement.
 \end{enumerate}
 then the scalar curvature of~$S$ is constant,
 $R(x) = R_0$ for all~$x$, and
@@ -1649,8 +1669,12 @@ The polygon dynamics on the angular-impulse surface
 $\{J = \mathrm{const}\}$ reduces to a single degree of freedom~$\rho$
 (the geodesic radius) with potential
 $V(\rho) = C_1(x,\rho) - f(m^*,N)$.
-Canonical quantisation with Planck mass $c = 12\,b(N) \approx N^2$ gives the
-Wheeler--DeWitt equation~(\ref{eq:wdw}).
+Canonical quantisation with effective Planck mass $c = 12\,b(N)$
+gives the Wheeler--DeWitt equation~(\ref{eq:wdw}).
+(The Laplacian operator ordering $-d^2/d\rho^2$ is the natural
+choice for the geodesic coordinate~$\rho$; alternative orderings
+differ at $O(1/c)$ but the classical limit $c \to \infty$ in Step~3
+is ordering-independent.)
 
 \medskip
 \noindent\textbf{Step~3. Classical limit yields the Hamiltonian constraint.}
@@ -1672,7 +1696,12 @@ Summing over the $N$-ring at radius~$\varepsilon$ centred at~$x$:
   = (N{-}1)\!\left[1 + \frac{R(x)\,\varepsilon^2}{6}
     + O(\varepsilon^4)\right],
 \end{equation}
-where $R(x)$ is the scalar curvature at~$x$
+where $R(x)$ is the scalar curvature at~$x$.
+The coefficient $1/6$ arises from the Hadamard parametrix:
+$G(x,y) = -(1/2\pi)[\log d - R\,d^2/12 + O(d^4)]$,
+and the ring sum $\sum_{p=1}^{N-1}\cos(2\pi pm/N) = -1$
+for the first Havelock mode extracts $R\varepsilon^2/6$
+from the $d^2$ correction
 (the $\varepsilon^2$ coefficient comes from the Hadamard
 parametrix of the Green's function).
 
@@ -1693,8 +1722,9 @@ $R_0 = 6[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
 \noindent
 \emph{Why this step is non-trivial.}
 Condition~(H3) does \emph{not} state that $R$ is constant;
-it states that the polygon stability structure
-\textup{(H1)--(H2)} is location-independent.
+it states that the Hadamard-universal stability structure
+\textup{(H1)--(H2)} holds at every point (which is automatic
+from the universality of the Green's function short-distance expansion).
 The fact that this \emph{implies} $R = \mathrm{const}$
 requires the Hadamard parametrix (Step~4), which connects
 the polygon Casimir~$C_1$ to the Ricci scalar~$R(x)$.
@@ -1711,13 +1741,23 @@ $R = \mathrm{const}$ alone gives $R_{\mu\nu} = \Lambda g_{\mu\nu}$.
 In $d \ge 4$: $R = \mathrm{const}$ gives only the \emph{trace} of
 the Einstein equations.
 However, condition~(H1) provides the missing information.
-On a space with nonzero Weyl tensor, the Green's function acquires
-angular dependence (an $\ell = 2$ quadrupole from $W_{ijkl}$
-at leading order).
-This angular dependence makes $C_1$ depend on~$m$, violating~(H1).
-Therefore (H1) at every point~$x$ forces the Green's function
-to be isotropic at every point, i.e.\ the spatial geometry is
-\emph{maximally symmetric}: $R_{ij} = (R/d)\,g_{ij}$ with $W_{ijkl} = 0$.
+The Hadamard parametrix in $d$ dimensions gives
+$G(x,y) = U(x,y)/\sigma^{(d-2)/2} + V\log\sigma + W$,
+where $\sigma = d(x,y)^2/2$.
+The Weyl tensor $W_{ijkl}$ enters the angular structure of~$V$
+at order~$\sigma$ through the traceless Riemann component,
+producing an $\ell = 2$ (quadrupole) angular dependence with
+$5$ independent components in $d = 3$.
+The $\mathbb{Z}_N$ Fourier modes $m = 1, \ldots, N{-}1$
+project onto specific angular harmonics; for $N \ge 6$,
+the $5$ modes $m = 1, \ldots, 5$ span the full
+$\ell = 2$ subspace (they are linearly independent
+because $\cos(2\pi p m/N)$ for $m = 1, \ldots, 5$ forms
+a Vandermonde-type system for $p = 1, \ldots, 5$).
+Any nonzero Weyl tensor therefore makes $C_1$ depend on~$m$,
+violating~(H1).
+Hence (H1) at every~$x$ forces $W_{ijkl} = 0$ and
+$R_{ij} = (R/d)\,g_{ij}$: maximal symmetry.
 Promoting to the $(d{+}1)$-dimensional spacetime:
 $R_{\mu\nu} = \Lambda\,g_{\mu\nu}$.
 
