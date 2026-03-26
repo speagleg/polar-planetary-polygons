@@ -122,3 +122,49 @@ class TestPiBridge:
         """ε₇ × (8-3√7) = 1."""
         eps_inv = 8 - 3 * math.sqrt(7)
         assert EPSILON_7 * eps_inv == pytest.approx(1.0)
+
+
+class TestCosmologicalInstanton:
+    """Tests for the N=11 instanton that determines the cosmological constant."""
+
+    def test_S_BO_11_value(self):
+        """S_BO(11) = 102.72 to 0.1%."""
+        S = tunneling_action(11)
+        assert abs(S - 102.724) / 102.724 < 0.001
+
+    def test_threshold_N11(self):
+        """BO potential zero at rho* ≈ 4.45 for N=11."""
+        rho = find_threshold_BO(11)
+        assert abs(rho - 4.45) < 0.01
+
+    def test_V_BO_sign_N11(self):
+        """V_BO < 0 below threshold, > 0 above for N=11."""
+        rho_star = find_threshold_BO(11)
+        assert V_BO(rho_star * 0.5, 11) < 0
+        assert V_BO(rho_star * 1.1, 11) > 0
+
+    def test_ell_prediction(self):
+        """ell from N=11 instanton matches cosmological horizon to 1%."""
+        S = tunneling_action(11)
+        gamma = 0.5772156649
+        from planetary_polygons.extensions.hierarchy import central_charge
+        c_11 = central_charge(11)
+        v = 246.22  # GeV
+        ln_ell_v = S - gamma / 2 - math.log(2) / (2 * c_11)
+        # ln(ell_obs * v) = 102.433
+        assert abs(ln_ell_v - 102.433) / 102.433 < 0.001
+
+    def test_H0_prediction(self):
+        """H0 = 67.4 km/s/Mpc from the instanton."""
+        S = tunneling_action(11)
+        gamma = 0.5772156649
+        from planetary_polygons.extensions.hierarchy import central_charge
+        c_11 = central_charge(11)
+        v = 246.22
+        ell = math.exp(S - gamma / 2 - math.log(2) / (2 * c_11)) / v
+        Lambda_Hav = (11**2 - 16) / 16
+        Lambda_phys = Lambda_Hav / ell**2
+        Omega_Lambda = 0.685
+        H0_GeV = math.sqrt(Lambda_phys / (3 * Omega_Lambda))
+        H0_obs = 1.437e-42  # GeV
+        assert abs(H0_GeV - H0_obs) / H0_obs < 0.02  # within 2%

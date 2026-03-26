@@ -243,6 +243,28 @@ $T^2 = S^1_\theta \times S^1_\varphi$---the holonomy
 acts on the fibre \emph{globally} (as a large gauge
 transformation) without affecting the local metric structure
 or the graviton counting.
+\emph{Explicit helicity derivation.}
+The linearised metric perturbation on $\mathbb{R} \times T^2$
+is $h_{ij}(t,\theta,\varphi)
+= \varepsilon_{ij}(k)\,e^{i(\omega t + k_\theta\theta + k_\varphi\varphi)}$,
+with on-shell condition $\omega^2 = k_\theta^2 + k_\varphi^2$
+(massless).
+The TT gauge ($k^i\varepsilon_{ij} = 0$, $\varepsilon^i{}_i = 0$)
+reduces the $3$ symmetric components to $2$ physical polarisations
+$\varepsilon^+$ and $\varepsilon^\times$.
+Under a rotation by~$\alpha$ in the transverse plane
+(the plane orthogonal to the $3$-momentum $(k_\theta, k_\varphi)$
+in the $(\theta, \varphi, t)$ space):
+$\varepsilon^+ + i\varepsilon^\times
+\to e^{2i\alpha}(\varepsilon^+ + i\varepsilon^\times)$
+(the standard spin-$2$ transformation of the TT polarisation
+tensor).
+The boundary stress tensor $T(z)$ with $z = \theta + i\varphi$
+transforms identically: under $z \to e^{i\alpha}z$,
+the conformal weight~$(2,0)$ gives
+$T(z) \to (dz'/dz)^{-2}\,T(z') = e^{2i\alpha}T(z)$.
+This is helicity~$+2$; $\bar T$ gives $-2$.
+
 The boundary stress tensor $T(z, \varphi)$ has two momenta:
 $k_\theta$ (along the boundary circle) and $k_\varphi$ (along
 the fibre).
@@ -566,12 +588,24 @@ Removing the trivial-representation node---which is physically natural,
 since the invariant mode $\eta_0$ decouples---yields the
 \emph{finite} $A_2$ diagram, the Dynkin diagram of~$\mathrm{SU}(3)$.
 
+\emph{Step~4b (Holographic dictionary: mode space $=$ target space).}
+The identification of $(\eta_1, \eta_2) \in \mathbb{C}^2$ with
+the target space of the boundary sigma model follows from the
+standard AdS$_3$/CFT$_2$ bulk-boundary map
+\citep{Maldacena1997}:
+bulk scalar fields $\Phi_m$ on $\mathbf{H}^2$ (the spatial
+slice of AdS$_3$) are dual to boundary operators $O_m$ on
+$\partial\mathbf{H}^2 = S^1$ via the GKPW relation
+$Z_{\mathrm{bulk}}[\Phi_0] = \langle
+\exp(\int \Phi_0 O)\rangle_{\mathrm{CFT}}$.
+The Havelock modes $\eta_1(x)$, $\eta_2(x)$ are two bulk
+scalars with $\mathbb{Z}/3\mathbb{Z}$ Galois action;
+their boundary values parametrise the target
+$\mathbb{C}^2$ of the boundary sigma model.
+The Galois action descends to the target because the bulk
+action is $\mathbb{Z}/3\mathbb{Z}$-invariant.
+
 \emph{Step~5 (Target-space orbifold $\to$ ALE resolution $\to$ SU(3)).}
-The charged modes $(\eta_1, \eta_2) \in \mathbb{C}^2$ are the
-\emph{target space} of the boundary CFT: at each point
-$x \in \partial\mathbf{H}^2$, the field takes values in
-$\mathbb{C}^2$ with the $\mathbb{Z}/3\mathbb{Z}$ Galois action
-$\sigma = \mathrm{diag}(\omega, \omega^{-1})$ from Step~3.
 The Galois-invariant sector of the boundary theory is therefore
 a sigma model with \emph{target} $\mathbb{C}^2/(\mathbb{Z}/3\mathbb{Z})$
 --- an orbifold singularity at the origin.
