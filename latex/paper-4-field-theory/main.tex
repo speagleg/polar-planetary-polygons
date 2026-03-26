@@ -1180,9 +1180,12 @@ The Yukawa coupling on the orbifold receives two contributions:
 On the orbifold $\mathbf{H}^2/\mathbb{Z}_7$, the physical coupling
 is the square root of the product of these two amplitudes.
 This follows from the orbifold Green's function
-$G_{\mathrm{orb}}(x,y) = (1/N)\sum_k G(x,\gamma^k y)$:
-at the brane, the direct and nearest-image terms dominate,
-giving $|V_{cb}|^2 = G_{\mathrm{direct}} \times G_{\mathrm{image}}$:
+$G_{\mathrm{orb}}(x,y) = (1/N)\sum_k G(x,\gamma^k y)$.
+In the Born approximation for sequential barrier transmission
+(the fermion propagates through two potentials: the RS warp
+factor and the orbifold image barrier),
+$|V_{cb}|^2 = T_1 \times T_2$ where $T_1 = |V_{cb}|_{\mathrm{pert}}$
+and $T_2 = Q_1(\cosh d)$:
 \begin{equation}\label{eq:Vcb-born}
   |V_{cb}|^2
   = |V_{cb}|_{\mathrm{pert}} \times T_2(\rho^*),
@@ -1193,7 +1196,9 @@ At the uncorrected $\rho^*_0 = 1.734$ this gives $|V_{cb}| = 0.047$
 ($12\%$ off). However, the orbifold images also correct $\rho^*$ itself.
 The two nearest $\mathbb{Z}_7$ images ($k = 1$ and $k = 6$),
 at equal geodesic distances~$d_1$, each shift the BO potential zero
-by~$T_2$. The self-consistent $\rho^*$ satisfies
+by~$T_2$ (a first-order perturbative correction from the two
+nearest orbifold images).
+The self-consistent $\rho^*$ satisfies
 \begin{equation}\label{eq:rho-sc}
   \rho^* = \rho^*_0\,\bigl(1 + 2\,Q_1(\cosh d_1(\rho^*))\bigr).
 \end{equation}
@@ -2224,7 +2229,7 @@ Seifert background.
 The vacuum equations (Steps~A--B) are exact.
 The matter coupling follows from the boundary CFT
 \emph{without additional input}, via the
-Lashkari--McDermott--Van~Raamsdonk (2014) entanglement argument.
+\citet{Lashkari2014} entanglement argument.
 Three ingredients suffice:
 (i)~the boundary $\mathbb{Z}_N$ orbifold CFT at $c = 12\,b(N)$ is
 \emph{unitary} (manifestly: it is an orbifold of free bosons);
@@ -2239,9 +2244,11 @@ regions and all states implies
 $G_{\mu\nu} + \Lambda\,g_{\mu\nu} = 8\pi G\,\langle T_{\mu\nu}\rangle$
 ---the full nonlinear Einstein equations with matter---with
 $G = 3/(2c)$ from Brown--Henneaux.
-No additional thermodynamic argument (Jacobson, Clausius) is needed;
-the matter coupling is derived from the same boundary CFT
-that produces the vacuum equations.
+No additional thermodynamic argument (Jacobson, Clausius) is needed.
+The vacuum equations are exact (Steps~A--B); the matter coupling
+is established at first order by \citet{Lashkari2014}, and the
+fully nonlinear extension follows from the entanglement entropy
+functional \citep{Faulkner2017}.
 \end{proof}
 
 \paragraph{Equivalence principle.}
