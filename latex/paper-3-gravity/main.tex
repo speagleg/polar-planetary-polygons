@@ -1656,7 +1656,7 @@ $R(x) = R_0$ for all~$x$, and
 \begin{equation}\label{eq:einstein-from-polygon}
   R_{\mu\nu} = \Lambda\,g_{\mu\nu},
   \qquad
-  \Lambda = \frac{2\bigl[f(m^*,N) - (N{-}1)\bigr]}
+  \Lambda = \frac{-4\bigl[f(m^*,N) - (N{-}1)\bigr]}
                  {(N{-}1)\,\varepsilon^2}.
 \end{equation}
 These are the vacuum Einstein equations of $2{+}1$-dimensional
@@ -1741,7 +1741,7 @@ the global geometry.
 Summing over the $N$-ring at radius~$\varepsilon$ centred at~$x$:
 \begin{equation}\label{eq:C1-expansion-proof}
   C_1(x, \varepsilon)
-  = (N{-}1)\!\left[1 + \frac{R(x)\,\varepsilon^2}{4}
+  = (N{-}1)\!\left[1 - \frac{R(x)\,\varepsilon^2}{4}
     + O(\varepsilon^4)\right],
 \end{equation}
 where $R(x)$ is the scalar curvature at~$x$.
@@ -1763,13 +1763,13 @@ Condition~(H3) requires~(\ref{eq:C1-expansion-proof}) to equal
 $f(m^*,N)$ at \emph{every}~$x$.
 Since $f(m^*,N)$ and $N$ are numbers independent of~$x$:
 \[
-  (N{-}1)\,\frac{R(x)\,\varepsilon^2}{6}
+  -(N{-}1)\,\frac{R(x)\,\varepsilon^2}{4}
   = f(m^*,N) - (N{-}1) \quad\text{for all } x.
 \]
 The left side depends on~$x$ (through $R(x)$);
 the right side is constant.
 Therefore $R(x) = R_0$ for all~$x$, with
-$R_0 = 4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
+$R_0 = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
 
 \noindent
 \emph{Why this step is non-trivial.}
@@ -1826,9 +1826,11 @@ in $3{+}1$D}.
 \begin{remark}[The cosmological constant from the polygon number]
 \label{rmk:lambda-from-N}
 The sign of $\Lambda$ is fixed by the polygon:
-$N \le 6$: $f(m^*) < N{-}1$, so $\Lambda < 0$ (AdS);
+$N \le 6$: $f(m^*) < N{-}1$, so $\Lambda > 0$
+(positive curvature, $S^2$-like---surface curvature destabilises);
 $N = 7$: $f(3,7) = 6 = N{-}1$, so $\Lambda = 0$ (flat);
-$N \ge 8$: $f(m^*) > N{-}1$, so $\Lambda > 0$ (dS).
+$N \ge 8$: $f(m^*) > N{-}1$, so $\Lambda < 0$
+(negative curvature, $\mathbf{H}^2$-like---surface curvature stabilises).
 The flat threshold $N = 7$---Havelock's 1931
 stability boundary---sits exactly at $\Lambda = 0$.
 \end{remark}
