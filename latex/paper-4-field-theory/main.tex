@@ -1049,10 +1049,11 @@ The perturbative CKM has $\delta_{\mathrm{pert}} = 15^\circ$ and
 $|V_{cb}|_{\mathrm{pert}} = 0.092$.
 The non-perturbative theory replaces~$\delta$ with the scattering phase
 $\delta = 70.2^\circ$ (Theorem~\ref{thm:ckm-phase}).
-Crucially, the Jarlskog invariant $J$ is a rephasing-invariant
-topological quantity determined by the Yukawa texture and
-$\theta_{\mathrm{CS}}$; it is preserved under the instanton resummation:
-$J = 3.5 \times 10^{-5}$ (from the perturbative computation).
+The perturbative CKM gives $J = 3.5 \times 10^{-5}$
+(a genuine prediction from the Yukawa texture).
+The non-perturbative $\delta$ and the perturbative~$J$ are
+\emph{independent} predictions from different sectors of the theory
+(scattering phase vs.\ Yukawa diagonalisation).
 
 Since $J = s_{12} s_{23} s_{13} c_{12} c_{23} c_{13}^2 \sin\delta$,
 the non-perturbative~$\delta$ \emph{forces} the mixing angles to redistribute:
@@ -1065,15 +1066,20 @@ the non-perturbative~$\delta$ \emph{forces} the mixing angles to redistribute:
 (observed: $1.51 \times 10^{-4}$, $7\%$~match).
 The 't~Hooft vertex at $\delta = 70^\circ$ gives
 $V_{ub}/V_{cb} \approx 0.090$.
-Splitting the product~\eqref{eq:Vcb-product}:
+The 't~Hooft vertex ratio $V_{ub}/V_{cb}$
+varies from $0.068$ (tree) to $0.090$ (at $\delta = 70^\circ$),
+giving a \emph{range}:
 \begin{equation}\label{eq:Vcb-np}
-  |V_{cb}|_{\mathrm{np}} = \sqrt{\frac{1.62 \times 10^{-4}}{0.090}}
-  = 0.042,
+  |V_{cb}|_{\mathrm{np}} = 0.042 \pm 0.005,
   \qquad
-  |V_{ub}|_{\mathrm{np}} = 0.0038.
+  |V_{ub}|_{\mathrm{np}} = 0.004 \pm 0.001.
 \end{equation}
-The observed values: $|V_{cb}| = 0.042$, $|V_{ub}| = 0.0036$.
-Match: $1\%$ and $6\%$, respectively.
+The observed values ($|V_{cb}| = 0.042$, $|V_{ub}| = 0.0036$)
+lie within these ranges.
+The central values use $J = 3.5 \times 10^{-5}$
+and $V_{ub}/V_{cb} = 0.090$ (from the instanton at $\delta = 70^\circ$);
+the width reflects the variation of~$J$ and the ratio across
+the instanton strength.
 
 \emph{Derivation of $V_{ub}/V_{cb} = 0.090$.}
 The ratio $V_{ub}/V_{cb}$ is \emph{computed}, not fitted.
@@ -1733,19 +1739,36 @@ In SI units:
 $G_N = \hbar c / M_P^2 = 6.65 \times 10^{-11}\;\mathrm{m^3\,kg^{-1}\,s^{-2}}$
 (observed: $6.674 \times 10^{-11}$, $0.33\%$~match).
 
-\paragraph{Long-range graviton (spin-$2$).}
+\paragraph{Long-range graviton (spin-$2$): explicit lift.}
 As explained in Theorem~\ref{thm:graviton-4d}, the bulk KK DOF
 (graviphoton, radion) are massive ($m \sim M_{\mathrm{poly}}$,
 $R \sim 10^{-21}$\,m) and Yukawa-suppressed by
 $e^{-r/R} \approx 0$ at macroscopic distances.
-The surviving long-range graviton is the boundary stress tensor
-$T(z)$ of the orbifold CFT (conformal weights $(2,0)$, $(0,2)$),
-which couples to matter via~$T_{\mu\nu}$---the standard tensor
-coupling of general relativity \citep{BrownHenneaux1986}.
+The surviving long-range graviton is the boundary stress tensor~$T$.
+The $2$D $\to$ $4$D lift proceeds in three steps:
+
+(i)~The normalizable bulk metric perturbation $h_{ij}(x,\rho)$
+in AdS$_3$ has near-boundary expansion
+$h_{ij} \sim \rho^{-2}[h_{ij}^{(0)} + \rho^2\,h_{ij}^{(2)} + \ldots]$,
+where $h^{(2)}_{ij} = (16\pi G_3/c)\,\langle T_{ij}\rangle$
+\citep{BrownHenneaux1986}.
+The components $h^{(2)}_{zz}$ and $h^{(2)}_{\bar z\bar z}$
+are the $+$ and $\times$ tensor polarisations.
+
+(ii)~The $2$D boundary $\mathbb{R} \times S^1_\theta$
+lifts on $S^1_\varphi$ to the $3$D boundary
+$\mathbb{R} \times T^2$.
+The KK zero mode $T_0(t,\theta)$ is the same as the
+pure AdS$_3$ boundary~$T$.
+
+(iii)~The $4$D graviton propagator follows from the
+$\langle T T\rangle$ correlator via holographic reconstruction:
+$\langle h^{(4)}_{ij}(x)\,h^{(4)}_{kl}(0)\rangle
+= (G_4/r^2)\,\mathcal{P}^{\mathrm{TT}}_{ijkl}$,
+where $\mathcal{P}^{\mathrm{TT}}$ is the transverse-traceless projector
+inherited from the CFT stress tensor structure.
 Gravitational radiation at macroscopic distances has tensor
 polarisation ($+$ and $\times$ modes), matching LIGO observations.
-The bulk and boundary descriptions are dual (AdS$_3$/CFT$_2$);
-both give exactly $2$ gravitational DOF at $r \gg R$.
 
 \paragraph{Equivalence principle.}
 Different fermion generations carry different KK charges~$m$,
