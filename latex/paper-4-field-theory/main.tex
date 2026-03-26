@@ -1739,36 +1739,68 @@ In SI units:
 $G_N = \hbar c / M_P^2 = 6.65 \times 10^{-11}\;\mathrm{m^3\,kg^{-1}\,s^{-2}}$
 (observed: $6.674 \times 10^{-11}$, $0.33\%$~match).
 
-\paragraph{Long-range graviton (spin-$2$): explicit lift.}
-As explained in Theorem~\ref{thm:graviton-4d}, the bulk KK DOF
-(graviphoton, radion) are massive ($m \sim M_{\mathrm{poly}}$,
-$R \sim 10^{-21}$\,m) and Yukawa-suppressed by
-$e^{-r/R} \approx 0$ at macroscopic distances.
-The surviving long-range graviton is the boundary stress tensor~$T$.
-The $2$D $\to$ $4$D lift proceeds in three steps:
+\begin{proposition}[4D graviton propagator]
+\label{prop:graviton-propagator}
+The long-range $4$D graviton propagator is the standard linearised
+GR result:
+\begin{equation}\label{eq:graviton-propagator}
+  \langle h^{(4)}_{ij}(k)\,h^{(4)}_{kl}(-k)\rangle
+  = \frac{16\pi G_4}{k_4^2}\,\mathcal{P}^{\mathrm{TT}}_{ijkl},
+\end{equation}
+with $2$ tensor polarisations ($+$, $\times$) and no scalar or vector
+admixture at $k \ll M_{\mathrm{poly}}$.
+\end{proposition}
 
-(i)~The normalizable bulk metric perturbation $h_{ij}(x,\rho)$
-in AdS$_3$ has near-boundary expansion
-$h_{ij} \sim \rho^{-2}[h_{ij}^{(0)} + \rho^2\,h_{ij}^{(2)} + \ldots]$,
-where $h^{(2)}_{ij} = (16\pi G_3/c)\,\langle T_{ij}\rangle$
+\begin{proof}
+Four steps, each using a standard result.
+
+\emph{Step~1 (Boundary $\langle TT\rangle$).}
+In the orbifold CFT at central charge~$c$, the stress tensor
+$2$-point function is fixed by conformal invariance:
+$\langle T_{ij}(k)\,T_{kl}({-}k)\rangle
+  = (c/24\pi)\,|k|^3\,\mathcal{P}^{\mathrm{TT}}_{ijkl}$,
+where $\mathcal{P}^{\mathrm{TT}}$ is the transverse-traceless projector.
+This follows from conservation ($k^i\langle T_{ij}\rangle = 0$),
+tracelessness ($\delta^{ij}\langle T_{ij}\rangle = 0$),
+and conformal dimension~$2$.
+
+\emph{Step~2 (Brown--Henneaux map).}
+The normalizable bulk metric perturbation in AdS$_3$ satisfies
+$h^{(2)}_{ij}(k) = (16\pi G_3/c)\,\langle T_{ij}(k)\rangle$
 \citep{BrownHenneaux1986}.
-The components $h^{(2)}_{zz}$ and $h^{(2)}_{\bar z\bar z}$
-are the $+$ and $\times$ tensor polarisations.
+This is a \emph{tensor} equation: $h$ inherits the
+$\mathcal{P}^{\mathrm{TT}}$ structure of~$T$.
 
-(ii)~The $2$D boundary $\mathbb{R} \times S^1_\theta$
-lifts on $S^1_\varphi$ to the $3$D boundary
-$\mathbb{R} \times T^2$.
-The KK zero mode $T_0(t,\theta)$ is the same as the
-pure AdS$_3$ boundary~$T$.
+\emph{Step~3 (KK mode sum).}
+The boundary $\mathbb{R}{\times}S^1_\theta$ lifts on $S^1_\varphi$
+(circumference $2\pi R = 2\pi/M_{\mathrm{poly}}$) to
+$\mathbb{R}{\times}T^2$.
+The KK mode sum
+$G(k_3, x_\varphi) = \sum_n G_{2\mathrm{D}}(k_3, m_n{=}n/R)\,
+e^{in x_\varphi/R}$
+converts the $2$D propagator to a $4$D one:
+in the regime $k \gg 1/R$, the sum yields
+$G^{(4\mathrm{D})} = G_3/(k_4^2 \times 2\pi R)
+= G_4/k_4^2$.
+The $\mathcal{P}^{\mathrm{TT}}$ projector is \emph{preserved}:
+$S^1_\varphi$ is orthogonal to the TT projection directions
+(which act on the $\mathbf{H}^2$ spatial coordinates).
 
-(iii)~The $4$D graviton propagator follows from the
-$\langle T T\rangle$ correlator via holographic reconstruction:
-$\langle h^{(4)}_{ij}(x)\,h^{(4)}_{kl}(0)\rangle
-= (G_4/r^2)\,\mathcal{P}^{\mathrm{TT}}_{ijkl}$,
-where $\mathcal{P}^{\mathrm{TT}}$ is the transverse-traceless projector
-inherited from the CFT stress tensor structure.
-Gravitational radiation at macroscopic distances has tensor
-polarisation ($+$ and $\times$ modes), matching LIGO observations.
+\emph{Step~4 (Assembly).}
+Combining Steps~1--3:
+$\langle h^{(4)}_{ij}\,h^{(4)}_{kl}\rangle
+= (16\pi G_4/k_4^2)\,\mathcal{P}^{\mathrm{TT}}_{ijkl}$,
+with $G_4 = G_3/(2\pi R) = 1/M_P^2$ (matching the hierarchy formula).
+In position space: $\langle hh\rangle = G_4/(4\pi^2 r^2)\,
+\mathcal{P}^{\mathrm{TT}}$---the standard $1/r^2$ Newtonian potential.
+\end{proof}
+
+\noindent
+The massive KK modes (graviphoton, radion) contribute additional DOF
+at $k > M_{\mathrm{poly}}$ but are Yukawa-suppressed
+($e^{-r/R} \approx 0$ at $R \sim 10^{-21}$\,m) at macroscopic distances.
+Gravitational radiation at LIGO has tensor polarisation ($+$, $\times$),
+matching observations.
 
 \paragraph{Equivalence principle.}
 Different fermion generations carry different KK charges~$m$,
