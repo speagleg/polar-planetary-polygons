@@ -211,17 +211,29 @@ Theorem~\ref{thm:su2}), but the graviphoton and radion are
 dynamical fields that \emph{propagate} on $\mathbb{R} \times \mathbf{H}^2$.
 Together they carry the $2$ gravitational DOF expected in $4$D.
 
-\emph{Important distinction.}
-These $2$ DOF are a spin-$1$ vector and a spin-$0$ scalar, \emph{not}
-the helicity-$\pm 2$ states of a standard $4$D massless graviton.
-The gravitational force arises differently in this framework:
-at $r \gg R$ the topological CS sector gives a logarithmic potential
-($2{+}1$D gravity); at $r \ll R$ the full KK tower restores
-an effective $1/r^2$ Newton's law (\S\ref{rmk:mass-spectrum}).
-The CS representation with $\mathrm{SL}(2,\mathbb{R})$ Casimir
-$j(j{+}1) = 6$ ($j = 2$, Paper~III) carries spin-$2$
-in the topological sense, but this is the $2{+}1$D CS spin,
-not the $4$D Poincar\'e helicity.
+\emph{Bulk--boundary duality.}
+The graviphoton and radion are the \emph{bulk} KK DOF.
+Both are \emph{massive} ($m \sim M_{\mathrm{poly}}$)
+and Yukawa-suppressed at macroscopic distances.
+The \emph{physical} long-range graviton is a distinct object:
+it is the boundary stress tensor $T(z)$ of the orbifold CFT,
+with conformal weights $(2,0)$ and $(0,2)$.
+By the standard AdS$_3$/CFT$_2$ dictionary
+\citep{BrownHenneaux1986, Maldacena1997},
+the boundary $T$ couples to matter via the stress-energy tensor
+$T_{\mu\nu}$---the same tensor coupling as in general relativity.
+This gives tensor-polarised ($+$ and $\times$) gravitational
+radiation at macroscopic distances.
+
+At distances $r \ll R$ (below the KK scale), \emph{all} DOF are
+present: $2$ from the boundary~$T$ (tensor) $+$ $1$ from the
+graviphoton (vector) $+$ $1$ from the radion (scalar) $= 4$ DOF.
+At $r \gg R$, the massive modes decouple and only the $2$
+tensor DOF of the boundary graviton survive---reproducing the
+standard $d(d{-}3)/2 = 2$ count of 4D general relativity.
+There is no contradiction between Theorem~\ref{thm:graviton-4d}
+(bulk DOF) and the long-range spin-$2$ graviton (boundary DOF):
+they are dual descriptions at different scales.
 \end{proof}
 
 \begin{remark}[Graviton mass spectrum]
@@ -1670,21 +1682,19 @@ In SI units:
 $G_N = \hbar c / M_P^2 = 6.65 \times 10^{-11}\;\mathrm{m^3\,kg^{-1}\,s^{-2}}$
 (observed: $6.674 \times 10^{-11}$, $0.33\%$~match).
 
-\paragraph{Holographic graviton (spin-$2$).}
-The KK metric decomposition (Theorem~\ref{thm:graviton-4d}) gives
-spin-$1$ + spin-$0$ at the field-equation level.
-However, the \emph{physical} long-range graviton arises from the
-\emph{boundary} of the CS theory via the standard AdS$_3$/CFT$_2$ dictionary:
-the boundary stress tensor $T(z)$ of the orbifold CFT has
-conformal weights $(2,0)$ and $(0,2)$---helicity~$\pm 2$.
-This is the $4$D graviton.
-The graviphoton and radion are \emph{massive} ($m \sim M_{\mathrm{poly}}$)
-and Yukawa-suppressed at macroscopic distances ($R \sim 10^{-21}$\,m):
-at $r = 1$\,m, their force is suppressed by
-$e^{-r/R} = e^{-2.5 \times 10^{20}} \approx 0$.
-Only the spin-$2$ boundary graviton propagates to LIGO.
-Gravitational radiation has tensor polarisation ($+$ and $\times$ modes),
-matching LIGO observations.
+\paragraph{Long-range graviton (spin-$2$).}
+As explained in Theorem~\ref{thm:graviton-4d}, the bulk KK DOF
+(graviphoton, radion) are massive ($m \sim M_{\mathrm{poly}}$,
+$R \sim 10^{-21}$\,m) and Yukawa-suppressed by
+$e^{-r/R} \approx 0$ at macroscopic distances.
+The surviving long-range graviton is the boundary stress tensor
+$T(z)$ of the orbifold CFT (conformal weights $(2,0)$, $(0,2)$),
+which couples to matter via~$T_{\mu\nu}$---the standard tensor
+coupling of general relativity \citep{BrownHenneaux1986}.
+Gravitational radiation at macroscopic distances has tensor
+polarisation ($+$ and $\times$ modes), matching LIGO observations.
+The bulk and boundary descriptions are dual (AdS$_3$/CFT$_2$);
+both give exactly $2$ gravitational DOF at $r \gg R$.
 
 \paragraph{Equivalence principle.}
 Different fermion generations carry different KK charges~$m$,
