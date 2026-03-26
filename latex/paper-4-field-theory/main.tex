@@ -1822,15 +1822,30 @@ The electroweak VEV $v = 246$\,GeV is predicted
 Standard Model RG running of $\lambda_H$ from $M_{\mathrm{poly}}$
 to $M_Z$ gives $\lambda_H \approx 0.10$,
 yielding $m_H \approx 110$\,GeV at tree level.
-Two computed corrections raise this:
-(i) the orbifold boundary term
-$\delta\lambda \approx \lambda/N \approx 0.014$ (a $1/N$ correction
-from the $\mathbb{Z}_7$ fixed point), and
-(ii) the fractional instanton
-$\delta\lambda \approx K^2 h^2/c \approx 0.008$.
-Together: $\lambda_H = 0.122$, giving
-$m_H = \sqrt{2\lambda_H}\,v \approx 122$\,GeV
-($3\%$ below the observed $125$\,GeV).
+Two corrections, both derived from the orbifold structure, raise this:
+\begin{enumerate}
+\item \emph{Orbifold phase-space correction.}
+  $\mathbb{Z}_7$ charge conservation restricts the quartic to
+  $|\varphi_3|^2|\varphi_4|^2$ (since $2{\times}3 + 2{\times}4 = 14 \equiv 0$
+  mod~$7$; no other quartic is allowed).
+  The orbifold projection reduces the Higgs loop phase space by $1/N$,
+  giving $\delta\lambda_{\mathrm{orb}} = \lambda_{\mathrm{SM}}/N
+  = 0.10/7 = 0.014$.
+\item \emph{Instanton quartic.}
+  The fractional CS instanton generates a 4-Higgs vertex with
+  amplitude $K^2$ (two instanton insertions) weighted by the
+  Higgs conformal dimension $h = 2/3$ and the EW central charge
+  $c_{\mathrm{EW}} = 12\,b(4) = 17.2$:
+  $\delta\lambda_{\mathrm{inst}} = K^2 h^2/c_{\mathrm{EW}}
+  = 0.548^2 \times (2/3)^2 / 17.2 = 0.008$.
+\end{enumerate}
+Together: $\lambda_H = 0.10 + 0.014 + 0.008 = 0.122$, giving
+\begin{equation}\label{eq:mH}
+  m_H = \sqrt{2\lambda_H}\,v = 122\;\mathrm{GeV}
+  \qquad (\text{observed: $125.25$\,GeV, $3\%$~off}).
+\end{equation}
+All coefficients ($1/N$, $K$, $h$, $c_{\mathrm{EW}}$) are determined
+by~$N = 7$.
 
 \paragraph{Dark matter detection.}
 The frozen modes interact with SM matter through the massive
