@@ -254,25 +254,25 @@ def small_ring_expansion(N, R_scalar, epsilon):
     C₁(x, ε) = (N-1)[1 + R(x)·ε²/6 + O(ε⁴)]
 
     The Hamiltonian constraint C₁ = f(m*, N) then gives:
-    R(x) = 6[f(m*, N) - (N-1)] / [(N-1)·ε²]
+    R(x) = -4[f(m*, N) - (N-1)] / [(N-1)·ε²]
 
     Since f(m*, N) is x-independent, R(x) must be CONSTANT.
     """
-    return (N - 1) * (1 + R_scalar * epsilon**2 / 6)
+    return (N - 1) * (1 - R_scalar * epsilon**2 / 4)
 
 
 def curvature_from_threshold(N, epsilon=1.0):
     """The scalar curvature R forced by the Hamiltonian constraint.
 
-    R = 6[f(m*, N) - (N-1)] / [(N-1)·ε²]
+    R = -4[f(m*, N) - (N-1)] / [(N-1)·ε²]
 
-    R < 0 for N ≤ 6 (negative curvature, H²)
+    R > 0 for N ≤ 6 (positive curvature, S²-like)
     R = 0 for N = 7 (flat, marginal)
-    R > 0 for N ≥ 8 (positive curvature needed)
+    R < 0 for N ≥ 8 (negative curvature, H²-like = AdS stabilizes)
     """
     m_star = N // 2
     f_star = casimir(m_star, N)
-    return 6 * (f_star - (N - 1)) / ((N - 1) * epsilon**2)
+    return -4 * (f_star - (N - 1)) / ((N - 1) * epsilon**2)
 
 
 def test_polygon_derivation():

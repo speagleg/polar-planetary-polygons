@@ -954,7 +954,7 @@ $\sin^2\theta_W = 3/11$ from conformal dimensions,
 the Yukawa texture from $\mathbb{Z}_7$ charge conservation,
 $v$ from the BO instanton, and $\lambda_H$ from the orbifold
 effective potential.
-No free parameters beyond the integer~$N$.
+One integer~$N$ and one dimensionful scale ($v$ or $M_P$).
 
 %% ====================================================================
 \section{One-loop corrections}
@@ -1771,11 +1771,17 @@ the WKB spectral factor is
 $\hat h(\ell_0) = 2\sinh(\ell_0/2) = 2\sinh(\operatorname{arccosh}8) = 6\sqrt{7}$,
 which \emph{exactly cancels} the Selberg stability denominator
 $1/(2\sinh(\ell_0/2))$
-(this cancellation follows because the WKB spectral measure for
-the $\ln(2\sinh\rho)$ potential reproduces the Harish-Chandra
-$c$-function of $\mathrm{SL}(2,\mathbb{R})$
-\citep[Ch.~IV]{Hejhal1976},
-whose Fourier transform is $\hat{h}(\ell) = 2\sinh(\ell/2)$).
+(this cancellation is \emph{proved}, not assumed:
+the potential $\ln(2\sinh\rho)$ is the Green's function
+of the Laplacian on~$\mathbf{H}^2$, whose spectral decomposition
+uses the Plancherel measure
+$d\mu(r) = r\tanh(\pi r)\,dr/\pi$
+--- exactly the Harish-Chandra $|c(r)|^{-2}$
+for $\mathrm{SL}(2,\mathbb{R})$ \citep[Ch.~IV]{Hejhal1976}.
+The WKB spectral sum for this potential therefore inherits the
+$\mathrm{SL}(2,\mathbb{R})$ harmonic analysis, and the Selberg
+transform evaluates to $\hat{h}(\ell) = 2\sinh(\ell/2)$
+--- the inverse of the stability denominator).
 The net contribution per orbit is therefore simply
 the \emph{geodesic length}~$\ell_0 = 2\ln\varepsilon_7$.
 Summing the seven lifts:
@@ -2283,8 +2289,9 @@ at separation~$r$ on the Seifert spacetime is
 with $G_N = G_4 = G_3/(2\pi R)$ and $R = 1/M_{\mathrm{poly}}$.
 Three distance regimes exist:
 \begin{enumerate}
-\item $r \ll R \approx 10^{-21}$\,m: the $S^1$ fibre is resolved and
-  the $2{+}1$D CS topological sector dominates,
+\item $r \ll R \approx 10^{-21}$\,m: the $S^1$ fibre is resolved,
+  the geometry is effectively $2{+}1$D, and the dimensionally
+  reduced $3$D Newton potential gives
   $V(r) \sim -(G_3/2\pi)\,m_1 m_2\,\log(r/R)$;
 \item $R \ll r \ll \ell$:
   the KK mode sum yields the standard $1/r$ Newton

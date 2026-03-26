@@ -110,8 +110,10 @@ $j = (-1 + \sqrt{1 + 2k^2})/2$.
 This is an integer iff $1 + 2k^2$ is a perfect square,
 i.e.\ $n^2 - 2k^2 = 1$ (Pell equation).
 Solutions: $(n,k) = (1,0), (3,2), (17,12), \ldots$
-The only $k \ge 2$ with $j = n/2 - 1/2 \ge 2$ is $k = 2$
-($N = 4$, $j = 1$)---a vector boson, not a graviton.
+No even~$N$ yields $j = 2$: at $k = 2$ ($N = 4$), $j = 1$;
+at $k = 12$ ($N = 24$), $j = 8$.
+Setting $j = 2$ requires $n = 5$, giving $25 - 2k^2 = 1$,
+i.e.\ $k^2 = 12$, which has no integer solution.
 
 For odd $N = 2k{+}1$: $f(k, 2k{+}1) = k(k{+}1)/2$.
 Then $j(j{+}1) = k(k{+}1)/2$ gives $j = (-1 + \sqrt{1+2k(k{+}1)})/2$.
@@ -935,18 +937,21 @@ On constant-curvature $\mathbf{H}^2$ the Weyl anomaly $\delta_m = 0$
 identically (\S\ref{sec:three-layer}), so it does not appear.
 
 \emph{Why second-order dynamics from a first-order system.}
-The Kirchhoff vortex equations $\dot{z}_k = -i\,\partial H/\partial\bar{z}_k$
-are first-order in the $2N$ complex coordinates~$z_k$.
-The breathing mode $\rho$ is a \emph{collective} coordinate
-parametrising a $1$-parameter family of $N$-gon configurations.
-Symplectic reduction from the $2N$-dimensional phase space
-$(z_1,\ldots,z_N)$ to the $2$-dimensional subspace
-$(\rho, p_\rho)$, where $p_\rho = c\,\dot\rho$ is the
-conjugate momentum, produces \emph{second-order} dynamics
-because $\rho$ is not one of the original canonical variables
-but a ratio of collective amplitudes.
-The kinetic coefficient $c = 12\,b(N)$ is the Jacobian
-of this symplectic reduction.
+The Kirchhoff equations $\dot{z}_k = -i\,\partial H/\partial\bar{z}_k$
+are first-order with symplectic form
+$\omega = (i/2)\sum_k \Gamma_k\,dz_k \wedge d\bar{z}_k$.
+The breathing mode $\rho$ parametrises the one-parameter family
+$z_k(\rho) = \rho\,e^{2\pi i k/N}$ of regular polygons.
+The pullback of~$\omega$ to the $(\rho, \theta)$ collective-coordinate
+subspace (where $\theta$ is the overall phase) is
+$\omega|_{\mathrm{coll}} = c\,d\rho \wedge d\theta$
+with $c = \sum_k \Gamma_k \cdot |dz_k/d\rho|^2
+= N \sum_{p=1}^{N-1} \csc^2(\pi p/N) / (4\pi)
+= 12\,b(N)$
+(the Havelock central charge, from the cotangent sum).
+The reduced Hamiltonian $\bar{H}(\rho, p_\rho) = p_\rho^2/(2c) + V(\rho)$
+is second-order because $p_\rho = c\,\dot\rho$ is the
+momentum conjugate to~$\rho$ in the pullback symplectic structure.
 
 Each term has a definite origin:
 \begin{center}
@@ -1820,26 +1825,28 @@ at order~$\sigma$ through the traceless Riemann component,
 producing an $\ell = 2$ (quadrupole) angular dependence with
 $5$ independent components in $d = 3$.
 The $\mathbb{Z}_N$ Fourier modes $m = 1, \ldots, N{-}1$
-project onto specific angular harmonics; for $N \ge 6$,
-the $5$ modes $m = 1, \ldots, 5$ span the full
-$\ell = 2$ subspace (they are linearly independent
-because $\cos(2\pi p m/N)$ for $m = 1, \ldots, 5$ forms
-a Vandermonde-type system for $p = 1, \ldots, 5$).
-Any nonzero Weyl tensor therefore makes $C_1$ depend on~$m$,
-violating~(H1).
-Hence (H1) at every~$x$ forces $W_{ijkl} = 0$ and
+project onto specific angular harmonics.
+Due to the palindromic symmetry
+$\cos(2\pi pm/N) = \cos(2\pi(N{-}p)m/N)$,
+the number of \emph{independent real} angular probes is
+$\lfloor N/2\rfloor$, not $N{-}1$.
+To constrain all $5$ quadrupole components of the
+$\ell = 2$ Weyl sector in $d = 3$, we need
+$\lfloor N/2\rfloor \ge 5$, i.e.\ $N \ge 10$ (even) or
+$N \ge 11$ (odd).
+Verified numerically: the $5 \times 5$ cosine matrix
+$M_{mp} = \cos(2\pi pm/N)$ has rank~$5$ for $N = 11$
+but rank~$3$ for $N = 6, 7$ (insufficient).
+Any nonzero Weyl tensor therefore makes $C_1$ depend on~$m$
+for $N \ge 11$, violating~(H1).
+Hence (H1) at every~$x$ with $N \ge 11$ forces $W_{ijkl} = 0$ and
 $R_{ij} = (R/d)\,g_{ij}$: maximal symmetry.
 Promoting to the $(d{+}1)$-dimensional spacetime:
 $R_{\mu\nu} = \Lambda\,g_{\mu\nu}$.
 
-In $d = 4$ the Weyl tensor has $10$ independent components.
-Its leading effect on~$G$ is at spherical harmonic $\ell = 2$
-($5$ real components).
-A polygon with $N \ge 6$ provides $N{-}1 \ge 5$ independent
-$\mathbb{Z}_N$ Fourier modes, which is sufficient to constrain
-all $5$ quadrupole components---so $N = 6$ (Saturn's hexagon!)
-is the \emph{smallest polygon that probes the full Weyl tensor
-in $3{+}1$D}.
+In $d = 4$, the Weyl tensor has $10$ components at $\ell = 2$
+($5$ real), requiring $\lfloor N/2\rfloor \ge 5$, i.e.\ $N \ge 11$
+---the \emph{cosmological polygon} (Paper~IV, Theorem~11).
 \end{proof}
 
 \begin{remark}[The cosmological constant from the polygon number]
@@ -1863,7 +1870,7 @@ The \emph{added value} of the Havelock derivation is fourfold:
 Green's function, which Schur alone cannot provide;
 (b)~the curvature value $\Lambda$ is \emph{quantised}
 by the polygon number~$N$ through the explicit formula
-$\Lambda = 3[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$;
+$\Lambda = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$;
 (c)~the hypothesis of Schur's lemma (isotropy) is
 \emph{derived} from the Hadamard universality of the
 Green's function, not assumed;
