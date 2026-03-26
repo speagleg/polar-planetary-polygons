@@ -1,19 +1,18 @@
 r"""
-The 4D graviton from Kaluza-Klein decomposition on the Seifert manifold.
+The 4D graviton from the boundary Virasoro algebra on the Seifert manifold.
 
-The critical gap in the QM-to-gravity unification: 2+1D gravity is
-topological (zero propagating DOF), so where is the graviton?
+The 4D spin-2 graviton EMERGES from the boundary CFT of the SL(2,R)
+Chern-Simons theory. The spin-2 structure is DERIVED from the Virasoro
+algebra (T(z) has conformal weight (2,0)), not assumed.
 
-ANSWER: The 4D graviton has 2 propagating DOF. After KK reduction on S¹:
-  - 3D metric g_ij: 0 DOF (topological, Witten 1988)
-  - Graviphoton A_i = g_{i,φ}: 1 DOF (propagating)
-  - Radion σ = g_{φφ}: 1 DOF (propagating)
+The boundary at ∂H² = S¹_θ is fibered over S¹_φ, giving a torus T².
+The boundary graviton propagates on T² with 2 transverse momenta,
+providing the correct kinematics for a massless 4D particle.
 
-  Total: 0 + 1 + 1 = 2 = the 4D graviton.
-
-The graviphoton and radion ARE the two polarizations of the 4D graviton,
-decomposed by KK reduction. The "topological" nature of 3D gravity
-is compensated by these KK fields.
+Bulk KK DOF (graviphoton + radion = 2) are a DUAL description of the
+same 2 DOF; they are massive (m ~ M_poly) and Yukawa-suppressed at
+macroscopic distances. The physical long-range graviton is the
+boundary stress tensor T(z).
 
 The graviton mass spectrum:
   - Even N: massless zero mode at m = N/2 (exact 4D massless graviton)

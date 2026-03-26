@@ -143,7 +143,7 @@ def wkb_corrections(N=7):
     c = central_charge(N)
 
     delta_1 = -MASS_GAP * ARCCOSH_8  # mass gap correction
-    delta_2 = -2 / c**2 * ARCCOSH_8  # Dunham second order
+    delta_2 = -4 / c**2 * ARCCOSH_8  # Dunham second order (4/c^2, not 2/c^2)
 
     two_S_corrected = 2 * N * ARCCOSH_8 + delta_1 + delta_2
 

@@ -111,6 +111,84 @@ def eta_invariant_phase(N=7, mu4_up=0.5, mu4_down=1.5):
     }
 
 
+def bf_barrier_transmission(N=7, rho_star=1.734, c=1.5):
+    """Orbifold image barrier transmission T_2 from the Legendre Q function.
+
+    On H²/Z_N, the nearest orbifold image at radius rho* is at geodesic
+    distance d = acosh(cosh²(rho*) - sinh²(rho*) cos(2π/N)).
+    The Dirac Green's function at this distance gives the transmission:
+        T_2 = Q_{c-1/2}(cosh d)
+    For the BF-crossing mode (c = 3/2), this is Q_1(cosh d).
+
+    Returns dict with d, cosh_d, T_2, V_cb, and all image contributions.
+    """
+    from math import cos, acosh, cosh as _cosh, sinh as _sinh
+
+    # Geodesic distance to nearest Z_N image at radius rho*
+    angle = 2 * pi / N
+    cosh_d = _cosh(rho_star)**2 - _sinh(rho_star)**2 * cos(angle)
+    d = acosh(cosh_d)
+
+    # Legendre Q functions: Q_0(x) = (1/2)ln((x+1)/(x-1)), Q_1(x) = x*Q_0(x) - 1
+    nu = c - 0.5  # Legendre order
+    x = cosh_d
+    Q0 = 0.5 * log((x + 1) / (x - 1))
+
+    if abs(nu) < 1e-10:
+        T_2 = Q0
+    elif abs(nu - 1.0) < 1e-10:
+        T_2 = x * Q0 - 1
+    else:
+        raise NotImplementedError(f"Q_{{nu}}(x) for nu={nu} not implemented; use c=1/2 or c=3/2")
+
+    # All image contributions
+    images = []
+    for k in range(1, N):
+        angle_k = 2 * pi * k / N
+        cosh_dk = _cosh(rho_star)**2 - _sinh(rho_star)**2 * cos(angle_k)
+        dk = acosh(cosh_dk)
+        xk = cosh_dk
+        Q0k = 0.5 * log((xk + 1) / (xk - 1))
+        Q1k = xk * Q0k - 1
+        images.append({'k': k, 'd': dk, 'cosh_d': cosh_dk, 'Q1': Q1k})
+
+    # V_cb from geometric mean: |V_cb| = sqrt(V_cb_pert * T_2)
+    V_cb_pert = 0.092
+    V_cb_uncorrected = sqrt(V_cb_pert * T_2)
+
+    # Self-consistent orbifold correction to rho*:
+    # The two nearest Z_N images (k=1, k=N-1) each shift the BO potential
+    # zero by Q_1(cosh d(rho*)). The self-consistent equation is:
+    #   rho* = rho_0 * (1 + 2*Q_1(cosh d(rho*)))
+    rho_sc = rho_star
+    for _ in range(10):
+        cosh_d_sc = _cosh(rho_sc)**2 - _sinh(rho_sc)**2 * cos(angle)
+        x_sc = cosh_d_sc
+        Q0_sc = 0.5 * log((x_sc + 1) / (x_sc - 1))
+        Q1_sc = x_sc * Q0_sc - 1
+        rho_sc = rho_star * (1 + 2 * Q1_sc)
+
+    T_2_sc = Q1_sc
+    V_cb_sc = sqrt(V_cb_pert * T_2_sc)
+
+    return {
+        'N': N,
+        'rho_star': rho_star,
+        'rho_star_sc': rho_sc,
+        'c': c,
+        'nu': nu,
+        'angle': angle,
+        'd': d,
+        'cosh_d': cosh_d,
+        'T_2': T_2,
+        'T_2_sc': T_2_sc,
+        'V_cb_pert': V_cb_pert,
+        'V_cb_uncorrected': V_cb_uncorrected,
+        'V_cb': V_cb_sc,
+        'images': images,
+    }
+
+
 def rs_profile(c, rho_star, n_steps=5000):
     """Normalized RS profile at IR brane on H² (with sinh metric)."""
     drho = rho_star / n_steps

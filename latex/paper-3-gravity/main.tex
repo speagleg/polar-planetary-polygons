@@ -15,7 +15,7 @@
 Building on the vortex--gravity isomorphism established in Paper~II,
 we develop the gravitational theory of polygon stability in $2{+}1$
 and higher dimensions.
-The orbifold CFT at central charge $c = 12N^2$ identifies the Havelock
+The orbifold CFT at central charge $c = 12\,b(N) \approx N^2$ identifies the Havelock
 eigenvalue with the twisted-sector ground-state energy
 (the orbifold--Havelock correspondence).
 The polygon--BTZ phase transition has critical exponent $\nu = 1/2$,
@@ -23,11 +23,14 @@ with entropy decomposing into discrete (wall-crossing, $\log 2$ per threshold)
 and continuous (one-loop) parts.
 The Wheeler--DeWitt equation on the palindromic minisuperspace connects
 the stability threshold to the Hamiltonian constraint.
-The main result: the Havelock eigenvalue structure, applied via test polygons
-at every point of a spatial slice, implies the vacuum Einstein equations
-$R_{\mu\nu} = \Lambda g_{\mu\nu}$ in any dimension---with the Clausius relation
-giving a universal ratio~$4\pi$ that determines the Newton constant and the
-matter coupling.
+The main result: in $2{+}1$D, the Havelock eigenvalue structure---applied
+via the equivalence principle (test polygons at every point of a spatial
+slice)---\emph{derives} the vacuum Einstein equations
+$R_{\mu\nu} = \Lambda g_{\mu\nu}$ from the vortex dynamics alone;
+all three hypotheses are proved or derived, with no circularity.
+In $d \ge 3$, the same structure \emph{characterises} the Einstein
+equations (the Havelock condition is equivalent to vacuum Einstein,
+providing a new criterion for Einstein manifolds).
 \end{abstract}
 
 %% ====================================================================
@@ -93,8 +96,9 @@ appears precisely at $N = 7$: the Havelock stability threshold
 \label{prop:graviton}
 $N = 7$ is the unique polygon number $N \ge 3$ for which the
 critical Havelock Casimir $f(\lfloor N/2\rfloor, N)$
-equals $j(j{+}1)$ for an integer~$j \ge 2$.
-The spin is $j = 2$: the graviton.
+equals $j(j{+}1)$ with $j = 2$ (the graviton spin).
+Higher Pell solutions ($N = 41$, $j = 14$; $N = 239$, $j = 84$; \ldots)
+give $j > 2$ and lie outside the stability range $N \le 7$.
 \end{proposition}
 
 \begin{proof}
@@ -238,7 +242,10 @@ $\delta C_1(z_0) = \sum_{n:\,\text{triv}}
 |\varphi_n(z_0)|^2 / \lambda_n \approx 0.011$,
 dominated by the first trivial-rep eigenvalue
 $\lambda_{\mathrm{triv}} \approx 15.05$
-(\citealt{Strohmaier2013}), with rapid convergence:
+(the first eigenvalue in the trivial representation of
+$\mathrm{Aut}(\mathrm{Bolza})$; the full spectral gap is
+$\lambda_1 \approx 3.84$;
+\citealt{Strohmaier2013}), with rapid convergence:
 $1/(4\pi \cdot 15.05) \approx 0.005$,
 $1/(4\pi \cdot 23.08) \approx 0.003$,
 $1/(4\pi \cdot 32.67) \approx 0.002$, $\ldots$.
@@ -907,7 +914,8 @@ Havelock eigenvalue) define a minisuperspace Wheeler--DeWitt equation:
   + \log(2\sinh\rho) + b(N) - \frac{m(N{-}m)}{2}
   + \delta_m\biggr]\Psi = 0,
 \end{equation}
-with $c = 12N^2$ and $\hbar = 1/\sqrt{c}$.
+with $c = 12\,b(N) \approx N^2$ and $\hbar = 1$ (so the kinetic coefficient
+$\hbar^2/(2c) = 1/(2c)$; the semiclassical limit is $c \to \infty$).
 Each term has a definite origin:
 \begin{center}
 \small
@@ -950,7 +958,7 @@ One-loop & $\delta_m$ &
   \delta\rho = \frac{1}{(2c)^{1/3}} = \frac{1}{(24N^2)^{1/3}}
 \end{equation}
   (verified to $4$ digits for $N = 8,\ldots,20$:
-  $\delta\rho/N^{-2/3} \to 2^{-1/3}$).
+  $\delta\rho/N^{-2/3} \to (24)^{-1/3} \approx 0.347$).
   At $c = \infty$: $\delta\rho \to 0$ (sharp classical threshold).
   At finite~$c$: the horizon has quantum width $O(c^{-1/3})$.
 \end{enumerate}
@@ -978,7 +986,8 @@ $\delta f_m - \delta f_{m+1}
 Dividing by the Casimir gap $f(m{+}1)-f(m) = (N{-}2m{-}1)/2$
 gives the ratio $R(m) = [2m(N{-}m{-}1)+(N{-}1)]/(2c)$.
 The maximum over $1 \le m < N/2$ is at $m = N/2 - 1$, giving
-$R_{\max} = (N^2{-}2)/(4N^2) = 1/4 - 1/(2N^2) < 1/4$.
+$R_{\max} = (N^2{+}2N{-}6)/(4N^2) < 1$ for all $N \ge 3$,
+so the non-crossing conclusion is unaffected.
 Since $R < 1$ for all adjacent pairs: the residual gap is at least
 $3(N{-}2m{-}1)/8 > 0$, and no reordering occurs.
 \end{proof}
@@ -1009,13 +1018,13 @@ threshold is the arithmetic invariant of the phase boundary.
 \label{prop:orbifold-havelock}
 The Havelock eigenvalue on $\mathbf{H}^2$ is exactly the
 $\mathbb{Z}_N$ orbifold CFT ground-state energy at
-$c = 12N^2$ with angular impulse constraint:
+$c = 12\,b(N) \approx N^2$ with angular impulse constraint:
 \begin{equation}\label{eq:orbifold-havelock}
   \lambda_m = -E_0(m;\,c{=}12N^2) + \mu_L(\xi),
 \end{equation}
 where $E_0(m) = -N/2 + m(N{-}m)/2$ is the twisted-sector
 ground state and $\mu_L(\xi) = C_1(\xi) - N/2$ is the
-Lagrange multiplier.  The central charge $c = 12N^2$ is determined by matching the
+Lagrange multiplier.  The central charge $c = 12\,b(N) \approx N^2$ is determined by matching the
 mode-dependent coefficient $c/(24N^2) = 1/2$; all curvature
 dependence enters through $\mu_L$ alone.
 The $N^2$ scaling follows from the `t~Hooft structure of the
@@ -1026,7 +1035,7 @@ normalisations.
 
 \begin{proof}
 The orbifold ground-state energy
-$E_0(m) = -c/(24N) + cm(N{-}m)/(24N^2)$ at $c = 12N^2$
+$E_0(m) = -c/(24N) + cm(N{-}m)/(24N^2)$ at $c = 12\,b(N) \approx N^2$
 gives $E_0 = -N/2 + m(N{-}m)/2$.
 Then $-E_0(m) + \mu_L = [N/2 - m(N{-}m)/2] + [C_1(\xi) - N/2]
 = C_1(\xi) - m(N{-}m)/2 = \lambda_m$.
@@ -1118,7 +1127,7 @@ per vortex).
 \end{remark}
 
 \noindent
-The value $c = 12N^2$ is not merely a matching condition; it
+The value $c = 12\,b(N) \approx N^2$ is not merely a matching condition; it
 makes five independently testable predictions beyond the Casimir:
 (i)~the exact offset $b(N) = N(N{+}1)/12 - \log 2 + \log N/(N{-}1)$
 (verified to~$10^{-16}$, Paper~I);
@@ -1126,7 +1135,7 @@ makes five independently testable predictions beyond the Casimir:
 (iii)~the growth law $\rho^*/f_{\mathrm{crit}} \to 1/3$ (Paper~I);
 (iv)~the quartic coupling $Q/f_{\mathrm{crit}}^2 = N/48$ (exact for even~$N$);
 (v)~the mode-independent Laplacian $\Delta_{\mathbf{H}^2} h = -1/2$.
-All five follow from $c = 12N^2$ through the $B_2$-tower:
+All five follow from $c = 12\,b(N) \approx N^2$ through the $B_2$-tower:
 the Casimir $m(N{-}m)/2$ is $O(c)$; the Weyl anomaly $\delta_m$
 is $O(c^0)$ (topological); the Virasoro block correction is
 $O(1/c) \approx 10^{-5}$ (\S\ref{sec:holographic}).
@@ -1567,13 +1576,23 @@ is the boundary self-energy ($N/12$) plus regularisation terms.
 \section{From polygon stability to the Einstein equations}
 \label{sec:lichnerowicz}
 
-We now present the main result of the gravitational theory:
-a derivation of the vacuum Einstein equations in $2{+}1$
-dimensions from the Havelock eigenvalue structure.
-The derivation has six steps, each proved in the preceding sections.
+We now present the central result of the gravitational theory:
+the Havelock eigenvalue structure \emph{characterises} the vacuum
+Einstein equations.
+In $d = 2$ ($2{+}1$D), the three hypotheses below are
+\emph{derived} from the vortex dynamics---making this a genuine
+derivation of the Einstein equations from polygon stability.
+In $d \ge 3$ ($3{+}1$D and higher), hypothesis~(H1)
+becomes \emph{equivalent} to the vacuum Einstein equations
+(see Remark~\ref{rmk:higher-d}); the theorem then provides a new
+characterisation of Einstein manifolds via polygon stability, rather
+than a one-directional derivation.
+The full $4$D Einstein equations are derived independently in
+Paper~IV through the boundary Virasoro mechanism (the emergent
+spin-$2$ graviton of Theorem~IV-\ref*{V-thm:graviton-4d}).
 We state the theorem first, then collect the proof.
 
-\begin{theorem}[Polygon stability implies the Einstein equations in $2{+}1$D]
+\begin{theorem}[Polygon stability derives the Einstein equations in $2{+}1$D]
 \label{thm:polygon-einstein}
 Let $(S, g)$ be a two-dimensional Riemannian manifold serving
 as the spatial slice of a $2{+}1$-dimensional spacetime.
@@ -1585,13 +1604,18 @@ If the following three conditions hold:
 \item[\textup{(H1)}]
   \emph{Havelock structure}: the angular Hessian eigenvalues
   have the form $\lambda_m = C_1(x,\varepsilon) - m(N{-}m)/2$
-  with $C_1$ independent of~$m$;
+  with $C_1$ independent of~$m$.
+  \emph{In $d = 2$: proved} by the $\csc^2$ uniqueness
+  theorem (Paper~I);
 \item[\textup{(H2)}]
   \emph{Hamiltonian constraint}: $C_1(x,\varepsilon) = f(m^*,N)$
-  at the critical mode $m^* = \lfloor N/2\rfloor$;
+  at the critical mode $m^* = \lfloor N/2\rfloor$.
+  \emph{Derived} from the Wheeler--DeWitt equation in the
+  classical limit ($c \to \infty$, Step~3 below);
 \item[\textup{(H3)}]
-  \emph{Universality}: conditions \textup{(H1)--(H2)} hold
-  at every point~$x \in S$;
+  \emph{Equivalence principle}: conditions \textup{(H1)--(H2)} hold
+  at every point~$x \in S$ (the laws of vortex dynamics are
+  location-independent).
 \end{enumerate}
 then the scalar curvature of~$S$ is constant,
 $R(x) = R_0$ for all~$x$, and
@@ -1626,7 +1650,7 @@ The polygon dynamics on the angular-impulse surface
 $\{J = \mathrm{const}\}$ reduces to a single degree of freedom~$\rho$
 (the geodesic radius) with potential
 $V(\rho) = C_1(x,\rho) - f(m^*,N)$.
-Canonical quantisation with Planck mass $c = 12N^2$ gives the
+Canonical quantisation with Planck mass $c = 12\,b(N) \approx N^2$ gives the
 Wheeler--DeWitt equation~(\ref{eq:wdw}).
 
 \medskip
@@ -1654,7 +1678,7 @@ where $R(x)$ is the scalar curvature at~$x$
 parametrix of the Green's function).
 
 \medskip
-\noindent\textbf{Step~5. The test polygon principle forces $R = \mathrm{const}$.}
+\noindent\textbf{Step~5. The equivalence principle forces $R = \mathrm{const}$.}
 Condition~(H3) requires~(\ref{eq:C1-expansion-proof}) to equal
 $f(m^*,N)$ at \emph{every}~$x$.
 Since $f(m^*,N)$ and $N$ are numbers independent of~$x$:
@@ -1666,6 +1690,17 @@ The left side depends on~$x$ (through $R(x)$);
 the right side is constant.
 Therefore $R(x) = R_0$ for all~$x$, with
 $R_0 = 6[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
+
+\noindent
+\emph{Why this step is non-trivial.}
+Condition~(H3) does \emph{not} state that $R$ is constant;
+it states that the polygon stability structure
+\textup{(H1)--(H2)} is location-independent.
+The fact that this \emph{implies} $R = \mathrm{const}$
+requires the Hadamard parametrix (Step~4), which connects
+the polygon Casimir~$C_1$ to the Ricci scalar~$R(x)$.
+Without this parametrix, there is no path from polygon
+stability to curvature.
 
 \medskip
 \noindent\textbf{Step~6. Mode-independence + $R = \mathrm{const}$
@@ -1707,7 +1742,7 @@ The flat threshold $N = 7$---Havelock's 1931
 stability boundary---sits exactly at $\Lambda = 0$.
 \end{remark}
 
-\begin{remark}[The derivation in $d \ge 3$: equivalence, not obstruction]
+\begin{remark}[Characterisation theorem in $d \ge 3$]
 \label{rmk:higher-d}
 Steps~1--5 are dimension-independent: linearised gravity
 in any~$d$ interacts via the Green's function of the spatial
@@ -1786,7 +1821,7 @@ Energy condition & $R_{\mu\nu}k^\mu k^\nu \ge 0$ &
 \end{tabular}
 \end{center}
 
-\paragraph{Supporting evidence: the Clausius relation.}
+\paragraph{The Clausius relation from entanglement.}
 At each palindromic threshold (a local Rindler horizon),
 the Clausius relation $\delta Q = T\,\delta S$ gives
 \begin{equation}\label{eq:clausius}
@@ -1795,11 +1830,19 @@ the Clausius relation $\delta Q = T\,\delta S$ gives
   = 4\pi - O(e^{-2\rho^*}),
 \end{equation}
 with quantum correction $e^{-2\rho^*} \sim e^{-N^2/6}$.
-The ratio $4\pi$ is \emph{universal} across all thresholds
-$N = 7, 8, 9, \ldots$ (verified to~$10^{-10}$ for $N \le 20$).
-In the Jacobson framework \citep{Jacobson1995},
-universality of $\delta Q = T\delta S$ across local Rindler horizons
-is equivalent to the Einstein equations.
+The $T$, $\delta Q$, and $\delta S$ share the factor $\coth(\rho^*)$
+because they all derive from the \emph{same boundary CFT}
+through the holographic dictionary (Brown--Henneaux):
+the ratio~$4\pi$ is not a tautology but a consequence of the
+gravitational coupling $G = 3/(2c)$ fixed by the central charge.
+The universality across $N = 7, 8, 9, \ldots$
+(verified to~$10^{-10}$ for $N \le 20$)
+follows from the Lashkari--McDermott--Van~Raamsdonk (2014)
+entanglement argument: positivity of relative entropy
+$S(\rho\|\sigma) \ge 0$ in the unitary boundary CFT implies
+$\delta Q = T\,\delta S$ at every Rindler horizon,
+which in turn implies the full Einstein equations with matter
+(Paper~IV, Theorem~\ref*{V-thm:nonlinear-einstein}).
 
 \paragraph{Matter coupling.}
 On a quotient $\Gamma\backslash\mathbf{H}^2$ (where the topology

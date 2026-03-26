@@ -103,3 +103,54 @@ class TestScatteringPhase:
         from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
         r = eta_invariant_phase()
         assert r['delta_m'] == 1.0
+
+
+class TestBFBarrierTransmission:
+    """Tests for the orbifold image barrier T_2 = Q_1(cosh d_image)."""
+
+    def test_T2_from_legendre(self):
+        """T_2 = Q_1(cosh d) at rho* = 1.734, N=7."""
+        from planetary_polygons.extensions.ckm_mixing import bf_barrier_transmission
+        r = bf_barrier_transmission()
+        # Q_1(cosh d) should be ~0.024
+        assert abs(r['T_2'] - 0.024) < 0.002
+
+    def test_geodesic_distance(self):
+        """Geodesic distance to nearest Z_7 image at rho*."""
+        from planetary_polygons.extensions.ckm_mixing import bf_barrier_transmission
+        r = bf_barrier_transmission()
+        assert abs(r['d'] - 2.02) < 0.01
+
+    def test_V_cb_uncorrected(self):
+        """Uncorrected V_cb = sqrt(V_cb_pert * T_2) within 15% of observed."""
+        from planetary_polygons.extensions.ckm_mixing import bf_barrier_transmission
+        r = bf_barrier_transmission()
+        assert abs(r['V_cb_uncorrected'] - 0.042) / 0.042 < 0.15
+
+    def test_V_cb_self_consistent(self):
+        """Self-consistent V_cb within 1% of observed."""
+        from planetary_polygons.extensions.ckm_mixing import bf_barrier_transmission
+        r = bf_barrier_transmission()
+        assert abs(r['V_cb'] - 0.042) / 0.042 < 0.01
+
+    def test_rho_star_sc(self):
+        """Self-consistent rho* shifted ~3-4% from uncorrected."""
+        from planetary_polygons.extensions.ckm_mixing import bf_barrier_transmission
+        r = bf_barrier_transmission()
+        shift = (r['rho_star_sc'] - r['rho_star']) / r['rho_star']
+        assert 0.02 < shift < 0.06
+
+    def test_image_hierarchy(self):
+        """Nearest images (k=1,6) dominate over farther ones."""
+        from planetary_polygons.extensions.ckm_mixing import bf_barrier_transmission
+        r = bf_barrier_transmission()
+        nearest = r['images'][0]['Q1']  # k=1
+        farther = r['images'][1]['Q1']  # k=2
+        assert nearest > 5 * farther  # nearest >> farther
+
+    def test_conformal_dimension(self):
+        """BF-crossing mode has c = 3/2, giving Legendre order nu = 1."""
+        from planetary_polygons.extensions.ckm_mixing import bf_barrier_transmission
+        r = bf_barrier_transmission()
+        assert r['nu'] == 1.0
+        assert r['c'] == 1.5
