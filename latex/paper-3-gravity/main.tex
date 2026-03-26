@@ -243,8 +243,11 @@ $1/(4\pi \cdot 15.05) \approx 0.005$,
 $1/(4\pi \cdot 23.08) \approx 0.003$,
 $1/(4\pi \cdot 32.67) \approx 0.002$, $\ldots$.
 The spectral bound $|\delta C_1| \le 2/(4\pi\lambda_{\mathrm{triv}})
-\approx 0.011$ is rigorous---it is the first term of a
-convergent sum.
+\approx 0.011$ is rigorous: the ratio of successive terms
+$\lambda_n / \lambda_{n+1} \le 15.05/23.08 = 0.65 < 1$
+gives a geometric bound on the tail,
+$\sum_{n \ge 2} 1/\lambda_n \le (1/\lambda_1) \times 0.65/(1-0.65)
+= 1.86/\lambda_1$; the factor~$2$ in the bound absorbs this.
 
 The spectral gap $\lambda_1$ of the Laplacian controls
 both quantities.
