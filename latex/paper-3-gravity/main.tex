@@ -138,8 +138,13 @@ and level
 where $c = N^2$ is the orbifold central charge at leading order.
 The exact Havelock central charge $c = 12\,b(N)$
 (where $b(N) = N(N{+}1)/12 - \ln 2 + \ln N/(N{-}1)$,
-Paper~IV Definition~5.1) differs by $O(N)$;
-all numerical predictions in Paper~IV use the exact~$c$.
+Paper~IV Definition~5.1) differs by $O(N)$.
+The CS level $k = c/12$ is not integer for most~$N$;
+this is consistent because the gauge group
+$\mathrm{SL}(2,\mathbb{R})$ is non-compact with
+$\pi_3(\mathrm{SL}(2,\mathbb{R})) = 0$
+(no large gauge transformations, so level quantisation
+does not apply; see Paper~IV, \S\ref*{V-sec:gauge-group}).
 The vortex polygon is a \emph{Wilson line}
 $W_m = \mathrm{Tr}_{R_m}\,\mathcal{P}\exp\!\oint\! A$
 in the representation $R_m$ with Casimir $f(m,N)$.
@@ -812,7 +817,8 @@ zero mode) gives the universal critical exponent $\nu = 1/2$:
   Z_{\mathrm{frozen}} = \frac{2^{3(N-2)/4}}{(N{-}3)!!}
 \]
 where $(N{-}3)!! = 1 \cdot 3 \cdot 5 \cdots (N{-}3)$ is the double
-factorial, from the Casimir gaps $\lambda_m(\rho^*) = (N{-}2m)^2/8$.
+factorial, from the Casimir gaps $\lambda_m(\rho^*) = (N{-}2m)^2/8$
+(even~$N$; for odd~$N$: $[(N{-}2m)^2 - 1]/8$).
 The polygon--BTZ transition is second-order with mean-field exponents.
 
 \paragraph{The entropy gap.}
@@ -991,7 +997,8 @@ One-loop & $\delta_m$ &
 
 \begin{proposition}[Eigenvalue non-crossing at finite $c$]
 \label{prop:non-crossing}
-For $N \ge 6$ and $c \ge N^2$, the mode-dependent part of the
+For $N \ge 6$ and $c \ge N^2$ (satisfied for all $N \ge 3$
+since $c = 12\,b(N) = N^2 + N + O(\ln N) > N^2$), the mode-dependent part of the
 $O(1/c)$ Virasoro block correction satisfies
 \begin{equation}\label{eq:non-crossing}
   \frac{|\delta f_m - \delta f_{m+1}|}{f(m{+}1,N) - f(m,N)}
@@ -1757,8 +1764,20 @@ $\mathbf{H}^2$ formula
 $C_1/(N{-}1) = (1{+}\xi^2)/(1{-}\xi)^2 \approx 1 + \varepsilon^2/2
 = 1 - R\varepsilon^2/4$ (since $R = -2$ on unit $\mathbf{H}^2$).
 
+\noindent
+\emph{Two-scale compatibility.}
+Step~2a selects $\rho = \rho^*$ (a specific, potentially large,
+radius) while Step~4 uses a small-$\varepsilon$ expansion.
+These are compatible because (H2) is the statement
+$C_1(x,\varepsilon) = f(m^*,N)$ at \emph{any} $\varepsilon$
+where the polygon is marginally stable.
+The Hadamard expansion~(\ref{eq:C1-expansion-proof})
+at small~$\varepsilon$ extracts $R(x)$ from
+this condition; the WDW classical limit at large~$c$
+provides the physical mechanism selecting the threshold.
+
 \medskip
-\noindent\textbf{Step~5. The equivalence principle forces $R = \mathrm{const}$.}
+\noindent\textbf{Step~5. Hadamard universality forces $R = \mathrm{const}$.}
 Condition~(H3) requires~(\ref{eq:C1-expansion-proof}) to equal
 $f(m^*,N)$ at \emph{every}~$x$.
 Since $f(m^*,N)$ and $N$ are numbers independent of~$x$:

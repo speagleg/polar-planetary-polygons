@@ -49,7 +49,7 @@ $\Lambda_{\mathrm{phys}} = (N^2{-}16)/(16\,\ell^2)$ with the
 curvature radius $\ell = e^{S_{\mathrm{BO}}(11)-\gamma/2}/v$
 determined by the $N = 11$ instanton, giving
 $H_0 = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$
-(no free parameters).
+(one integer~$N$ and one dimensionful scale).
 The theory is UV-complete through the orbifold CFT at $c = 12\,b(N)$
 ($= N(N{+}1) + O(\ln N)$, non-perturbative) and super-renormalisable
 after Kaluza--Klein reduction to two dimensions.
@@ -1428,9 +1428,23 @@ and $N = 11$ instanton actions alone.
 \begin{proof}
 The $N = 7$ hierarchy (Theorem~\ref{thm:hierarchy}) gives
 $v = M_P / \exp(38.444)$.
-The curvature radius satisfies
-$\ell = \exp(S_{\mathrm{BO}}(11) + \mathrm{corrections})/v$,
-where the bare exponent is the WKB integral
+
+\emph{Physical mechanism.}
+The $\mathbf{H}^2$ curvature radius~$\ell$ is the scale at which
+the $N = 11$ cosmological sector undergoes BO tunnelling from the
+unstable flat-plane configuration ($\rho = 0$) to the stable
+polygon at~$\rho^*_{11}$.
+The tunnelling amplitude is
+$A \sim \exp(-S_{\mathrm{BO}}(11))$, and the curvature
+radius is inversely proportional to the tunnelling rate:
+$\ell \sim 1/(v \cdot A) = \exp(S_{\mathrm{BO}}(11))/v$,
+where $v$ is the electroweak scale (the energy of the
+$N = 7$ instanton that sets the microscopic dynamics).
+This is the standard semiclassical relation between a
+tunnelling action and the corresponding macroscopic scale
+(cf.\ the EW hierarchy $M_P/v = \exp(2S_{\mathrm{BO}}(7))$).
+
+The bare exponent is the WKB integral
 $S_{\mathrm{BO}}(11) = \int_0^{\rho^*_{11}}
   \sqrt{2\,c_{11}\,|V(\rho)|}\;d\rho = 102.72$
 with $V(\rho) = \ln(2\sinh\rho) + b(11) - f(5,11)$ and
