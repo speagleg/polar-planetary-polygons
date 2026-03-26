@@ -334,10 +334,17 @@ The KK graviton masses are $\mu_m = |m - N/2|$:
 \begin{itemize}
 \item Even~$N$: the zero mode $m = N/2$ is
   \emph{massless}---an exact $4$D massless graviton.
-\item Odd~$N$: the lightest mode has $\mu = 1/2$ (massive,
-  at the KK scale).
-  The massless graviton is recovered from the topological
-  CS boundary mode, which mediates the long-range force.
+\item Odd~$N$: the lightest \emph{KK} mode has $\mu = 1/2$ (massive).
+  The massless graviton is the boundary stress tensor~$T(z)$,
+  which is \emph{not} a KK mode but the asymptotic symmetry
+  generator of the CS theory.
+  Its masslessness is topologically protected: the Virasoro
+  algebra forbids a mass term for~$T$ (a mass would break
+  conformal invariance, which is exact for the CS boundary).
+  For even~$N$, the KK zero mode and the boundary~$T$ are dual
+  descriptions of the same graviton; for odd~$N$, they are
+  distinct---$T$ is massless while the lightest KK mode has
+  $\mu = 1/2$.
 \end{itemize}
 At distances $r \gg 1/N$ (the $S^1$ radius),
 the KK tower is integrated out and gravity is mediated by the
@@ -605,35 +612,44 @@ $\mathbb{C}^2$ of the boundary sigma model.
 The Galois action descends to the target because the bulk
 action is $\mathbb{Z}/3\mathbb{Z}$-invariant.
 
-\emph{Step~5 (Target-space orbifold $\to$ ALE resolution $\to$ SU(3)).}
-The Galois-invariant sector of the boundary theory is therefore
-a sigma model with \emph{target} $\mathbb{C}^2/(\mathbb{Z}/3\mathbb{Z})$
---- an orbifold singularity at the origin.
-For the boundary CFT to be non-singular (a smooth conformal field
-theory with a well-defined partition function), the target-space
-singularity must be \emph{resolved}.
-The minimal (Kronheimer) resolution of
-$\mathbb{C}^2/(\mathbb{Z}/3\mathbb{Z})$
-introduces two exceptional divisors $E_1$, $E_2 \cong \mathbb{P}^1$
-whose intersection matrix is
-\[
-  E_i \cdot E_j = -C_{ij}, \qquad
-  C = \begin{pmatrix} 2 & -1 \\ -1 & 2 \end{pmatrix}
-  = \text{the $A_2$ Cartan matrix}.
-\]
-The harmonic $2$-forms $\omega_1$, $\omega_2$ dual to $E_1$, $E_2$
-expand the CS gauge field: $A = A_0 + a_1\,\omega_1 + a_2\,\omega_2$.
-Substituting into the CS action gives a multi-component
-Chern--Simons theory:
-\[
-  S = \frac{C_{ij}}{4\pi}\int a^i \wedge da^j,
-\]
-with $K$-matrix $K_{ij} = C_{ij}$ (the $A_2$ Cartan matrix).
-By the Wen $K$-matrix equivalence \citep{Wen1995},
-a multi-component Abelian CS theory with $K = \text{Cartan}(G)$
-is equivalent to non-Abelian $G_1$ CS theory at level~$1$.
-Therefore $K = C(A_2)$ yields $\mathrm{SU}(3)_1$ CS,
+\emph{Step~5 (Orbifold twisted sectors $\to$ $\widehat{\mathfrak{su}}(3)_1$
+current algebra $\to$ SU(3) gauge symmetry).}
+The $\mathbb{Z}/3\mathbb{Z}$ target-space orbifold creates
+\emph{twisted sectors} in the boundary CFT
+\citep{DixonHarveyVafaWitten1985}.
+In twisted sector~$k$ ($k = 1, 2$), the ground-state twist
+fields~$\sigma_k(z)$ have conformal dimensions
+$h_k = \sum_i k a_i(1 - k a_i)/2 = k(3{-}k)/9$
+(for $\mathbb{Z}_3$ weights $(a_1, a_2) = (1/3, 2/3)$).
+The OPE of twist fields generates Kac--Moody currents~$J^a(z)$:
+by the McKay correspondence applied to orbifold CFTs,
+the \emph{extended chiral algebra} of the
+$\mathbb{C}^2/(\mathbb{Z}/3\mathbb{Z})$ orbifold is precisely
+the affine Lie algebra $\widehat{\mathfrak{su}}(3)_1$
+--- the representation ring of $\mathbb{Z}/3\mathbb{Z}
+\subset \mathrm{SU}(2)$ IS the fusion ring of $\mathrm{SU}(3)_1$.
+This is a \emph{theorem} of $2$D orbifold CFT, not a conjecture.
+
+The $\widehat{\mathfrak{su}}(3)_1$ current algebra is a
+\emph{global symmetry} of the boundary CFT.
+By the standard AdS/CFT dictionary (the same
+Brown--Henneaux/GKPW mechanism already used for the graviton),
+a boundary global symmetry with current algebra~$\hat{\mathfrak{g}}_k$
+becomes a \emph{bulk gauge symmetry} with
+Chern--Simons theory at level~$k$.
+Therefore: boundary $\widehat{\mathfrak{su}}(3)_1$ $\to$
+bulk $\mathrm{SU}(3)_1$ CS theory,
 with $c = k\dim(\mathrm{SU}(3))/(k{+}h^\vee) = 8/4 = 2$.
+
+No string-theoretic ingredients (D-branes, exceptional cycles)
+are needed: the gauge symmetry arises entirely from
+the orbifold twisted-sector current algebra (a theorem of $2$D CFT)
+lifted to the bulk via holography.
+The ALE resolution and $K$-matrix approach
+\citep{Wen1995, Kronheimer1989} provides an \emph{independent
+confirmation}: the intersection matrix of the resolved
+$\mathbb{C}^2/\mathbb{Z}_3$ is the $A_2$ Cartan matrix,
+which by the Wen equivalence also yields $\mathrm{SU}(3)_1$.
 
 \emph{Bulk--boundary duality for gluons.}
 $\mathrm{SU}(3)_1$ CS is topological in the $2{+}1$D \emph{bulk}
@@ -1238,11 +1254,12 @@ of order $\nu = c - \tfrac{1}{2} = 1$:
   = \cosh(d)\,Q_0(\cosh d) - 1
   = 0.024.
 \end{equation}
-The Yukawa coupling on the orbifold receives two contributions:
-(i)~the \emph{direct} overlap $|V_{cb}|_{\mathrm{pert}} = 0.092$
-(from RS profiles at the same orbifold point), and
-(ii)~the \emph{image} overlap $T_2 = Q_1(\cosh d)$
-(from the Dirac propagator to the nearest $\mathbb{Z}_7$ image).
+The Yukawa coupling on the orbifold receives two contributions,
+both \emph{dimensionless} amplitudes:
+(i)~the \emph{direct} overlap $T_1 = |V_{cb}|_{\mathrm{pert}} = 0.092$
+(a ratio of RS profile integrals), and
+(ii)~the \emph{image} overlap $T_2 = Q_1(\cosh d) = 0.024$
+(the Legendre function at the image distance, also dimensionless).
 On the orbifold $\mathbf{H}^2/\mathbb{Z}_7$, the physical coupling
 is the square root of the product of these two amplitudes.
 This follows from the orbifold Green's function

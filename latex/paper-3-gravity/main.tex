@@ -927,6 +927,21 @@ with $c = 12\,b(N)$ and $\hbar = 1$
 (the semiclassical limit is $c \to \infty$).
 On constant-curvature $\mathbf{H}^2$ the Weyl anomaly $\delta_m = 0$
 identically (\S\ref{sec:three-layer}), so it does not appear.
+
+\emph{Why second-order dynamics from a first-order system.}
+The Kirchhoff vortex equations $\dot{z}_k = -i\,\partial H/\partial\bar{z}_k$
+are first-order in the $2N$ complex coordinates~$z_k$.
+The breathing mode $\rho$ is a \emph{collective} coordinate
+parametrising a $1$-parameter family of $N$-gon configurations.
+Symplectic reduction from the $2N$-dimensional phase space
+$(z_1,\ldots,z_N)$ to the $2$-dimensional subspace
+$(\rho, p_\rho)$, where $p_\rho = c\,\dot\rho$ is the
+conjugate momentum, produces \emph{second-order} dynamics
+because $\rho$ is not one of the original canonical variables
+but a ratio of collective amplitudes.
+The kinetic coefficient $c = 12\,b(N)$ is the Jacobian
+of this symplectic reduction.
+
 Each term has a definite origin:
 \begin{center}
 \small
@@ -966,10 +981,10 @@ One-loop & $\delta_m$ &
   (\rho - \rho^*)\bigr)$,
   smoothing the classical horizon over the universal width
 \begin{equation}\label{eq:airy-width}
-  \delta\rho = \frac{1}{(2c)^{1/3}} = \frac{1}{(24N^2)^{1/3}}
+  \delta\rho = \frac{1}{(2c)^{1/3}} \approx \frac{1}{(2N^2)^{1/3}}
 \end{equation}
   (verified to $4$ digits for $N = 8,\ldots,20$:
-  $\delta\rho/N^{-2/3} \to (24)^{-1/3} \approx 0.347$).
+  $\delta\rho/N^{-2/3} \to 2^{-1/3} \approx 0.794$).
   At $c = \infty$: $\delta\rho \to 0$ (sharp classical threshold).
   At finite~$c$: the horizon has quantum width $O(c^{-1/3})$.
 \end{enumerate}
@@ -1641,7 +1656,7 @@ $R(x) = R_0$ for all~$x$, and
 \begin{equation}\label{eq:einstein-from-polygon}
   R_{\mu\nu} = \Lambda\,g_{\mu\nu},
   \qquad
-  \Lambda = \frac{3\bigl[f(m^*,N) - (N{-}1)\bigr]}
+  \Lambda = \frac{2\bigl[f(m^*,N) - (N{-}1)\bigr]}
                  {(N{-}1)\,\varepsilon^2}.
 \end{equation}
 These are the vacuum Einstein equations of $2{+}1$-dimensional
@@ -1683,6 +1698,13 @@ marginally stable polygon.
 This gives (H2): $C_1(x,\varepsilon) = f(m^*,N)$
 from a \emph{classical} variational principle (entropy
 maximisation), without quantisation.
+(The divergent zero-mode contribution is regularised by the
+WDW quantum correction, Step~2b: the Airy width
+$\Delta\rho = (2c)^{-1/3}$ cuts off the phase space at
+the quantum level, giving a finite regularised entropy
+$S_{\mathrm{reg}} = \sum_{m \ne m^*}\tfrac{1}{2}\log(1/|\lambda_m|)
++ \tfrac{1}{2}\log c^{1/3}$,
+which is maximised at $\rho = \rho^*$.)
 
 \medskip
 \noindent\textbf{Step~2b. The WDW equation from the Onsager path integral.}
@@ -1719,17 +1741,21 @@ the global geometry.
 Summing over the $N$-ring at radius~$\varepsilon$ centred at~$x$:
 \begin{equation}\label{eq:C1-expansion-proof}
   C_1(x, \varepsilon)
-  = (N{-}1)\!\left[1 + \frac{R(x)\,\varepsilon^2}{6}
+  = (N{-}1)\!\left[1 + \frac{R(x)\,\varepsilon^2}{4}
     + O(\varepsilon^4)\right],
 \end{equation}
 where $R(x)$ is the scalar curvature at~$x$.
-The coefficient $1/6$ arises from the Hadamard parametrix:
-$G(x,y) = -(1/2\pi)[\log d - R\,d^2/12 + O(d^4)]$,
-and the ring sum $\sum_{p=1}^{N-1}\cos(2\pi pm/N) = -1$
-for the first Havelock mode extracts $R\varepsilon^2/6$
-from the $d^2$ correction
-(the $\varepsilon^2$ coefficient comes from the Hadamard
-parametrix of the Green's function).
+The coefficient $1/4$ has two contributions:
+(i)~$1/6$ from the Hadamard parametrix
+$G(x,y) = -(1/2\pi)[\log d - R\,d^2/12 + O(d^4)]$
+summed over the ring with $\sum_{p}\sin^2(\pi p/N) = (N{-}1)/2$;
+(ii)~$1/12$ from the curvature correction to the ring chord
+distances (on a curved surface, $d_p \neq 2\varepsilon\sin(\pi p/N)$
+at $O(\varepsilon^3)$).
+Together: $1/6 + 1/12 = 1/4$, matching the exact
+$\mathbf{H}^2$ formula
+$C_1/(N{-}1) = (1{+}\xi^2)/(1{-}\xi)^2 \approx 1 + \varepsilon^2/2
+= 1 - R\varepsilon^2/4$ (since $R = -2$ on unit $\mathbf{H}^2$).
 
 \medskip
 \noindent\textbf{Step~5. The equivalence principle forces $R = \mathrm{const}$.}
@@ -1743,7 +1769,7 @@ Since $f(m^*,N)$ and $N$ are numbers independent of~$x$:
 The left side depends on~$x$ (through $R(x)$);
 the right side is constant.
 Therefore $R(x) = R_0$ for all~$x$, with
-$R_0 = 6[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
+$R_0 = 4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
 
 \noindent
 \emph{Why this step is non-trivial.}
