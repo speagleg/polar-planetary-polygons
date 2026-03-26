@@ -1159,21 +1159,28 @@ $\operatorname{Im}\psi(\tfrac{1}{2}+it) = (\pi/2)\tanh(\pi t)$---the
 \textbf{same digamma function} that generates the Havelock
 eigenvalue kernel (Theorem~\ref{thm:havelock}).
 
-\emph{Step~2 (CKM phase $=$ propagator phase difference).}
-The CKM phase~$\delta$ is the difference in Yukawa phases
-between the down-type and up-type couplings at the BF-crossing
-mode:
+\emph{Step~2 (CKM phase $=$ integrated scattering phase).}
+As the conformal dimension transitions from
+$c_{\mathrm{up}} = \tfrac{1}{2}$ to $c_{\mathrm{dn}} = \tfrac{3}{2}$,
+it crosses the BF threshold at $c = 1$ where $M^2 = c(c{-}1) = 0$.
+At the crossing, the bulk field transitions from normalisable
+to non-normalisable, and the effective mass parameter
+$m = c - \tfrac{1}{2}$ runs through $[0, 1]$.
+The \emph{accumulated scattering phase} over this transition is
 \begin{equation}\label{eq:delta-integral}
-  \delta = \arg K(c_{\mathrm{dn}}) - \arg K(c_{\mathrm{up}})
-  = \arg\Gamma\!\bigl(\tfrac{3}{2}\bigr) - \arg\Gamma\!\bigl(\tfrac{1}{2}\bigr)
-  = \tfrac{1}{2}\log\cosh(\pi) - 0.
+  \delta = \int_0^1 \operatorname{Im}\psi\!\bigl(\tfrac{1}{2}+it\bigr)\,dt
+  = \int_0^1 \tfrac{\pi}{2}\tanh(\pi t)\,dt
+  = \tfrac{1}{2}\log\cosh(\pi).
 \end{equation}
-The evaluation uses $\arg\Gamma(\tfrac{1}{2} + i \times 1)
-= \tfrac{1}{2}\log\cosh(\pi)$ and $\arg\Gamma(\tfrac{1}{2}) = 0$
-(real).
-The integration range $m \in [0,1]$ corresponds to
-$c \in [\tfrac{1}{2}, \tfrac{3}{2}]$, the $T_3$ split of the
-Higgs doublet ($\Delta\mu_4 = 1$).
+This is \emph{not} $\arg\Gamma(\tfrac{3}{2}) - \arg\Gamma(\tfrac{1}{2})$
+(both of which are zero, since $\Gamma$ is real at real arguments).
+It is the \emph{integrated scattering phase density}
+$\operatorname{Im}\psi(\tfrac{1}{2}+it)$ over the BF crossing
+range $t \in [0,1]$ --- equivalently,
+$\delta = \arg\Gamma(\tfrac{1}{2}+i) - \arg\Gamma(\tfrac{1}{2})
+= \arg\Gamma(\tfrac{1}{2}+i)$,
+the phase of $\Gamma$ at the \emph{complex} point
+$\tfrac{1}{2}+i$ (not at the real point $\tfrac{3}{2}$).
 
 \emph{Step~3 (Only the BF-crossing mode contributes).}
 For generation~3, mode $m = 3$ ($\mu_7 = 0$):
@@ -1496,7 +1503,10 @@ Two subleading corrections enter:
 \end{enumerate}
 Together: $\ln(\ell\,v)
 = 102.724 - 0.289 - 0.003 = 102.432$
-(matching $\ln(\ell_{\mathrm{obs}}\,v) = 102.433$ to $0.001\%$).
+(matching $\ln(\ell_{\mathrm{obs}}\,v) = 102.433$ to $0.001\%$,
+where $\ell_{\mathrm{obs}} = \sqrt{\Lambda_{\mathrm{Hav}}/\Lambda_{\mathrm{obs}}}
+= 1.244 \times 10^{42}\;\mathrm{GeV}^{-1}$
+from Planck~2018 $H_0 = 67.4$\,km/s/Mpc).
 \end{proof}
 
 \begin{remark}[The Pell connection at $N = 11$]
