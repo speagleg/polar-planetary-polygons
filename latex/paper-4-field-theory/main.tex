@@ -750,7 +750,18 @@ is normalised by level quantisation ($k \in \mathbb{Z}$ for
 compact groups), which fixes $h = C_2/(k{+}h^\vee)$ with
 no additional $(1/2)$.
 The two normalisations are not conventions but consequences of
-the compact-boson versus WZW kinetic structures.
+the \emph{different mathematical structures} of the boundary fields:
+$\mathrm{U}(1)$ is Abelian, so its boundary theory is a free compact
+boson with the canonical $(1/2)$ kinetic normalisation;
+$\mathrm{SU}(2)$ is non-Abelian, so its boundary theory is the WZW
+model whose kinetic term is fixed by level quantisation
+($k \in \mathbb{Z}$, required for gauge invariance under large
+gauge transformations of the compact group).
+This distinction is intrinsic to the gauge structure---it does
+\emph{not} depend on the gravitational $\mathrm{SU}(2)_L \times
+\mathrm{SU}(2)_R$ decomposition and would give the same factor
+of~$2$ in any framework where $\mathrm{U}(1)$ is Abelian and
+$\mathrm{SU}(2)$ is non-Abelian.
 Therefore
 \begin{equation}\label{eq:hbar}
   \sin^2\theta_W = \frac{8\pi h_{\mathrm{U}(1)}}{8\pi h_{\mathrm{U}(1)}
@@ -1260,13 +1271,16 @@ both \emph{dimensionless} amplitudes:
 (a ratio of RS profile integrals), and
 (ii)~the \emph{image} overlap $T_2 = Q_1(\cosh d) = 0.024$
 (the Legendre function at the image distance, also dimensionless).
-On the orbifold $\mathbf{H}^2/\mathbb{Z}_7$, the physical coupling
-is the square root of the product of these two amplitudes.
-This follows from the orbifold Green's function
-$G_{\mathrm{orb}}(x,y) = (1/N)\sum_k G(x,\gamma^k y)$.
-In the Born approximation for sequential barrier transmission
-(the fermion propagates through two potentials: the RS warp
-factor and the orbifold image barrier),
+On $\mathbf{H}^2/\mathbb{Z}_7$, the orbifold Yukawa coupling is
+$Y_{\mathrm{orb}} = (1/N)\sum_{k=0}^{N-1} Y(x, \gamma^k x')$,
+where $Y(x,x')$ is the covering-space Yukawa.
+The $k = 0$ term gives the direct contribution~$T_1$;
+the $k = 1$ (nearest image) term gives~$T_2 = Q_1(\cosh d)$.
+For $T_1 \gg T_2 \gg T_{k \ge 2}$ (hierarchical image series):
+$|Y_{\mathrm{orb}}|^2 \approx |T_1|^2/N^2 + 2\,\mathrm{Re}(T_1^*T_2)/N^2
++ \ldots \approx T_1\,T_2/N^2$ (the cross term dominates the
+interference between direct and nearest-image paths).
+With $N$ cancelling in the normalised CKM element:
 $|V_{cb}|^2 = T_1 \times T_2$ where $T_1 = |V_{cb}|_{\mathrm{pert}}$
 and $T_2 = Q_1(\cosh d)$:
 \begin{equation}\label{eq:Vcb-born}
