@@ -141,12 +141,14 @@ where $c = N^2$ is the orbifold central charge at leading order.
 The exact Havelock central charge $c = 12\,b(N)$
 (where $b(N) = N(N{+}1)/12 - \ln 2 + \ln N/(N{-}1)$,
 Paper~IV Definition~5.1) differs by $O(N)$.
-The CS level $k = c/12$ is not integer for most~$N$;
-this is consistent because the gauge group
-$\mathrm{SL}(2,\mathbb{R})$ is non-compact with
-$\pi_3(\mathrm{SL}(2,\mathbb{R})) = 0$
-(no large gauge transformations, so level quantisation
-does not apply; see Paper~IV, \S\ref*{V-sec:gauge-group}).
+The CS level $k = c/12$ is not integer for most~$N$.
+Level quantisation in CS theory arises from large gauge
+transformations; for the non-compact $\mathrm{SL}(2,\mathbb{R})$,
+the relevant topological constraint is weaker than for compact groups.
+In the semiclassical regime $k \gg 1$ (large~$N$),
+integrality corrections are~$O(1/k)$ and the CS formulation
+is reliable (see Paper~IV, \S\ref*{V-sec:gauge-group},
+for a detailed discussion).
 The vortex polygon is a \emph{Wilson line}
 $W_m = \mathrm{Tr}_{R_m}\,\mathcal{P}\exp\!\oint\! A$
 in the representation $R_m$ with Casimir $f(m,N)$.
@@ -938,20 +940,23 @@ identically (\S\ref{sec:three-layer}), so it does not appear.
 
 \emph{Why second-order dynamics from a first-order system.}
 The Kirchhoff equations $\dot{z}_k = -i\,\partial H/\partial\bar{z}_k$
-are first-order with symplectic form
-$\omega = (i/2)\sum_k \Gamma_k\,dz_k \wedge d\bar{z}_k$.
-The breathing mode $\rho$ parametrises the one-parameter family
+are first-order in the $2N$ complex coordinates~$z_k$.
+The breathing mode~$\rho$ parametrises the one-parameter family
 $z_k(\rho) = \rho\,e^{2\pi i k/N}$ of regular polygons.
-The pullback of~$\omega$ to the $(\rho, \theta)$ collective-coordinate
-subspace (where $\theta$ is the overall phase) is
-$\omega|_{\mathrm{coll}} = c\,d\rho \wedge d\theta$
-with $c = \sum_k \Gamma_k \cdot |dz_k/d\rho|^2
-= N \sum_{p=1}^{N-1} \csc^2(\pi p/N) / (4\pi)
-= 12\,b(N)$
-(the Havelock central charge, from the cotangent sum).
-The reduced Hamiltonian $\bar{H}(\rho, p_\rho) = p_\rho^2/(2c) + V(\rho)$
-is second-order because $p_\rho = c\,\dot\rho$ is the
-momentum conjugate to~$\rho$ in the pullback symplectic structure.
+The effective second-order WDW equation for~$\rho$ does
+\emph{not} arise from a symplectic reduction of the
+Kirchhoff system (the cotangent sum
+$\sum_{p}\csc^2(\pi p/N) = (N^2{-}1)/3$ is purely polynomial and
+does not equal $12\,b(N)$, which contains transcendental terms).
+Instead, $c = 12\,b(N)$ enters as the \emph{Brown--Henneaux
+central charge} of the boundary CFT (\S\ref{sec:holographic}),
+through the holographic identification of the breathing mode
+with the radion of the Seifert fibration (Paper~IV,
+\S\ref*{V-sec:graviton}).
+The WDW equation is therefore a \emph{gravitational} effective
+description, valid in the regime where the vortex-gravity
+isomorphism holds, rather than a direct quantisation of the
+vortex kinetic energy.
 
 Each term has a definite origin:
 \begin{center}
@@ -1055,19 +1060,25 @@ threshold is the arithmetic invariant of the phase boundary.
 \label{prop:orbifold-havelock}
 The Havelock eigenvalue on $\mathbf{H}^2$ is exactly the
 $\mathbb{Z}_N$ orbifold CFT ground-state energy at
-$c = 12\,b(N) \approx N^2$ with angular impulse constraint:
+$c_{\mathrm{orb}} = 12N^2$ (the UV orbifold central charge)
+with angular impulse constraint:
 \begin{equation}\label{eq:orbifold-havelock}
-  \lambda_m = -E_0(m;\,c{=}12N^2) + \mu_L(\xi),
+  \lambda_m = -E_0(m;\,c_{\mathrm{orb}}{=}12N^2) + \mu_L(\xi),
 \end{equation}
 where $E_0(m) = -N/2 + m(N{-}m)/2$ is the twisted-sector
 ground state and $\mu_L(\xi) = C_1(\xi) - N/2$ is the
-Lagrange multiplier.  The central charge $c = 12\,b(N) \approx N^2$ is determined by matching the
-mode-dependent coefficient $c/(24N^2) = 1/2$; all curvature
-dependence enters through $\mu_L$ alone.
-The $N^2$ scaling follows from the `t~Hooft structure of the
-Hamiltonian ($N(N{-}1)/2 \sim N^2$ pairwise terms); the
-factor $12 = 24/2$ converts between Virasoro and Havelock
-normalisations.
+Lagrange multiplier.
+The matching uses $c_{\mathrm{orb}} = 12N^2$
+(so that $c/(24N^2) = 1/2$), while the exact Havelock central charge
+is $c = 12\,b(N) = N(N{+}1) - 12\ln 2 + \ldots \approx N^2$ at
+leading order.
+The distinction: $c_{\mathrm{orb}}$ is the UV (free-field) central
+charge of the $\mathbb{Z}_N$ orbifold; $c = 12\,b(N)$ is the exact
+IR value after regularisation of the vortex self-energy.
+The mode-dependent matching (the $m(N{-}m)/2$ term) uses only
+$c_{\mathrm{orb}}/(24N^2) = 1/2$; the mode-independent
+$O(N)$ corrections (the $\ln 2$ and $\ln N/(N{-}1)$ terms in $b(N)$)
+enter through~$\mu_L$, not through~$E_0$.
 \end{proposition}
 
 \begin{proof}
