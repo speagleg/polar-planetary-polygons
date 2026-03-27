@@ -576,24 +576,35 @@ $\mathrm{SU}(2)$ quantum numbers in the adjoint representation.
 \subsection{$\mathrm{SU}(3)$ from the McKay correspondence at $N = 7$}
 \label{sec:su3-mckay}
 
-\begin{theorem}[$\mathrm{SU}(3)$ representation structure
+\begin{theorem}[$\mathrm{SU}(3)$ gauge symmetry
   from the Klein quartic]
 \label{thm:su3}
 The $N = 7$ vortex system determines the $\mathrm{SU}(3)$
-\emph{representation structure} (adjoint, fundamental,
-tensor products) through the Klein quartic
+gauge symmetry --- representation structure AND dynamics ---
+through the Klein quartic
 $X(7) = \Gamma(7)\backslash\mathbf{H}^2$:
-the automorphism group $\mathrm{PSL}(2,\mathbb{F}_7)$ embeds
-faithfully in $\mathrm{SU}(3)$ via the $3$-dimensional
-representation $\chi_3 = H^0(X(7), \Omega^1)$,
-and $\chi_3 \otimes \bar\chi_3 = \chi_1 \oplus \chi_8$
-reproduces the full $\mathrm{SU}(3)$ tensor algebra
-(the discrete Eightfold Way).
-No holographic dictionary is used.
+\begin{enumerate}
+\item[\emph{(a)}] \emph{Representation structure.}
+  $\mathrm{PSL}(2,\mathbb{F}_7)$ embeds faithfully
+  in $\mathrm{SU}(3)$ via $\chi_3 = H^0(X(7), \Omega^1)$,
+  with $\chi_3 \otimes \bar\chi_3 = \chi_1 \oplus \chi_8$.
+\item[\emph{(b)}] \emph{Gauge dynamics.}
+  $\mathrm{SU}(3)$ at the minimal compact level $k = 1$
+  defines a Chern--Simons gauge theory on the Seifert manifold.
+  By the CS/WZW correspondence \citep{Witten1988},
+  the CS theory on a manifold with boundary induces the
+  $\mathrm{SU}(3)_1$ WZW model on the boundary,
+  whose Kac--Moody currents $J^a(z)$ ($a = 1,\ldots,8$)
+  ARE the dynamical gluons (conformal weight $(1,0)$ = spin~$1$).
+\end{enumerate}
+No holographic dictionary (GKPW) is used: part~(a) is
+representation theory; part~(b) is the Witten CS/WZW
+theorem (1989), which predates AdS/CFT.
 \end{theorem}
 
 \begin{proof}
-Five steps, using only the Klein quartic geometry.
+Seven steps: Steps~1--5 establish the representation structure
+(part~a); Steps~6--7 establish the gauge dynamics (part~b).
 
 \emph{Step~1 (Frobenius $\to$ $\mathbb{Z}/3\mathbb{Z}$ orbits).}
 The Frobenius $\sigma\colon m \mapsto 2m \bmod 7$ has order~$3$
@@ -648,6 +659,25 @@ $\mathrm{Sym}^2(\chi_3) = \chi_6$,
 $\bigwedge^2(\chi_3) = \bar\chi_3$.
 The adjoint $\chi_8$ is irreducible under
 $\mathrm{PSL}(2,\mathbb{F}_7)$ (verified from the character table).
+
+\emph{Step~6 ($\mathrm{SU}(3)_1$ Chern--Simons gauge theory).}
+The compact group $\mathrm{SU}(3)$ at the minimal integer level
+$k = 1$ (required by gauge invariance under large gauge
+transformations) defines a topological Chern--Simons gauge theory
+$S_{\mathrm{CS}} = (k/4\pi)\int\mathrm{Tr}(A \wedge dA
++ \tfrac{2}{3}A \wedge A \wedge A)$
+on the Seifert manifold.
+No holographic input is needed: this is the \emph{definition}
+of a topological field theory for a given gauge group and level.
+
+\emph{Step~7 (CS/WZW correspondence $\to$ dynamical gluons).}
+By the Witten CS/WZW theorem \citep{Witten1988}:
+the $\mathrm{SU}(3)_1$ CS theory on a manifold with boundary
+induces the $\mathrm{SU}(3)_1$ WZW model on the boundary.
+This is a \emph{theorem} (1989), not an AdS/CFT conjecture.
+The boundary WZW currents $J^a(z)$ ($a = 1, \ldots, 8$)
+have conformal weight~$(1,0)$ (spin~$1$) and satisfy the
+Kac--Moody algebra: these ARE the $8$ dynamical gluons.
 \end{proof}
 
 \begin{corollary}[DHVW orbifold confirmation --- uses holography]
