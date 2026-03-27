@@ -157,7 +157,8 @@ The metric~\eqref{eq:metric-4d} yields, after KK reduction:
   (shifted by $1/2$ from the spin connection).
   Even~$N$: bosons have a massless mode, fermions do not
   (the $1/2$-shift from the spin connection breaks the
-  boson--fermion mass degeneracy).
+  boson--fermion mass degeneracy; the spectrum is
+  non-supersymmetric at every KK level).
 \item \textbf{Radion.}
   The $S^1$ modulus $\sigma$ (fiber radius), stabilised by
   the flux energy at $\sigma = 1$.
@@ -555,13 +556,18 @@ $O(1/k)$ and the CS path integral is well-defined
 By contrast, the compact gauge sectors have integer levels:
 $k = 1$ for SU$(2)$ (\S\ref{sec:weinberg}),
 $K = \mathrm{Cartan}(A_2)$ for SU$(3)$ (\S\ref{sec:gauge-group}).
-The embedding is consistent: the gauge sectors are
-\emph{subsectors} of the gravitational CS theory
-(see the central charge table in Definition~\ref{def:central-charge}).
-The total level $k_{\mathrm{grav}} = c/6$ is irrational,
-but the compact-group projections have integer levels
-(required by large gauge invariance for compact groups;
-not required for the non-compact $\mathrm{SL}(2,\mathbb{R})$).
+The coexistence is consistent: the boundary CFT decomposes as
+$c = c_{\mathrm{grav}} + c_{\mathrm{SU}(3)} + c_{\mathrm{SU}(2)}
++ c_{\mathrm{U}(1)}$
+(Definition~\ref{def:central-charge}, central charge table),
+with each sector having its own CS formulation at its own level.
+The gravitational $\mathrm{SL}(2,\mathbb{R})$ has irrational
+level $k = c/6$ (allowed for non-compact groups);
+the compact gauge sectors have integer levels
+$k = 1$ for SU$(2)$, $K = 1$ for $\mathrm{U}(1)$
+(required by large gauge invariance).
+These are \emph{independent topological sectors} on the same
+manifold, not a single CS theory at one level.
 
 \emph{Step~3 (Zero mode at $N = 4$).}
 At $N = 4$, the critical mode $m^* = 2$ has KK mass
@@ -1450,11 +1456,12 @@ Therefore $|V_{cb}|^2 = T_1 \times T_2$.
 \end{equation}
 At the uncorrected $\rho^*_0 = 1.734$ this gives $|V_{cb}| = 0.047$
 ($12\%$ off). However, the orbifold images also correct $\rho^*$ itself.
-The two nearest $\mathbb{Z}_7$ images ($k = 1$ and $k = 6$),
-at equal geodesic distances~$d_1$, each shift the BO potential zero
-by~$T_2$ (a first-order perturbative correction from the two
-nearest orbifold images).
-The self-consistent $\rho^*$ satisfies
+The orbifold images also correct $\rho^*$: the BO potential
+on $\mathbf{H}^2/\mathbb{Z}_7$ is
+$V_{\mathrm{orb}}(\rho) = V(\rho) + 2\,Q_1(\cosh d_1(\rho))$
+(the two nearest images at $k = 1$ and $k = 6$, at equal
+geodesic distances~$d_1(\rho)$, each contributing $Q_1$).
+Setting $V_{\mathrm{orb}}(\rho^*) = 0$ gives
 \begin{equation}\label{eq:rho-sc}
   \rho^* = \rho^*_0\,\bigl(1 + 2\,Q_1(\cosh d_1(\rho^*))\bigr).
 \end{equation}
