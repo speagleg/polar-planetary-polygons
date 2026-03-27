@@ -900,28 +900,39 @@ The level $k = 1$ is the unique positive integer giving
 $\sin^2\theta_W$ compatible with experiment after running:
 $k = 2$ gives $1/3$, $k = 3$ gives $5/13$, both excluded.)
 
-\emph{Step~3 (Kinetic-term normalisation).}
-The effective coupling of the critical mode to each gauge sector
-involves the conformal dimension weighted by the kinetic-term
-normalisation from the action (\S\ref{sec:action}):
+\emph{Step~3 (Factor of~$2$ from the propagator structure).}
+The effective couplings are determined by the boundary
+two-point functions:
 \begin{itemize}
-\item $\mathrm{U}(1)$ (compact boson, $\mathcal{L} = (K/2)(\partial\varphi)^2$):
-  $g_{Y,\mathrm{eff}}^2 = (4\pi/K) \times Q^2
-  = 4\pi \times 2h_{\mathrm{U}(1)} = 8\pi h_{\mathrm{U}(1)}$.
-\item $\mathrm{SU}(2)$ (WZW, $\mathcal{L} = (k/4\pi)\operatorname{Tr}(g^{-1}dg)^2$):
-  $g_{W,\mathrm{eff}}^2 = (4\pi/\tilde{k}) \times j(j{+}1)
-  = 4\pi \times h_{\mathrm{SU}(2)} = 4\pi h_{\mathrm{SU}(2)}$.
+\item $\mathrm{U}(1)$ (compact boson at level $K$):
+  the propagator is
+  $\langle\varphi(z)\varphi(w)\rangle = -(1/K)\log|z{-}w|^2
+  = -(1/K)[\log(z{-}w) + \log(\bar z{-}\bar w)]$.
+  The $|z{-}w|^2$ contains \emph{both} chiral sectors.
+  Coupling to charge~$Q$:
+  $g_{Y}^2 = (4\pi/K)\times 2Q^2 = 8\pi h_{\mathrm{U}(1)}$
+  (the factor $2$ from both sectors).
+\item $\mathrm{SU}(2)$ (WZW at level $k$):
+  the current correlator is
+  $\langle J^a(z)J^b(w)\rangle = k\,\delta^{ab}/(z{-}w)^2$
+  --- \emph{one} chiral sector (holomorphic).
+  The coupling $g_{W}^2 = 4\pi\,j(j{+}1)/(k{+}h^\vee)
+  = 4\pi h_{\mathrm{SU}(2)}$
+  (no factor $2$: the current algebra lives in one sector).
 \end{itemize}
-The factor-of-$2$ asymmetry ($8\pi$ vs $4\pi$) has a
-Lagrangian origin: the Abelian compact boson has the
-canonical $(1/2)$ normalisation
-($\mathcal{L} = (K/2)(\partial\varphi)^2$, giving $h = Q^2/(2K)$),
-while the non-Abelian WZW is normalised by level quantisation
-($k \in \mathbb{Z}$, giving $h = C_2/(k{+}h^\vee)$ with no
-additional $(1/2)$).
-This is not a convention: the $(1/2)$ in the boson and its
-absence in the WZW follow from the Abelian/non-Abelian
-structure of the gauge group.
+The factor-of-$2$ asymmetry ($8\pi$ vs $4\pi$) is
+\emph{not} a normalisation convention.
+It traces to a structural difference between the two
+propagators: the Abelian propagator
+$\log|z{-}w|^2 = \log(z{-}w) + \log(\bar z{-}\bar w)$
+involves both chiral sectors, while the non-Abelian
+current $J^a(z)$ is holomorphic (one sector only,
+fixed by the Kac--Moody algebra at integer level~$k$).
+This is the \emph{same} chiral halving as
+$T_m = 2\,f(m,N)$ in the Havelock identity
+(Paper~III, Proposition~\ref*{III-prop:chiral-casimir}):
+the full OPE Casimir counts both sectors, the Havelock
+eigenvalue counts one.
 Therefore
 \begin{equation}\label{eq:hbar}
   \sin^2\theta_W = \frac{8\pi h_{\mathrm{U}(1)}}{8\pi h_{\mathrm{U}(1)}
@@ -3031,27 +3042,28 @@ so the non-local influence functional reduces to the
 local Onsager--Machlup form with corrections
 $O(e^{-S_{\mathrm{BO}}})$;
 (ii)~\emph{Classical origin of $b(N)$}:
-the coefficient $c = 12\,b(N)$ is determined by the
-\emph{classical} Toeplitz positivity of the $\csc^2$ kernel,
-not by quantum mechanics.
-The Havelock eigenvalue matrix is a circulant with entries
-$-\log|2\sin(\pi p/N)|$; its Toeplitz determinants
-$D_r = \det[\Phi(u_0 + (i{-}j)h)]$ form a tau-function
-sequence for the discrete KP hierarchy.
-The offset $b(N)$ is the unique value making $D_r > 0$
-for all $r \le N{-}2$ (the number of angular modes)
---- a \emph{classical total-positivity condition}
-on the kernel.
-The fact that $b(N)$ also equals the Todd class of the
-$\mathbb{Z}_N$ orbifold is a \emph{theorem} connecting
-Toeplitz positivity to index theory
-(the Desnanot--Jacobi identity underlying the Dodgson ladder
-IS the Hirota bilinear equation of the KP hierarchy;
-the PF order of the kernel determines which tau-functions
-are non-singular).
-No quantum input is needed: $b(N)$ is extracted from the
-\emph{classical} eigenvalue data of a circulant matrix
-(Paper~III, Proposition~\ref*{III-prop:equiv-rr}).
+the coefficient $c = 12\,b(N)$ is determined by
+\emph{classical linear algebra}, not by quantum mechanics.
+The Havelock matrix $H_{pq} = -\log|2\sin(\pi(p{-}q)/N)|$
+is a circulant on $\mathbb{Z}/N\mathbb{Z}$;
+its eigenvalues are
+$\lambda_m = C_1(\rho) - m(N{-}m)/2$
+(Paper~I, Lemma~\ref*{I-lem:havelock}).
+The mode-independent offset $b(N)$ is extracted by
+averaging:
+$b(N) = \frac{1}{N{-}1}\sum_{m=1}^{N-1}
+[C_1(\rho) - \lambda_m(\rho)] - \frac{N(N{+}1)}{12}
+= N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$
+(Paper~III, Proposition~\ref*{III-prop:equiv-rr},
+verified to $10^{-16}$ for all $N = 3,\ldots,24$).
+This is the eigenvalue of a circulant matrix ---
+a computation in classical algebra that requires
+no quantum input.
+The coincidence $c = 12\,b(N) = (\text{Todd class of }
+\mathbb{Z}_N\text{ orbifold})$ is a structural
+identity between circulant eigenvalue theory and
+algebraic geometry; it is verified numerically
+and does not enter the derivation chain.
 The partition function
 $Z = \int\mathcal{D}[\rho(\tau)]\,e^{-S_{\mathrm{E}}}$
 has transfer matrix $T = e^{-\varepsilon H}$ whose
