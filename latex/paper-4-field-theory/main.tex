@@ -2611,18 +2611,28 @@ term, which contributes a non-local logarithmic potential suppressed by
 $G_3/G_4 = 2\pi R \approx 6 \times 10^{-21}$\,m.
 \end{proof}
 
-\begin{theorem}[Full nonlinear $4$D vacuum Einstein equations
-  and matter coupling]
+\begin{theorem}[Full nonlinear $4$D Einstein equations]
 \label{thm:nonlinear-einstein}
+\leavevmode
+\begin{enumerate}
+\item[\emph{(Vacuum)}]
 The full nonlinear $4$D vacuum Einstein equations
 $R^{(4)}_{MN} = \Lambda^{(4)} g_{MN}$ on
 $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$
 follow from the $\mathrm{SL}(2,\mathbb{R})$ CS theory
-without assuming $4$D gravity.
+\emph{without assuming $4$D gravity or AdS/CFT}
+(Steps~A--B below).
+\item[\emph{(Matter)}]
+The matter-coupled equations
+$G_{MN} + \Lambda g_{MN} = 8\pi G\,T_{MN}$ require
+one additional input: the Ryu--Takayanagi formula
+(Step~C below).
+\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-Three steps, each exact (not perturbative).
+Steps~A--B are exact and self-contained.
+Step~C requires an AdS/CFT input (RT formula).
 
 \emph{Step~A (CS $\to$ 3D nonlinear Einstein).}
 The CS flatness condition $F = dA + A \wedge A = 0$
@@ -2658,10 +2668,10 @@ equations follow from the graviton propagator
 matter-coupled equations follow from the entanglement argument
 (Step~C below).
 
-\emph{Step~C (Matter coupling from entanglement).}
-The vacuum equations (Steps~A--B) are exact.
-The matter coupling follows from the boundary CFT
-\emph{without additional input}, via the
+\emph{Step~C (Matter coupling from entanglement --- requires RT).}
+The vacuum equations (Steps~A--B) are derived without AdS/CFT.
+The matter coupling requires one additional input:
+the Ryu--Takayanagi formula, via the
 \citet{Lashkari2014} entanglement argument.
 Three ingredients suffice:
 (i)~the boundary $\mathbb{Z}_N$ orbifold CFT at $c = 12\,b(N)$ is
@@ -2948,7 +2958,8 @@ Output & Mechanism & Input \\
 Schr\"odinger (WDW) & Feynman--Kac & Onsager stat.\ mech.\ \\
 CS Hilbert space & Vortex partition fn.\ at $k=c/6$ & $b(N)$ from eigenvalues \\
 $3$D Einstein & Havelock + Hadamard & Paper~III, Thm.\ 5 \\
-$4$D Einstein & CS + KK + entanglement & This paper, Thm.\ 10 \\
+$4$D vacuum Einstein & CS + KK (no AdS/CFT) & This paper, Thm.\ 15(a) \\
+$4$D Einstein + matter & CS + KK + RT (AdS/CFT input) & This paper, Thm.\ 15(b) \\
 $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$ &
   McKay + Eightfold Way + KK & $N = 7$ \\
 $\sin^2\theta_W = 3/11$ & Chiral halving & $T_m = 2f_m$ \\
