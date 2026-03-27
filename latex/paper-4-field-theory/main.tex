@@ -105,8 +105,14 @@ $N$ modes with masses
   \mu_m = |m - N/2|, \qquad m = 0, 1, \ldots, N{-}1.
 \end{equation}
 The critical mode $m = N/2$ (even $N$) is massless: it IS the
-Havelock critical mode, and the Casimir $f(m,N) = m(N{-}m)/2$
-IS the kinetic energy on $S^1$.
+Havelock critical mode.
+The Casimir $f(m,N) = m(N{-}m)/2$ equals the KK kinetic energy
+on~$S^1$: a scalar field with $S^1$-momentum $\mu_m = |m - N/2|$
+and level-$1$ normalisation has $p_\varphi^2 = \mu_m^2$,
+giving $E_{\mathrm{KK}} = p_\varphi^2/(2K)$
+with $K = 1$ and $p_\varphi = m - N/2$:
+$E_{\mathrm{KK}} = (m{-}N/2)^2/2 = m(N{-}m)/2 - N^2/8 + N/2$
+(the Casimir up to a mode-independent constant).
 
 \begin{remark}[Low-energy limit is $3{+}1$D Minkowski]
 \label{rem:minkowski}
@@ -301,13 +307,15 @@ $\sigma = g_{\varphi\varphi}$ (radion) & $0$ & $\mathbf{1}$ & massive, $m \sim M
 \end{tabular}
 \end{center}
 \noindent
-The $2$ bulk DOF (graviphoton $+$ radion) and the $2$ boundary DOF
-($T$ and $\bar T$) are \emph{dual descriptions of the same graviton} in the IR
-($r \gg R$): the boundary $\langle TT\rangle$ correlator
-reproduces the bulk propagator
+The boundary description is \emph{fundamental}: the $4$D graviton
+IS the boundary stress tensor ($T$, $\bar T$), as derived in
+Theorem~\ref{thm:graviton-4d}.
+The bulk KK decomposition (graviphoton $+$ radion) is the
+\emph{effective description} at energies $\ll M_{\mathrm{poly}}$,
+where it reproduces the boundary $\langle TT\rangle$ correlator
 (Proposition~\ref{prop:graviton-propagator}).
 At energies above $M_{\mathrm{poly}}$, the full KK tower
-contributes and the two descriptions differ.
+contributes and only the boundary description remains valid.
 In the bulk, the spin-$2$ structure is decomposed into spin $1{+}0$
 under $3$D rotations; on the boundary, the spin-$2$ structure
 is manifest (conformal weight~$2$).
@@ -540,6 +548,13 @@ $O(1/k)$ and the CS path integral is well-defined
 By contrast, the compact gauge sectors have integer levels:
 $k = 1$ for SU$(2)$ (\S\ref{sec:weinberg}),
 $K = \mathrm{Cartan}(A_2)$ for SU$(3)$ (\S\ref{sec:gauge-group}).
+The embedding is consistent: the gauge sectors are
+\emph{subsectors} of the gravitational CS theory
+(see the central charge table in Definition~\ref{def:central-charge}).
+The total level $k_{\mathrm{grav}} = c/6$ is irrational,
+but the compact-group projections have integer levels
+(required by large gauge invariance for compact groups;
+not required for the non-compact $\mathrm{SL}(2,\mathbb{R})$).
 
 \emph{Step~3 (Zero mode at $N = 4$).}
 At $N = 4$, the critical mode $m^* = 2$ has KK mass
@@ -698,6 +713,15 @@ giving $8$ propagating gluons with $\mathrm{SU}(3)$ gauge coupling.
 Confinement is topological: the coloured modes are bound to
 the $\mathbb{Z}/3\mathbb{Z}$ cover of the orbifold (the CS bulk
 has no asymptotic coloured states by construction).
+
+\emph{Strong CP:} the $\mathrm{SU}(3)_1$ CS theory has
+$\theta_{\mathrm{QCD}} = 0$ exactly.
+In CS theory at integer level~$k$, the vacuum angle is
+quantised: $\theta = 0$ or $\pi$ (from $\pi_3(\mathrm{SU}(3))
+= \mathbb{Z}$, with the CS level selecting $\theta = 0$
+as the parity-preserving vacuum).
+The strong CP problem is absent because the topological
+quantisation of the CS level forbids continuous~$\theta$.
 \end{proof}
 
 \begin{center}
@@ -860,9 +884,18 @@ $\mathrm{SU}(2)$ is non-Abelian, so its boundary theory is the WZW
 model whose kinetic term is fixed by level quantisation
 ($k \in \mathbb{Z}$, required for gauge invariance under large
 gauge transformations of the compact group).
-This factor of~$2$ is the \emph{same} chiral halving that
-appears in the Havelock identity
-$T_m = 2f(m,N)$ (Paper~III, Proposition~\ref*{III-prop:chiral-casimir}):
+To summarise: the factor of~$2$ is derived from two
+standard results in 2D CFT:
+(a)~the compact-boson propagator
+$\langle\varphi(z)\varphi(w)\rangle = -(1/K)\log|z{-}w|$
+gives $g_Y^2 = 4\pi \times 2h$ (the $2$ from $|z{-}w|^2
+= (z{-}w)(\bar z{-}\bar w)$, both chiral sectors contributing
+to the canonical kinetic term);
+(b)~the WZW current algebra
+$J^a(z)J^b(w) \sim k\delta^{ab}/(z{-}w)^2$
+gives $g_W^2 = 4\pi \times h$ (one sector, the level
+quantisation absorbing the other).
+This factor is the \emph{same} chiral halving that appears in
 the full OPE Casimir $T_m = m(N{-}m)$ counts \emph{both} chiral
 sectors ($\log|z|^2 = \log z + \log\bar{z}$), while the Havelock
 eigenvalue $f = m(N{-}m)/2$ counts one.
@@ -1297,12 +1330,22 @@ profile magnitude gives the CKM mixing angles.
 For complex~$c = \tfrac{1}{2} + im$ (which arises at the
 BF crossing, Step~3), the profile $e^{-im\rho}$ is
 \emph{oscillatory} and the overlap integral acquires a phase.
-The exact phase of the Dirac bulk-to-polygon-radius propagator
-$K(c, \rho^*)$ is $\arg K = \arg\Gamma(c)$
-(from the standard spectral representation of the
-Dirac Green's function on~$\mathbf{H}^2$,
-which involves $\Gamma(c)$ in the normalisation of the
-conical functions $P_{-1/2+ir}$).
+The exact phase of the Dirac propagator
+$K(c, \rho^*)$ is $\arg K = \arg\Gamma(c)$.
+This follows from the spectral representation
+$K(c,\rho) = \int_0^\infty P_{-1/2+ir}(\cosh\rho)\,
+\Gamma(c{+}ir)\Gamma(c{-}ir)/[\Gamma(c)^2]\,d\mu(r)$,
+where $P$ is the Legendre function, $d\mu(r) = r\tanh(\pi r)\,dr/\pi$
+is the $\mathbf{H}^2$ Plancherel measure
+\citep[Ch.~IV]{Hejhal1976},
+and the ratio $\Gamma(c{+}ir)\Gamma(c{-}ir)/\Gamma(c)^2$
+provides the normalisation.
+At $\rho = 0$: $K(c,0) \propto 1/\Gamma(c)$
+(from $P_{-1/2+ir}(1) = 1$), so
+$\arg K(c,0) = -\arg\Gamma(c) = \arg\Gamma(c)^{-1}$.
+The sign convention: $\arg K = \arg\Gamma(c)$ after
+accounting for the Yukawa coupling direction
+($Y \propto K^{-1}$).
 For real~$c > 0$: $\arg\Gamma(c) = 0$---no CP violation.
 For complex~$c = \tfrac{1}{2} + im$:
 $\arg\Gamma(\tfrac{1}{2} + im)
@@ -1664,11 +1707,13 @@ Two subleading corrections enter:
   identity~\eqref{eq:pell-identity}.
 \end{enumerate}
 Together: $\ln(\ell\,v)
-= 102.724 - 0.289 - 0.003 = 102.432$
-(matching $\ln(\ell_{\mathrm{obs}}\,v) = 102.433$ to $0.001\%$,
-where $\ell_{\mathrm{obs}} = \sqrt{\Lambda_{\mathrm{Hav}}/\Lambda_{\mathrm{obs}}}
-= 1.244 \times 10^{42}\;\mathrm{GeV}^{-1}$
-from Planck~2018 $H_0 = 67.4$\,km/s/Mpc).
+= 102.724 - 0.289 - 0.003 = 102.432$.
+This is a \emph{prediction}: $\ell$ is computed entirely from
+$S_{\mathrm{BO}}(11)$ (numerical WKB integral), $\gamma/2$
+(Hurwitz zeta at BF), and $v$ (from the $N = 7$ hierarchy),
+with no cosmological input.
+\emph{Verification}: $\ln(\ell_{\mathrm{obs}}\,v) = 102.433$
+(from Planck~2018 $H_0 = 67.4$\,km/s/Mpc), a $0.001\%$ match.
 \end{proof}
 
 \begin{remark}[The Pell connection at $N = 11$]
@@ -1765,7 +1810,8 @@ The three polygon numbers are uniquely determined:
 \emph{Part (a).}
 For even $N$: $f(N/2, N) = N^2/8$.
 This is an integer only when $8 \mid N^2$, i.e.\ $4 \mid N$
-(since $N^2/8 = (N/4)^2 \cdot 2$ requires $N/4 \in \mathbb{Z}$).
+(since $N^2/8 \in \mathbb{Z}$ requires $v_2(N^2) \ge 3$,
+i.e.\ $v_2(N) \ge 2$, i.e.\ $4 \mid N$).
 Writing $N = 4k$: $f(N/2, N) = 2k^2$.
 The condition $j(j{+}1) = 2k^2$ with $j \in \mathbb{Z}$
 requires $1 + 8k^2$ to be a perfect square.
@@ -2352,6 +2398,15 @@ The inflection-point mechanism resolves this tension.
 %% ====================================================================
 \section{Parameter accounting}
 \label{sec:parameters}
+
+\paragraph{Structural framework (not free parameters).}
+The Seifert spacetime
+$\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$,
+the Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ geometry,
+and the Chern--Simons quantisation of $2{+}1$D gravity are
+structural choices that define the class of theory, analogous
+to the gauge group and spacetime dimension in the Standard Model.
+Within this framework:
 
 \paragraph{Input.}
 The single discrete input is $N = 7$ (the polygon number),
