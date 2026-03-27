@@ -443,10 +443,14 @@ base is $(1/4)(\pi N / (2\pi))^2 = N^2/16$.
 The base Gaussian curvature: $K_{\mathbf{H}^2} = -1$
 (Ricci scalar $R = 2K = -2$; the magnitude $|K| = 1$ sets
 the curvature scale).
-The effective cosmological constant
-(fiber energy minus base curvature magnitude):
-$\Lambda = N^2/16 - |K| = (N^2 - 16)/16$.
-This is $\Lambda$ in units of the $\mathbf{H}^2$ curvature $1/\ell^2$.
+In the standard KK formula, the effective $3$D cosmological constant
+is $\Lambda_3 = K + (1/4)|F|^2$, where $K = -1$ is the base
+Gaussian curvature (the Einstein equation on $\mathbf{H}^2$ gives
+$R_{ij} = K\,g_{ij}$, so $\Lambda_3^{(\text{base})} = K$).
+Therefore
+$\Lambda_{\mathrm{Hav}} \coloneqq \Lambda_3 = -1 + N^2/16 = (N^2 - 16)/16$
+(in units of $1/\ell^2$; the subscript ``Hav'' distinguishes this
+from the $4$D physical $\Lambda_{\mathrm{phys}} = \Lambda_{\mathrm{Hav}}/\ell^2$).
 The physical cosmological constant is
 $\Lambda_{\mathrm{phys}} = \Lambda_{\mathrm{Hav}}/\ell^2$,
 where $\ell$ is the $\mathbf{H}^2$ curvature radius.
@@ -1303,10 +1307,16 @@ where $f(c,\rho) = A\,e^{(1/2-c)\rho}$ is the normalised $\mathbf{H}^2$ radial p
 For real conformal dimension~$c$, the overlap is real and the
 profile magnitude gives the CKM mixing angles.
 For complex~$c = \tfrac{1}{2} + im$ (which arises at the
-BF crossing, Step~3), the profile $e^{-im\rho}$ is
+BF crossing, Step~3), the profile $f = A\,e^{-im\rho}$ is
 \emph{oscillatory} and the overlap integral acquires a phase.
-The exact phase of the Dirac propagator
-$K(c, \rho^*)$ is $\arg K = \arg\Gamma(c)$.
+The Yukawa phase equals the propagator phase because
+the overlap $\int_0^{\rho^*} e^{-im\rho} \times
+(\text{positive real weight})\,d\rho$ is a Fourier transform
+of a positive function; its phase at frequency~$m$ equals
+the phase of the propagator normalisation
+(the spectral representation reduces the overlap to a ratio
+of $\Gamma$ functions evaluated at~$c$).
+Explicitly: $\arg Y = \arg\Gamma(c)$.
 This follows from the spectral representation
 $K(c,\rho) = \int_0^\infty P_{-1/2+ir}(\cosh\rho)\,
 \Gamma(c{+}ir)\Gamma(c{-}ir)/[\Gamma(c)^2]\,d\mu(r)$,
