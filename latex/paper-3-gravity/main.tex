@@ -59,8 +59,8 @@ Paper~I into gravitational phase transitions.
 
 This paper develops the consequences:
 \begin{itemize}
-  \item \S\ref{sec:k-theory-grav}--\S\ref{sec:ope-identification}:
-    K-theoretic classification, spectral bounds, holographic
+  \item \S\ref{sec:holographic}--\S\ref{sec:ope-identification}:
+    spectral bounds, holographic
     interpretation, and the conformal block identification.
   \item \S\ref{sec:btz}:
     the polygon--BTZ phase transition, entropy accounting,
@@ -238,32 +238,6 @@ and the Weyl anomaly $\delta_m$ is the \emph{fine structure}
 The dispersion relation is linear at small $m$ (phonon-like)
 and saturates at $m = N/2$ (lattice effect).
 
-%% ====================================================================
-\section{K-theoretic classification of gravitational phases}
-\label{sec:k-theory-grav}
-
-The $K$-theoretic framework of Paper~I, \S7 classifies
-gravitational stability phases.
-On a spatial slice $S = \Gamma\backslash\mathbf{H}^2$:
-\begin{enumerate}
-  \item The negative spectral projection defines
-    $[\mu_N^{\mathrm{grav}}(\xi)] \in R(\mathbb{Z}_N)$
-    (Paper~I, \S7.1).
-  \item The spectral correction $\delta C_1$ is the image of
-    the Havelock test function under the Baum--Connes assembly
-    map for~$\Gamma$ (Paper~I, Theorem~\ref{I-thm:index-pairing}).
-    In $2{+}1$D quantum gravity, this assembly map already
-    computes the $K$-theory of the spatial slice
-    \citep{Carlip1998}: the vortex stability computation
-    \emph{is} the gravitational $K$-theory computation.
-  \item The Kasparov product
-    $\alpha_N \otimes_{C^*_r(\Gamma)} [D_S] = [\mu_N]$
-    (Paper~I, Theorem~\ref{I-thm:kk-product})
-    gives a $K$-theoretic classification of gravitational
-    stability phases, with phase transitions at the
-    palindromic thresholds.
-\end{enumerate}
-
 \section{The spectral bound as a quantum gravitational bound}
 \label{sec:spectral-bound}
 
@@ -394,70 +368,6 @@ On highly symmetric surfaces (the modular surface,
 the Bolza surface), the systole and the palindromic
 geodesics coincide; on a generic arithmetic surface
 they are distinct.
-
-\section{Position-dependent gravitational stability}
-
-At a palindromic threshold, the $L^2$-Morse index is
-fractional (Paper~I, \S7.3): on the Bolza surface,
-$\tau(P_-) \approx 0.61$.
-In the gravitational setting, this means:
-\emph{the stability of a mass polygon depends on where it
-sits on the spatial slice.}
-The automorphism-fixed centre is stable
-($\delta C_1(z_0) > 0$), while $61\%$ of the spatial slice
-(by $L^2$-weight) is unstable.
-This position dependence is a gravitational analogue of the
-placement dependence on Saturn
-(Paper~II, oblateness analysis): the polar
-flattening selects the pole as the stable site for the
-hexagon, just as the automorphism group selects the
-Aut-fixed centre as the stable site for the mass polygon.
-
-The gravitational phase diagram---$N{-}5$ modes stabilising
-one by one as the spatial curvature increases, with
-phase transitions at palindromic algebraic thresholds---is
-the $2{+}1$D AdS analogue of the topological phase diagrams
-classified by Kitaev~(2009) and Freed--Hopkins~(2021) in
-condensed matter.
-
-\section{Gravity, Langlands, and the palindromic hierarchy}
-
-The palindromic polynomials on arithmetic spatial slices
-with trace field degree $d \ge 5$ have non-solvable Galois
-groups (Paper~I, Proposition~\ref{I-prop:nonsolvable}).
-Since the gravitational interaction (Paper~II, equation~\ref*{II-eq:grav-interaction})
-produces the \emph{same} palindromic polynomials as the vortex
-interaction, the gravitational stability thresholds on these
-slices are open cases of the Langlands reciprocity conjecture
-(Paper~I, Remark~\ref{I-rem:langlands-test}).
-
-This gives a connection between quantum gravity and the
-Langlands programme that does not pass through string theory.
-The chain is:
-\begin{enumerate}
-  \item $2{+}1$D AdS gravity with point masses on a spatial
-    slice $\Gamma\backslash\mathbf{H}^2$
-    \citep{DeserJackiw1984}.
-  \item The logarithmic Green's function
-    $\to$ the Havelock decomposition
-    $\to$ palindromic stability thresholds.
-  \item On arithmetic slices with totally real quintic trace
-    field: $S_5$ Galois group, LMFDB Artin representations
-    \texttt{4.38569.5t5.a.a}, \texttt{4.65657.5t5.a.a},
-    \texttt{4.24217.5t5.a.a} (Paper~I, \S A.8).
-  \item Langlands reciprocity predicts automorphic forms on
-    $\mathrm{GL}(4)/\mathbb{Q}$ matching these
-    representations---a prediction that is currently
-    \emph{unproved} and does not follow from any known
-    modularity lifting result.
-\end{enumerate}
-The Selberg zeta function $Z_\Gamma(s)$ encodes both the
-gravitational partition function ($Z_\Gamma'(1)$, the
-regularised determinant) and the stability correction
-($\delta C_1$, the spectral resolvent at the zero $s = 1$).
-If the Langlands lift $\pi$ exists, it constrains $Z_\Gamma$
-at $s = 1$---simultaneously constraining the gravitational
-partition function and the stability phase diagram.
 
 \section{Holographic interpretation}
 \label{sec:holographic}
