@@ -9,7 +9,7 @@ offset C₁ expands as:
 
 where:
     C₁⁰(ε) = log(2ε) + b_flat(N)     [flat-space value]
-    C₁¹(x) = (N-1)/6 · R(x)           [curvature correction, from B₂ = 1/6]
+    C₁¹(x) = -(N-1)/4 · R(x)          [curvature correction: 1/4 = 1/6 + 1/12]
 
 The Hamiltonian constraint C₁ = f(m*) forces:
     R(x) = constant for all x  ⟹  vacuum Einstein equation

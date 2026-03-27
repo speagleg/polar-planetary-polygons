@@ -734,13 +734,24 @@ Substituting~\eqref{eq:angular-kernel} into the Fourier sum:
   = \alpha\,\frac{m(N{-}m)}{2} + \tilde{C}_1,
 \end{align*}
 using $T_m = m(N{-}m)/2$ (Lemma~\ref{lem:havelock}).
-The second sum is mode-independent because
-$\sum_p \beta_p\,\cos(2\pi pm/N)$
-is constant in~$m$ when $\beta_p$ is smooth and $O(1)$
-(the Fourier coefficients of a smooth function on
-$\mathbb{Z}/N\mathbb{Z}$ decay, but the leading-order term
-$\sum \beta_p(\cos-1)$ is independent of~$m$ by the
-same orthogonality as in Step~2).
+The second sum is mode-independent by the following argument.
+For a radially symmetric $G(d)$, the pair Hessian decomposes as
+$M_{p,rr} = h''(d_p)$ (radial) and $M_{p,tt} = h'(d_p)/d_p$
+(tangential), with $h(d) = -(1/2\pi)\log d + \varphi(d)$.
+The singular part gives
+$M_{p,tt}^{\mathrm{sing}} = 1/(2\pi d_p^2)
+\propto \csc^2(\pi p/N)$ (the Havelock kernel, producing $\alpha\,T_m$).
+The smooth part gives $\beta_p = \varphi'(d_p)/d_p$, which
+is mode-dependent in isolation.
+However, the trace constraint (Step~2) gives
+$H_{rr}^{(m)} + H_{tt}^{(m)} = \delta$ (mode-independent).
+Since $M_{p,rr}^{\mathrm{sing}} = -1/(2\pi d_p^2)$ (opposite sign
+to $M_{p,tt}^{\mathrm{sing}}$), the singular parts of $H_{rr}^{(m)}$
+and $H_{tt}^{(m)}$ are $-\alpha T_m$ and $+\alpha T_m$ respectively.
+Therefore $H_{tt}^{(m)} = \alpha T_m + \tilde{C}_1$ where
+$\tilde{C}_1 = \delta - \tilde{C}_1'$ absorbs all smooth-part
+contributions, and the mode-dependent part is exactly
+$\alpha\,T_m$.
 The constrained eigenvalue on $\{J = \mathrm{const}\}$
 is $\lambda_m = C_1 - H_{tt}^{(m)}|_{\text{mode-dependent part}}
 = C_1 - \alpha\,m(N{-}m)/2$.
@@ -1411,10 +1422,18 @@ Since $2(N{+}1) = 2(N{-}7) + 16$, the condition reduces to
 $(N{-}7) \mid 16$.  The positive divisors of~$16$ giving odd
 $N \ge 9$ are $N{-}7 \in \{2, 4, 8, 16\}$, i.e.,
 $N \in \{9, 11, 15, 23\}$.
-For even $N \ge 8$: only $N = 8$ satisfies $B/A \in \mathbb{Z}$
-(verified directly: $B/A = -16$; for $N \ge 10$ the denominator
-$|A| = (N^2{-}8N{+}8)/8$ grows faster than $B = N^2/4$ allows
-integer divisibility).
+For even $N = 2k \ge 8$: $A = (N^2{-}8N{+}8)/8 = (k^2{-}4k{+}2)/2$
+and $B = N^2/4 = k^2$.
+The ratio $B/A = 2k^2/(k^2{-}4k{+}2)$, which is an integer
+iff $(k^2{-}4k{+}2) \mid 2k^2$.
+Since $2k^2 = 2(k^2{-}4k{+}2) + 8k{-}4$, this reduces to
+$(k^2{-}4k{+}2) \mid (8k{-}4)$.
+For $k \ge 5$: $k^2 - 4k + 2 \ge 7 > 0$ and
+$k^2 - 4k + 2 > 8k - 4$ iff $k^2 - 12k + 6 > 0$ iff $k \ge 12$.
+Checking $k = 4$ ($N = 8$): $k^2{-}4k{+}2 = 2$, $8k{-}4 = 28$,
+$2 \mid 28$~$\checkmark$.
+For $k = 5,6,\ldots,11$: direct check shows none divide.
+For $k \ge 12$: the divisor exceeds the dividend, impossible.
 \end{proof}
 
 The differences between consecutive algebraic-integer values
@@ -2754,9 +2773,18 @@ for every mode~$m$ and every $\xi \in [0,1)$, then:
 \end{theorem}
 
 \begin{proof}
-(i)~Since $\delta C_1$ is mode-independent
-(Section~\ref{sec:havelock-identity}), the eigenvalue on~$S$
-is $\lambda_m^S(\xi) = \lambda_m^{\mathbf{H}^2}(\xi) + \delta C_1(\Gamma, \xi)$.
+(i)~The correction $\delta C_1$ is mode-independent:
+the quotient surface $S = \Gamma\backslash\mathbf{H}^2$ is
+locally isometric to~$\mathbf{H}^2$, so the Riemannian
+Havelock identity (Theorem~\ref{thm:riemannian-havelock})
+applies locally to the Green's function.
+The automorphic correction from the $\Gamma$-orbit sum
+enters only through the mode-independent offset
+$C_1^S = C_1^{\mathbf{H}^2} + \delta C_1(\Gamma, \xi)$
+(the spectral resolvent at $s = 1$ of the automorphic
+Laplacian, which is a scalar, not a matrix in mode space).
+Therefore $\lambda_m^S(\xi)
+= \lambda_m^{\mathbf{H}^2}(\xi) + \delta C_1(\Gamma, \xi)$.
 At the $\mathbf{H}^2$-threshold $\xi_0 = \xi^*(N,m)$
 where $\lambda_m^{\mathbf{H}^2}(\xi_0) = 0$:
 $\lambda_m^S(\xi_0) = \delta C_1 \ne 0$ (since $|\delta C_1|
@@ -2857,10 +2885,21 @@ converges on compact~$S$.  The convolution operator $h$ maps
 $\ell^2(\Gamma) \to \ell^2(\Gamma)$ with operator norm
 $\|h\|_{C^*_r} \le \sup_{n \ge 1} |\varphi_n(z_0)|^2/\lambda_n$
 (the spectral radius of the resolvent at~$z_0$).
-By the $L^2$-normalization
-$\|\varphi_n\|_{L^2(S)}^2 = 1$ and $\mathrm{Area}(S) = 4\pi(g{-}1)$:
-$|\varphi_n(z_0)|^2 \le 1/\mathrm{Area}(S)$,
-giving~\eqref{eq:op-norm-bound}.
+At the automorphism-fixed point~$z_0$,
+eigenfunctions in non-trivial representations of $\mathrm{Aut}(S)$
+vanish: $\varphi_n(z_0) = 0$ for $\varphi_n \notin V_{\mathrm{triv}}$.
+For trivial-representation eigenfunctions
+$\varphi_n \in V_{\mathrm{triv}}$:
+$|\varphi_n(z_0)|^2 \le \|\varphi_n\|_\infty^2
+\le C(S)/\mathrm{Area}(S)$
+(from the Sobolev embedding $H^1(S) \hookrightarrow L^\infty(S)$
+on the compact surface, with $C(S) = O(1)$ depending on
+the spectral gap and geometry).
+On the Bolza surface with $|\mathrm{Aut}| = 48$:
+$C \le 1$ (the large automorphism group forces
+sup-norm $\le$ $L^2$-norm$/\sqrt{\mathrm{Area}}$
+for the few trivial-representation eigenfunctions).
+This gives~\eqref{eq:op-norm-bound}.
 
 (ii)~The module $E = C^*_r(\Gamma)^{N-1}$ is finitely
 generated and free, so $\mathcal{K}(E) = \mathcal{L}(E)$

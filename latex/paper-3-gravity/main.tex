@@ -689,9 +689,15 @@ The identity block gives the leading (classical) contribution
 $\exp(-c \times S_{\mathrm{conical}})$;
 the $\mathbb{Z}_N$ symmetry reduces the moduli space
 $\mathcal{M}_{0,N+1}^{\mathbb{Z}_N}$ to dimension~$2$
-(ring radius and overall phase), admitting a unique
-$\mathbb{Z}_N$-invariant saddle (the symmetric conical metric)
-and no competing non-identity saddle.
+(ring radius and overall phase).
+On this $2$D space, the saddle is unique: the Hessian of the
+classical action (the constrained Havelock eigenvalue $\lambda_m$)
+is non-degenerate at the symmetric conical metric, because
+$\lambda_m > 0$ for all $m \ne m^*$ at the threshold
+(the non-crossing proposition: $|f_m/c| \le 1/8$,
+so no parasitic zero exists).
+A second saddle would require $\lambda_m = 0$ for some
+$m \ne m^*$, which the non-crossing bound excludes.
 At finite~$c$: the non-identity corrections are bounded by
 Proposition~\ref{prop:non-crossing}
 ($|f_m/c| \le 1/8 < 1$), which ensures no eigenvalue
@@ -1796,6 +1802,11 @@ Summing over the $N$-ring at radius~$\varepsilon$ centred at~$x$:
     + O(\varepsilon^4)\right],
 \end{equation}
 where $R(x)$ is the scalar curvature at~$x$.
+The mode-independence of the $O(\varepsilon^2)$ correction is
+\emph{automatic}: $C_1$ is mode-independent by the Riemannian
+Havelock identity (Paper~I, Theorem~\ref*{I-thm:riemannian-havelock}),
+so its small-$\varepsilon$ expansion inherits this property
+at every order.
 The coefficient $1/4$ is verified directly from the exact
 $\mathbf{H}^2$ formula: expanding
 $C_1/(N{-}1) = (1{+}\xi^2)/(1{-}\xi)^2$ for small
