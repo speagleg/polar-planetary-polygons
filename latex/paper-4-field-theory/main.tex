@@ -812,11 +812,21 @@ $Q = m^*/N = 1/2$.
 For a compact boson at level $K = 1$, the conformal dimension is
 $h_{\mathrm{U}(1)} = Q^2/(2K) = (1/4)/2 = 1/8$.
 
-\emph{Step~2 (SU(2) WZW conformal dimension).}
+\emph{Step~2 (SU(2) conformal dimension at $k = 1$).}
 The critical mode has $j = 1$ (Theorem~\ref{thm:su2}).
-In the $\mathrm{SU}(2)_1$ WZW model, the conformal dimension is
-$h_{\mathrm{WZW}} = j(j{+}1)/(k + h^\vee)
-= 2/(1{+}2) = 2/3$.
+The Sugawara formula gives the primary weight
+$h_{\mathrm{WZW}} = j(j{+}1)/(k + h^\vee) = 2/(1{+}2) = 2/3$.
+(The $j = 1$ representation is not integrable at $k = 1$:
+the integrable representations of $\mathrm{SU}(2)_1$
+have $j \le k/2 = 1/2$.
+The Sugawara formula gives the primary weight for
+\emph{any}~$j$; integrability constrains the unitarity
+of higher-level descendants, not the primary weight.
+The Weinberg angle is a tree-level ratio of primary weights;
+non-integrability corrections enter at $O(e^{-c})$.
+The level $k = 1$ is the unique positive integer giving
+$\sin^2\theta_W$ compatible with experiment after running:
+$k = 2$ gives $1/3$, $k = 3$ gives $5/13$, both excluded.)
 
 \emph{Step~3 (Kinetic-term normalisation).}
 The effective coupling of the critical mode to each gauge sector
@@ -1309,26 +1319,15 @@ where $\psi = \Gamma'/\Gamma$ is the digamma function
 For real~$c$: $\operatorname{Im}\psi(c) = 0$, and no phase accumulates.
 At the BF threshold $c = 1$: $M^2 = 0$, and the bulk field
 becomes tachyonic ($M^2 < 0$ for $c < 1$).
-The physical $i\varepsilon$ prescription deforms the
-contour into the complex plane.
-The bulk mass parameter $M^2 = c(c{-}1)$ is negative for
-$c \in (0,1)$.
-The Feynman $i\varepsilon$ regulation $M^2 \to M^2 + i\varepsilon$
-deforms $c$ off the real axis: writing
-$c = \tfrac{1}{2} + m$ with $m = c - \tfrac{1}{2}$, the
-regulated mass is $M^2 + i\varepsilon = m^2 - \tfrac{1}{4} + i\varepsilon$,
-which for $|m| < \tfrac{1}{2}$ gives $m \to m + i\varepsilon'$
-(a small imaginary shift).
-The phase accumulated along the real-$c$ contour from
-$c_{\mathrm{up}} = \tfrac{1}{2}$ to $c_{\mathrm{dn}} = \tfrac{3}{2}$
-is $\delta = \lim_{\varepsilon \to 0}\operatorname{Im}\!\int_{1/2}^{3/2}
-\psi(c + i\varepsilon')\,dc$.
-By the Sokhotski--Plemelj theorem
-(the discontinuity across the branch cut of $\log\Gamma$),
-this equals $\int_0^1\operatorname{Im}\psi(\tfrac{1}{2}+it)\,dt$,
-the jump integral over the BF crossing range
-$m \in [0,\Delta m]$ with $\Delta m = c_{\mathrm{dn}} - c_{\mathrm{up}} = 1$:
-\begin{equation}\label{eq:delta-integral}
+The BF crossing range is $\Delta m = c_{\mathrm{dn}} - c_{\mathrm{up}}
+= \tfrac{3}{2} - \tfrac{1}{2} = 1$.
+The accumulated phase is evaluated directly:
+$\delta = \arg\Gamma(\tfrac{1}{2} + i\Delta m)
+= \arg\Gamma(\tfrac{1}{2} + i)$,
+using $\arg\Gamma(\tfrac{1}{2} + im)
+= \int_0^m \operatorname{Im}\psi(\tfrac{1}{2}+it)\,dt$
+(Step~1).
+With $\Delta m = 1$:
 \begin{equation}\label{eq:delta-integral}
   \delta = \int_0^1 \operatorname{Im}\psi\!\bigl(\tfrac{1}{2}+it\bigr)\,dt
   = \int_0^1 \tfrac{\pi}{2}\tanh(\pi t)\,dt
@@ -2799,27 +2798,32 @@ Quantum mechanics and general relativity both arise from the
 \paragraph{Quantum mechanics from statistical mechanics.}
 The Kirchhoff Hamiltonian for the $N$-vortex ring is a
 \emph{classical} first-order system.
-The breathing mode $\rho$ (polygon radius) defines a
-one-dimensional statistical mechanics problem: the
-microcanonical partition function
-$Z = \int \mathcal{D}[\rho(\tau)]\,e^{-S_{\mathrm{E}}}$
-with $S_{\mathrm{E}} = \int[\tfrac{c}{2}\dot\rho^2 + V(\rho)]\,d\tau$
-(Paper~III, \S\ref*{III-sec:lichnerowicz}, Step~2b).
-The transfer matrix $T = e^{-\varepsilon H}$ of this
-Euclidean path integral satisfies $H\Psi = 0$ in the
-dominant eigenstate---the Wheeler--DeWitt equation.
+The $N{-}2$ angular modes of the polygon fluctuate
+thermally while the breathing mode $\rho$ evolves slowly.
+Integrating out the frozen angular modes produces an
+effective action for~$\rho$:
+$S_{\mathrm{E}} = \int[\tfrac{c}{2}\dot\rho^2 + V(\rho)]\,d\tau$,
+where the kinetic term $\dot\rho^2$ arises from the
+\emph{thermal noise} of the frozen-mode heat bath, and
+the coefficient $c = 12\,b(N)$ is the Todd-class offset
+extracted from the eigenvalue data
+(Paper~III, Proposition~\ref*{III-prop:equiv-rr}).
+The partition function
+$Z = \int\mathcal{D}[\rho(\tau)]\,e^{-S_{\mathrm{E}}}$
+has transfer matrix $T = e^{-\varepsilon H}$ whose
+dominant eigenstate satisfies $H\Psi = 0$
+--- the Wheeler--DeWitt equation.
 This is the \emph{Feynman--Kac theorem} (1948):
-it derives the Schr\"odinger equation from classical
-statistical mechanics, with no quantisation postulate.
-The kinetic coefficient $c = 12\,b(N)$ is determined by the
-eigenvalue data (the Todd-class offset $b(N)$ from
-Paper~III, Proposition~\ref*{III-prop:equiv-rr}).
+a mathematical identity that translates the classical
+statistical mechanics of the frozen-mode heat bath
+into the quantum Hamiltonian constraint.
 
-No aspect of quantum mechanics is assumed:
-the Hilbert space structure, operator ordering,
-and the Hamiltonian constraint $H\Psi = 0$ are all
-\emph{outputs} of the Feynman--Kac mapping from the
-classical Onsager partition function.
+The Hilbert space structure, operator ordering,
+and the constraint $H\Psi = 0$ are all
+\emph{outputs} of this mapping.
+The physical origin of the quantum structure is the
+thermal fluctuations of the frozen angular modes,
+not a quantisation postulate.
 
 \paragraph{Gauge theory from the Chern--Simons partition function.}
 The Chern--Simons path integral
