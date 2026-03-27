@@ -587,7 +587,7 @@ No holographic dictionary is used.
 \end{theorem}
 
 \begin{proof}
-Three steps, using only the Klein quartic geometry.
+Five steps, using only the Klein quartic geometry.
 
 \emph{Step~1 (Frobenius $\to$ $\mathbb{Z}/3\mathbb{Z}$ orbits).}
 The Frobenius $\sigma\colon m \mapsto 2m \bmod 7$ has order~$3$
@@ -623,7 +623,7 @@ This is the \emph{standard} McKay embedding of $\mathbb{Z}/3\mathbb{Z}
 of $\mathrm{SU}(3)$ via the McKay correspondence
 \citep{McKay1980, GonzalezSprinberg1983}.
 
-\emph{Step~2 (Klein quartic $\to$ $\mathrm{PSL}(2,\mathbb{F}_7)
+\emph{Step~4 (Klein quartic $\to$ $\mathrm{PSL}(2,\mathbb{F}_7)
 \hookrightarrow \mathrm{SU}(3)$).}
 The level-$7$ modular curve
 $X(7) = \Gamma(7)\backslash\mathbf{H}^2$ has genus~$3$
@@ -635,7 +635,7 @@ The Frobenius $\sigma$ of Step~1 generates the
 $\mathbb{Z}/3\mathbb{Z} \subset \mathrm{PSL}(2,\mathbb{F}_7)$
 common to both paths.
 
-\emph{Step~3 (Tensor algebra $=$ Eightfold Way).}
+\emph{Step~5 (Tensor algebra $=$ Eightfold Way).}
 The tensor products reproduce the full $\mathrm{SU}(3)$ algebra:
 $\chi_3 \otimes \bar\chi_3 = \chi_1 \oplus \chi_8$,
 $\mathrm{Sym}^2(\chi_3) = \chi_6$,
@@ -1852,15 +1852,21 @@ The two gauge sectors each define a Seifert bundle:
   with $c_1(L_{\mathrm{grav}}) = 7$.
 \end{itemize}
 \emph{Why $N = 11$ and not another value.}
-Three alternatives fail:
-(a)~$N = 7$ alone gives $M_P/v$ (the EW hierarchy, Theorem~\ref{thm:hierarchy}),
-not the cosmological constant---$S_{\mathrm{BO}}(7) = 38.4$,
-far too small to produce $\ell \sim 10^{26}$\,m;
-(b)~$N = 4$ has $\Lambda = 0$ (the gauge threshold, $f(2,4) = N{-}1$),
-so it contributes no vacuum energy;
-(c)~any $N$ not built from the existing sectors would require
-an independent $S^1$ fibre, which would change the spacetime
-from Seifert to a product---a different Thurston geometry.
+The cosmological sector must combine the two \emph{gauge}
+sectors ($N = 4$ and $N = 7$) on a single fiber.
+Other polygon numbers ($N = 3, 5, 6$) carry \emph{matter}
+modes but no gauge content (they have $j \ne 1, 2$
+at their critical modes).
+Three alternatives to $N = 4 + 7$ fail:
+(a)~$N = 7$ alone gives $M_P/v$ (the EW hierarchy),
+not the cosmological constant ($S_{\mathrm{BO}}(7) = 38.4$,
+far too small for $\ell \sim 10^{26}$\,m);
+(b)~$N = 4$ has $\Lambda = 0$ (the gauge threshold);
+(c)~$N = 4 + 4 = 8$ would double the electroweak sector
+without including gravity ($j = 2$ only at $N = 7$);
+$N = 3 + 7 = 10$ would add a matter mode ($N = 3$ has
+no gauge content: $f(1,3) = 1 = j(j{+}1)$ for $j = 0$,
+the scalar, not a gauge boson).
 
 The Seifert manifold has \emph{one} $S^1$ fibre (this is the
 defining property of a Seifert fibration; a two-fibre geometry
