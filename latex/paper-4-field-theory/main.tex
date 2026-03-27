@@ -106,13 +106,14 @@ $N$ modes with masses
 \end{equation}
 The critical mode $m = N/2$ (even $N$) is massless: it IS the
 Havelock critical mode.
-The Casimir $f(m,N) = m(N{-}m)/2$ equals the KK kinetic energy
-on~$S^1$: a scalar field with $S^1$-momentum $\mu_m = |m - N/2|$
-and level-$1$ normalisation has $p_\varphi^2 = \mu_m^2$,
-giving $E_{\mathrm{KK}} = p_\varphi^2/(2K)$
-with $K = 1$ and $p_\varphi = m - N/2$:
-$E_{\mathrm{KK}} = (m{-}N/2)^2/2 = m(N{-}m)/2 - N^2/8 + N/2$
-(the Casimir up to a mode-independent constant).
+The KK kinetic energy on~$S^1$ for momentum
+$p_\varphi = m - N/2$ at level $K = 1$ is
+$E_{\mathrm{KK}} = p_\varphi^2/2 = (m{-}N/2)^2/2 = N^2/8 - m(N{-}m)/2$.
+The Casimir $f(m,N) = m(N{-}m)/2$ and the KK energy are
+\emph{complementary}: large Casimir $=$ small KK energy
+(the most stable vortex mode is the heaviest KK mode,
+and vice versa).
+The sum $E_{\mathrm{KK}} + f(m,N) = N^2/8$ is mode-independent.
 
 \begin{remark}[Low-energy limit is $3{+}1$D Minkowski]
 \label{rem:minkowski}
@@ -571,21 +572,24 @@ $\mathrm{SU}(2)$ quantum numbers in the adjoint representation.
 \subsection{$\mathrm{SU}(3)$ from the McKay correspondence at $N = 7$}
 \label{sec:su3-mckay}
 
-\begin{theorem}[$\mathrm{SU}(3)$ from the Galois orbifold]
+\begin{theorem}[$\mathrm{SU}(3)$ from the Klein quartic]
 \label{thm:su3}
-The $\mathbb{Z}/3\mathbb{Z}$ Galois action on the $N = 7$ Havelock
-modes embeds in $\mathrm{SU}(2)$ via the standard McKay embedding,
-and the McKay correspondence identifies
-$\mathbb{Z}/3\mathbb{Z} \hookrightarrow \mathrm{SU}(2)$
-with the $A_2$ Dynkin diagram of~$\mathrm{SU}(3)$.
-In the orbifold CFT, the extended chiral algebra contains
-$\widehat{\mathfrak{su}}(3)_1$.
+The $N = 7$ vortex system determines $\mathrm{SU}(3)$ through
+the representation theory of the Klein quartic
+$X(7) = \Gamma(7)\backslash\mathbf{H}^2$:
+the automorphism group $\mathrm{PSL}(2,\mathbb{F}_7)$ embeds
+faithfully in $\mathrm{SU}(3)$ via the $3$-dimensional
+representation $\chi_3 = H^0(X(7), \Omega^1)$,
+and $\chi_3 \otimes \bar\chi_3 = \chi_1 \oplus \chi_8$
+reproduces the full $\mathrm{SU}(3)$ tensor algebra
+(the discrete Eightfold Way).
+No holographic dictionary is used.
 \end{theorem}
 
 \begin{proof}
-The proof has five steps.
+Three steps, using only the Klein quartic geometry.
 
-\emph{Step~1 (Frobenius automorphism).}
+\emph{Step~1 (Frobenius $\to$ $\mathbb{Z}/3\mathbb{Z}$ orbits).}
 The Frobenius $\sigma\colon m \mapsto 2m \bmod 7$ has order~$3$
 (since $2^3 = 8 \equiv 1 \pmod{7}$) and generates
 $\mathbb{Z}/3\mathbb{Z} \subset (\mathbb{Z}/7\mathbb{Z})^\times$.
@@ -615,7 +619,45 @@ On the charged sector $(\eta_1, \eta_2) \in \mathbb{C}^2$:
 \]
 since $\det(\sigma) = \omega \cdot \omega^{-1} = 1$.
 This is the \emph{standard} McKay embedding of $\mathbb{Z}/3\mathbb{Z}
-\hookrightarrow \mathrm{SU}(2)$.
+\hookrightarrow \mathrm{SU}(2)$, giving the $A_2$ Dynkin diagram
+of $\mathrm{SU}(3)$ via the McKay correspondence
+\citep{McKay1980, GonzalezSprinberg1983}.
+
+\emph{Step~2 (Klein quartic $\to$ $\mathrm{PSL}(2,\mathbb{F}_7)
+\hookrightarrow \mathrm{SU}(3)$).}
+The level-$7$ modular curve
+$X(7) = \Gamma(7)\backslash\mathbf{H}^2$ has genus~$3$
+and $\mathrm{Aut}(X(7)) = \mathrm{PSL}(2,\mathbb{F}_7)$,
+order~$168$ (the Hurwitz bound).
+The holomorphic differentials $H^0(X(7),\Omega^1)$ carry
+the faithful $\chi_3$ of $\mathrm{PSL}(2,\mathbb{F}_7)$.
+The Frobenius $\sigma$ of Step~1 generates the
+$\mathbb{Z}/3\mathbb{Z} \subset \mathrm{PSL}(2,\mathbb{F}_7)$
+common to both paths.
+
+\emph{Step~3 (Tensor algebra $=$ Eightfold Way).}
+The tensor products reproduce the full $\mathrm{SU}(3)$ algebra:
+$\chi_3 \otimes \bar\chi_3 = \chi_1 \oplus \chi_8$,
+$\mathrm{Sym}^2(\chi_3) = \chi_6$,
+$\bigwedge^2(\chi_3) = \bar\chi_3$.
+The adjoint $\chi_8$ is irreducible under
+$\mathrm{PSL}(2,\mathbb{F}_7)$ (verified from the character table).
+\end{proof}
+
+\begin{corollary}[DHVW orbifold confirmation --- uses holography]
+\label{cor:su3-dhvw}
+The orbifold CFT on $\mathbb{C}^2/(\mathbb{Z}/3\mathbb{Z})$
+independently produces $\widehat{\mathfrak{su}}(3)_1$
+via the DHVW twisted-sector current algebra
+\citep{DixonHarveyVafaWitten1985}.
+This route requires the holographic (GKPW) identification
+of mode space with target space (Step~4b below), which
+the Klein quartic derivation (Theorem~\ref{thm:su3}) avoids.
+\end{corollary}
+
+\begin{proof}
+Two steps (extending the Frobenius/McKay setup of
+Theorem~\ref{thm:su3}).
 
 \emph{Step~4 (McKay correspondence,
 \citealt{McKay1980, GonzalezSprinberg1983}).}
@@ -736,57 +778,10 @@ $O_-$ & $\{3, 5, 6\}$ & $\{6, 5, 3\}$ & $1, \omega, \omega^2$ \\
 \end{tabular}
 \end{center}
 
-\paragraph{The discrete Eightfold Way.}
-The $\mathrm{SU}(3)$ gauge symmetry has an independent
-representation-theoretic origin in the Klein quartic.
-The surface $X(7) = \Gamma(7)\backslash\mathbf{H}^2$ has genus~$3$
-and automorphism group $\mathrm{PSL}(2,\mathbb{F}_7)$, order~$168$.
-Its space of holomorphic differentials
-$H^0(X(7), \Omega^1)$ is $3$-dimensional and carries the
-faithful irreducible representation~$\chi_3$ of
-$\mathrm{PSL}(2,\mathbb{F}_7)$.
-Since $\mathrm{PSL}(2,\mathbb{F}_7) \cong \mathrm{GL}(3,\mathbb{F}_2)$,
-the group has a natural embedding in $\mathrm{SU}(3)$
-(via $\chi_3$), and the tensor products of $\chi_3$ reproduce
-the \emph{full} $\mathrm{SU}(3)$ tensor algebra:
-\begin{align}
-  \chi_3 \otimes \bar{\chi}_3 &= \chi_1 \oplus \chi_8
-  &\quad&(\text{Eightfold Way: } 3 \otimes \bar{3} = 1 \oplus 8),
-  \label{eq:eightfold-way} \\
-  \mathrm{Sym}^2(\chi_3) &= \chi_6
-  &\quad&(\text{symmetric diquarks: } \mathrm{Sym}^2(3) = 6),
-  \notag \\
-  {\textstyle\bigwedge}^2(\chi_3) &= \bar{\chi}_3
-  &\quad&(\text{dual: } {\textstyle\bigwedge}^2(3) = \bar{3}).
-  \notag
-\end{align}
-The $\mathrm{SU}(3)$ adjoint (the $8$ gluons) restricts to
-$\mathrm{PSL}(2,\mathbb{F}_7)$ as the
-\emph{irreducible}~$\chi_8$---the adjoint does not decompose.
-The QR/QNR orbits $O_\pm$ of the table above are the
-$\chi_3$/$\bar\chi_3$ sectors:
+The QR/QNR orbits $O_\pm$ are the
+$\chi_3$/$\bar\chi_3$ sectors of Theorem~\ref{thm:su3}:
 modes $\{1,2,4\}$ (quadratic residues mod~$7$) carry~$\chi_3$,
 modes $\{3,5,6\}$ (non-residues) carry~$\bar{\chi}_3$.
-The Petersson inner product on $H^0(X(7), \Omega^1)$
-decomposes as $\chi_3 \otimes \bar\chi_3 = \chi_1 \oplus \chi_8$:
-the trivial component is the $\zeta(s)$ factor of the Dedekind
-zeta, and $\chi_8$ is the space of automorphic newforms at
-level~$7$.
-
-This provides a second, independent derivation of the
-$\mathrm{SU}(3)$ gauge group that \emph{bypasses}
-Step~4b (the holographic mode$\leftrightarrow$target
-identification, the weakest step in the DHVW chain).
-The DHVW argument produces $\widehat{\mathfrak{su}}(3)_1$
-from the orbifold current algebra; the Klein quartic
-produces $\mathrm{PSL}(2,\mathbb{F}_7)$ as the
-discrete skeleton of $\mathrm{SU}(3)$ purely from the
-geometry of $X(7)$, with no holographic dictionary needed.
-The bridge between the two paths is the Frobenius
-$\sigma\colon m \mapsto 2m \bmod 7$, which generates the
-$\mathbb{Z}/3\mathbb{Z}$ subgroup common to both:
-$\mathbb{Z}/3\mathbb{Z} \subset \mathrm{PSL}(2,\mathbb{F}_7)
-\hookrightarrow \mathrm{SU}(3)$.
 
 The fundamental Casimir of the resulting $\mathrm{SU}(3)$
 closes a self-consistency loop with the vortex kernel:
