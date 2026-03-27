@@ -1739,28 +1739,39 @@ unidirectional; (H2) is \emph{derived from} (H1) and the
 Feynman--Kac mapping, not assumed independently.
 
 \medskip
-\noindent\textbf{Step~2b. The WDW equation from the Onsager path integral.}
-The microcanonical partition function
-$Z = \int \mathcal{D}[\rho(\tau)]\,e^{-S_{\mathrm{E}}[\rho]}$
-(Euclidean path integral over the polygon radius with
-$S_{\mathrm{E}} = \int_0^\beta [\tfrac{c}{2}\dot\rho^2 + V(\rho)]\,d\tau$)
-has the transfer matrix $T = e^{-\epsilon\,H_{\mathrm{WDW}}}$.
-The dominant eigenstate of~$T$ satisfies
-$H_{\mathrm{WDW}}\Psi = 0$ --- the Wheeler--DeWitt
-equation~(\ref{eq:wdw}).
-The kinetic coefficient $c = 12\,b(N)$ is determined by the
-eigenvalue data alone:
-(i)~the three-layer decomposition extracts $b(N)$
-as the unique mode-independent offset
-(Proposition~\ref{prop:equiv-rr});
-(ii)~define $c := 12\,b(N)$;
-(iii)~the Onsager partition function
-$Z = \int\mathcal{D}[\rho]\,e^{-S_{\mathrm{E}}}$ with
-$S_{\mathrm{E}} = \int(c/2)\dot\rho^2 + V(\rho)\,d\tau$
-produces the WDW equation via the Feynman--Kac theorem.
-No gravitational input enters: $c$ comes from step~(i),
-and the Brown--Henneaux relation $c = 3\ell/(2G)$ is a
-consistency check (\S\ref{sec:intro-gravity}, step~3).
+\noindent\textbf{Step~2b. The WDW equation from integrating out the frozen modes.}
+The $N$-gon has $N{-}2$ angular modes (frozen) and one breathing
+mode~$\rho$.
+The full partition function is
+$Z = \int d\rho\,\prod_{m \ne m^*}da_m\;
+\exp\!\bigl(-\beta[V(\rho) + \tfrac{1}{2}\sum\lambda_m(\rho)|a_m|^2]\bigr)$.
+Integrating out the angular modes (Gaussian) gives the
+effective action for~$\rho$:
+$S_{\mathrm{E}}[\rho] = \int_0^\beta[\tfrac{c}{2}\dot\rho^2
++ V_{\mathrm{eff}}(\rho)]\,d\tau$,
+where the kinetic coefficient~$c$ receives two contributions:
+(i)~the \emph{naive mass} $c_0 = N$
+(from the configuration-space metric $\sum|dz_k|^2 = N\,d\rho^2$),
+and
+(ii)~the \emph{one-loop enhancement} from the $\rho$-dependence
+of the frozen-mode determinant
+$\prod_{m \ne m^*}|\lambda_m(\rho)|^{-1/2}$.
+The total effective mass is $c = 12\,b(N)$:
+this equals the equivariant index
+(Proposition~\ref{prop:equiv-rr}), which is topological
+and therefore $\rho$-independent.
+The one-loop enhancement factor is $c/N \approx N$
+(each of the $N{-}1$ frozen modes contributes ${\sim}\,N$ to
+the effective mass through its coupling to~$\rho$),
+giving $c \approx N^2$ at leading order.
+
+The transfer matrix $T = e^{-\epsilon\,H_{\mathrm{WDW}}}$
+of this effective path integral satisfies
+$H_{\mathrm{WDW}}\Psi = 0$ in the dominant eigenstate
+(the Feynman--Kac theorem).
+No gravitational input enters: $c$ is determined by the
+eigenvalue data, and the Brown--Henneaux relation
+is a consistency check (\S\ref{sec:intro-gravity}, step~3).
 (Operator ordering: the Laplacian $-d^2/d\rho^2$ is natural
 for the geodesic coordinate; alternatives differ at $O(1/c)$.)
 

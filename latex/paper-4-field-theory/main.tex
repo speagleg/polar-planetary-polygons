@@ -355,6 +355,32 @@ the breathing mode in the $N$-vortex system on~$\mathbf{H}^2$:
 \end{equation}
 For large~$N$: $c = N^2 + N + O(\ln N)$.
 The formula is exact and verified to machine precision for all $N \le 1000$.
+
+\emph{Central charge accounting.}
+The gauge symmetries are \emph{subsectors} of the single boundary
+CFT at central charge~$c$, not independent additions:
+\begin{center}
+\small
+\begin{tabular}{lrl}
+\toprule
+Sector & $c_{\mathrm{sector}}$ & Origin \\
+\midrule
+$\mathrm{SU}(3)_1$ WZW & $2$ & Orbifold twisted sectors \\
+$\mathrm{SU}(2)_1$ WZW & $1$ & CS gravity compact factor \\
+$\mathrm{U}(1)$ boson & $1$ & KK fiber \\
+\midrule
+Gauge subtotal & $4$ & ($8\%$ of $c$ at $N = 7$) \\
+Gravity $+$ matter $+$ ghosts & $c - 4$ & Remainder \\
+\midrule
+\textbf{Total} & $\mathbf{12\,b(N)}$ & \textbf{Single boundary CFT} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+The gauge central charges are \emph{included} in $c = 12\,b(N)$,
+not added to it.
+The gravitational coupling $G = 3/(2c)$ and the gauge couplings
+all derive from the \emph{same} central charge.
 \end{definition}
 
 \begin{proposition}[Exact coupling relations]
@@ -1282,45 +1308,35 @@ $\operatorname{Im}\psi(\tfrac{1}{2}+it) = (\pi/2)\tanh(\pi t)$---the
 \textbf{same digamma function} that generates the Havelock
 eigenvalue kernel (Theorem~\ref{thm:havelock}).
 
-\emph{Step~2 (CKM phase $=$ adiabatic Berry phase through BF).}
-The Higgs VEV profile $\varphi_H(\rho)$ smoothly
-interpolates $c$ from $c_{\mathrm{up}} = \tfrac{1}{2}$
-to $c_{\mathrm{dn}} = \tfrac{3}{2}$,
-crossing the BF threshold at $c = 1$ where $M^2 = c(c{-}1) = 0$.
-The \emph{adiabatic phase} accumulated by the fermion determinant
-$\det D(c)$ during this smooth deformation is
-$\delta = \int_{c_{\mathrm{up}}}^{c_{\mathrm{dn}}}
-\operatorname{Im}\bigl[\partial_c \log\det D(c)\bigr]\,dc
-= \int \operatorname{Im}\psi(c)\,dc$,
-where $\psi = \Gamma'/\Gamma$ is the digamma function
-(from $\partial_c \log\Gamma(c) = \psi(c)$).
-For real~$c$: $\operatorname{Im}\psi(c) = 0$, and no phase accumulates.
-At the BF threshold $c = 1$: $M^2 = 0$, and the bulk field
-becomes tachyonic ($M^2 < 0$ for $c < 1$).
-The BF crossing range is $\Delta m = c_{\mathrm{dn}} - c_{\mathrm{up}}
-= \tfrac{3}{2} - \tfrac{1}{2} = 1$.
-The accumulated phase is evaluated directly:
-$\delta = \arg\Gamma(\tfrac{1}{2} + i\Delta m)
-= \arg\Gamma(\tfrac{1}{2} + i)$,
-using $\arg\Gamma(\tfrac{1}{2} + im)
-= \int_0^m \operatorname{Im}\psi(\tfrac{1}{2}+it)\,dt$
-(Step~1).
-With $\Delta m = 1$:
+\emph{Step~2 (CKM phase from the BF crossing).}
+The up-type conformal dimension $c_{\mathrm{up}} = \tfrac{1}{2}$
+and the down-type $c_{\mathrm{dn}} = \tfrac{3}{2}$
+straddle the BF threshold $c = 1$ ($M^2 = c(c{-}1) = 0$).
+For real~$c > 0$: $\arg\Gamma(c) = 0$ (no CP violation).
+The BF crossing forces $c$ into the complex plane:
+in the tachyonic regime $c \in (0,1)$, $M^2 < 0$,
+and the effective mass parameter is
+$m = |c - \tfrac{1}{2}| = \Delta m$ with
+$\Delta m = c_{\mathrm{dn}} - c_{\mathrm{up}} = 1$.
+The CKM phase is the \emph{exact} evaluation of
+$\arg\Gamma$ at the complex point $c = \tfrac{1}{2} + i$:
 \begin{equation}\label{eq:delta-integral}
-  \delta = \int_0^1 \operatorname{Im}\psi\!\bigl(\tfrac{1}{2}+it\bigr)\,dt
-  = \int_0^1 \tfrac{\pi}{2}\tanh(\pi t)\,dt
+  \delta = \arg\Gamma(\tfrac{1}{2}+i)
+  = \int_0^1 \operatorname{Im}\psi\!\bigl(\tfrac{1}{2}+it\bigr)\,dt
   = \tfrac{1}{2}\log\cosh(\pi).
 \end{equation}
-This is a \emph{Berry phase}: the geometric phase of the
-fermion determinant under adiabatic variation of~$c$ through
-the BF threshold.
-It is \emph{not} $\arg\Gamma(\tfrac{3}{2}) - \arg\Gamma(\tfrac{1}{2})$
-(both zero, since $\Gamma$ is real at real arguments), but rather
-$\delta = \arg\Gamma(\tfrac{1}{2}+i)$
---- the phase of $\Gamma$ at the \emph{complex} point
-$\tfrac{1}{2}+i$, reached by the $i\varepsilon$ deformation.
-The Berry phase is rephasing-invariant (it is a property of
-the path in parameter space, not of the endpoint fields),
+This is \emph{not} an adiabatic approximation
+(which would break down at the gapless BF point $M^2 = 0$).
+It is the exact phase of $\Gamma(\tfrac{1}{2}+i)$,
+a specific complex evaluation of the propagator normalization.
+The gap closure at $c = 1$ is precisely what forces~$c$ off
+the real axis---if the gap did not close,~$c$ would remain real
+and $\arg\Gamma(c) = 0$ (no CP violation).
+The BF crossing is the \emph{origin} of CP violation,
+not an obstacle to computing it.
+The phase $\arg\Gamma(\tfrac{1}{2}+i)$ is rephasing-invariant
+(it is a property of the analytic structure of~$\Gamma$,
+not of the endpoint field phases),
 and therefore contributes directly to the Jarlskog invariant.
 
 \emph{Step~3 (Only the BF-crossing mode contributes).}
