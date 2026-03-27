@@ -2892,15 +2892,35 @@ $(z_k, \bar z_k)$ are canonically conjugate to each other
 The breathing mode $\rho$ (polygon radius) is a
 \emph{collective coordinate} of this first-order system,
 not a canonical variable.
-The $N{-}2$ angular modes form a thermal bath for~$\rho$:
-their fluctuations drive~$\rho$ as Brownian motion in the
-potential $V(\rho)$ (the overdamped Langevin equation
-$\gamma\dot\rho = -V' + \eta$).
+The $N{-}2$ angular modes form a thermal bath for~$\rho$.
+The Caldeira--Leggett conditions are verified:
+\begin{enumerate}
+\item \emph{Harmonic bath.}
+  The Havelock decomposition diagonalises the angular sector
+  into $N{-}2$ uncoupled harmonic oscillators
+  $H = V(\rho) + \tfrac{1}{2}\sum_{m \ne m^*}\lambda_m(\rho)|a_m|^2$
+  (exact at the $N$-gon; non-linear corrections are $O(1/c)$
+  from the $W_N$ quartic coupling).
+\item \emph{Uniform linear coupling.}
+  $\lambda_m(\rho) = C_1(\rho) - f(m,N)$; near~$\rho^*$,
+  $\partial\lambda_m/\partial\rho = C_1'(\rho^*) = \coth(\rho^*)$
+  for \emph{all}~$m$ (mode-independence of $C_1$).
+  The coupling is linear in~$\delta\rho$ with \emph{uniform}
+  coupling constant.
+\item \emph{Timescale separation.}
+  Breathing-mode tunnelling: $\tau \sim e^{S_{\mathrm{BO}}} \gg 1$.
+  Angular oscillation: $\tau_m \sim 1/\sqrt{\lambda_m} = O(1)$.
+  Born--Oppenheimer is satisfied.
+\item \emph{FDT.}
+  Automatic for a harmonic bath with linear coupling
+  (a theorem for Gaussian systems).
+\end{enumerate}
+The angular fluctuations drive~$\rho$ as Brownian motion
+($\gamma\dot\rho = -V' + \eta$, overdamped Langevin).
 The Onsager--Machlup path probability has the action
 $S_{\mathrm{OM}} = \int[\tfrac{c}{2}\dot\rho^2 + V(\rho)]\,d\tau$,
 where the $\dot\rho^2$ term is the \emph{noise kernel}
-(it measures the improbability of a given velocity in the
-heat bath), not a kinetic energy of the deterministic system.
+(not a kinetic energy of the deterministic system).
 This is the standard mechanism by which a first-order
 classical system acquires second-order quantum dynamics
 (Caldeira--Leggett).

@@ -1756,10 +1756,19 @@ of this first-order system, not a canonical variable.
 The $N{-}2$ angular modes form a \emph{thermal bath} for~$\rho$:
 their fluctuations drive $\rho$ as Brownian motion in the
 potential~$V(\rho)$.
+The Caldeira--Leggett conditions are verified:
+(i)~the angular modes are \emph{harmonic}
+($H = V(\rho) + \tfrac{1}{2}\sum\lambda_m(\rho)|a_m|^2$,
+exact Fourier diagonalisation of the circulant);
+(ii)~the coupling is \emph{linear} and \emph{uniform}:
+$\partial\lambda_m/\partial\rho = C_1'(\rho) = \coth(\rho)$
+for all~$m$ (mode-independence of~$C_1$);
+(iii)~\emph{timescale separation}: tunnelling ($\tau \sim e^{S_{\mathrm{BO}}}$)
+vs.\ angular oscillation ($\tau_m \sim 1$).
 The effective stochastic dynamics is overdamped Langevin:
 $\gamma\,\dot\rho = -V'(\rho) + \eta(\tau)$,
-with noise~$\eta$ from the angular heat bath and friction~$\gamma$
-from the fluctuation--dissipation theorem.
+with noise from the angular bath and friction from FDT
+(automatic for harmonic bath with linear coupling).
 The Onsager--Machlup path probability is
 $P[\rho(\tau)] \propto \exp(-S_{\mathrm{OM}})$ with
 \[
