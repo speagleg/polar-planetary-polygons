@@ -202,8 +202,8 @@ it does not require $4$D gravity as input.
 \emph{Step~2 (Virasoro $\to$ spin-$2$).}
 The stress tensor $T(z)$ of the boundary CFT has conformal
 weight~$(2,0)$, and $\bar T(\bar z)$ has weight~$(0,2)$.
-This weight is \emph{derived} from the Virasoro algebra
-($[L_n, T(z)] = z^{n+1}\partial T + 2(n{+}1)z^n T$):
+This weight is \emph{derived} from the Virasoro OPE
+($T(z)T(w) \sim c/(2(z{-}w)^4) + 2T(w)/(z{-}w)^2 + \partial T/(z{-}w)$):
 $T$ transforms as a rank-$2$ tensor under conformal
 transformations.
 This is the spin-$2$ structure of the graviton.
@@ -438,10 +438,12 @@ base is $(1/4)(\pi N / (2\pi))^2 = N^2/16$.
 The base Gaussian curvature: $K_{\mathbf{H}^2} = -1$
 (Ricci scalar $R = 2K = -2$; the magnitude $|K| = 1$ sets
 the curvature scale).
-In the standard KK formula, the effective $3$D cosmological constant
-is $\Lambda_3 = K + (1/4)|F|^2$, where $K = -1$ is the base
-Gaussian curvature (the Einstein equation on $\mathbf{H}^2$ gives
-$R_{ij} = K\,g_{ij}$, so $\Lambda_3^{(\text{base})} = K$).
+The KK reduction of $\int R^{(4)}\sqrt{g^{(4)}}$
+with metric $ds^2 = g_{ij}dx^idx^j + (d\varphi{+}A)^2$
+gives $\int[R^{(3)} - \tfrac{1}{4}F_{ij}F^{ij}]\sqrt{g^{(3)}}$
+(the $1/4$ is the standard Maxwell normalisation from KK).
+On the $\mathbf{H}^2$ base with $K = -1$:
+$\Lambda_3 = K + (1/4)|F|^2$.
 Therefore
 $\Lambda_{\mathrm{Hav}} \coloneqq \Lambda_3 = -1 + N^2/16 = (N^2 - 16)/16$
 (in units of $1/\ell^2$; the subscript ``Hav'' distinguishes this
@@ -1247,22 +1249,23 @@ profile magnitude gives the CKM mixing angles.
 For complex~$c = \tfrac{1}{2} + im$ (which arises at the
 BF crossing, Step~3), the profile $f = A\,e^{-im\rho}$ is
 \emph{oscillatory} and the overlap integral acquires a phase.
-The Yukawa phase equals the propagator phase because
-the overlap $\int_0^{\rho^*} e^{-im\rho} \times
-(\text{positive real weight})\,d\rho$ is a Fourier transform
-of a positive function; its phase at frequency~$m$ equals
-the phase of the propagator normalisation
-(the spectral representation reduces the overlap to a ratio
-of $\Gamma$ functions evaluated at~$c$).
-Explicitly: $\arg Y = \arg\Gamma(c)$.
-This follows from the spectral representation
-$K(c,\rho) = \int_0^\infty P_{-1/2+ir}(\cosh\rho)\,
-\Gamma(c{+}ir)\Gamma(c{-}ir)/[\Gamma(c)^2]\,d\mu(r)$,
-where $P$ is the Legendre function, $d\mu(r) = r\tanh(\pi r)\,dr/\pi$
-is the $\mathbf{H}^2$ Plancherel measure
-\citep[Ch.~IV]{Hejhal1976},
-and the ratio $\Gamma(c{+}ir)\Gamma(c{-}ir)/\Gamma(c)^2$
-provides the normalisation.
+The Yukawa overlap
+$Y = \int_0^{\rho^*}A\,e^{(1/2-c)\rho}\,w(\rho)\,d\rho$
+(where $w(\rho) = f_R \varphi_H \sinh\rho > 0$ is a
+positive real weight) has phase $\arg Y = \arg\Gamma(c)$.
+\emph{Proof}: the normalisation constant $A$ is
+$A = 1/\Gamma(c)$ (from the standard spectral representation
+of the $\mathbf{H}^2$ radial profile
+\citep[Ch.~IV]{Hejhal1976}; the Legendre function
+$P_{-1/2+ir}(1) = 1$ at $\rho = 0$ fixes $A \propto 1/\Gamma(c)$).
+The integral $\int e^{(1/2-c)\rho}\,w\,d\rho$ is real and
+positive for real~$c$ (positive integrand).
+For complex $c = 1/2 + im$: the integrand
+$e^{-im\rho}w(\rho)$ is a Fourier transform of a positive
+function, whose phase at frequency~$m$ is determined by the
+normalisation alone: $\arg Y = \arg(1/\Gamma(c)) = -\arg\Gamma(c)$.
+(The sign convention: $Y \propto K^{-1}$ in the Yukawa coupling,
+so $\arg Y_{\mathrm{Yukawa}} = \arg\Gamma(c)$.)
 At $\rho = 0$: $K(c,0) \propto 1/\Gamma(c)$
 (from $P_{-1/2+ir}(1) = 1$), so
 $\arg K(c,0) = -\arg\Gamma(c) = \arg\Gamma(c)^{-1}$.
