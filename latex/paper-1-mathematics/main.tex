@@ -591,11 +591,15 @@ interaction potential of the Calogero--Moser--Sutherland (CMS)
 model at coupling $\beta = 1$
 \citep{Sutherland1971, CalogeroJMP1971}.
 The Havelock eigenvalues $f(m,N) = m(N{-}m)/2$ are the CMS
-excitation energies above the ground state.
-The CMS eigenstates at $\beta = 1$ are the Jack
-polynomials $J_\lambda^{(1/\beta)} = J_\lambda^{(1)}$,
-which are the Schur polynomials $s_\lambda$
---- the characters of $\mathrm{GL}(N)$.
+single-particle excitation energies (identical at all~$\beta$;
+they are the Haldane--Shastry dispersion relation).
+At $\beta = 1$ the CMS interaction vanishes and the
+eigenstates are the Jack polynomials
+$J_\lambda^{(1/\beta)} = J_\lambda^{(1)} = s_\lambda$
+(Schur polynomials, the characters of $\mathrm{GL}(N)$).
+At general $\beta$, the Jack polynomials $J_\lambda^{(1/\beta)}$
+are the eigenstates; the eigenvalues $f(m,N)$ are
+$\beta$-independent.
 The Havelock stability analysis is therefore a spectral
 problem on the $\mathrm{GL}(N)$ representation ring.
 \end{remark}
@@ -2024,8 +2028,9 @@ for a ring of $N$ vortices at any nonzero geodesic radius:
 That is: positive curvature destabilises
 ($N_{\mathrm{crit}} \le 7$), zero curvature is critical
 ($N_{\mathrm{crit}} = 7$), and negative curvature stabilises
-($N_{\mathrm{crit}} \ge 7$), with strict inequality at any
-nonzero ring radius.
+($N_{\mathrm{crit}} \ge 7$), with the $N = 7$ marginal mode
+becoming strictly stable at any nonzero ring radius
+(and $N_{\mathrm{crit}} > 7$ for $\xi > \xi^*(8)$).
 \end{proposition}
 
 \begin{proof}
@@ -2404,10 +2409,13 @@ governs seven other systems:
   the edge theory of $\Psi_L = \prod(z_j{-}z_k)^m\,e^{-|z|^2/4}$
   reduces to the CMS model on the boundary circle
   with $\beta = m$ (the inverse filling fraction $1/\nu$).
-  The Thomson stability boundary $N \le 7$ translates directly:
-  the ``stable'' Laughlin fractions correspond to
-  $\beta = 1, 3, 5, 7$ (odd, fermionic), and the $N = 7$
-  Havelock boundary IS the $\nu = 1/7$ Laughlin state boundary.
+  The CMS coupling $\beta$ equals the Laughlin filling
+  denominator $m = 1/\nu$.
+  The Havelock stability bound ($N \le 7$ vortices) constrains
+  the \emph{ring size} at each~$\beta$; the Laughlin
+  fractions $\nu = 1/m$ for odd~$m$ exist for all~$m$,
+  but the edge excitations of the $\nu = 1/m$ state
+  share the $\csc^2$ kernel at coupling $\beta = m$.
   At $m = 1$ (filled Landau level), the modes obey
   Haldane exclusion statistics with $g_s = 1$
   (fermionic): modes fill from $m = 1$ upward
@@ -2417,8 +2425,9 @@ governs seven other systems:
   $S_N(\alpha) = \int_0^1 \prod|x_i{-}x_j|^{2\alpha}
   \prod x_i^{a-1}(1{-}x_i)^{b-1}\,dx$
   is the partition function of the CMS model on~$[0,1]$.
-  For $N = 2$ particles, the equilibrium positions
-  are the $B_2$ zeros $(3 \pm \sqrt{3})/6$
+  For $N = 2$ particles in the symmetric case ($a = b = 1$),
+  the equilibrium positions are the $B_2$ zeros
+  $(3 \pm \sqrt{3})/6$
   (the Gauss--Legendre nodes).
 \item \emph{$W_N$ algebra (1985--):}
   the CMS Hamiltonian is the $L_0$ mode of the Virasoro

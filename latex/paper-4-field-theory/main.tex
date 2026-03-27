@@ -20,7 +20,7 @@ single integer~$N$.
 The theory contains gravity, a $\mathrm{U}(1)$ gauge field,
 a charged scalar, and Dirac fermions, with all couplings determined
 by the Havelock central charge
-$c = 12\,b(N) = N(N{+}1) - 12\ln 2 + 12\ln N/(N{-}1)$:
+$c = 12\,b(N) = N(N{+}1) - 12\ln 2 + 12(\ln N)/(N{-}1)$:
 $G = 3/(2c)$, $\alpha = 6/(\pi c)$,
 $\alpha/(8\pi G) = 1/(2\pi^2)$ (exact, $N$-independent).
 
@@ -422,10 +422,12 @@ $(1/4)|F|^2$, where $F = dA$ is the gauge field strength.
 With quantised flux $\oint dA = \pi N$
 (from~\eqref{eq:flux}), the energy density on a unit-area
 base is $(1/4)(\pi N / (2\pi))^2 = N^2/16$.
-The base curvature: $R_{\mathbf{H}^2} = -1$.
+The base Gaussian curvature: $K_{\mathbf{H}^2} = -1$
+(Ricci scalar $R = 2K = -2$; the magnitude $|K| = 1$ sets
+the curvature scale).
 The effective cosmological constant
 (fiber energy minus base curvature magnitude):
-$\Lambda = N^2/16 - 1 = (N^2 - 16)/16$.
+$\Lambda = N^2/16 - |K| = (N^2 - 16)/16$.
 This is $\Lambda$ in units of the $\mathbf{H}^2$ curvature $1/\ell^2$.
 The physical cosmological constant is
 $\Lambda_{\mathrm{phys}} = \Lambda_{\mathrm{Hav}}/\ell^2$,
@@ -523,7 +525,7 @@ With $\ell = 1$ and $G = 3/(2c)$: $k = c/6 = 2\,b(N)$.
 (The analytic continuation between real forms is standard;
 see \citealt{Witten1988}, \S3.)
 The Chern--Simons level $k = 2\,b(N)$ is not integer---it contains
-the irrational terms $\ln 2$ and $\ln N/(N{-}1)$ from~$b(N)$.
+the irrational terms $\ln 2$ and $(\ln N)/(N{-}1)$ from~$b(N)$.
 This is \emph{consistent}: for the non-compact gauge group
 $\mathrm{SL}(2,\mathbb{R})$, the level quantisation constraint
 is weaker than for compact groups.
@@ -978,7 +980,7 @@ In the AdS$_3$/CFT$_2$ framework, this boundary CFT
 \emph{defines} the bulk Chern--Simons theory at $k = c/6 = 2\,b(N)$
 non-perturbatively.
 At leading order, $c = N(N{+}1) + O(\ln N)$; the
-subleading corrections ($-12\ln 2 + 12\ln N/(N{-}1)$) encode
+subleading corrections ($-12\ln 2 + 12(\ln N)/(N{-}1)$) encode
 the regularised vortex self-energy.
 The $c$-theorem is satisfied: the free-field UV limit
 has $c_{\mathrm{UV}} = N(N{+}1)$, and $c_{\mathrm{IR}} = 12\,b(N)
@@ -1076,7 +1078,7 @@ and the effective theory on~$\mathbb{R}^{3,1}$ is:
   \qquad\text{[Higgs, $v = 246$\,GeV, $\lambda_H = 0.122$]}
 \end{split}
 \end{equation}
-This is the \textbf{Standard Model Lagrangian} with all couplings
+This has the \textbf{Standard Model form} with all couplings
 determined by $N = 7$: $G_4$ from the hierarchy formula,
 gauge couplings from the CS/WZW levels $k = K = 1$,
 $\sin^2\theta_W = 3/11$ from conformal dimensions,
@@ -1204,6 +1206,18 @@ protected.
 
 \subsection{CKM mixing matrix}
 
+\emph{Roadmap.}
+The CKM matrix has three layers of corrections:
+(a)~\emph{tree-level}: diagonalisation of the $\mathbf{H}^2$
+  Yukawa texture gives $|V_{cb}| = 0.092$, $\delta = 15^\circ$;
+(b)~\emph{non-perturbative phase}: the Berry phase through the BF
+  crossing (Theorem~\ref{thm:ckm-phase}) gives
+  $\delta = 70.2^\circ$;
+(c)~\emph{orbifold image suppression}: the $\chi_8$ channel of the
+  $\mathrm{PSL}(2,\mathbb{F}_7)$ decomposition gives the final
+  $|V_{cb}| = 0.042$.
+
+\medskip\noindent
 The CKM matrix $V = U_u^\dagger U_d$ is obtained by diagonalising
 the up-type ($\mu_4 = 1/2$) and down-type ($\mu_4 = 3/2$)
 mass matrices $M = v \times Y$ with the $\mathbf{H}^2$ radial profile overlaps.
