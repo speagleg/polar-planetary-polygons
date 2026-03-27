@@ -89,20 +89,22 @@ they form a single logical chain:
   $\lambda_m = C_1 - f_m + \delta_m$ extracts a unique
   mode-independent offset $b(N)$ (Proposition~\ref{prop:equiv-rr}).
   Define $c := 12\,b(N)$.
-\item \emph{Holographic identification.}
-  The vortex system on $\mathbf{H}^2$ is equivalent to
-  $2{+}1$D gravity via the Green's function isomorphism
-  (Paper~II).
-  The Brown--Henneaux theorem then identifies $c$
-  with the boundary Virasoro central charge:
-  $c = 3\ell/(2G) = 6k$.
-\item \emph{Consequence for the WDW equation.}
-  The Feynman--Kac mapping of the statistical-mechanical
-  path integral (\S\ref{sec:lichnerowicz}, Step~2b) produces
-  a kinetic coefficient.
-  This coefficient is $c$ because the breathing mode
-  $\rho$ is the AdS radion, whose kinetic term is set
-  by the Brown--Henneaux central charge (step~2).
+\item \emph{The WDW kinetic coefficient.}
+  The Feynman--Kac mapping of the Onsager partition function
+  (\S\ref{sec:lichnerowicz}, Step~2b) produces a kinetic
+  coefficient in the WDW equation.
+  This coefficient is $c = 12\,b(N)$ --- the same $c$
+  defined in step~1 from the eigenvalue data.
+  No gravitational input is required: $c$ is determined
+  by the vortex spectrum alone.
+\item \emph{Consistency check (Brown--Henneaux).}
+  Defining $k = c/6$ and $G = 3/(2c)$,
+  the Brown--Henneaux relation $c = 3\ell/(2G)$
+  is \emph{automatically satisfied}
+  (it reduces to $c = c$ after substitution).
+  This confirms that the $c$ extracted from the eigenvalues
+  is the boundary Virasoro central charge, but this
+  identification is a \emph{consequence}, not an input.
 \item \emph{Orbifold matching.}
   At leading order $c \approx N^2$,
   the correspondence with the $\mathbb{Z}_N$ orbifold CFT
@@ -112,8 +114,9 @@ they form a single logical chain:
   is the regularisation of the vortex self-energy.
 \end{enumerate}
 Every subsequent use of $c$ in this paper traces back to
-step~1 (extraction from the eigenvalue data) and step~2
-(holographic identification).
+step~1 (extraction from the eigenvalue data).
+The gravitational interpretation (Brown--Henneaux) is a
+consistency check at step~3, not a logical prerequisite.
 
 %% ====================================================================
 \section{The graviton at $N = 7$ and the Chern--Simons lift}
@@ -1060,10 +1063,12 @@ The Kirchhoff equations $\dot{z}_k = -i\,\partial H/\partial\bar{z}_k$
 are first-order, but the breathing mode~$\rho$
 (parametrising the family $z_k(\rho) = \rho\,e^{2\pi i k/N}$)
 acquires second-order dynamics through the gravitational sector.
-The kinetic coefficient $c = 12\,b(N)$ is the Brown--Henneaux
-central charge (\S\ref{sec:intro-gravity}, logical architecture),
-entering via the holographic identification of the breathing mode
-with the AdS radion (Paper~IV, \S\ref*{V-sec:graviton}).
+The kinetic coefficient $c = 12\,b(N)$ is the Todd offset
+extracted from the eigenvalue data
+(\S\ref{sec:intro-gravity}, logical architecture, step~1).
+The Feynman--Kac mapping of the Onsager partition function
+produces this $c$ as the effective mass of the breathing mode
+(Paper~IV, \S\ref*{V-sec:qm-gr-bridge}).
 
 Each term has a definite origin:
 \begin{center}
@@ -1073,7 +1078,7 @@ Each term has a definite origin:
 Term & Expression & Origin \\
 \midrule
 Quantum kinetic & $-\hbar^2/(2c)\;\Psi''$ &
-  Brown--Henneaux central charge (\S\ref{sec:intro-gravity}) \\
+  Todd offset $c = 12\,b(N)$ (\S\ref{sec:intro-gravity}) \\
 Classical potential & $\log(2\sinh\rho)$ &
   $\mathbf{H}^2$ Green's function \\
 Vacuum energy & $b(N) \sim c/12$ &
@@ -1799,6 +1804,15 @@ This threshold exists on \emph{any} Riemannian surface
 The WDW equation (Step~2b) then promotes this classical threshold
 to a quantum constraint.
 
+\emph{Logical dependency}: Step~1 (H1 $\Rightarrow$
+logarithmic Green's function) determines the potential $V(\rho)$
+in the WDW equation below.
+Step~2b writes the WDW equation with this potential.
+Step~3 takes the classical limit $c \to \infty$ to recover (H2).
+The chain (H1) $\to$ $V(\rho)$ $\to$ WDW $\to$ (H2) is
+unidirectional; (H2) is \emph{derived from} (H1) and the
+Feynman--Kac mapping, not assumed independently.
+
 \medskip
 \noindent\textbf{Step~2b. The WDW equation from the Onsager path integral.}
 The microcanonical partition function
@@ -1809,20 +1823,19 @@ has the transfer matrix $T = e^{-\epsilon\,H_{\mathrm{WDW}}}$.
 The dominant eigenstate of~$T$ satisfies
 $H_{\mathrm{WDW}}\Psi = 0$ --- the Wheeler--DeWitt
 equation~(\ref{eq:wdw}).
-The kinetic coefficient $c = 12\,b(N)$ enters through the
-chain: (i)~the three-layer decomposition extracts $b(N)$
+The kinetic coefficient $c = 12\,b(N)$ is determined by the
+eigenvalue data alone:
+(i)~the three-layer decomposition extracts $b(N)$
 as the unique mode-independent offset
 (Proposition~\ref{prop:equiv-rr});
-(ii)~the vortex--gravity isomorphism (Paper~II) identifies
-the vortex system with $2{+}1$D gravity;
-(iii)~the Brown--Henneaux theorem gives
-$c = 3\ell/(2G) = 12\,b(N)$ as the boundary Virasoro central
-charge (\S\ref{sec:intro-gravity}, logical architecture);
-(iv)~the breathing mode~$\rho$ is the AdS radion, whose
-kinetic term in the dimensionally-reduced action is
-$S = \int(c/2)\dot\rho^2\,d\tau$.
-This is the standard Feynman--Kac mapping from statistical
-mechanics to quantum mechanics.
+(ii)~define $c := 12\,b(N)$;
+(iii)~the Onsager partition function
+$Z = \int\mathcal{D}[\rho]\,e^{-S_{\mathrm{E}}}$ with
+$S_{\mathrm{E}} = \int(c/2)\dot\rho^2 + V(\rho)\,d\tau$
+produces the WDW equation via the Feynman--Kac theorem.
+No gravitational input enters: $c$ comes from step~(i),
+and the Brown--Henneaux relation $c = 3\ell/(2G)$ is a
+consistency check (\S\ref{sec:intro-gravity}, step~3).
 (Operator ordering: the Laplacian $-d^2/d\rho^2$ is natural
 for the geodesic coordinate; alternatives differ at $O(1/c)$.)
 
@@ -1914,8 +1927,11 @@ $G(x,y) = U(x,y)/\sigma^{(d-2)/2} + V\log\sigma + W$,
 where $\sigma = d(x,y)^2/2$.
 The Weyl tensor $W_{ijkl}$ enters the angular structure of~$V$
 at order~$\sigma$ through the traceless Riemann component,
-producing an $\ell = 2$ (quadrupole) angular dependence with
-$5$ independent components in $d = 3$.
+producing an $\ell = 2$ (quadrupole) angular dependence.
+In $d = 3$ (spatial), the full Weyl tensor has
+$d(d{+}1)(d{+}2)(d{-}3)/12 = 10$ independent components;
+the $\ell = 2$ sector contributes $2\ell + 1 = 5$ of these
+(the traceless symmetric part).
 The $\mathbb{Z}_N$ Fourier modes $m = 1, \ldots, N{-}1$
 project onto specific angular harmonics.
 Due to the palindromic symmetry

@@ -548,6 +548,7 @@ $\mathrm{SU}(2)$ quantum numbers in the adjoint representation.
 \end{proof}
 
 \subsection{$\mathrm{SU}(3)$ from the McKay correspondence at $N = 7$}
+\label{sec:su3-mckay}
 
 \begin{theorem}[$\mathrm{SU}(3)$ from the Galois orbifold]
 \label{thm:su3}
@@ -853,11 +854,11 @@ The Abelian $\mathrm{U}(1)$ sees one sector (free boson);
 the non-Abelian $\mathrm{SU}(2)$ sees both (WZW).
 The ratio $g_{Y}^2/g_{W}^2 = 2$ is therefore
 the Havelock chiral ratio, not an adjustable parameter.
-This distinction is intrinsic to the gauge structure---it does
-\emph{not} depend on the gravitational $\mathrm{SU}(2)_L \times
-\mathrm{SU}(2)_R$ decomposition and would give the same factor
-of~$2$ in any framework where $\mathrm{U}(1)$ is Abelian and
-$\mathrm{SU}(2)$ is non-Abelian.
+This distinction is intrinsic to the gauge structure
+within the CS formulation: the factor of~$2$ follows from
+the canonical $(1/2)$ normalisation of the Abelian boson
+versus the level-quantised WZW normalisation of the
+non-Abelian sector.
 Therefore
 \begin{equation}\label{eq:hbar}
   \sin^2\theta_W = \frac{8\pi h_{\mathrm{U}(1)}}{8\pi h_{\mathrm{U}(1)}
@@ -1295,8 +1296,25 @@ For real~$c$: $\operatorname{Im}\psi(c) = 0$, and no phase accumulates.
 At the BF threshold $c = 1$: $M^2 = 0$, and the bulk field
 becomes tachyonic ($M^2 < 0$ for $c < 1$).
 The physical $i\varepsilon$ prescription deforms the
-contour into the complex plane: $c \to \tfrac{1}{2} + it$
-with $t \in [0,1]$, giving
+contour into the complex plane.
+The bulk mass parameter $M^2 = c(c{-}1)$ is negative for
+$c \in (0,1)$.
+The Feynman $i\varepsilon$ regulation $M^2 \to M^2 + i\varepsilon$
+deforms $c$ off the real axis: writing
+$c = \tfrac{1}{2} + m$ with $m = c - \tfrac{1}{2}$, the
+regulated mass is $M^2 + i\varepsilon = m^2 - \tfrac{1}{4} + i\varepsilon$,
+which for $|m| < \tfrac{1}{2}$ gives $m \to m + i\varepsilon'$
+(a small imaginary shift).
+The phase accumulated along the real-$c$ contour from
+$c_{\mathrm{up}} = \tfrac{1}{2}$ to $c_{\mathrm{dn}} = \tfrac{3}{2}$
+is $\delta = \lim_{\varepsilon \to 0}\operatorname{Im}\!\int_{1/2}^{3/2}
+\psi(c + i\varepsilon')\,dc$.
+By the Sokhotski--Plemelj theorem
+(the discontinuity across the branch cut of $\log\Gamma$),
+this equals $\int_0^1\operatorname{Im}\psi(\tfrac{1}{2}+it)\,dt$,
+the jump integral over the BF crossing range
+$m \in [0,\Delta m]$ with $\Delta m = c_{\mathrm{dn}} - c_{\mathrm{up}} = 1$:
+\begin{equation}\label{eq:delta-integral}
 \begin{equation}\label{eq:delta-integral}
   \delta = \int_0^1 \operatorname{Im}\psi\!\bigl(\tfrac{1}{2}+it\bigr)\,dt
   = \int_0^1 \tfrac{\pi}{2}\tanh(\pi t)\,dt
@@ -1620,8 +1638,13 @@ Two subleading corrections enter:
   with $\det'$ the zero-mode-removed functional determinant.
   The ratio is computed via spectral zeta regularisation:
   $\ln(\det'/\det) = -\zeta'_{\mathrm{rel}}(0)$.
-  The BF threshold at $c = 1$ has spectral flow $\mathrm{SF} = 1$
-  (one eigenvalue of the second variation crosses zero).
+  The BF threshold at $c = 1$ has spectral flow $\mathrm{SF} = 1$:
+  the second variation $-\partial^2 + V''(\rho)$ has
+  $V''(\rho^*) = d^2V/d\rho^2|_{\rho^*}$ which changes sign
+  exactly once as $c$ crosses~$1$
+  (because $M^2 = c(c{-}1)$ has a unique simple zero at $c = 1$,
+  and the associated eigenvalue $\lambda_0(c)$ crosses zero
+  transversally with $d\lambda_0/dc = 2c{-}1 = 1 \ne 0$).
   The Hurwitz zeta identity
   $\zeta'_H(0, a) = \log\Gamma(a) - \tfrac{1}{2}\log(2\pi)$
   gives $\partial_a \zeta'_H(0,a)\big|_{a=1} = \psi(1) = -\gamma$.
@@ -2474,7 +2497,7 @@ matching observations.
 \label{cor:newton}
 The static gravitational potential between two masses $m_1$, $m_2$
 at separation~$r$ on the Seifert spacetime is
-\begin{equation}\label{eq:newton}
+\begin{equation}\label{eq:newton-potential}
   V(r) = -\frac{G_N\,m_1\,m_2}{r}
   \qquad (R \ll r \ll \ell),
 \end{equation}
