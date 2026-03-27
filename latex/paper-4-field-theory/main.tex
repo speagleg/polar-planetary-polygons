@@ -97,6 +97,10 @@ with flux
 \begin{equation}\label{eq:flux}
   \frac{1}{2\pi}\oint dA = \frac{N}{2}.
 \end{equation}
+For odd~$N$, the flux is half-integral; the fiber carries a
+$\mathrm{spin}^c$ structure rather than a line bundle
+(equivalently, the $\mathbb{Z}_N$ orbifold of
+the integer-flux bundle at level~$N$).
 This is a Thurston geometry of type
 $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ \citep{Thurston1982}.
 The Kaluza--Klein reduction on $S^1$ decomposes any field into
@@ -157,7 +161,8 @@ The metric~\eqref{eq:metric-4d} yields, after KK reduction:
   $N$ KK modes $\Psi_m$ with masses $\mu^f_m = |m - (N{-}1)/2|$
   (shifted by $1/2$ from the spin connection).
   Even~$N$: bosons have a massless mode, fermions do not
-  $\implies$ SUSY broken by flux quantisation.
+  (the $1/2$-shift from the spin connection breaks the
+  boson--fermion mass degeneracy).
 \item \textbf{Radion.}
   The $S^1$ modulus $\sigma$ (fiber radius), stabilised by
   the flux energy at $\sigma = 1$.
@@ -572,10 +577,12 @@ $\mathrm{SU}(2)$ quantum numbers in the adjoint representation.
 \subsection{$\mathrm{SU}(3)$ from the McKay correspondence at $N = 7$}
 \label{sec:su3-mckay}
 
-\begin{theorem}[$\mathrm{SU}(3)$ from the Klein quartic]
+\begin{theorem}[$\mathrm{SU}(3)$ representation structure
+  from the Klein quartic]
 \label{thm:su3}
-The $N = 7$ vortex system determines $\mathrm{SU}(3)$ through
-the representation theory of the Klein quartic
+The $N = 7$ vortex system determines the $\mathrm{SU}(3)$
+\emph{representation structure} (adjoint, fundamental,
+tensor products) through the Klein quartic
 $X(7) = \Gamma(7)\backslash\mathbf{H}^2$:
 the automorphism group $\mathrm{PSL}(2,\mathbb{F}_7)$ embeds
 faithfully in $\mathrm{SU}(3)$ via the $3$-dimensional
@@ -2898,11 +2905,31 @@ The Onsager--Machlup path probability has the action
 $S_{\mathrm{OM}} = \int[\tfrac{c}{2}\dot\rho^2 + V(\rho)]\,d\tau$,
 where the $\dot\rho^2$ term is the \emph{noise kernel}
 (not a kinetic energy of the deterministic system).
-This is the standard mechanism by which a first-order
-classical system acquires second-order quantum dynamics
-(Caldeira--Leggett).
-The coefficient $c = 12\,b(N)$ is determined by
-self-consistency with the Havelock spectrum
+This is the Caldeira--Leggett mechanism for quantum
+Brownian motion.
+
+\emph{Quantum corrections.}
+The classical and quantum fluctuation--dissipation theorems
+differ at low temperature ($\hbar\omega \gg k_BT$):
+the quantum bath has zero-point fluctuations absent classically.
+Two features ensure the correct quantum result:
+(i)~\emph{Markovian approximation}: the bath correlation time
+$\tau_{\mathrm{bath}} \sim 1/\omega_m \sim O(1)$ is
+exponentially shorter than the tunnelling time
+$\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}$,
+so the non-local influence functional reduces to the
+local Onsager--Machlup form with corrections
+$O(e^{-S_{\mathrm{BO}}})$;
+(ii)~\emph{Todd-class zero-point corrections}:
+the coefficient $c = 12\,b(N)$, with
+$b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$,
+already includes the quantum zero-point contributions
+through the spectral zeta regularisation
+(the $-\ln 2$ and $(\ln N)/(N{-}1)$ terms are the
+regularised vacuum energy of the angular bath).
+The self-consistency condition --- that $c = 12\,b(N)$
+reproduces the Havelock spectrum --- captures both
+the classical friction and the quantum zero-point terms
 (Paper~III, Proposition~\ref*{III-prop:equiv-rr}).
 The partition function
 $Z = \int\mathcal{D}[\rho(\tau)]\,e^{-S_{\mathrm{E}}}$
