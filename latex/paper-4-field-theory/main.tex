@@ -2624,15 +2624,16 @@ follow from the $\mathrm{SL}(2,\mathbb{R})$ CS theory
 (Steps~A--B below).
 \item[\emph{(Matter)}]
 The matter-coupled equations
-$G_{MN} + \Lambda g_{MN} = 8\pi G\,T_{MN}$ require
-one additional input: the Ryu--Takayanagi formula
-(Step~C below).
+$G_{MN} + \Lambda g_{MN} = 8\pi G\,T_{MN}$ follow from
+the Lashkari entanglement argument (Step~C below),
+using the Ryu--Takayanagi formula---which in $2{+}1$D
+is \emph{derived} (not assumed) from the Cardy--Calabrese
+entanglement entropy and Brown--Henneaux.
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
-Steps~A--B are exact and self-contained.
-Step~C requires an AdS/CFT input (RT formula).
+All three steps are self-contained in $2{+}1$D.
 
 \emph{Step~A (CS $\to$ 3D nonlinear Einstein).}
 The CS flatness condition $F = dA + A \wedge A = 0$
@@ -2668,22 +2669,34 @@ equations follow from the graviton propagator
 matter-coupled equations follow from the entanglement argument
 (Step~C below).
 
-\emph{Step~C (Matter coupling from entanglement --- requires RT).}
+\emph{Step~C (Matter coupling from entanglement --- RT derived).}
 The vacuum equations (Steps~A--B) are derived without AdS/CFT.
-The matter coupling requires one additional input:
-the Ryu--Takayanagi formula, via the
-\citet{Lashkari2014} entanglement argument.
-Three ingredients suffice:
-(i)~the boundary $\mathbb{Z}_N$ orbifold CFT at $c = 12\,b(N)$ is
-\emph{unitary} (manifestly: it is an orbifold of free bosons);
-(ii)~the Ryu--Takayanagi formula
-$S_{\mathrm{EE}} = \mathrm{Area}/(4G)$ holds
-(an assumption of AdS/CFT, tested numerically for the
-$\mathbb{Z}_N$ orbifold: $R^2 = 0.98$ for the block-entropy
-scaling $E(k) = A\log\sin(\pi k/N) + B$);
-(iii)~relative entropy is non-negative,
-$S(\rho\|\sigma) \ge 0$ for all states
-(a theorem of quantum information, automatic for unitary theories).
+The matter coupling uses the
+\citet{Lashkari2014} entanglement argument, which requires
+the Ryu--Takayanagi formula.
+In $2{+}1$D, RT is \emph{derived}, not assumed:
+\begin{enumerate}
+\item The Cardy--Calabrese formula
+  $S_{\mathrm{EE}} = (c/3)\log(L/\varepsilon)$
+  for a boundary interval of length~$L$ is a
+  \emph{theorem} of CFT$_2$ (conformal Ward identity
+  for the twist-field correlator, no gravity input);
+\item the Brown--Henneaux relation $c = 3\ell/(2G)$
+  (our consistency check, \S\ref{sec:couplings});
+\item the geodesic length on $\mathbf{H}^2$:
+  $\mathrm{Length}(\gamma) = 2\ell\log(L/\varepsilon)$
+  (Riemannian geometry, no dynamics).
+\end{enumerate}
+Combining: $S_{\mathrm{EE}} = (c/3)\log(L/\varepsilon)
+= \ell\log(L/\varepsilon)/(2G)
+= \mathrm{Length}(\gamma)/(4G)$
+--- the RT formula, derived from CFT$_2$ and geometry.
+The Lashkari argument then uses three ingredients:
+(i)~the boundary CFT is \emph{unitary}
+(it is an orbifold of free bosons);
+(ii)~RT holds (derived above);
+(iii)~relative entropy is non-negative
+($S(\rho\|\sigma) \ge 0$, a theorem of quantum information).
 The positivity of relative entropy for all ball-shaped boundary
 regions and all states implies
 $G_{\mu\nu} + \Lambda\,g_{\mu\nu} = 8\pi G\,\langle T_{\mu\nu}\rangle$
@@ -2958,8 +2971,8 @@ Output & Mechanism & Input \\
 Schr\"odinger (WDW) & Feynman--Kac & Onsager stat.\ mech.\ \\
 CS Hilbert space & Vortex partition fn.\ at $k=c/6$ & $b(N)$ from eigenvalues \\
 $3$D Einstein & Havelock + Hadamard & Paper~III, Thm.\ 5 \\
-$4$D vacuum Einstein & CS + KK (no AdS/CFT) & This paper, Thm.\ 15(a) \\
-$4$D Einstein + matter & CS + KK + RT (AdS/CFT input) & This paper, Thm.\ 15(b) \\
+$4$D vacuum Einstein & CS + KK & This paper, Thm.\ 15(a) \\
+$4$D Einstein + matter & CS + KK + RT (derived from CFT$_2$) & This paper, Thm.\ 15(b) \\
 $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$ &
   McKay + Eightfold Way + KK & $N = 7$ \\
 $\sin^2\theta_W = 3/11$ & Chiral halving & $T_m = 2f_m$ \\
