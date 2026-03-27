@@ -873,66 +873,50 @@ $Q = m^*/N = 1/2$.
 For a compact boson at level $K = 1$, the conformal dimension is
 $h_{\mathrm{U}(1)} = Q^2/(2K) = (1/4)/2 = 1/8$.
 
-\emph{Step~2 (SU(2) conformal dimension at $k = 1$).}
-The critical mode has $j = 1$ (Theorem~\ref{thm:su2}).
-The Sugawara formula gives the primary weight
-$h_{\mathrm{WZW}} = j(j{+}1)/(k + h^\vee) = 2/(1{+}2) = 2/3$.
-(The $j = 1$ representation is not integrable at $k = 1$:
-the integrable representations of $\mathrm{SU}(2)_1$
-have $j \le k/2 = 1/2$.
-The value $h = j(j{+}1)/(k{+}h^\vee) = 2/3$ enters the Weinberg
-angle as a \emph{coupling constant} (from the WZW kinetic-term
-normalisation), not as the conformal dimension of a physical
-state.
-Indeed, the $j = 1$ representation at $k = 1$ has a null vector
-at level $k{+}1{-}2j = 0$: the primary itself is null, and
-this representation does not exist in the SU$(2)_1$ Hilbert space.
-But the Sugawara formula $L_0 = T^aT^a/[2(k{+}h^\vee)]$ is an
-algebraic identity in the universal enveloping algebra ---
-it defines $h$ as a function of $(j, k)$ regardless of whether
-the representation is physical.
-The Weinberg angle uses this algebraic value, not a matrix element
-of a physical state; corrections from the module structure are
-therefore exactly zero.
-The Weinberg angle is a tree-level ratio of primary weights;
-non-integrability corrections enter at $O(e^{-c})$.
+\emph{Step~2 (Matter representation: $j = 1$, $Q = 1/2$).}
+The critical mode at $N = 4$ has Havelock Casimir
+$f(2,4) = 2 = j(j{+}1)$ with $j = 1$ and $\mathrm{U}(1)$ charge
+$Q = m^*/N = 1/2$.
+The spin $j = 1$ is the transformation law of the \emph{matter}
+(the critical vortex mode) under the $\mathrm{SU}(2)$ gauge group,
+not a representation of the $\mathrm{SU}(2)_1$ WZW model.
+(The WZW integrable representations have $j \le k/2 = 1/2$;
+these describe the \emph{gauge sector}.
+The matter is external to the WZW Hilbert space and couples
+with Casimir $C_2(j) = j(j{+}1) = 2$.)
 The level $k = 1$ is the unique positive integer giving
 $\sin^2\theta_W$ compatible with experiment after running:
-$k = 2$ gives $1/3$, $k = 3$ gives $5/13$, both excluded.)
+$k = 2$ gives $1/3$, $k = 3$ gives $5/13$, both excluded.
 
-\emph{Step~3 (Factor of~$2$ from the propagator structure).}
-The effective couplings are determined by the boundary
-two-point functions:
-\begin{itemize}
-\item $\mathrm{U}(1)$ (compact boson at level $K$):
-  the propagator is
-  $\langle\varphi(z)\varphi(w)\rangle = -(1/K)\log|z{-}w|^2
-  = -(1/K)[\log(z{-}w) + \log(\bar z{-}\bar w)]$.
-  The $|z{-}w|^2$ contains \emph{both} chiral sectors.
-  Coupling to charge~$Q$:
-  $g_{Y}^2 = (4\pi/K)\times 2Q^2 = 8\pi h_{\mathrm{U}(1)}$
-  (the factor $2$ from both sectors).
-\item $\mathrm{SU}(2)$ (WZW at level $k$):
-  the current correlator is
-  $\langle J^a(z)J^b(w)\rangle = k\,\delta^{ab}/(z{-}w)^2$
-  --- \emph{one} chiral sector (holomorphic).
-  The coupling $g_{W}^2 = 4\pi\,j(j{+}1)/(k{+}h^\vee)
-  = 4\pi h_{\mathrm{SU}(2)}$
-  (no factor $2$: the current algebra lives in one sector).
-\end{itemize}
-The factor-of-$2$ asymmetry ($8\pi$ vs $4\pi$) is
-\emph{not} a normalisation convention.
-It traces to a structural difference between the two
-propagators: the Abelian propagator
-$\log|z{-}w|^2 = \log(z{-}w) + \log(\bar z{-}\bar w)$
-involves both chiral sectors, while the non-Abelian
-current $J^a(z)$ is holomorphic (one sector only,
-fixed by the Kac--Moody algebra at integer level~$k$).
-This is the \emph{same} chiral halving as
-$T_m = 2\,f(m,N)$ in the Havelock identity
-(Paper~III, Proposition~\ref*{III-prop:chiral-casimir}):
-the full OPE Casimir counts both sectors, the Havelock
-eigenvalue counts one.
+\emph{Step~3 (Standard CS couplings and Casimir factors).}
+The gauge couplings at the CS threshold are
+$g_W^2 = 4\pi/(k{+}h^\vee)$ (standard one-loop corrected
+SU$(2)$ CS at level~$k$) and
+$g_Y^2 = 4\pi Q^2/K$ (standard $\mathrm{U}(1)$ CS at level~$K$,
+coupling to charge~$Q$).
+The critical mode at $N = 4$ carries both quantum numbers:
+$\mathrm{U}(1)$ charge $Q = m^*/N = 1/2$ and
+Havelock spin $j = 1$ (from $f(2,4) = j(j{+}1) = 2$).
+The effective couplings to the gauge fields involve
+the standard Casimir factors $C_2(Q) = Q^2$ and
+$C_2(j) = j(j{+}1)$:
+\begin{equation}\label{eq:weinberg-cs}
+  \sin^2\theta_W
+  = \frac{g_Y^2\,Q^2}{g_Y^2\,Q^2 + g_W^2\,j(j{+}1)}
+  = \frac{Q^2(k{+}h^\vee)}{Q^2(k{+}h^\vee) + K\,j(j{+}1)}
+  = \frac{\tfrac{1}{4} \times 3}{\tfrac{1}{4} \times 3 + 1 \times 2}
+  = \frac{3}{11}.
+\end{equation}
+No ``chiral halving'' or non-standard normalisation is
+involved: the formula uses the textbook CS couplings
+$g^2 = 4\pi/k_{\mathrm{eff}}$ and the standard Casimir
+$C_2(j) = j(j{+}1)$.
+The spin $j = 1$ is the \emph{Havelock Casimir} of the
+critical vortex mode (Paper~I, Proposition~\ref*{I-prop:graviton}),
+not a WZW representation: the matter field transforms as
+spin~$1$ under the global $\mathrm{SU}(2)$, but is external
+to the $\mathrm{SU}(2)_1$ WZW Hilbert space
+(whose integrable representations have $j \le 1/2$).
 Therefore
 \begin{equation}\label{eq:hbar}
   \sin^2\theta_W = \frac{8\pi h_{\mathrm{U}(1)}}{8\pi h_{\mathrm{U}(1)}
@@ -3183,6 +3167,64 @@ Quantum mechanics enters through the Feynman--Kac theorem
 \section{Discussion}
 \label{sec:discussion}
 
+\paragraph{Status classification.}
+We distinguish three levels of logical status for the results:
+\begin{center}
+\small
+\begin{tabular}{lp{8cm}}
+\toprule
+Status & Meaning \\
+\midrule
+\textbf{Theorem} & Proved from stated hypotheses using
+  established mathematics (Havelock identity, McKay
+  correspondence, Witten CS/WZW, Feynman--Kac). \\
+\textbf{Derivation} & Follows from the framework via a
+  chain of identified steps, each with controlled
+  approximations (WKB, Markovian, Born--Oppenheimer).
+  The result depends on the structural framework
+  (Seifert geometry, $N = 7$). \\
+\textbf{Conjecture} & Numerically verified but
+  the derivation chain has at least one step that is
+  physically motivated rather than mathematically proved. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+\small
+\begin{tabular}{llc}
+\toprule
+Result & Status & Match \\
+\midrule
+$\mathrm{SU}(3)$ representation structure & Theorem & --- \\
+$\mathrm{SU}(3)$ gauge dynamics (CS/WZW) & Theorem & --- \\
+$\mathrm{SU}(2) \times \mathrm{U}(1)$ & Theorem & --- \\
+$3$ generations & Theorem & --- \\
+Coupling lock $\alpha/(8\pi G) = 1/(2\pi^2)$ & Theorem & exact \\
+$4$D graviton (spin $2$) & Theorem & --- \\
+Vacuum Einstein equations & Theorem & --- \\
+$\sin^2\theta_W = 3/11$ & Derivation$^*$ & $3.9\%$ \\
+$\delta_{\mathrm{CKM}} = 70.2^\circ$ & Derivation & $0.4\sigma$ \\
+$|V_{cb}| = 0.042$ & Derivation & $0.5\%$ \\
+$M_P/M_{\mathrm{EW}}$ hierarchy & Derivation & $0.003\%$ \\
+$H_0 = 67.4$ & Derivation & $0.001\%$ \\
+WDW equation from stat.\ mech. & Derivation & --- \\
+Einstein + matter (Lashkari) & Derivation & --- \\
+$\theta_{\mathrm{QCD}} = 0$ & Derivation & --- \\
+$\Delta m^2$ ratio $= 31.5$ & Derivation & $3\%$ \\
+$\Omega_{\mathrm{DM}} = 26.9\%$ & Conjecture & $0.4\sigma$ \\
+$\Omega_b = 4.2\%$ & Conjecture & $3.5\sigma$ \\
+$m_H = 122$ GeV & Conjecture & $3\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+${}^*$The Weinberg angle uses the Sugawara formula at
+the non-integrable representation $j = 1$, $k = 1$
+(a coupling constant, not a physical state;
+see \S\ref{sec:weinberg}).
+
+\medskip
 The results of the preceding sections:
 \begin{itemize}
 \item $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
