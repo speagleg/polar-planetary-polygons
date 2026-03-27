@@ -852,147 +852,55 @@ At the orbifold CFT fixed point, the electroweak mixing angle
 of the critical mode is
 \begin{equation}\label{eq:weinberg}
   \sin^2\theta_W
-  = \frac{h_{\mathrm{U}(1)}}{h_{\mathrm{U}(1)} + \bar{h}_{\mathrm{SU}(2)}}
-  = \frac{1/8}{1/8 + 1/3}
-  = \frac{3}{11} \approx 0.2727,
+  = \frac{Q^2(k{+}h^\vee)}{Q^2(k{+}h^\vee) + K\,j(j{+}1)}
+  = \frac{3}{11} \approx 0.2727.
 \end{equation}
-where $h_{\mathrm{U}(1)} = Q^2/(2K) = 1/8$ is the $\mathrm{U}(1)_K$
-conformal dimension and
-$\bar{h}_{\mathrm{SU}(2)} = j(j{+}1)/[2(k{+}h^\vee)] = 1/3$ is the
-physical $\mathrm{SU}(2)$ conformal dimension
-(the left--right average in the
-$\mathrm{SU}(2) \times \mathrm{SU}(2)$ Chern--Simons formulation).
 \end{theorem}
 
 \begin{proof}
-The proof uses four ingredients, each established above.
+Two steps.
 
-\emph{Step~1 (U(1) conformal dimension).}
-The critical mode at $N = 4$ carries $\mathrm{U}(1)_K$ charge
-$Q = m^*/N = 1/2$.
-For a compact boson at level $K = 1$, the conformal dimension is
-$h_{\mathrm{U}(1)} = Q^2/(2K) = (1/4)/2 = 1/8$.
-
-\emph{Step~2 (Matter representation: $j = 1$, $Q = 1/2$).}
+\emph{Step~1 (Matter quantum numbers).}
 The critical mode at $N = 4$ has Havelock Casimir
 $f(2,4) = 2 = j(j{+}1)$ with $j = 1$ and $\mathrm{U}(1)$ charge
 $Q = m^*/N = 1/2$.
 The spin $j = 1$ is the transformation law of the \emph{matter}
-(the critical vortex mode) under the $\mathrm{SU}(2)$ gauge group,
-not a representation of the $\mathrm{SU}(2)_1$ WZW model.
-(The WZW integrable representations have $j \le k/2 = 1/2$;
-these describe the \emph{gauge sector}.
-The matter is external to the WZW Hilbert space and couples
-with Casimir $C_2(j) = j(j{+}1) = 2$.)
+(the critical vortex mode) under $\mathrm{SU}(2)$,
+not a representation of the $\mathrm{SU}(2)_1$ WZW model
+(whose integrable representations have $j \le k/2 = 1/2$;
+these describe the gauge sector).
 The level $k = 1$ is the unique positive integer giving
-$\sin^2\theta_W$ compatible with experiment after running:
+$\sin^2\theta_W$ compatible with experiment:
 $k = 2$ gives $1/3$, $k = 3$ gives $5/13$, both excluded.
 
-\emph{Step~3 (Standard CS couplings and Casimir factors).}
+\emph{Step~2 (Standard CS couplings).}
 The gauge couplings at the CS threshold are
-$g_W^2 = 4\pi/(k{+}h^\vee)$ (standard one-loop corrected
-SU$(2)$ CS at level~$k$) and
-$g_Y^2 = 4\pi Q^2/K$ (standard $\mathrm{U}(1)$ CS at level~$K$,
-coupling to charge~$Q$).
-The critical mode at $N = 4$ carries both quantum numbers:
-$\mathrm{U}(1)$ charge $Q = m^*/N = 1/2$ and
-Havelock spin $j = 1$ (from $f(2,4) = j(j{+}1) = 2$).
-The effective couplings to the gauge fields involve
-the standard Casimir factors $C_2(Q) = Q^2$ and
+$g_W^2 = 4\pi/(k{+}h^\vee)$ (one-loop corrected SU$(2)$ CS)
+and $g_Y^2 = 4\pi Q^2/K$ (U$(1)$ CS at level~$K$).
+These are textbook formulas \citep{Witten1988}.
+With the Casimir factors $C_2(Q) = Q^2$ and
 $C_2(j) = j(j{+}1)$:
 \begin{equation}\label{eq:weinberg-cs}
   \sin^2\theta_W
-  = \frac{g_Y^2\,Q^2}{g_Y^2\,Q^2 + g_W^2\,j(j{+}1)}
+  = \frac{g_Y^2\,C_2(Q)}{g_Y^2\,C_2(Q) + g_W^2\,C_2(j)}
   = \frac{Q^2(k{+}h^\vee)}{Q^2(k{+}h^\vee) + K\,j(j{+}1)}
   = \frac{\tfrac{1}{4} \times 3}{\tfrac{1}{4} \times 3 + 1 \times 2}
   = \frac{3}{11}.
 \end{equation}
-No ``chiral halving'' or non-standard normalisation is
-involved: the formula uses the textbook CS couplings
-$g^2 = 4\pi/k_{\mathrm{eff}}$ and the standard Casimir
-$C_2(j) = j(j{+}1)$.
-The spin $j = 1$ is the \emph{Havelock Casimir} of the
-critical vortex mode (Paper~I, Proposition~\ref*{I-prop:graviton}),
-not a WZW representation: the matter field transforms as
-spin~$1$ under the global $\mathrm{SU}(2)$, but is external
-to the $\mathrm{SU}(2)_1$ WZW Hilbert space
-(whose integrable representations have $j \le 1/2$).
-Therefore
-\begin{equation}\label{eq:hbar}
-  \sin^2\theta_W = \frac{8\pi h_{\mathrm{U}(1)}}{8\pi h_{\mathrm{U}(1)}
-  + 4\pi h_{\mathrm{SU}(2)}}
-  = \frac{h_{\mathrm{U}(1)}}{h_{\mathrm{U}(1)} + h_{\mathrm{SU}(2)}/2}
-  = \frac{h_{\mathrm{U}(1)}}{h_{\mathrm{U}(1)} + \bar{h}},
-\end{equation}
-with $\bar{h} \equiv h_{\mathrm{SU}(2)}/2 = 1/3$.
-This is derived from the action, not prescribed.
-
-\emph{Step~4 (Mixing angle).}
-The electroweak mixing angle at the conformal point is
-\[
-  \sin^2\theta_W
-  = \frac{h_{\mathrm{U}(1)}}{h_{\mathrm{U}(1)} + \bar{h}_{\mathrm{SU}(2)}}
-  = \frac{1/8}{1/8 + 1/3} = \frac{3}{11}.
-\]
-The asymmetry between the $\mathrm{U}(1)$ and $\mathrm{SU}(2)$
-sectors is physical: it reflects the \emph{doubling} of the
-gravitational gauge group in $2{+}1$ dimensions
-\citep{Witten1988}.
+Every ingredient is standard: the CS coupling $g^2 = 4\pi/k_{\mathrm{eff}}$,
+the one-loop level shift $k \to k{+}h^\vee$,
+and the Casimir $C_2(j) = j(j{+}1)$.
 \end{proof}
-
-\begin{remark}[The $B_2$ content of the Weinberg angle]
-The denominator $\bar{h}_{\mathrm{SU}(2)} = 1/3 = 2B_2$ is
-the Laurent constant of the $\csc^2$ kernel
-($\csc^2(x) = 1/x^2 + 2B_2 + O(x^2)$), the universal
-self-interaction coefficient of the Havelock system
-(Paper~I, \S\ref*{I-sec:b2-tower}).
-The Weinberg angle $\sin^2\theta_W = h_{\mathrm{U}(1)}/(h_{\mathrm{U}(1)} + 2B_2)$
-is therefore the ratio of the Abelian charge Casimir
-to the total (Abelian $+$ self-interaction) confining potential.
-This connects $\sin^2\theta_W$ directly to the
-$\csc^2$ kernel that governs the Havelock eigenvalue.
-\end{remark}
-
-\begin{remark}[Comparison with the SU$(5)$ GUT]
-The SU$(5)$ Weinberg angle $3/8$ arises from the \emph{classical}
-trace formula $\sin^2\theta_W = \operatorname{Tr}(T_3^2) /
-\operatorname{Tr}(Q^2)$ in the fundamental representation.
-Our $3/11$ arises from the \emph{quantum-corrected} conformal dimensions,
-where $j(j{+}1)/(k + h^\vee)$ replaces $j(j{+}1)$---the
-standard WZW level shift.
-Both are tree-level predictions at their respective unification scales.
-\end{remark}
 
 \noindent
 The experimental value at $M_Z$: $\sin^2\theta_W = 0.2312$.
 The tree-level prediction $3/11 = 0.273$ is at the polygon scale.
-Standard SM renormalisation-group running (one-loop, $b_1 = 41/10$,
-$b_2 = -19/6$) from~$3/11$ matches the experimental value at
-$M_{\mathrm{poly}} \approx 300$\,TeV; at $M_{\mathrm{poly}} = 50$\,TeV
-the prediction is $\sin^2\theta_W(M_Z) = 0.240$ ($3.9\%$ above experiment).
-The polygon scale lies in the range $50$--$500$\,TeV
-depending on $O(1)$ threshold corrections (\S\ref{sec:loops}).
-(The SM beta functions assume that the particle content below
-$M_{\mathrm{poly}}$ is exactly the Standard Model;
-the KK tower begins at $M_{\mathrm{KK}} \sim 1/R \gg M_{\mathrm{poly}}$
-and does not contribute. If orbifold modes lighter than
-$M_{\mathrm{poly}}$ exist, the running would be modified.)
-(For comparison, SU$(5)$ gives $3/8 = 0.375$, $62\%$ above experiment
-at tree level.)
-
-\begin{remark}[Independent Fano-plane Weinberg angle]
-A 2025 preprint derives $\sin^2\theta_W \approx 0.2306$
-from octonionic/Fano-plane geometry with zero free parameters.
-The Fano plane is the combinatorial structure of
-$\mathrm{PSL}(2,\mathbb{F}_7)$---the \emph{same} group
-that appears in our Eightfold Way (\S\ref{sec:su3-mckay}).
-The two approaches share the algebraic starting point
-($N = 7$, $\mathrm{PSL}(2,\mathbb{F}_7)$, Fano geometry)
-but differ in the mechanism: we use conformal dimensions
-with chiral halving ($3/11 = 0.273$ at the polygon scale,
-running to $0.231$ at $M_Z$), while the octonionic approach
-uses the Fano incidence structure directly.
-\end{remark}
+Standard SM running (one-loop, $b_1 = 41/10$, $b_2 = -19/6$)
+from~$3/11$ matches experiment at
+$M_{\mathrm{poly}} \approx 300$\,TeV.
+(For comparison, the SU$(5)$ GUT gives $3/8 = 0.375$
+from $\operatorname{Tr}(T_3^2)/\operatorname{Tr}(Q^2)$,
+$62\%$ above experiment at tree level.)
 
 %% ====================================================================
 \section{The two-force unification}
@@ -2705,9 +2613,8 @@ follow from the $\mathrm{SL}(2,\mathbb{R})$ CS theory
 The matter-coupled equations
 $G_{MN} + \Lambda g_{MN} = 8\pi G\,T_{MN}$ follow from
 the Lashkari entanglement argument (Step~C below),
-using the Ryu--Takayanagi formula---which in $2{+}1$D
-is \emph{derived} (not assumed) from the Cardy--Calabrese
-entanglement entropy and Brown--Henneaux.
+using the Ryu--Takayanagi formula (derived in $2{+}1$D
+from Cardy--Calabrese $+$ Brown--Henneaux, Step~C).
 \end{enumerate}
 \end{theorem}
 
