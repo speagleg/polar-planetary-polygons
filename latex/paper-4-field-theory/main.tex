@@ -2921,6 +2921,9 @@ The derivation has five steps, each either proved or a theorem:
   The local (Onsager--Machlup) approximation
   $S_{\mathrm{eff}} = \int[c/2\,\dot\rho^2 + V]\,d\tau$
   is valid to $O(e^{-S_{\mathrm{BO}}})$.
+  The coefficient $c = 12\,b(N)$ is determined by the
+  \emph{classical} Toeplitz positivity of the $\csc^2$ kernel
+  (see below); no quantum input enters at this step.
 \item \emph{Feynman--Kac theorem (1948, mathematical identity).}
   $Z = \int\mathcal{D}[\rho]\,e^{-S_{\mathrm{eff}}}$ has
   transfer matrix $T = e^{-\varepsilon H}$;
@@ -2930,8 +2933,10 @@ The derivation has five steps, each either proved or a theorem:
   In the WDW framework ($H\Psi = 0$ selects the unique
   physical state), this is the complete Born rule.
 \end{enumerate}
-The only \emph{physical} input is Step~1: the Havelock
-diagonalisation.
+The only \emph{physical} input is Step~1 (the Havelock
+diagonalisation); the coefficient $c = 12\,b(N)$ in Step~3
+is a \emph{classical} quantity (Toeplitz positivity of the
+$\csc^2$ kernel, not a quantum computation).
 Steps~2--5 are mathematics (exact Gaussian integration,
 Markov approximation, Feynman--Kac, measure theory).
 The Kirchhoff system is first-order
@@ -2981,16 +2986,27 @@ $\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}$,
 so the non-local influence functional reduces to the
 local Onsager--Machlup form with corrections
 $O(e^{-S_{\mathrm{BO}}})$;
-(ii)~\emph{Todd-class zero-point corrections}:
-the coefficient $c = 12\,b(N)$, with
-$b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$,
-already includes the quantum zero-point contributions
-through the spectral zeta regularisation
-(the $-\ln 2$ and $(\ln N)/(N{-}1)$ terms are the
-regularised vacuum energy of the angular bath).
-The self-consistency condition --- that $c = 12\,b(N)$
-reproduces the Havelock spectrum --- captures both
-the classical friction and the quantum zero-point terms
+(ii)~\emph{Classical origin of $b(N)$}:
+the coefficient $c = 12\,b(N)$ is determined by the
+\emph{classical} Toeplitz positivity of the $\csc^2$ kernel,
+not by quantum mechanics.
+The Havelock eigenvalue matrix is a circulant with entries
+$-\log|2\sin(\pi p/N)|$; its Toeplitz determinants
+$D_r = \det[\Phi(u_0 + (i{-}j)h)]$ form a tau-function
+sequence for the discrete KP hierarchy.
+The offset $b(N)$ is the unique value making $D_r > 0$
+for all $r \le N{-}2$ (the number of angular modes)
+--- a \emph{classical total-positivity condition}
+on the kernel.
+The fact that $b(N)$ also equals the Todd class of the
+$\mathbb{Z}_N$ orbifold is a \emph{theorem} connecting
+Toeplitz positivity to index theory
+(the Desnanot--Jacobi identity underlying the Dodgson ladder
+IS the Hirota bilinear equation of the KP hierarchy;
+the PF order of the kernel determines which tau-functions
+are non-singular).
+No quantum input is needed: $b(N)$ is extracted from the
+\emph{classical} eigenvalue data of a circulant matrix
 (Paper~III, Proposition~\ref*{III-prop:equiv-rr}).
 The partition function
 $Z = \int\mathcal{D}[\rho(\tau)]\,e^{-S_{\mathrm{E}}}$
