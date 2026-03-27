@@ -1229,8 +1229,8 @@ protected.
 The CKM matrix has three layers of corrections:
 (a)~\emph{tree-level}: diagonalisation of the $\mathbf{H}^2$
   Yukawa texture gives $|V_{cb}| = 0.092$, $\delta = 15^\circ$;
-(b)~\emph{non-perturbative phase}: the Berry phase through the BF
-  crossing (Theorem~\ref{thm:ckm-phase}) gives
+(b)~\emph{non-perturbative phase}: the BF-crossing phase
+  $\arg\Gamma(\tfrac{1}{2}+i)$ (Theorem~\ref{thm:ckm-phase}) gives
   $\delta = 70.2^\circ$;
 (c)~\emph{orbifold image suppression}: the $\chi_8$ channel of the
   $\mathrm{PSL}(2,\mathbb{F}_7)$ decomposition gives the final
@@ -1396,7 +1396,7 @@ a genuine prediction since all entries are computed from~$N = 7$.
 \medskip\noindent
 \textbf{Non-perturbative CKM.}
 \label{sec:ckm-np}
-The non-perturbative CKM combines the Berry phase
+The non-perturbative CKM combines the BF-crossing phase
 $\delta = 70.2^\circ$ (Theorem~\ref{thm:ckm-phase}) with
 the orbifold image suppression $|V_{cb}| = 0.042$
 (\S\ref{sec:su3-mckay}).
@@ -2786,16 +2786,26 @@ Quantum mechanics and general relativity both arise from the
 
 \paragraph{Quantum mechanics from statistical mechanics.}
 The Kirchhoff Hamiltonian for the $N$-vortex ring is a
-\emph{classical} first-order system.
-The $N{-}2$ angular modes of the polygon fluctuate
-thermally while the breathing mode $\rho$ evolves slowly.
-Integrating out the frozen angular modes produces an
-effective action for~$\rho$:
-$S_{\mathrm{E}} = \int[\tfrac{c}{2}\dot\rho^2 + V(\rho)]\,d\tau$,
-where the kinetic term $\dot\rho^2$ arises from the
-\emph{thermal noise} of the frozen-mode heat bath, and
-the coefficient $c = 12\,b(N)$ is the Todd-class offset
-extracted from the eigenvalue data
+\emph{classical} first-order system: the coordinates
+$(z_k, \bar z_k)$ are canonically conjugate to each other
+(no separate momenta).
+The breathing mode $\rho$ (polygon radius) is a
+\emph{collective coordinate} of this first-order system,
+not a canonical variable.
+The $N{-}2$ angular modes form a thermal bath for~$\rho$:
+their fluctuations drive~$\rho$ as Brownian motion in the
+potential $V(\rho)$ (the overdamped Langevin equation
+$\gamma\dot\rho = -V' + \eta$).
+The Onsager--Machlup path probability has the action
+$S_{\mathrm{OM}} = \int[\tfrac{c}{2}\dot\rho^2 + V(\rho)]\,d\tau$,
+where the $\dot\rho^2$ term is the \emph{noise kernel}
+(it measures the improbability of a given velocity in the
+heat bath), not a kinetic energy of the deterministic system.
+This is the standard mechanism by which a first-order
+classical system acquires second-order quantum dynamics
+(Caldeira--Leggett).
+The coefficient $c = 12\,b(N)$ is determined by
+self-consistency with the Havelock spectrum
 (Paper~III, Proposition~\ref*{III-prop:equiv-rr}).
 The partition function
 $Z = \int\mathcal{D}[\rho(\tau)]\,e^{-S_{\mathrm{E}}}$
@@ -2850,7 +2860,7 @@ $4$D Einstein & CS + KK + entanglement & This paper, Thm.\ 10 \\
 $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$ &
   McKay + Eightfold Way + KK & $N = 7$ \\
 $\sin^2\theta_W = 3/11$ & Chiral halving & $T_m = 2f_m$ \\
-$\delta_{\mathrm{CKM}} = 70.2^\circ$ & Berry phase at BF & $\arg\Gamma(\tfrac{1}{2}+i)$ \\
+$\delta_{\mathrm{CKM}} = 70.2^\circ$ & BF-crossing phase & $\arg\Gamma(\tfrac{1}{2}+i)$ \\
 \bottomrule
 \end{tabular}
 \end{center}

@@ -1745,34 +1745,49 @@ unidirectional; (H2) is \emph{derived from} (H1) and the
 Feynman--Kac mapping, not assumed independently.
 
 \medskip
-\noindent\textbf{Step~2b. The WDW equation from integrating out the frozen modes.}
-The $N$-gon has $N{-}2$ angular modes (frozen) and one breathing
-mode~$\rho$.
-The full partition function is
-$Z = \int d\rho\,\prod_{m \ne m^*}da_m\;
-\exp\!\bigl(-\beta[V(\rho) + \tfrac{1}{2}\sum\lambda_m(\rho)|a_m|^2]\bigr)$.
-Integrating out the angular modes (Gaussian) gives the
-effective action for~$\rho$:
-$S_{\mathrm{E}}[\rho] = \int_0^\beta[\tfrac{c}{2}\dot\rho^2
-+ V_{\mathrm{eff}}(\rho)]\,d\tau$,
-where the kinetic coefficient~$c$ receives two contributions:
-(i)~the \emph{naive mass} $c_0 = N$
-(from the configuration-space metric $\sum|dz_k|^2 = N\,d\rho^2$),
-and
-(ii)~the \emph{one-loop enhancement} from the $\rho$-dependence
-of the frozen-mode determinant
-$\prod_{m \ne m^*}|\lambda_m(\rho)|^{-1/2}$.
-The total effective mass is $c = 12\,b(N)$:
-this equals the equivariant index
-(Proposition~\ref{prop:equiv-rr}), which is topological
-and therefore $\rho$-independent.
-The one-loop enhancement factor is $c/N \approx N$
-(each of the $N{-}1$ frozen modes contributes ${\sim}\,N$ to
-the effective mass through its coupling to~$\rho$),
-giving $c \approx N^2$ at leading order.
+\noindent\textbf{Step~2b. Why second-order dynamics from a first-order system.}
+The Kirchhoff equations $\dot{z}_k = -i\,\partial H/\partial\bar{z}_k$
+are first-order: the coordinates $(z_k, \bar{z}_k)$ are
+\emph{canonically conjugate to each other} (there are no
+separate momenta).
+The breathing mode $\rho$ (parametrising
+$z_k = \rho\,e^{2\pi ik/N}$) is a \emph{collective coordinate}
+of this first-order system, not a canonical variable.
+The $N{-}2$ angular modes form a \emph{thermal bath} for~$\rho$:
+their fluctuations drive $\rho$ as Brownian motion in the
+potential~$V(\rho)$.
+The effective stochastic dynamics is overdamped Langevin:
+$\gamma\,\dot\rho = -V'(\rho) + \eta(\tau)$,
+with noise~$\eta$ from the angular heat bath and friction~$\gamma$
+from the fluctuation--dissipation theorem.
+The Onsager--Machlup path probability is
+$P[\rho(\tau)] \propto \exp(-S_{\mathrm{OM}})$ with
+\[
+  S_{\mathrm{OM}} = \int_0^\beta
+  \Bigl[\frac{c}{2}\,\dot\rho^2 + V(\rho)\Bigr]\,d\tau,
+  \qquad c = \frac{\gamma}{2T}.
+\]
+The $\dot\rho^2$ term is the \emph{noise kernel}---it
+measures how improbable a given velocity is in the
+thermal bath---not a kinetic energy of the deterministic system.
+This is the standard mechanism by which a first-order classical
+system acquires second-order quantum dynamics
+(the Caldeira--Leggett model for quantum Brownian motion).
+
+The value $c = 12\,b(N)$ is determined by
+\emph{self-consistency}: the WDW equation must reproduce the
+Havelock spectrum.
+The equivariant index
+(Proposition~\ref{prop:equiv-rr}) gives $b(N)$ as the unique
+mode-independent offset, and $c = 12\,b(N)$ is the unique
+coefficient reproducing the correct eigenvalue structure.
+This is topological ($\rho$-independent) and matches
+$c \approx N^2$ at leading order
+(the $N{-}1$ frozen modes each enhance the effective
+mass by ${\sim}\,N$, consistent with $c = N^2 + O(N)$).
 
 The transfer matrix $T = e^{-\epsilon\,H_{\mathrm{WDW}}}$
-of this effective path integral satisfies
+of this Onsager--Machlup path integral satisfies
 $H_{\mathrm{WDW}}\Psi = 0$ in the dominant eigenstate
 (the Feynman--Kac theorem).
 No gravitational input enters: $c$ is determined by the
@@ -1891,18 +1906,19 @@ $\ell = 2$ Weyl sector in $d = 3$, we need
 $\lfloor N/2\rfloor \ge 5$, i.e.\ $N \ge 10$ (even) or
 $N \ge 11$ (odd).
 Verified numerically: the $5 \times 5$ cosine matrix
-$M_{mp} = \cos(2\pi pm/N)$ has rank~$5$ for $N = 11$
+$M_{mp} = \cos(2\pi pm/N)$ has rank~$5$ for $N = 10$ and $N = 11$,
 but rank~$3$ for $N = 6, 7$ (insufficient).
 Any nonzero Weyl tensor therefore makes $C_1$ depend on~$m$
-for $N \ge 11$, violating~(H1).
-Hence (H1) at every~$x$ with $N \ge 11$ forces $W_{ijkl} = 0$ and
+for $N \ge 10$, violating~(H1).
+Hence (H1) at every~$x$ with $N \ge 10$ forces $W_{ijkl} = 0$ and
 $R_{ij} = (R/d)\,g_{ij}$: maximal symmetry.
 Promoting to the $(d{+}1)$-dimensional spacetime:
 $R_{\mu\nu} = \Lambda\,g_{\mu\nu}$.
 
 In $d = 4$, the Weyl tensor has $10$ components at $\ell = 2$
-($5$ real), requiring $\lfloor N/2\rfloor \ge 5$, i.e.\ $N \ge 11$
----the \emph{cosmological polygon} (Paper~IV, Theorem~11).
+($5$ real), requiring $\lfloor N/2\rfloor \ge 5$, i.e.\ $N \ge 10$
+(even) or $N \ge 11$ (odd)---the \emph{cosmological polygon}
+(Paper~IV, Theorem~11).
 \end{proof}
 
 \begin{remark}[The cosmological constant from the polygon number]
