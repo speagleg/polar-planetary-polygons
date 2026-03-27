@@ -134,30 +134,30 @@ class TestTestPolygonDerivation:
         R = curvature_from_threshold(7)
         assert abs(R) < 1e-14
 
-    def test_N8_positive_curvature(self):
-        """N=8: R > 0 (positive curvature required)."""
+    def test_N8_negative_curvature(self):
+        """N=8: R < 0 (negative curvature, H²-like — curvature stabilises)."""
         from planetary_polygons.extensions.jacobson_derivation import curvature_from_threshold
         R = curvature_from_threshold(8)
-        assert R > 0
-
-    def test_N6_negative_curvature(self):
-        """N=6: R < 0 (negative curvature, H²)."""
-        from planetary_polygons.extensions.jacobson_derivation import curvature_from_threshold
-        R = curvature_from_threshold(6)
         assert R < 0
 
+    def test_N6_positive_curvature(self):
+        """N=6: R > 0 (positive curvature, S²-like — curvature destabilises)."""
+        from planetary_polygons.extensions.jacobson_derivation import curvature_from_threshold
+        R = curvature_from_threshold(6)
+        assert R > 0
+
     def test_curvature_monotone(self):
-        """Larger N requires more curvature."""
+        """Larger N requires more negative curvature (R decreases with N)."""
         from planetary_polygons.extensions.jacobson_derivation import curvature_from_threshold
         for N in range(4, 14):
-            assert curvature_from_threshold(N + 1) > curvature_from_threshold(N)
+            assert curvature_from_threshold(N + 1) < curvature_from_threshold(N)
 
     def test_small_ring_expansion(self):
-        """Small ring: C₁ ≈ (N-1)(1 + Rε²/6)."""
+        """Small ring: C₁ ≈ (N-1)(1 - Rε²/4)."""
         from planetary_polygons.extensions.jacobson_derivation import small_ring_expansion
         N, R, eps = 8, -1.0, 0.01
         C1 = small_ring_expansion(N, R, eps)
-        assert C1 == pytest.approx((N - 1) * (1 + R * eps**2 / 6))
+        assert C1 == pytest.approx((N - 1) * (1 - R * eps**2 / 4))
 
     def test_derivation_runs(self):
         """The full derivation produces consistent results."""

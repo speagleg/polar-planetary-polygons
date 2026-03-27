@@ -251,8 +251,9 @@ def havelock_implies_einstein():
 def small_ring_expansion(N, R_scalar, epsilon):
     """Small-ring expansion of C₁ at a point with scalar curvature R.
 
-    C₁(x, ε) = (N-1)[1 + R(x)·ε²/6 + O(ε⁴)]
+    C₁(x, ε) = (N-1)[1 - R(x)·ε²/4 + O(ε⁴)]
 
+    The coefficient 1/4 = 1/6 + 1/12 (Hadamard parametrix + chord correction).
     The Hamiltonian constraint C₁ = f(m*, N) then gives:
     R(x) = -4[f(m*, N) - (N-1)] / [(N-1)·ε²]
 

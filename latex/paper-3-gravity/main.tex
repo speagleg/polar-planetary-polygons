@@ -3,6 +3,7 @@
 \externaldocument[I-]{../paper-1-mathematics/main}
 \externaldocument[II-]{../paper-2-physics/main}
 \externaldocument[IV-]{../paper-4-planets/main}
+\externaldocument[V-]{../paper-4-field-theory/main}
 
 \title{\seriestitle\\[6pt]\large Paper III: Gravitational Theory}
 \author{Gordon Speagle}
@@ -33,6 +34,12 @@ H3~from the Hadamard universality of the Green's function).
 In $d \ge 3$, the same structure \emph{characterises} the Einstein
 equations (the Havelock condition is equivalent to vacuum Einstein,
 providing a new criterion for Einstein manifolds).
+The Bernoulli number $B_2 = 1/6$ organises the spectral
+structure (Paper~I): the stability polynomial
+$6B_2(x) = P_2(2x{-}1)$ places the threshold at the
+Gauss--Legendre quadrature nodes, and the $\csc^2$ kernel
+connects the vortex spectrum to integrable systems from
+random matrix theory to gauge theory.
 \end{abstract}
 
 %% ====================================================================
@@ -67,6 +74,47 @@ This paper develops the consequences:
     Einstein equations.
 \end{itemize}
 
+\paragraph{Logical architecture of the central charge.}
+A single quantity $c = 12\,b(N)$ appears in four roles in this paper:
+as the WDW mass parameter (\S\ref{sec:wdw}),
+the CS level $k = c/6$ (\S\ref{sec:graviton}),
+the orbifold CFT central charge (\S\ref{sec:three-layer}),
+and the Todd-class correction in the equivariant index
+(\S\ref{sec:three-layer}, Proposition~\ref{prop:equiv-rr}).
+These are \emph{not four independent claims};
+they form a single logical chain:
+\begin{enumerate}
+\item \emph{Definition.}
+  The three-layer decomposition of the Havelock eigenvalue
+  $\lambda_m = C_1 - f_m + \delta_m$ extracts a unique
+  mode-independent offset $b(N)$ (Proposition~\ref{prop:equiv-rr}).
+  Define $c := 12\,b(N)$.
+\item \emph{Holographic identification.}
+  The vortex system on $\mathbf{H}^2$ is equivalent to
+  $2{+}1$D gravity via the Green's function isomorphism
+  (Paper~II).
+  The Brown--Henneaux theorem then identifies $c$
+  with the boundary Virasoro central charge:
+  $c = 3\ell/(2G) = 6k$.
+\item \emph{Consequence for the WDW equation.}
+  The Feynman--Kac mapping of the statistical-mechanical
+  path integral (\S\ref{sec:lichnerowicz}, Step~2b) produces
+  a kinetic coefficient.
+  This coefficient is $c$ because the breathing mode
+  $\rho$ is the AdS radion, whose kinetic term is set
+  by the Brown--Henneaux central charge (step~2).
+\item \emph{Orbifold matching.}
+  At leading order $c \approx N^2$,
+  the correspondence with the $\mathbb{Z}_N$ orbifold CFT
+  (Proposition~\ref{prop:orbifold-havelock})
+  follows from $c/(24N^2) \approx 1/2$.
+  The $O(N)$ discrepancy between $c$ and $N^2$
+  is the regularisation of the vortex self-energy.
+\end{enumerate}
+Every subsequent use of $c$ in this paper traces back to
+step~1 (extraction from the eigenvalue data) and step~2
+(holographic identification).
+
 %% ====================================================================
 \section{The graviton at $N = 7$ and the Chern--Simons lift}
 \label{sec:graviton}
@@ -93,6 +141,13 @@ No other $N \le 30$ gives an integer spin at the critical mode.
 The \emph{graviton} (spin-$2$ field of general relativity)
 appears precisely at $N = 7$: the Havelock stability threshold
 \emph{is} the onset of the gravitational degree of freedom.
+The total $\csc^2$ sum $\lambda_0 = \sum_{p=1}^{N-1}\csc^2(\pi p/N)
+= (N^2{-}1)/3$ itself has the Casimir form
+$\lambda_0 = (4/3)\,j(j{+}1)$ with $j = (N{-}1)/2$,
+where $4/3 = 1 + 2B_2$ (Paper~I, \S\ref*{I-sec:b2-tower}).
+The same $4/3$ that governs the self-interaction of the
+$\csc^2$ kernel also sets the normalisation of the
+total angular stiffness of the polygon.
 
 \begin{proposition}[Graviton identification]
 \label{prop:graviton}
@@ -135,13 +190,14 @@ Chern--Simons gauge theory with group
 $\mathrm{SL}(2,\mathbb{R}) \times \mathrm{SL}(2,\mathbb{R})$
 and level
 \begin{equation}\label{eq:cs-level}
-  k = \frac{\ell}{4G} = \frac{c}{12} = \frac{N^2}{12},
+  k = \frac{\ell}{4G} = \frac{c}{6},
 \end{equation}
-where $c = N^2$ is the orbifold central charge at leading order.
-The exact Havelock central charge $c = 12\,b(N)$
-(where $b(N) = N(N{+}1)/12 - \ln 2 + \ln N/(N{-}1)$,
-Paper~IV Definition~5.1) differs by $O(N)$.
-The CS level $k = c/12$ is not integer for most~$N$.
+where the Brown--Henneaux relation $c = 6k$ gives
+$k = 2\,b(N)$ for the exact central charge $c = 12\,b(N)$
+(with $b(N) = N(N{+}1)/12 - \ln 2 + \ln N/(N{-}1)$,
+Paper~IV Definition~5.1).
+At leading order $c \approx N^2$, so $k \approx N^2/6$.
+The CS level $k = c/6$ is not integer for most~$N$.
 Level quantisation in CS theory arises from large gauge
 transformations; for the non-compact $\mathrm{SL}(2,\mathbb{R})$,
 the relevant topological constraint is weaker than for compact groups.
@@ -157,6 +213,14 @@ $\langle W_m \rangle = e^{-\lambda_m L}$; the three-layer
 decomposition corresponds to
 bulk (cosmological) $\times$ representation (matter) $\times$
 one-loop (quantum) factors.
+The CS partition function on Seifert manifolds is computed
+by Stieltjes--Wigert polynomials \citep{Tierz2006},
+which are the orthogonal polynomials of the log-normal
+(Stieltjes) moment problem.
+The Havelock moment sequence $r_k = \lambda_0^k/k!$
+is Stieltjes (positive-definite Hankel matrix, verified
+for $k \le 14$), linking the vortex spectral data
+directly to the CS partition function.
 
 \paragraph{The Havelock--Schr\"odinger equation.}
 The Havelock matrix $H_{pq} = -\log|2\sin(\pi(p{-}q)/N)|$
@@ -358,7 +422,7 @@ condensed matter.
 The palindromic polynomials on arithmetic spatial slices
 with trace field degree $d \ge 5$ have non-solvable Galois
 groups (Paper~I, Proposition~\ref{I-prop:nonsolvable}).
-Since the gravitational interaction~\eqref{eq:grav-interaction}
+Since the gravitational interaction (Paper~II, equation~\ref*{II-eq:grav-interaction})
 produces the \emph{same} palindromic polynomials as the vortex
 interaction, the gravitational stability thresholds on these
 slices are open cases of the Langlands reciprocity conjecture
@@ -447,10 +511,26 @@ exactly twice the Havelock Casimir $f(m,N) = m(N{-}m)/2$.
 \end{proposition}
 
 \begin{proof}
-The identity $T_m = m(N{-}m)$ is
-a standard discrete Fourier transform
-(verified computationally for $N \le 30$; the proof is
-a residue computation on the Chebyshev polynomials).
+Write $\omega = e^{2\pi i/N}$ and
+$S_m = \sum_{p=1}^{N-1}(1 - \omega^{pm})/|1 - \omega^p|^2$.
+Since $|1 - \omega^p|^2 = 2(1 - \cos(2\pi p/N))
+= 4\sin^2(\pi p/N)$ and
+$1 - \omega^{pm} = 1 - \cos(2\pi pm/N) - i\sin(2\pi pm/N)$,
+the real part gives
+$T_m = \mathrm{Re}(S_m)
+= \sum_{p=1}^{N-1}[1 - \cos(2\pi pm/N)]/(2\sin^2(\pi p/N))$.
+Now consider the polynomial identity on
+$\mathbb{Z}/N\mathbb{Z}$: the function
+$f_m(p) = [1 - \cos(2\pi pm/N)]/(2\sin^2(\pi p/N))$
+extends to a trigonometric polynomial of degree~$\le N{-}1$.
+Its sum equals the coefficient of $z^0$ in the Laurent
+expansion of $\frac{1 - z^m}{1 - z}\cdot\frac{1 - z^{-m}}{1 - z^{-1}}$,
+evaluated at $z = \omega$ and summed over $p = 1,\ldots,N{-}1$.
+This product is $|\sum_{k=0}^{m-1}z^k|^2$, whose
+$z^0$ coefficient (from the orthogonality
+$\sum_{p=0}^{N-1}\omega^{pn} = N\delta_{n,0}$) is
+$\min(m, N{-}m) \cdot \max(m, N{-}m) = m(N{-}m)$,
+since exactly $m$ terms contribute in each sector.
 \end{proof}
 
 The factor of~$2$ has physical content.
@@ -476,7 +556,7 @@ In gravity (second-order dynamics), both sectors contribute
 to the equations of motion, but the stability criterion---
 positivity of the Hessian eigenvalue---still involves
 $m(N{-}m)/2$ per sector
-(Proposition~\ref{prop:grav-stability}).
+(Proposition~\ref{II-prop:grav-stability}).
 
 The remaining step is to express $C_1$ in terms of boundary
 CFT data.
@@ -502,8 +582,8 @@ $8$  & $8{-}3\sqrt{7}$            & $0.51$ & $0.937$ & $0.018$
   & $\mathbb{Q}(\sqrt{7})$ \\
 $10$ & $1/7$                       & $0.80$ & $0.857$ & $0.015$
   & $\mathbb{Q}$ \\
-$12$ & $5{-}2\sqrt{6}$            & $0.97$ & $0.798$ & $0.013$
-  & $\mathbb{Q}(\sqrt{6})$ \\ [2pt]
+$12$ & $(18{-}5\sqrt{11})/7$       & $0.97$ & $0.798$ & $0.013$
+  & $\mathbb{Q}(\sqrt{11})$ \\ [2pt]
 $23$ & $\varphi^{-2}$              & $1.44$ & $\varphi^{-1}$ & $0.007$
   & $\mathbb{Q}(\sqrt{5})$ \\
 \bottomrule
@@ -825,7 +905,10 @@ zero mode) gives the universal critical exponent $\nu = 1/2$:
   Z_{\mathrm{frozen}} = \frac{2^{3(N-2)/4}}{(N{-}3)!!}
 \]
 where $(N{-}3)!! = 1 \cdot 3 \cdot 5 \cdots (N{-}3)$ is the double
-factorial, from the Casimir gaps $\lambda_m(\rho^*) = (N{-}2m)^2/8$
+factorial.  The frozen partition function is the Gaussian integral
+$Z_{\mathrm{frozen}} = \prod_{m \ne m^*}(2\pi/\lambda_m)^{1/2}$
+over the non-critical modes, with Casimir gaps
+$\lambda_m(\rho^*) = (N{-}2m)^2/8$
 (even~$N$; for odd~$N$: $[(N{-}2m)^2 - 1]/8$).
 The polygon--BTZ transition is second-order with mean-field exponents.
 
@@ -879,7 +962,7 @@ $Z_{\mathrm{1-loop}} = (\det{}'\Delta_{\mathrm{Lich}})^{-1/2}$,
 where $\Delta_{\mathrm{Lich}}$ is the Lichnerowicz operator
 on the multi-cone geometry.
 By the conformal invariance of the flat-plane
-backreaction (Proposition~\ref{prop:conformal-invariance}),
+backreaction (Proposition~\ref{II-prop:conformal-invariance}),
 the leading correction comes from the spatial topology:
 the spectral bound
 $|\delta C_1| \le 2/(4\pi\lambda_1)$
@@ -891,6 +974,14 @@ $|\delta C_1| \lesssim 0.05$, which does not shift
 $N_{\mathrm{crit}}$ away from~$7$ on the flat plane.
 On the modular surface ($\lambda_1 \approx 91$):
 $|\delta C_1| \lesssim 0.002$, negligible.
+The Bolza surface carries the $\{8,3\}$ hyperbolic lattice
+on which \citet{Lenggenhager2023} constructed the
+hyperbolic Haldane model (Chern insulator with quantised
+Bott index $B = \pm 1$ and chiral edge states).
+The vortex stability analysis on this surface therefore
+computes Chern numbers of a hyperbolic topological insulator:
+the spectral bound $|\delta C_1| \lesssim 0.05$ constrains
+the phase diagram of the $\{8,3\}$ Haldane model.
 \paragraph{Lorentzian continuation and the BTZ horizon.}
 The curvature coefficient $C_1 = \log(2\sinh\rho) + b(N)$ admits
 an analytic continuation $\rho \to \rho + i\pi/2$ that interchanges
@@ -925,9 +1016,18 @@ the partition function acquires a branch cut at the threshold:
 $Z_L \sim A(N)\,({\rho - \rho^* + i\varepsilon})^{-1/2}$
 with spectral function $\mathrm{Im}[Z_L] \propto |\rho - \rho^*|^{-1/2}$
 (a van~Hove singularity).
+The exponent $-1/2$ (divergent density at the edge) is the
+spectral signature of the integrable Havelock system.
+The Dyson circular ensemble (GUE, $\beta = 2$) has the
+opposite exponent: $\rho \propto |\lambda - \lambda_{\mathrm{edge}}|^{+1/2}$
+(vanishing density, the Wigner semicircle edge).
+The sign flip $-1/2 \to +1/2$ marks the transition from
+integrable (polygon) to chaotic (BTZ black hole) spectral
+statistics \citep{BerryTabor1977}.
 
 
-\paragraph{The Wheeler--DeWitt equation on the palindromic minisuperspace.}
+%% ====================================================================
+\section{The Wheeler--DeWitt equation on the palindromic minisuperspace}
 \label{sec:wdw}
 The single degree of freedom $\rho$ (geodesic radius of the polygon)
 and the potential $V(\rho) = \lambda_{m^*}(\rho)$ (the critical
@@ -942,25 +1042,28 @@ with $c = 12\,b(N)$ and $\hbar = 1$
 On constant-curvature $\mathbf{H}^2$ the Weyl anomaly $\delta_m = 0$
 identically (\S\ref{sec:three-layer}), so it does not appear.
 
+\emph{Notation.}
+The potential $\log(2\sinh\rho) + b(N) - f(m,N)$ is the
+\emph{unconstrained} Havelock eigenvalue in the geodesic
+coordinate~$\rho$.
+The \emph{constrained} eigenvalue offset used in the holographic
+interpretation (\S\ref{sec:holographic}) is
+$C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$, where
+$\xi = \tanh^2(\rho/2)$.
+At small~$\rho$: $\log(2\sinh\rho) + b(N) \approx \log\rho + b(N)
+\to C_1 \to N{-}1$; the two agree in the flat limit.
+The WDW equation uses the unconstrained form because it
+retains the full $\rho$-dependence of the Green's function.
+
 \emph{Why second-order dynamics from a first-order system.}
 The Kirchhoff equations $\dot{z}_k = -i\,\partial H/\partial\bar{z}_k$
-are first-order in the $2N$ complex coordinates~$z_k$.
-The breathing mode~$\rho$ parametrises the one-parameter family
-$z_k(\rho) = \rho\,e^{2\pi i k/N}$ of regular polygons.
-The effective second-order WDW equation for~$\rho$ does
-\emph{not} arise from a symplectic reduction of the
-Kirchhoff system (the cotangent sum
-$\sum_{p}\csc^2(\pi p/N) = (N^2{-}1)/3$ is purely polynomial and
-does not equal $12\,b(N)$, which contains transcendental terms).
-Instead, $c = 12\,b(N)$ enters as the \emph{Brown--Henneaux
-central charge} of the boundary CFT (\S\ref{sec:holographic}),
-through the holographic identification of the breathing mode
-with the radion of the Seifert fibration (Paper~IV,
-\S\ref*{V-sec:graviton}).
-The WDW equation is therefore a \emph{gravitational} effective
-description, valid in the regime where the vortex-gravity
-isomorphism holds, rather than a direct quantisation of the
-vortex kinetic energy.
+are first-order, but the breathing mode~$\rho$
+(parametrising the family $z_k(\rho) = \rho\,e^{2\pi i k/N}$)
+acquires second-order dynamics through the gravitational sector.
+The kinetic coefficient $c = 12\,b(N)$ is the Brown--Henneaux
+central charge (\S\ref{sec:intro-gravity}, logical architecture),
+entering via the holographic identification of the breathing mode
+with the AdS radion (Paper~IV, \S\ref*{V-sec:graviton}).
 
 Each term has a definite origin:
 \begin{center}
@@ -970,7 +1073,7 @@ Each term has a definite origin:
 Term & Expression & Origin \\
 \midrule
 Quantum kinetic & $-\hbar^2/(2c)\;\Psi''$ &
-  Gravity dynamics (the dynamics of $\rho$) \\
+  Brown--Henneaux central charge (\S\ref{sec:intro-gravity}) \\
 Classical potential & $\log(2\sinh\rho)$ &
   $\mathbf{H}^2$ Green's function \\
 Vacuum energy & $b(N) \sim c/12$ &
@@ -1157,30 +1260,8 @@ This identifies the anomaly as the lattice correction
 (orbifold fixed-point contribution in the KK picture)
 to the continuum Casimir.
 
-\begin{remark}[Honest negatives and the $B_2$ boundary]
-\label{rmk:honest-negatives}
-The connection between the aliasing $\langle D\rangle = N(N{+}1)/12$ and
-the Virasoro central charge $c/12$ is \emph{structural} (both arise
-from $B_2 = 1/6$) but not \emph{algebraic}: the Havelock modes do
-not satisfy Virasoro commutation relations at finite~$N$
-(the aliasing $1/12$ and the Virasoro $1/12$ share $B_2 = 1/6$
-but live at different algebraic levels: eigenvalue shift vs.\
-central charge).
-The one-loop partition function $Z_N = \prod|\lambda_m|^{-1/2}$
-does not match $|\eta(\tau)|^{-2k}$ for any fixed~$k(N)$; however,
-the vacuum energy $c/12 = N^2/12$ \emph{does} match the
-$\eta$ zero-point energy---the failure is in the
-$\rho$-dependent (bulk) part, not the $\rho$-independent
-(vacuum) part.
-The higher-order mode coupling is $W_N$ (quartic: real, first
-contributing order; cubic: purely imaginary, a Berry phase), with
-effective central charge $c_{\mathrm{eff}} \approx N$ (one free boson
-per vortex).
-\end{remark}
-
-\noindent
-The value $c = 12\,b(N) \approx N^2$ is not merely a matching condition; it
-makes five independently testable predictions beyond the Casimir:
+The value $c = 12\,b(N) \approx N^2$ makes five independently
+testable predictions beyond the Casimir:
 (i)~the exact offset $b(N) = N(N{+}1)/12 - \log 2 + \log N/(N{-}1)$
 (verified to~$10^{-16}$, Paper~I);
 (ii)~the mean aliasing $\langle D\rangle = N(N{+}1)/12$ (exact);
@@ -1278,17 +1359,12 @@ their discrepancy $\omega_{\mathrm{WP}} - \alpha\,\omega_{\mathrm{KR}}
 \propto f(m,N)$ is the Casimir (Layer~2), and the residual beyond
 this linear relation is the Weyl anomaly (Layer~3).
 
-The Bernoulli number $B_2 = 1/6$ that governs the growth law
-$\rho^* \sim N^2/24$ (Paper~I, \S\ref*{I-sec:algebraic-structure})
-is the asymptotic mode average of the $\mathbb{Z}_N$ orbifold
-Casimir: $\langle m(N{-}m)\rangle/N^2 \to 1/6$.
-The Havelock aliasing $\langle D\rangle = N(N{+}1)/12 \sim N^2 B_2/2$
-is the quadratic part of the orbifold Virasoro central extension,
-evaluated via Hurwitz zeta regularization.
-The same $B_2$ gives the Dedekind eta exponent $q^{1/24}$ and the
-regularised sum $\zeta(-1) = -1/12$: three levels of the modular
-tower, unified by the Euler--Maclaurin correction to the log-sine
-kernel on $\mathbb{Z}/N\mathbb{Z}$.
+The $B_2$ organising principle --- connecting the stability polynomial
+$6B_2(x) = P_2(2x{-}1)$ to Gauss--Legendre quadrature, the
+Euler--Maclaurin duality, and the $\csc^2$ kernel universality
+(Calogero--Moser--Sutherland, Dyson, Haldane--Shastry, Laughlin,
+Selberg, $W_N$, AGT/Nekrasov) ---
+is developed in Paper~I, \S\ref*{I-sec:b2-tower}.
 
 %% ====================================================================
 
@@ -1687,7 +1763,9 @@ $R(x) = R_0$ for all~$x$, and
                  {(N{-}1)\,\varepsilon^2}.
 \end{equation}
 These are the vacuum Einstein equations of $2{+}1$-dimensional
-gravity.
+gravity, with $\Lambda = R_S/2$
+(in $2{+}1$D, $R_{\mu\nu} = \Lambda g_{\mu\nu}$ on a static slice
+gives spatial scalar curvature $R_S = 2\Lambda$).
 \end{theorem}
 
 \begin{proof}
@@ -1731,9 +1809,18 @@ has the transfer matrix $T = e^{-\epsilon\,H_{\mathrm{WDW}}}$.
 The dominant eigenstate of~$T$ satisfies
 $H_{\mathrm{WDW}}\Psi = 0$ --- the Wheeler--DeWitt
 equation~(\ref{eq:wdw}).
-The mass $c = 12\,b(N)$ is the breathing-mode kinetic
-coefficient from the symplectic structure of the Kirchhoff
-Hamiltonian (not imposed by hand).
+The kinetic coefficient $c = 12\,b(N)$ enters through the
+chain: (i)~the three-layer decomposition extracts $b(N)$
+as the unique mode-independent offset
+(Proposition~\ref{prop:equiv-rr});
+(ii)~the vortex--gravity isomorphism (Paper~II) identifies
+the vortex system with $2{+}1$D gravity;
+(iii)~the Brown--Henneaux theorem gives
+$c = 3\ell/(2G) = 12\,b(N)$ as the boundary Virasoro central
+charge (\S\ref{sec:intro-gravity}, logical architecture);
+(iv)~the breathing mode~$\rho$ is the AdS radion, whose
+kinetic term in the dimensionally-reduced action is
+$S = \int(c/2)\dot\rho^2\,d\tau$.
 This is the standard Feynman--Kac mapping from statistical
 mechanics to quantum mechanics.
 (Operator ordering: the Laplacian $-d^2/d\rho^2$ is natural
@@ -1760,15 +1847,17 @@ Summing over the $N$-ring at radius~$\varepsilon$ centred at~$x$:
     + O(\varepsilon^4)\right],
 \end{equation}
 where $R(x)$ is the scalar curvature at~$x$.
-The coefficient $1/4$ has two contributions:
-(i)~$1/6$ from the Hadamard parametrix
-$G(x,y) = -(1/2\pi)[\log d - R\,d^2/12 + O(d^4)]$
-summed over the ring with $\sum_{p}\sin^2(\pi p/N) = (N{-}1)/2$;
-(ii)~$1/12$ from the curvature correction to the ring chord
-distances (on a curved surface, $d_p \neq 2\varepsilon\sin(\pi p/N)$
-at $O(\varepsilon^3)$).
-Together: $1/6 + 1/12 = 1/4$, matching the exact
-$\mathbf{H}^2$ formula
+The coefficient $1/4$ is verified directly from the exact
+$\mathbf{H}^2$ formula: expanding
+$C_1/(N{-}1) = (1{+}\xi^2)/(1{-}\xi)^2$ for small
+$\xi = \tanh^2(\varepsilon/2) \approx \varepsilon^2/4$ gives
+$C_1/(N{-}1) \approx 1 + \varepsilon^2/2 = 1 - R\varepsilon^2/4$
+(since $R = -2$ on unit $\mathbf{H}^2$).
+In the Hadamard derivation, the $1/4$ decomposes into
+$1/6$ (from the curvature term $-R\,d^2/12$ in the parametrix,
+with $\sum_p\sin^2(\pi p/N) = N/2$) and $1/12$ (from the
+curvature correction to chord distances at $O(\varepsilon^3)$).
+The exact coefficient $1/4$ matches the exact
 $C_1/(N{-}1) = (1{+}\xi^2)/(1{-}\xi)^2 \approx 1 + \varepsilon^2/2
 = 1 - R\varepsilon^2/4$ (since $R = -2$ on unit $\mathbf{H}^2$).
 

@@ -163,6 +163,100 @@ class TestSU3:
 
 
 # =====================================================================
+# Eightfold Way: PSL(2,7) tensor products = SU(3) tensor algebra
+# =====================================================================
+
+class TestEightfoldWay:
+    """PSL(2,F_7) reproduces the full SU(3) tensor product rules.
+
+    χ₃ = holomorphic differentials on the Klein quartic X(7).
+    PSL(2,7) embeds in SU(3) via χ₃, and:
+      3 ⊗ 3̄ = 1 ⊕ 8    (Eightfold Way)
+      Sym²(3) = 6        (symmetric diquarks)
+      ∧²(3) = 3̄          (dual)
+    """
+
+    def _psl27_characters(self):
+        """Return PSL(2,7) character table and class data."""
+        import cmath
+        s7 = 7**0.5
+        # Classes: 1A, 2A, 3A, 4A, 7A, 7B (sizes: 1, 21, 56, 42, 24, 24)
+        chi = {
+            1: [1, 1, 1, 1, 1, 1],
+            3: [3, -1, 0, 1, (-1+1j*s7)/2, (-1-1j*s7)/2],
+            6: [6, 2, 0, 0, -1, -1],
+            7: [7, -1, 1, -1, 0, 0],
+            8: [8, 0, -1, 0, 1, 1],
+        }
+        chi['3p'] = [v.conjugate() if isinstance(v, complex) else v for v in chi[3]]
+        sizes = [1, 21, 56, 42, 24, 24]
+        # g² class map: 1²=1, 2²=1, 3²=3, 4²=2, 7A²=7A, 7B²=7B
+        g2_map = [0, 0, 2, 1, 4, 5]
+        return chi, sizes, g2_map
+
+    def _decompose(self, product_char, chi, sizes):
+        """Decompose a product character into irrep multiplicities."""
+        order = sum(sizes)
+        result = {}
+        for name, ch in chi.items():
+            mult = sum(sizes[i] * product_char[i] * (ch[i].conjugate() if isinstance(ch[i], complex) else ch[i])
+                       for i in range(6)) / order
+            m = round(mult.real if isinstance(mult, complex) else mult)
+            if m > 0:
+                result[name] = m
+        return result
+
+    def test_eightfold_way(self):
+        """χ₃ ⊗ χ̄₃ = χ₁ ⊕ χ₈ (the Eightfold Way)."""
+        chi, sizes, _ = self._psl27_characters()
+        chi3 = chi[3]
+        chi3p = chi['3p']
+        product = [chi3[i] * chi3p[i] for i in range(6)]
+        decomp = self._decompose(product, chi, sizes)
+        assert decomp == {1: 1, 8: 1}
+
+    def test_sym2_is_6(self):
+        """Sym²(χ₃) = χ₆."""
+        chi, sizes, g2_map = self._psl27_characters()
+        chi3 = chi[3]
+        chi3_g2 = [chi3[g2_map[i]] for i in range(6)]
+        sym2 = [(chi3[i]**2 + chi3_g2[i])/2 for i in range(6)]
+        decomp = self._decompose(sym2, chi, sizes)
+        assert decomp == {6: 1}
+
+    def test_wedge2_is_3bar(self):
+        """∧²(χ₃) = χ̄₃."""
+        chi, sizes, g2_map = self._psl27_characters()
+        chi3 = chi[3]
+        chi3_g2 = [chi3[g2_map[i]] for i in range(6)]
+        anti2 = [(chi3[i]**2 - chi3_g2[i])/2 for i in range(6)]
+        decomp = self._decompose(anti2, chi, sizes)
+        assert decomp == {'3p': 1}
+
+    def test_adjoint_irreducible(self):
+        """The SU(3) adjoint (dim 8) restricts to PSL(2,7) as irreducible χ₈."""
+        chi, _, _ = self._psl27_characters()
+        # 3 ⊗ 3̄ - 1 = 8 (adjoint = tensor product minus singlet)
+        chi3 = chi[3]
+        chi3p = chi['3p']
+        adjoint = [chi3[i] * chi3p[i] - 1 for i in range(6)]
+        # Should equal χ₈
+        assert all(abs(adjoint[i] - chi[8][i]) < 1e-10 for i in range(6))
+
+    def test_dimensions(self):
+        """3 × 3 = 9 = 1 + 8."""
+        assert 3 * 3 == 1 + 8
+
+    def test_qr_qnr_are_chi3_chi3bar(self):
+        """QR modes {1,2,4} carry χ₃, QNR modes {3,5,6} carry χ̄₃."""
+        # QR mod 7: 1²=1, 2²=4, 3²=2 → QR = {1, 2, 4}
+        qr = sorted([pow(k, 2, 7) for k in range(1, 7)])
+        assert sorted(set(qr)) == [1, 2, 4]
+        qnr = sorted(set(range(1, 7)) - set(qr))
+        assert qnr == [3, 5, 6]
+
+
+# =====================================================================
 # U(1) from Kaluza-Klein
 # =====================================================================
 
