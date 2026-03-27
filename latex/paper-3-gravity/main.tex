@@ -2083,20 +2083,35 @@ Energy condition & $R_{\mu\nu}k^\mu k^\nu \ge 0$ &
 \end{tabular}
 \end{center}
 
-\paragraph{The Clausius relation from entanglement.}
+\paragraph{The Clausius relation from the threshold geometry.}
 At each palindromic threshold (a local Rindler horizon),
-the Clausius relation $\delta Q = T\,\delta S$ gives
+the three thermodynamic quantities are \emph{determined}
+by the WDW potential $V(\rho) = \log(2\sinh\rho) + b(N) - f(m^*,N)$:
+\begin{itemize}
+\item $T = V'(\rho^*)/(2\pi) = \coth(\rho^*)/(2\pi)$
+  (Unruh temperature from the surface gravity $\kappa = V'$);
+\item $\delta Q = \kappa \times A = \coth(\rho^*) \times 2\pi\sinh(\rho^*)$
+  (energy flux: surface gravity $\times$ horizon circumference);
+\item $dS/d\rho = V'(\rho^*)/2 = \coth(\rho^*)/2$
+  (entropy production: $(1/2)\,d\log|\lambda_{m^*}|/d\rho$
+  from the single zero mode).
+\end{itemize}
+The common factor $\coth(\rho^*) = V'(\rho^*)$ is \emph{not} a
+free choice: it is determined by the $\csc^2$ kernel
+($V = \log(2\sinh\rho)$ is the $\mathbf{H}^2$ Green's function).
+The Clausius ratio is
 \begin{equation}\label{eq:clausius}
   \frac{\delta Q}{T\,\delta S}
+  = \frac{4\pi}{\kappa}
   = 4\pi\,\tanh(\rho^*)
-  = 4\pi - O(e^{-2\rho^*}),
+  = 4\pi - O(e^{-2\rho^*}).
 \end{equation}
-with quantum correction $e^{-2\rho^*} \sim e^{-N^2/6}$.
-The $T$, $\delta Q$, and $\delta S$ share the factor $\coth(\rho^*)$
-because they all derive from the \emph{same boundary CFT}
-through the holographic dictionary (Brown--Henneaux):
-the ratio~$4\pi$ is not a tautology but a consequence of the
-gravitational coupling $G = 3/(2c)$ fixed by the central charge.
+The physical content: the ratio extracts an effective
+gravitational coupling $G_{\mathrm{eff}} = \kappa/(8\pi)
+= \coth(\rho^*)/(8\pi)$
+from the threshold geometry, with $G_{\mathrm{eff}} \to 1/(8\pi)$
+as $\rho^* \to \infty$.
+This is \emph{derived} from the potential, not assumed.
 The universality across $N = 7, 8, 9, \ldots$
 (verified to~$10^{-10}$ for $N \le 20$)
 follows from the \citet{Lashkari2014}
