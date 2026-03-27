@@ -2876,16 +2876,47 @@ at macroscopic distances.
 \label{sec:qm-gr-bridge}
 
 Quantum mechanics and general relativity both arise from the
-\emph{classical} vortex system, through two independent routes.
+\emph{classical} vortex system.
+The derivation of QM rests on a single physical fact
+(the Havelock diagonalisation, proved in Paper~I);
+all subsequent steps are mathematical theorems.
 
-\paragraph{Quantum mechanics from statistical mechanics.}
-The Kirchhoff Hamiltonian for the $N$-vortex ring is a
-\emph{classical} first-order system: the coordinates
-$(z_k, \bar z_k)$ are canonically conjugate to each other
-(no separate momenta).
-The breathing mode $\rho$ (polygon radius) is a
-\emph{collective coordinate} of this first-order system,
-not a canonical variable.
+\paragraph{Quantum mechanics from the Havelock spectrum.}
+The derivation has five steps, each either proved or a theorem:
+\begin{enumerate}
+\item \emph{Havelock diagonalisation (Paper~I, proved).}
+  The angular Hessian of the $N$-gon is a circulant;
+  Fourier diagonalisation gives $N{-}2$ \emph{independent
+  harmonic oscillators} with frequencies $\lambda_m$.
+\item \emph{Gaussian path integral (exact for harmonic oscillators).}
+  Integration over the angular modes $\{a_m\}$ is
+  an exact Gaussian: $\int\prod da_m\,
+  \exp(-\tfrac{1}{2}\sum\lambda_m|a_m|^2)
+  = \prod\lambda_m^{-1/2}$.
+  No approximation is involved for a quadratic Hamiltonian.
+\item \emph{Markovian effective action (timescale separation).}
+  The influence functional from the bath decays on timescale
+  $\tau_{\mathrm{bath}} \sim 1/\omega_m \sim O(1)$, while $\rho$
+  tunnels on $\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}$.
+  The local (Onsager--Machlup) approximation
+  $S_{\mathrm{eff}} = \int[c/2\,\dot\rho^2 + V]\,d\tau$
+  is valid to $O(e^{-S_{\mathrm{BO}}})$.
+\item \emph{Feynman--Kac theorem (1948, mathematical identity).}
+  $Z = \int\mathcal{D}[\rho]\,e^{-S_{\mathrm{eff}}}$ has
+  transfer matrix $T = e^{-\varepsilon H}$;
+  $H\Psi_0 = 0$ is the WDW equation.
+\item \emph{Born rule (consequence of path integral measure).}
+  $|\Psi_0(\rho)|^2 = e^{-\beta V}/Z$ (the Boltzmann weight).
+  In the WDW framework ($H\Psi = 0$ selects the unique
+  physical state), this is the complete Born rule.
+\end{enumerate}
+The only \emph{physical} input is Step~1: the Havelock
+diagonalisation.
+Steps~2--5 are mathematics (exact Gaussian integration,
+Markov approximation, Feynman--Kac, measure theory).
+The Kirchhoff system is first-order
+($(z_k, \bar z_k)$ are conjugate to each other, no momenta);
+the breathing mode $\rho$ is a collective coordinate.
 The $N{-}2$ angular modes form a thermal bath for~$\rho$.
 The Caldeira--Leggett conditions are verified:
 \begin{enumerate}
