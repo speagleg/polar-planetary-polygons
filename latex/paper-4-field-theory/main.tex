@@ -2882,6 +2882,26 @@ into the quantum Hamiltonian constraint.
 The Hilbert space structure, operator ordering,
 and the constraint $H\Psi = 0$ are all
 \emph{outputs} of this mapping.
+The \emph{Born rule} is likewise not postulated:
+the ground-state probability $|\Psi_0(\rho)|^2$ IS the
+Boltzmann weight $e^{-\beta V(\rho)}/Z$ of the classical
+partition function.
+The entire probabilistic structure of quantum mechanics
+maps to classical statistical mechanics under Feynman--Kac:
+\begin{center}
+\small
+\begin{tabular}{ll}
+\toprule
+Classical (Onsager) & Quantum (WDW) \\
+\midrule
+Boltzmann weight $e^{-\beta V}$ & $|\Psi_0|^2$ \\
+Partition function $Z$ & $\langle\Psi_0|\Psi_0\rangle$ \\
+Thermal correlation $\langle\rho(\tau_1)\rho(\tau_2)\rangle$
+  & $\langle\Psi_0|\hat\rho\,e^{-H\Delta\tau}\hat\rho|\Psi_0\rangle$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
 The physical origin of the quantum structure is the
 thermal fluctuations of the frozen angular modes,
 not a quantisation postulate.
