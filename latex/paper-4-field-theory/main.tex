@@ -842,9 +842,12 @@ $h_{\mathrm{WZW}} = j(j{+}1)/(k + h^\vee) = 2/(1{+}2) = 2/3$.
 (The $j = 1$ representation is not integrable at $k = 1$:
 the integrable representations of $\mathrm{SU}(2)_1$
 have $j \le k/2 = 1/2$.
-The Sugawara formula gives the primary weight for
-\emph{any}~$j$; integrability constrains the unitarity
-of higher-level descendants, not the primary weight.
+The Sugawara construction $L_0 = T^a T^a / [2(k{+}h^\vee)]$
+gives the primary weight $h = j(j{+}1)/(k{+}h^\vee)$ for
+\emph{any}~$j$ (it is an algebraic identity in the
+universal enveloping algebra, independent of integrability).
+Integrability constrains the unitarity of higher-level
+descendants, not the primary weight.
 The Weinberg angle is a tree-level ratio of primary weights;
 non-integrability corrections enter at $O(e^{-c})$.
 The level $k = 1$ is the unique positive integer giving
@@ -863,46 +866,16 @@ normalisation from the action (\S\ref{sec:action}):
   $g_{W,\mathrm{eff}}^2 = (4\pi/\tilde{k}) \times j(j{+}1)
   = 4\pi \times h_{\mathrm{SU}(2)} = 4\pi h_{\mathrm{SU}(2)}$.
 \end{itemize}
-The factor-of-$2$ asymmetry ($8\pi$ vs $4\pi$) has a direct
-Lagrangian origin: the compact-boson action
-$\mathcal{L} = (K/2)(\partial\varphi)^2$ has the canonical
-$(1/2)$ normalisation, giving $h = Q^2/(2K)$;
-the WZW action $\mathcal{L} = (k/4\pi)\operatorname{Tr}(g^{-1}dg)^2$
-is normalised by level quantisation ($k \in \mathbb{Z}$ for
-compact groups), which fixes $h = C_2/(k{+}h^\vee)$ with
-no additional $(1/2)$.
-The two normalisations are not conventions but consequences of
-the \emph{different mathematical structures} of the boundary fields:
-$\mathrm{U}(1)$ is Abelian, so its boundary theory is a free compact
-boson with the canonical $(1/2)$ kinetic normalisation;
-$\mathrm{SU}(2)$ is non-Abelian, so its boundary theory is the WZW
-model whose kinetic term is fixed by level quantisation
-($k \in \mathbb{Z}$, required for gauge invariance under large
-gauge transformations of the compact group).
-To summarise: the factor of~$2$ is derived from two
-standard results in 2D CFT:
-(a)~the compact-boson propagator
-$\langle\varphi(z)\varphi(w)\rangle = -(1/K)\log|z{-}w|$
-gives $g_Y^2 = 4\pi \times 2h$ (the $2$ from $|z{-}w|^2
-= (z{-}w)(\bar z{-}\bar w)$, both chiral sectors contributing
-to the canonical kinetic term);
-(b)~the WZW current algebra
-$J^a(z)J^b(w) \sim k\delta^{ab}/(z{-}w)^2$
-gives $g_W^2 = 4\pi \times h$ (one sector, the level
-quantisation absorbing the other).
-This factor is the \emph{same} chiral halving that appears in
-the full OPE Casimir $T_m = m(N{-}m)$ counts \emph{both} chiral
-sectors ($\log|z|^2 = \log z + \log\bar{z}$), while the Havelock
-eigenvalue $f = m(N{-}m)/2$ counts one.
-The Abelian $\mathrm{U}(1)$ sees one sector (free boson);
-the non-Abelian $\mathrm{SU}(2)$ sees both (WZW).
-The ratio $g_{Y}^2/g_{W}^2 = 2$ is therefore
-the Havelock chiral ratio, not an adjustable parameter.
-This distinction is intrinsic to the gauge structure
-within the CS formulation: the factor of~$2$ follows from
-the canonical $(1/2)$ normalisation of the Abelian boson
-versus the level-quantised WZW normalisation of the
-non-Abelian sector.
+The factor-of-$2$ asymmetry ($8\pi$ vs $4\pi$) has a
+Lagrangian origin: the Abelian compact boson has the
+canonical $(1/2)$ normalisation
+($\mathcal{L} = (K/2)(\partial\varphi)^2$, giving $h = Q^2/(2K)$),
+while the non-Abelian WZW is normalised by level quantisation
+($k \in \mathbb{Z}$, giving $h = C_2/(k{+}h^\vee)$ with no
+additional $(1/2)$).
+This is not a convention: the $(1/2)$ in the boson and its
+absence in the WZW follow from the Abelian/non-Abelian
+structure of the gauge group.
 Therefore
 \begin{equation}\label{eq:hbar}
   \sin^2\theta_W = \frac{8\pi h_{\mathrm{U}(1)}}{8\pi h_{\mathrm{U}(1)}
@@ -1498,10 +1471,14 @@ decomposition $\chi_3 \otimes \bar\chi_3 = \chi_1 \oplus \chi_8$
 \end{itemize}
 The CKM matrix element $V_{cb}$ is a transition amplitude
 between the two Galois orbits $O_+$ and $O_-$.
-In the $\chi_8$ channel, the transition factorises:
+In the $\chi_8$ channel, the transition factorises through
+the nearest orbifold image (a complete set of intermediate
+states on $\mathbf{H}^2/\mathbb{Z}_7$, dominated by $k = 1$):
 $V_{cb} = \langle c|\,P_{\chi_8}\,|b\rangle
-= \langle c|\text{image}\rangle \times
-\langle\text{image}|b\rangle = \sqrt{T_1}\,\sqrt{T_2}$,
+= \sum_k \langle c|\gamma^k\rangle\langle\gamma^k|b\rangle
+\approx \sqrt{T_1}\,\sqrt{T_2}$
+(the $k = 1$ term dominates; higher images are exponentially
+suppressed by $Q_1(\cosh d_k) \sim e^{-d_k}$).
 where the first factor is the overlap of the $c$-quark
 profile with the orbifold image ($\sqrt{T_1}$) and the
 second is the tunnelling amplitude from the image to the
