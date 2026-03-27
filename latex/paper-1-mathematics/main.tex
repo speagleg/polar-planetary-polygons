@@ -44,7 +44,7 @@ the stability threshold $N_{\mathrm{crit}} = 7$ is a closed-form
 output of the $\mathbb{Z}_N$ Casimir
 (Corollary~\ref{cor:why-7});
 the curvature-stability dichotomy
-$\mathrm{sgn}(N_{\mathrm{crit}} - 7) = -\mathrm{sgn}(K)$
+($K > 0$ destabilises, $K < 0$ stabilises)
 is topological
 (Proposition~\ref{prop:curvature-dichotomy});
 $N_{\mathrm{crit}} = 7$ is a topological universal,
@@ -1566,8 +1566,12 @@ where $b(N) = N(N{+}1)/12 - \log 2 + \log N/(N{-}1)$
 is the exact offset (verified to $10^{-16}$ for all $N = 3,\ldots,24$).
 The coefficient $1/3$ is \emph{exact}, arising from $B_2 = 1/6$.
 
-\begin{proof}[Heuristic derivation]
-The offset decomposes as $b(N) = \langle f_m\rangle + \langle S_m\rangle$,
+\begin{proof}[Derivation of~$b(N)$]
+The offset $b(N)$ is \emph{extracted} from the eigenvalue data:
+$b(N) = C_1(\xi) - \log(2\sinh\rho)$ for $\xi = \tanh^2(\rho/2)$,
+which gives the same numerical value at all~$\rho$ (verified
+to $10^{-16}$ for $N = 3, \ldots, 24$).
+The closed form decomposes as $b(N) = \langle f_m\rangle + \langle S_m\rangle$,
 where $\langle f\rangle = N(N{+}1)/12$ is the mean Casimir and
 $\langle S\rangle = \log N/(N{-}1) - \log 2$ is the mean log-sine sum.
 The leading term $\langle f\rangle = N^2/12 + O(N)$ equals
@@ -1812,10 +1816,10 @@ multiplying by $\xi^d$ gives $Q(\xi) = \xi^d\,P(\xi + 1/\xi)$,
 a degree-$2d$ polynomial.
 It is palindromic: $\xi^{2d}\,Q(1/\xi) = Q(\xi)$, because
 $P(\xi + 1/\xi) = P(1/\xi + \xi)$.
-The constant term of $Q$ equals $P(2)$ up to sign (from the
-$\xi = 0$ limit), and the leading coefficient equals $1$
-(from the $\xi \to \infty$ limit), so the roots are algebraic
-units (product of all roots $= \pm 1$).
+The palindromic structure forces the constant term to equal
+the leading coefficient: both are~$1$ (for monic~$P$).
+Therefore the product of all roots is~$1$,
+and the roots are algebraic units.
 For the Bolza surface: $P(u) = u^2 - 4u - 4$
 (minimal polynomial of $2 + 2\sqrt{2}$), giving
 $Q(\xi) = \xi^4 - 4\xi^3 - 2\xi^2 - 4\xi + 1$, verified
@@ -2041,15 +2045,14 @@ at $K=0$ and strictly stable for any $K<0$.
 \label{prop:curvature-dichotomy}
 On a constant-curvature surface with Gaussian curvature $K$,
 for a ring of $N$ vortices at any nonzero geodesic radius:
-\[
-  \mathrm{sgn}(N_{\mathrm{crit}} - 7) = -\mathrm{sgn}(K).
-\]
-That is: positive curvature destabilises
-($N_{\mathrm{crit}} \le 7$), zero curvature is critical
-($N_{\mathrm{crit}} = 7$), and negative curvature stabilises
-($N_{\mathrm{crit}} \ge 7$), with the $N = 7$ marginal mode
-becoming strictly stable at any nonzero ring radius
-(and $N_{\mathrm{crit}} > 7$ for $\xi > \xi^*(8)$).
+\begin{itemize}
+\item $K > 0$ ($S^2$): $N_{\mathrm{crit}} < 7$
+  (curvature destabilises);
+\item $K = 0$ (flat): $N_{\mathrm{crit}} = 7$ (marginal);
+\item $K < 0$ ($\mathbf{H}^2$): $N_{\mathrm{crit}} \ge 7$,
+  with the $N = 7$ mode strictly stable at any $\xi > 0$,
+  and $N_{\mathrm{crit}} > 7$ for $\xi > \xi^*(8)$.
+\end{itemize}
 \end{proposition}
 
 \begin{proof}
@@ -2554,7 +2557,8 @@ As an invariant of the $\mathbb{Z}_N$ representation ring,
 this is elementary---it says ``signs are preserved by
 continuous functions that don't cross zero.''
 The curvature-stability dichotomy
-$\mathrm{sgn}(N_{\mathrm{crit}} {-} 7) = -\mathrm{sgn}(K)$
+($K > 0 \Rightarrow N_{\mathrm{crit}} < 7$,
+$K < 0 \Rightarrow N_{\mathrm{crit}} \ge 7$)
 is the $\mathbb{Z}_2$-reduction via
 $\dim \colon R(\mathbb{Z}_N) \to \mathbb{Z}/2$.
 
