@@ -2093,6 +2093,43 @@ This gives three convergence guarantees:
   (Paper~I), the index theory (Proposition~\ref{prop:equiv-rr}),
   and the Toeplitz asymptotics in a single quantity.
 \end{enumerate}
+\emph{The explicit convergence bound.}
+The Wiener--Hopf factorisation $\sigma = |G|^2$ produces
+Taylor coefficients $g_k$ of $G(z) = \exp(c_0/2 + \sum c_k z^k)$
+and $\gamma_k$ of~$1/G(z)$.
+The condition $S/c_1^2 < 1/4$
+(where $S = \sum_{k \ge 2}|c_k|$ and $c_1$ is the leading
+log-symbol coefficient) gives $g_k > 0$ for all~$k$
+and $\gamma_k \cdot (-1)^k > 0$
+(Lemmas~1--2 of the bilateral TN proof;
+\texttt{proofs/shell\_dominance\_bound.py}).
+The sign-conjugated inverse $D = ST^{-1}S$ satisfies
+$D = MM^T$ with $M_{ij} = |\gamma_{i-j}|$ (lower triangular,
+all entries positive).
+By Cauchy--Binet, $\det D[I,J] = \sum_K \det M[I,K]\det M[J,K]$.
+The \emph{shell dominance bound}:
+\begin{equation}\label{eq:shell-dominance}
+  R_s
+  := \frac{|\text{tail}|}{|\text{leading term}|}
+  \;\le\; \frac{s\,\sqrt{S/c_1^2}}{1 - \sqrt{S/c_1^2}},
+\end{equation}
+which is $< 1$ for $s \le \lfloor(1-\sqrt{S/c_1^2})
+/\sqrt{S/c_1^2}\rfloor$.
+For the $\csc^2$ kernel: the analyticity strip $R$
+gives $\rho = e^{-R}$ and super-exponential $c_k$ decay,
+making $S/c_1^2 \ll 1$ and $R_s < 1$ for all $s$ up to an
+explicit bound.
+For $s$ beyond this bound: $|\gamma_k|$ is exponentially
+small ($|\gamma_k| \le |\gamma_0|\,c_1^k/k!$), ensuring the
+off-diagonal $M$-minors are negligible.
+The combined two-part argument
+(analytical bound for small~$s$,
+exponential decay for large~$s$)
+proves $\det D[I,J] \ge 0$ for all~$I,J$.
+By the Jacobi complementary minor formula:
+$\det T[I,J] = \det T \cdot \det D[J^c,I^c] \ge 0$,
+completing the entropy convergence proof.
+
 The Einstein equation $R(x) = \mathrm{const}$ is the
 \emph{optimal convergence condition}: on a constant-curvature
 surface, $\sigma$ is position-independent, making the Regge
@@ -2103,8 +2140,7 @@ position and the Regge error is $O(h^2)$ from the curvature
 variation.
 Entropy maximisation (H2) therefore selects the condition under
 which the Szeg\H{o} convergence is optimal---which is precisely
-the Einstein equation
-(\texttt{proofs/regge\_entropy\_szego.py}).
+the Einstein equation.
 
 \emph{The $\csc^2$ kernel as the unique interaction.}
 The Havelock identity $T_m = m(N{-}m)/2$ is equivalent to the
