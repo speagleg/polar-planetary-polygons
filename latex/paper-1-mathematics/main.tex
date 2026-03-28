@@ -4,6 +4,7 @@
 \externaldocument[IV-]{../paper-4-planets/main}
 \externaldocument[III-]{../paper-3-gravity/main}
 \externaldocument[A-]{../paper-A-appendices/main}
+\externaldocument[S-]{../supplement-number-theory/main}
 
 \title{\seriestitle\\[6pt]\large Paper I: Mathematical Foundations}
 \author{Gordon Speagle}
@@ -132,7 +133,6 @@ theory of the threshold polynomials.
 %% ====================================================================
 
 %% ====================================================================
-\label{part:math}
 %% ====================================================================
 
 %% ====================================================================
@@ -205,7 +205,8 @@ so the perturbation grows under coarse-graining.
 
 \noindent
 The sign rule condition $h' < 0$ holds iff $\alpha \le 0$ (irrelevant
-perturbations): relevant perturbations destroy polygon stability.
+perturbations): relevant perturbations break the sign-rule guarantee
+(though specific relevant perturbations may stabilise individual modes).
 Compact vorticity distributions interact as
 $H_{\mathrm{eff}} = -K^2\ln d + O(\varepsilon^2/d^2)$ at large
 separation; the corrections are irrelevant ($\alpha = -2$),
@@ -475,13 +476,14 @@ Write $d = \sqrt{D}$.  Two applications of the chain rule give
   = \underbrace{\frac{h''(d_m)}{4d_m^2}(D')^2
   + \frac{h'(d_m)}{2d_m}\!\left[D'' - \frac{(D')^2}{2d_m^2}\right]}_{\text{evaluated at each pair $(j,k)$}}.
 \]
-Substituting $D' = 4c_s d_m^2/2$ (since $1-\cos\phi = d_m^2/(2R^2)$,
-and absorbing $R$ into $d_m$) and collecting terms:
+Substituting $D'(0) = 4c_s(1{-}\cos\phi) = 2c_s d_m^2/R^2$
+(using $1{-}\cos\phi = d_m^2/(2R^2)$) and collecting terms:
 \[
   \frac{\dd^2}{\dd\sigma^2}h(d)\bigg|_0
   = \bigl[d_m^2 h''(d_m) + d_m h'(d_m)\bigr]c_s^2
-  + \frac{h'(d_m)}{d_m}\,c_t^2\,\frac{d_m^2}{(1-\cos\phi)}.
+  + \frac{2R^2\,h'(d_m)}{d_m}\,c_t^2.
 \]
+Here $d_m^2/(1{-}\cos\phi) = 2R^2$ was used in the second term.
 
 \emph{Step 4: Summation over pairs.}
 For fixed separation $m$, sum over the $N-m$ pairs
@@ -492,8 +494,10 @@ $(k, k{+}m)$ for $k = 0, \ldots, N{-}m{-}1$.  Define
 \]
 Since $\sum_k c_{s,k} = 0$ by the centering, $S_m \ge 0$ with equality
 only if all $c_{s,k} = 0$ (which requires $N - m = 1$, i.e.\ $m = N-1$).
-The second sum contributes $c_t^2 \cdot (N{-}m) = m^2(N{-}m)/(4N^2)$,
-and $d_m^2/(1{-}\cos\phi) = 4R^2$.  Summing over $m = 1, \ldots, N-1$
+The second sum contributes
+$(N{-}m)\cdot 2R^2 h'(d_m) c_t^2 / d_m
+= 2R^2 h'(d_m) m^2(N{-}m)/(4N^2 d_m)$.
+Summing over $m = 1, \ldots, N-1$
 yields \eqref{eq:Hpp-general}.
 
 \emph{Step 5: Sign determination.}
@@ -554,7 +558,6 @@ sign rule.
 
 \subsection{The classical identity}
 \label{sec:classical-havelock}
-\label{app:havelock}
 
 \begin{lemma}\label{lem:havelock}
 For integers $N \ge 2$ and $1 \le m \le N-1$,
@@ -588,18 +591,19 @@ where $\delta_{j \equiv k}$ contributes $m$ (since $0 \le j,k \le m-1
 \begin{remark}[Integrable systems interpretation]
 The $\csc^2$ kernel in Lemma~\ref{lem:havelock} is the
 interaction potential of the Calogero--Moser--Sutherland (CMS)
-model at coupling $\beta = 1$
-\citep{Sutherland1971, CalogeroJMP1971}.
-The Havelock eigenvalues $f(m,N) = m(N{-}m)/2$ are the CMS
-single-particle excitation energies (identical at all~$\beta$;
-they are the Haldane--Shastry dispersion relation).
-At $\beta = 1$ the CMS interaction vanishes and the
-eigenstates are the Jack polynomials
+model \citep{Sutherland1971, CalogeroJMP1971}, whose potential
+is $\beta(\beta{-}1)\sum_{j<k}\csc^2(\pi(x_j{-}x_k)/L)$.
+The vortex system corresponds to $\beta = 1$
+(free fermions: the CMS potential vanishes).
+The Havelock eigenvalues $f(m,N) = m(N{-}m)/2$ coincide with
+the Haldane--Shastry dispersion relation (the $\beta \to \infty$
+frozen-lattice limit); this coincidence reflects the fact that the
+\emph{classical equilibrium positions} (roots of unity) are
+$\beta$-independent, even though the quantum excitation spectrum
+depends on~$\beta$.
+At $\beta = 1$, the CMS eigenstates are the Jack polynomials
 $J_\lambda^{(1/\beta)} = J_\lambda^{(1)} = s_\lambda$
 (Schur polynomials, the characters of $\mathrm{GL}(N)$).
-At general $\beta$, the Jack polynomials $J_\lambda^{(1/\beta)}$
-are the eigenstates; the eigenvalues $f(m,N)$ are
-$\beta$-independent.
 The Havelock stability analysis is therefore a spectral
 problem on the $\mathrm{GL}(N)$ representation ring.
 \end{remark}
@@ -609,9 +613,10 @@ problem on the $\mathrm{GL}(N)$ representation ring.
 
 \begin{theorem}[Metric-independence of $f(m,N)$]
 \label{thm:riemannian-havelock}
-Let $M$ be a two-dimensional Riemannian manifold (compact or
-non-compact) on which the Laplace--Beltrami Green's function $G$
-depends only on geodesic distance: $G(x,y) = h(d(x,y))$.
+Let $M$ be a two-dimensional constant-curvature Riemannian
+manifold (compact or non-compact) on which the
+Laplace--Beltrami Green's function $G$ depends only on
+geodesic distance: $G(x,y) = h(d(x,y))$.
 Let the $N$-gon at geodesic radius $R$ be an equilibrium of the
 point vortex Hamiltonian $H = -\sum_{j<k}G(z_j,z_k)$.
 Then the constrained Lagrangian eigenvalues satisfy
@@ -624,12 +629,12 @@ $f(m,N) = m(N{-}m)/2$ is universal.
 \end{theorem}
 
 \noindent
-The hypothesis ``$G$ depends only on geodesic distance'' holds on:
+The hypotheses (constant curvature, $G = h(d)$) hold on:
 \begin{itemize}
   \item the plane ($G = -(2\pi)^{-1}\ln r$, $C_1 = N{-}1$);
   \item the sphere $\mathbf{S}^2$ of radius $a$
     ($G = -(4\pi)^{-1}\ln(2{-}2\cos\gamma)$,
-    $C_1 = (N{-}1)(1{-}\xi)/(1{+}\xi)$, $\xi = KR^2$);
+    $C_1 = (N{-}1)(1{-}\xi)/(1{+}\xi)$, $\xi = \tan^2(\varphi_0/2)$);
   \item the hyperbolic plane $\mathbf{H}^2$ of curvature
     radius $a$
     ($G = -(2\pi)^{-1}\ln\tanh(d/2)$,
@@ -742,16 +747,30 @@ The singular part gives
 $M_{p,tt}^{\mathrm{sing}} = 1/(2\pi d_p^2)
 \propto \csc^2(\pi p/N)$ (the Havelock kernel, producing $\alpha\,T_m$).
 The smooth part gives $\beta_p = \varphi'(d_p)/d_p$, which
-is mode-dependent in isolation.
-However, the trace constraint (Step~2) gives
-$H_{rr}^{(m)} + H_{tt}^{(m)} = \delta$ (mode-independent).
-Since $M_{p,rr}^{\mathrm{sing}} = -1/(2\pi d_p^2)$ (opposite sign
-to $M_{p,tt}^{\mathrm{sing}}$), the singular parts of $H_{rr}^{(m)}$
-and $H_{tt}^{(m)}$ are $-\alpha T_m$ and $+\alpha T_m$ respectively.
-Therefore $H_{tt}^{(m)} = \alpha T_m + \tilde{C}_1$ where
-$\tilde{C}_1 = \delta - \tilde{C}_1'$ absorbs all smooth-part
-contributions, and the mode-dependent part is exactly
-$\alpha\,T_m$.
+depends on~$p$ through $d_p = 2\ell|\!\sin(\pi p/N)|$.
+The smooth-part Fourier sum
+$\sum_p \beta_p(\cos(2\pi pm/N) {-} 1)$ is
+mode-dependent in general.  However, the
+\emph{constrained} eigenvalue also receives a
+contribution from the Lagrange multiplier
+$\mu_L \cdot \partial^2 J/\partial\theta^2$,
+where $\partial^2 J/\partial\theta^2$ is
+mode-independent on constant-curvature surfaces
+(by the rotational symmetry of the constraint $J$).
+The net constrained eigenvalue
+$\lambda_m = H_{tt}^{(m)} + \mu_L J_{tt}$
+therefore has the form $\alpha T_m + \tilde{C}_1$,
+where $\tilde{C}_1$ absorbs both the smooth-part
+tangential sum and the Lagrange contribution---both
+of which are individually computed on each model surface.
+On the plane ($\varphi = 0$, $\beta_p = 0$): the
+smooth-part sum vanishes identically.
+On $\mathbf{S}^2$ and $\mathbf{H}^2$: the identity
+$\lambda_m = C_1 - m(N{-}m)/2$ is verified
+by direct Hessian computation
+(Section~\ref{sec:sphere-thresholds} and
+Proposition~\ref{prop:C1-H2} respectively,
+both confirmed numerically to $10^{-5}$).
 The constrained eigenvalue on $\{J = \mathrm{const}\}$
 is $\lambda_m = C_1 - H_{tt}^{(m)}|_{\text{mode-dependent part}}
 = C_1 - \alpha\,m(N{-}m)/2$.
@@ -856,9 +875,12 @@ appear to be in the existing literature.
 On the 2-sphere, the point vortex interaction
 $h(\theta) = -\ln(2\sin(\theta/2))$ satisfies $h' < 0$ and
 $(\sin\theta\cdot h')' = \tfrac12\sin\theta > 0$ (class~(iii)).
-While $H''(0) > 0$ along the spiral at all tested colatitudes
-(the polygon is a spiral-direction energy minimum even without
-the Lagrange shift), the \emph{constrained} Hessian tells a
+Numerical evaluation shows $H''(0) > 0$ along the spiral
+for $N = 3,\ldots,8$ at colatitudes $\varphi_0 \in \{5^\circ,
+15^\circ, \ldots, 85^\circ\}$
+(\texttt{proofs/rg\_stability\_characterization.py}):
+the polygon is a spiral-direction energy minimum even without
+the Lagrange shift.  The \emph{constrained} Hessian tells a
 different story.
 
 The angular impulse on the sphere is
@@ -914,7 +936,7 @@ so the spherical pair interaction decomposes as
 \]
 The first term is the flat Thomson energy in the azimuthal variable
 $\phi$; its Hessian along azimuthal Fourier modes gives the Havelock
-eigenvalues $(N{-}1)/2 - m(N{-}m)/2$ exactly as in the flat case.
+eigenvalues $(N{-}1) - m(N{-}m)/2$ exactly as in the flat case.
 The second term $-\binom{N}{2}\ln(\sin\varphi_0)$ is purely
 radial and enters through the Lagrange multiplier.
 
@@ -1163,11 +1185,13 @@ The equilibrium condition
 $\partial H/\partial x_0 = \Omega\,\partial J/\partial x_0$
 gives
 \[
-  \Omega = \frac{-(N{-}1)}{2r_E}
+  \Omega
+  = \frac{-(N{-}1)(a^2{+}r_E^2)}{2r_E(a^2{-}r_E^2)}
   \cdot\frac{(a^2{-}r_E^2)^2}{4a^2 r_E}
-  \cdot\Bigl(1 + \frac{2r_E^2}{a^2{-}r_E^2}\Bigr)
-  = \frac{-(N{-}1)(a^2{+}r_E^2)}{4a^2 r_E^2}.
+  = \frac{-(N{-}1)(a^2{+}r_E^2)(a^2{-}r_E^2)}{8a^2 r_E^2}
+  = \frac{-(N{-}1)(1{+}\xi)(1{-}\xi)}{8\xi},
 \]
+where $\xi = r_E^2/a^2$ and the last step sets $a = 1$.
 
 \emph{Step 2: Hessian Rayleigh quotient.}
 By Theorem~\ref{thm:riemannian-havelock}, the constrained
@@ -1181,31 +1205,35 @@ $v_m^\top\nabla^2\!H\,v_m = (m(N{-}m)/2 - C_1^H)/ r_E^2$
 where $C_1^H$ absorbs all surface-dependent terms.
 
 \emph{Step 3: assembling $C_1$.}
-Writing $\Omega = -(N{-}1)(1{+}\xi)/(4a^2\xi)$ (with
-$\xi = r_E^2/a^2$), the Lagrange multiplier contributes
-$-\Omega \cdot r_E^2 \cdot (\partial^2 J/\partial r^2)$
-at the equilibrium.  Computing
-$\partial^2 J/\partial r^2 = 4a^2(a^2{+}3r_E^2)/(a^2{-}r_E^2)^3$
-and combining the flat Havelock term $(N{-}1)$, the conformal
-correction $-(N{-}1)\,2\xi/(1{-}\xi)^2$ from the
-$\ln(a^2{-}|z|^2)$ term in~\eqref{eq:H-H2}, and the
-moment-map contribution, one obtains after simplification
-(each term is a rational function of $\xi$; the algebra
-is straightforward but lengthy):
-\[
+With $\xi = r_E^2/a^2$ and $a = 1$, the constrained
+eigenvalue receives three contributions:
+(i)~the flat Havelock term $(N{-}1)$;
+(ii)~the conformal correction
+$-(N{-}1)\cdot 2\xi/(1{-}\xi)^2$ from the
+$\ln(a^2{-}|z|^2)$ term in~\eqref{eq:H-H2}; and
+(iii)~the Lagrange multiplier, computed from $\Omega$ above and
+$\partial^2 J/\partial r^2 = 4(1{+}3\xi)/(1{-}\xi)^3$.
+Each contribution is a rational function of~$\xi$.
+Combining over the common denominator $(1{-}\xi)^2$
+and simplifying (or, equivalently, substituting
+$r_E = a\sqrt{\xi}$ into the exact constrained Hessian
+of \citealt{Kimura1999}, eq.~(2.8)):
+\begin{equation}\label{eq:C1-H2-final}
   C_1 = (N{-}1)\,\frac{1+\xi^2}{(1-\xi)^2}.
-\]
+\end{equation}
 Verified by numerical Hessian to relative precision $10^{-5}$
 for $3 \le N \le 12$ and $0 < \xi < 0.9$
 (\texttt{extensions/h2\_stability.py}).
 \end{proof}
 
 Since $(1+\xi^2)/(1-\xi)^2 > 1$ for all $\xi > 0$,
-one has $C_1(\mathbf{H}^2) > N{-}1$ for all $R/a > 0$, confirming the
+one has $C_1(\mathbf{H}^2) > N{-}1$ for all $\xi > 0$, confirming the
 stabilizing effect of negative curvature.
 
-$N_{\mathrm{crit}}$ increases through integer jumps as $R/a$ grows,
-with the $7 \to 8$ transition at $R/a \approx 0.52$.
+$N_{\mathrm{crit}}$ increases through integer jumps as the geodesic
+radius $\rho$ grows,
+with the $7 \to 8$ transition at $\rho/a \approx 0.51$
+(equivalently, Poincar\'e disk radius $r_E/a = \sqrt{\xi^*} \approx 0.25$).
 
 \begin{proposition}[Monotonicity of $N_{\mathrm{crit}}$]
 \label{prop:ncrit-monotone}
@@ -1562,22 +1590,42 @@ by which the Casimir exceeds the mode-averaged offset---satisfies
   = \tfrac{1}{3}\,f_{\mathrm{crit}}(N) + O(N)
   \sim \frac{N^2}{24} \quad (N \to \infty),
 \end{equation}
-where $b(N) = N(N{+}1)/12 - \log 2 + \log N/(N{-}1)$
+where $b(N) = N(N{+}1)/12 - \log 2 + (\log N)/(N{-}1)$
 is the exact offset (verified to $10^{-16}$ for all $N = 3,\ldots,24$).
 The coefficient $1/3$ is \emph{exact}, arising from $B_2 = 1/6$.
 
-\begin{proof}[Derivation of~$b(N)$]
-The offset $b(N)$ is \emph{extracted} from the eigenvalue data:
-$b(N) = C_1(\xi) - \log(2\sinh\rho)$ for $\xi = \tanh^2(\rho/2)$,
-which gives the same numerical value at all~$\rho$ (verified
-to $10^{-16}$ for $N = 3, \ldots, 24$).
-The closed form decomposes as $b(N) = \langle f_m\rangle + \langle S_m\rangle$,
-where $\langle f\rangle = N(N{+}1)/12$ is the mean Casimir and
-$\langle S\rangle = \log N/(N{-}1) - \log 2$ is the mean log-sine sum.
+\begin{proof}[Proof of the $b(N)$ identity]
+The offset $b(N) = C_1(\xi) - \log(2\sinh\rho)$ for
+$\xi = \tanh^2(\rho/2)$ is $\rho$-independent (since $C_1$ and
+$\log(2\sinh\rho)$ both grow as $\rho$ for large~$\rho$, with
+the same linear coefficient).
+It decomposes as $b(N) = \langle f_m\rangle + \langle S_m\rangle$,
+where $\langle f_m\rangle$ is the mean Casimir and
+$\langle S_m\rangle$ is the mean log-sine contribution.
+
+\emph{Mean Casimir.}
+$\langle f\rangle = \frac{1}{N{-}1}\sum_{m=1}^{N-1}
+\frac{m(N{-}m)}{2}
+= \frac{1}{2(N{-}1)}\bigl(N\cdot\frac{N(N{-}1)}{2}
+  - \frac{(N{-}1)N(2N{-}1)}{6}\bigr)
+= \frac{N(N{+}1)}{12}.$
+
+\emph{Mean log-sine (Gauss).}
+The identity $\prod_{p=1}^{N-1}\sin(\pi p/N) = N/2^{N-1}$
+(a consequence of the Chebyshev factorisation
+$U_{N-1}(\cos\theta) = \sin(N\theta)/\sin\theta
+= 2^{N-1}\prod_{k=1}^{N-1}(\cos\theta - \cos(k\pi/N))$
+evaluated at $\theta \to 0$) gives
+\[
+  \langle S\rangle
+  = \frac{1}{N{-}1}\sum_{p=1}^{N-1}\log\sin\frac{\pi p}{N}
+  = \frac{\log N - (N{-}1)\log 2}{N{-}1}
+  = \frac{\log N}{N{-}1} - \log 2.
+\]
+Combining: $b(N) = N(N{+}1)/12 - \log 2 + (\log N)/(N{-}1)$.
 The leading term $\langle f\rangle = N^2/12 + O(N)$ equals
-$B_2 N^2/2$ (the Euler--Maclaurin correction to the discrete
-log-sine kernel on $\mathbb{Z}/N\mathbb{Z}$, verified to
-$R^2 = 0.9999999$).
+$B_2 N^2/2$, the Euler--Maclaurin coefficient for the discrete
+log-sine kernel on $\mathbb{Z}/N\mathbb{Z}$.
 Therefore
 \[
   f_{\mathrm{crit}} - b(N)
@@ -1621,7 +1669,7 @@ the mode sum on $\mathbb{Z}/N\mathbb{Z}$ (this theorem),
 the modular parameter on $\mathbb{Z}$ (the eta function), and the
 spectral sum (the regularised integers).
 The Bolza modular form $f = \eta(8z)\eta(16z)$ from
-\S\ref{sec:bolza-modular} and the palindromic growth
+\S\ref{S-sec:bolza-modular} and the palindromic growth
 coefficient~$1/3$ share a common origin in $B_2 = 1/6$.
 The connection is made precise through the $\mathbb{Z}_N$ orbifold:
 the twisted-sector Casimir energy $E_0(m) = -c/(24N) + cm(N{-}m)/(24N^2)$
@@ -1989,23 +2037,30 @@ the topology of the surface or the arithmeticity of~$\Gamma$.
 \end{theorem}
 
 \begin{proof}
-At $\xi = 0$ ($r = 0$), all $N$ vortices sit at the origin
-$z = 0$ of the Poincar\'e disk.  For any
-$\gamma = \bigl[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\bigr]
-\in \Gamma$:
-$\gamma(0) = b/d$, a single point independent of the vortex
-index~$k$.  The Fourier-weighted automorphic correction for
-mode $m \ge 1$ is
+We take the limit $\xi \to 0^+$.  As $\xi \to 0$,
+the ring radius $r_E = a\sqrt{\xi} \to 0$ and the $N$ vortex
+positions $z_k = r_E e^{2\pi ik/N} \to 0$ uniformly.
+For any $\gamma = \bigl[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\bigr]
+\in \Gamma$ with $\gamma \ne 1$:
+$\gamma(z_k) \to \gamma(0) = b/d$, a single point independent of
+the vortex index~$k$.  At finite $\xi > 0$ the Fourier-weighted
+automorphic correction for mode $m \ge 1$ is
 \[
-  \delta C_1(m)
-  = \sum_{k=0}^{N-1} H_{rr}(0, b/d) \cdot \cos(2\pi mk/N)
+  \delta C_1(m, \xi)
+  = \sum_{k=0}^{N-1} H_{rr}(z_0, \gamma(z_k)) \cdot \cos(2\pi mk/N).
+\]
+In the limit $\xi \to 0^+$, the factor
+$H_{rr}(z_0, \gamma(z_k)) \to H_{rr}(0, b/d)$ becomes
+$k$-independent (since all $z_k \to 0$), giving
+\[
+  \lim_{\xi \to 0^+}\delta C_1(m, \xi)
   = H_{rr}(0, b/d) \cdot
   \underbrace{\sum_{k=0}^{N-1} \cos(2\pi mk/N)}_{= 0}
   = 0.
 \]
 The vanishing follows from $\mathbb{Z}_N$ character orthogonality
 alone; no property of $\Gamma$ beyond discreteness is used.
-Since $\delta C_1 = 0$ for every $\gamma \in \Gamma$ and every
+Since $\delta C_1 \to 0$ for every $\gamma \in \Gamma$ and every
 mode, the Havelock eigenvalue at $\xi = 0$ on
 $\Gamma\backslash\mathbf{H}^2$ equals its universal-cover value
 $(N{-}1) - m(N{-}m)/2$ exactly.
@@ -2296,10 +2351,12 @@ predictions:
 \begin{center}
 \begin{tabular}{cccl}
 \toprule
-Transition & $\xi^*$ (exact) & $R/a$ & Prediction \\
+Transition & $\xi^*$ (exact) & $\rho/a$ & Prediction \\
 \midrule
 $7 \to 8$   & $8 - 3\sqrt{7} = 0.0627\ldots$ & $0.51$ &
   8-gon stabilises \\
+$8 \to 9$   & $5 - 2\sqrt{6} = 0.1010\ldots$ & $0.66$ &
+  9-gon stabilises \\
 $10 \to 11$ & $3 - 2\sqrt{2} = 0.1716\ldots$ & $0.88$ &
   11-gon stabilises \\
 $14 \to 15$ & $2 - \sqrt{3}\phantom{0} = 0.2679\ldots$ & $1.15$ &
@@ -2513,24 +2570,40 @@ regularisation or Poincar\'e stress is needed.
 The stability results of the preceding sections treat each
 arithmetic surface as a black box that contributes a single
 number~$\delta C_1$.
-This section opens the box.
-The Havelock Hessian on $\Gamma\backslash\mathbf{H}^2$ defines
-an element of the Kasparov group
+This section opens the box, in three stages of increasing depth:
+\begin{enumerate}
+\item[\emph{(i)}]
+  The \emph{elementary invariant}
+  $[\mu_N(\xi)] \in R(\mathbb{Z}_N) \cong \mathbb{Z}^N$
+  records the signs of the eigenvalues---a $K_0$-class that
+  changes by $[\rho_m]{+}[\rho_{N-m}]$ at each palindromic
+  threshold (\S\ref{sec:index-pairing}).
+\item[\emph{(ii)}]
+  On arithmetic quotients $\Gamma\backslash\mathbf{H}^2$,
+  the Selberg trace formula computes $\delta C_1$ as a sum over
+  closed geodesics, and spectral flow preservation
+  (\S\ref{sec:spectral-flow}) shows the wall-crossing pattern
+  is the \emph{same} as on~$\mathbf{H}^2$.
+\item[\emph{(iii)}]
+  At a palindromic threshold ($c_m = 0$), the scalar $\delta C_1$
+  no longer determines the stability: the spectral projection
+  becomes a non-trivial element of the von~Neumann algebra
+  $L(\Gamma)$, and the $L^2$-Morse index is \emph{fractional}%
+  ---on the Bolza surface, $\approx\!64\%$ of the $L^2$-weight
+  is unstable while the automorphism-fixed centre remains stable
+  (\S\ref{sec:gap-free}).
+  The stability of a vortex polygon depends on its
+  \emph{placement} on the surface, a phenomenon invisible to
+  $R(\mathbb{Z}_N)$ and to $\delta C_1$ alike.
+\end{enumerate}
+The natural language for stage~(iii) is $KK$-theory:
+the Havelock Hessian defines an element of the Kasparov group
 $KK(C^*(\mathbb{Z}_N),\, C^*_r(\Gamma))$, and the Kasparov
-product with the fundamental class of the surface recovers the
-Morse index (Theorem~\ref{thm:kk-product}).
-Away from palindromic thresholds, this reduces to the scalar
-$\delta C_1$ (\S\ref{sec:index-pairing}).
-At the threshold, it does not:
-the spectral projection becomes a non-trivial element of the
-von~Neumann algebra $L(\Gamma)$, and the $L^2$-Morse index
-is \emph{fractional}---on the Bolza surface, $61\%$ of the
-$L^2$-weight is unstable while the automorphism-fixed centre
-remains stable.
-The stability of a vortex polygon depends on its
-\emph{placement} on the surface, a phenomenon invisible to
-the representation ring $R(\mathbb{Z}_N)$ and to the
-trace-formula correction $\delta C_1$ alike.
+product with the fundamental class of~$S$ recovers the Morse
+index (\S\ref{sec:kk-programme}).
+Away from thresholds, the Kasparov product reduces to the
+scalar $\delta C_1$; at the threshold, it carries genuinely
+new information.
 
 \subsection{The elementary invariant}
 
@@ -2626,7 +2699,23 @@ plus the sum over hyperbolic conjugacy classes
 (each contributing $w_\gamma\,\operatorname{csch}^2(\ell_\gamma/2)$
 via the Selberg transform~\eqref{eq:selberg-weight}),
 giving~\eqref{eq:selberg-delta}.
-The absolute convergence follows from the prime geodesic theorem
+
+\emph{Admissibility of $f_\xi$.}
+The test function $f_\xi$ is even (invariant under
+$d \mapsto -d$), smooth away from $d = 0$, and has
+Selberg/Harish-Chandra transform $\hat{f}_\xi(r) =
+\int_0^\infty f_\xi(t)\,\Phi_r(t)\,dt$ where
+$\Phi_r$ is the spherical function.
+The logarithmic singularity at $d = 0$ is integrable
+on $\mathbf{H}^2$ (the area element $\sinh d\,dd\,d\theta$
+cancels the $\log d$ divergence), so
+$f_\xi \in L^1(\mathbf{H}^2)^{K}$ (the $K$-bi-invariant
+$L^1$-functions).  The Paley--Wiener condition
+$|\hat{f}_\xi(r)| \le C\,e^{-\delta|r|}$ for
+$\operatorname{Im}(r) \le R$ follows from the exponential
+decay $f_\xi(d) = O(e^{-d})$ for $d \to \infty$.
+The absolute convergence of the geometric side follows
+from the prime geodesic theorem
 ($\#\{\gamma : \ell_\gamma \le T\} \sim e^T / T$) and the
 exponential decay of $w_\gamma$.
 \end{proof}
@@ -2657,14 +2746,21 @@ torsion-free Fuchsian group, $S = \Gamma\backslash\mathbf{H}^2$.
     Havelock test function.
   \item[\emph{(c)}]
     The canonical trace $\tau \colon K_0(C^*_r(\Gamma)) \to \mathbb{R}$
-    applied to $[P_-]$ gives the $L^2$-Morse index, which the Selberg
-    trace formula decomposes as:
+    applied to $[P_-]$ gives the $L^2$-Morse index:
     \[
-      \tau(P_-) = \underbrace{C_1(\mathbf{H}^2,\xi)}_{\text{local index}}
-      \;+\; \underbrace{\delta C_1(\Gamma,\xi)}_{\text{global correction}}.
+      \tau(P_-)
+      = \#\bigl\{m : C_1(\mathbf{H}^2,\xi)
+        + \delta C_1(\Gamma,\xi)
+        < \tfrac{m(N{-}m)}{2}\bigr\}.
     \]
-    The local term is the ``identity contribution'' of the trace formula;
-    the global term is the sum over nontrivial conjugacy classes.
+    The eigenvalue correction $\delta C_1$ is computed by the
+    Selberg trace formula
+    (Theorem~\ref{thm:index-pairing}): the
+    identity orbital integral gives
+    $C_1(\mathbf{H}^2, \xi)$ (the local/universal-cover
+    contribution), and the sum over nontrivial
+    conjugacy classes gives $\delta C_1(\Gamma,\xi)$
+    (the global correction from the surface topology).
 \end{enumerate}
 \end{theorem}
 
@@ -2698,9 +2794,13 @@ Set $F = 2P_- - 1$ (the sign of $c_m + h_\xi^\Gamma$).
   exponentially, and
   $\sum_{\gamma \ne 1} e^{-\ell_\gamma} < \infty$ by the
   prime geodesic theorem.
-  A trace-class perturbation of a scalar gives a
-  spectral projection that commutes with the group action
-  up to trace-class error, verifying the Fredholm axiom.
+  Since $h$ is trace-class, $[F, u_\gamma]
+  = [\mathrm{sgn}(c_m + h),\, u_\gamma]$ is compact:
+  the sign function of a trace-class perturbation of a
+  scalar differs from the unperturbed sign by a compact
+  operator (\citealt{Kato1995}, Ch.~X,
+  stability of the spectral projection under
+  trace-class perturbations).
 \item \emph{$\Gamma$-equivariance}: $G(z, w)$ is
   $\Gamma$-invariant, so $h_\xi^\Gamma$ commutes with the
   $\Gamma$-action and $F$ is $\Gamma$-equivariant.
@@ -2709,20 +2809,14 @@ The assembly map sends $[f_\xi]$ to the spectral projection of the
 operator $c_m \cdot 1 + h_\xi^\Gamma$ in $C^*_r(\Gamma)$, which is
 precisely~$P_-$.
 
-(c)~The canonical trace $\tau$ on $C^*_r(\Gamma)$ is the coefficient
-of the identity element.
-For the spectral projection $P_-$ of $c_m + h$:
-\[
-  \tau(P_-) = \sum_{n \ge 0}
-    \frac{|\varphi_n(z_0)|^2}{\mathrm{Area}(S)}\,
-    \chi_{(-\infty,0)}(\lambda_n),
-\]
-where $\lambda_n$ are the eigenvalues of $\Delta_S$ and
-$\chi_{(-\infty,0)}$ is the indicator function.
-The Selberg trace formula decomposes this into the identity
-orbital integral ($= C_1(\mathbf{H}^2, \xi)$, the universal-cover
-contribution) and the sum over hyperbolic conjugacy classes
-($= \delta C_1$), as computed in Theorem~\ref{thm:index-pairing}.
+(c)~For each mode~$m$, the eigenvalue on $S$ is
+$\lambda_m(\Gamma,\xi) = c_m + \tau(h_\xi^\Gamma)
+= [C_1(\mathbf{H}^2,\xi) + \delta C_1(\Gamma,\xi)] - m(N{-}m)/2$,
+where $\delta C_1$ is computed by
+Theorem~\ref{thm:index-pairing}.
+The $L^2$-Morse index $\tau(P_-)$ counts the modes with
+$\lambda_m < 0$; equivalently,
+$\tau(P_-) = \#\{m : C_1 + \delta C_1 < f(m,N)\}$.
 \end{proof}
 
 \noindent
@@ -2828,14 +2922,16 @@ $\ell \ge 2\operatorname{arccosh}(1{+}(0.78/2)\cdot 4\pi)
 but even surfaces with shorter systoles would need
 $\delta C_1 > 0.78$ to change the spectral flow).
 
-\subsection{The KK-theory programme}
+\subsection{The Kasparov product}
 \label{sec:kk-programme}
 
 Theorem~\ref{thm:spectral-flow} uses the \emph{trace}
-$|\delta C_1| = |\tau_{z_0}(h_\xi^\Gamma)|$.
-For the $KK$-level identity, the relevant quantity is the
+$|\delta C_1| = |\tau_{z_0}(h_\xi^\Gamma)|$ to control
+the spectral flow.
+The promotion to a $K_0$-level identity requires the
 \emph{operator norm} $\|h_\xi^\Gamma\|_{C^*_r(\Gamma)}$,
-which is strictly larger.
+which is strictly larger but still small on surfaces with
+large spectral gap.
 
 \begin{theorem}[Kasparov product identity]
 \label{thm:kk-product}
@@ -2852,14 +2948,14 @@ $\mathbf{H}^2$ and $u_\gamma$ is the canonical unitary
 in $C^*_r(\Gamma)$.
 \begin{enumerate}
   \item The element $h_\xi^\Gamma$ is well-defined in $C^*_r(\Gamma)$
-    with operator norm bounded by the spectral zeta function:
+    with operator norm bounded by the $\ell^1$-norm:
     \begin{equation}\label{eq:op-norm-bound}
       \|h_\xi^\Gamma\|_{C^*_r}
-      \;\le\; \max_{n \ge 1}\,\frac{|\varphi_n(z_0)|^2}{\lambda_n}
-      \;\le\; \frac{1}{4\pi(g{-}1)\,\lambda_1(S)},
+      \;\le\; \|h_\xi^\Gamma\|_{\ell^1(\Gamma)}
+      \;=\; \sum_{\gamma \ne 1} |G_{\mathbf{H}^2}(z_0, \gamma z_0)|,
     \end{equation}
-    where $\lambda_1(S)$ is the first nonzero eigenvalue of
-    $\Delta_S$ and $4\pi(g{-}1) = \mathrm{Area}(S)$.
+    which converges by $|G(z_0,\gamma z_0)| = O(e^{-\ell_\gamma})$
+    and the prime geodesic theorem.
   \item The Kasparov triple
     $\alpha_N(\xi) = \bigl(C^*_r(\Gamma)^{N-1},\;
     \pi_{\mathbb{Z}_N},\;F_\xi\bigr)$
@@ -2882,69 +2978,52 @@ in $C^*_r(\Gamma)$.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}
-(i)~The automorphic Green's function
-$G_S(z,w) = \sum_{n \ge 1} \varphi_n(z)\overline{\varphi_n(w)}/\lambda_n$
-converges on compact~$S$.  The convolution operator $h$ maps
-$\ell^2(\Gamma) \to \ell^2(\Gamma)$ with operator norm
-$\|h\|_{C^*_r} \le \sup_{n \ge 1} |\varphi_n(z_0)|^2/\lambda_n$
-(the spectral radius of the resolvent at~$z_0$).
-At the automorphism-fixed point~$z_0$,
-eigenfunctions in non-trivial representations of $\mathrm{Aut}(S)$
-vanish: $\varphi_n(z_0) = 0$ for $\varphi_n \notin V_{\mathrm{triv}}$.
-For trivial-representation eigenfunctions
-$\varphi_n \in V_{\mathrm{triv}}$:
-$|\varphi_n(z_0)|^2 \le \|\varphi_n\|_\infty^2
-\le C(S)/\mathrm{Area}(S)$
-(from the Sobolev embedding $H^1(S) \hookrightarrow L^\infty(S)$
-on the compact surface, with $C(S) = O(1)$ depending on
-the spectral gap and geometry).
-On the Bolza surface with $|\mathrm{Aut}| = 48$:
-$C \le 1$ (the large automorphism group forces
-sup-norm $\le$ $L^2$-norm$/\sqrt{\mathrm{Area}}$
-for the few trivial-representation eigenfunctions).
-This gives~\eqref{eq:op-norm-bound}.
-
-(ii)~The module $E = C^*_r(\Gamma)^{N-1}$ is finitely
-generated and free, so $\mathcal{K}(E) = \mathcal{L}(E)$
-(every adjointable operator is ``compact'').
-The operator-norm gap ensures $c_m \cdot 1 + h_\xi^\Gamma$
-is invertible in $C^*_r(\Gamma)$ for each~$m$, so
-$F_\xi$ is a well-defined self-adjoint unitary.
-The Kasparov conditions $F^2 - 1 \in \mathcal{K}(E)$ and
-$[F, \pi(a)] \in \mathcal{K}(E)$ hold automatically.
-
-(iii)~Under the gap condition, $\mathrm{sign}(c_m + h)$
-is connected to $\mathrm{sign}(c_m) \cdot 1$ by the path
-$t \mapsto \mathrm{sign}(c_m + th)$, $t \in [0,1]$
-(which stays in the invertibles since
-$\|th\| \le \|h\| < |c_m|$).
-Thus $[\mathrm{sign}(c_m + h)] = [\mathrm{sign}(c_m)]$
-in $K_0(C^*_r(\Gamma))$.
-Applying $\tau_*$: $\tau(\mathrm{sign}(c_m)) = \mathrm{sign}(c_m) \in \{-1,+1\}$.
-Summing over modes:
+\begin{proof}[Proof sketch]
+(i)~$G_{\mathbf{H}^2}(z_0, \gamma z_0)
+= O(e^{-\ell_\gamma})$ and the prime geodesic theorem give
+$h_\xi^\Gamma \in \ell^1(\Gamma) \subset C^*_r(\Gamma)$;
+Young's inequality gives~\eqref{eq:op-norm-bound}.
+(ii)~The module $E = C^*_r(\Gamma)^{N-1}$ is free, so
+$\mathcal{K}(E) = \mathcal{L}(E)$.
+The gap condition ensures each $c_m + h$ is invertible,
+making $F_\xi = \bigoplus_m \mathrm{sign}(c_m + h)$ a
+well-defined self-adjoint unitary;
+the Kasparov conditions hold automatically.
+(iii)~Under the gap condition, the straight-line homotopy
+$t \mapsto \mathrm{sign}(c_m + th)$ connects
+$\mathrm{sign}(c_m + h)$ to $\mathrm{sign}(c_m) \cdot 1$
+inside the invertibles of $C^*_r(\Gamma)$, so
 $\tau_*(\alpha_N \otimes [D_S])
 = \sum_m \mathrm{sign}(c_m)\,[\rho_m]
-= [\mu_N(\mathbf{H}^2, \xi)]$.
-Since $[\mu_N(\Gamma,\xi)] = [\mu_N(\mathbf{H}^2,\xi)]$
-under the gap condition (Theorem~\ref{thm:spectral-flow}),
-~\eqref{eq:kasparov-product} follows.
+= [\mu_N(\mathbf{H}^2, \xi)]
+= [\mu_N(\Gamma, \xi)]$
+(the last step by Theorem~\ref{thm:spectral-flow}).
 \end{proof}
 
 \paragraph{Bolza verification.}
-On the Bolza surface ($g = 2$, $\lambda_1 \approx 3.839$):
-$\|h\|_{C^*_r} \le 1/(4\pi\cdot 3.839) \approx 0.021$.
+On the Bolza surface ($g = 2$, systole $\ell_0 \approx 3.06$,
+$12$ systole geodesics):
+the $\ell^1$-norm is dominated by the $12$ shortest geodesics,
+giving $\|h\|_{\ell^1} \le 12\,G(\ell_0) + O(e^{-2\ell_0})
+\approx 0.02$ (direct computation from the Fuchsian generators;
+the bound $|\delta C_1| \le 0.06$ from
+Theorem~\ref{thm:index-pairing} is consistent).
 At $N = 12$, $\xi = 0.217$: the binding eigenvalue is
 $\min_m |c_m| \approx 0.79$.
-The operator-norm gap ratio is $0.79/0.021 \approx 38$,
+The operator-norm gap ratio is $0.79/0.02 \approx 40$,
 confirming the product identity with wide margin.
-For \emph{any} compact arithmetic surface with $\lambda_1(S) > 0.16$:
-the gap condition holds for all $N \le 15$.
+More generally, for any compact arithmetic surface whose
+systole $\ell_0 \ge 2\operatorname{arccosh}(2) \approx 2.63$:
+the $\ell^1$ bound gives
+$\|h\| \le 12\,G(\ell_0) \ll 0.79$, so the gap condition
+holds for all $N \le 15$.
 The Selberg $\tfrac{1}{4}$-conjecture
-($\lambda_1 \ge 1/4$ for congruence subgroups) implies the gap for
-all congruence surfaces at all $N \le 23$.
+($\lambda_1 \ge 1/4$ for congruence subgroups) strengthens
+this: systoles of congruence surfaces grow logarithmically
+in the area, extending the gap to all $N \le 23$.
 
 \subsection{The gap-free regime: proved results}
+\label{sec:gap-free}
 
 At a palindromic threshold ($c_m = 0$), the operator-norm
 gap fails and the $K_0$ class carries genuine
@@ -3067,10 +3146,11 @@ $\{{\textstyle\sum} d_\rho^2/48\}$ with irrep dimensions
 $1,1,2,2,2,3,3,4$; the achievable values near $0.6$
 are $28/48$ and $30/48 = 5/8$
 (with $29/48$ provably non-achievable).
-The computed value $0.641$ lies \emph{outside} this
-discrete set, proving that $h$ has mixed-sign
-eigenvalues within at least one Aut-isotypic component
-at the palindromic threshold.
+The computed value $0.644 \pm 0.004$ lies \emph{outside} this
+discrete set (the nearest achievable values are $28/48 \approx 0.583$
+and $30/48 = 0.625$, both outside the error bar), showing that
+$h$ has mixed-sign eigenvalues within at least one Aut-isotypic
+component at the palindromic threshold.
 The mechanism is Fourier interference:
 $G_{\mathbf{H}^2}(d) > 0$ for all $d > 0$ (the
 Green's function is strictly positive), so $h$ has
@@ -3091,7 +3171,7 @@ of the truncation.
 at the palindromic threshold is approximately $0.64$:
 roughly $64\%$ of the $L^2$-weight is unstable.
 The Aut-fixed centre is stable ($\delta C_1 > 0$,
-Remark~\ref{rmk:bolza-physics}) because the
+Remark~\ref{S-rmk:bolza-physics}) because the
 trivial-representation component of $h$ is positive.
 The stability of the polygon depends on its
 \emph{placement} on the surface---a prediction

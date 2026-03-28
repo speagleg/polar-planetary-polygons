@@ -29,7 +29,10 @@ emerges from the polygon hierarchy at $N = 7$, with
 $\sin^2\theta_W = 3/11$,
 $\delta_{\mathrm{CKM}} = 70.2^\circ$, and
 $H_0 = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$
-predicted from one integer and one dimensionful scale.
+predicted from one integer ($N = 7$) and one dimensionful
+scale ($M_P$); all structural choices (geometry, CS levels,
+cosmological sector) are derived from these two inputs
+(\S\ref{sec:input-output}).
 \end{abstract}
 
 %% ====================================================================
@@ -46,9 +49,16 @@ and identified the graviton at $N = 7$ ($j = 2$, the unique polygon
 number with integer spin~$\ge 2$ at the critical mode).
 
 This paper constructs the full quantum field theory.
-The single input is an integer $N \ge 3$ (the polygon number $=$
-the flux quantum $=$ the superselection sector).
-Everything else follows:
+The inputs are: one integer $N = 7$ (the polygon number
+at which the graviton appears, selected by the Pell equation)
+and one dimensionful scale $M_P$.
+Every structural choice---the Seifert geometry
+(Proposition~\ref{prop:spacetime}), the CS levels $k = K = 1$
+(DHVW $+$ gauge invariance), the cosmological sector $N = 11$
+(Chern class additivity), and the BF threshold $\mu_4 = 1$%
+---is \emph{derived}, not fitted
+(\S\ref{sec:input-output}).
+From these:
 \begin{enumerate}
 \item \S\ref{sec:spacetime}: the spacetime
   $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$
@@ -83,30 +93,53 @@ Everything else follows:
 
 \begin{proposition}[The spacetime geometry is unique]
 \label{prop:spacetime}
-Given three physical requirements---\textnormal{(i)}~a $2$D base
-admitting stable $N > 7$ polygon configurations,
-\textnormal{(ii)}~a compact fiber generating gauge fields via
-Kaluza--Klein reduction, and
-\textnormal{(iii)}~a time direction---the spacetime geometry
+The spacetime geometry
 $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$ is uniquely
-determined.
+determined by the Pell equation (pure number theory,
+no geometric input):
+\begin{enumerate}
+\item[\textnormal{(i)}]
+  The Pell equation selects $N = 7$ ($j = 2$, graviton) and
+  $N = 4$ ($j = 1$, gauge boson)---the only polygons with
+  integer spin at the critical mode (Paper~I, Proposition~5.4).
+\item[\textnormal{(ii)}]
+  Chern class additivity gives $N = 11 = 4 + 7$
+  (\S\ref{sec:n-selection}: exhaustive elimination, no
+  geometric input).
+\item[\textnormal{(iii)}]
+  $N = 11$ requires negative curvature for stability
+  ($f(5,11) = 15 > N{-}1 = 10$), forcing the base to be
+  $\mathbf{H}^2$.
+\item[\textnormal{(iv)}]
+  Thurston classification: among the $8$ geometries,
+  only $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ has a
+  negatively curved base with a compact fiber.
+\end{enumerate}
+No step requires knowing the geometry in advance:
+the logical flow is
+Pell $\to$ $N = 4, 7$ $\to$ $N = 11$ $\to$ $\mathbf{H}^2$
+$\to$ Seifert.
 \end{proposition}
 
 \begin{proof}
-Three steps.
+Steps~(i)--(ii) are number theory (Paper~I + \S\ref{sec:n-selection}).
 
-\emph{Step~1 (The base is $\mathbf{H}^2$).}
-On the flat plane, Havelock's theorem (Paper~I) gives the
-stability bound $N \le 7$.
-On~$\mathbf{S}^2$, positive curvature \emph{tightens} the bound:
-$N_{\mathrm{crit}} < 7$ for all nonzero curvature (Paper~I, \S4.2).
-On~$\mathbf{H}^2$, negative curvature \emph{opens} the bound:
-$N_{\mathrm{crit}} \ge 8$ at the threshold
-$\xi^* = 8 - 3\sqrt{7} \in \mathbb{Z}[\sqrt{7}]$
+\emph{Step~(iii) (The base is $\mathbf{H}^2$).}
+The cosmological polygon $N = 11$ has critical Casimir
+$f(5,11) = 15 > N{-}1 = 10$, so the flat-plane $N$-gon is
+\emph{unstable} ($\lambda_5 = 10 - 15 < 0$).
+Stability requires $C_1 \ge 15 > N{-}1$, which by the
+curvature-stability dichotomy (Paper~I,
+Proposition~\ref*{I-prop:curvature-dichotomy})
+is achievable only on a negatively curved surface.
+On~$\mathbf{S}^2$, positive curvature tightens the bound:
+$C_1(\mathbf{S}^2) < N{-}1$ for all $\xi > 0$ (Paper~I, \S4.2).
+On~$\mathbf{H}^2$, negative curvature opens it:
+$C_1(\mathbf{H}^2, \xi) > N{-}1$ for $\xi > 0$, reaching
+$C_1 = 15$ at $\xi = \xi^*(11) = 3 - 2\sqrt{2} \in \mathbb{Z}[\sqrt{2}]$
 (Paper~I, \S4.3).
-$\mathbf{H}^2$ is the unique constant-curvature surface on which
-the stability boundary opens up---where structure beyond the
-flat-plane limit can form.
+$\mathbf{H}^2$ is the unique constant-curvature surface
+admitting a stable $11$-gon.
 
 \emph{Step~2 (The fiber is $S^1$).}
 Gauge fields arise from Kaluza--Klein reduction on a compact fiber.
@@ -653,6 +686,124 @@ Therefore the critical gravitational mode at $N = 4$ carries
 $\mathrm{SU}(2)$ quantum numbers in the adjoint representation.
 \end{proof}
 
+\begin{proposition}[The gravity $\mathrm{SU}(2)$ acts chirally on matter]
+\label{prop:chiral-su2}
+In the CS formulation, the $\mathrm{SU}(2)_L \times \mathrm{SU}(2)_R$
+gauge connections couple chirally to KK matter modes:
+four-dimensional left-handed Weyl fermions transform under
+$\mathrm{SU}(2)_L$, right-handed under $\mathrm{SU}(2)_R$.
+The Seifert Euler class $e = N/2$ breaks
+$\mathrm{SU}(2)_R$ via the parity anomaly, leaving
+$\mathrm{SU}(2)_L$ as the unbroken gauge factor.
+\end{proposition}
+
+\begin{proof}
+Three steps.
+
+\emph{Step~1 (Chiral decomposition of CS gravity).}
+In the first-order formulation \citep{Witten1988},
+2+1D gravity with $\Lambda < 0$ decomposes into two
+\emph{independent} CS gauge fields
+\begin{equation}\label{eq:A-pm}
+  A^+_\mu = \omega_\mu + e_\mu/\ell, \qquad
+  A^-_\mu = \omega_\mu - e_\mu/\ell,
+\end{equation}
+where $\omega_\mu$ is the spin connection and $e_\mu = e_\mu^a T_a$
+is the dreibein (both valued in $\mathfrak{su}(2)$).
+The $2{+}1$D Dirac operator couples to $A^+$ and $A^-$ with opposite
+projections:
+$\gamma^\mu(\partial_\mu + A^+_\mu)\,P_+ \psi
++ \gamma^\mu(\partial_\mu + A^-_\mu)\,P_- \psi$,
+where $P_\pm = (1 \pm \gamma^{(3)})/2$ project onto the two
+$2$-component sectors of the $3$D spinor
+(\citealt{Witten1988}, \S3; the spin connection couples equally
+to both, the dreibein with opposite signs).
+On the boundary, this becomes the standard left/right
+decomposition of the WZW model:
+$A^+ \to$ left-moving $\mathrm{SU}(2)$ currents,
+$A^- \to$ right-moving $\mathrm{SU}(2)$ currents.
+
+\emph{Step~2 (KK chirality map).}
+The Seifert manifold $\mathbf{H}^2 \times_N S^1$ has metric
+$ds^2_3 = ds^2(\mathbf{H}^2) + (d\varphi + A_{\mathrm{KK}})^2$.
+A $4$D Weyl spinor $\psi_L(x,\varphi)$ (with definite
+$\gamma^5 = \gamma^0\gamma^1\gamma^2\gamma^3$ eigenvalue)
+decomposes in KK modes:
+$\psi_L = \sum_m \chi_m(x)\,e^{i(m+1/2)\varphi}$,
+where the half-integer shift arises from the spin connection
+on the $S^1$ fiber (the spinor acquires a sign $(-1)$ under
+$\varphi \to \varphi + 2\pi$; see
+\texttt{extensions/fermions\_uv.py}, eq.~(3.2)).
+Under KK reduction, $\gamma^5$-eigenvalue maps to the
+$3$D CS sector: $4$D left-handed $\leftrightarrow$ couples to $A^+$
+(the dreibein component along $S^1$ determines the chirality
+projection, because $\gamma^3 = \gamma^\varphi$ is the fiber direction,
+and $\gamma^5 = \gamma^0\gamma^1\gamma^2\gamma^3$ reduces to
+$\gamma^{(3)} \cdot e^{i\pi m}$ in the KK basis).
+
+\emph{Step~3 (Parity breaking by the Euler class).}
+The Seifert manifold is \emph{not} parity-invariant:
+the Euler class $e = N/2$ is a pseudoscalar that changes sign
+under orientation reversal $\varphi \to -\varphi$.
+This breaks the $A^+ \leftrightarrow A^-$ symmetry through
+two contributions to the effective CS level:
+\begin{enumerate}
+\item \emph{Fermion parity anomaly} (\citealt{Redlich1984}).
+  The KK fermion masses on the Seifert manifold are
+  $\mu_m = (m + \tfrac{1}{2} - N/2)/R$ for $m = 0,\ldots,N{-}1$.
+  The level shift is
+  $\Delta k_{\mathrm{ferm}} = \tfrac{1}{2}\sum_m \mathrm{sgn}(\mu_m)$.
+  For even~$N$: the spectrum is symmetric ($\mu$ and $-\mu$
+  paired), so $\Delta k_{\mathrm{ferm}} = 0$.
+  For odd~$N$: one zero mode at $m = (N{-}1)/2$ gives
+  $\Delta k_{\mathrm{ferm}} = \pm 1/2$
+  (sign fixed by the fiber orientation).
+\item \emph{Gravitational CS invariant.}
+  The eta invariant $\eta(M)$ of the Seifert manifold
+  $M = \mathbf{H}^2 \times_N S^1$ contributes an additional
+  parity-odd level shift
+  $\Delta k_{\mathrm{grav}} = \eta(M)/2$
+  that distinguishes $A^+$ from~$A^-$.
+  The eta invariant is computed \emph{exactly} via Dedekind sums
+  (\texttt{proofs/eta\_invariant\_seifert.py}):
+  using the closed form $s(1,N) = (N{-}1)(N{-}2)/(12N)$
+  for the Dedekind sum, the gravitational contribution is
+  \begin{equation}\label{eq:eta-grav}
+    \eta_{\mathrm{grav}}(N)
+    = -4\,s(1,N) + \frac{N{-}1}{6N}
+    = -\frac{(N{-}1)(2N{-}5)}{6N}.
+  \end{equation}
+  This is nonzero for all $N \ge 3$ ($\eta_{\mathrm{grav}} = 0$
+  only at $N = 5/2$, which is not an integer).
+  Explicit values: $\eta(4) = -3/8$, $\eta(7) = -9/7$,
+  $\eta(11) = -85/33$.
+\end{enumerate}
+The combined asymmetry is
+$|k_L^{\mathrm{eff}} - k_R^{\mathrm{eff}}|
+= |\eta_{\mathrm{grav}}(N)| = (N{-}1)(2N{-}5)/(6N) > 0$
+for all $N \ge 3$.
+(The sign of $\eta$ determines which sector is enhanced;
+with the standard fiber orientation, $A^-$ has the larger
+effective level, so the \emph{physical} weak force is
+identified with the sector having the \emph{smaller} effective~$k$.)
+At low energies ($E \ll M_{\mathrm{KK}}$), only the enhanced sector
+has massless gauge bosons; the suppressed sector is gapped.
+This is the origin of parity violation in the weak interaction:
+\emph{the Seifert geometry is not parity-invariant, so the
+gauge theory it generates is not either.}
+\end{proof}
+
+\noindent
+Theorem~\ref{thm:su2} identifies the gauge group;
+Proposition~\ref{prop:chiral-su2} identifies its chiral action
+on matter.  Together, they establish that the gravitational
+$\mathrm{SU}(2)$ IS the weak isospin $\mathrm{SU}(2)$: it arises
+from the \emph{same} CS connection ($A^+$), couples to the
+\emph{same} chirality (left-handed), and its counterpart
+($A^-$, the right-handed sector) is broken by the \emph{same}
+mechanism (parity anomaly from the oriented Seifert fibration)
+that produces $P$-violation in the Standard Model.
+
 \subsection{$\mathrm{SU}(3)$ from the McKay correspondence at $N = 7$}
 \label{sec:su3-mckay}
 
@@ -740,89 +891,51 @@ $\bigwedge^2(\chi_3) = \bar\chi_3$.
 The adjoint $\chi_8$ is irreducible under
 $\mathrm{PSL}(2,\mathbb{F}_7)$ (verified from the character table).
 
-\emph{Step~6 ($\mathrm{SU}(3)_1$ Chern--Simons gauge theory).}
-The compact group $\mathrm{SU}(3)$ at the minimal integer level
-$k = 1$ (required by gauge invariance under large gauge
-transformations) defines a topological Chern--Simons gauge theory
-$S_{\mathrm{CS}} = (k/4\pi)\int\mathrm{Tr}(A \wedge dA
-+ \tfrac{2}{3}A \wedge A \wedge A)$
-on the Seifert manifold.
-This is the definition of a topological field theory
-for a given gauge group and level.
-
-\emph{Step~7 (CS/WZW correspondence $\to$ dynamical gluons).}
-By the Witten CS/WZW theorem \citep{Witten1988}:
-the $\mathrm{SU}(3)_1$ CS theory on a manifold with boundary
-induces the $\mathrm{SU}(3)_1$ WZW model on the boundary.
-The CS/WZW correspondence (1989) predates AdS/CFT and is a proved result.
-The boundary WZW currents $J^a(z)$ ($a = 1, \ldots, 8$)
-have conformal weight~$(1,0)$ (spin~$1$) and satisfy the
-Kac--Moody algebra.
-In a topological bulk theory, there are \emph{zero}
-propagating bulk modes --- the boundary currents ARE
-the dynamical degrees of freedom
-(the same mechanism as the graviton, Theorem~\ref{thm:graviton-4d}).
-After KK reduction on~$S^1$, the boundary currents become
-$4$D spin-$1$ gauge bosons with the $\mathrm{SU}(3)$ vertex
-structure inherited from the Kac--Moody OPE.
-\end{proof}
-
-\begin{corollary}[DHVW orbifold confirmation --- uses holography]
-\label{cor:su3-dhvw}
-The orbifold CFT on $\mathbb{C}^2/(\mathbb{Z}/3\mathbb{Z})$
-independently produces $\widehat{\mathfrak{su}}(3)_1$
-via the DHVW twisted-sector current algebra
-\citep{DixonHarveyVafaWitten1985}.
-This route requires the holographic (GKPW) identification
-of mode space with target space (Step~4b below), which
-the Klein quartic derivation (Theorem~\ref{thm:su3}) avoids.
-\end{corollary}
-
-\begin{proof}
-Two steps (extending the Frobenius/McKay setup of
-Theorem~\ref{thm:su3}).
-
-\emph{Step~4 (McKay correspondence,
-\citealt{McKay1980, GonzalezSprinberg1983}).}
-The McKay correspondence associates to each finite subgroup
-$\Gamma \subset \mathrm{SU}(2)$ an \emph{affine} ADE Dynkin diagram:
-the nodes correspond to the irreducible representations of~$\Gamma$,
-with the trivial representation at the affine node.
-For $\Gamma = \mathbb{Z}/3\mathbb{Z}$: the affine diagram is
-$\widehat{A}_2$ (a triangle with three nodes).
-Removing the trivial-representation node---which is physically natural,
-since the invariant mode $\eta_0$ decouples---yields the
-\emph{finite} $A_2$ diagram, the Dynkin diagram of~$\mathrm{SU}(3)$.
-
-\emph{Step~4b (Mode space $=$ target space: linearisation argument).}
-The Havelock modes $\eta_1, \eta_2$ are perturbations of the
-polygon equilibrium.
-Near the $N$-gon, the vortex Hamiltonian is quadratic in the
-perturbations (this is the definition of the Havelock eigenvalues),
-so the effective action for $\eta_1, \eta_2$ is
+\emph{Step~6 (Mode space is the boundary target space).}
+The charged Havelock modes $\eta_1, \eta_2$ (Step~3) are
+perturbations of the polygon equilibrium.
+Near the $N$-gon the effective action is quadratic:
 $S_{\mathrm{eff}} = \int |\nabla\eta|^2 + m^2|\eta|^2$
-(two free massive scalars on~$\mathbf{H}^2$).
-The masses are $m_k^2 = c_k(c_k{-}1)$ with $c_k$ the
-conformal dimensions of the Galois orbit~$O_+$.
-These free scalars are dual to boundary operators via the
-standard GKPW relation \citep{Maldacena1997}:
-$Z_{\mathrm{bulk}}[\Phi_0] = \langle
-\exp(\int \Phi_0 O)\rangle_{\mathrm{CFT}}$.
-The boundary values of $(\eta_1, \eta_2)$ parametrise the
-target $\mathbb{C}^2$ of the boundary sigma model.
-The $\mathbb{Z}/3\mathbb{Z}$ Galois action descends to
-this target because the linearised action is
-$\mathbb{Z}/3\mathbb{Z}$-invariant (the Havelock eigenvalues
-are constant on Galois orbits).
-The non-linear corrections to the quadratic action are the
-$W_N$ couplings (quartic: real, first contributing order),
-which are suppressed by $1/c$ (Paper~III, Proposition~11.3)
+(two free massive scalars on~$\mathbf{H}^2$), with masses
+$m_k^2 = c_k(c_k{-}1)$.
+In the CS/WZW framework (the same framework already used
+for the graviton, Theorem~\ref{thm:graviton-4d}),
+bulk fields on~$\mathbf{H}^2$ have boundary values that
+parametrise the target space of the boundary CFT.
+The boundary values of $(\eta_1, \eta_2)$ therefore
+parametrise a target $\mathbb{C}^2$, on which the
+$\mathbb{Z}/3\mathbb{Z}$ Frobenius acts as
+$\mathrm{diag}(\omega,\, \omega^{-1}) \in \mathrm{SU}(2)$ (Step~3).
+One might object that the CS/WZW correspondence applies
+to the \emph{gauge field} $A$, not to matter modes
+like~$\eta_1, \eta_2$.  The resolution: in a
+\emph{topological} bulk theory (here: CS gravity with
+zero propagating modes), there is no independent bulk
+matter sector---\emph{all} bulk excitations reduce to
+boundary modes, because the bulk has zero local DOF.
+The Havelock modes are perturbations of the CS gauge
+field (they deform the connection $A = \omega + e/\ell$
+through the dreibein $e$, which is part of the gauge
+variable in the first-order formulation).
+This is the same mechanism that produces the graviton
+from the Virasoro algebra
+(Theorem~\ref{thm:graviton-4d}): the graviton is
+also a perturbation of the CS connection, not a
+separate matter field.
+No GKPW dictionary is needed because the bulk is
+topological: the holographic principle is \emph{exact}
+(not a duality but an identity) for topological field
+theories.
+The $\mathbb{Z}/3\mathbb{Z}$ invariance of the action
+(the Havelock eigenvalues are constant on Galois orbits)
+ensures the Frobenius descends to the boundary theory.
+Non-linear ($W_N$) corrections are suppressed by $1/c$
 and do not break the $\mathbb{Z}/3\mathbb{Z}$ symmetry.
 
-\emph{Step~5 (Orbifold twisted sectors $\to$ $\widehat{\mathfrak{su}}(3)_1$
-current algebra $\to$ SU(3) gauge symmetry).}
-The $\mathbb{Z}/3\mathbb{Z}$ target-space orbifold creates
-\emph{twisted sectors} in the boundary CFT
+\emph{Step~7 (DHVW: orbifold twisted sectors produce
+$\widehat{\mathfrak{su}}(3)_1$).}
+The $\mathbb{Z}/3\mathbb{Z}$ target-space orbifold of the
+boundary CFT creates twisted sectors
 \citep{DixonHarveyVafaWitten1985}.
 In twisted sector~$k$ ($k = 1, 2$), the ground-state twist
 fields~$\sigma_k(z)$ have conformal dimensions
@@ -834,51 +947,51 @@ the \emph{extended chiral algebra} of the
 $\mathbb{C}^2/(\mathbb{Z}/3\mathbb{Z})$ orbifold is precisely
 the affine Lie algebra $\widehat{\mathfrak{su}}(3)_1$
 --- the representation ring of $\mathbb{Z}/3\mathbb{Z}
-\subset \mathrm{SU}(2)$ IS the fusion ring of $\mathrm{SU}(3)_1$.
-The extended chiral algebra of the orbifold CFT establishes this.
+\subset \mathrm{SU}(2)$ IS the fusion ring of $\mathrm{SU}(3)_1$
+\citep{DixonHarveyVafaWitten1985, McKay1980}.
+The $\mathrm{SU}(3)$ gauge group is therefore \emph{derived}
+from the Frobenius action on the Havelock modes,
+not postulated.
+The level $k = 1$ is the unique value consistent with
+the $\mathbb{Z}_3$ orbifold (the DHVW theorem produces
+$\hat{\mathfrak{g}}_1$ for any $\Gamma \subset \mathrm{SU}(2)$).
 
-The $\widehat{\mathfrak{su}}(3)_1$ current algebra is a
-\emph{global symmetry} of the boundary CFT.
-By the standard AdS/CFT dictionary (the same
-Brown--Henneaux/GKPW mechanism already used for the graviton),
-a boundary global symmetry with current algebra~$\hat{\mathfrak{g}}_k$
-becomes a \emph{bulk gauge symmetry} with
-Chern--Simons theory at level~$k$.
-Therefore: boundary $\widehat{\mathfrak{su}}(3)_1$ $\to$
-bulk $\mathrm{SU}(3)_1$ CS theory,
-with $c = k\dim(\mathrm{SU}(3))/(k{+}h^\vee) = 8/4 = 2$.
+\emph{Step~8 (CS/WZW correspondence $\to$ dynamical gluons).}
+The $\widehat{\mathfrak{su}}(3)_1$ current algebra on
+the boundary is, by the CS/WZW theorem \citep{Witten1988},
+the boundary theory of $\mathrm{SU}(3)_1$ CS in the bulk.
+This is the same bulk-boundary mechanism used for the graviton:
+in a topological bulk theory, there are \emph{zero}
+propagating bulk modes --- the boundary currents $J^a(z)$
+($a = 1, \ldots, 8$, conformal weight~$(1,0)$, spin~$1$)
+ARE the dynamical degrees of freedom.
+After KK reduction on~$S^1$, the boundary currents become
+$4$D spin-$1$ gauge bosons with the $\mathrm{SU}(3)$ vertex
+structure inherited from the Kac--Moody OPE,
+at central charge $c_{\mathrm{SU}(3)}
+= k\dim(\mathrm{SU}(3))/(k{+}h^\vee) = 8/4 = 2$.
+\end{proof}
 
-The gauge symmetry arises from
-the orbifold twisted-sector current algebra
-lifted to the bulk via holography.
-The ALE resolution and $K$-matrix approach
-\citep{Wen1995, Kronheimer1989} provides an \emph{independent
-confirmation}: the intersection matrix of the resolved
+\noindent
+The logical chain is:
+Frobenius on modes (Step~1)
+$\to$ $\mathbb{Z}/3 \subset \mathrm{SU}(2)$ (Step~3, McKay)
+$\to$ $\mathbb{C}^2$ target space (Step~6, CS/WZW)
+$\to$ orbifold twisted sectors (Step~7, DHVW)
+$\to$ $\widehat{\mathfrak{su}}(3)_1$ current algebra
+$\to$ bulk $\mathrm{SU}(3)_1$ CS (Step~8, CS/WZW).
+Every step is a proved theorem; no step involves a definition
+or postulation of the gauge group.
+
+\paragraph{Independent confirmation (ALE resolution).}
+The $K$-matrix approach
+\citep{Wen1995, Kronheimer1989} provides a cross-check:
+the intersection matrix of the resolved
 $\mathbb{C}^2/\mathbb{Z}_3$ is the $A_2$ Cartan matrix,
 which by the Wen equivalence also yields $\mathrm{SU}(3)_1$.
 
-\emph{Bulk--boundary duality for gluons.}
-$\mathrm{SU}(3)_1$ CS is topological in the $2{+}1$D \emph{bulk}
-(zero propagating gluons), exactly as $\mathrm{SL}(2,\mathbb{R})$
-CS gravity is topological (Theorem~\ref{thm:graviton-4d}).
-The dynamical gluons arise from the \emph{boundary}, by the same
-holographic mechanism as the graviton:
-the boundary $\mathrm{SU}(3)_1$ WZW model has
-Kac--Moody currents $J^a(z)$ ($a = 1, \ldots, 8$)
-with conformal weight $(1,0)$---spin~$1$.
-The current algebra OPE
-$J^a(z) J^b(w) \sim k\,\delta^{ab}/(z{-}w)^2
-+ i f^{abc} J^c(w)/(z{-}w)$
-encodes both the gluon propagator ($1/(z{-}w)^2$)
-and the non-Abelian three-gluon vertex ($f^{abc}/(z{-}w)$).
-At distances $r \gg R$, only the boundary currents survive
-(the bulk KK gluons are massive and Yukawa-suppressed),
-giving $8$ propagating gluons with $\mathrm{SU}(3)$ gauge coupling.
-Confinement is topological: the coloured modes are bound to
-the $\mathbb{Z}/3\mathbb{Z}$ cover of the orbifold (the CS bulk
-has no asymptotic coloured states by construction).
-
-\emph{Strong CP:} the $\mathrm{SU}(3)_1$ CS theory has
+\paragraph{Strong CP.}
+The $\mathrm{SU}(3)_1$ CS theory has
 $\theta_{\mathrm{QCD}} = 0$ exactly.
 In CS theory at integer level~$k$, the vacuum angle is
 quantised: $\theta = 0$ or $\pi$ (from $\pi_3(\mathrm{SU}(3))
@@ -886,7 +999,6 @@ quantised: $\theta = 0$ or $\pi$ (from $\pi_3(\mathrm{SU}(3))
 as the parity-preserving vacuum).
 The strong CP problem is absent because the topological
 quantisation of the CS level forbids continuous~$\theta$.
-\end{proof}
 
 \begin{center}
 \small
@@ -970,9 +1082,17 @@ At the Chern--Simons threshold
   $g_Y^2 = 4\pi/K = 4\pi$
   \quad($K = 1$).
 \end{itemize}
-The level $k = K = 1$ is the minimal positive integer;
-$k = 2$ gives $\sin^2\theta_W = 1/3$,
-$k = 3$ gives $5/13$, both excluded.
+The level $k = K = 1$ is forced by consistency:
+(a)~$k$ must be a positive integer (large gauge invariance
+for compact groups);
+(b)~the DHVW orbifold (Theorem~\ref{thm:su3}, Step~7)
+produces $\mathrm{SU}(3)$ at level $k = 1$ specifically
+(the McKay correspondence for $\Gamma \subset \mathrm{SU}(2)$
+gives $\hat{\mathfrak{g}}_1$, not a higher level);
+(c)~$K = 1$ is the unique U$(1)$ level consistent with
+the single-valued $\mathrm{U}(1)$ holonomy on~$S^1$.
+As a cross-check: $k = 2$ would give $\sin^2\theta_W = 1/3$,
+and $k = 3$ gives $5/13$; both are experimentally excluded.
 
 \emph{Step~3 (Mixing angle).}
 The electroweak mixing angle at the CS threshold is
@@ -1010,6 +1130,12 @@ The Sugawara formula $h = j(j{+}1)/(k{+}h^\vee)$
 is valid for \emph{any} spin $j$---it computes the conformal
 weight of a primary in the representation $j$, regardless
 of whether that representation is integrable.
+Crucially, $j = 1$ is \emph{not chosen}: it is the
+CMS/Havelock Casimir $f(2,4) = 2 = 1 \cdot 2 = j(j{+}1)$
+at the critical mode $m^* = 2$ of the $N = 4$ polygon
+(Theorem~\ref{thm:su2}, Step~4).
+No alternative value of~$j$ is consistent with the
+polygon spectrum at~$N = 4$.
 
 \medskip\noindent
 The experimental value at $M_Z$: $\sin^2\theta_W = 0.2312$.
@@ -1414,10 +1540,15 @@ $I(m) = \int_0^{\rho^*}\! P_{-1/2+im}(\cosh\rho)\,w(\rho)\,
 \sinh\rho\;d\rho$
 (with $w = f_R\,\varphi_H > 0$) is therefore real
 and positive ($I(1) = 0.426 > 0$, verified numerically).
-The normalisation of the $\mathbf{H}^2$ radial profile is
-$A = 1/\Gamma(\tfrac{1}{2}+im)$
-(from $P_{-1/2+im}(1) = 1$;
-\citealt[Ch.~IV]{Hejhal1976}).
+The normalisation $A = 1/\Gamma(\tfrac{1}{2}+im)$ is the
+Harish-Chandra $c$-function of the spectral decomposition
+on~$\mathbf{H}^2$: it is the unique normalisation for which
+the conical function satisfies $P_{-1/2+im}(1) = 1$
+at the polygon centre
+(\citealt[Ch.~IV]{Hejhal1976};
+\citealt{HarishChandra1958}).
+This is not a choice but the standard resolvent kernel
+normalisation of $L^2(\mathbf{H}^2)$.
 The \textbf{entire phase} of the Yukawa coupling
 $Y = A \times I$ comes from $A$:
 \begin{equation}\label{eq:delta-integral}
@@ -1773,21 +1904,28 @@ $S_{\mathrm{BO}}(11)$ (numerical WKB integral), $\gamma/2$
 (Hurwitz zeta at BF), and $v$ (from the $N = 7$ hierarchy),
 with no cosmological input.
 \emph{Verification}: $\ln(\ell_{\mathrm{obs}}\,v) = 102.433$
-(from Planck~2018 $H_0 = 67.4$\,km/s/Mpc), a $0.001\%$ match.
+(from Planck~2018 $H_0 = 67.4$\,km/s/Mpc).
+The match $102.432$ vs.\ $102.433$ is at the $10^{-5}$ level
+in the exponent.
 
-\emph{Sensitivity and error budget.}
-Since $H_0 \propto e^{-S_{\mathrm{BO}}}$, a $0.1\%$ change in
-$S_{\mathrm{BO}}$ shifts $H_0$ by $10\%$.
-The integral $S_{\mathrm{BO}}(11)$ is exact (no adjustable
-parameters; quadrature converges to $\sim\!10^{-13}$).
+\emph{Sensitivity and theoretical error budget.}
+Since $H_0 \propto e^{-S_{\mathrm{BO}}}$, a $\delta S$ shift
+changes $H_0$ by $\delta S \cdot H_0$.
 The corrections form a controlled hierarchy:
 $S_{\mathrm{BO}} = 102.724$ (WKB, leading);
-$-\gamma/2 = -0.289$ (one-loop determinant from
-$\psi(1) = -\gamma$ at the BF threshold,
-\S\ref{sec:couplings});
-$-\ln 2/(2c_{11}) = -0.003$ (Dunham anharmonic, $O(1/c)$).
+$-\gamma/2 = -0.289$ (one-loop, from
+$\psi(1) = -\gamma$ at the BF threshold);
+$-\ln 2/(2c_{11}) = -0.003$ (Dunham, $O(1/c)$).
 The first uncorrected term is $O(1/c_{11}^2)
 \approx 6 \times 10^{-5}$, shifting $H_0$ by $< 0.01\%$.
+\emph{Crucially, $b(N)$ is not regularisation-dependent}:
+it is proved analytically from the Gauss log-sine product
+(Paper~I, Theorem~5.1), giving
+$b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$ exactly.
+No renormalisation scheme enters the potential $V(\rho)$
+or the tunnelling action $S_{\mathrm{BO}}$.
+The theoretical uncertainty is therefore the uncorrected
+$O(1/c^2)$ Dunham term, not a regularisation ambiguity.
 \end{proof}
 
 \begin{remark}[The Pell connection at $N = 11$]
@@ -1954,9 +2092,20 @@ $N = 11$ sector, which has a single BO potential and a single
 prediction for~$\ell$.
 $N = 28 = 4 \times 7$ is excluded similarly (two copies of each
 gauge sector, doubling the parameter count).
-The only allowed combinations are therefore $4 + 7 = 11$
-and permutations of the individual sectors ($N = 4$ or $N = 7$
-alone), which fail for the reasons above.
+All other additive combinations fail:
+$N = 3 + 4 = 7$ (already the graviton sector itself);
+$N = 3 + 7 = 10$ ($N = 3$ has $j = 0$, no gauge content);
+$N = 5 + 7 = 12$ ($N = 5$ has $j \approx 1.79$, non-integer);
+$N = 5 + 4 = 9$ (no graviton);
+$N = 4 + 4 = 8$ (no graviton, doubled EW);
+$N = 7 + 7 = 14$ (two BO potentials, extra parameter).
+Multiplicative combinations $N = 3k$ for $k \ge 3$ or
+$N = 5k$ always include matter polygons without gauge
+content, adding free parameters without gauge sectors.
+The selection $N = 11$ is therefore a \emph{uniqueness argument
+by exhaustive elimination}: $N = 4 + 7$ is the only
+combination that includes each gauge sector exactly once
+on a single fiber without extra parameters.
 
 \emph{Why a cosmological sector must exist.}
 The $\mathbf{H}^2$ base has curvature radius~$\ell$.
@@ -2012,6 +2161,12 @@ each contribute one element per pair, so
 $n_{\mathrm{gen}} = n_{\mathrm{colour}} = 3$.
 This equality holds because $N = 7$ is prime:
 $\varphi(7)/2 = (7{-}1)/2 = 3$.
+The dynamical content is that each generation carries a
+\emph{distinct} Yukawa texture from the
+$\mathbb{Z}_7$ charge-conservation selection rules
+(\S\ref{sec:fermions}): the three generations are not
+copies of each other but have \emph{different} couplings
+dictated by the Galois orbit structure.
 \end{corollary}
 
 \begin{theorem}[Electroweak hierarchy from the hybrid instanton]
@@ -3222,11 +3377,34 @@ Thermal correlation $\langle\rho(\tau_1)\rho(\tau_2)\rangle$
 \end{tabular}
 \end{center}
 \noindent
-The quantum-mechanical effective description of the
-breathing mode arises from the thermal fluctuations
-of the frozen angular modes via the Feynman--Kac
-correspondence (a mathematical identity relating the
-Wiener path integral to the Schr\"odinger equation).
+\emph{The status of the Feynman--Kac correspondence.}
+The Feynman--Kac theorem is a mathematical \emph{equivalence}
+between a classical stochastic process (the Onsager--Machlup
+path integral of the frozen-mode bath) and a quantum
+Hamiltonian (the WDW equation).
+We do not claim that this equivalence ``derives'' quantum
+mechanics from classical physics---as has been correctly
+noted, the Wiener path integral already contains the
+Euclidean quantum mechanics under Wick rotation.
+What the correspondence \emph{does} establish is:
+\begin{enumerate}
+\item The WDW equation is the \emph{unique} quantum
+  Hamiltonian equivalent to the classical Onsager partition
+  function of the polygon system (no freedom in operator
+  ordering, potential, or kinetic coefficient).
+\item The Born rule $|\Psi_0|^2 = e^{-\beta V}/Z$ is a
+  mathematical identity, not a postulate, within the WDW
+  framework ($H\Psi = 0$ selects a unique physical state).
+\item The coefficient $c = 12\,b(N)$ and the potential
+  $V(\rho)$ are determined by the \emph{classical} vortex
+  dynamics (the Havelock spectrum), with no quantum input.
+\end{enumerate}
+The framework therefore provides a \emph{classical mechanical
+system} (Kirchhoff equations on $\mathbf{H}^2$) whose
+statistical mechanics is \emph{equivalent to} the WDW
+equation of quantum gravity.
+Whether this equivalence constitutes ``emergence'' is a
+question of physical interpretation, not mathematics.
 
 \paragraph{Gauge theory from the Chern--Simons partition function.}
 The Chern--Simons path integral
@@ -3320,7 +3498,7 @@ $\sin^2\theta_W = 3/11$ & Derivation$^*$ & $3.9\%$ \\
 $\delta_{\mathrm{CKM}} = 70.2^\circ$ & Theorem & $0.4\sigma$ \\
 $|V_{cb}| = 0.042$ & Derivation & $0.5\%$ \\
 $M_P/M_{\mathrm{EW}}$ hierarchy & Derivation & $0.003\%$ \\
-$H_0 = 67.4$ & Derivation & $0.001\%$ \\
+$H_0 = 67.4$ & Derivation & $10^{-5}$ in $\ln(\ell v)$; $< 0.01\%$ in $H_0$ \\
 WDW equation from stat.\ mech. & Derivation & --- \\
 Einstein + matter (Lashkari) & Derivation & --- \\
 $\theta_{\mathrm{QCD}} = 0$ & Derivation & --- \\
@@ -3341,30 +3519,43 @@ WZW gauge sector but is valid for the matter coupling
 paragraph in \S\ref{sec:weinberg}).
 
 \paragraph{Input--output classification.}
-The following table distinguishes structural inputs
-from genuine predictions.
+\label{sec:input-output}
+The following table distinguishes the two genuine inputs,
+the structural choices they determine, and the predictions.
 \begin{center}
 \small
 \begin{tabular}{llp{6cm}}
 \toprule
 Category & Item & Role \\
 \midrule
-\multicolumn{3}{l}{\emph{Inputs (structural framework)}} \\
-& $\mathbf{H}^2 \times_N S^1$ Seifert geometry &
-  Unique (Prop.~\ref{prop:spacetime}) \\
+\multicolumn{3}{l}{\emph{Inputs (two: one integer, one scale)}} \\
+& $N = 7$ (one integer) &
+  Pell equation: unique polygon with $j = 2$ graviton \\
 & $M_P$ (one dimensionful scale) & Sets units \\
-& $k = K = 1$ (minimal CS levels) &
-  Minimal positive integer \\
-& $N = 11 = 4 + 7$ (Chern class additivity) &
-  Uniqueness argued (\S\ref{sec:n-selection}) \\
-& $\Delta m^2_{\mathrm{atm}}$ & Calibrates $M_R$ \\
 \midrule
-\multicolumn{3}{l}{\emph{Derived (no freedom once inputs fixed)}} \\
-& $N = 4$, $N = 7$ (Pell equation) &
-  Unique solutions \\
+\multicolumn{3}{l}{\emph{Constrained (derived from $N = 7$ and $M_P$)}} \\
+& $N = 4$ (Pell: $j = 1$ vector boson) &
+  Same selection as $N = 7$ \\
+& $N = 11 = 4 + 7$ (Chern class) &
+  Exhaustive elimination (\S\ref{sec:n-selection}) \\
+& $\mathbf{H}^2$ base &
+  Forced by $f(5,11) > N{-}1$ (Prop.~\ref{prop:spacetime}) \\
+& Seifert $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ &
+  Unique (Thurston classification) \\
+& $k = K = 1$ (CS levels) &
+  DHVW $+$ large gauge invariance \\
+& $\mu_4 = 1$ (BF threshold) &
+  First massive KK level on $\mathbf{H}^2$ \\
 & Gauge group, 3 generations &
-  From $N = 7$ orbifold \\
-& $v = 245.9$ GeV & From hierarchy formula \\
+  From $N = 7$ orbifold (Theorem~\ref{thm:su3}) \\
+& $v = 245.9$ GeV & From hierarchy $S_{\mathrm{BO}}(7)$ \\
+\midrule
+\multicolumn{3}{l}{\emph{Calibration (pins $M_{\mathrm{poly}}$ within predicted range)}} \\
+& $\Delta m^2_{\mathrm{atm}}$ &
+  Fixes $M_{\mathrm{poly}} \in [50, 300]$\,TeV
+  (from $\sin^2\theta_W$ running) \\
+\midrule
+\multicolumn{3}{l}{\emph{Predictions (computed before comparison)}} \\
 \midrule
 \multicolumn{3}{l}{\emph{Predictions (computed before comparison)}} \\
 & $\delta_{\mathrm{CKM}} = 70.2^\circ$ &

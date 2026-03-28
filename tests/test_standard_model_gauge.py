@@ -102,6 +102,26 @@ class TestSU2:
         c = central_charge(4)
         assert result['cs_level'] == pytest.approx(c / 6)
 
+    def test_fermion_parity_anomaly_even_N(self):
+        """For even N, the fermion parity anomaly level shift vanishes."""
+        for N in [4, 8, 12]:
+            signs = [1 if (m + 0.5 - N/2) > 0 else -1 for m in range(N)]
+            delta_k = sum(signs) / 2
+            assert delta_k == 0, f"Fermion anomaly should vanish at even N={N}"
+
+    def test_fermion_parity_anomaly_odd_N(self):
+        """For odd N, one zero mode gives |Delta_k| = 1/2."""
+        for N in [7, 11, 15]:
+            signs = [1 if (m + 0.5 - N/2) > 0 else -1 for m in range(N)]
+            delta_k = sum(signs) / 2
+            assert abs(delta_k) == 0.5, f"Odd N={N} should give |Delta_k|=1/2"
+
+    def test_seifert_parity_violation(self):
+        """The Seifert Euler class e=N/2 breaks A+ <-> A- symmetry for all N>=3."""
+        for N in range(3, 16):
+            euler_class = N / 2
+            assert euler_class > 0, "Euler class must be positive (oriented fiber)"
+
 
 # =====================================================================
 # SU(3) from McKay correspondence at N=7

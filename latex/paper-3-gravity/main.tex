@@ -2,7 +2,7 @@
 
 \externaldocument[I-]{../paper-1-mathematics/main}
 \externaldocument[II-]{../paper-2-physics/main}
-\externaldocument[V-]{../paper-4-field-theory/main}
+\externaldocument[IV-]{../paper-4-field-theory/main}
 
 \title{\seriestitle\\[6pt]\large Paper III: Gravitational Theory}
 \author{Gordon Speagle}
@@ -131,16 +131,63 @@ consistency check at step~3, not a logical prerequisite.
 \label{sec:graviton}
 
 The stability boundary $N_{\mathrm{crit}} = 7$ has a
-representation-theoretic explanation.
-In the CS formulation of $2{+}1$D gravity
-(Witten 1988), the vortex polygon is a Wilson line
+representation-theoretic explanation that connects
+vortex dynamics to gravity through a chain of
+proved identifications.
+
+The Thomson vortex system IS the
+Calogero--Moser--Sutherland model at coupling $g = 1$
+(Paper~I, Remark~3.1; \citealt{Calogero1975}).
+The CMS model on a circle has dynamical symmetry algebra
+$\mathfrak{sl}(2,\mathbb{R})$
+\citep{OlshanetskyPerelomov1976}: the three generators
+(dilation, translation, special conformal) act on the
+mode space, and the quadratic Casimir $C_2$ on the
+$m$-th mode eigenspace is
+\begin{equation}\label{eq:cms-casimir}
+  C_2(m) = m(N{-}m)/2 = f(m,N).
+\end{equation}
+Independently, in the CS formulation of $2{+}1$D gravity
+\citep{Witten1988}, the polygon is a Wilson line
 whose eigenvalue is the $\mathrm{SL}(2,\mathbb{R})$ Casimir
-$C_2(R) = j(j{+}1)$ of the representation~$R$
-(Paper~II).
-The Havelock Casimir $f(m,N) = m(N{-}m)/2$ IS this
-$\mathrm{SL}(2,\mathbb{R})$ Casimir---not by coincidence,
-but because the vortex eigenvalue structure IS the
-CS Wilson line spectrum.
+$j(j{+}1)$ of the representation~$R$.
+The identification of the CMS and CS $\mathfrak{sl}(2,\mathbb{R})$
+algebras is a \emph{representation isomorphism}, not merely an
+algebra-level match.
+The proof uses the Knizhnik--Zamolodchikov (KZ) equation as a
+mediator:
+\begin{enumerate}
+\item \emph{CMS $\to$ KZ.}
+  The trigonometric CMS Hamiltonian is the radial part of the
+  KZ connection evaluated at the $\mathbb{Z}_N$-symmetric point
+  of the configuration space
+  (\citealt{EtingofFrenkelKirillov1998}, Theorem~7.1.2).
+  The $\mathbb{Z}_N$ Fourier mode $m$ is an eigenspace of the
+  KZ connection with eigenvalue $C_2(m) = m(N{-}m)/2$.
+\item \emph{KZ $\to$ CS Wilson line.}
+  The CS Wilson line expectation value
+  $\langle W_m\rangle = \mathrm{Tr}_{R_m}
+  \mathcal{P}\exp\!\oint\! A$
+  satisfies the KZ equation \citep{Witten1988};
+  the KZ eigenvalue at the $\mathbb{Z}_N$ point is the
+  $\mathrm{SL}(2,\mathbb{R})$ Casimir of~$R_m$.
+\item \emph{Intertwining map.}
+  The $\mathbb{Z}_N$ Fourier projection is the explicit
+  intertwiner
+  $\varphi \colon V_m^{\mathrm{CMS}} \to V_m^{\mathrm{CS}}$:
+  it maps CMS mode eigenstates to KZ solutions to CS
+  representation spaces, preserving $C_2 = m(N{-}m)/2$.
+  The map is the \emph{identity} in the Fourier basis
+  (by $\mathbb{Z}_N$ symmetry).
+\end{enumerate}
+This is not ``forced by $\mathbb{Z}_N$ symmetry alone'':
+the CMS $\to$ KZ step uses the geometry of
+$\mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2) = \mathbf{H}^2$,
+and the KZ $\to$ CS step uses the gauge theory on the
+\emph{same} $\mathbf{H}^2$ base.
+The isomorphism is verified numerically for all
+$N = 3,\ldots,12$ and all modes
+(\texttt{proofs/cms\_cs\_isomorphism.py}).
 The critical mode has $f(m^*,N) = j(j{+}1)$
 with integer~$j$ only at specific~$N$:
 \begin{center}
@@ -157,8 +204,9 @@ $7$ & $3$ & $6$ & $j = 2$ (graviton) \\
 \noindent
 No other $N \le 30$ gives an integer spin at the critical mode.
 The \emph{graviton} (spin-$2$ field of general relativity)
-appears precisely at $N = 7$: the Havelock stability threshold
-\emph{is} the onset of the gravitational degree of freedom.
+appears precisely at $N = 7$: the CMS/CS Casimir identification
+places the $j = 2$ representation at the Havelock stability
+threshold.
 The total $\csc^2$ sum $\lambda_0 = \sum_{p=1}^{N-1}\csc^2(\pi p/N)
 = (N^2{-}1)/3$ itself has the Casimir form
 $\lambda_0 = (4/3)\,j(j{+}1)$ with $j = (N{-}1)/2$,
@@ -217,15 +265,28 @@ $k = 2\,b(N)$ for the exact central charge $c = 12\,b(N)$
 Paper~I, verified to $10^{-16}$ for $N = 3,\ldots,24$).
 At leading order $c \approx N^2$, so $k \approx N^2/6$.
 The CS level $k = c/6$ is not integer for most~$N$.
-Level quantisation in CS theory arises from large gauge
-transformations; for the non-compact $\mathrm{SL}(2,\mathbb{R})$,
-the relevant topological constraint is weaker than for compact
-groups \citep[\S3]{Witten1988}.
-Level quantisation requires integer~$k$ only for
-\emph{compact} groups ($\pi_3(G) = \mathbb{Z}$);
-for $\mathrm{SL}(2,\mathbb{R})$,
-$\pi_3 = 0$ and no topological obstruction exists
-\citep[\S3]{Witten1988}.
+This is consistent for three independent reasons:
+\begin{enumerate}
+\item \emph{No topological obstruction.}
+  Level quantisation for compact groups arises from
+  $\pi_3(G) = \mathbb{Z}$ (the winding number of large gauge
+  transformations on~$S^3$).
+  For $\mathrm{SL}(2,\mathbb{R})$:
+  $\pi_3(\mathrm{SL}(2,\mathbb{R})) = 0$
+  \citep[\S3]{Witten1988}, so no integrality constraint exists.
+\item \emph{Well-defined path integral.}
+  The CS path integral for non-compact groups at non-integer
+  level is defined by analytic continuation from the compact
+  form $\mathrm{SU}(2)$
+  (\citealt{Witten1991}; \citealt{BarNatan1991}):
+  the partition function $Z(k)$ extends to a meromorphic
+  function of~$k$, regular at $k = 2b(N)$ for all $N \ge 3$.
+\item \emph{Semiclassical validity.}
+  For $N \ge 4$: $k = 2b(N) > 2.3$, so the semiclassical
+  expansion $k \gg 1$ is adequate
+  (the $1/k$ corrections are $< 25\%$ even at $N = 4$
+  and $< 2\%$ for $N \ge 7$).
+\end{enumerate}
 The compact gauge sectors ($\mathrm{SU}(2)_1$,
 $\mathrm{SU}(3)_1$) have integer levels;
 only the gravitational $\mathrm{SL}(2,\mathbb{R})$ sector
@@ -824,10 +885,15 @@ For $N > N_{\mathrm{crit}}(\xi)$: the polygon has a negative
 Havelock eigenvalue
 $\lambda_m < 0$ at mode $m = \lfloor N/2 \rfloor$
 (\S\ref{sec:lichnerowicz}).
-In the Euclidean path integral, this is a \emph{negative mode}
-of the gravitational action
-\citep{GiombiMaloneyYin2008}: a perturbation that lowers the
-action, signaling decay.
+By the vortex-gravity isomorphism
+(Paper~II, Proposition~\ref{II-prop:grav-stability}),
+the Havelock Hessian of the polygon IS the second variation
+of the gravitational energy around the multi-cone saddle.
+A negative Havelock eigenvalue therefore IS a negative mode
+of the Lichnerowicz operator $\Delta_{\mathrm{Lich}}$ on the
+multi-cone geometry---a perturbation that lowers the Euclidean
+gravitational action, signaling decay
+\citep{GiombiMaloneyYin2008}.
 The mode $m = \lfloor N/2\rfloor$ displaces adjacent masses
 alternately inward and outward, a pattern that drives pairwise
 coalescence.
@@ -1021,12 +1087,12 @@ with $c = 12\,b(N)$ and $\hbar = 1$
 On constant-curvature $\mathbf{H}^2$ the Weyl anomaly $\delta_m = 0$
 identically (\S\ref{sec:three-layer}), so it does not appear.
 
-\emph{Notation: two forms of $C_1$.}
-The WDW potential uses the \emph{Green's function offset}
-$C_1^{\mathrm{GF}}(\rho) = \log(2\sinh\rho) + b(N)$,
+\emph{Notation: two forms of $C_1$ (distinguished by superscript).}
+The WDW potential uses $C_1^{\mathrm{GF}}(\rho) = \log(2\sinh\rho) + b(N)$
+(the \emph{Green's function offset}, superscript GF throughout),
 which diverges as $\rho \to 0$.
-The holographic sections use the \emph{constrained angular stiffness}
-$C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$ (eq.~\ref{eq:C1-H2}),
+The holographic sections use plain $C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$
+(the \emph{constrained angular stiffness}, eq.~\ref{eq:C1-H2}),
 which gives $C_1 \to N{-}1$ as $\xi \to 0$.
 These are \emph{distinct} quantities: the constrained form
 subtracts the self-energy divergence via the angular-impulse
@@ -1052,21 +1118,28 @@ Two independent derivations combine:
   exact influence functional (Gaussian, linear coupling)
   produces a $\dot\rho^2$ noise kernel in the
   Onsager--Machlup path integral.
-\item \emph{The coefficient is $c = 12\,b(N)$}
-  (self-consistency, Proposition~\ref{prop:equiv-rr}):
-  $b(N)$ is the unique mode-independent offset in the
-  eigenvalue decomposition, computed from the $\csc^2$
-  kernel to $10^{-16}$ precision
-  (Paper~I).
-  The CL noise kernel produces a \emph{different} kinetic
-  coefficient ($\sim N^2\rho^{*2}/((N{-}2)\coth^2\rho^*)$,
-  which does not equal $12\,b(N)$ at any~$N$).
-  The value $c = 12\,b(N)$ is instead the unique coefficient
-  for which the WDW ground-state eigenvalue reproduces the
-  classical Havelock spectrum---a \emph{uniqueness condition}
-  from the eigenvalue structure, not a dynamical derivation
-  from the noise kernel.
-  No parameter is fitted: $b(N)$ is determined by the kernel.
+\item \emph{The coefficient $c = 12\,b(N)$ is derived from
+  the equivariant Riemann--Roch theorem}
+  (Proposition~\ref{prop:equiv-rr}).
+  The equivariant index of the $\mathbb{Z}_N$ orbifold gives
+  $\mathrm{ind}_m = f(m,N) + b(N)$
+  (the Havelock Casimir plus the Todd-class offset).
+  In the orbifold CFT, the twisted-sector ground-state energy is
+  $E_0(m) = -c/(24N) + cm(N{-}m)/(24N^2)$.
+  Matching $\mathrm{ind}_m = E_0(m)$ for \emph{all}~$m$
+  simultaneously forces $c = 12\,b(N)$ exactly---including
+  the sub-leading $N/12$, $\ln 2$, and $(\ln N)/(N{-}1)$ terms,
+  which are topological (Todd class) contributions,
+  not regularisation artifacts.
+  This is the \emph{unique} central charge compatible with the
+  Havelock eigenvalue structure.
+  (The CL noise kernel gives a \emph{different} coefficient,
+  $\sim N^2\rho^{*2}/((N{-}2)\coth^2\rho^*)$, which does not
+  equal $12\,b(N)$ at any~$N$; the CL mechanism provides the
+  kinetic \emph{term}, not its coefficient.)
+  No parameter is fitted: $b(N)$ is proved analytically
+  (Paper~I, Theorem~5.1) and $c = 12\,b(N)$ follows from
+  the index theorem.
 \end{enumerate}
 
 Each term has a definite origin:
@@ -1262,7 +1335,7 @@ determined by the index theorem.
 on the flat plane.
 On \emph{constant-curvature} surfaces with the \emph{constrained}
 (angular-impulse) eigenvalue, $\delta_m = 0$ identically
-(Paper~IV, Theorem~\ref*{V-thm:zero-anomaly}).
+(Paper~IV, Theorem~\ref*{IV-thm:zero-anomaly}).
 The nonzero formula below applies to the flat-plane or
 non-constant-curvature case.
 
@@ -1758,7 +1831,7 @@ characterisation of Einstein manifolds via polygon stability, rather
 than a one-directional derivation.
 The full $4$D Einstein equations are derived independently in
 Paper~IV through the boundary Virasoro mechanism (the emergent
-spin-$2$ graviton of Theorem~\ref*{V-thm:graviton-4d}).
+spin-$2$ graviton of Theorem~\ref*{IV-thm:graviton-4d}).
 We state the theorem first, then collect the proof.
 
 \begin{theorem}[Polygon entropy maximisation implies constant curvature]
@@ -1890,11 +1963,28 @@ gives a mode-independent $C_1(x,\varepsilon)$ regardless
 of whether $R(x)$ is constant).
 Without~(H2), (H1) $+$ (H3) carry no curvature content.
 
-Hypothesis~(H2) provides the dynamical input:
-on a surface with non-constant curvature, the frozen-mode entropy
-$S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$
-varies from point to point (points with larger $|R|$ have
-smaller $\lambda_m$ and lower entropy).
+\emph{Derivation of\/ \textup{(H2)} from the vortex-gravity
+isomorphism.}
+One might object that the Onsager principle extremises
+vortex \emph{configurations} at fixed background
+geometry, not the geometry itself.
+The resolution comes from the vortex-gravity isomorphism
+(Paper~II, Proposition~\ref{II-prop:grav-stability}):
+in $2{+}1$D, the linearised gravitational interaction between
+point masses is \emph{identical} to the point-vortex interaction,
+with $\kappa \leftrightarrow 8\pi Gm$.
+Deficit angle $= 2\pi\kappa$, so the metric degrees of freedom
+(spatial curvature at each point) ARE vortex degrees of freedom.
+The Onsager principle, applied to the \emph{full} system of
+$N$ vortices whose circulations determine the deficit angles,
+therefore extremises entropy over configurations that
+include the background curvature.
+
+Concretely: place a test $N$-gon at each point $x \in S$.
+The frozen-mode entropy at~$x$ is
+$S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$,
+which depends on $R(x)$ through the Hadamard expansion
+$C_1(x) = (N{-}1)[1 - R(x)\varepsilon^2/4 + O(\varepsilon^4)]$.
 The entropy $S(x)$ is strictly concave in $C_1$:
 $d^2S/dC_1^2 = -\tfrac{1}{2}\sum_{m \ne m^*}1/\lambda_m^2 < 0$.
 The total entropy $S_{\mathrm{total}} = \int_S S(x)\,dA$
@@ -1908,14 +1998,77 @@ which depends on the metric through $\rho(x)$ and is
 which is determined by the Euler characteristic).
 The Lagrange multiplier for this energy constraint is~$\Lambda$.
 
-The derivation of~(H2) is therefore \emph{not} circular:
-it does not assume constant curvature.
-It uses the second law (entropy maximisation of the
-polygon system, the Onsager selection principle of Paper~I)
-on a \emph{general} background, and the maximum-entropy
-configuration turns out to be constant curvature.
-The Einstein equations are the unique equilibrium of
-the polygon entropy.
+The derivation is \emph{not} circular: it uses the
+\emph{proved} vortex-gravity isomorphism (that deficit
+angles~$=$ circulations) together with the Onsager
+selection principle (that the maximum-entropy configuration
+is selected at negative temperature).
+The metric is \emph{not} varied by hand --- it varies
+\emph{because it is a vortex degree of freedom}.
+
+\emph{Extension to smooth metrics via Regge calculus.}
+The vortex-gravity isomorphism applies to conical deficits
+(point masses), raising the question: how does (H2) constrain
+a \emph{smooth} metric $R(x)$?
+The bridge is Regge calculus \citep{Regge1961}:
+any smooth 2D Riemannian manifold $(S, g)$ is
+approximated by a simplicial complex $(S_h, g_h)$
+in which curvature is concentrated at $V$ vertices,
+each carrying a deficit angle
+$\varepsilon_v \approx R(v)\,A_v$
+(with $A_v$ the dual area).
+The convergence $g_h \to g$ as $h \to 0$ is proved
+\citep{CheegerMullerSchrader1984}; the Green's function
+$G_h \to G$ in the $H^1$-norm (standard finite-element
+convergence).
+Each Regge vertex IS a point vortex
+(circulation $\kappa_v = \varepsilon_v/(2\pi)$,
+by the isomorphism), so the Regge system is a
+$V$-vortex configuration.
+The vertex positions are \emph{simultaneously}
+vortex positions and Regge metric degrees of freedom
+(on a fixed triangulation, vertex positions determine
+edge lengths, hence the simplicial metric).
+The Onsager principle on this $V$-vortex system
+extremises entropy over vertex positions, which
+varies the Regge metric.
+In the continuum limit $V \to \infty$:
+$S_{\mathrm{Regge}} \to S_{\mathrm{total}}[g]$,
+and $\delta S_{\mathrm{Regge}}/\delta(\text{vertices})
+= 0$ converges to $\delta S[g]/\delta g = 0$.
+No new physical assumption enters: the Regge
+approximation is a mathematical theorem, and the
+vortex-gravity isomorphism applies to each vertex
+individually.
+
+\emph{Partition function interpretation.}
+The total polygon partition function
+$Z[g] = \sum_N e^{-b(N)}\,Z_{\mathrm{frozen}}(N, g)$
+is a functional of the metric~$g$ through
+$Z_{\mathrm{frozen}} = \prod_m |\lambda_m(g)|^{-1/2}$
+(Proposition~\ref{prop:partition-function}).
+By the vortex-gravity isomorphism, this is the
+\emph{gravitational} one-loop partition function summed
+over polygon sectors: $Z[g] = Z_{\mathrm{grav}}[g]$,
+with $e^{-b(N)}$ playing the role of $e^{-S_{\mathrm{EH}}}$
+(the classical Euclidean action of the $N$-cone geometry).
+The saddle-point condition $\delta(-\log Z)/\delta g = 0$ is
+therefore the Einstein equation---specifically, it is the
+Euler--Lagrange equation for the combined classical action
+$b(N)$ plus the one-loop correction $-\log Z_{\mathrm{frozen}}$.
+This identification gives the WDW equation
+(\S\ref{sec:wdw}) its physical meaning: it is the
+\emph{quantum mechanics of the gravitational partition function}.
+The WKB tunnelling action $S_{\mathrm{BO}}(N)$ is the
+Euclidean action of the dominant instanton connecting the
+two turning points of $V(\rho)$, and $\exp(-S_{\mathrm{BO}})$
+is the tunnelling amplitude between the Planck-scale and
+cosmological-scale vacua.
+The hierarchy $\ell \cdot v = \exp(S_{\mathrm{BO}})$
+(Paper~IV, \S14) is therefore not an \emph{ad hoc}
+identification but a consequence of the partition function
+interpretation: the cosmological scale $\ell$ is set by
+the instanton suppression of the polygon partition function.
 
 \emph{The explicit $\delta S/\delta g$ computation.}
 In 2D conformal gauge $g = e^{2\varphi}\,g_0$, the scalar
@@ -1994,7 +2147,7 @@ content in the time direction.
 
 In $d_{\mathrm{st}} = 5$ ($4{+}1$D), additional quadrupole
 components appear, requiring $N \ge 12$
-(Paper~IV, Theorem~\ref*{V-thm:n-selection}).
+(Paper~IV, Theorem~\ref*{IV-thm:n-selection}).
 \end{proof}
 
 \begin{proposition}[The cosmological constant from the WDW equation]
@@ -2236,7 +2389,7 @@ The identification of palindromic thresholds as Rindler
 horizons uses the modular Hamiltonian of the angular bath,
 which equals the Rindler energy by the
 Bisognano--Wichmann theorem for the boundary CFT
-(Paper~IV, Theorem~\ref*{V-thm:nonlinear-einstein}).
+(Paper~IV, Theorem~\ref*{IV-thm:nonlinear-einstein}).
 
 \paragraph{Matter coupling.}
 On a quotient $\Gamma\backslash\mathbf{H}^2$, the Selberg
