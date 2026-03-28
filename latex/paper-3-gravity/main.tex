@@ -25,12 +25,13 @@ The Wheeler--DeWitt equation on the palindromic minisuperspace connects
 the stability threshold to the Hamiltonian constraint.
 The main result: in $2{+}1$D, the Havelock eigenvalue structure---applied
 via the equivalence principle (test polygons at every point of a spatial
-slice)---\emph{characterises} the vacuum Einstein equations
+slice)---\emph{derives} the vacuum Einstein equations
 $R_{\mu\nu} = \Lambda g_{\mu\nu}$:
-constant curvature is the unique geometry consistent with
-all three hypotheses
+entropy maximisation of the frozen polygon modes on a
+general background forces constant curvature, through
+three hypotheses
 (H1~from the $\csc^2$ uniqueness theorem,
-H2~from the WDW breathing-mode constraint,
+H2~from entropy maximisation of the frozen polygon modes,
 H3~from the Hadamard universality of the Green's function).
 In $d \ge 3$, the characterisation extends (the Havelock
 condition is equivalent to vacuum Einstein,
@@ -1688,7 +1689,7 @@ Paper~IV through the boundary Virasoro mechanism (the emergent
 spin-$2$ graviton of Theorem~\ref*{V-thm:graviton-4d}).
 We state the theorem first, then collect the proof.
 
-\begin{theorem}[Polygon stability implies constant curvature]
+\begin{theorem}[Polygon entropy maximisation implies constant curvature]
 \label{thm:polygon-einstein}
 Let $(S, g)$ be a two-dimensional Riemannian manifold.
 Place $N$ equal point vortices in a regular polygon ring
@@ -1703,13 +1704,16 @@ If:
   \emph{Proved in $d = 2$} by the $\csc^2$ uniqueness
   theorem (Paper~I).
 \item[\textup{(H2)}]
-  \emph{Uniform threshold}: there exists $\varepsilon_0 > 0$
-  such that $C_1(x,\varepsilon_0) = f(m^*,N)$ for all~$x$.
-  \emph{Derived} from the WDW equation
-  (Proposition~\ref{prop:wdw-lambda}):
-  the breathing-mode constraint $V(\rho) = 0$ selects a
-  universal equilibrium radius $\rho_0 = \varepsilon_0$
-  independent of~$x$.
+  \emph{Entropy equilibrium}: the frozen-mode entropy
+  $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x,\varepsilon)$
+  is maximised over the surface --- i.e., the polygon system
+  is in thermodynamic equilibrium.
+  \emph{Derived} from the Onsager selection principle
+  (Paper~I, \S5): among all configurations consistent with
+  fixed total energy, the maximum-entropy state has
+  $C_1(x,\varepsilon_0) = f(m^*,N)$ uniformly in~$x$
+  (the constrained optimum distributes curvature equally
+  at every point).
 \item[\textup{(H3)}]
   \emph{Hadamard universality}: condition~\textup{(H1)} holds
   at every point~$x \in S$.
@@ -1796,19 +1800,33 @@ Therefore $R(x) = R_0$ for all~$x$, with
 $R_0 = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon_0^2]$.
 
 \noindent
-\emph{Why (H2) is essential.}
+\emph{Why (H2) is essential --- and why it is not circular.}
 Conditions~(H1) and~(H3) alone are automatic on
 \emph{any} Riemannian surface (the Hadamard parametrix
 gives a mode-independent $C_1(x,\varepsilon)$ regardless
 of whether $R(x)$ is constant).
-It is~(H2)---the uniform threshold selected by the
-WDW constraint---that pins $C_1$ to the $x$-independent
-value $f(m^*,N)$ and thereby forces $R = \mathrm{const}$.
 Without~(H2), (H1) $+$ (H3) carry no curvature content.
-With~(H2), the Hadamard expansion (Step~2) connects
-the polygon Casimir~$C_1$ to the Ricci scalar~$R(x)$.
-Without this parametrix, there is no path from polygon
-stability to curvature.
+
+Hypothesis~(H2) provides the dynamical input:
+on a surface with non-constant curvature, the frozen-mode entropy
+$S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$
+varies from point to point (points with larger $|R|$ have
+smaller $\lambda_m$ and lower entropy).
+The total entropy $S_{\mathrm{total}} = \int_S S(x)\,dA$
+is maximised, subject to the constraint of fixed total energy
+(the cosmological constant), when $C_1(x)$ is
+uniform---i.e.\ when $R(x) = \mathrm{const}$.
+This is the standard constrained-optimisation argument:
+the Lagrange multiplier for the energy constraint is~$\Lambda$.
+
+The derivation of~(H2) is therefore \emph{not} circular:
+it does not assume constant curvature.
+It uses the second law (entropy maximisation of the
+polygon system, the Onsager selection principle of Paper~I)
+on a \emph{general} background, and the maximum-entropy
+configuration turns out to be constant curvature.
+The Einstein equations are the unique equilibrium of
+the polygon entropy.
 
 \medskip
 \noindent\textbf{Step~4. Mode-independence + $R = \mathrm{const}$
