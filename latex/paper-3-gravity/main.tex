@@ -723,17 +723,17 @@ by two independent bounds:
   suppression.
   The total non-identity contribution is bounded by
   $(N{-}1)\exp(-b(N)\ln N)$:
-  $\sim\!9\%$ at $N = 5$,
-  $\sim\!1\%$ at $N = 6$,
-  $< 0.15\%$ for $N \ge 7$,
+  $\sim\!11\%$ at $N = 5$,
+  $\sim\!1.7\%$ at $N = 6$,
+  $< 0.14\%$ for $N \ge 7$,
   and $< 10^{-10}$ for $N \ge 11$.
 \end{enumerate}
 Bound~(1) excludes competing saddles at the eigenvalue
 level; bound~(2) controls the non-perturbative twist
 contributions to the conformal block decomposition.
 Together they establish identity block dominance for
-$N \ge 6$ (corrections $\le 1\%$).
-At $N = 5$, the $9\%$ correction is the leading
+$N \ge 6$ (corrections $\le 2\%$).
+At $N = 5$, the $11\%$ correction is the leading
 systematic uncertainty.
 \end{proof}
 
@@ -1064,12 +1064,13 @@ One-loop & $\delta_m$ &
 \item \textbf{Quantum} (near threshold):
   $\Psi \sim \mathrm{Ai}\bigl((2c\,\coth\rho^*)^{1/3}
   (\rho - \rho^*)\bigr)$,
-  smoothing the classical horizon over the universal width
+  smoothing the classical horizon over the width
 \begin{equation}\label{eq:airy-width}
-  \delta\rho = \frac{1}{(2c)^{1/3}} \approx \frac{1}{(2N^2)^{1/3}}
+  \delta\rho = \frac{1}{(2c\,\coth\rho^*)^{1/3}},
 \end{equation}
-  (verified to $4$ digits for $N = 8,\ldots,20$:
-  $\delta\rho/N^{-2/3} \to 2^{-1/3} \approx 0.794$).
+  where $\coth\rho^* = V'(\rho^*)$ is the surface gravity.
+  For large $\rho^*$ ($\coth\rho^* \to 1$):
+  $\delta\rho \to (2c)^{-1/3} \approx (2N^2)^{-1/3}$.
   At $c = \infty$: $\delta\rho \to 0$ (sharp classical threshold).
   At finite~$c$: the horizon has quantum width $O(c^{-1/3})$.
 \end{enumerate}
@@ -1130,9 +1131,10 @@ threshold is the arithmetic invariant of the phase boundary.
 
 \begin{proposition}[Orbifold--Havelock correspondence]
 \label{prop:orbifold-havelock}
-The Havelock eigenvalue on $\mathbf{H}^2$ is exactly the
-$\mathbb{Z}_N$ orbifold CFT ground-state energy at
-$c_{\mathrm{orb}} = 12N^2$ (the UV orbifold central charge)
+At leading order in $1/N$, the Havelock eigenvalue on
+$\mathbf{H}^2$ matches the $\mathbb{Z}_N$ orbifold CFT
+ground-state energy at $c_{\mathrm{orb}} = 12N^2$
+(the UV orbifold central charge)
 with angular impulse constraint:
 \begin{equation}\label{eq:orbifold-havelock}
   \lambda_m = -E_0(m;\,c_{\mathrm{orb}}{=}12N^2) + \mu_L(\xi),
@@ -1217,7 +1219,7 @@ determined by the index theorem.
 on the flat plane.
 On \emph{constant-curvature} surfaces with the \emph{constrained}
 (angular-impulse) eigenvalue, $\delta_m = 0$ identically
-(Paper~IV, Theorem~\ref*{V-thm:anomaly-vanishes}).
+(Paper~IV, Theorem~\ref*{V-thm:zero-anomaly}).
 The nonzero formula below applies to the flat-plane or
 non-constant-curvature case.
 
@@ -1805,18 +1807,25 @@ curvature correction to chord distances at $O(\varepsilon^3)$).
 
 \medskip
 \noindent\textbf{Step~3. (H2) $+$ Step~2 force $R = \mathrm{const}$.}
-By~(H2), $C_1(x,\varepsilon_0) = f(m^*,N)$ at every~$x$
-for the universal threshold radius~$\varepsilon_0$.
-Substituting the expansion~(\ref{eq:C1-expansion-proof})
-at $\varepsilon = \varepsilon_0$:
+By~(H2), entropy maximisation forces
+$C_1(x,\varepsilon)$ to be $x$-independent
+(the uniform-$C_1$ configuration maximises $S_{\mathrm{total}}$
+by Jensen's inequality and the concavity of~$S$;
+see below).
+Write $C_1^{\mathrm{eq}}$ for this uniform value.
+Substituting the expansion~(\ref{eq:C1-expansion-proof}):
 \[
-  (N{-}1)\!\left[1 - \frac{R(x)\,\varepsilon_0^2}{4}
-  + O(\varepsilon_0^4)\right] = f(m^*,N)
+  (N{-}1)\!\left[1 - \frac{R(x)\,\varepsilon^2}{4}
+  + O(\varepsilon^4)\right] = C_1^{\mathrm{eq}}
   \quad\text{for all } x.
 \]
 The right side is $x$-independent.
-Therefore $R(x) = R_0$ for all~$x$, with
-$R_0 = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon_0^2]$.
+Therefore $R(x) = R_0$ for all~$x$.
+The \emph{value} of $C_1^{\mathrm{eq}}$ (and hence $R_0$ and
+$\Lambda$) is determined separately by the energy constraint:
+the WDW equation (Proposition~\ref{prop:wdw-lambda}) gives
+$C_1^{\mathrm{eq}} = f(m^*,N)$ at the BO threshold,
+with $R_0 = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon_0^2]$.
 
 \noindent
 \emph{Why (H2) is essential --- and why it is not circular.}
@@ -2010,9 +2019,10 @@ Dimension & Weyl components & Status \\
 $d = 2$ ($2{+}1$D) & $0$ &
   \textbf{Theorem}: (H1) proved by the Havelock identity \\
 $d = 3$ ($3{+}1$D) & $10$ &
-  \textbf{Equivalence}: (H1) $\Leftrightarrow$ vacuum Einstein \\
+  \textbf{Spatial equivalence}: (H1) constrains traceless Ricci;
+  full spacetime requires Paper~IV \\
 $d \ge 4$ & $\ge 35$ &
-  \textbf{Equivalence}: same argument, more Weyl components \\
+  Same, with more traceless Ricci components \\
 \bottomrule
 \end{tabular}
 \end{center}
