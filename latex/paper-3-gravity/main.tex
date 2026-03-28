@@ -1251,18 +1251,26 @@ the Casimir $m(N{-}m)/2$ is $O(c)$; the Weyl anomaly $\delta_m$
 is $O(c^0)$ (topological); the Virasoro block correction is
 $O(1/c) \approx 10^{-5}$ (\S\ref{sec:holographic}).
 
-The tower extends to a \emph{Magri bihamiltonian hierarchy}:
-the vortex system admits a second Poisson structure (the Casimir
-bracket) whose recursion eigenvalues are $f_m = m(N{-}m)/2$.
-The $k$-th conserved quantity has mode eigenvalue $f_m^k$,
-with the physical derivatives
-$d_{2k} = \partial^{2k}H/\partial a^{2k} = \alpha_k N f_m^k$
-satisfying $\alpha_1 = 1$, $\alpha_2 = 4$
-(verified for $6$ values of~$N$ to $< 0.04\%$).
-The cubic Hamiltonian is purely imaginary (a Berry phase),
-and the quartic coupling $Q = (N/48)f^2$ lies inside the hierarchy
-($H_4^{\mathrm{diag}} \propto I_2$), guaranteeing conservation
-$\{I_j, H_4\} = 0$ by the Magri theorem.
+The tower extends to a \emph{Magri bihamiltonian hierarchy}.
+The Thomson vortex system IS the Calogero--Moser--Sutherland
+model at coupling $g = 1$ (the Havelock interaction matrix
+$M_{jk} = 1/\sin^2(\pi(j{-}k)/N)$ is exactly the CMS
+Hamiltonian; see \citealt{Calogero1975}).
+The CMS model is bihamiltonian
+\citep{OlshanetskyPerelomov1976}:
+the Kirchhoff bracket $P_0$ (mode-independent) and the
+Casimir bracket $P_1$ (eigenvalue $f_m$ on mode~$m$) are
+compatible, with recursion operator $R = P_1 P_0^{-1}$
+acting as multiplication by $f_m = m(N{-}m)/2$.
+By the Magri theorem, the $k$-th conserved quantity $I_k$
+has mode eigenvalue $f_m^k$,
+with physical derivatives
+$d_{2k} = \alpha_k N f_m^k$
+($\alpha_1 = 1$, $\alpha_2 = 4$, $\alpha_3 = 64$,
+verified numerically for $N \le 16$).
+The quartic coupling $Q = (N/48)f^2$ lies inside the hierarchy
+($H_4^{\mathrm{diag}} \propto I_2$), guaranteeing
+$\{I_j, H_4\} = 0$ by integrability.
 The three-layer decomposition $\lambda_m = C_1 - f_m + \delta_m$
 is the truncation of this hierarchy at level~$1$.
 
