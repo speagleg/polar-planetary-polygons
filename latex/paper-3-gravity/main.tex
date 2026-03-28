@@ -2,7 +2,6 @@
 
 \externaldocument[I-]{../paper-1-mathematics/main}
 \externaldocument[II-]{../paper-2-physics/main}
-\externaldocument[IV-]{../paper-4-planets/main}
 \externaldocument[V-]{../paper-4-field-theory/main}
 
 \title{\seriestitle\\[6pt]\large Paper III: Gravitational Theory}
@@ -207,7 +206,8 @@ At leading order $c \approx N^2$, so $k \approx N^2/6$.
 The CS level $k = c/6$ is not integer for most~$N$.
 Level quantisation in CS theory arises from large gauge
 transformations; for the non-compact $\mathrm{SL}(2,\mathbb{R})$,
-the relevant topological constraint is weaker than for compact groups.
+the relevant topological constraint is weaker than for compact
+groups \citep[\S3]{Witten1988}.
 In the semiclassical regime $k \gg 1$ (large~$N$),
 integrality corrections are~$O(1/k)$ and the CS formulation
 is reliable (see Paper~IV, \S\ref*{V-sec:gauge-group},
@@ -697,18 +697,23 @@ $\exp(-c \times S_{\mathrm{conical}})$;
 the $\mathbb{Z}_N$ symmetry reduces the moduli space
 $\mathcal{M}_{0,N+1}^{\mathbb{Z}_N}$ to dimension~$2$
 (ring radius and overall phase).
-On this $2$D space, the saddle is unique: the Hessian of the
-classical action (the constrained Havelock eigenvalue $\lambda_m$)
-is non-degenerate at the symmetric conical metric, because
-$\lambda_m > 0$ for all $m \ne m^*$ at the threshold
-(the non-crossing proposition: $|f_m/c| \le 1/8$,
-so no parasitic zero exists).
-A second saddle would require $\lambda_m = 0$ for some
-$m \ne m^*$, which the non-crossing bound excludes.
-At finite~$c$: the non-identity corrections are bounded by
-Proposition~\ref{prop:non-crossing}
-($|f_m/c| \le 1/8 < 1$), which ensures no eigenvalue
-sign changes.
+On this $2$D space, the symmetric conical metric
+is a non-degenerate saddle: its Hessian (the constrained
+Havelock eigenvalue) satisfies $\lambda_m > 0$ for all
+$m \ne m^*$ at the threshold.
+A competing saddle on $\mathcal{M}_{0,N+1}^{\mathbb{Z}_N}$
+would require a different conical metric where
+$\lambda_m = 0$ for some $m \ne m^*$.
+By Proposition~\ref{prop:non-crossing},
+the $O(1/c)$ Virasoro corrections satisfy
+$|\delta f_m/\lambda_m| < 1/4$ for all non-critical~$m$,
+so no eigenvalue can change sign at finite~$c$.
+For $N \le 4$, the reduced moduli space can be
+analysed directly (genus-zero conformal blocks);
+for $N > 4$, the non-crossing bound provides
+the eigenvalue-level exclusion but a global
+convexity argument on $\mathcal{M}^{\mathbb{Z}_N}$
+would strengthen the result.
 \end{proof}
 
 Theorem~\ref{thm:block-havelock} identifies
@@ -1141,10 +1146,11 @@ Then $-E_0(m) + \mu_L = [N/2 - m(N{-}m)/2] + [C_1(\xi) - N/2]
 = C_1(\xi) - m(N{-}m)/2 = \lambda_m$.
 \end{proof}
 
-\begin{proposition}[Equivariant Riemann--Roch]
+\begin{proposition}[Todd class decomposition of the eigenvalue offset]
 \label{prop:equiv-rr}
-The $\mathbb{Z}_N$-equivariant spectral index of the vortex
-Laplacian on the cusped Poincar\'e disk satisfies
+The $\mathbb{Z}_N$-equivariant eigenvalue decomposition
+of the vortex Laplacian on the cusped Poincar\'e disk
+(analogous to the equivariant Riemann--Roch theorem) satisfies
 \begin{equation}\label{eq:equiv-rr}
   \mathrm{ind}_m = \underbrace{\frac{m(N{-}m)}{2}}_{c_1\text{-term}}
     + \underbrace{b(N)}_{\text{Todd term}}
@@ -1662,7 +1668,7 @@ characterisation of Einstein manifolds via polygon stability, rather
 than a one-directional derivation.
 The full $4$D Einstein equations are derived independently in
 Paper~IV through the boundary Virasoro mechanism (the emergent
-spin-$2$ graviton of Theorem~IV-\ref*{V-thm:graviton-4d}).
+spin-$2$ graviton of Theorem~\ref*{V-thm:graviton-4d}).
 We state the theorem first, then collect the proof.
 
 \begin{theorem}[Polygon stability implies constant curvature]
@@ -1784,13 +1790,14 @@ stability to curvature.
 
 \medskip
 \noindent\textbf{Step~4. Mode-independence + $R = \mathrm{const}$
-implies Einstein in any~$d$.}
-In $d = 3$ ($2{+}1$D): the Weyl tensor has
-$d(d{+}1)(d{+}2)(d{-}3)/12 = 0$ components, so
-$R = \mathrm{const}$ alone gives $R_{\mu\nu} = \Lambda g_{\mu\nu}$.
+implies Einstein in any spacetime dimension~$d_{\mathrm{st}}$.}
+In $d_{\mathrm{st}} = 3$ ($2{+}1$D): the Weyl tensor has
+$d_{\mathrm{st}}(d_{\mathrm{st}}{+}1)(d_{\mathrm{st}}{+}2)(d_{\mathrm{st}}{-}3)/12 = 0$
+components, so $R = \mathrm{const}$ alone gives
+$R_{\mu\nu} = \Lambda g_{\mu\nu}$.
 
-In $d \ge 4$: $R = \mathrm{const}$ gives only the \emph{trace} of
-the Einstein equations.
+In $d_{\mathrm{st}} \ge 4$: $R = \mathrm{const}$ gives only the
+\emph{trace} of the Einstein equations.
 However, condition~(H1) provides the missing information.
 The Hadamard parametrix in $d$ dimensions gives
 $G(x,y) = U(x,y)/\sigma^{(d-2)/2} + V\log\sigma + W$,
@@ -1810,7 +1817,8 @@ $\cos(2\pi pm/N) = \cos(2\pi(N{-}p)m/N)$,
 the number of \emph{independent real} angular probes is
 $\lfloor N/2\rfloor$, not $N{-}1$.
 To constrain all $5$ quadrupole components of the
-$\ell = 2$ Weyl sector in $d = 3$, we need
+$\ell = 2$ Weyl sector in spatial dimension $d = 3$
+($d_{\mathrm{st}} = 4$), we need
 $\lfloor N/2\rfloor \ge 5$, i.e.\ $N \ge 10$ (even) or
 $N \ge 11$ (odd).
 Verified numerically: the $5 \times 5$ cosine matrix
@@ -1823,9 +1831,8 @@ $R_{ij} = (R/d)\,g_{ij}$: maximal symmetry.
 Promoting to the $(d{+}1)$-dimensional spacetime:
 $R_{\mu\nu} = \Lambda\,g_{\mu\nu}$.
 
-In $d = 4$, the Weyl tensor has $10$ components at $\ell = 2$
-($5$ real), requiring $\lfloor N/2\rfloor \ge 5$, i.e.\ $N \ge 10$
-(even) or $N \ge 11$ (odd)---the \emph{cosmological polygon}
+In $d_{\mathrm{st}} = 5$ ($4{+}1$D), additional quadrupole
+components appear, requiring $N \ge 12$
 (Paper~IV, Theorem~\ref*{V-thm:n-selection}).
 \end{proof}
 
