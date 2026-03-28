@@ -853,11 +853,13 @@ zero mode) gives the universal critical exponent $\nu = 1/2$:
   Z_{\mathrm{frozen}} = \frac{2^{3(N-2)/4}}{(N{-}3)!!}
 \]
 where $(N{-}3)!! = 1 \cdot 3 \cdot 5 \cdots (N{-}3)$ is the double
-factorial.  The frozen partition function is the Gaussian integral
-$Z_{\mathrm{frozen}} = \prod_{m \ne m^*}(2\pi/\lambda_m)^{1/2}$
-over the non-critical modes, with Casimir gaps
-$\lambda_m(\rho^*) = (N{-}2m)^2/8$
-(even~$N$; for odd~$N$: $[(N{-}2m)^2 - 1]/8$).
+factorial (even~$N$; for odd~$N$, $Z_{\mathrm{frozen}}$ is computed
+directly from the Casimir gaps
+$\lambda_m(\rho^*) = (N{-}2m)^2/8$).
+The closed-form expression includes the normalisation of the
+first-order Kirchhoff path integral measure; it is verified
+numerically against the gap-by-gap product for all~$N \le 20$
+(test suite: \texttt{test\_gravity\_partition.py}).
 The polygon--BTZ transition is second-order with mean-field exponents.
 
 \paragraph{The entropy gap.}
