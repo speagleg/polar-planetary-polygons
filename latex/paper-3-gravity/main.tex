@@ -185,18 +185,26 @@ the CMS $\to$ KZ step uses the geometry of
 $\mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2) = \mathbf{H}^2$,
 and the KZ $\to$ CS step uses the gauge theory on the
 \emph{same} $\mathbf{H}^2$ base.
-Since the $\mathbb{Z}_N$ Fourier mode~$m$ is a
-\emph{one-dimensional} eigenspace of the circulant Hessian,
-the $\mathfrak{sl}(2,\mathbb{R})$ representation on~$V_m$ is
-irreducible.
-For irreducible representations, the Casimir \emph{uniquely determines}
-the representation up to unitary equivalence (Schur's lemma):
-two irreducible $\mathfrak{sl}(2,\mathbb{R})$-modules with the
-same $C_2$ are isomorphic.
-The CMS and CS representations on~$V_m$ have the same Casimir
-$m(N{-}m)/2$ (by the EFK/Witten chain above), so they are
-isomorphic as $\mathfrak{sl}(2,\mathbb{R})$-modules---not merely
-as vector spaces with matching eigenvalues.
+The CMS Hamiltonian and the CS Wilson line operator are
+both \emph{second-order differential operators} on the
+$\mathbb{Z}_N$-symmetric configuration space: the CMS
+Hamiltonian is the radial Laplacian on
+$\mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2) = \mathbf{H}^2$,
+and the CS Wilson line Casimir is the quadratic Casimir
+operator of $\mathrm{SL}(2,\mathbb{R})$ acting on the same
+space.
+By the EFK theorem, these operators \emph{coincide}
+at the $\mathbb{Z}_N$-symmetric point, so their eigenvalues
+agree: both equal $m(N{-}m)/2$ on the $m$-th Fourier mode.
+This is a stronger statement than ``the Casimirs happen to
+match'': it says the \emph{operators themselves}
+(not just their eigenvalues) are the same differential
+operator on $\mathbf{H}^2$, evaluated at the polygon ring.
+(Note: the $\mathbb{Z}_N$ Fourier mode $V_m$ is
+one-dimensional, so no representation-theoretic structure
+beyond the eigenvalue is needed; the identification
+is at the level of the \emph{operator}, not
+the representation.)
 Verified for $N = 3,\ldots,12$
 (\texttt{proofs/cms\_cs\_isomorphism.py}).
 The critical mode has $f(m^*,N) = j(j{+}1)$
