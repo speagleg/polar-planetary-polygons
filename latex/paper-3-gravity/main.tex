@@ -1065,13 +1065,19 @@ Two independent derivations combine:
   produces a $\dot\rho^2$ noise kernel in the
   Onsager--Machlup path integral.
 \item \emph{The coefficient is $c = 12\,b(N)$}
-  (equivariant index, Proposition~\ref{prop:equiv-rr}):
+  (self-consistency, Proposition~\ref{prop:equiv-rr}):
   $b(N)$ is the unique mode-independent offset in the
   eigenvalue decomposition, computed from the $\csc^2$
-  kernel to $10^{-16}$ precision.
-  This is \emph{not} the CL friction $\gamma \sim O(N)$;
-  it is a topological invariant of the eigenvalue structure
-  ($c \sim N^2$).
+  kernel to $10^{-16}$ precision
+  (Paper~I).
+  The CL noise kernel produces a \emph{different} kinetic
+  coefficient ($\sim N^2\rho^{*2}/((N{-}2)\coth^2\rho^*)$,
+  which does not equal $12\,b(N)$ at any~$N$).
+  The value $c = 12\,b(N)$ is instead the unique coefficient
+  for which the WDW ground-state eigenvalue reproduces the
+  classical Havelock spectrum---a \emph{uniqueness condition}
+  from the eigenvalue structure, not a dynamical derivation
+  from the noise kernel.
   No parameter is fitted: $b(N)$ is determined by the kernel.
 \end{enumerate}
 
@@ -1918,25 +1924,31 @@ configuration turns out to be constant curvature.
 The Einstein equations are the unique equilibrium of
 the polygon entropy.
 
-\emph{Why the variational principle is global.}
-The entropy $S(x)$ at each point~$x$ is a functional of
-the \emph{metric}~$g$: it depends on~$g$ through the
-Green's function $G(x,y)$ and the Hadamard expansion.
-The total entropy $S_{\mathrm{total}} = \int S(x)\,dA$
-is therefore a functional of the single global object~$g$.
-Maximising $S_{\mathrm{total}}$ over the space of Riemannian
-metrics (at fixed topology and fixed total polygon energy)
-is a standard calculus-of-variations problem.
-No ``communication between polygons'' is needed: the metric
-constrains all points simultaneously because it is one object.
-(This is the same logic as Jacobson 1995: different Rindler
-horizons do not communicate, but the metric satisfies all
-local constraints simultaneously.)
-The Euler--Lagrange equation of the variational problem
-$\delta S_{\mathrm{total}} / \delta g_{ij}
-= \Lambda\;\delta E_{\mathrm{total}} / \delta g_{ij}$
-reduces to $R = \mathrm{const}$ by the concavity of~$S$
-and the Hadamard expansion (Steps~2--3 above).
+\emph{The explicit $\delta S/\delta g$ computation.}
+In 2D conformal gauge $g = e^{2\varphi}\,g_0$, the scalar
+curvature satisfies $\delta R/\delta\varphi = -2R$
+and the area element $\delta(dA)/\delta\varphi = 2\,dA$.
+Using the chain $dS/dC_1 = (1/2)\sum 1/\lambda_m$ (the
+entropy gradient) and $dC_1/dR = -(N{-}1)\varepsilon^2/4$
+(the Hadamard expansion, Step~2), the functional
+derivative of $S_{\mathrm{total}}$ is:
+\[
+  \frac{\delta S_{\mathrm{total}}}{\delta\varphi(x)}
+  = \frac{(N{-}1)\varepsilon^2}{4}\,R(x)\sum\frac{1}{\lambda_m(x)}
+  + 2\,S(x).
+\]
+At the entropy maximum, this is constant for all~$x$:
+the Euler--Lagrange equation is $F(R(x)) = \Lambda_\varphi$
+where $F(R) = [(N{-}1)\varepsilon^2/4]\,R\sum(1/\lambda_m)
++ 2S$.
+The function~$F$ is strictly monotone in~$R$
+(since $dS/dC_1 > 0$ and $dC_1/dR < 0$, so
+$dF/dR \ne 0$).
+A monotone function equal to a constant forces
+$R(x) = R_0 = \mathrm{const}$.
+No Jensen inequality is needed---the Euler--Lagrange
+equation is solvable and its unique solution is
+constant curvature.
 
 \medskip
 \noindent\textbf{Step~4. Mode-independence + $R = \mathrm{const}$
