@@ -214,10 +214,13 @@ Level quantisation in CS theory arises from large gauge
 transformations; for the non-compact $\mathrm{SL}(2,\mathbb{R})$,
 the relevant topological constraint is weaker than for compact
 groups \citep[\S3]{Witten1988}.
-In the semiclassical regime $k \gg 1$ (large~$N$),
+In the semiclassical regime $k \gg 1$,
 integrality corrections are~$O(1/k)$ and the CS formulation
-is reliable (see Paper~IV, \S\ref*{V-sec:gauge-group},
-for a detailed discussion).
+is reliable \citep[\S3]{Witten1988}.
+At $N = 7$ ($k \approx 8.6$), the semiclassical
+approximation has $O(1/k) \approx 12\%$ corrections;
+the integrality issue is an open limitation for
+small~$N$ (see Paper~IV, \S\ref*{V-sec:gauge-group}).
 The vortex polygon is a \emph{Wilson line}
 $W_m = \mathrm{Tr}_{R_m}\,\mathcal{P}\exp\!\oint\! A$
 in the representation $R_m$ with Casimir $f(m,N)$.
@@ -230,10 +233,10 @@ The CS partition function on Seifert manifolds is computed
 by Stieltjes--Wigert polynomials \citep{Tierz2006},
 which are the orthogonal polynomials of the log-normal
 (Stieltjes) moment problem.
-The Havelock moment sequence $r_k = \lambda_0^k/k!$
-is Stieltjes (positive-definite Hankel matrix, verified
-for $k \le 14$), linking the vortex spectral data
-directly to the CS partition function.
+The vortex spectral data (the Havelock eigenvalue sequence)
+is linked to the CS partition function through the
+Stieltjes--Wigert orthogonal polynomial structure of
+\citet{Tierz2006}.
 
 \paragraph{The Havelock--Schr\"odinger equation.}
 The Havelock matrix $H_{pq} = -\log|2\sin(\pi(p{-}q)/N)|$
@@ -633,8 +636,10 @@ The coefficient of $|a_m|^2$
 in~\eqref{eq:second-var-ope} is $2h\cdot m(N{-}m)
 = 2h \cdot T_m$, where $T_m = m(N{-}m)$ is the full
 OPE Casimir (Proposition~\ref{prop:chiral-casimir}).
-Verified numerically for $N \le 12$, all modes, to
-machine precision.
+This follows analytically from
+Proposition~\ref{prop:chiral-casimir}
+($T_m = m(N{-}m)$, proved) and the constrained second
+variation; verified numerically for $N \le 12$.
 \end{proposition}
 
 The missing piece is the confining potential $C_1(\xi)$.
@@ -860,8 +865,12 @@ zero mode) gives the universal critical exponent $\nu = 1/2$:
   Z_{\mathrm{frozen}} = \frac{2^{3(N-2)/4}}{(N{-}3)!!}
 \]
 where $(N{-}3)!! = 1 \cdot 3 \cdot 5 \cdots (N{-}3)$ is the double
-factorial (even~$N$; for odd~$N$, $Z_{\mathrm{frozen}}$ is computed
-directly from the Casimir gaps
+factorial (even~$N$, one zero mode at $m^* = N/2$;
+for odd~$N$, the palindromic pair $m^*$ and $N{-}m^*$ both
+have $\lambda = 0$, giving two zero modes and
+$Z \sim |\rho{-}\rho^*|^{-1}$.
+$Z_{\mathrm{frozen}}$ for odd~$N$ is computed
+from the remaining Casimir gaps
 $\lambda_m(\rho^*) = f(m^*,N) - f(m,N)
 = [m^*(N{-}m^*) - m(N{-}m)]/2$).
 The closed-form expression includes the normalisation of the
@@ -1551,8 +1560,10 @@ $\tilde{w}(p)/\tilde{w}(1) = O([\sin(\pi/N)/\sin(\pi p/N)]^{2\Delta})
 Since $R(\Delta) = \mathbb{E}_\mu[f]$ and $\mu$ concentrates at the
 global maximum of~$f$:
 $dR/d\Delta = \mathrm{Cov}_\mu(d\log\tilde{w}/d\Delta,\, f) > 0$
-(both $f$ and $d\log\tilde{w}/d\Delta$ are maximised at $p = 1$,
-giving positive covariance).
+(both $f$ and $g = d\log\tilde{w}/d\Delta = -2\log\sin(\pi p/N)$
+are maximised at $p = 1$ and monotonically ordered on
+$\{1,\ldots,\lfloor N/2\rfloor\}$; the Chebyshev sum inequality
+gives $\mathrm{Cov}_\mu(g, f) > 0$).
 \end{proof}
 
 \begin{corollary}[Stability c-theorem analogue]
@@ -2044,17 +2055,12 @@ the violation of~(H1) is controlled and measures
 the departure from Einstein geometry.
 \end{remark}
 
-\paragraph{Supporting evidence: the spectral focusing theorem.}
-
-\begin{theorem}[Spectral focusing]
-\label{thm:focusing}
-For $N \ge 4$, the generalised Casimir ratio
-$R(\Delta) = h(m_{\mathrm{crit}},N,\Delta)/h(1,N,\Delta)$
-is strictly increasing (Theorem~\ref{thm:rg-monotonicity}).
-Consequently, $N_{\mathrm{crit}}(\Delta)$
-is non-increasing: once a polygon type becomes unstable,
+\paragraph{Supporting evidence: spectral focusing.}
+By Theorem~\ref{thm:rg-monotonicity} and
+Corollary~\ref{cor:c-theorem},
+$N_{\mathrm{crit}}(\Delta)$ is non-increasing:
+once a polygon type becomes unstable,
 it remains unstable for all larger~$\Delta$.
-\end{theorem}
 
 \noindent
 This is the polygon analogue of the Raychaudhuri focusing theorem:
