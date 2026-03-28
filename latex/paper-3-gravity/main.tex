@@ -483,8 +483,10 @@ $m(N{-}m)/2$ per sector
 The remaining step is to express $C_1$ in terms of boundary
 CFT data.
 On the flat plane, $C_1 = N{-}1$ (the Havelock self-energy);
-on $\mathbf{H}^2$ at curvature $\xi$,
-$C_1 = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$.
+on $\mathbf{H}^2$ at curvature parameter~$\xi$,
+\begin{equation}\label{eq:C1-H2}
+  C_1(\xi) = (N{-}1)\,\frac{1{+}\xi^2}{(1{-}\xi)^2}.
+\end{equation}
 The curvature parameter $\xi$ encodes the radial
 position of the bulk polygon; through the Brown--Henneaux
 relation $c = 3\ell/(2G)$ and the deficit angle--dimension
@@ -670,9 +672,8 @@ In the semiclassical limit ($c \to \infty$, $h/c$ fixed):
 \begin{proof}
 Part~(a) is Proposition~\ref{prop:ope-stiffness}.
 For part~(b): the log-radial second variation of the
-hyperbolic energy gives
-$C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$
-by Paper~I, equation~\ref*{I-eq:C1_H2}
+hyperbolic energy gives $C_1(\xi)$ as in~\eqref{eq:C1-H2}
+(Paper~I, equation~\ref*{I-eq:C1_H2})
 (the Riemannian Havelock identity on~$\mathbf{H}^2$).
 Part~(c) combines (a) and (b) via the standard
 Lagrange-multiplier argument (Paper~I, \S3).
@@ -995,7 +996,7 @@ The potential $\log(2\sinh\rho) + b(N) - f(m,N)$ is the
 coordinate~$\rho$.
 The \emph{constrained} eigenvalue offset used in the holographic
 interpretation (\S\ref{sec:holographic}) is
-$C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$, where
+$C_1(\xi)$ as in~\eqref{eq:C1-H2}, where
 $\xi = \tanh^2(\rho/2)$.
 At small~$\rho$: $\log(2\sinh\rho) + b(N) \approx \log\rho + b(N)
 \to C_1 \to N{-}1$; the two agree in the flat limit.
@@ -1263,7 +1264,7 @@ Each layer has a distinct character:
 \item $C_1(\xi)$: continuous, surface-dependent, mode-independent.
   Scales approximately as $C_1 \propto \log(\xi)$ over the range
   $\xi \in [0.01, 10]$ (with $R^2 = 0.98$); the exact formula is
-  $C_1 = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$.
+  eq.~\eqref{eq:C1-H2}.
 \item $f(m,N) = m(N{-}m)/2$: discrete, universal (surface-independent).
   The $\mathbb{Z}_N$ Casimir from the Havelock identity.
 \item $\delta_m(N)$: topological, UV-finite, $\xi$-independent
@@ -2009,16 +2010,19 @@ Energy condition & $R_{\mu\nu}k^\mu k^\nu \ge 0$ &
 \end{center}
 
 \paragraph{The Clausius relation from Bisognano--Wichmann.}
+The angular bath consists of free harmonic oscillators
+(the Havelock modes) living on the boundary circle~$S^1$.
 At each palindromic threshold, the critical eigenvalue
-$\lambda_{m^*} = 0$ partitions the angular modes into two
-groups: those with $\lambda_m > 0$ (stable) and the
-zero mode at the boundary.
-The angular bath is a collection of free harmonic oscillators
-(the Havelock modes).
-By the Bisognano--Wichmann theorem for free fields,
-the modular Hamiltonian of the oscillator vacuum restricted
-to one side of a bipartition equals the Rindler boost
-Hamiltonian.
+$\lambda_{m^*} = 0$ creates a \emph{spatial bipartition}
+of the boundary circle: the Havelock modes with $m < m^*$
+occupy one arc and those with $m > m^*$ the complementary arc
+(the Frobenius orbits $O_+$ and $O_-$ in the $\mathbb{Z}_N$
+decomposition).
+By the Bisognano--Wichmann theorem for free fields on $S^1$,
+the modular Hamiltonian of the vacuum state restricted to one
+arc equals the Rindler boost Hamiltonian on that arc, with
+Unruh temperature determined by the surface gravity at
+the entangling point.
 The ``bipartition'' here is the BF crossing ($\lambda_{m^*} = 0$),
 and the Rindler temperature is the Unruh temperature
 $T = V'(\rho^*)/(2\pi)$.
