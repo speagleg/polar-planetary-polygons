@@ -736,7 +736,8 @@ by two independent bounds:
 \item \emph{OPE coefficient bound (Liouville action):}
   the $\mathbb{Z}_N$ twist fields of order~$k$ have
   OPE coefficients suppressed by the Liouville action of
-  the conical metric with opening angle $2\pi/N$:
+  the conical metric with opening angle $2\pi/N$
+  \citep{DixonHarveyVafaWitten1985,Zamolodchikov1987}:
   $C_k^2 \sim \exp(-b(N)\ln N)$.
   Since $b(N) \sim N^2/12$, this gives
   $C_k^2 \lesssim \exp(-N^2\ln N/12)$---exponential in $N^2$
@@ -932,7 +933,8 @@ Odd (paired $m, N{-}m$) & two eigenvalues cross & $2\log 2$ (2 bits) \\
 \end{tabular}
 \end{center}
 \noindent
-Through $N = 12$: exactly $9$ bits (verified numerically).
+From $N = 7$ (the flat-plane marginal threshold) through $N = 12$:
+exactly $9$ bits (verified numerically).
 Through $N = 17$ ($11$ wall-crossings): the discrete part contributes
 $17\ln 2 \approx 11.8$ nats ($9.9\%$), the continuous one-loop part
 $107.8$ nats ($90.1\%$).
@@ -973,19 +975,23 @@ an analytic continuation $\rho \to \rho + i\pi/2$ that interchanges
 the BTZ exterior and interior:
 $\sinh(\rho + i\pi/2) = i\cosh\rho$, so
 $C_1^{\mathrm{int}} = \log(2\cosh\rho) + b(N) + i\pi/2$.
-The three constant-curvature geometries are connected by the imaginary
-part of~$\rho$:
+The analytically continued kernel interpolates between curvature
+signs:
 \begin{center}
 \begin{tabular}{lccc}
 \toprule
 $\mathrm{Im}(\rho)$ & $0$ & $\pi/2$ & $\pi$ \\
 \midrule
-Geometry & $\mathbf{H}^2$ ($K{=}{-}1$) & $\mathbb{R}^2$ ($K{=}0$) &
-  $\mathbf{S}^2$ ($K{=}{+}1$) \\
-Kernel & $\log(2\sinh\rho)$ & $\log(2\sin t)$ & $\log(2\cos t)$ \\
+Curvature sign & $K{=}{-}1$ & $K{=}0$ & $K{=}{+}1$ \\
+Continued kernel & $\log(2\sinh\rho)$ & $\log(2\cosh\rho) + i\pi/2$ &
+  $\log(2\sinh\rho) + i\pi$ \\
 \bottomrule
 \end{tabular}
 \end{center}
+\noindent
+(The real parts of the continued kernels reproduce the
+pair interactions on spaces of the corresponding curvature
+sign; the imaginary parts are phases.)
 At each palindromic threshold $\rho^*(N)$: the critical eigenvalue
 $\lambda_{m^*}$ crosses zero (\emph{real} side), while the interior
 resonance has $\mathrm{Im}(\lambda) = \pi/2$ (universal, independent
@@ -1123,7 +1129,8 @@ For $N \ge 4$ and $c \ge N^2$ (both satisfied for all $N \ge 4$;
 the bound requires $\lfloor N/2 \rfloor \ge 2$ for the
 maximisation, i.e.\ $N \ge 4$;
 $c \ge N^2$ holds since $c = 12\,b(N) > N^2$ for all $N \ge 3$
-since $c = 12\,b(N) = N^2 + N + O(\ln N) > N^2$), the mode-dependent part of the
+since $c = 12\,b(N) = N^2 + N - 12\ln 2 + O(\ln N/N) > N^2$
+for all $N \ge 3$), the mode-dependent part of the
 $O(1/c)$ Virasoro block correction satisfies
 \begin{equation}\label{eq:non-crossing}
   \frac{|\delta f_m - \delta f_{m+1}|}{f(m{+}1,N) - f(m,N)}
@@ -1460,7 +1467,8 @@ $N_{\mathrm{crit}}$ & $7$ & $5$ & $5$ & $5$ & $4$--$5$ \\
 \noindent
 The hexagon ($N = 6$, Saturn) is a \emph{uniquely two-dimensional}
 phenomenon: it is marginally stable at $d = 2$ ($\lambda_{\min} = 1/2$)
-but unstable for $d \ge 3$ ($\lambda_{\min} = -0.02$ at $d = 3$).
+but unstable for $d \ge 3$ ($\lambda_{\min} = -0.02$ at $d = 3$;
+\texttt{test\_ncrit\_delta.py}, $N_{\mathrm{crit}}(\Delta{=}0.5) = 5 < 6$).
 The pentagon ($N = 5$) survives in all tested dimensions $d \le 10$.
 
 \begin{proposition}[Soft Havelock decomposition in dimension $d$]
@@ -1844,10 +1852,14 @@ $C_1/(N{-}1) = (1{+}\xi^2)/(1{-}\xi)^2$ for small
 $\xi = \tanh^2(\varepsilon/2) \approx \varepsilon^2/4$ gives
 $C_1/(N{-}1) \approx 1 + \varepsilon^2/2 = 1 - R\varepsilon^2/4$
 (since $R = -2$ on unit $\mathbf{H}^2$).
-In the Hadamard derivation, the $1/4$ decomposes into
-$1/6$ (from the curvature term $-R\,d^2/12$ in the parametrix,
-with $\sum_p\sin^2(\pi p/N) = N/2$) and $1/12$ (from the
-curvature correction to chord distances at $O(\varepsilon^3)$).
+The Hadamard parametrix on a 2D surface gives
+$G(x,y) = -(1/2\pi)\log d - (R/12\pi)d^2 + O(d^4)$
+(Garabedian 1964, \S9.3).
+Summing the $O(d^2)$ term over the $N$-ring with
+$\sum_p\sin^2(\pi p/N) = N/2$ gives the $1/6$ contribution;
+the $1/12$ arises from the curvature correction to chord
+distances ($d_{\mathrm{chord}} \ne d_{\mathrm{geodesic}}$
+at $O(\varepsilon^3)$).  Together: $1/6 + 1/12 = 1/4$.
 
 \medskip
 \noindent\textbf{Step~3. (H2) $+$ Step~2 force $R = \mathrm{const}$.}
