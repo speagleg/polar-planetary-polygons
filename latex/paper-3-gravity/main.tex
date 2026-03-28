@@ -1047,16 +1047,27 @@ The WDW equation uses the unconstrained form because it
 retains the full $\rho$-dependence of the Green's function.
 
 \emph{Why second-order dynamics from a first-order system.}
-The Kirchhoff equations $\dot{z}_k = -i\,\partial H/\partial\bar{z}_k$
-are first-order, but the breathing mode~$\rho$
-(parametrising the family $z_k(\rho) = \rho\,e^{2\pi i k/N}$)
-acquires second-order dynamics through the gravitational sector.
-The kinetic coefficient $c = 12\,b(N)$ is the Todd offset
-extracted from the eigenvalue data
-(\S\ref{sec:intro-gravity}, logical architecture, step~1).
-The Feynman--Kac mapping of the Onsager partition function
-produces this $c$ as the effective mass of the breathing mode
-(Paper~IV, \S\ref*{V-sec:qm-gr-bridge}).
+The Kirchhoff equations are first-order, but the WDW equation
+for the breathing mode~$\rho$ is second-order.
+Two independent derivations combine:
+\begin{enumerate}
+\item \emph{The kinetic term exists}
+  (Caldeira--Leggett mechanism,
+  Proposition~\ref{prop:wdw-lambda}):
+  the $N{-}2$ angular modes form a harmonic bath whose
+  exact influence functional (Gaussian, linear coupling)
+  produces a $\dot\rho^2$ noise kernel in the
+  Onsager--Machlup path integral.
+\item \emph{The coefficient is $c = 12\,b(N)$}
+  (equivariant index, Proposition~\ref{prop:equiv-rr}):
+  $b(N)$ is the unique mode-independent offset in the
+  eigenvalue decomposition, computed from the $\csc^2$
+  kernel to $10^{-16}$ precision.
+  This is \emph{not} the CL friction $\gamma \sim O(N)$;
+  it is a topological invariant of the eigenvalue structure
+  ($c \sim N^2$).
+  No parameter is fitted: $b(N)$ is determined by the kernel.
+\end{enumerate}
 
 Each term has a definite origin:
 \begin{center}
@@ -1894,10 +1905,26 @@ on a \emph{general} background, and the maximum-entropy
 configuration turns out to be constant curvature.
 The Einstein equations are the unique equilibrium of
 the polygon entropy.
-The global equilibration across the surface is provided by
-the Green's function itself: $G(x,y)$ couples polygon systems
-at different points~$x$ and~$y$, creating a connected
-thermodynamic system whose entropy is maximised collectively.
+
+\emph{Why the variational principle is global.}
+The entropy $S(x)$ at each point~$x$ is a functional of
+the \emph{metric}~$g$: it depends on~$g$ through the
+Green's function $G(x,y)$ and the Hadamard expansion.
+The total entropy $S_{\mathrm{total}} = \int S(x)\,dA$
+is therefore a functional of the single global object~$g$.
+Maximising $S_{\mathrm{total}}$ over the space of Riemannian
+metrics (at fixed topology and fixed total polygon energy)
+is a standard calculus-of-variations problem.
+No ``communication between polygons'' is needed: the metric
+constrains all points simultaneously because it is one object.
+(This is the same logic as Jacobson 1995: different Rindler
+horizons do not communicate, but the metric satisfies all
+local constraints simultaneously.)
+The Euler--Lagrange equation of the variational problem
+$\delta S_{\mathrm{total}} / \delta g_{ij}
+= \Lambda\;\delta E_{\mathrm{total}} / \delta g_{ij}$
+reduces to $R = \mathrm{const}$ by the concavity of~$S$
+and the Hadamard expansion (Steps~2--3 above).
 
 \medskip
 \noindent\textbf{Step~4. Mode-independence + $R = \mathrm{const}$
@@ -2126,10 +2153,21 @@ The Gibbons--Hawking temperature at the palindromic threshold is
 \begin{equation}\label{eq:T-GH}
   T = \frac{V'(\rho^*)}{2\pi} = \frac{\coth(\rho^*)}{2\pi}.
 \end{equation}
-The Jacobson thermodynamic argument
-\citep{Jacobson1995,Lashkari2014} then gives the matter-coupled
-Einstein equations from the Clausius relation
-$\delta Q = T\,\delta S$ at every such horizon.
+\emph{Logical role of the Clausius relation.}
+The vacuum Einstein equations $R = \mathrm{const}$ are derived
+\emph{independently} from entropy maximisation
+(Theorem~\ref{thm:polygon-einstein}, Steps~1--3).
+The Clausius relation at the Gibbons--Hawking horizon
+serves a \emph{different} purpose: it extracts the
+gravitational coupling~$G_{\mathrm{eff}}$ from the
+constant-curvature geometry.
+On a constant-curvature surface, there is one threshold
+(one~$N$) and one temperature~$T$.
+The Jacobson argument \citep{Jacobson1995,Lashkari2014}
+then promotes $G_{\mathrm{eff}}$ to the matter coupling:
+$\delta Q = T\,\delta S$ at the Killing horizon gives
+the full Einstein equations $G_{\mu\nu} + \Lambda g_{\mu\nu}
+= 8\pi G_{\mathrm{eff}}\,T_{\mu\nu}$.
 
 The three thermodynamic quantities are determined by
 the BO potential $V(\rho) = \log(2\sinh\rho) + b(N) - f(m^*,N)$:
