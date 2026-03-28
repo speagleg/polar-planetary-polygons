@@ -207,7 +207,7 @@ and level
 where the Brown--Henneaux relation $c = 6k$ gives
 $k = 2\,b(N)$ for the exact central charge $c = 12\,b(N)$
 (with $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$,
-Paper~IV Definition~5.1).
+Paper~I, verified to $10^{-16}$ for $N = 3,\ldots,24$).
 At leading order $c \approx N^2$, so $k \approx N^2/6$.
 The CS level $k = c/6$ is not integer for most~$N$.
 Level quantisation in CS theory arises from large gauge
@@ -722,14 +722,19 @@ by two independent bounds:
   $C_k^2 \lesssim \exp(-N^2\ln N/12)$---exponential in $N^2$
   suppression.
   The total non-identity contribution is bounded by
-  $(N{-}1)\exp(-b(N)\ln N) < 0.15\%$ for $N \ge 7$
+  $(N{-}1)\exp(-b(N)\ln N)$:
+  $\sim\!9\%$ at $N = 5$,
+  $\sim\!1\%$ at $N = 6$,
+  $< 0.15\%$ for $N \ge 7$,
   and $< 10^{-10}$ for $N \ge 11$.
 \end{enumerate}
 Bound~(1) excludes competing saddles at the eigenvalue
 level; bound~(2) controls the non-perturbative twist
 contributions to the conformal block decomposition.
 Together they establish identity block dominance for
-all $N \ge 5$.
+$N \ge 6$ (corrections $\le 1\%$).
+At $N = 5$, the $9\%$ correction is the leading
+systematic uncertainty.
 \end{proof}
 
 Theorem~\ref{thm:block-havelock} identifies
@@ -857,7 +862,8 @@ zero mode) gives the universal critical exponent $\nu = 1/2$:
 where $(N{-}3)!! = 1 \cdot 3 \cdot 5 \cdots (N{-}3)$ is the double
 factorial (even~$N$; for odd~$N$, $Z_{\mathrm{frozen}}$ is computed
 directly from the Casimir gaps
-$\lambda_m(\rho^*) = (N{-}2m)^2/8$).
+$\lambda_m(\rho^*) = f(m^*,N) - f(m,N)
+= [m^*(N{-}m^*) - m(N{-}m)]/2$).
 The closed-form expression includes the normalisation of the
 first-order Kirchhoff path integral measure; it is verified
 numerically against the gap-by-gap product for all~$N \le 20$
@@ -1070,7 +1076,10 @@ One-loop & $\delta_m$ &
 
 \begin{proposition}[Eigenvalue non-crossing at finite $c$]
 \label{prop:non-crossing}
-For $N \ge 6$ and $c \ge N^2$ (satisfied for all $N \ge 3$
+For $N \ge 4$ and $c \ge N^2$ (both satisfied for all $N \ge 4$;
+the bound requires $\lfloor N/2 \rfloor \ge 2$ for the
+maximisation, i.e.\ $N \ge 4$;
+$c \ge N^2$ holds since $c = 12\,b(N) > N^2$ for all $N \ge 3$
 since $c = 12\,b(N) = N^2 + N + O(\ln N) > N^2$), the mode-dependent part of the
 $O(1/c)$ Virasoro block correction satisfies
 \begin{equation}\label{eq:non-crossing}
@@ -1866,10 +1875,14 @@ $M_{mp} = \cos(2\pi pm/N)$ has rank~$5$ for $N = 10$ and $N = 11$,
 but rank~$3$ for $N = 6, 7$ (insufficient).
 Any nonzero Weyl tensor therefore makes $C_1$ depend on~$m$
 for $N \ge 10$, violating~(H1).
-Hence (H1) at every~$x$ with $N \ge 10$ forces $W_{ijkl} = 0$ and
-$R_{ij} = (R/d)\,g_{ij}$: maximal symmetry.
-Promoting to the $(d{+}1)$-dimensional spacetime:
-$R_{\mu\nu} = \Lambda\,g_{\mu\nu}$.
+Hence (H1) at every~$x$ with $N \ge 10$ forces the
+\emph{spatial} Weyl tensor $W_{ijkl} = 0$ and
+$R_{ij} = (R/d)\,g_{ij}$ on each time slice.
+The promotion to the full spacetime Einstein equations
+$R_{\mu\nu} = \Lambda\,g_{\mu\nu}$ (including time-space
+components) requires additionally the boundary Virasoro
+mechanism of Paper~IV, which supplies the dynamical
+content in the time direction.
 
 In $d_{\mathrm{st}} = 5$ ($4{+}1$D), additional quadrupole
 components appear, requiring $N \ge 12$
@@ -1910,13 +1923,12 @@ continuum limit.
 The coefficient $c$ is \emph{not} the CL friction
 $\gamma = \coth^2\!\rho\,\Sigma(1/\lambda_m) \sim O(N)$;
 it is the algebraic invariant of the eigenvalue decomposition.
-The partition function of the frozen angular modes is
-$Z_{\mathrm{bath}}(\rho) = \prod_{m \ne m^*}
-\lambda_m(\rho)^{1/2}$
-(the Toeplitz determinant of the csc$^2$ kernel).
-The mode-independent offset in
-$\log Z_{\mathrm{bath}} = \tfrac{1}{2}(N{-}1)C_1 - \tfrac{1}{2}\Sigma f_m$
-is $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$
+The frozen-mode entropy is
+$S_{\mathrm{bath}}(\rho)
+= \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(\rho)$,
+and $b(N)$ is the mode-independent offset in the
+eigenvalue decomposition $\lambda_m = C_1 - f_m + \delta_m$
+with $C_1 = \log(2\sinh\rho) + b(N)$
 (Proposition~\ref{prop:equiv-rr}).
 The coefficient $c = 12\,b(N)$ is the unique value for which
 the WDW ground-state energy reproduces the classical Havelock
@@ -2037,34 +2049,24 @@ Energy condition & $R_{\mu\nu}k^\mu k^\nu \ge 0$ &
 \end{tabular}
 \end{center}
 
-\paragraph{The Clausius relation from Bisognano--Wichmann.}
-The angular bath consists of free harmonic oscillators
-(the Havelock modes) living on the boundary circle~$S^1$.
+\paragraph{The Clausius relation and Newton's constant.}
 At each palindromic threshold, the critical eigenvalue
-$\lambda_{m^*} = 0$ creates a \emph{spatial bipartition}
-of the boundary circle: the Havelock modes with $m < m^*$
-occupy one arc and those with $m > m^*$ the complementary arc
-(the Frobenius orbits $O_+$ and $O_-$ in the $\mathbb{Z}_N$
-decomposition).
-By the Bisognano--Wichmann theorem for free fields on $S^1$,
-the modular Hamiltonian of the vacuum state restricted to one
-arc equals the Rindler boost Hamiltonian on that arc, with
-Unruh temperature determined by the surface gravity at
-the entangling point.
-The ``bipartition'' here is the BF crossing ($\lambda_{m^*} = 0$),
-and the Rindler temperature is the Unruh temperature
-$T = V'(\rho^*)/(2\pi)$.
-The Jacobson thermodynamic argument then gives the full
-Einstein equations with matter from $\delta Q = T\,\delta S$
-at every local Rindler horizon.
+$\lambda_{m^*} = 0$ creates a local Rindler horizon
+with surface gravity $\kappa = V'(\rho^*) = \coth(\rho^*)$
+and Unruh temperature $T = \kappa/(2\pi)$.
+The Jacobson thermodynamic argument
+\citep{Jacobson1995,Lashkari2014} gives the matter-coupled
+Einstein equations from the Clausius relation
+$\delta Q = T\,\delta S$ at every such horizon.
 
 The three thermodynamic quantities are determined by
 the BO potential $V(\rho) = \log(2\sinh\rho) + b(N) - f(m^*,N)$:
 \begin{itemize}
 \item $T = V'(\rho^*)/(2\pi) = \coth(\rho^*)/(2\pi)$
   (Unruh temperature from the surface gravity $\kappa = V'$);
-\item $\delta Q = \kappa \times A = \coth(\rho^*) \times 2\pi\sinh(\rho^*)$
-  (energy flux: surface gravity $\times$ horizon circumference);
+\item $\delta Q = \kappa \times A \times \delta\rho
+  = \coth(\rho^*) \times 2\pi\sinh(\rho^*) \times \delta\rho$
+  (surface gravity $\times$ horizon circumference $\times$ displacement);
 \item $\delta S = (dS/d\rho) \times A \times \delta\rho$
   where $dS/d\rho = \coth(\rho^*)/2$ is the entropy production
   \emph{per unit length} from the single zero mode
