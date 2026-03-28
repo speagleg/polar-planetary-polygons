@@ -132,10 +132,17 @@ consistency check at step~3, not a logical prerequisite.
 
 The stability boundary $N_{\mathrm{crit}} = 7$ has a
 representation-theoretic explanation.
-The critical Casimir $f(m^*,N) = m^*(N{-}m^*)/2$
-is the SL$(2,\mathbb{R})$ quadratic Casimir
-$j(j{+}1)$ for spin~$j$.  An exhaustive search
-over $N = 3, \ldots, 30$ shows:
+In the CS formulation of $2{+}1$D gravity
+(Witten 1988), the vortex polygon is a Wilson line
+whose eigenvalue is the $\mathrm{SL}(2,\mathbb{R})$ Casimir
+$C_2(R) = j(j{+}1)$ of the representation~$R$
+(Paper~II).
+The Havelock Casimir $f(m,N) = m(N{-}m)/2$ IS this
+$\mathrm{SL}(2,\mathbb{R})$ Casimir---not by coincidence,
+but because the vortex eigenvalue structure IS the
+CS Wilson line spectrum.
+The critical mode has $f(m^*,N) = j(j{+}1)$
+with integer~$j$ only at specific~$N$:
 \begin{center}
 \small
 \begin{tabular}{lccl}
@@ -1021,14 +1028,21 @@ On constant-curvature $\mathbf{H}^2$ the Weyl anomaly $\delta_m = 0$
 identically (\S\ref{sec:three-layer}), so it does not appear.
 
 \emph{Notation: two forms of $C_1$.}
-The WDW potential uses the \emph{unconstrained} form
-$C_1(\rho) = \log(2\sinh\rho) + b(N)$ (geodesic coordinate).
-The holographic sections use the \emph{constrained} form
-$C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$ (eq.~\ref{eq:C1-H2})
-with $\xi = \tanh^2(\rho/2)$.
-These are the same function in different coordinates:
-$C_1(\rho) = C_1(\xi(\rho))$, coinciding at
-$\rho \to 0$: $C_1 \to N{-}1$.
+The WDW potential uses the \emph{Green's function offset}
+$C_1^{\mathrm{GF}}(\rho) = \log(2\sinh\rho) + b(N)$,
+which diverges as $\rho \to 0$.
+The holographic sections use the \emph{constrained angular stiffness}
+$C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$ (eq.~\ref{eq:C1-H2}),
+which gives $C_1 \to N{-}1$ as $\xi \to 0$.
+These are \emph{distinct} quantities: the constrained form
+subtracts the self-energy divergence via the angular-impulse
+constraint, leaving a finite limit.
+Both share the same large-$\rho$ behaviour
+($\sim \rho$ for $\rho \gg 1$) and the same
+$O(\varepsilon^2)$ curvature coefficient ($R/4$) in the
+small-ring expansion.
+The WDW potential is
+$V(\rho) = C_1^{\mathrm{GF}}(\rho) - f(m^*,N)$.
 The WDW equation uses the unconstrained form because it
 retains the full $\rho$-dependence of the Green's function.
 
