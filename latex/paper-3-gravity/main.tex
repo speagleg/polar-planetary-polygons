@@ -2053,6 +2053,80 @@ approximation is a mathematical theorem, and the
 vortex-gravity isomorphism applies to each vertex
 individually.
 
+\emph{Szeg\H{o}--Toeplitz convergence of the Regge entropy.}
+The Havelock Hessian at each Regge vertex is a
+\emph{circulant} matrix (a special Toeplitz matrix)
+with symbol $\sigma_N(\theta)$ whose eigenvalues are
+$T_m = m(N{-}m)/2$.
+The Szeg\H{o} strong limit theorem
+\citep{GrenanderSzego1958}
+gives
+$\log\det T_r = r\cdot I_0 + \log C_S + O(r^{-\infty})$,
+where $I_0 = (1/2\pi)\!\int\!\log\sigma\,d\theta$
+is the Szeg\H{o} integral and
+$C_S = \exp(\sum_{k \ge 1}k\,|c_k|^2)$ the Szeg\H{o}
+constant, with $c_k$ the Fourier coefficients of
+$\log\sigma$.
+The $\csc^2$ kernel is \emph{analytic}
+(poles only at $\theta = 0 \bmod 2\pi$), so $|c_k|$
+decay super-exponentially: $|c_k| \le C\,\rho^k$ with
+$\rho = e^{-R}$ and $R$ the analyticity-strip half-width.
+This gives three convergence guarantees:
+\begin{enumerate}
+\item \emph{UV finiteness}: $C_S < \infty$
+  (the subleading Szeg\H{o} constant is finite).
+\item \emph{Entropy convergence}: the Regge entropy
+  $S_{\mathrm{Regge}} = \sum_v A_v\,S(v)$ converges to
+  $S_{\mathrm{total}}[g] = \int_S S(x)\,dA$ with error
+  $O(h)$ from the FEM Green's function convergence
+  \citep{Aubin1998}, sharpened to $O(h^\infty)$ by
+  the analytic Szeg\H{o} estimates.
+\item \emph{Fisher--Hartwig constant}:
+  the mode-averaged offset $b(N)$ (Paper~I) IS the
+  Fisher--Hartwig constant of the $\csc^2$ Toeplitz
+  kernel---simultaneously the Todd-class correction
+  (equivariant Riemann--Roch) and the Szeg\H{o}
+  subleading term.
+  This gives $b(N)$ a \emph{third} independent meaning
+  (in addition to the eigenvalue offset and the
+  Euclidean action), unifying the number theory
+  (Paper~I), the index theory (Proposition~\ref{prop:equiv-rr}),
+  and the Toeplitz asymptotics in a single quantity.
+\end{enumerate}
+The Einstein equation $R(x) = \mathrm{const}$ is the
+\emph{optimal convergence condition}: on a constant-curvature
+surface, $\sigma$ is position-independent, making the Regge
+entropy \emph{exactly} equal to the continuum entropy at every
+mesh size (zero angular error).
+On a non-constant-curvature surface, $\sigma$ varies with
+position and the Regge error is $O(h^2)$ from the curvature
+variation.
+Entropy maximisation (H2) therefore selects the condition under
+which the Szeg\H{o} convergence is optimal---which is precisely
+the Einstein equation
+(\texttt{proofs/regge\_entropy\_szego.py}).
+
+\emph{The $\csc^2$ kernel as the unique interaction.}
+The Havelock identity $T_m = m(N{-}m)/2$ is equivalent to the
+statement that the tangential Hessian's $\csc^2$ kernel is the
+\emph{unique} kernel whose $\mathbb{Z}_N$ Fourier transform
+is the quadratic Casimir (Paper~I, Lemma~\ref*{I-lem:havelock}).
+The $\csc^2$ kernel is also the Green's function of the Laplacian
+on the circle (the unique rotationally symmetric solution of
+$-\Delta G = \delta - 1/N$), so:
+\[
+  \text{Havelock identity}
+  \;\Longleftrightarrow\;
+  \csc^2\text{ kernel}
+  \;\Longleftrightarrow\;
+  \text{Laplacian Green's function}
+  \;\Longleftrightarrow\;
+  \text{gravity}.
+\]
+The TN-positivity of the Szeg\H{o} structure, the Regge entropy
+convergence, and the vortex-gravity isomorphism are all
+consequences of this single equivalence chain.
+
 \emph{Partition function interpretation.}
 The total polygon partition function
 $Z[g] = \sum_N e^{-b(N)}\,Z_{\mathrm{frozen}}(N, g)$
