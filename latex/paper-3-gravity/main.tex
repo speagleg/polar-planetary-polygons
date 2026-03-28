@@ -240,26 +240,13 @@ decomposition corresponds to
 bulk (cosmological) $\times$ representation (matter) $\times$
 one-loop (quantum) factors.
 The CS partition function on Seifert manifolds is computed
-by Stieltjes--Wigert polynomials \citep{Tierz2006},
-which are the orthogonal polynomials of the log-normal
-(Stieltjes) moment problem.
-The vortex spectral data (the Havelock eigenvalue sequence)
-is linked to the CS partition function through the
-Stieltjes--Wigert orthogonal polynomial structure of
-\citet{Tierz2006}.
+Stieltjes--Wigert polynomials \citep{Tierz2006},
+linking the Havelock eigenvalue sequence to the
+log-normal moment problem.
 
-\paragraph{The Havelock--Schr\"odinger equation.}
-The Havelock matrix $H_{pq} = -\log|2\sin(\pi(p{-}q)/N)|$
-is a circulant matrix on $\mathbb{Z}/N\mathbb{Z}$
-with the log-sine kernel---equivalently, a discrete
-Schr\"odinger operator with potential
-$V(p) = -\log(2\sin(\pi p/N))$.
-The Casimir $m(N{-}m)/2$ is the \emph{kinetic energy}
-(from the Fourier eigenvalue of the discrete Laplacian),
-and the Weyl anomaly $\delta_m$ is the \emph{fine structure}
-(deviation from the continuum spectrum).
-The dispersion relation is linear at small $m$ (phonon-like)
-and saturates at $m = N/2$ (lattice effect).
+(The Havelock matrix is a circulant on $\mathbb{Z}/N\mathbb{Z}$
+with the log-sine kernel; the Casimir $m(N{-}m)/2$ is the
+Fourier eigenvalue and $\delta_m$ the lattice correction.)
 
 \section{The spectral bound as a quantum gravitational bound}
 \label{sec:spectral-bound}
@@ -886,10 +873,11 @@ factorial (even~$N$, one zero mode at $m^* = N/2$;
 for odd~$N$, the palindromic pair $m^*$ and $N{-}m^*$ both
 have $\lambda = 0$, giving two zero modes and
 $Z \sim |\rho{-}\rho^*|^{-1}$.
-$Z_{\mathrm{frozen}}$ for odd~$N$ is computed
-from the remaining Casimir gaps
-$\lambda_m(\rho^*) = f(m^*,N) - f(m,N)
-= [m^*(N{-}m^*) - m(N{-}m)]/2$).
+$Z_{\mathrm{frozen}}$ for odd~$N$ is
+$\prod_{m \ne m^*,\, m \ne N{-}m^*}
+[f(m^*,N) - f(m,N)]^{-1/2}$,
+computed from the Casimir gaps
+$f(m^*,N) - f(m,N) = [m^*(N{-}m^*) - m(N{-}m)]/2$).
 The closed-form expression includes the normalisation of the
 first-order Kirchhoff path integral measure; it is verified
 numerically against the gap-by-gap product for all~$N \le 20$
@@ -1544,12 +1532,14 @@ The critical value $\Delta^*(N)$ where $N_{\mathrm{crit}}$ drops
 below~$N$ is expected to be \emph{transcendental} for $N \ge 5$.
 The threshold equation involves $\sin^{-2\Delta}(\pi p/N)$ for
 different~$p$ with $\mathbb{Q}$-linearly independent logarithms.
-For $N = 5$ (two distinct chord distances, ratio $= \varphi$),
-the Gelfond--Schneider theorem directly applies: if $\Delta^*$
-were algebraic and irrational, $\varphi^{2\Delta^*+2}$ would be
-transcendental, contradicting the threshold equation.
-For general~$N$, a rigorous proof requires the six-exponential
-theorem or Baker's theorem on linear forms in logarithms.
+For $N = 5$: the threshold equation involves
+$\sin^{-2\Delta}(\pi/5)$, an algebraic base raised to the
+power~$\Delta$.
+If $\Delta^*$ is algebraic and irrational, the
+Gelfond--Schneider theorem makes the individual terms
+transcendental, and Baker's theorem on linear forms in
+logarithms would be needed to show no cancellation occurs.
+A rigorous proof requires Baker-type estimates.
 This contrasts with the palindromic thresholds $\xi^*(N)$
 on $\mathbb{H}^2$, which lie in explicit algebraic number fields.
 \end{remark}
@@ -1613,14 +1603,16 @@ $\{1,\ldots,\lfloor N/2\rfloor\}$; the Chebyshev sum inequality
 gives $\mathrm{Cov}_\mu(g, f) > 0$).
 \end{proof}
 
-\begin{corollary}[Stability c-theorem analogue]
+\begin{corollary}[Stability monotonicity]
 \label{cor:c-theorem}
-$N_{\mathrm{crit}}(\Delta)$ is non-increasing in $\Delta$: once a
+$N_{\mathrm{crit}}(\Delta)$ is non-increasing in~$\Delta$: once a
 polygon type loses stability, it never regains it.
-The ``polygon entropy'' $S(\Delta) = \log N_{\mathrm{crit}}(\Delta)$
-is a monotonically non-increasing function of the conformal dimension,
-flowing from $S(0) = \log 7$ (the Havelock IR fixed point)
-to $S(\infty) = \log 3$ (the triangular UV fixed point).
+The quantity $\log N_{\mathrm{crit}}(\Delta)$ decreases from
+$\log 7$ ($\Delta = 0$, the Havelock regime) to
+$\log 3$ ($\Delta \to \infty$, only triangles survive).
+This is reminiscent of the Zamolodchikov c-theorem,
+though $N_{\mathrm{crit}}$ is a step function (not smooth)
+and $\Delta$ is not an RG parameter.
 \end{corollary}
 
 %% ====================================================================
@@ -1688,15 +1680,16 @@ remains open.
 
 %% ====================================================================
 
-\section{The number-theoretic gravity partition function}
+\section{The polygon partition function}
 \label{sec:gravity-partition}
 
 The one-loop partition function of the vortex system organises
 naturally by algebraic number field.
 
-\begin{proposition}[Gravity partition function]
+\begin{proposition}[Polygon partition function]
 \label{prop:gravity-partition}
-The quantum gravity partition function for the vortex-polygon system
+The partition function for the vortex-polygon system
+(summing over polygon number~$N$, not over geometries)
 on $\mathbf{H}^2$ is
 \begin{equation}\label{eq:Z-gravity}
   Z_{\mathrm{grav}} = \sum_{N=3}^{\infty}
@@ -2055,7 +2048,7 @@ $V(\rho^*) = 0$, giving $C_1 = f(m^*,N)$ and hence
 $\Lambda = -4[f(m^*) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
 \end{proposition}
 
-\begin{remark}[The cosmological constant from the polygon number]
+\begin{corollary}[The cosmological constant from the polygon number]
 \label{rmk:lambda-from-N}
 The sign of $\Lambda$ is fixed by the polygon:
 $N \le 6$: $f(m^*) < N{-}1$, so $\Lambda > 0$
@@ -2065,7 +2058,7 @@ $N \ge 8$: $f(m^*) > N{-}1$, so $\Lambda < 0$
 (negative curvature, $\mathbf{H}^2$-like---surface curvature stabilises).
 The flat threshold $N = 7$---Havelock's 1931
 stability boundary---sits exactly at $\Lambda = 0$.
-\end{remark}
+\end{corollary}
 
 \begin{remark}[Relation to Schur's lemma]
 In $2{+}1$D, Step~4 of the proof is a special case
@@ -2148,10 +2141,10 @@ This is the polygon analogue of the Raychaudhuri focusing theorem:
 Concept & General relativity & Polygon system \\
 \midrule
 Flow parameter & Affine parameter $\lambda$ & Conformal dim $\Delta$ \\
-Expansion & $\theta = \nabla \cdot k$ &
-  $R(\Delta) = h(m,N,\Delta)/h(1,N,\Delta)$ \\
-Focusing & $d\theta/d\lambda \le -\theta^2/2$ &
-  $dR/d\Delta > 0$ (monotone) \\
+Expansion & $\theta = \nabla \cdot k$ (decreasing) &
+  $N_{\mathrm{crit}}(\Delta)$ (decreasing) \\
+Focusing & $d\theta/d\lambda \le 0$ &
+  $dN_{\mathrm{crit}}/d\Delta \le 0$ (monotone) \\
 Trapped & $\theta < 0$ (trapped surface) &
   $\lambda_m < 0$ (unstable mode) \\
 Energy condition & $R_{\mu\nu}k^\mu k^\nu \ge 0$ &
