@@ -319,8 +319,12 @@ $\lambda_1 \approx 3.84$;
 $1/(4\pi \cdot 15.05) \approx 0.005$,
 $1/(4\pi \cdot 23.08) \approx 0.003$,
 $1/(4\pi \cdot 32.67) \approx 0.002$, $\ldots$.
-The spectral bound is rigorous: the geometric ratio
-$\lambda_n/\lambda_{n+1} \le 0.65$ gives
+The spectral bound is rigorous: the ratio of consecutive
+trivial-representation eigenvalues
+$\lambda_n/\lambda_{n+1} \le 15.05/23.08 = 0.65$
+(from the Strohmaier--Uski data; Weyl asymptotics
+guarantee $\lambda_n \sim cn$ for large~$n$, so the
+ratio decreases) gives
 $\sum_{n \ge 1} 1/\lambda_n \le (1/\lambda_1)/(1{-}0.65)
 = 2.86/\lambda_{\mathrm{triv}}$, so
 $|\delta C_1| \le 2.86/(4\pi\lambda_{\mathrm{triv}})
@@ -474,10 +478,11 @@ both chiral sectors, giving the \emph{full} Casimir $m(N{-}m)$.
 The Havelock eigenvalue uses $f = m(N{-}m)/2$, the
 contribution of \emph{one} chiral sector, because:
 \begin{itemize}
-  \item Vortex dynamics is first-order
-    (the Hamiltonian is the stream function, not the
-    kinetic $+$ potential energy), so only one chiral sector
-    enters the stability eigenvalue.
+  \item The Kirchhoff equations $\dot{z}_k = -i\,\partial H/\partial\bar{z}_k$
+    are first-order: coordinates are conjugate to each other
+    (no separate momenta).
+    This halves the phase-space dimension, selecting one chiral
+    sector of the $\log|z|^2 = \log z + \log\bar{z}$ interaction.
   \item The stability criterion $\lambda_m > 0$ is
     $C_1 > m(N{-}m)/2$: the confining potential must exceed
     the holomorphic OPE repulsion in the $m$-th
@@ -790,7 +795,8 @@ actions of the competing configurations are:
     &= -\frac{\beta}{8G} + \beta E_{\mathrm{polygon}},
     \label{eq:I-polygon} \\
   I_{\mathrm{BTZ}}(\beta)
-    &= -\frac{\pi^2 \ell^2}{2G\beta},
+    &= -\frac{\pi^2 \ell^2}{2G\beta}
+    \qquad (M = 0\text{ threshold BTZ}),
     \label{eq:I-btz}
 \end{align}
 where $E_{\mathrm{polygon}} = Nm(1{-}2Gm) + V_{\mathrm{int}}$
@@ -1014,16 +1020,15 @@ with $c = 12\,b(N)$ and $\hbar = 1$
 On constant-curvature $\mathbf{H}^2$ the Weyl anomaly $\delta_m = 0$
 identically (\S\ref{sec:three-layer}), so it does not appear.
 
-\emph{Notation.}
-The potential $\log(2\sinh\rho) + b(N) - f(m,N)$ is the
-\emph{unconstrained} Havelock eigenvalue in the geodesic
-coordinate~$\rho$.
-The \emph{constrained} eigenvalue offset used in the holographic
-interpretation (\S\ref{sec:holographic}) is
-$C_1(\xi)$ as in~\eqref{eq:C1-H2}, where
-$\xi = \tanh^2(\rho/2)$.
-At small~$\rho$: $\log(2\sinh\rho) + b(N) \approx \log\rho + b(N)
-\to C_1 \to N{-}1$; the two agree in the flat limit.
+\emph{Notation: two forms of $C_1$.}
+The WDW potential uses the \emph{unconstrained} form
+$C_1(\rho) = \log(2\sinh\rho) + b(N)$ (geodesic coordinate).
+The holographic sections use the \emph{constrained} form
+$C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$ (eq.~\ref{eq:C1-H2})
+with $\xi = \tanh^2(\rho/2)$.
+These are the same function in different coordinates:
+$C_1(\rho) = C_1(\xi(\rho))$, coinciding at
+$\rho \to 0$: $C_1 \to N{-}1$.
 The WDW equation uses the unconstrained form because it
 retains the full $\rho$-dependence of the Green's function.
 
@@ -1875,6 +1880,10 @@ on a \emph{general} background, and the maximum-entropy
 configuration turns out to be constant curvature.
 The Einstein equations are the unique equilibrium of
 the polygon entropy.
+The global equilibration across the surface is provided by
+the Green's function itself: $G(x,y)$ couples polygon systems
+at different points~$x$ and~$y$, creating a connected
+thermodynamic system whose entropy is maximised collectively.
 
 \medskip
 \noindent\textbf{Step~4. Mode-independence + $R = \mathrm{const}$
