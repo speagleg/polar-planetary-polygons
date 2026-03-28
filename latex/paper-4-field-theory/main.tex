@@ -907,25 +907,36 @@ parametrise a target $\mathbb{C}^2$, on which the
 $\mathbb{Z}/3\mathbb{Z}$ Frobenius acts as
 $\mathrm{diag}(\omega,\, \omega^{-1}) \in \mathrm{SU}(2)$ (Step~3).
 One might object that the CS/WZW correspondence applies
-to the \emph{gauge field} $A$, not to matter modes
-like~$\eta_1, \eta_2$.  The resolution: in a
-\emph{topological} bulk theory (here: CS gravity with
-zero propagating modes), there is no independent bulk
-matter sector---\emph{all} bulk excitations reduce to
-boundary modes, because the bulk has zero local DOF.
-The Havelock modes are perturbations of the CS gauge
-field (they deform the connection $A = \omega + e/\ell$
-through the dreibein $e$, which is part of the gauge
-variable in the first-order formulation).
-This is the same mechanism that produces the graviton
-from the Virasoro algebra
-(Theorem~\ref{thm:graviton-4d}): the graviton is
-also a perturbation of the CS connection, not a
-separate matter field.
-No GKPW dictionary is needed because the bulk is
-topological: the holographic principle is \emph{exact}
-(not a duality but an identity) for topological field
-theories.
+to the \emph{gauge field} $A$, not to ``matter modes''
+like~$\eta_1, \eta_2$.
+The resolution is that vortex displacements ARE gauge field
+perturbations---this is \emph{algebra}, not an identification.
+The chain is explicit:
+\begin{enumerate}
+\item The $N$-cone metric is $ds^2 = |f'(z)|^2\,|dz|^2$
+  with $f'(z) = \prod_k(z{-}z_k)^{-\beta}$
+  (the developing map, Paper~II eq.~\eqref{II-eq:developing-map}).
+\item In the first-order formalism: dreibein $e^a = |f'|\,dx^a$,
+  spin connection $\omega^{12} = *\!d\log|f'|$,
+  CS connection $A = \omega + e/\ell$.
+\item Displace cone~$k$ by $\delta z_k$:
+  $\delta\log f' = -\beta\sum_k \delta z_k/(z{-}z_k)$.
+  This perturbs the dreibein: $\delta e = (\delta\log|f'|)\,e_0$
+  and the spin connection: $\delta\omega = *\!d(\delta\log|f'|)$.
+\item Therefore $\delta A = \delta\omega + \delta e/\ell$
+  is a perturbation of the CS connection, computed
+  \emph{algebraically} from the developing map.
+\item The $\mathbb{Z}_N$ Fourier projection onto mode~$m$
+  extracts $\delta A_m$ with
+  $\mathrm{SL}(2,\mathbb{R})$ Casimir $m(N{-}m)/2$
+  (by the Havelock identity applied to $\delta A$).
+\end{enumerate}
+Every step is explicit algebra; no physical identification
+enters.
+The Havelock modes are not ``matter fields identified with
+gauge perturbations''---they ARE gauge perturbations,
+because the dreibein IS part of the CS connection
+(\texttt{proofs/dreibein\_havelock.py}).
 The $\mathbb{Z}/3\mathbb{Z}$ invariance of the action
 (the Havelock eigenvalues are constant on Galois orbits)
 ensures the Frobenius descends to the boundary theory.
@@ -2079,8 +2090,16 @@ $N = 3 + 7 = 10$ would add a matter mode ($N = 3$ has
 no gauge content: $f(1,3) = 1 = j(j{+}1)$ for $j = 0$,
 the scalar, not a gauge boson).
 Chern class additivity $c_1(L) = c_1(L_{\mathrm{EW}})
-+ c_1(L_{\mathrm{grav}})$ is the unique combination that
-includes each gauge sector exactly once on a single fiber.
++ c_1(L_{\mathrm{grav}})$ follows from the
+\emph{Whitney sum formula}
+$c_1(L_1 \otimes L_2) = c_1(L_1) + c_1(L_2)$
+(a theorem of algebraic topology, not a physical assumption).
+The two gauge sectors operate on the \emph{same} $S^1$ fiber
+because the Thurston classification (Step~iv of
+Proposition~\ref{prop:spacetime}) allows only one compact
+fiber direction.
+With $c_1 = 4 + 7 = 11$, this is the unique combination that
+includes each gauge sector exactly once.
 Higher multiples ($N = 14 = 2 \times 7$, $N = 28 = 4 \times 7$)
 would require duplicating a gauge sector:
 $N = 14$ contains two copies of the $N = 7$ gravitational bundle,

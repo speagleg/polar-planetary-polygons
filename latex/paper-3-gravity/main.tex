@@ -185,8 +185,19 @@ the CMS $\to$ KZ step uses the geometry of
 $\mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2) = \mathbf{H}^2$,
 and the KZ $\to$ CS step uses the gauge theory on the
 \emph{same} $\mathbf{H}^2$ base.
-The isomorphism is verified numerically for all
-$N = 3,\ldots,12$ and all modes
+Since the $\mathbb{Z}_N$ Fourier mode~$m$ is a
+\emph{one-dimensional} eigenspace of the circulant Hessian,
+the $\mathfrak{sl}(2,\mathbb{R})$ representation on~$V_m$ is
+irreducible.
+For irreducible representations, the Casimir \emph{uniquely determines}
+the representation up to unitary equivalence (Schur's lemma):
+two irreducible $\mathfrak{sl}(2,\mathbb{R})$-modules with the
+same $C_2$ are isomorphic.
+The CMS and CS representations on~$V_m$ have the same Casimir
+$m(N{-}m)/2$ (by the EFK/Witten chain above), so they are
+isomorphic as $\mathfrak{sl}(2,\mathbb{R})$-modules---not merely
+as vector spaces with matching eigenvalues.
+Verified for $N = 3,\ldots,12$
 (\texttt{proofs/cms\_cs\_isomorphism.py}).
 The critical mode has $f(m^*,N) = j(j{+}1)$
 with integer~$j$ only at specific~$N$:
