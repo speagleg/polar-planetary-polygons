@@ -322,9 +322,12 @@ In the gravitational language:
     (flat-space AdS, no topology).
   \item $\delta C_1$: one-loop quantum correction
     (from the topology of the spatial slice).
-  \item The bound $|\delta C_1| \le 2/(4\pi\lambda_1)$:
-    a bound on the quantum gravitational correction to
-    polygon stability.
+  \item The bound $|\delta C_1| \le 2/(4\pi\lambda_{\mathrm{triv}})$
+    at the Aut-fixed centre
+    ($\lambda_{\mathrm{triv}} \approx 15.05$ for the Bolza surface),
+    or $|\delta C_1| \le 2/(4\pi\lambda_1)$ at a generic point
+    ($\lambda_1 \approx 3.84$): quantum gravitational corrections
+    to polygon stability.
 \end{itemize}
 
 \paragraph{The Selberg dictionary.}
@@ -877,7 +880,8 @@ Odd (paired $m, N{-}m$) & two eigenvalues cross & $2\log 2$ (2 bits) \\
 \noindent
 Through $N = 12$: exactly $9$ bits (verified numerically).
 Through $N = 17$ ($11$ wall-crossings): the discrete part contributes
-$17$ bits ($9.3\%$), the continuous one-loop part $107.8$ bits ($90.7\%$).
+$17\ln 2 \approx 11.8$ nats ($9.9\%$), the continuous one-loop part
+$107.8$ nats ($90.1\%$).
 The $L^2$-Morse index $\tau(P_-)$ has denominator~$2$
 at each threshold (from the eta invariant shift of $1/2$
 due to the zero mode), consistent with the $K$-theoretic framework.
@@ -904,10 +908,11 @@ The Bolza surface carries the $\{8,3\}$ hyperbolic lattice
 on which \citet{Lenggenhager2023} constructed the
 hyperbolic Haldane model (Chern insulator with quantised
 Bott index $B = \pm 1$ and chiral edge states).
-The vortex stability analysis on this surface therefore
-computes Chern numbers of a hyperbolic topological insulator:
-the spectral bound $|\delta C_1| \lesssim 0.05$ constrains
-the phase diagram of the $\{8,3\}$ Haldane model.
+The vortex stability analysis on the same $\{8,3\}$
+lattice shares the spectral data ($\lambda_n$ of $\Delta_S$)
+with the hyperbolic Haldane model.
+The bound $|\delta C_1| \lesssim 0.05$ shows that polygon
+stability is insensitive to the hyperbolic lattice topology.
 \paragraph{Lorentzian continuation and the BTZ horizon.}
 The curvature coefficient $C_1 = \log(2\sinh\rho) + b(N)$ admits
 an analytic continuation $\rho \to \rho + i\pi/2$ that interchanges
@@ -1179,7 +1184,7 @@ determined by the index theorem.
 on the flat plane.
 On \emph{constant-curvature} surfaces with the \emph{constrained}
 (angular-impulse) eigenvalue, $\delta_m = 0$ identically
-(Paper~IV, Theorem~6.1).
+(Paper~IV, Theorem~\ref*{V-thm:anomaly-vanishes}).
 The nonzero formula below applies to the flat-plane or
 non-constant-curvature case.
 
@@ -1660,56 +1665,51 @@ Paper~IV through the boundary Virasoro mechanism (the emergent
 spin-$2$ graviton of Theorem~IV-\ref*{V-thm:graviton-4d}).
 We state the theorem first, then collect the proof.
 
-\begin{theorem}[Polygon stability derives the Einstein equations in $2{+}1$D]
+\begin{theorem}[Polygon stability implies constant curvature]
 \label{thm:polygon-einstein}
-Let $(S, g)$ be a two-dimensional Riemannian manifold serving
-as the spatial slice of a $2{+}1$-dimensional spacetime.
-Place $N$ equal point masses of mass~$m$ in a regular polygon ring
-of geodesic radius~$\varepsilon$ centred at a point~$x \in S$,
+Let $(S, g)$ be a two-dimensional Riemannian manifold.
+Place $N$ equal point vortices in a regular polygon ring
+of geodesic radius~$\varepsilon$ centred at~$x \in S$,
 interacting via the scalar Green's function of~$(S, g)$.
-If the following three conditions hold:
+If:
 \begin{enumerate}
 \item[\textup{(H1)}]
   \emph{Havelock structure}: the angular Hessian eigenvalues
   have the form $\lambda_m = C_1(x,\varepsilon) - m(N{-}m)/2$
   with $C_1$ independent of~$m$.
-  \emph{In $d = 2$: proved} by the $\csc^2$ uniqueness
-  theorem (Paper~I);
-\item[\textup{(H2)}]
-  \emph{Hamiltonian constraint}: $C_1(x,\varepsilon) = f(m^*,N)$
-  at the critical mode $m^* = \lfloor N/2\rfloor$.
-  \emph{Derived} from the Wheeler--DeWitt equation in the
-  classical limit ($c \to \infty$, Step~3 below);
+  \emph{Proved in $d = 2$} by the $\csc^2$ uniqueness
+  theorem (Paper~I).
 \item[\textup{(H3)}]
-  \emph{Hadamard universality}: conditions \textup{(H1)--(H2)} hold
+  \emph{Hadamard universality}: condition~\textup{(H1)} holds
   at every point~$x \in S$.
-  \emph{Derived}: the Hadamard parametrix
+  \emph{Automatic}: the Hadamard parametrix
   $G(x,y) = -(1/2\pi)\log d(x,y) + \gamma_S(x) + O(d^2)$
-  is \emph{universal} on any Riemannian surface
+  is universal on any Riemannian surface
   (it depends only on the local metric).
   By the $\csc^2$ uniqueness theorem, the logarithmic
   short-distance kernel gives the Havelock form (H1)
   at every~$x$.
-  The WDW classical limit (H2) likewise holds at every~$x$
-  because $C_1 \to N{-}1 = f(m^*,N)$ as $\varepsilon \to 0$
-  is a local statement.
 \end{enumerate}
-then the scalar curvature of~$S$ is constant,
-$R(x) = R_0$ for all~$x$, and
-\begin{equation}\label{eq:einstein-from-polygon}
-  R_{\mu\nu} = \Lambda\,g_{\mu\nu},
-  \qquad
-  \Lambda = \frac{-4\bigl[f(m^*,N) - (N{-}1)\bigr]}
-                 {(N{-}1)\,\varepsilon^2}.
-\end{equation}
-These are the vacuum Einstein equations of $2{+}1$-dimensional
-gravity, with $\Lambda = R_S/2$
-(in $2{+}1$D, $R_{\mu\nu} = \Lambda g_{\mu\nu}$ on a static slice
-gives spatial scalar curvature $R_S = 2\Lambda$).
+Then the scalar curvature of~$S$ is constant:
+$R(x) = R_0$ for all~$x$.
+In $2{+}1$D, this gives the vacuum Einstein equations
+$R_{\mu\nu} = \Lambda\,g_{\mu\nu}$ (Schur's lemma;
+the Weyl tensor vanishes identically in three dimensions).
 \end{theorem}
 
+\noindent
+The cosmological constant $\Lambda$ is determined by a
+separate dynamical argument (the WDW equation,
+Proposition~\ref{prop:wdw-lambda} below), not by
+the theorem above.
+The theorem establishes the \emph{form} of the Einstein
+equations; the WDW equation determines their
+\emph{content} ($\Lambda$).
+
 \begin{proof}
-The proof proceeds in six steps.
+The proof has three steps: (1)~force the interaction to be
+logarithmic, (2)~extract $R(x)$ from the Hadamard parametrix,
+(3)~conclude $R = \mathrm{const}$ from (H1) $+$ (H3).
 
 \medskip
 \noindent\textbf{Step~1. Polynomial Casimir forces logarithmic interaction.}
@@ -1724,101 +1724,7 @@ $V(z,w) = -G_S(z,w)$, where $G_S$ is the Green's function
 of the scalar Laplacian on~$(S, g)$.
 
 \medskip
-\noindent\textbf{Step~2a. The Hamiltonian constraint (H2)
-from the Havelock threshold.}
-On the \emph{flat plane}, the Havelock stability theorem
-(Paper~I) proves that the $N$-gon is marginally stable
-at $C_1 = N{-}1 = f(m^*,N)$ for $N \le 7$.
-On a curved surface, the Hamiltonian constraint
-$C_1(x,\varepsilon) = f(m^*,N)$ defines the
-\emph{stability threshold}: the value of the polygon radius
-where the critical eigenvalue $\lambda_{m^*} = 0$.
-This threshold exists on \emph{any} Riemannian surface
-(by continuity of $C_1$ in the ring radius), providing
-(H2) as a geometric condition rather than a dynamical selection.
-The WDW equation (Step~2b) then promotes this classical threshold
-to a quantum constraint.
-
-\emph{Logical dependency}: Step~1 (H1 $\Rightarrow$
-logarithmic Green's function) determines the potential $V(\rho)$
-in the WDW equation below.
-Step~2b writes the WDW equation with this potential.
-Step~3 takes the classical limit $c \to \infty$ to recover (H2).
-The chain (H1) $\to$ $V(\rho)$ $\to$ WDW $\to$ (H2) is
-unidirectional; (H2) is \emph{derived from} (H1) and the
-Feynman--Kac mapping, not assumed independently.
-
-\medskip
-\noindent\textbf{Step~2b. Why second-order dynamics from a first-order system.}
-The Kirchhoff equations $\dot{z}_k = -i\,\partial H/\partial\bar{z}_k$
-are first-order: the coordinates $(z_k, \bar{z}_k)$ are
-\emph{canonically conjugate to each other} (there are no
-separate momenta).
-The breathing mode $\rho$ (parametrising
-$z_k = \rho\,e^{2\pi ik/N}$) is a \emph{collective coordinate}
-of this first-order system, not a canonical variable.
-The $N{-}2$ angular modes form a \emph{thermal bath} for~$\rho$:
-their fluctuations drive $\rho$ as Brownian motion in the
-potential~$V(\rho)$.
-The Caldeira--Leggett conditions are verified:
-(i)~the angular modes are \emph{harmonic}
-($H = V(\rho) + \tfrac{1}{2}\sum\lambda_m(\rho)|a_m|^2$,
-exact Fourier diagonalisation of the circulant);
-(ii)~the coupling is \emph{linear} and \emph{uniform}:
-$\partial\lambda_m/\partial\rho = C_1'(\rho) = \coth(\rho)$
-for all~$m$ (mode-independence of~$C_1$);
-(iii)~\emph{timescale separation}: tunnelling ($\tau \sim e^{S_{\mathrm{BO}}}$)
-vs.\ angular oscillation ($\tau_m \sim 1$).
-The effective stochastic dynamics is overdamped Langevin:
-$\gamma\,\dot\rho = -V'(\rho) + \eta(\tau)$,
-with noise from the angular bath and friction from FDT
-(automatic for harmonic bath with linear coupling).
-The Onsager--Machlup path probability is
-$P[\rho(\tau)] \propto \exp(-S_{\mathrm{OM}})$ with
-\[
-  S_{\mathrm{OM}} = \int_0^\beta
-  \Bigl[\frac{c}{2}\,\dot\rho^2 + V(\rho)\Bigr]\,d\tau,
-  \qquad c = \frac{\gamma}{2T}.
-\]
-The $\dot\rho^2$ term is the \emph{noise kernel}---it
-measures how improbable a given velocity is in the
-thermal bath---not a kinetic energy of the deterministic system.
-This is the standard mechanism by which a first-order classical
-system acquires second-order quantum dynamics
-(the Caldeira--Leggett model for quantum Brownian motion).
-
-The value $c = 12\,b(N)$ is determined by
-\emph{self-consistency}: the WDW equation must reproduce the
-Havelock spectrum.
-The equivariant index
-(Proposition~\ref{prop:equiv-rr}) gives $b(N)$ as the unique
-mode-independent offset, and $c = 12\,b(N)$ is the unique
-coefficient reproducing the correct eigenvalue structure.
-This is topological ($\rho$-independent) and matches
-$c \approx N^2$ at leading order
-(the $N{-}1$ frozen modes each enhance the effective
-mass by ${\sim}\,N$, consistent with $c = N^2 + O(N)$).
-
-The transfer matrix $T = e^{-\epsilon\,H_{\mathrm{WDW}}}$
-of this Onsager--Machlup path integral satisfies
-$H_{\mathrm{WDW}}\Psi = 0$ in the dominant eigenstate
-(the Feynman--Kac theorem).
-No gravitational input enters: $c$ is determined by the
-eigenvalue data, and the Brown--Henneaux relation
-is a consistency check (\S\ref{sec:intro-gravity}, step~3).
-(Operator ordering: the Laplacian $-d^2/d\rho^2$ is natural
-for the geodesic coordinate; alternatives differ at $O(1/c)$.)
-
-\medskip
-\noindent\textbf{Step~3. Classical limit recovers (H2).}
-In the limit $c \to \infty$: the kinetic term
-$\Psi''/(2c) \to 0$ and the WDW equation reduces to
-$V(\rho) = 0$, i.e.\ $C_1(x,\varepsilon) = f(m^*,N)$.
-This recovers the Onsager result (Step~2a) from the
-quantum framework, confirming self-consistency.
-
-\medskip
-\noindent\textbf{Step~4. Small-ring expansion reveals local curvature.}
+\noindent\textbf{Step~2. Small-ring expansion reveals local curvature.}
 The Green's function on any Riemannian surface has the short-distance
 expansion $G_S(z,w) = -(1/2\pi)\log d(z,w) + \gamma_S(z) + O(d^2)$,
 where $d(z,w)$ is the geodesic distance and $\gamma_S$ encodes
@@ -1845,26 +1751,15 @@ In the Hadamard derivation, the $1/4$ decomposes into
 $1/6$ (from the curvature term $-R\,d^2/12$ in the parametrix,
 with $\sum_p\sin^2(\pi p/N) = N/2$) and $1/12$ (from the
 curvature correction to chord distances at $O(\varepsilon^3)$).
-The exact coefficient $1/4$ matches the exact
-$C_1/(N{-}1) = (1{+}\xi^2)/(1{-}\xi)^2 \approx 1 + \varepsilon^2/2
-= 1 - R\varepsilon^2/4$ (since $R = -2$ on unit $\mathbf{H}^2$).
-
-\noindent
-\emph{Two-scale compatibility.}
-Step~2a selects $\rho = \rho^*$ (a specific, potentially large,
-radius) while Step~4 uses a small-$\varepsilon$ expansion.
-These are compatible because (H2) is the statement
-$C_1(x,\varepsilon) = f(m^*,N)$ at \emph{any} $\varepsilon$
-where the polygon is marginally stable.
-The Hadamard expansion~(\ref{eq:C1-expansion-proof})
-at small~$\varepsilon$ extracts $R(x)$ from
-this condition; the WDW classical limit at large~$c$
-provides the physical mechanism selecting the threshold.
 
 \medskip
-\noindent\textbf{Step~5. Hadamard universality forces $R = \mathrm{const}$.}
-Condition~(H3) requires~(\ref{eq:C1-expansion-proof}) to equal
-$f(m^*,N)$ at \emph{every}~$x$.
+\noindent\textbf{Step~3. (H1) $+$ (H3) force $R = \mathrm{const}$.}
+By (H1), $\lambda_{m^*} = C_1(x,\varepsilon) - f(m^*,N)$.
+At the stability threshold ($\lambda_{m^*} = 0$):
+$C_1(x,\varepsilon) = f(m^*,N)$.
+This threshold exists at every~$x$ (by continuity of~$C_1$
+in the ring radius and the Hadamard universality of~(H3)).
+Substituting~(\ref{eq:C1-expansion-proof}):
 Since $f(m^*,N)$ and $N$ are numbers independent of~$x$:
 \[
   -(N{-}1)\,\frac{R(x)\,\varepsilon^2}{4}
@@ -1888,7 +1783,7 @@ Without this parametrix, there is no path from polygon
 stability to curvature.
 
 \medskip
-\noindent\textbf{Step~6. Mode-independence + $R = \mathrm{const}$
+\noindent\textbf{Step~4. Mode-independence + $R = \mathrm{const}$
 implies Einstein in any~$d$.}
 In $d = 3$ ($2{+}1$D): the Weyl tensor has
 $d(d{+}1)(d{+}2)(d{-}3)/12 = 0$ components, so
@@ -1931,8 +1826,42 @@ $R_{\mu\nu} = \Lambda\,g_{\mu\nu}$.
 In $d = 4$, the Weyl tensor has $10$ components at $\ell = 2$
 ($5$ real), requiring $\lfloor N/2\rfloor \ge 5$, i.e.\ $N \ge 10$
 (even) or $N \ge 11$ (odd)---the \emph{cosmological polygon}
-(Paper~IV, Theorem~11).
+(Paper~IV, Theorem~\ref*{V-thm:n-selection}).
 \end{proof}
+
+\begin{proposition}[The cosmological constant from the WDW equation]
+\label{prop:wdw-lambda}
+The value of $\Lambda$ in
+Theorem~\ref{thm:polygon-einstein} is determined by the
+Wheeler--DeWitt equation for the breathing mode~$\rho$:
+\[
+  \Bigl[-\frac{1}{2c}\,\frac{d^2}{d\rho^2}
+  + V(\rho)\Bigr]\Psi = 0,
+  \qquad V(\rho) = C_1(\rho) - f(m^*,N),
+\]
+with $c = 12\,b(N)$ extracted from the eigenvalue
+decomposition (Proposition~\ref{prop:equiv-rr}).
+The second-order kinetic term arises from the
+Caldeira--Leggett mechanism: the $N{-}2$ angular modes
+form a bath for the collective coordinate~$\rho$,
+producing an Onsager--Machlup noise kernel
+$S_{\mathrm{OM}} = \int[(c/2)\dot\rho^2 + V]\,d\tau$.
+In the classical limit $c \to \infty$:
+$V(\rho^*) = 0$, giving $C_1 = f(m^*,N)$ and hence
+$\Lambda = -4[f(m^*) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
+
+The Caldeira--Leggett conditions are satisfied at
+leading order: (i)~the angular modes are harmonic
+(exact Fourier diagonalisation); (ii)~the coupling is
+mode-independent ($C_1' = \coth\rho$ for all~$m$);
+(iii)~timescale separation holds
+($\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}} \gg 1$).
+The bath has $N{-}2$ discrete modes (not a continuum),
+so the Caldeira--Leggett derivation is a controlled
+approximation at large~$c$ (where $N{-}2$ modes
+approximate a dense spectral density) rather than an
+exact result.
+\end{proposition}
 
 \begin{remark}[The cosmological constant from the polygon number]
 \label{rmk:lambda-from-N}
@@ -1975,8 +1904,8 @@ do not depend on~$d$ (Steps~2--3); the Hadamard parametrix
 $G(x,y) = U/\sigma^{(d-2)/2} + V\log\sigma + W$ contains
 $R(x)$ at order~$\varepsilon^2$ in every~$d$ (Step~4);
 and the $x$-independence of $h(m^*,N,\Delta)$ forces
-$R = \mathrm{const}$ regardless of~$d$ (Step~5).
-Step~6 closes differently by dimension:
+$R = \mathrm{const}$ regardless of~$d$ (Step~3).
+Step~4 closes differently by dimension:
 
 \medskip
 \begin{center}
@@ -2084,29 +2013,30 @@ follows from the \citet{Lashkari2014}
 entanglement argument: positivity of relative entropy
 $S(\rho\|\sigma) \ge 0$ in the unitary boundary CFT implies
 $\delta Q = T\,\delta S$ at every Rindler horizon,
-which in turn implies the full Einstein equations with matter
+The Clausius relation is verified numerically at all
+palindromic thresholds $N = 7, \ldots, 17$
+(test suite: \texttt{test\_jacobson\_derivation.py}).
+The extension to the full matter-coupled Einstein equations
+$G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G\,T_{\mu\nu}$
+requires the Jacobson thermodynamic argument
+(\citealt{Jacobson1995}; \citealt{Lashkari2014}):
+$\delta Q = T\,\delta S$ at every local Rindler horizon
+implies Einstein with matter.
+The identification of palindromic thresholds as Rindler
+horizons uses the modular Hamiltonian of the angular bath,
+which equals the Rindler energy by the
+Bisognano--Wichmann theorem for the boundary CFT
 (Paper~IV, Theorem~\ref*{V-thm:nonlinear-einstein}).
 
 \paragraph{Matter coupling.}
-On a quotient $\Gamma\backslash\mathbf{H}^2$ (where the topology
-or conical deficits represent matter sources $T_{\mu\nu}$),
-the Selberg correction $\delta C_1$ shifts the threshold
+On a quotient $\Gamma\backslash\mathbf{H}^2$, the Selberg
+correction $\delta C_1$ shifts the threshold
 $\rho^* \to \rho^*_{\mathrm{matter}}$, but the Clausius ratio
-retains the functional form $4\pi\,\tanh(\rho^*_{\mathrm{matter}})$
-(verified on the Bolza surface with $|\delta C_1| \le 0.021$,
-$\lambda_1 \approx 3.84$).
-The ratio $4\pi$ is a \emph{local} geometric identity: the metric
-on $\Gamma\backslash\mathbf{H}^2$ is locally identical to~$\mathbf{H}^2$,
-so the local Clausius relation is unchanged.
-The matter content determines \emph{where} the threshold sits
-(which~$\rho^*$), while the ratio~$4\pi$ determines \emph{how strongly}
-geometry couples to matter---it IS the Newton constant:
+retains the form $4\pi\,\tanh(\rho^*_{\mathrm{matter}})$
+(verified on the Bolza surface with $|\delta C_1| \le 0.021$).
+The ratio~$4\pi$ is a local geometric identity (the metric is
+locally~$\mathbf{H}^2$), giving
 $G_{\mathrm{eff}} = 1/(4\pi)$ in natural units ($8\pi G = 2$).
-The full Einstein equations with matter,
-$G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G\,T_{\mu\nu}$,
-follow from the Jacobson thermodynamic argument applied at
-each palindromic threshold, with the universal
-$\delta Q/(T\delta S) = 4\pi$ supplying the coupling constant.
 
 \medskip
 \noindent
