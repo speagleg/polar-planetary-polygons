@@ -927,9 +927,9 @@ $\mathrm{diag}(\omega,\, \omega^{-1}) \in \mathrm{SU}(2)$ (Step~3).
 One might object that the CS/WZW correspondence applies
 to the \emph{gauge field} $A$, not to ``matter modes''
 like~$\eta_1, \eta_2$.
-The resolution is that vortex displacements ARE gauge field
-perturbations---this is \emph{algebra}, not an identification.
-The chain is explicit:
+The resolution is that \emph{linearised} vortex displacements
+ARE gauge field perturbations---this is \emph{algebra}, not an
+identification.  The chain is explicit (at the linearised level):
 \begin{enumerate}
 \item The $N$-cone metric is $ds^2 = |f'(z)|^2\,|dz|^2$
   with $f'(z) = \prod_k(z{-}z_k)^{-\beta}$
@@ -949,11 +949,12 @@ The chain is explicit:
   $\mathrm{SL}(2,\mathbb{R})$ Casimir $m(N{-}m)/2$
   (by the Havelock identity applied to $\delta A$).
 \end{enumerate}
-Every step is explicit algebra; no physical identification
-enters.
-The Havelock modes are not ``matter fields identified with
-gauge perturbations''---they ARE gauge perturbations,
-because the dreibein IS part of the CS connection
+Every step is explicit algebra at the linearised level;
+no physical identification enters.
+The linearised Havelock modes are not ``matter fields
+identified with gauge perturbations''---they ARE
+linearised gauge perturbations, because the dreibein
+IS part of the CS connection
 (\texttt{proofs/dreibein\_havelock.py}).
 
 \emph{Why CS/WZW applies (and GKPW is not needed).}
@@ -1787,10 +1788,17 @@ $\rho^* = 1.80$, giving $T_2 = Q_1(\cosh d_1) = 0.019$ and
 \end{equation}
 No new parameters are introduced: the correction is fixed by~$N$
 and the BO potential.
-\emph{Sensitivity}: $\partial|V_{cb}|/\partial\rho^* \approx -0.03$
-per unit $\rho^*$; a $5\%$ shift in $\rho^*$ ($1.80 \to 1.89$)
-changes $|V_{cb}|$ by $\approx 3\%$ ($0.042 \to 0.041$), well
-within the experimental uncertainty.
+\emph{Sensitivity}: $\partial|V_{cb}|/\partial\rho^* \approx -0.07$
+per unit $\rho^*$; the elasticity
+$d\!\ln|V_{cb}|/d\!\ln\rho^* \approx -3$, so a $5\%$ shift in
+$\rho^*$ ($1.80 \to 1.89$) changes $|V_{cb}|$ by $\approx 15\%$
+($0.042 \to 0.036$).
+The precision of the match therefore rests on $\rho^*$ being the
+unique zero of the BO potential (which is determined by~$N$ and
+the $\mathbf{H}^2$ geometry with no free parameters), not on a
+fine-tuning.  We note that $|V_{cb}|_{\mathrm{exp}} = 0.042 \pm 0.001$,
+so the \emph{tolerance} on $\rho^*$ from the observed $V_{cb}$
+is $\approx 1\%$ ($\rho^* \in [1.79, 1.81]$).
 This suppression applies only to transitions \emph{to} generation~$3$
 (the unique BF-crossing mode, $c\colon \tfrac{1}{2} \to \tfrac{3}{2}$
 crossing $c = 1$).
@@ -3696,7 +3704,7 @@ $4$D graviton (spin $2$) & Theorem & --- \\
 Vacuum Einstein equations & Theorem & --- \\
 $\sin^2\theta_W = 3/11$ & Derivation$^*$ & $3.9\%$ \\
 $\delta_{\mathrm{CKM}} = 70.2^\circ$ & Theorem & $0.4\sigma$ \\
-$|V_{cb}| = 0.042$ & Derivation & $0.5\%$ \\
+$|V_{cb}| = 0.042$ & Derivation & $0.5\%$ (sensitivity $\pm 15\%$) \\
 $M_P/M_{\mathrm{EW}}$ hierarchy & Derivation & $0.003\%$ \\
 $H_0 = 67.4$ & Derivation & $10^{-5}$ in $\ln(\ell v)$; $< 0.01\%$ in $H_0$ \\
 WDW equation from stat.\ mech. & Derivation & --- \\
@@ -3717,6 +3725,42 @@ This exceeds the integrable bound $j \le 1/2$ of the
 WZW gauge sector but is valid for the matter coupling
 (see the \emph{Matter versus gauge representations}
 paragraph in \S\ref{sec:weinberg}).
+
+\paragraph{Cumulative uncertainty.}
+The derivation chain from polygon stability to the Standard
+Model passes through three distinct types of link:
+\begin{enumerate}
+\item \emph{Theorem links} (Havelock identity, McKay
+  correspondence, CS/WZW, Liouville--Arnold):
+  mathematically proved.  No propagated uncertainty.
+\item \emph{Structural identifications} (CMS $\to$ KZ equation
+  $\to$ CS; dreibein $=$ linearised Havelock mode;
+  Regge vertex $=$ point vortex):
+  each link is a proved isomorphism between mathematical
+  structures, but the \emph{physical relevance} of the
+  identification (``the vortex system IS spacetime'')
+  is a framework hypothesis, not a theorem.
+\item \emph{Computed quantities} ($V_{cb}$, $H_0$, $\eta_B$,
+  $\sin^2\theta_W$): the numerical values are exact consequences
+  of the framework, but inherit the sensitivity of the structural
+  identifications.
+\end{enumerate}
+The honest accounting is therefore: the theorem links are
+rigorous; the structural identifications are the \emph{load-bearing}
+hypotheses; and the computed quantities test whether these
+hypotheses are self-consistent.
+The $V_{cb}$ sensitivity analysis (\S\ref{sec:ckm-np}) shows
+that precise numerical matches ($<\!1\%$) constrain the framework
+tightly: the tolerance on~$\rho^*$ is~$\sim\!1\%$, leaving
+little room for hidden parameters.
+Nevertheless, the ``0.5\%~match'' on~$V_{cb}$ and
+``$10^{-5}$~match'' on~$H_0$ should be read as
+\emph{consistency} of the framework at the level of its
+structural identifications, not as independently
+predicted values.  The genuine predictions---those that
+could \emph{falsify} the framework---are the qualitative ones:
+the gauge group, the number of generations, the neutrino
+mass hierarchy, and the absence of the strong CP phase.
 
 \paragraph{Input--output classification.}
 \label{sec:input-output}
