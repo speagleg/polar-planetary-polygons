@@ -143,9 +143,16 @@ admitting a stable $11$-gon.
 
 \emph{Step~2 (The fiber is $S^1$).}
 Gauge fields arise from Kaluza--Klein reduction on a compact fiber.
+The fiber must be one-dimensional for two reasons:
+(a)~the Havelock decomposition is a $\mathbb{Z}_N$ Fourier
+analysis on a \emph{circle} (the polygon ring), which is
+one-dimensional by construction;
+(b)~a higher-dimensional fiber ($S^2$, $T^2$, \ldots) would
+introduce additional isometry generators
+(e.g.\ $\mathrm{SU}(2)$ for $S^2$, $\mathrm{U}(1)^2$ for $T^2$)
+beyond the single $\mathrm{U}(1)$ from the KK photon,
+producing gauge sectors absent from the polygon hierarchy.
 The circle $S^1$ is the unique compact connected $1$-manifold.
-A higher-dimensional fiber ($S^2$, $T^2$, \ldots) would introduce
-additional gauge sectors not observed.
 
 \emph{Step~3 (The Thurston classification forces
 $\widetilde{\mathrm{SL}(2,\mathbb{R})}$).}
@@ -1149,12 +1156,19 @@ No alternative value of~$j$ is consistent with the
 polygon spectrum at~$N = 4$.
 
 \medskip\noindent
-The experimental value at $M_Z$: $\sin^2\theta_W = 0.2312$.
+\emph{Consistency check (not a fit).}
+The tree-level prediction $3/11 = 0.2727$ is $18\%$ above
+the experimental value $\sin^2\theta_W(M_Z) = 0.2312$.
 Standard SM running (one-loop, $b_1 = 41/10$, $b_2 = -19/6$)
-from~$3/11$ matches experiment at
+brings $3/11$ down to $0.231$ at
 $M_{\mathrm{poly}} \approx 300$\,TeV.
+This determines the polygon scale $M_{\mathrm{poly}}$---it is
+a \emph{consistency check} (the running must land in the
+$50$--$500$\,TeV range for SM particle content to be correct),
+not a fit (no free parameter is adjusted).
 For comparison, the SU$(5)$ GUT predicts $3/8 = 0.375$
-($62\%$ above experiment at tree level).
+($62\%$ above experiment at tree level), matching at
+$M_{\mathrm{GUT}} \sim 10^{14}$\,GeV.
 
 %% ====================================================================
 \section{The two-force unification}
@@ -2213,6 +2227,23 @@ versus the observed $\ln(M_P/v) = 38.442$
 
 \begin{proof}
 Each component is computed independently.
+
+\emph{Why $c_7$ for the instanton but $c_{11}$ for the gravity
+prefactor.}
+The electroweak hierarchy involves the $N = 7$ sector
+(the graviton polygon): $S_{\mathrm{BO}}(7)$ and $\varepsilon_7$
+are computed from $b(7)$ and $f(3,7)$.
+The gravity prefactor $c/(24\pi^2)$ uses
+$c = c_{11} = 12\,b(11)$ because the Planck mass
+$M_P = \sqrt{c/G}$ is set by the \emph{full} spacetime
+geometry ($N = 11$), not the graviton sector alone.
+The two sectors decouple: the $N = 7$ BO potential determines
+the tunneling rate (which sets $v/M_P$), while $N = 11$
+determines the overall gravitational coupling (which sets
+$M_P$ in physical units).
+This decoupling is guaranteed by the $\mathbb{Z}_{56}$
+charge conservation (Corollary~\ref{cor:proton-stability}):
+the $N = 7$ and $N = 4$ sectors cannot exchange KK quanta.
 
 \emph{Component~1 (Instanton).}
 The Born--Oppenheimer potential for the $N = 7$ breathing mode is

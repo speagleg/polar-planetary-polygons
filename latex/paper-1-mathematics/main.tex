@@ -173,12 +173,16 @@ shows it additionally implies that the stability threshold is
 dilation-invariant.
 \end{remark}
 
-\begin{proposition}[RG classification of perturbations]
+\begin{proposition}[Scale classification of perturbations]
 \label{prop:rg-classification}
 Write $h(r) = -\ln r + \varepsilon\,f(r)$ where $f$ is a perturbation.
-The additive coarse-graining map
+The additive rescaling map
 $T_b\colon h \mapsto h(b\,\cdot) - h(b)$ acts on~$f$ as
 $(T_b f)(r) = f(br) - f(b)$.
+(We borrow the ``relevant/irrelevant/marginal'' terminology from
+the Wilsonian renormalisation group by analogy; the map $T_b$ is
+a pointwise rescaling, not a Wilson-style coarse-graining over
+short-wavelength modes.)
 \begin{enumerate}
   \item \emph{Irrelevant} ($f(r) \to 0$ as $r \to \infty$):
     the perturbation is suppressed at large scales;
