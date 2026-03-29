@@ -835,7 +835,10 @@ contributions to the conformal block decomposition.
 Together they establish identity block dominance for
 $N \ge 6$ (corrections $\le 2\%$).
 At $N = 5$, the $11\%$ correction is the leading
-systematic uncertainty.
+systematic uncertainty; however, since
+$\lambda_{\min}(5) = 1$ on the flat plane, a shift of
+$\sim\!0.11$ leaves $\lambda_{\min} > 0$, so the
+stability conclusion is not affected.
 \end{proof}
 
 Theorem~\ref{thm:block-havelock} identifies
@@ -1147,6 +1150,9 @@ Caldeira--Leggett mechanism
 the $N{-}2$ angular modes form a harmonic bath whose
 influence functional produces a $\dot\rho^2$ term in the
 Onsager--Machlup path integral.
+The CL mechanism \emph{motivates} the kinetic term; its
+\emph{coefficient} is determined by the orbifold
+consistency condition below, not by the CL approximation.
 
 \emph{The coefficient $c = 12\,b(N)$.}
 The CL mechanism proves $c > 0$ but does \emph{not}
@@ -2305,7 +2311,14 @@ vortex-gravity isomorphism is kinematic, and
 the Onsager prerequisites are verified in
 Lemma~\ref{lem:onsager-regge}.
 
+The Szeg\H{o}--Toeplitz convergence analysis
+(Remark~\ref{rem:szego-toeplitz} below) sharpens the
+FEM convergence rate to $O(h^\infty)$ using the
+analyticity of the $\csc^2$ symbol; it is a quantitative
+refinement, not a logical prerequisite for the proof.
+
 \emph{Szeg\H{o}--Toeplitz convergence of the Regge entropy.}
+\label{rem:szego-toeplitz}
 The Havelock Hessian at each Regge vertex is a
 \emph{circulant} matrix (a special Toeplitz matrix)
 with symbol $\sigma_N(\theta)$ whose eigenvalues are
