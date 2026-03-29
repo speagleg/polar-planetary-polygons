@@ -2192,17 +2192,62 @@ The vertex positions are \emph{simultaneously}
 vortex positions and Regge metric degrees of freedom
 (on a fixed triangulation, vertex positions determine
 edge lengths, hence the simplicial metric).
-The Onsager principle on this $V$-vortex system
-extremises entropy over vertex positions, which
-varies the Regge metric.
+
+\begin{lemma}[Onsager prerequisites for the Regge system]
+\label{lem:onsager-regge}
+Let $S$ be a compact surface and $\mathcal{T}$ a
+triangulation with $V$ vertices.
+The Regge polygon system satisfies the three prerequisites
+of the Onsager variational principle:
+\begin{enumerate}
+\item \emph{Compact phase space.}
+  The configuration space $S^V$ is compact ($S$ compact).
+  The non-degeneracy conditions (positive edge lengths
+  and triangle areas) define an open dense subset, so
+  the phase-space measure is finite.
+\item \emph{Energy bounded above.}
+  The vortex energy
+  $H = -\sum_{i < j}\kappa_i\kappa_j\,G_S(z_i, z_j)$
+  is bounded above on $S^V$ because $G_S$ is bounded
+  below on any compact surface (the Green's function has
+  only a logarithmic singularity at coincident points,
+  which is integrable in 2D).
+\item \emph{Negative temperature.}
+  By (1) and (2), the density of states
+  $\Omega(E) = \mathrm{Vol}(\{z : H(z) = E\})$
+  is a decreasing function of~$E$ for $E > E^*$
+  (Onsager 1949; rigorous: Kiessling 1993, Theorem~2.1).
+  The microcanonical temperature $\beta = d\ln\Omega/dE$
+  is negative in this regime.
+\end{enumerate}
+The Onsager principle is a statement about which
+macrostates dominate the microcanonical ensemble---it
+does not require specific equations of motion.
+In particular, it applies to the Regge system regardless
+of whether the Regge dynamics matches the Kirchhoff
+vortex dynamics: only the phase-space structure
+(compact, with bounded energy) is needed.
+\end{lemma}
+
+\noindent
+Given Lemma~\ref{lem:onsager-regge}, the Onsager
+principle on the $V$-vertex Regge system selects the
+entropy-maximising vertex configuration, which by~(H2a)
+has $C_1(v)$ uniform---hence $R = \mathrm{const}$.
 In the continuum limit $V \to \infty$:
-$S_{\mathrm{Regge}} \to S_{\mathrm{total}}[g]$,
-and $\delta S_{\mathrm{Regge}}/\delta(\text{vertices})
-= 0$ converges to $\delta S[g]/\delta g = 0$.
+$S_{\mathrm{Regge}} \to S_{\mathrm{total}}[g]$
+(by the FEM convergence of the Green's function,
+sharpened to $O(h^\infty)$ by the Szeg\H{o}
+estimates below),
+and the entropy-maximising Regge metric converges to
+the entropy-maximising smooth metric
+($\Gamma$-convergence of strictly concave functionals
+under $H^1$ mesh refinement \citep{Aubin1998}).
 No new physical assumption enters: the Regge
-approximation is a mathematical theorem, and the
-vortex-gravity isomorphism applies to each vertex
-individually.
+approximation is a mathematical theorem, the
+vortex-gravity isomorphism is kinematic, and
+the Onsager prerequisites are verified in
+Lemma~\ref{lem:onsager-regge}.
 
 \emph{Szeg\H{o}--Toeplitz convergence of the Regge entropy.}
 The Havelock Hessian at each Regge vertex is a
