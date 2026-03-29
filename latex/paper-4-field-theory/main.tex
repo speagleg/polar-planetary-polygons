@@ -54,7 +54,7 @@ at which the graviton appears, selected by the Pell equation)
 and one dimensionful scale $M_P$.
 Every structural choice---the Seifert geometry
 (Proposition~\ref{prop:spacetime}), the CS levels $k = K = 1$
-(DHVW $+$ gauge invariance), the cosmological sector $N = 11$
+(orbifold $+$ gauge invariance), the cosmological sector $N = 11$
 (Chern class additivity), and the BF threshold $\mu_4 = 1$%
 ---is \emph{derived}, not fitted
 (\S\ref{sec:input-output}).
@@ -1006,17 +1006,29 @@ is a well-defined nonperturbative construction:
 it does not require the target space to be~$\mathbb{C}^2$
 or the boundary theory to be free---only that
 $\mathbb{Z}/3\mathbb{Z}$ acts as an automorphism of the
-full CFT, which is guaranteed by the exact Casimir
-multiset invariance (above).
-By the ADE classification of modular invariants
-\citep{CappelliItzyksonZuber1987},
-the $\mathbb{Z}/3\mathbb{Z}$ orbifold of the WZW model
-produces the $A_2$ modular invariant, whose
-extended chiral algebra is precisely
+full CFT.
+This is guaranteed by two facts:
+(i)~the exact Casimir multiset invariance (above), and
+(ii)~the \emph{rationality} of the WZW model---in a
+rational CFT, the fusion rules and OPE coefficients
+are determined by the modular $S$-matrix via the
+Verlinde formula, which depends only on the
+representation labels (hence on the Casimirs).
+A permutation that preserves representation labels
+therefore preserves the \emph{entire} CFT structure
+(all $n$-point functions), not merely the spectrum.
+By the McKay correspondence applied to orbifold
+chiral algebras \citep{McKay1980},
+the $\mathbb{Z}/3\mathbb{Z}$ orbifold of the
+$\mathrm{SU}(2)_1$ WZW model produces the $A_2$
+extended chiral algebra
 $\widehat{\mathfrak{su}}(3)_1$---the representation ring
 of $\mathbb{Z}/3\mathbb{Z} \subset \mathrm{SU}(2)$ IS
-the fusion ring of $\mathrm{SU}(3)_1$
-\citep{McKay1980}.
+the fusion ring of $\mathrm{SU}(3)_1$.
+(The ADE classification of $\mathrm{SU}(2)$ modular
+invariants \citep{CappelliItzyksonZuber1987} provides
+the systematic framework in which this correspondence
+is proved.)
 In the sigma-model interpretation
 \citep{DixonHarveyVafaWitten1985},
 the twisted sectors have ground-state dimensions
@@ -1027,9 +1039,14 @@ currents~$J^a(z)$.
 The $\mathrm{SU}(3)$ gauge group is therefore \emph{derived}
 from the Frobenius action on the Havelock modes,
 not postulated.
-The level $k = 1$ is the unique value consistent with
-the $\mathbb{Z}_3$ orbifold (the DHVW theorem produces
-$\hat{\mathfrak{g}}_1$ for any $\Gamma \subset \mathrm{SU}(2)$).
+The level $k = 1$ is forced: $\mathrm{SU}(2)_1$ has a
+unique integrable representation ($j = 0$), so its
+$\mathbb{Z}/3\mathbb{Z}$ orbifold yields
+$\widehat{\mathfrak{su}}(3)$ at level~$1$ uniquely
+(equivalently, the DHVW construction
+\citep{DixonHarveyVafaWitten1985} produces
+$\hat{\mathfrak{g}}_1$ for any
+$\Gamma \subset \mathrm{SU}(2)$).
 
 \emph{Step~8 (CS/WZW correspondence $\to$ dynamical gluons).}
 The $\widehat{\mathfrak{su}}(3)_1$ current algebra on
@@ -1165,28 +1182,34 @@ At the Chern--Simons threshold
   $g_Y^2 = 4\pi/K = 4\pi$
   \quad($K = 1$).
 \end{itemize}
-The level $k = K = 1$ is forced by the DHVW orbifold theorem
-at \emph{both} gauge groups---not by minimality:
+The level $k = K = 1$ is forced by the orbifold
+construction at \emph{both} gauge groups---not by minimality:
 \begin{itemize}
 \item $\mathrm{SU}(3)$: the Frobenius at $N = 7$ generates
-  $\mathbb{Z}/3\mathbb{Z}$; the DHVW orbifold
-  $\mathbb{C}^2/\mathbb{Z}_3$ produces
-  $\widehat{\mathfrak{su}}(3)_1$ at level~$1$ specifically
-  (Theorem~\ref{thm:su3}, Step~7).
+  $\mathbb{Z}/3\mathbb{Z}$; the
+  $\mathbb{Z}/3\mathbb{Z}$ orbifold of the
+  $\mathrm{SU}(2)_1$ WZW model produces
+  $\widehat{\mathfrak{su}}(3)_1$ at level~$1$ uniquely
+  (Theorem~\ref{thm:su3}, Step~7):
+  $\mathrm{SU}(2)_1$ has a single integrable representation,
+  so the orbifold level is determined.
 \item $\mathrm{SU}(2)$: the Frobenius at $N = 4$ generates
   $\mathbb{Z}/2\mathbb{Z}$ (since $3^2 \equiv 1 \bmod 4$,
   $\sigma\colon m \mapsto 3m$ has order~$2$).
   The McKay correspondence for $\mathbb{Z}/2\mathbb{Z}
   \subset \mathrm{SU}(2)$ gives the $A_1$ Dynkin diagram
   $= \mathrm{SU}(2)$.
-  The DHVW orbifold $\mathbb{C}/\mathbb{Z}_2$ produces
-  $\widehat{\mathfrak{su}}(2)_1$ at level~$1$.
+  The $\mathbb{Z}/2\mathbb{Z}$ orbifold of $\mathrm{SU}(2)_1$
+  produces $\widehat{\mathfrak{su}}(2)_1$ at level~$1$.
 \item $\mathrm{U}(1)$: $K = 1$ is the unique level consistent with
   single-valued holonomy on~$S^1$.
 \end{itemize}
 In all three cases, $k = 1$ is a \emph{theorem}
-(the DHVW construction produces level~$1$ for
-$\Gamma \subset \mathrm{SU}(2)$), not a minimality assumption.
+(the orbifold of $\mathrm{SU}(2)_1$ produces level~$1$
+for any $\Gamma \subset \mathrm{SU}(2)$;
+equivalently, the DHVW construction
+\citep{DixonHarveyVafaWitten1985}
+gives $\hat{\mathfrak{g}}_1$), not a minimality assumption.
 As a cross-check: $k = 2$ would give $\sin^2\theta_W = 1/3$,
 and $k = 3$ gives $5/13$; both are experimentally excluded.
 
@@ -3806,7 +3829,7 @@ Category & Item & Role \\
 & Seifert $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ &
   Unique (Thurston classification) \\
 & $k = K = 1$ (CS levels) &
-  DHVW $+$ large gauge invariance \\
+  Orbifold $+$ large gauge invariance \\
 & $\mu_4 = 1$ (BF threshold) &
   First massive KK level on $\mathbf{H}^2$ \\
 & Gauge group, 3 generations &
