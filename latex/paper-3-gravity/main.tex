@@ -2255,14 +2255,35 @@ Hamiltonian with fixed couplings and fixed
 interaction kernel---the standard Onsager/CLMP/Kiessling
 theorems apply without modification.
 On a \emph{curved} background ($\Lambda \ne 0$), the
-Hadamard expansion (Step~2 above) gives the correction
-$\delta C_1 = -(N{-}1)R\varepsilon^2/4$, which is a
-smooth $O(R\varepsilon^2)$ perturbation of the
-flat-background Hamiltonian.
+Hadamard expansion (Step~2 above) gives
+$C_1(x, \varepsilon) = (N{-}1)[1 - R(x)\varepsilon^2/4
++ O(\varepsilon^4)]$.
+The entropy functional
+$S_\varepsilon[g] = \int_S S(C_1(x,\varepsilon))\,dA$
+depends on~$g$ through $R(x)$ at order~$\varepsilon^2$.
+Crucially, this functional is \emph{strictly concave}
+in~$R(x)$ for every $\varepsilon > 0$
+(from $d^2S/dC_1^2 < 0$ and the affine dependence
+of~$C_1$ on~$R$).
+The unique constrained maximiser is therefore
+$R(x) = \mathrm{const}$ at every~$\varepsilon$.
+Taking $\varepsilon \to 0$: the Hadamard expansion
+becomes exact, and the maximiser of
+$S_\varepsilon$ converges to the maximiser of
+$S_0[g] = \int S((N{-}1)[1 - R\varepsilon^2/4])\,dA$
+by standard $\Gamma$-convergence of strictly concave
+functionals under uniform convergence of the integrand
+\citep{DalMaso1993}.
+The self-referential correction (the metric dependence
+of~$G_S$) enters at $O(\varepsilon^2)$ and does not
+affect the maximiser because the concavity-based
+conclusion $R = \mathrm{const}$ holds at \emph{every}
+order in~$\varepsilon$, not merely at leading order.
 The Onsager prerequisites (compact phase space, bounded
 energy, decreasing density of states at high energy)
-are stable under smooth perturbations of the
-Hamiltonian on a compact domain.
+are preserved throughout because the
+$O(\varepsilon^2)$ perturbation is smooth and bounded
+on the compact domain~$S$.
 
 \noindent
 Given Lemma~\ref{lem:onsager-regge}, the Onsager
