@@ -286,8 +286,10 @@ and level
 \end{equation}
 where the Brown--Henneaux relation $c = 6k$ gives
 $k = 2\,b(N)$ for the exact central charge $c = 12\,b(N)$
-(with $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$,
-Paper~I, verified to $10^{-16}$ for $N = 3,\ldots,24$).
+(with $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$;
+the proof via mean Casimir and the Gauss product
+$\prod_{p=1}^{N-1}\sin(\pi p/N) = N/2^{N-1}$
+is in Paper~I, \S5).
 At leading order $c \approx N^2$, so $k \approx N^2/6$.
 The CS level $k = c/6$ is not integer for most~$N$.
 This is consistent for three independent reasons:
@@ -1883,10 +1885,12 @@ is the boundary self-energy ($N/12$) plus regularisation terms.
 We now present the central result of the gravitational theory:
 the Havelock eigenvalue structure \emph{characterises} the vacuum
 Einstein equations.
-In $d = 2$ ($2{+}1$D), the three hypotheses below are
-\emph{derived} from the vortex dynamics---making this a genuine
-derivation of the Einstein equations from polygon stability.
-In $d \ge 3$ ($3{+}1$D and higher), hypothesis~(H1)
+In $d = 2$ ($2{+}1$D), the three conditions below follow
+from the vortex dynamics (two by theorem, one by the Onsager
+principle via the vortex-gravity isomorphism):
+the Einstein equations emerge as the entropy-maximising
+geometry, not as an additional input.
+In $d \ge 3$ ($3{+}1$D and higher), condition~(H1)
 becomes \emph{equivalent} to the vacuum Einstein equations
 (see Remark~\ref{rmk:higher-d}); the theorem then provides a new
 characterisation of Einstein manifolds via polygon stability, rather
@@ -2124,10 +2128,10 @@ principle---the Onsager variational principle at
 negative temperature---combined with the
 vortex-gravity isomorphism.
 
-One might object that the Onsager principle
-extremises vortex \emph{configurations} at fixed background
-geometry, not the geometry itself.
-The resolution comes from the vortex-gravity isomorphism
+The Onsager principle extremises vortex
+\emph{configurations} at fixed background geometry---but
+the geometry is itself a vortex degree of freedom.
+This follows from the vortex-gravity isomorphism
 (Paper~II, Proposition~\ref{II-prop:grav-stability}):
 in $2{+}1$D, a conical singularity of deficit angle
 $\varepsilon_v$ has holonomy $\varepsilon_v/(2\pi)$
@@ -2243,13 +2247,12 @@ Kirchhoff vortex dynamics: only the phase-space structure
 
 \noindent
 \emph{Self-referential energy and conformal invariance.}
-One might object that the Regge Hamiltonian
+The Regge Hamiltonian
 $H = -\sum \kappa_i\kappa_j\,G_{g(z)}(z_i, z_j)$
-is self-referential: both the circulations~$\kappa_v$
+appears self-referential: both the circulations~$\kappa_v$
 and the Green's function~$G_{g(z)}$ depend on the vertex
 positions through the metric.
-On a \emph{flat} background ($\Lambda = 0$), this
-objection vanishes:
+On a \emph{flat} background ($\Lambda = 0$),
 the conformal invariance of the 2D Green's function
 (Paper~II, Proposition~\ref{II-prop:conformal-invariance})
 gives $G = -(2\pi)^{-1}\log|z{-}w|$ in conformal

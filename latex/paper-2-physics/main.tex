@@ -2249,30 +2249,19 @@ of $O(1)$.
 
 \begin{proposition}[Orbifold--Havelock correspondence]
 \label{prop:orbifold-havelock}
-The Havelock eigenvalue on $\mathbf{H}^2$ is exactly the
+The Havelock eigenvalue on $\mathbf{H}^2$ matches the
 $\mathbb{Z}_N$ orbifold CFT ground-state energy at
-$c = 12N^2$ with angular impulse constraint:
-\begin{equation}\label{eq:orbifold-havelock}
-  \lambda_m = -E_0(m;\,c{=}12N^2) + \mu_L(\xi),
-\end{equation}
-where $E_0(m) = -N/2 + m(N{-}m)/2$ is the twisted-sector
-ground state and $\mu_L(\xi) = C_1(\xi) - N/2$ is the
-Lagrange multiplier.  The central charge $c = 12N^2$ is determined by matching the
-mode-dependent coefficient $c/(24N^2) = 1/2$; all curvature
-dependence enters through $\mu_L$ alone.
-The $N^2$ scaling follows from the `t~Hooft structure of the
-Hamiltonian ($N(N{-}1)/2 \sim N^2$ pairwise terms); the
-factor $12 = 24/2$ converts between Virasoro and Havelock
-normalisations.
+$c_{\mathrm{orb}} = 12N^2$:
+$\lambda_m = -E_0(m;\,c_{\mathrm{orb}}) + \mu_L(\xi)$,
+where $E_0(m) = -N/2 + m(N{-}m)/2$ (twisted-sector ground state)
+and $\mu_L = C_1 - N/2$ (Lagrange multiplier).
+\emph{Proof.}
+$-E_0 + \mu_L = C_1 - m(N{-}m)/2 = \lambda_m$.
+The full version, distinguishing the UV orbifold charge
+$c_{\mathrm{orb}} = 12N^2$ from the exact IR charge
+$c = 12\,b(N)$, is in Paper~III,
+\S\ref{III-sec:three-layer}.
 \end{proposition}
-
-\begin{proof}
-The orbifold ground-state energy
-$E_0(m) = -c/(24N) + cm(N{-}m)/(24N^2)$ at $c = 12N^2$
-gives $E_0 = -N/2 + m(N{-}m)/2$.
-Then $-E_0(m) + \mu_L = [N/2 - m(N{-}m)/2] + [C_1(\xi) - N/2]
-= C_1(\xi) - m(N{-}m)/2 = \lambda_m$.
-\end{proof}
 
 \begin{proposition}[Equivariant Riemann--Roch]
 \label{prop:equiv-rr}
@@ -2304,12 +2293,11 @@ part $b(N)$ is extracted exactly.
 \noindent
 The three-layer decomposition
 $\lambda_m = C_1 - f_m + \delta_m$
-is the \emph{spectral equivariant Riemann--Roch theorem}:
-$f_m$ is the $c_1$-contribution (twist-field dimension),
-$b(N)$ is the Todd-class correction (vacuum energy $\approx c/12$),
-and $\delta_m$ is the one-loop remainder (the Weyl anomaly).
-The central charge is not a fitted parameter: it is $c = 12\,b(N)$,
-determined by the index theorem.
+is the spectral equivariant Riemann--Roch theorem
+(Paper~III, \S\ref{III-sec:three-layer}):
+$f_m$ is the $c_1$-contribution, $b(N)$ the Todd-class correction,
+and $\delta_m$ the one-loop remainder.
+The central charge $c = 12\,b(N)$ is determined by the index theorem.
 
 
 \paragraph{The Wheeler--DeWitt bridge equation.}
