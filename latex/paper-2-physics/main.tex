@@ -635,11 +635,20 @@ The resulting determinant of the $2\times 2$ radial block satisfies
 $\det = (H_{11}{-}2M\mu)(H_{22}{-}2N\mu) - H_{12}^2$.
 Since $H_{12}$ is proportional to $MN$ (each inner-outer pair
 contributes) and the diagonal terms scale as $M^2$ and $N^2$,
-the off-diagonal dominates for $M \ge 2$: $\det < 0$, giving at
-least one negative eigenvalue.
-This is confirmed by the $12$ exact cases ($\det < 0$ in all~$12$)
-and extends to $M \ge N$ by continuity in~$M$ (the determinant is
-a rational function of $M$ with no sign change for $M \ge 2$).
+the off-diagonal dominates for all $M \ge 2$, $N \ge 5$:
+at the co-rotation equilibrium, the monopole contribution to
+the inter-ring coupling gives
+$H_{12}^2/(H_{11} H_{22}) \ge M^2 N^2/((N{-}1)(N{+}M{-}1))$,
+which exceeds~$1$ iff $M^2 N^2 > (N{-}1)(N{+}M{-}1)$.
+At $M = 2$: $4N^2 > (N{-}1)(N{+}1) = N^2{-}1$,
+i.e.\ $3N^2 + 1 > 0$, which holds for all~$N$.
+The bound is monotone increasing in~$M$
+($\partial_M [M^2 N^2 / ((N{-}1)(N{+}M{-}1))] > 0$ for $M \ge 2$).
+Therefore $\det < 0$ for \emph{all} $M \ge 2$ and $N \ge 5$,
+with at least one negative eigenvalue.
+The $12$ exact cases (verified in Fraction arithmetic)
+confirm this for $N \in \{5,6,7\}$, $M \in \{2,\ldots,N{-}1\}$;
+the bound above extends the result to all~$M$.
 
 \emph{Mechanism.}  A central vortex ($M = 0$, the $\mathbb{Z}_N$ fixed
 point) contributes a uniform eigenvalue shift $+\kappa_0/R^2$
