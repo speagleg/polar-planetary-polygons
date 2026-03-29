@@ -955,6 +955,28 @@ The Havelock modes are not ``matter fields identified with
 gauge perturbations''---they ARE gauge perturbations,
 because the dreibein IS part of the CS connection
 (\texttt{proofs/dreibein\_havelock.py}).
+
+\emph{Why CS/WZW applies (and GKPW is not needed).}
+The CS/WZW theorem \citep{Witten1988} states:
+boundary values of the CS gauge field~$A$ parametrise the
+WZW target manifold~$G$.
+For the \emph{linearised} perturbation~$\delta A$
+(which the developing-map chain above computes explicitly),
+the boundary values parametrise the \emph{tangent space}
+$T_e G$ at the identity---the Lie algebra.
+The two complex Havelock modes $(\eta_1, \eta_2)$
+span a $\mathbb{C}^2 \subset T_e G$ on which the
+$\mathbb{Z}/3\mathbb{Z}$ Frobenius acts as
+$\mathrm{diag}(\omega, \omega^{-1})$.
+This $\mathbb{C}^2$ IS the target space of the linearised
+boundary CFT---by the CS/WZW theorem applied to~$\delta A$,
+\emph{not} by the GKPW dictionary applied to matter fields.
+The distinction is crucial: GKPW relates bulk \emph{matter}
+to boundary operators; CS/WZW relates the bulk \emph{gauge field}
+to the boundary WZW field.
+Since $\delta A$ IS a gauge field perturbation (items~1--5 above),
+CS/WZW applies directly.
+
 The $\mathbb{Z}/3\mathbb{Z}$ invariance of the action
 (the Havelock eigenvalues are constant on Galois orbits)
 ensures the Frobenius descends to the boundary theory.
