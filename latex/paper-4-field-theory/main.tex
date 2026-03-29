@@ -2501,7 +2501,7 @@ At $N = 11$: $F_{\mathrm{DM}} = 5.193$.
 The Planck value $\Omega_b/\Omega_m = 15.6\%$ requires
 $F_M = 0.96$---slightly above the WDW estimate
 $\Delta E = 0.815$.
-\subsection{The mass gap: $\Delta E \to \sqrt{2/\pi}$}
+\subsection{The mass gap: the universal log-potential constant}
 \label{sec:mass-gap}
 
 The WDW mass gap, computed via non-uniform FEM mesh
@@ -2517,16 +2517,28 @@ $\Delta E$ & $0.841$ & $0.832$ & $0.825$ & $0.821$ & $0.817$ & $0.815$ \\
 \end{tabular}
 \end{center}
 \noindent
-The asymptotic formula (fit to $< 0.05\%$ error):
-\begin{equation}\label{eq:mass-gap}
-  \Delta E = \sqrt{\frac{2}{\pi}}\!\left(1 + \frac{\ln c}{\sqrt{\pi}\,c}\right)
-  + O\!\left(\frac{\ln^2 c}{c^2}\right),
+In the semiclassical limit $c \to \infty$, the WDW equation
+reduces (after rescaling $x = \sqrt{2c}\,\rho$) to the
+\emph{universal log Schr\"odinger equation}
+\begin{equation}\label{eq:log-schrodinger}
+  \Bigl[-\tfrac{1}{2\alpha}\,\frac{d^2}{dx^2} + \ln x\Bigr]\Psi
+  = \varepsilon\,\Psi
+  \qquad (x \in (0,\infty),\; \Psi(0) = 0),
 \end{equation}
-where $\sqrt{2/\pi} = 0.79788\ldots$ is the mean of the
-half-normal distribution and the coefficient
-$\sqrt{2}/\pi = \sqrt{2/\pi}/\sqrt{\pi}$ arises from the
-Gaussian normalisation of the log-potential substitution
-$\rho = e^{-t^2/2}$.
+whose eigenvalue gap
+$\Delta\varepsilon = \varepsilon_1 - \varepsilon_0$
+is \emph{independent of~$\alpha$}: a universal constant
+\begin{equation}\label{eq:mass-gap}
+  \Delta\varepsilon = 0.8026 \pm 0.0001
+  \qquad\text{(numerical, grid-converged;
+  \texttt{proofs/mass\_gap\_log\_schrodinger.py})}.
+\end{equation}
+This is close to but distinct from $\sqrt{2/\pi} = 0.7979$
+(the half-normal mean, which is an approximation to~$\Delta\varepsilon$,
+not an exact identity).
+The full WDW gap at finite~$N$ converges to this constant from above:
+$\Delta E(7) = 0.84$, $\Delta E(11) = 0.82$,
+$\Delta E(\infty) \to 0.803$.
 At $N = 11$: $\Delta E = 0.815$, giving $\Omega_b = 4.22\%$ at tree level.
 Including all one-loop corrections (\S\ref{sec:loops}) and
 the neutrino contribution (\S\ref{sec:neutrinos}):
