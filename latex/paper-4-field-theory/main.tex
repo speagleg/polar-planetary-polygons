@@ -570,8 +570,14 @@ from the $4$D physical $\Lambda_{\mathrm{phys}} = \Lambda_{\mathrm{Hav}}/\ell^2$
 The physical cosmological constant is
 $\Lambda_{\mathrm{phys}} = \Lambda_{\mathrm{Hav}}/\ell^2$,
 where $\ell$ is the $\mathbf{H}^2$ curvature radius.
-The value of~$\ell$ is \emph{derived} from the $N = 11$ instanton
-(Theorem~\ref{thm:cc}); the \emph{ratio}
+The value of~$\ell$ is \emph{computed} (not fitted) from
+the $N = 11$ tunnelling action:
+$\ln(\ell\,v) = S_{\mathrm{BO}}(11)$, where
+$v = M_P\,e^{-S_{\mathrm{BO}}(7)}$ is determined by the
+$N = 7$ instanton and $M_P$ is the single dimensionful input
+(Theorem~\ref{thm:cc}; see~\S\ref{sec:input-output}
+for the full input--output chain).
+The \emph{ratio}
 $\Omega_\Lambda/\Omega_{\mathrm{DM}}$ is
 dimensionless and $\ell$-independent.
 \end{proof}
@@ -3523,14 +3529,18 @@ Massive KK modes (graviphoton, radion, heavy KK tower) decouple
 at macroscopic distances.
 
 %% ====================================================================
-\section{The quantum-to-gravitational bridge}
+\section{The Onsager--Wheeler--DeWitt correspondence}
 \label{sec:qm-gr-bridge}
 
-Quantum mechanics and general relativity both arise from the
-\emph{classical} vortex system.
-The derivation of QM rests on a single physical fact
-(the Havelock diagonalisation, proved in Paper~I);
-all subsequent steps are mathematical theorems.
+The classical vortex system admits a natural
+quantum-mechanical description through the Feynman--Kac
+theorem, which identifies the Euclidean path integral
+of the BO effective action with the WDW equation.
+This is a \emph{mathematical identity} (not a physical
+derivation of quantum mechanics from classical physics):
+it shows that the polygon system's statistical mechanics
+\emph{is} a quantum system, in the same sense that any
+Euclidean path integral defines a transfer-matrix Hamiltonian.
 
 \paragraph{Quantum mechanics from the Havelock spectrum.}
 The derivation has five steps, each either proved or a theorem:
