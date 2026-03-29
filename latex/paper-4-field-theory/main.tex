@@ -3613,33 +3613,46 @@ For $N = 7$ (all modes stable on $\mathbf{H}^2$):
 $\gamma \approx 7$--$12$ across the stable range.
 For $N = 11$ at the stability threshold
 $\rho^*_{11} \approx 0.88$ (the cosmologically relevant
-operating point): $\gamma \approx 6600$
-(all $N{-}1 = 10$ modes contribute, since $C_1 > f(m,N)$
-for all~$m$ at this curvature).
-The decoherence rate \emph{diverges} at the stability
-threshold ($\lambda_{m^*} \to 0$ gives
-$1/\lambda_{m^*}^2 \to \infty$): the polygon is
-\emph{maximally decohered} at the physical operating
-point.
-This is not fine-tuning: it is a structural consequence
-of operating near the stability threshold, where the
-softest mode provides the strongest bath coupling.
+operating point, where all $N{-}2 = 9$ bath modes
+have $\lambda_m > 0$): $\gamma \gg 1$.
+Near the threshold, the palindromic partner mode
+($m = N{-}m^*$, which shares eigenvalue $\lambda_{m^*}$)
+has $\lambda \to 0$, and $1/\lambda^2 \to \infty$;
+this mode dominates the sum and
+$\gamma$ grows without bound as the threshold is
+approached.
+The polygon is therefore \emph{strongly decohered}
+at the physical operating point---not by fine-tuning
+but as a structural consequence of the soft bath mode
+near the stability threshold.
 
-\emph{Irreversibility from CMS mode mixing.}
-The $N{-}2$ angular modes are harmonic only at leading
-order.  The $O(1/c)$ quartic corrections from the
-$W_N$ algebra provide mode-mode coupling on timescale
-$\tau_{\mathrm{mix}} \sim c \approx 50$--$130$.
-The tunnelling time $\tau_{\mathrm{tunnel}}
-\sim e^{S_{\mathrm{BO}}} \approx 10^{16}$--$10^{44}$
-exceeds $\tau_{\mathrm{mix}}$ by many orders of
-magnitude.
-Poincar\'e recurrences of the harmonic bath (at
-$\tau_{\mathrm{rec}} \sim 7$--$9$) are therefore
-destroyed by the nonlinear mode mixing long before
-the tunnelling occurs.
-The decoherence is \emph{irreversible} on all
-physically relevant timescales.
+\emph{Recurrences and timescales.}
+The CMS angular bath is \emph{integrable} (this
+integrability is used in~\S\ref{sec:cc} for the
+Nekhoroshev precision of~$H_0$).
+For an integrable system on a compact phase space,
+Poincar\'e recurrences are guaranteed.
+The recurrence time for $N{-}2$ modes with
+incommensurate frequencies scales as
+$\tau_{\mathrm{rec}} \sim \exp(N)$
+(exponential in the number of modes, by a standard
+small-divisor estimate).
+For $N = 11$ ($9$ modes):
+$\tau_{\mathrm{rec}} \sim e^9 \approx 8000$,
+while the tunnelling time is
+$\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}
+\approx 10^{44}$.
+The decoherence is therefore
+\emph{effectively irreversible}: recurrences exist
+in principle but their timescale is
+$\tau_{\mathrm{rec}} \ll \tau_{\mathrm{tunnel}}$,
+so coherence is not restored on any cosmologically
+relevant timescale.
+(This is consistent with the Nekhoroshev argument
+for~$H_0$: the integrability is \emph{preserved},
+and the exponentially long recurrence time is
+a \emph{consequence} of integrability, not a
+contradiction.)
 \end{proof}
 
 \noindent
@@ -3690,12 +3703,13 @@ The Caldeira--Leggett conditions are verified:
   $H = V(\rho) + \tfrac{1}{2}\sum_{m \ne m^*}\lambda_m(\rho)|a_m|^2$
   (exact at the $N$-gon; non-linear corrections are $O(1/c)$
   from the $W_N$ quartic coupling).
-\item \emph{Uniform linear coupling.}
-  $\lambda_m(\rho) = C_1(\rho) - f(m,N)$; near~$\rho^*$,
-  $\partial\lambda_m/\partial\rho = C_1'(\rho^*) = \coth(\rho^*)$
+\item \emph{Uniform parametric dependence.}
+  $\lambda_m(\rho) = C_1(\rho) - f(m,N)$:
+  $\partial\lambda_m/\partial\rho = C_1'(\rho)$
   for \emph{all}~$m$ (mode-independence of $C_1$).
-  The coupling is linear in~$\delta\rho$ with \emph{uniform}
-  coupling constant.
+  The parametric dependence on~$\rho$ enters through
+  a single function $C_1(\rho)$, so the breathing mode
+  shifts all bath frequencies uniformly.
 \item \emph{Timescale separation.}
   Breathing-mode tunnelling: $\tau \sim e^{S_{\mathrm{BO}}} \gg 1$.
   Angular oscillation: $\tau_m \sim 1/\sqrt{\lambda_m} = O(1)$.
@@ -3801,39 +3815,50 @@ are derived:
 \item[\textup{(Q2)}] \emph{Hamiltonian.}
   $H = -\tfrac{1}{2c}\,d^2/d\rho^2 + V(\rho)$
   with $c = 12\,b(N)$ (CL mechanism $+$ orbifold matching).
-\item[\textup{(Q3)}] \emph{Unique physical state.}
-  $H\Psi_0 = 0$ selects the ground state
-  (WDW constraint; excited states are unphysical).
-\item[\textup{(Q4)}] \emph{Born distribution.}
+\item[\textup{(Q3)}] \emph{Physical state.}
+  The WDW constraint $H\Psi_0 = 0$ selects the ground
+  state (the additive constant in~$V$ is fixed by
+  $V(\rho^*) = 0$ at the BO equilibrium, giving
+  $E_0 = 0$; excited states $E \ne 0$ do not satisfy
+  the constraint).
+\item[\textup{(Q4)}] \emph{Ground-state position distribution.}
   $|\Psi_0(\rho)|^2 = e^{-\beta V}/Z$
-  (mathematical identity: Boltzmann weight~$=$
-  ground-state probability).
+  (mathematical identity: the Boltzmann weight of the
+  classical Onsager--Machlup path integral equals the
+  quantum ground-state probability in the $\rho$-basis).
 \item[\textup{(Q5)}] \emph{Pointer basis.}
   The angular bath decoheres~$\rho$ with
-  $\gamma \to \infty$ at the stability threshold
+  $\gamma \gg 1$ near the stability threshold
   (Proposition~\ref{prop:decoherence}).
-  The $\rho$-basis is the unique pointer basis.
+  The $\rho$-basis is the pointer basis.
 \item[\textup{(Q6)}] \emph{Uncertainty principle.}
   $\Delta\rho\,\Delta p = 1/2$ (minimum-uncertainty
-  ground state of the WDW oscillator;
+  ground state near the turning point;
   $\Delta\rho = 1/\!\sqrt{2c\omega}$,
-  $\Delta p = \sqrt{c\omega/2}$).
+  $\Delta p = \sqrt{c\omega/2}$,
+  $\omega^2 = |V''(\rho_1)| = \mathrm{csch}^2(\rho_1)$).
 \item[\textup{(Q7)}] \emph{Entanglement.}
   The entanglement entropy between~$\rho$ and
-  the angular bath is $S_{\mathrm{ent}} \approx 12$~bits
-  ($N = 7$) and $44$~bits ($N = 11$),
-  computed from the CL squeezing parameters.
-\item[\textup{(Q8)}] \emph{Irreversibility.}
-  The $W_N$ quartic mode mixing destroys
-  Poincar\'e recurrences on timescale
-  $\tau_{\mathrm{mix}} \sim c \ll
-  \tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}$.
+  the angular bath is $S_{\mathrm{ent}} \gg 1$~bit
+  (from the CL squeezing parameters
+  $r_m = (C_1'/(2\lambda_m))^2$; computed in
+  \texttt{proofs/self\_decoherence.py}).
+\item[\textup{(Q8)}] \emph{Effective irreversibility.}
+  The CMS bath is integrable, so Poincar\'e recurrences
+  exist, but their timescale
+  $\tau_{\mathrm{rec}} \sim \exp(N)$ exceeds the
+  tunnelling time $\tau_{\mathrm{tunnel}}
+  \sim e^{S_{\mathrm{BO}}}$ only for $N \ll S_{\mathrm{BO}}$,
+  which holds at $N = 7$ and $N = 11$.
+  Decoherence is effectively irreversible on all
+  cosmologically relevant timescales.
 \end{enumerate}
 Within the WDW framework ($H\Psi = 0$, unique state,
 no external time), items \textup{(Q1)--(Q8)} constitute
-the complete quantum-mechanical structure:
+the quantum-mechanical structure of the breathing mode:
 no additional postulate (measurement, collapse, or
-Born rule for arbitrary states) is needed.
+Born rule for arbitrary states) is needed for this
+sector.
 \end{theorem}
 
 \begin{proof}
