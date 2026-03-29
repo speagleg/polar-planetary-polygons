@@ -91,7 +91,7 @@ they form a single logical chain:
   No gravitational input is required: $c$ is determined
   by the vortex spectrum alone.
 \item \emph{Consistency check (Brown--Henneaux).}
-  Defining $k = c/6$ and $G = 3/(2c)$,
+  Defining $k = c/6$ and $G = 3/(2c)$ (in units $\ell = 1$),
   the Brown--Henneaux relation $c = 3\ell/(2G)$
   is \emph{automatically satisfied}
   (it reduces to $c = c$ after substitution).
@@ -178,24 +178,23 @@ $\mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2) = \mathbf{H}^2$,
 and the CS Wilson line Casimir is the quadratic Casimir
 operator of $\mathrm{SL}(2,\mathbb{R})$ acting on the same
 space.
-By the EFK theorem, these operators \emph{coincide}
-at the $\mathbb{Z}_N$-symmetric point, so their eigenvalues
-agree: both equal $m(N{-}m)/2$ on the $m$-th Fourier mode.
-This is a stronger statement than ``the Casimirs happen to
-match'': it says the \emph{operators themselves}
-(not just their eigenvalues) are the same differential
-operator on $\mathbf{H}^2$, evaluated at the polygon ring.
-(Note: each $\mathbb{Z}_N$ Fourier mode $V_m$ is
-one-dimensional, and the eigenvalue $m(N{-}m)/2$ has
-\emph{multiplicity one} for $m = 1, \ldots, \lfloor N/2\rfloor$
-(distinct values, with the palindromic pair $m$ and $N{-}m$
-sharing the same eigenspace).
-No representation-theoretic structure beyond the eigenvalue
-is needed on a 1D space; the identification
-is at the level of the \emph{operator}, not
-the representation.)
-Verified for $N = 3,\ldots,12$
-(\texttt{proofs/cms\_cs\_isomorphism.py}).
+By the EFK theorem
+(\citealt{EtingofFrenkelKirillov1998}, Theorem~7.1.2),
+the CMS Hamiltonian restricted to the $\mathbb{Z}_N$-symmetric
+locus is the radial part of the KZ connection, which equals
+the CS Casimir.  The eigenvalues therefore agree:
+both equal $m(N{-}m)/2$ on the $m$-th Fourier mode.
+Since each $\mathbb{Z}_N$ Fourier mode $V_m$ is
+one-dimensional (for $m \ne N{-}m$; the palindromic pair
+$m$ and $N{-}m$ share a two-dimensional eigenspace with the
+same eigenvalue), eigenvalue matching on a 1D space
+is equivalent to operator matching up to normalisation.
+The numerical verification
+(\texttt{proofs/cms\_cs\_isomorphism.py}, $N = 3,\ldots,12$)
+confirms the eigenvalue identity $C_2^{\mathrm{CMS}} =
+C_2^{\mathrm{KZ}} = C_2^{\mathrm{CS}} = m(N{-}m)/2$;
+the operator-level coincidence is the content of the
+EFK theorem.
 
 \emph{Physical content of the operator coincidence.}
 Operator coincidence on a mathematical space does not
@@ -2053,20 +2052,26 @@ The mode-independence of the $O(\varepsilon^2)$ correction is
 Havelock identity (Paper~I, Theorem~\ref*{I-thm:riemannian-havelock}),
 so its small-$\varepsilon$ expansion inherits this property
 at every order.
-The coefficient $1/4$ is verified directly from the exact
-$\mathbf{H}^2$ formula: expanding
-$C_1/(N{-}1) = (1{+}\xi^2)/(1{-}\xi)^2$ for small
-$\xi = \tanh^2(\varepsilon/2) \approx \varepsilon^2/4$ gives
-$C_1/(N{-}1) \approx 1 + \varepsilon^2/2 = 1 - R\varepsilon^2/4$
-(since $R = -2$ on unit $\mathbf{H}^2$).
-The Hadamard parametrix on a 2D surface gives
-$G(x,y) = -(1/2\pi)\log d - (R/12\pi)d^2 + O(d^4)$
-(Garabedian 1964, \S9.3).
-Summing the $O(d^2)$ term over the $N$-ring with
-$\sum_p\sin^2(\pi p/N) = N/2$ gives the $1/6$ contribution;
-the $1/12$ arises from the curvature correction to chord
-distances ($d_{\mathrm{chord}} \ne d_{\mathrm{geodesic}}$
-at $O(\varepsilon^3)$).  Together: $1/6 + 1/12 = 1/4$.
+The coefficient $1/4$ is proved from the exact $C_1$ formulas
+on the three model surfaces.  On $\mathbf{H}^2$:
+$C_1/(N{-}1) = (1{+}\xi^2)/(1{-}\xi)^2$ with
+$\xi = \tanh^2(\varepsilon/2) \approx \varepsilon^2/4$,
+giving $C_1/(N{-}1) \approx 1 + \varepsilon^2/2
+= 1 - R\varepsilon^2/4$ (since $R = -2$).
+On $\mathbf{S}^2$:
+$C_1/(N{-}1) = (1{-}\xi)/(1{+}\xi)$ with
+$\xi = \tan^2(\varepsilon/2) \approx \varepsilon^2/4$,
+giving $1 - \varepsilon^2/2 = 1 - R\varepsilon^2/4$
+(since $R = +2$).
+On the plane: $C_1 = N{-}1$ (no correction; $R = 0$).
+All three model surfaces give
+$C_1/(N{-}1) = 1 - R\varepsilon^2/4 + O(\varepsilon^4)$
+with the \emph{same} coefficient $1/4$.
+By the Riemannian Havelock identity
+(Paper~I, Theorem~\ref*{I-thm:riemannian-havelock}),
+$C_1$ is the unique surface-dependent coefficient in the
+eigenvalue decomposition, so the $1/4$ extends to every
+constant-curvature surface.
 
 \medskip
 \noindent\textbf{Step~3. (H2) $+$ Step~2 force $R = \mathrm{const}$.}
