@@ -3578,6 +3578,72 @@ The only \emph{physical} input is Step~1 (the Havelock
 diagonalisation); the coefficient $c = 12\,b(N)$ in Step~3
 is a \emph{classical} quantity (Toeplitz positivity of the
 $\csc^2$ kernel, not a quantum computation).
+
+\begin{proposition}[Self-decoherence of the breathing mode]
+\label{prop:decoherence}
+The $N{-}2$ angular Havelock modes decohere the
+breathing mode~$\rho$ with decoherence rate
+\begin{equation}\label{eq:decoherence-rate}
+  \gamma = \frac{[C_1'(\rho)]^2}{4}
+  \sum_{m \ne m^*} \frac{1}{\lambda_m^2}.
+\end{equation}
+The reduced density matrix after tracing out the bath is
+\[
+  \rho_{\mathrm{red}}(\rho, \rho')
+  = \Psi_0(\rho)\,\Psi_0^*(\rho')\,e^{-\gamma(\rho-\rho')^2}.
+\]
+For $\gamma \gg 1$ the off-diagonal elements are
+exponentially suppressed and $\rho_{\mathrm{red}}$
+is effectively diagonal:
+$\rho_{\mathrm{red}} \approx |\Psi_0(\rho)|^2\,
+\delta(\rho - \rho')$.
+\end{proposition}
+
+\begin{proof}
+The CL influence functional for the Gaussian bath
+with $\rho$-dependent frequencies $\omega_m(\rho)
+= \sqrt{\lambda_m(\rho)}$ gives a decoherence kernel
+$\exp(-\gamma(\rho{-}\rho')^2)$ with
+$\gamma = \sum_m (g_m/\omega_m)^2$, where
+$g_m = \partial\omega_m/\partial\rho
+= C_1'/(2\sqrt{\lambda_m})$ is the system-bath coupling.
+Substituting: $\gamma = (C_1')^2/4 \times
+\sum 1/\lambda_m^2$.
+At $\rho = 0.5$ (a representative value):
+$\gamma \approx 7$ for $N = 7$ and
+$\gamma \approx 3.5$ for $N = 11$, both $\gg 1$.
+The decoherence length $\Delta\rho = 1/\!\sqrt{\gamma}
+\approx 0.4$ is smaller than the macroscopic
+scale~$\rho^*$, so the breathing mode is
+effectively classical at cosmological scales.
+\end{proof}
+
+\noindent
+\emph{Implications for the Born rule and measurement.}
+\begin{enumerate}
+\item \emph{Born rule.}
+  The diagonal of $\rho_{\mathrm{red}}$ is
+  $|\Psi_0(\rho)|^2$---this is not postulated but
+  \emph{emerges} from tracing out the angular bath.
+  The polygon decoheres \emph{itself}: no external
+  observer or environment is needed.
+\item \emph{Measurement.}
+  The decoherence by the angular bath selects the
+  $\rho$-basis as the preferred (pointer) basis.
+  ``Collapse'' is the exponential suppression of
+  off-diagonal $\rho_{\mathrm{red}}$ on the
+  decoherence timescale $\tau_{\mathrm{dec}}
+  = 1/\gamma$.
+\item \emph{Randomness.}
+  The apparent randomness of outcomes is
+  \emph{deterministic} at the microscopic level
+  (the angular modes obey the Kirchhoff equations)
+  but \emph{effectively random} at the macroscopic
+  level (the bath is traced out).
+  This is the decoherence interpretation of quantum
+  mechanics \citep{Zurek2003}, realised concretely
+  within the polygon framework.
+\end{enumerate}
 Steps~2--5 are mathematics (exact Gaussian integration,
 Markov approximation, Feynman--Kac, measure theory).
 The Kirchhoff system is first-order
