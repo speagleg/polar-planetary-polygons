@@ -197,12 +197,10 @@ the representation.)
 Verified for $N = 3,\ldots,12$
 (\texttt{proofs/cms\_cs\_isomorphism.py}).
 
-\emph{Why this is not ``numerology.''}
-One might object that operator coincidence on a mathematical
-space does not establish physical identification---that
-the vortex modes and the gravitational modes are
-``two different systems with the same spectrum.''
-In $2{+}1$D, this objection fails:
+\emph{Physical content of the operator coincidence.}
+Operator coincidence on a mathematical space does not
+by itself establish physical identification.
+In $2{+}1$D, however, a stronger statement holds:
 the Weyl tensor vanishes identically, so there are
 \emph{no propagating gravitational modes}.
 The only gravitational degrees of freedom are
@@ -413,8 +411,15 @@ $\sum_{n \ge 1} 1/\lambda_n \le (1/\lambda_1)/(1{-}0.65)
 $|\delta C_1| \le 2.86/(4\pi\lambda_{\mathrm{triv}})
 \approx 0.015$.
 
-The spectral gap $\lambda_1$ of the Laplacian controls
-both quantities.
+The bound $|\delta C_1| \le 0.015$ on the Bolza surface
+is a \emph{rigorous inequality} (geometric series on the
+spectral data of Strohmaier--Uski).
+The spectral gap $\lambda_1$ controls both $\delta C_1$
+(through the sum $\sum 1/\lambda_n$) and the gravitational
+partition function (through $\det{}'\Delta_S$), giving a
+\emph{structural parallel} between vortex stability and
+quantum gravity---but not, at present, a sharp functional
+inequality linking the two.
 In the gravitational language:
 \begin{itemize}
   \item $C_1(\mathbf{H}^2, \xi)$: classical stability
@@ -1424,10 +1429,8 @@ is $O(c^0)$ (topological); the Virasoro block correction is
 $O(1/c) \approx 10^{-5}$ (\S\ref{sec:holographic}).
 
 The tower extends to a \emph{Magri bihamiltonian hierarchy}.
-The Thomson vortex system \emph{is} the Calogero--Moser--Sutherland
-model at coupling $g = 1$ (the Havelock interaction matrix
-$M_{jk} = 1/\sin^2(\pi(j{-}k)/N)$ is exactly the CMS
-Hamiltonian; see \citealt{Calogero1975}).
+As noted in \S\ref{sec:graviton}, the Thomson vortex system
+is the CMS model at coupling $g = 1$.
 The CMS model is bihamiltonian
 \citep{OlshanetskyPerelomov1976}:
 the Kirchhoff bracket $P_0$ (mode-independent) and the
