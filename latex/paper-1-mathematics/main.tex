@@ -3255,8 +3255,15 @@ $\lambda_1 \approx 3.839$ of the Bolza Laplacian
 coefficients at word length~$L$ decay as
 $O(e^{-sL})$ with $s = \sqrt{\lambda_1 - 1/4} \approx 1.89$,
 so the truncation error at $L = 4$ is
-$O(e^{-5s}) \approx 8 \times 10^{-5}$, giving
-$\tau(P_-) = 0.644 \pm 0.001$.
+$O(e^{-5s}) \approx 8 \times 10^{-5}$.
+The error propagation from the operator truncation
+$\delta h$ to the spectral projection $\tau(P_-)$
+is amplified by the near-zero spectral density:
+from the spectrum, at most $15$ eigenvalues lie
+within $O(e^{-5s})$ of zero, giving
+$|\delta\tau(P_-)| \le 15 \times 8 \times 10^{-5}
+\approx 0.001$.
+Therefore $\tau(P_-) = 0.644 \pm 0.001$.
 
 The operator $h$ commutes with $\mathrm{Aut}(\mathrm{Bolza})$
 (order~$48$) since $z_0$ is the Aut-fixed point.
@@ -3266,7 +3273,7 @@ $\{{\textstyle\sum} d_\rho^2/48\}$ with irrep dimensions
 $1,1,2,2,2,3,3,4$; the achievable values near $0.6$
 are $28/48$ and $30/48 = 5/8$
 (with $29/48$ provably non-achievable).
-The computed value $0.644 \pm 0.004$ lies \emph{outside} this
+The computed value $0.644 \pm 0.001$ lies \emph{outside} this
 discrete set (the nearest achievable values are $28/48 \approx 0.583$
 and $30/48 = 0.625$, both outside the error bar), showing that
 $h$ has mixed-sign eigenvalues within at least one Aut-isotypic
