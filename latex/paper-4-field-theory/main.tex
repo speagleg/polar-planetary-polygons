@@ -1007,16 +1007,21 @@ it does not require the target space to be~$\mathbb{C}^2$
 or the boundary theory to be free---only that
 $\mathbb{Z}/3\mathbb{Z}$ acts as an automorphism of the
 full CFT.
-This is guaranteed by two facts:
-(i)~the exact Casimir multiset invariance (above), and
-(ii)~the \emph{rationality} of the WZW model---in a
-rational CFT, the fusion rules and OPE coefficients
-are determined by the modular $S$-matrix via the
-Verlinde formula, which depends only on the
-representation labels (hence on the Casimirs).
-A permutation that preserves representation labels
-therefore preserves the \emph{entire} CFT structure
-(all $n$-point functions), not merely the spectrum.
+The Frobenius $\mathbb{Z}/3\mathbb{Z}$ embeds in
+$\mathrm{SU}(2)$ as a subgroup of the WZW target group
+(Step~3).
+Left multiplication $g(x) \mapsto h\cdot g(x)$ by any
+fixed $h \in G$ is a manifest symmetry of the WZW action
+$S[g] = S_\sigma[g] + S_{\mathrm{WZ}}[g]$
+(the kinetic and Wess--Zumino terms are both
+$G$-invariant).
+Therefore $\mathbb{Z}/3\mathbb{Z} \subset G$ acts as an
+\emph{exact} automorphism of the full boundary CFT---not
+merely of the spectrum, but of all $n$-point functions
+and OPE coefficients.
+(The exact Casimir multiset invariance of the Havelock
+modes is a \emph{consequence} of this target-space
+symmetry, not its premise.)
 By the McKay correspondence applied to orbifold
 chiral algebras \citep{McKay1980},
 the $\mathbb{Z}/3\mathbb{Z}$ orbifold of the
@@ -1024,11 +1029,8 @@ $\mathrm{SU}(2)_1$ WZW model produces the $A_2$
 extended chiral algebra
 $\widehat{\mathfrak{su}}(3)_1$---the representation ring
 of $\mathbb{Z}/3\mathbb{Z} \subset \mathrm{SU}(2)$ IS
-the fusion ring of $\mathrm{SU}(3)_1$.
-(The ADE classification of $\mathrm{SU}(2)$ modular
-invariants \citep{CappelliItzyksonZuber1987} provides
-the systematic framework in which this correspondence
-is proved.)
+the fusion ring of $\mathrm{SU}(3)_1$
+\citep{CappelliItzyksonZuber1987,DixonHarveyVafaWitten1985}.
 In the sigma-model interpretation
 \citep{DixonHarveyVafaWitten1985},
 the twisted sectors have ground-state dimensions
@@ -1039,14 +1041,15 @@ currents~$J^a(z)$.
 The $\mathrm{SU}(3)$ gauge group is therefore \emph{derived}
 from the Frobenius action on the Havelock modes,
 not postulated.
-The level $k = 1$ is forced: $\mathrm{SU}(2)_1$ has a
-unique integrable representation ($j = 0$), so its
-$\mathbb{Z}/3\mathbb{Z}$ orbifold yields
-$\widehat{\mathfrak{su}}(3)$ at level~$1$ uniquely
-(equivalently, the DHVW construction
+The level $k = 1$ is forced: the
+$\mathbb{Z}/3\mathbb{Z}$ orbifold preserves the level
+of the parent WZW model, and the parent is
+$\mathrm{SU}(2)_1$ (from the CS formulation of
+$2{+}1$D gravity at level~$1$).
+Equivalently, the DHVW construction
 \citep{DixonHarveyVafaWitten1985} produces
 $\hat{\mathfrak{g}}_1$ for any
-$\Gamma \subset \mathrm{SU}(2)$).
+$\Gamma \subset \mathrm{SU}(2)$.
 
 \emph{Step~8 (CS/WZW correspondence $\to$ dynamical gluons).}
 The $\widehat{\mathfrak{su}}(3)_1$ current algebra on
@@ -1189,10 +1192,9 @@ construction at \emph{both} gauge groups---not by minimality:
   $\mathbb{Z}/3\mathbb{Z}$; the
   $\mathbb{Z}/3\mathbb{Z}$ orbifold of the
   $\mathrm{SU}(2)_1$ WZW model produces
-  $\widehat{\mathfrak{su}}(3)_1$ at level~$1$ uniquely
+  $\widehat{\mathfrak{su}}(3)_1$ at level~$1$
   (Theorem~\ref{thm:su3}, Step~7):
-  $\mathrm{SU}(2)_1$ has a single integrable representation,
-  so the orbifold level is determined.
+  the orbifold preserves the parent level $k = 1$.
 \item $\mathrm{SU}(2)$: the Frobenius at $N = 4$ generates
   $\mathbb{Z}/2\mathbb{Z}$ (since $3^2 \equiv 1 \bmod 4$,
   $\sigma\colon m \mapsto 3m$ has order~$2$).
