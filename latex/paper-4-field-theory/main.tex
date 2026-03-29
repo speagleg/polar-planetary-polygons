@@ -3635,25 +3635,37 @@ breaks exact integrability at $O(1/c)$
 $\sim\!2\%$ at $N = 7$).
 This converts exact Poincar\'e recurrences
 (which would periodically restore coherence)
-into diffusive mixing on timescale
-$\tau_{\mathrm{mix}} \sim c \approx 50$--$130$
-(the inverse of the $O(1/c)$ perturbation strength).
-Since $c \ll e^{S_{\mathrm{BO}}}$ for all $N \ge 4$,
-the mixing time is far shorter than the tunnelling time:
-$\tau_{\mathrm{mix}} \ll \tau_{\mathrm{tunnel}}$.
+into diffusive mixing.
+The Nekhoroshev theorem bounds the mixing
+timescale from below:
+$\tau_{\mathrm{mix}} \ge
+\exp(c_0\,c^{a})$ for some $c_0 > 0$, $a > 0$
+(with $\varepsilon = O(1/c)$ as the perturbation
+parameter).
+Even this exponentially long mixing time satisfies
+$\tau_{\mathrm{mix}} \ll \tau_{\mathrm{tunnel}}
+\sim e^{S_{\mathrm{BO}}}$,
+provided $c_0\,c^a < S_{\mathrm{BO}}$
+(for $c \approx 50$--$130$ and
+$S_{\mathrm{BO}} \approx 38$--$103$, this is
+satisfied for generic Nekhoroshev exponents
+$a \le 1/2$).
+Additionally, the Poincar\'e recurrence time
+for the full $(N{-}2)$-mode system scales as
+$\tau_{\mathrm{rec}} \sim \exp(O(N{-}2))$,
+giving $\tau_{\mathrm{rec}} \sim e^5$--$e^9
+\approx 150$--$8000$, also $\ll \tau_{\mathrm{tunnel}}$.
 The decoherence is therefore \emph{irreversible}
 on all cosmologically relevant timescales.
+
 This is consistent with the Nekhoroshev argument
-for~$H_0$ (\S\ref{sec:cc}): the Nekhoroshev theorem
-applies precisely to \emph{near-integrable} systems
-(integrable $+$ small perturbation), giving
-exponentially slow action diffusion
-$\delta I \sim \exp(-c_0/\varepsilon^a)$
-with $\varepsilon = O(1/c)$.
-The same $O(1/c)$ perturbation that provides the
-mode mixing for irreversible decoherence also
-enters the Nekhoroshev stability estimate, ensuring
-both decoherence and BO precision are consequences
+for~$H_0$ (\S\ref{sec:cc}):
+the \emph{same} $O(1/c)$ perturbation enters both
+the mixing rate (which eventually destroys phase
+coherence) and the Nekhoroshev stability bound
+(which preserves the BO action variables to
+exponential precision).
+Both decoherence and BO precision are consequences
 of the \emph{same} near-integrable structure.
 \end{proof}
 
@@ -3847,13 +3859,14 @@ are derived:
   \texttt{proofs/self\_decoherence.py}).
 \item[\textup{(Q8)}] \emph{Irreversibility.}
   The breathing-angular coupling breaks exact CMS
-  integrability at $O(1/c)$, converting Poincar\'e
-  recurrences into diffusive mixing on timescale
-  $\tau_{\mathrm{mix}} \sim c$.
-  Since $c \ll e^{S_{\mathrm{BO}}}$
-  ($c \approx 50$--$130$ vs.\
-  $e^{S_{\mathrm{BO}}} \approx 10^{16}$--$10^{44}$),
-  decoherence is irreversible on all physically
+  integrability at $O(1/c)$, converting exact
+  recurrences into diffusive mixing.
+  The Nekhoroshev bound gives
+  $\tau_{\mathrm{mix}} \ge \exp(c_0 c^a)$;
+  even this exponentially long mixing time satisfies
+  $\tau_{\mathrm{mix}} \ll \tau_{\mathrm{tunnel}}
+  \sim e^{S_{\mathrm{BO}}}$ for generic exponents.
+  Decoherence is irreversible on all cosmologically
   relevant timescales.
 \end{enumerate}
 Within the WDW framework ($H\Psi = 0$, unique state,
@@ -3884,8 +3897,11 @@ the entanglement entropy is
 $S_{\mathrm{ent}} = \sum_m [(r_m{+}1)\ln(r_m{+}1)
 - r_m\ln r_m]$.
 Item (Q8): the $O(1/c)$ $W_N$ quartic coupling
-gives $\tau_{\mathrm{mix}} \sim c$ and
-$c \ll e^{S_{\mathrm{BO}}}$ for all $N \ge 4$.
+breaks exact CMS integrability; the Nekhoroshev
+bound gives $\tau_{\mathrm{mix}} \ge \exp(c_0 c^a)$,
+and $\exp(c_0 c^a) \ll e^{S_{\mathrm{BO}}}$
+for generic exponents $a \le 1/2$ at
+$c \approx 50$--$130$, $S_{\mathrm{BO}} \ge 38$.
 \end{proof}
 
 \emph{The status of the Feynman--Kac correspondence.}
