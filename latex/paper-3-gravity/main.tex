@@ -2266,12 +2266,12 @@ independent mathematical structures, all stemming from its
   palindromic symmetry $T_m = T_{N-m}$).
   The Szeg\H{o} integral
   $I_0 = \tfrac{1}{6}\sum_m \log T_m = 1.500$.
-  The Szeg\H{o} constant (using the complex-DFT convention
-  $c_k = a_k/2$ for $k \ge 1$, as in the standard
-  formula $C_S = \exp(\sum_{k \ge 1} k|c_k|^2)$):
-  $|c_1| = 0.173$, $|c_2| = 0.027$,
-  $C_S = \exp(1 \times 0.030 + 2 \times 0.00075) = 1.032$,
-  and $S/c_1^2 = 0.46$ (using the cosine convention).
+  All subsequent quantities use the \emph{cosine-DFT}
+  convention ($a_k$, not the complex $c_k = a_k/2$).
+  The Szeg\H{o} constant in the cosine convention:
+  $C_S = \exp(\sum_{k \ge 1} k\,a_k^2/4)
+  = \exp(1 \times 0.030 + 2 \times 0.00075) = 1.032$,
+  and $S/a_1^2 = |a_2|/a_1^2 = 0.055/0.120 = 0.46$.
   The Wiener--Hopf factor $G(z)$ has Taylor coefficients
   $g_0 = e^{c_0/2} = 2.12$, $g_1 = 0.735$,
   $g_2 = 0.156$, all positive,

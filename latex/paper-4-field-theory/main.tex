@@ -2286,16 +2286,16 @@ independently computable contributions:
 \begin{equation}\label{eq:hierarchy}
   \ln\!\frac{M_P}{M_{\mathrm{EW}}}
   = \underbrace{2S_{\mathrm{BO}}(7)}_{\text{instanton}}
-  + \underbrace{\sqrt{2/\pi}\;\ln\varepsilon_7}_{\text{mass gap}}
+  + \underbrace{\Delta\varepsilon\;\ln\varepsilon_7}_{\text{mass gap}}
   + \underbrace{\tfrac{1}{2}\ln\!\bigl(c/(24\pi^2)\bigr)}_{\text{gravity}},
 \end{equation}
 where $S_{\mathrm{BO}}$ is the WKB tunneling action through
 the Born--Oppenheimer potential $V(\rho) = \ln(2\sinh\rho) + b(7) - 6$
 and $\varepsilon_7 = 8 + 3\sqrt{7}$ is the fundamental unit
 of~$\mathbb{Z}[\sqrt{7}]$.
-Numerically: $36.548 + 2.209 + (-0.313) = 38.444$,
+Numerically: $36.548 + 2.222 + (-0.313) = 38.457$,
 versus the observed $\ln(M_P/v) = 38.442$
-($0.005\%$ match in the log; $0.2\%$ in the ratio).
+($0.04\%$ match in the log; $1.5\%$ in the ratio).
 \end{theorem}
 
 \begin{proof}
@@ -2330,10 +2330,10 @@ The bounce action is $2S = 36.548$.
 
 \emph{Component~2 (Mass gap).}
 The asymptotic mass gap of the WDW equation is
-$\Delta E \to \sqrt{2/\pi} = 0.7979$
-(proven in the mass-gap analysis, \S\ref{sec:mass-gap}).
+$\Delta E \to \Delta\varepsilon = 0.8026$
+(the universal log-potential constant, \S\ref{sec:mass-gap}).
 Its contribution to the hierarchy:
-$\sqrt{2/\pi}\,\ln\varepsilon_7 = 0.7979 \times 2.769 = 2.209$.
+$\Delta\varepsilon\,\ln\varepsilon_7 = 0.8026 \times 2.769 = 2.222$.
 
 \emph{Component~3 (Gravity prefactor).}
 The Planck mass is $M_P = \sqrt{c/(24\pi^2 R\ell)}$
@@ -2485,8 +2485,11 @@ and the mass gap (component~2):
   = \bigl(14 - \tfrac{4}{c_7^2}\bigr)\ln\varepsilon_7
   + \tfrac{1}{2}\ln\!\bigl(\tfrac{c}{24\pi^2}\bigr) + O(1/c^3).
 \]
-The hierarchy depends on the Pell unit $\varepsilon_7$ and the
-central charge, but \emph{not} on the mass gap $\sqrt{2/\pi}$.
+At leading order, the hierarchy depends on the Pell unit
+$\varepsilon_7$ and the central charge; the mass gap
+$\Delta\varepsilon = 0.8026$ enters only at subleading
+order $O(\ln\varepsilon_7/c) \approx 0.04$, producing
+the $0.04\%$ residual in the log.
 \end{proof}
 
 \noindent
