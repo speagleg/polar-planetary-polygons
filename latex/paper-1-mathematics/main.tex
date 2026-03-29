@@ -742,7 +742,7 @@ using $T_m = m(N{-}m)/2$ (Lemma~\ref{lem:havelock}).
 The second sum is mode-independent by the following argument.
 For a radially symmetric $G(d)$, the pair Hessian decomposes as
 $M_{p,rr} = h''(d_p)$ (radial) and $M_{p,tt} = h'(d_p)/d_p$
-(tangential), with $h(d) = -(1/2\pi)\log d + \varphi(d)$.
+(tangential), with $h(d) = -(1/2\pi)\ln d + \varphi(d)$.
 The singular part gives
 $M_{p,tt}^{\mathrm{sing}} = 1/(2\pi d_p^2)
 \propto \csc^2(\pi p/N)$ (the Havelock kernel, producing $\alpha\,T_m$).
@@ -1590,7 +1590,7 @@ by which the Casimir exceeds the mode-averaged offset---satisfies
   = \tfrac{1}{3}\,f_{\mathrm{crit}}(N) + O(N)
   \sim \frac{N^2}{24} \quad (N \to \infty),
 \end{equation}
-where $b(N) = N(N{+}1)/12 - \log 2 + (\log N)/(N{-}1)$
+where $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$
 is the exact offset (verified to $10^{-16}$ for all $N = 3,\ldots,24$).
 The coefficient $1/3$ is \emph{exact}, arising from $B_2 = 1/6$.
 
@@ -1619,10 +1619,10 @@ evaluated at $\theta \to 0$) gives
 \[
   \langle S\rangle
   = \frac{1}{N{-}1}\sum_{p=1}^{N-1}\log\sin\frac{\pi p}{N}
-  = \frac{\log N - (N{-}1)\log 2}{N{-}1}
-  = \frac{\log N}{N{-}1} - \log 2.
+  = \frac{\ln N - (N{-}1)\ln 2}{N{-}1}
+  = \frac{\ln N}{N{-}1} - \ln 2.
 \]
-Combining: $b(N) = N(N{+}1)/12 - \log 2 + (\log N)/(N{-}1)$.
+Combining: $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$.
 The leading term $\langle f\rangle = N^2/12 + O(N)$ equals
 $B_2 N^2/2$, the Euler--Maclaurin coefficient for the discrete
 log-sine kernel on $\mathbb{Z}/N\mathbb{Z}$.
@@ -2708,7 +2708,7 @@ Selberg/Harish-Chandra transform $\hat{f}_\xi(r) =
 $\Phi_r$ is the spherical function.
 The logarithmic singularity at $d = 0$ is integrable
 on $\mathbf{H}^2$ (the area element $\sinh d\,dd\,d\theta$
-cancels the $\log d$ divergence), so
+cancels the $\ln d$ divergence), so
 $f_\xi \in L^1(\mathbf{H}^2)^{K}$ (the $K$-bi-invariant
 $L^1$-functions).  The Paley--Wiener condition
 $|\hat{f}_\xi(r)| \le C\,e^{-\delta|r|}$ for
