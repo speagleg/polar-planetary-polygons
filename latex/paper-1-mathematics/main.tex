@@ -3025,26 +3025,90 @@ in $C^*_r(\Gamma)$.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}[Proof sketch]
-(i)~$G_{\mathbf{H}^2}(z_0, \gamma z_0)
-= O(e^{-\ell_\gamma})$ and the prime geodesic theorem give
-$h_\xi^\Gamma \in \ell^1(\Gamma) \subset C^*_r(\Gamma)$;
-Young's inequality gives~\eqref{eq:op-norm-bound}.
-(ii)~The module $E = C^*_r(\Gamma)^{N-1}$ is free, so
-$\mathcal{K}(E) = \mathcal{L}(E)$.
-The gap condition ensures each $c_m + h$ is invertible,
-making $F_\xi = \bigoplus_m \mathrm{sign}(c_m + h)$ a
-well-defined self-adjoint unitary;
-the Kasparov conditions hold automatically.
-(iii)~Under the gap condition, the straight-line homotopy
-$t \mapsto \mathrm{sign}(c_m + th)$ connects
-$\mathrm{sign}(c_m + h)$ to $\mathrm{sign}(c_m) \cdot 1$
-inside the invertibles of $C^*_r(\Gamma)$, so
-$\tau_*(\alpha_N \otimes [D_S])
-= \sum_m \mathrm{sign}(c_m)\,[\rho_m]
-= [\mu_N(\mathbf{H}^2, \xi)]
-= [\mu_N(\Gamma, \xi)]$
-(the last step by Theorem~\ref{thm:spectral-flow}).
+\begin{proof}
+\emph{Part~(i).}
+$|G_{\mathbf{H}^2}(z_0, \gamma z_0)| = O(e^{-\ell_\gamma})$
+where $\ell_\gamma = d(z_0, \gamma z_0)$ is the displacement
+length. The prime geodesic theorem gives
+$|\{\gamma : \ell_\gamma \le L\}| \sim e^L/L$,
+so $\sum_{\gamma \ne 1} e^{-\ell_\gamma} < \infty$.
+By Young's inequality
+($\|a\|_{C^*_r} \le \|a\|_{\ell^1}$ for any
+$a \in \ell^1(\Gamma)$), the element
+$h_\xi^\Gamma$ is well-defined in $C^*_r(\Gamma)$
+with the stated bound.
+
+\emph{Part~(ii).}
+We verify the three Kasparov module conditions for
+the bounded triple
+$\alpha_N = (E, \pi, F_\xi)$ with
+$E = C^*_r(\Gamma)^{N-1}$,
+$A = C^*(\mathbb{Z}_N)$,
+$B = C^*_r(\Gamma)$:
+\begin{itemize}
+\item \emph{$F_\xi$ is self-adjoint.}
+Each $c_m \cdot 1 + h$ is self-adjoint in
+$C^*_r(\Gamma)$
+(since $c_m \in \mathbb{R}$ and $h^* = h$
+by $\overline{G(z,w)} = G(z,w)$).
+The functional calculus gives
+$\mathrm{sign}(c_m + h)^* = \mathrm{sign}(c_m + h)$.
+\item \emph{$F_\xi^2 = 1$ exactly.}
+For any self-adjoint invertible element $a$,
+$\mathrm{sign}(a)^2 = 1$ in the $C^*$-algebra.
+Under the gap condition, each $c_m + h$ is invertible,
+so $F_\xi^2 = 1$.
+In particular, $F_\xi^2 - 1 = 0 \in \mathcal{K}_B(E)$.
+\item \emph{$[\pi(a), F_\xi] \in \mathcal{K}_B(E)$
+for all $a \in A$.}
+Since $A = C^*(\mathbb{Z}_N)$ is finite-dimensional
+($\dim = N$), every adjointable operator on the
+finitely generated module $E$ is compact:
+$\mathcal{K}_B(E) = \mathcal{L}_B(E)$
+(because $E$ is free of rank $N{-}1$ over the
+unital $C^*$-algebra~$B$).
+The condition is automatic.
+\end{itemize}
+Therefore $\alpha_N(\xi) \in KK(A, B)$.
+
+\emph{Part~(iii).}
+The fundamental class $[D_S] \in KK(C^*_r(\Gamma), \mathbb{C})$
+is the Mishchenko--Fomenko index element of the
+Dirac operator on $S = \Gamma\backslash\mathbf{H}^2$
+(using the canonical spin structure on~$\mathbf{H}^2$,
+which descends to~$S$ since $\Gamma$ is torsion-free).
+For torsion-free cocompact lattices in
+$\mathrm{SL}(2,\mathbb{R})$, the Baum--Connes
+assembly map
+$\mu\colon K_0^\Gamma(\underline{E}\Gamma)
+\to K_0(C^*_r(\Gamma))$
+is an isomorphism
+\citep{Kasparov1988}.
+
+Under the gap condition
+$\|h\|_{C^*_r} < \min_m |c_m|$,
+the straight-line homotopy
+$F_t = \bigoplus_m \mathrm{sign}(c_m + t\,h)$
+for $t \in [0, 1]$ stays in the invertibles
+(since $\|t\,h\| \le \|h\| < |c_m|$ for all~$t$).
+Each $F_t$ satisfies the same Kasparov conditions
+as~$F_\xi$ (self-adjoint, $F_t^2 = 1$, commutators
+compact). By homotopy invariance of the Kasparov
+product \citep{Kasparov1980},
+$\alpha_N(\xi) \otimes_{C^*_r(\Gamma)} [D_S]
+= \alpha_N^{(0)}(\xi) \otimes_{C^*_r(\Gamma)} [D_S]$,
+where $\alpha_N^{(0)}$ has
+$F_0 = \bigoplus_m \mathrm{sign}(c_m) \cdot 1_{C^*_r(\Gamma)}$.
+
+In the trivial module $\alpha_N^{(0)}$, each
+summand carries the scalar $\mathrm{sign}(c_m) = \pm 1$.
+The product with $[D_S]$ reduces to the trace:
+$\tau_*(\alpha_N^{(0)} \otimes [D_S])
+= \sum_m \mathrm{sign}(c_m)\,[\rho_m]$,
+which is the $\mathbb{Z}_N$ representation class
+$[\mu_N(\mathbf{H}^2, \xi)]$.
+By Theorem~\ref{thm:spectral-flow},
+$[\mu_N(\mathbf{H}^2, \xi)] = [\mu_N(\Gamma, \xi)]$.
 \end{proof}
 
 \paragraph{Bolza verification.}
