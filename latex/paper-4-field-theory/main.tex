@@ -188,7 +188,7 @@ $N$ modes with masses
 \begin{equation}\label{eq:kk-masses}
   \mu_m = |m - N/2|, \qquad m = 0, 1, \ldots, N{-}1.
 \end{equation}
-The critical mode $m = N/2$ (even $N$) is massless: it IS the
+The critical mode $m = N/2$ (even $N$) is massless: it is the
 Havelock critical mode.
 The KK kinetic energy on~$S^1$ for momentum
 $p_\varphi = m - N/2$ at level $K = 1$ is
@@ -275,7 +275,7 @@ Where is the graviton?
 The answer is that the $4$D spin-$2$ graviton is \emph{not}
 a bulk field; it \emph{emerges} from the boundary of the
 Chern--Simons theory via the Virasoro algebra.
-The spin-$2$ structure is derived, not assumed.
+The spin-$2$ structure follows from the Virasoro algebra.
 
 \begin{theorem}[Emergent spin-$2$ graviton]
 \label{thm:graviton-4d}
@@ -386,8 +386,7 @@ The boundary graviton has $2$ independent components
 tensor polarisations.
 Both propagate on $T^2$, giving $n_{\mathrm{phys}} = 2$---matching
 the standard $d(d{-}3)/2 = 2$ count for $4$D gravity.
-The Weinberg--Witten theorem is \emph{inapplicable}, not merely
-evaded.
+The Weinberg--Witten theorem is \emph{inapplicable}.
 The theorem's premise requires a massless spin-$2$ particle
 in a $4$D Poincar\'e-invariant \emph{local} QFT with a
 Lorentz-covariant conserved $T_{\mu\nu}$ constructible
@@ -815,7 +814,7 @@ gauge theory it generates is not either.}
 Theorem~\ref{thm:su2} identifies the gauge group;
 Proposition~\ref{prop:chiral-su2} identifies its chiral action
 on matter.  Together, they establish that the gravitational
-$\mathrm{SU}(2)$ IS the weak isospin $\mathrm{SU}(2)$: it arises
+$\mathrm{SU}(2)$ is the weak isospin $\mathrm{SU}(2)$: it arises
 from the \emph{same} CS connection ($A^+$), couples to the
 \emph{same} chirality (left-handed), and its counterpart
 ($A^-$, the right-handed sector) is broken by the \emph{same}
@@ -844,7 +843,7 @@ $X(7) = \Gamma(7)\backslash\mathbf{H}^2$:
   the CS theory on a manifold with boundary induces the
   $\mathrm{SU}(3)_1$ WZW model on the boundary,
   whose Kac--Moody currents $J^a(z)$ ($a = 1,\ldots,8$)
-  ARE the dynamical gluons (conformal weight $(1,0)$ = spin~$1$).
+  are the dynamical gluons (conformal weight $(1,0)$ = spin~$1$).
 \end{enumerate}
 No holographic dictionary (GKPW) is used: part~(a) is
 representation theory; part~(b) is the Witten CS/WZW
@@ -951,11 +950,11 @@ identification.  The chain is explicit (at the linearised level):
 \end{enumerate}
 Every step is explicit algebra at the linearised level;
 no physical identification enters.
-The linearised Havelock modes are not ``matter fields
-identified with gauge perturbations''---they ARE
-linearised gauge perturbations, because the dreibein
-IS part of the CS connection
-(\texttt{proofs/dreibein\_havelock.py}).
+At the linearised level, the Havelock modes \emph{are}
+gauge perturbations: displacing a cone point perturbs the
+dreibein, hence the CS connection, by algebraic
+computation (items~1--5 above;
+\texttt{proofs/dreibein\_havelock.py}).
 
 \emph{Why CS/WZW applies (and GKPW is not needed).}
 The CS/WZW theorem \citep{Witten1988} states:
@@ -969,13 +968,13 @@ The two complex Havelock modes $(\eta_1, \eta_2)$
 span a $\mathbb{C}^2 \subset T_e G$ on which the
 $\mathbb{Z}/3\mathbb{Z}$ Frobenius acts as
 $\mathrm{diag}(\omega, \omega^{-1})$.
-This $\mathbb{C}^2$ IS the target space of the linearised
+This $\mathbb{C}^2$ is the target space of the linearised
 boundary CFT---by the CS/WZW theorem applied to~$\delta A$,
 \emph{not} by the GKPW dictionary applied to matter fields.
 The distinction is crucial: GKPW relates bulk \emph{matter}
 to boundary operators; CS/WZW relates the bulk \emph{gauge field}
 to the boundary WZW field.
-Since $\delta A$ IS a gauge field perturbation (items~1--5 above),
+Since $\delta A$ is a gauge field perturbation (items~1--5 above),
 CS/WZW applies directly.
 
 The $\mathbb{Z}/3\mathbb{Z}$ invariance of the action is
@@ -1262,7 +1261,7 @@ The Sugawara formula $h = j(j{+}1)/(k{+}h^\vee)$
 is valid for \emph{any} spin $j$---it computes the conformal
 weight of a primary in the representation $j$, regardless
 of whether that representation is integrable.
-Crucially, $j = 1$ is \emph{not chosen}: it is the
+The value $j = 1$ is \emph{not chosen}: it is the
 CMS/Havelock Casimir $f(2,4) = 2 = 1 \cdot 2 = j(j{+}1)$
 at the critical mode $m^* = 2$ of the $N = 4$ polygon
 (Theorem~\ref{thm:su2}, Step~4).
@@ -1688,7 +1687,7 @@ at the polygon centre
 \citealt{HarishChandra1958}).
 This is not a choice but the standard resolvent kernel
 normalisation of $L^2(\mathbf{H}^2)$.
-\emph{Crucially, the phase is normalisation-independent}:
+\emph{The phase is normalisation-independent}:
 since $I(m)$ is real (Step~3), any rescaling
 $A \to \lambda A$ with $\lambda \in \mathbb{R}$ changes
 $|Y|$ but not $\arg(Y)$.
@@ -2098,7 +2097,7 @@ The theoretical uncertainty is the uncorrected Dunham term
 $O(1/c_{11}^2) \approx 6 \times 10^{-5}$, which shifts~$H_0$
 by $\pm 0.004$\,km/s/Mpc---$100\times$ smaller than the Planck
 error bar ($\pm 0.5$\,km/s/Mpc).
-\emph{Crucially, $b(N)$ is not regularisation-dependent}:
+\emph{The offset $b(N)$ is not regularisation-dependent}:
 it is proved analytically from the Gauss log-sine product
 (Paper~I, Theorem~5.1), giving
 $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$ exactly.
@@ -3014,7 +3013,7 @@ compatible with the requirements of the vortex system:
   For compact groups: $k \in \mathbb{Z}^+$
   (from $\pi_3(G) = \mathbb{Z}$).
   At $k = 1$: the integrable representations of SU$(2)_1$
-  are $j = 0$ and $j = 1/2$ --- the Higgs doublet IS the
+  are $j = 0$ and $j = 1/2$ --- the Higgs doublet is the
   maximal representation (at $k \ge 2$ there would be
   additional states not present in the SM).
   At $K = 1$: the compact boson is at the self-dual radius
@@ -3642,14 +3641,14 @@ The Hilbert space structure, operator ordering,
 and the constraint $H\Psi = 0$ are all
 \emph{outputs} of this mapping.
 The \emph{Born rule} is likewise not postulated:
-the ground-state probability $|\Psi_0(\rho)|^2$ IS the
+the ground-state probability $|\Psi_0(\rho)|^2$ is the
 Boltzmann weight $e^{-\beta V(\rho)}/Z$ of the classical
 partition function.
 In the WDW framework, the constraint $H\Psi = 0$ selects
 a \emph{unique} physical state (the ground state);
 excited states ($H\Psi = E\Psi$ with $E \ne 0$) do not
 satisfy the constraint and are unphysical.
-Therefore the Born rule for the ground state IS the Born
+Therefore the Born rule for the ground state is the Born
 rule for the physical universe---no ``any state''
 generalisation is needed.
 The entire probabilistic structure of quantum mechanics
