@@ -29,10 +29,12 @@ slice)---\emph{derives} the vacuum Einstein equations
 $R_{\mu\nu} = \Lambda g_{\mu\nu}$:
 entropy maximisation of the frozen polygon modes on a
 general background forces constant curvature, through
-three hypotheses
-(H1~from the $\csc^2$ uniqueness theorem,
-H2~from entropy maximisation of the frozen polygon modes,
-H3~from the Hadamard universality of the Green's function).
+three conditions, of which \emph{only one is a physical hypothesis}:
+H1~(the $\csc^2$ uniqueness: a \emph{theorem}, not an assumption)
+and H3~(Hadamard universality: also a \emph{theorem}) are automatic
+on any Riemannian surface;
+the sole physical input is H2~(entropy maximisation, derived from
+the Onsager principle via the vortex-gravity isomorphism).
 In $d \ge 3$, the characterisation extends (the Havelock
 condition is equivalent to vacuum Einstein,
 providing a new criterion for Einstein manifolds).
@@ -1854,6 +1856,39 @@ Paper~IV through the boundary Virasoro mechanism (the emergent
 spin-$2$ graviton of Theorem~\ref*{IV-thm:graviton-4d}).
 We state the theorem first, then collect the proof.
 
+\medskip
+\noindent
+\fbox{\parbox{0.95\textwidth}{%
+\textbf{Logical status of the three hypotheses.}
+Of the three conditions below, \textbf{only (H2) is a
+physical hypothesis}.
+Conditions (H1) and (H3) are \emph{mathematical theorems},
+not assumptions:
+\begin{itemize}
+\item \textbf{(H1) is a theorem} (the $\csc^2$ uniqueness,
+  Paper~I Lemma~\ref*{I-lem:havelock}):
+  on any surface where the interaction is the Laplacian Green's
+  function, the Havelock eigenvalue decomposition holds exactly.
+\item \textbf{(H3) is a theorem} (the Hadamard parametrix):
+  on any Riemannian surface, the scalar Green's function has a
+  universal logarithmic singularity, which forces the $\csc^2$
+  structure of~(H1) at every point.
+\item \textbf{(H2) is the sole physical input}:
+  the polygon system reaches thermodynamic equilibrium.
+  This is derived (not assumed) from the Onsager selection
+  principle via the vortex-gravity isomorphism
+  (\S\ref{sec:einstein-derivation} below).
+\end{itemize}
+The theorem therefore has the structure:
+\emph{two automatic theorems $+$ one derived physical input
+$\Rightarrow$ Einstein equations.}
+The ``derivation'' does not assume gravity---it derives
+$R = \mathrm{const}$ from the universal $\csc^2$ structure
+of the Green's function (a mathematical fact) combined with
+entropy maximisation (a physical principle).
+}}
+\medskip
+
 \begin{theorem}[Polygon entropy maximisation implies constant curvature]
 \label{thm:polygon-einstein}
 Let $(S, g)$ be a two-dimensional Riemannian manifold.
@@ -1863,26 +1898,28 @@ interacting via the scalar Green's function of~$(S, g)$.
 If:
 \begin{enumerate}
 \item[\textup{(H1)}]
-  \emph{Havelock structure}: the angular Hessian eigenvalues
+  \emph{Havelock structure} \textbf{[theorem, not assumption]}:
+  the angular Hessian eigenvalues
   have the form $\lambda_m = C_1(x,\varepsilon) - m(N{-}m)/2$
   with $C_1$ independent of~$m$.
-  \emph{Proved in $d = 2$} by the $\csc^2$ uniqueness
-  theorem (Paper~I).
+  Proved by the $\csc^2$ uniqueness
+  theorem (Paper~I): the Laplacian Green's function on any
+  surface has the $\csc^2$ angular kernel, whose $\mathbb{Z}_N$
+  Fourier transform is $m(N{-}m)/2$.
 \item[\textup{(H2)}]
-  \emph{Entropy equilibrium}: the frozen-mode entropy
+  \emph{Entropy equilibrium} \textbf{[the sole physical input]}:
+  the frozen-mode entropy
   $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x,\varepsilon)$
   is maximised over the surface --- i.e., the polygon system
   is in thermodynamic equilibrium.
-  \emph{Derived} from the Onsager selection principle
-  (Paper~I, \S5): among all configurations consistent with
-  fixed total energy, the maximum-entropy state has
-  $C_1(x,\varepsilon_0) = f(m^*,N)$ uniformly in~$x$
-  (the constrained optimum distributes curvature equally
-  at every point).
+  Derived from the Onsager selection principle
+  via the vortex-gravity isomorphism
+  (\S\ref{sec:einstein-derivation}).
 \item[\textup{(H3)}]
-  \emph{Hadamard universality}: condition~\textup{(H1)} holds
+  \emph{Hadamard universality} \textbf{[theorem, not assumption]}:
+  condition~\textup{(H1)} holds
   at every point~$x \in S$.
-  \emph{Automatic}: the Hadamard parametrix
+  The Hadamard parametrix
   $G(x,y) = -(1/2\pi)\log d(x,y) + \gamma_S(x) + O(d^2)$
   is universal on any Riemannian surface.
 \end{enumerate}
