@@ -2566,20 +2566,32 @@ $\cos(2\pi pm/N) = \cos(2\pi(N{-}p)m/N)$,
 the number of \emph{independent real} angular probes is
 $\lfloor N/2\rfloor$, not $N{-}1$.
 To constrain all $5$ quadrupole components of the
-$\ell = 2$ Weyl sector in spatial dimension $d = 3$
+traceless Ricci tensor in spatial dimension $d = 3$
 ($d_{\mathrm{st}} = 4$), we need
 $\lfloor N/2\rfloor \ge 5$, i.e.\ $N \ge 10$ (even) or
 $N \ge 11$ (odd).
+The $N \ge 10$ polygon is \emph{unstable} ($N > N_{\mathrm{crit}} = 7$),
+but this does not affect the argument: condition~(H1) is a
+statement about the \emph{structure} of the Green's function
+(mode-independence of~$C_1$), not about the \emph{sign} of the
+eigenvalues.
+The Havelock identity $\lambda_m = C_1 - m(N{-}m)/2$ holds for
+all~$N$, regardless of stability
+(Paper~I, Lemma~\ref*{I-lem:havelock}).
+The polygon is used as a \emph{mathematical probe} of the angular
+structure, not as a physical equilibrium.
 Verified numerically: the $5 \times 5$ cosine matrix
 $M_{mp} = \cos(2\pi pm/N)$ has rank~$5$ for $N = 10$ and $N = 11$,
 but rank~$3$ for $N = 6, 7$ (insufficient).
-Any nonzero Weyl tensor therefore makes $C_1$ depend on~$m$
-for $N \ge 10$, violating~(H1).
-Hence (H1) at every~$x$ with $N \ge 10$ forces the
-traceless Ricci tensor $R_{ij} - (R/d)\,g_{ij} = 0$
-on each spatial slice (in $d = 3$ the spatial Weyl
-tensor vanishes identically; the polygon probes the
-$5$ independent traceless Ricci components).
+Any nonzero traceless Ricci component therefore makes
+$C_1$ depend on~$m$ for $N \ge 10$, violating~(H1).
+Hence (H1) at every~$x$ with $N \ge 10$ forces
+$R_{ij} - (R/d)\,g_{ij} = 0$ on each spatial slice.
+(In spatial dimension $d = 3$, the spatial Weyl tensor
+vanishes identically, so the $5$ independent components
+of the traceless part of the Riemann tensor are all
+traceless Ricci --- and these are exactly what the
+polygon's $\lfloor N/2 \rfloor$ angular modes probe.)
 The promotion to the full spacetime Einstein equations
 $R_{\mu\nu} = \Lambda\,g_{\mu\nu}$ (including time-space
 components) requires additionally the boundary Virasoro
