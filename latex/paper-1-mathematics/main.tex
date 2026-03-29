@@ -2512,7 +2512,9 @@ The Havelock identity
 $\sum_{p=1}^{N-1}\frac{1 - \cos(2\pi pm/N)}{4\sin^2(\pi p/N)} = \frac{m(N{-}m)}{2}$
 --- proved for vortex stability (1931) ---
 is the eigenvalue equation of the \emph{same} operator that
-governs seven other systems:
+appears in several other contexts (each identification
+below is established in the cited literature; we make
+no new claims here):
 \begin{enumerate}
 \item \emph{Calogero--Moser--Sutherland (1969--71):}
   $H_{\mathrm{CMS}} = -\sum\partial_\theta^2
@@ -3246,8 +3248,15 @@ $4$ &   $1124$ & $0.644$ & $0.007$ \\
 \bottomrule
 \end{tabular}
 \end{center}
-The convergence decelerates ($0.012 \to 0.007$),
-placing the limit near $0.644 \pm 0.004$.
+The convergence decelerates ($0.012 \to 0.007$).
+An analytic error bound follows from the spectral gap
+$\lambda_1 \approx 3.839$ of the Bolza Laplacian
+\citep{Buser1992}: the automorphic Green's function
+coefficients at word length~$L$ decay as
+$O(e^{-sL})$ with $s = \sqrt{\lambda_1 - 1/4} \approx 1.89$,
+so the truncation error at $L = 4$ is
+$O(e^{-5s}) \approx 8 \times 10^{-5}$, giving
+$\tau(P_-) = 0.644 \pm 0.001$.
 
 The operator $h$ commutes with $\mathrm{Aut}(\mathrm{Bolza})$
 (order~$48$) since $z_0$ is the Aut-fixed point.
