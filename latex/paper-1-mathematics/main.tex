@@ -754,44 +754,58 @@ Substituting~\eqref{eq:angular-kernel} into the Fourier sum:
   = \alpha\,\frac{m(N{-}m)}{2} + \tilde{C}_1,
 \end{align*}
 using $T_m = m(N{-}m)/2$ (Lemma~\ref{lem:havelock}).
-The second sum is mode-independent by the following argument.
-For a radially symmetric $G(d)$, the pair Hessian decomposes as
-$M_{p,rr} = h''(d_p)$ (radial) and $M_{p,tt} = h'(d_p)/d_p$
-(tangential), with $h(d) = -(1/2\pi)\ln d + \varphi(d)$.
-The singular part gives
-$M_{p,tt}^{\mathrm{sing}} = 1/(2\pi d_p^2)
-\propto \csc^2(\pi p/N)$ (the Havelock kernel, producing $\alpha\,T_m$).
-The smooth part gives $\beta_p = \varphi'(d_p)/d_p$, which
-depends on~$p$ through $d_p = 2\ell|\!\sin(\pi p/N)|$.
-The smooth-part Fourier sum
-$\sum_p \beta_p(\cos(2\pi pm/N) {-} 1)$ is
-mode-dependent in general.  However, the
-\emph{constrained} eigenvalue also receives a
-contribution from the Lagrange multiplier
-$\mu_L \cdot \partial^2 J/\partial\theta^2$,
-where $\partial^2 J/\partial\theta^2$ is
-mode-independent on constant-curvature surfaces
-(by the rotational symmetry of the constraint $J$).
-The net constrained eigenvalue
-$\lambda_m = H_{tt}^{(m)} + \mu_L J_{tt}$
-therefore has the form $\alpha T_m + \tilde{C}_1$,
-where $\tilde{C}_1$ absorbs both the smooth-part
-tangential sum and the Lagrange contribution---both
-of which are individually computed on each model surface.
-On the plane ($\varphi = 0$, $\beta_p = 0$): the
-smooth-part sum vanishes identically.
-On $\mathbf{S}^2$ and $\mathbf{H}^2$: the identity
-$\lambda_m = C_1 - m(N{-}m)/2$ is verified
-by direct Hessian computation
-(Section~\ref{sec:sphere-thresholds} and
-Proposition~\ref{prop:C1-H2} respectively,
-both confirmed numerically to $10^{-5}$).
-The constrained eigenvalue on $\{J = \mathrm{const}\}$
-is $\lambda_m = C_1 - H_{tt}^{(m)}|_{\text{mode-dependent part}}
-= C_1 - \alpha\,m(N{-}m)/2$.
-Absorbing $\alpha$ into the normalisation
-(on each model surface, $\alpha = 1/(N{-}1)$ times the
-flat-plane value) gives~\eqref{eq:riemannian-havelock}.
+The second sum is mode-independent by the following
+abstract argument, which works simultaneously on all
+constant-curvature surfaces.
+
+In conformal coordinates (Poincar\'e disk for
+$\mathbf{H}^2$, stereographic for $\mathbf{S}^2$),
+the Hamiltonian of $N$ equal point vortices on
+\emph{any} constant-curvature surface separates as
+\begin{equation}\label{eq:H-separation}
+  H = -\!\sum_{j<k}\!\ln|z_j {-} z_k|
+    \;+\; V_{\mathrm{rad}}(\{|z_k|\}),
+\end{equation}
+where $V_{\mathrm{rad}}$ depends only on the
+radii~$|z_k|$
+(on $\mathbf{H}^2$: $(N{-}1)/2\sum_k \ln(a^2{-}|z_k|^2)$;
+on $\mathbf{S}^2$: $-(N{-}1)/2\sum_k \ln(1{+}|z_k|^2)$;
+on the plane: $V_{\mathrm{rad}} = 0$).
+Under a tangential perturbation
+$z_k \mapsto \rho\,e^{i(\theta_k + \varepsilon\,a_k)}$,
+the radius $|z_k| = \rho$ is \emph{preserved}.
+Therefore $V_{\mathrm{rad}}$ has \emph{zero}
+tangential Hessian.
+
+The constraint $J$ (the angular impulse / moment map)
+also depends only on $|z_k|$, so $\partial^2 J/\partial\theta^2 = 0$
+and the Lagrange multiplier contributes nothing
+to the tangential eigenvalue.
+
+The tangential Hessian of $-\sum\!\ln|z_j{-}z_k|$
+at the ring $z_p = \rho\,e^{2\pi ip/N}$ is a
+\emph{circulant} matrix with the $\csc^2$ kernel:
+the off-diagonal entry at pair~$(0, p)$ is
+$-\csc^2(\pi p/N)/(4\rho^2)$, and its
+$\mathbb{Z}_N$ Fourier eigenvalue is
+\[
+  H_{tt}^{(m)}
+  = \frac{1}{\rho^2}\sum_{p=1}^{N-1}
+    \frac{1{-}\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
+  = \frac{m(N{-}m)}{2\rho^2}
+\]
+by the Havelock identity (Lemma~\ref{lem:havelock}).
+In the geodesic normalisation
+$\lambda_m r_E^2 = C_1 - m(N{-}m)/2$
+(with $r_E$ the Euclidean ring radius),
+the tangential sector contributes exactly $m(N{-}m)/2$,
+and $C_1$ comes entirely from the radial sector
+(the confining potential and equilibrium condition).
+Since none of the surface-dependent quantities
+($V_{\mathrm{rad}}$, $J$, or $\mu_L$) enter the
+tangential Hessian, the identity holds on
+\emph{every} constant-curvature surface simultaneously
+(\texttt{proofs/riemannian\_havelock\_step3.py}).
 \end{proof}
 
 The stability threshold $N_{\mathrm{crit}}$ is therefore determined by
