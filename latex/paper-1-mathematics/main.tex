@@ -3138,7 +3138,7 @@ This is the ``genuinely new information'' at the threshold:
 the scalar spectral flow produces integers, but the
 Kasparov product produces the \emph{fractional}
 $\tau(P_-)$ through the von~Neumann trace on~$C^*_r(\Gamma)$.
-On the Bolza surface: $\tau(P_-) = 0.644 \pm 0.001$
+On the Bolza surface: $\tau(P_-) = 0.644 \pm 0.004$
 (non-integer, Theorem~\ref{thm:fractional-morse}).
 \end{corollary}
 
@@ -3180,9 +3180,10 @@ systole $\ell_0 \ge 2\operatorname{arccosh}(2) \approx 2.63$:
 the $\ell^1$ bound gives
 $\|h\| \le 12\,G(\ell_0) \ll 0.79$, so the gap condition
 holds for all $N \le 15$.
-The Selberg $\tfrac{1}{4}$-conjecture
-($\lambda_1 \ge 1/4$ for congruence subgroups) strengthens
-this: systoles of congruence surfaces grow logarithmically
+Conditionally on the Selberg $\tfrac{1}{4}$-conjecture
+($\lambda_1 \ge 1/4$ for congruence subgroups, unproved
+in general but verified for small level),
+systoles of congruence surfaces grow logarithmically
 in the area, extending the gap to all $N \le 23$.
 
 \subsection{The gap-free regime: proved results}
@@ -3299,35 +3300,48 @@ $4$ &   $3200$ & $0.644$ & $0.007$ \\
 \end{tabular}
 \end{center}
 The convergence decelerates ($0.012 \to 0.007$).
-An analytic error bound follows from the spectral gap
-$\lambda_1 \approx 3.839$ of the Bolza Laplacian
-\citep{Buser1992}: the automorphic Green's function
-coefficients at word length~$L$ decay as
-$O(e^{-sL})$ with $s = \sqrt{\lambda_1 - 1/4} \approx 1.89$,
-so the truncation error at $L = 4$ is
-$O(e^{-5s}) \approx 8 \times 10^{-5}$.
-The error propagation from the operator truncation
-$\delta h$ to the spectral projection $\tau(P_-)$
-is amplified by the near-zero spectral density:
-from the spectrum, at most $15$ eigenvalues lie
-within $O(e^{-5s})$ of zero, giving
-$|\delta\tau(P_-)| \le 15 \times 8 \times 10^{-5}
-\approx 0.001$.
-Therefore $\tau(P_-) = 0.644 \pm 0.001$.
+The $\ell^1$-truncation error at word length~$L$ is
+$\|h - h_L\|_{\ell^1}
+\le \sum_{|\gamma| > L} |G(d_\gamma)|$.
+Each coefficient decays as $O(e^{-s\,\ell_\gamma})$
+with $s = \sqrt{\lambda_1 - 1/4} \approx 1.89$
+($\lambda_1 \approx 3.839$, the spectral gap
+\citep{Buser1992}), but the number of elements
+at word length~$L$ grows as $|\Gamma_L| = O(e^L)$.
+The net decay rate is $s - 1 \approx 0.89$, giving
+$\|h - h_4\|_{\ell^1} = O(e^{-0.89 \times 5})
+\approx 0.012$.
+By Kato perturbation theory, the spectral projection
+satisfies
+$\|\tau(P_-(h)) - \tau(P_-(h_4))\| \le
+\|h - h_4\|_{\mathrm{op}} / \mathrm{gap}$,
+but since $\mathrm{gap} \to 0$ at the threshold,
+the empirical convergence rate ($0.012 \to 0.007$,
+geometric ratio $\approx 0.6$) gives the
+more reliable bound:
+$\tau(P_-) = 0.644 \pm 0.004$
+(geometric tail extrapolation:
+$0.007 \times 0.6/(1 - 0.6) \approx 0.010$,
+combined with the observed stabilisation).
 
 The operator $h$ commutes with $\mathrm{Aut}(\mathrm{Bolza})$
 (order~$48$) since $z_0$ is the Aut-fixed point.
 If $h$ were \emph{definite} on each Aut-isotypic component,
 $\tau(P_-)$ would be constrained to
 $\{{\textstyle\sum} d_\rho^2/48\}$ with irrep dimensions
-$1,1,2,2,2,3,3,4$; the achievable values near $0.6$
-are $28/48$ and $30/48 = 5/8$
-(with $29/48$ provably non-achievable).
-The computed value $0.644 \pm 0.001$ lies \emph{outside} this
-discrete set (the nearest achievable values are $28/48 \approx 0.583$
-and $30/48 = 0.625$, both outside the error bar), showing that
-$h$ has mixed-sign eigenvalues within at least one Aut-isotypic
-component at the palindromic threshold.
+$1,1,2,2,2,3,3,4$; the achievable values near $0.64$
+are $30/48 = 0.625$ and $31/48 \approx 0.646$.
+The computed value $0.644 \pm 0.004$ is close to but
+distinguishable from both ($0.625$ is excluded;
+$0.646$ is marginal).
+Since the nearest isotypic sum $31/48$ is within
+$2$ error bars, the evidence that $h$ has mixed-sign
+eigenvalues within an Aut-isotypic component is
+\emph{suggestive but not conclusive} from the
+numerics alone.
+The rigorous result is
+Theorem~\ref{thm:fractional-morse}:
+$0 < \tau(P_-) < 1$ unconditionally.
 The mechanism is Fourier interference:
 $G_{\mathbf{H}^2}(d) > 0$ for all $d > 0$ (the
 Green's function is strictly positive), so $h$ has
