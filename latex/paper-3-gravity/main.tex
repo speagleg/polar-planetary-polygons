@@ -1161,23 +1161,34 @@ Two independent derivations combine:
   not regularisation artifacts.
   This is the \emph{unique} central charge compatible with the
   Havelock eigenvalue structure.
-  \emph{Why the CL coefficient differs.}
+  \emph{Why the CL coefficient differs from $12\,b(N)$.}
   The CL noise kernel produces a kinetic coefficient
-  $\sim N^2\rho^{*2}/((N{-}2)\coth^2\rho^*)$, which does not
-  equal $12\,b(N)$ at any~$N$.
-  This is \emph{not} a contradiction: the CL mechanism derives
-  the \emph{existence} of the $\dot\rho^2$ term (from the
-  bath's influence functional), while the equivariant RR
-  determines its \emph{coefficient} (from the eigenvalue
-  structure).  The two derivations answer different questions:
-  CL asks ``does the breathing mode have a kinetic term?''
-  (yes), and RR asks ``what is the coefficient?'' ($c = 12\,b(N)$).
-  The CL coefficient is the \emph{bare} value before
-  renormalisation by the bath modes; the RR value is the
-  \emph{exact} coefficient including all mode contributions.
+  $c_{\mathrm{CL}} \sim N^2\rho^{*2}/((N{-}2)\coth^2\rho^*)$,
+  which is approximately $1\%$ of~$12\,b(N)$ at $N = 7$
+  (a factor of $\sim\!100$, not a small correction).
+  This large discrepancy reflects the fact that $c_{\mathrm{CL}}$
+  and $c = 12\,b(N)$ arise from \emph{different physical
+  mechanisms}:
+  \begin{itemize}
+  \item $c_{\mathrm{CL}}$ is the dynamical inertia of~$\rho$
+    from integrating out the angular bath in the Gaussian
+    (free-field) approximation.
+    It proves the kinetic term \emph{exists} ($c > 0$).
+  \item $c = 12\,b(N)$ is the \emph{central charge} of the
+    boundary CFT, determined by the Brown--Henneaux formula
+    $c = 3\ell/(2G)$ and confirmed by the equivariant
+    Riemann--Roch matching to the orbifold ground-state energy.
+    It determines the \emph{value} of the kinetic coefficient
+    in the holographic (WDW) formulation.
+  \end{itemize}
+  The holographic value $c = 12\,b(N)$ incorporates the
+  \emph{full} boundary-mode structure (all CMS integrals of
+  motion, not just the Gaussian spectral density), which is
+  why it exceeds $c_{\mathrm{CL}}$ by two orders of magnitude.
   No parameter is fitted: $b(N)$ is proved analytically
-  (Paper~I, Theorem~5.1) and $c = 12\,b(N)$ follows from
-  the index theorem.
+  (Paper~I, Theorem~5.1) and the four roles of~$c$ (WDW
+  coefficient, CS level, Brown--Henneaux, orbifold matching)
+  are independently consistent.
 \end{enumerate}
 
 Each term has a definite origin:
