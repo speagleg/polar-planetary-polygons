@@ -31,10 +31,12 @@ entropy maximisation of the frozen polygon modes on a
 general background forces constant curvature, through
 three conditions, \emph{all of which are theorems}:
 H1~(the $\csc^2$ uniqueness),
-H2~(Jaynes maximum entropy of the polygon partition function
-at fixed energy), and
+H2~(thermalization of the integrable angular bath to the
+generalised Gibbs ensemble), and
 H3~(Hadamard universality).
-The sole physical law invoked is energy conservation.
+The physical content of~H2 is:
+``$N{-}2$ coupled harmonic oscillators thermalize''%
+---a consequence of the CMS integrability of the Havelock system.
 In $d \ge 3$, the characterisation extends (the Havelock
 condition is equivalent to vacuum Einstein,
 providing a new criterion for Einstein manifolds).
@@ -1884,30 +1886,38 @@ We state the theorem first, then collect the proof.
   on any Riemannian surface, the scalar Green's function has a
   universal logarithmic singularity, which forces the $\csc^2$
   structure of~(H1) at every point.
-\item \textbf{(H2) is a theorem} (Jaynes maximum entropy):
-  the polygon partition function
-  $Z[g] = \sum_N e^{-b(N)}\prod_m|\lambda_m(g)|^{-1/2}$
-  is a \emph{defined} functional of the metric~$g$
-  (it counts polygon states, no physical identification needed).
-  The entropy $S[g] = \log Z[g]$ is \emph{strictly concave}
-  in~$R(x)$ (proved below).
-  The Jaynes maximum-entropy principle
-  \citep{Jaynes1957}---``the distribution maximising entropy
-  subject to constraints is the least biased inference''---%
-  gives: the metric maximising $S[g]$ at fixed total energy
-  ($\int V\,dA = E$, energy conservation)
-  has $R(x) = \mathrm{const}$.
-  This is \emph{not} a physical hypothesis---it is a
-  logical consequence of counting polygon states on a
-  general background with a fixed energy constraint.
+\item \textbf{(H2) is a theorem}
+  (thermalization of the integrable angular bath):
+  the Havelock diagonalisation decomposes the angular modes
+  into $N{-}2$ uncoupled oscillators---the CMS integrable system
+  (Paper~I, Remark~3.1; \S\ref{sec:three-layer}).
+  Integrable systems thermalize to the
+  \emph{generalised Gibbs ensemble} (GGE):
+  the maximum-entropy state subject to all conserved
+  quantities \citep{Rigol2007}.
+  The conserved quantities of the CMS system are the
+  Casimirs $f_m^k$ ($k = 1, 2, \ldots$) from the Magri
+  bihamiltonian hierarchy (\S\ref{sec:three-layer}).
+  The GGE equilibrium of the angular bath, combined with
+  the Caldeira--Leggett mechanism (\S\ref{sec:wdw}),
+  drives the breathing mode~$\rho$ to the state that
+  maximises $S[g] = \log Z[g]$
+  (the one-loop effective action of the polygon theory)
+  subject to fixed total energy $\int V\,dA = E$.
+  The entropy $S[g]$ is \emph{strictly concave} in~$R(x)$
+  (proved below), so the unique maximum is
+  $R(x) = \mathrm{const}$.
+  This is \emph{not} an inference principle---it is a
+  \emph{physical consequence} of the thermalization of
+  an integrable system, which is a theorem of statistical
+  mechanics \citep{Rigol2007}.
 \end{itemize}
 The theorem therefore has the structure:
 \emph{three theorems $\Rightarrow$ Einstein equations.}
-The sole physical law invoked is \textbf{energy conservation}
-($\int V\,dA = E$).
-The derivation does not assume gravity, thermodynamic
-equilibrium, or any identification between mathematical
-structures and physical objects.
+The physical content of~(H2) is:
+\textbf{``$N{-}2$ coupled harmonic oscillators thermalize''}%
+---a consequence of the integrability of the CMS/Havelock
+system, not an inference principle or a physical hypothesis.
 }}
 \medskip
 
@@ -1930,14 +1940,17 @@ If:
   Fourier transform is $m(N{-}m)/2$.
 \item[\textup{(H2)}]
   \emph{Entropy maximisation} \textbf{[theorem]}:
-  the polygon partition function
-  $Z[g] = \sum_N e^{-b(N)}\prod_m|\lambda_m(g)|^{-1/2}$
-  is maximised over the metric at fixed total energy
-  $\int V(\rho(x))\,dA = E$ (energy conservation).
-  Proved by the Jaynes maximum-entropy principle
-  \citep{Jaynes1957} applied to the
-  strictly concave functional $\log Z[g]$
-  (\S\ref{sec:einstein-derivation}).
+  the $N{-}2$ angular Havelock modes form an integrable
+  (CMS) harmonic bath that thermalises to the generalised
+  Gibbs ensemble \citep{Rigol2007}.
+  The GGE equilibrium maximises
+  $S[g] = \log Z[g]$ (the one-loop effective action)
+  subject to fixed total energy
+  $\int V(\rho(x))\,dA = E$
+  and the CMS conserved quantities.
+  The unique maximum is $R(x) = \mathrm{const}$
+  (from strict concavity of~$S$ in~$R$;
+  \S\ref{sec:einstein-derivation}).
 \item[\textup{(H3)}]
   \emph{Hadamard universality} \textbf{[theorem, not assumption]}:
   condition~\textup{(H1)} holds
