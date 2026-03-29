@@ -64,7 +64,9 @@ $\{L = NR^2,\, \mathbf{P} = 0\}$.
 \label{sec:results}
 
 Consider $N$ vortices on a ring of radius $R$, deformed along the
-one-parameter family
+one-parameter family (the M\"obius interpretation below
+illuminates its geometric nature but does not enter the
+stability proofs):
 \begin{equation}\label{eq:deformation}
   z_k(\sigma) = R\,e^{\sigma(k - (N-1)/2)/N}\,e^{2\pi ik/N},
   \qquad k = 0, \ldots, N-1.
@@ -1125,25 +1127,39 @@ The lobe fraction $\Gamma_{\mathrm{lobe}}/\Gamma_{\mathrm{total}}
 = 1 - O(1{-}\eta)$ as $\eta \to 1$.  Numerically: at $\eta = 0.99$,
 lobes capture $>99\%$ of the total circulation.
 
-Combining with Proposition~\ref{prop:inertia}: the cat's-eye
-satisfies the blob bridge conditions for
-$\sigma/d_{\min} < \delta(N)/\!\sqrt{2}$ and
-$1 - \eta < c\,\delta(N)^2$ (the braid perturbation
-is $O(1{-}\eta)$ of the lobe system, negligible at the same
-threshold).  The constrained Hessian inertia of the cat's-eye
-equals the Havelock inertia, verified numerically for all
-$\eta \in [0.3, 0.99]$ and confirmed analytically
-by~\eqref{eq:lobe-fraction} in the limit $\eta \to 1$.
-The same argument applies to the Prandtl--Batchelor cat's-eye
-(homogenised PV inside the lobes), the physically relevant model
-for Saturn's hexagon.
+Combining with Proposition~\ref{prop:inertia}:
+the cat's-eye satisfies the blob bridge conditions
+when $\sigma/d_{\min} < \delta(N)/\!\sqrt{2}$
+and $1 - \eta < c\,\delta(N)^2$.
+The first condition is the standard concentration bound
+on the lobe width.
+The second condition holds because the braid perturbation
+is $O(1{-}\eta)$ of the lobe system
+(equation~\eqref{eq:lobe-fraction}).
+Both conditions are satisfied for~$\eta$ sufficiently
+close to~$1$ (the point-vortex limit).
+Therefore, by Proposition~\ref{prop:inertia}
+(which is a proved theorem, not a numerical claim),
+the constrained Hessian inertia of the cat's-eye
+equals the Havelock inertia.
+The numerical verification
+($\eta \in [0.3, 0.99]$; code:
+\texttt{catseye\_hessian.py}) is a cross-check,
+not a logical prerequisite.
+The same argument applies to the Prandtl--Batchelor
+cat's-eye (homogenised PV inside the lobes), the
+physically relevant model for Saturn's hexagon:
+the lobe concentration is even stronger (step-function
+PV profile, $\Gamma_{\mathrm{braid}} = 0$ exactly).
 Code: \texttt{catseye\_decomposition.py}, \texttt{catseye\_hessian.py}.
 \end{remark}
 
 The Saturn bridge thus arrives at the \emph{same} energy landscape as
 the Jupiter bridge, through a different limiting procedure: Saturn
 concentrates a continuous jet meander into $N$ patches (jet width
-$\sigma \to 0$), while Jupiter concentrates $N$ discrete cyclones into
+$\sigma \to 0$), while Jupiter concentrates $N$ discrete cyclones
+into point vortices (blob radius $\varepsilon \to 0$).
+Both limits converge to the Havelock spectrum.
 
 %% ====================================================================
 \section{Finite Rossby deformation radius: the $K_0$ interaction}
