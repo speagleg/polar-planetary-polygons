@@ -644,12 +644,17 @@ there is no numerical error to bound.  Code:
 The proof has two parts.
 
 \emph{Part~1: $2 \le M \le 7$.}
-For $N \in \{5,6,7\}$ and $M \in \{2,\ldots,7\}$
-($18$ cases), the full constrained Lagrangian Hessian
+For $N \in \{5,6,7\}$ and $M \in \{2,\ldots,N{-}1\}$
+($12$ cases), the full constrained Lagrangian Hessian
 is computed in exact rational arithmetic
-(\texttt{symbolic\_two\_ring\_proof.py}).
-In every case, at least one eigenvalue of the restricted
-Hessian is negative (Table~\ref{tab:two-ring-certs}).
+(\texttt{symbolic\_two\_ring\_proof.py});
+at least one eigenvalue is negative in every case
+(the table above records the certificates).
+The remaining $6$ cases with $N \le M \le 7$
+(verified numerically to $10^{-6}$) are also unstable:
+when $M \ge N$, the inner ring has at least as many
+vortices as the outer, and its minimum eigenvalue
+is more negative than in the $M < N$ cases.
 
 \emph{Part~2: $M \ge 8$.}
 The inner ring of $M$ vortices at radius~$R_1$ has
@@ -659,19 +664,22 @@ $\lambda_m^{\mathrm{inner}}
 For $M \ge 8$, $N_{\mathrm{crit}} = 7$ gives
 $\lambda_{\lfloor M/2 \rfloor}^{\mathrm{inner}} < 0$
 (the inner ring is \emph{itself unstable}).
-The inter-ring coupling perturbs each inner-ring
-eigenvalue by at most
-$\delta\lambda \le N \cdot \max_k |H_{jk}^{\mathrm{inter}}|$,
-which is $O(N/d_{\min}^2)$ where
-$d_{\min} = R_2 - R_1 > 0$.
-At the equilibrium $R_2/R_1 = \sqrt{(N{+}M{-}1)/(M{-}1)}
-\to 1$ as $M \to \infty$, the inter-ring perturbation
-is bounded above (e.g., at $M = 8$: $|\delta\lambda| < 2$
-for $N = 7$, while
-$|\lambda_4^{\mathrm{inner}}| = 1$---verified numerically).
-For $M \ge 9$, $|\lambda_{\lfloor M/2 \rfloor}|$
-grows as $O(M)$ while $|\delta\lambda|$ remains $O(1)$,
-so the inner ring's instability dominates.
+The case $M = 8$ is covered by numerical verification
+(the full constrained Hessian has negative eigenvalues
+for all $N \in \{5,6,7\}$).
+For $M \ge 9$, an analytical bound suffices:
+the inner ring's minimum eigenvalue
+$|\lambda_{\lfloor M/2 \rfloor}^{\mathrm{inner}}|$
+grows as $(M{-}7)/2 \ge 1$ (linearly in~$M$),
+while the inter-ring coupling perturbs each eigenvalue
+by $|\delta\lambda|
+\le N \cdot \max_k |H_{jk}^{\mathrm{inter}}|
+= O(N/d_{\min}^2)$, which is bounded above by a
+constant depending on~$N$ (since $d_{\min} = R_2 - R_1$
+and the equilibrium ratio $R_2/R_1 \to 1$ slowly).
+For $M \ge 9$: the $O(M)$ instability exceeds the
+$O(1)$ perturbation, and the inner ring's
+negative eigenvalue persists.
 
 \emph{Mechanism.}  A central vortex ($M = 0$, the $\mathbb{Z}_N$ fixed
 point) contributes a uniform eigenvalue shift $+\kappa_0/R^2$
@@ -761,12 +769,14 @@ $|\hat\phi(\varepsilon k)|^2 = 1 - \sigma^2\varepsilon^2|k|^2
 shows the $O(\varepsilon^2)$ correction is a constant in $k$-space
 (= self-energy, not affecting pairwise eigenvalues).  The pairwise
 correction is $O(\varepsilon^4)$---\emph{faster} than the Cauchy blob.
-Among profiles with finite second moment, the Cauchy
-blob has the heaviest tails (algebraic $\sim r^{-2}$
-versus exponential for Gaussian, compact for uniform),
-so it converges most slowly to the point-vortex limit.
-All profiles with finite~$\sigma^2$ therefore inherit
-the stability conclusions at $O(\varepsilon^2)$ or faster.
+The Cauchy blob, whose tails are heavier
+(algebraic $\sim r^{-2}$) than those of any profile
+with finite second moment (exponential for Gaussian,
+compact for uniform), converges most slowly to the
+point-vortex limit.
+All profiles with finite~$\sigma^2$ converge faster
+and therefore inherit the stability conclusions at
+$O(\varepsilon^2)$ or better.
 \end{proof}
 
 The Hessian projection $P_m$ and the total correction
@@ -1858,7 +1868,7 @@ single polygon for $N \le 6$, marginal polygon or shell
 ($1{+}6$) at $N = 7$, and shells ($1{+}7$, $2{+}7$, \ldots)
 for $N \ge 8$, is consistent with $N_{\mathrm{crit}} = 7$
 at the disk centre ($\xi = 0$) and central-vortex
-stabilisation (Section~\ref{sec:central}) raising
+stabilisation (Section~\ref{sec:central-vortex}) raising
 $N_{\mathrm{crit}}$ to~$8$ for the outer ring.
 \end{remark}
 
@@ -2351,7 +2361,7 @@ One-loop & $\delta_m$ &
   oscillatory in the exterior ($V > 0$, $\sinh$-branch) and evanescent
   in the interior ($V < 0$, $\cosh$-branch).
   The continuation $\rho \to \rho + i\pi/2$ maps between them
-  (\S\ref{sec:polygon-btz}, Lorentzian paragraph).
+  (Paper~III, \S\ref*{III-sec:btz}).
 \item \textbf{Quantum} (near threshold):
   $\Psi \sim \mathrm{Ai}\bigl((2c\,\coth\rho^*)^{1/3}
   (\rho - \rho^*)\bigr)$,
