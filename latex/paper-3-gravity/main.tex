@@ -31,12 +31,13 @@ entropy maximisation of the frozen polygon modes on a
 general background forces constant curvature, through
 three conditions, \emph{all of which are theorems}:
 H1~(the $\csc^2$ uniqueness),
-H2~(thermalization of the integrable angular bath to the
-generalised Gibbs ensemble), and
+H2~(equidistribution of the integrable angular bath on
+Liouville--Arnold tori), and
 H3~(Hadamard universality).
 The physical content of~H2 is:
-``$N{-}2$ coupled harmonic oscillators thermalize''%
----a consequence of the CMS integrability of the Havelock system.
+``$N{-}2$ coupled oscillators equidistribute on their
+Liouville torus''---a consequence of the CMS integrability
+of the Havelock system.
 In $d \ge 3$, the characterisation extends (the Havelock
 condition is equivalent to vacuum Einstein,
 providing a new criterion for Einstein manifolds).
@@ -1908,37 +1909,50 @@ We state the theorem first, then collect the proof.
   universal logarithmic singularity, which forces the $\csc^2$
   structure of~(H1) at every point.
 \item \textbf{(H2) is a theorem}
-  (thermalization of the integrable angular bath):
+  (equidistribution on the integrable angular bath):
   the Havelock diagonalisation decomposes the angular modes
   into $N{-}2$ uncoupled oscillators---the CMS integrable system
   (Paper~I, Remark~3.1; \S\ref{sec:three-layer}).
-  Integrable systems thermalize to the
-  \emph{generalised Gibbs ensemble} (GGE):
-  the maximum-entropy state subject to all conserved
-  quantities \citep{Rigol2007}.
+  By the Liouville--Arnold theorem \citep{Arnold1978},
+  the motion of this classical integrable system is confined
+  to invariant tori in phase space, with quasi-periodic flow.
+  For non-resonant frequencies (a full-measure set of initial
+  conditions), the Weyl equidistribution theorem gives:
+  \emph{time averages equal torus averages}.
+  The torus average is the microcanonical measure constrained
+  by all conserved quantities---the \emph{classical generalised
+  Gibbs ensemble} (GGE)
+  \citep{BoldrighiniDobrushinSukhov1983,Spohn1991}.
+  (This predates and is \emph{stronger} than the quantum GGE
+  of \citet{Rigol2007}: the classical trajectory is
+  \emph{exactly} confined to the torus, whereas quantum GGE
+  describes relaxation of expectation values.)
   The conserved quantities of the CMS system are the
-  Casimirs $f_m^k$ ($k = 1, 2, \ldots$) from the Magri
-  bihamiltonian hierarchy (\S\ref{sec:three-layer}).
-  The GGE equilibrium of the angular bath, combined with
-  the Caldeira--Leggett mechanism (\S\ref{sec:wdw}),
-  drives the breathing mode~$\rho$ to the state that
-  maximises $S[g] = \log Z[g]$
+  action variables $I_m$ ($m = 1, \ldots, N{-}2$) from
+  the Magri bihamiltonian hierarchy (\S\ref{sec:three-layer}).
+  The classical GGE equilibrium of the angular bath,
+  combined with the Caldeira--Leggett mechanism
+  (\S\ref{sec:wdw}), drives the breathing mode~$\rho$
+  to the state that maximises
+  $S[g] = \log Z[g]$
   (the one-loop effective action of the polygon theory)
   subject to fixed total energy $\int V\,dA = E$.
   The entropy $S[g]$ is \emph{strictly concave} in~$R(x)$
   (proved below), so the unique maximum is
   $R(x) = \mathrm{const}$.
   This is \emph{not} an inference principle---it is a
-  \emph{physical consequence} of the thermalization of
-  an integrable system, which is a theorem of statistical
-  mechanics \citep{Rigol2007}.
+  \emph{physical consequence} of equidistribution on
+  Liouville--Arnold tori, which is a theorem of classical
+  mechanics \citep{Arnold1978}.
 \end{itemize}
 The theorem therefore has the structure:
 \emph{three theorems $\Rightarrow$ Einstein equations.}
 The physical content of~(H2) is:
-\textbf{``$N{-}2$ coupled harmonic oscillators thermalize''}%
+\textbf{``$N{-}2$ coupled oscillators equidistribute on their
+Liouville torus''}%
 ---a consequence of the integrability of the CMS/Havelock
-system, not an inference principle or a physical hypothesis.
+system (Liouville--Arnold $+$ Weyl equidistribution),
+not an inference principle or a physical hypothesis.
 }}
 \medskip
 
@@ -1961,14 +1975,17 @@ If:
   Fourier transform is $m(N{-}m)/2$.
 \item[\textup{(H2)}]
   \emph{Entropy maximisation} \textbf{[theorem]}:
-  the $N{-}2$ angular Havelock modes form an integrable
-  (CMS) harmonic bath that thermalises to the generalised
-  Gibbs ensemble \citep{Rigol2007}.
-  The GGE equilibrium maximises
-  $S[g] = \log Z[g]$ (the one-loop effective action)
-  subject to fixed total energy
+  the $N{-}2$ angular Havelock modes form a classical
+  integrable (CMS) system.  By the Liouville--Arnold
+  theorem \citep{Arnold1978}, the motion is confined to
+  invariant tori; the Weyl equidistribution theorem gives
+  time average~$=$ torus average for non-resonant
+  frequencies.  This torus average is the classical GGE
+  \citep{BoldrighiniDobrushinSukhov1983,Spohn1991},
+  which maximises $S[g] = \log Z[g]$ (the one-loop
+  effective action) subject to fixed total energy
   $\int V(\rho(x))\,dA = E$
-  and the CMS conserved quantities.
+  and the CMS action variables.
   The unique maximum is $R(x) = \mathrm{const}$
   (from strict concavity of~$S$ in~$R$;
   \S\ref{sec:einstein-derivation}).
@@ -2079,8 +2096,8 @@ Without~(H2), (H1) $+$ (H3) carry no curvature content.
 
 \emph{Second, independent route to\/ \textup{(H2)}:
 the vortex-gravity isomorphism.}
-The Jaynes derivation above is self-contained
-(it uses only the partition function and energy conservation).
+The Liouville--Arnold derivation above is self-contained
+(it uses only the integrable structure and energy conservation).
 The vortex-gravity isomorphism provides a \emph{second},
 independent physical picture that reinforces the result
 and extends it to the dynamical setting.
