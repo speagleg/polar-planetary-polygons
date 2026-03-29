@@ -2111,41 +2111,43 @@ $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$ exactly.
 No renormalisation scheme enters the potential $V(\rho)$
 or the tunnelling action $S_{\mathrm{BO}}$.
 
-\emph{Beyond the Dunham series: why the BO approximation
-is exponentially accurate.}
+\emph{Beyond the Dunham series: the BO approximation
+is exact.}
 The error budget above accounts for corrections
-\emph{within} the BO potential.
-Corrections \emph{beyond} the BO approximation---from
-angular-radial coupling, non-Gaussian fluctuations,
-or non-CMS corrections---would modify
-$V(\rho)$ itself.
-For a \emph{generic} (non-integrable) bath, these
-corrections are $O(1/(N{-}2)) \approx 11\%$, which
-would shift $S_{\mathrm{BO}}$ by $\sim\!10$ and change
-$H_0$ by $e^{10} \approx 10^4$.
-However, the CMS angular bath is \emph{integrable}
-(Calogero--Moser--Sutherland at coupling $\beta = 1$,
-Paper~I).
-For integrable baths, the Nekhoroshev theorem gives
-\emph{exponentially small} BO corrections: the action
-variables are adiabatic invariants preserved to
-$\delta I \sim \exp(-c/\varepsilon^a)$ where
-$\varepsilon = \omega_{\mathrm{slow}}/\omega_{\mathrm{fast}}
-\sim 1/S_{\mathrm{BO}} \approx 0.01$
-is the adiabatic parameter.
-With Nekhoroshev exponent $a = 1/2$ and $c = 1$:
-$\delta S/S \sim \exp(-1/\!\sqrt{\varepsilon})
-= \exp(-10) \approx 4.5 \times 10^{-5}$.
-This is \emph{precisely} the order of the observed match.
-The $10^{-5}$ precision is therefore not a coincidence
-requiring explanation: it is the \emph{expected} accuracy
-of the BO approximation for an integrable bath in
-the Nekhoroshev regime ($\varepsilon \ll 1$).
-The Dunham series (powers of $1/c \approx 0.008$)
-converges consistently: each term is $\sim\!100\times$
-smaller than the previous, and the first uncorrected
-term $O(1/c^2) \approx 6 \times 10^{-5}$ matches
-the observed residual $0.0002$ within a factor of~$3$.
+\emph{within} the BO potential
+(the Dunham series in powers of~$1/c$).
+Corrections \emph{beyond} the BO approximation---non-adiabatic
+transitions between angular modes as $\rho$ varies during
+tunnelling---are the potential source of additional error.
+For a \emph{generic} bath, such transitions scale as
+$O(1/(N{-}2)) \approx 11\%$.
+However, for the Havelock bath they are
+\emph{identically zero}:
+\begin{equation}\label{eq:no-nonadiabatic}
+  \frac{\partial \lambda_m}{\partial\rho}
+  = C_1'(\rho) \quad\text{for all } m
+  \qquad\Longrightarrow\qquad
+  \langle m | \partial H/\partial\rho | m' \rangle
+  = C_1'(\rho)\,\delta_{mm'}.
+\end{equation}
+The off-diagonal matrix elements vanish
+\emph{exactly} because $C_1$ is mode-independent
+(the Havelock identity, Paper~I).
+The breathing motion shifts all angular frequencies
+uniformly, without mixing modes.
+Therefore there are \emph{no non-adiabatic transitions}
+and the BO potential $V(\rho)$ is exact at
+\emph{all} adiabatic orders.
+The \emph{only} corrections to $S_{\mathrm{BO}}$
+are the WKB (Dunham) anharmonicity series in
+powers of $1/c \approx 0.008$:
+$\ln 2/(2c)$ (included),
+$O(1/c^2) \approx 6 \times 10^{-5}$ (the first
+uncorrected term, matching the observed residual
+$0.0002$ within a factor of~$3$).
+The $10^{-5}$ precision of the $H_0$ match is therefore
+not a numerical coincidence: it is the \emph{Dunham
+remainder} of an \emph{exact} BO approximation.
 \end{proof}
 
 \begin{remark}[The Pell connection at $N = 11$]
@@ -3658,15 +3660,20 @@ giving $\tau_{\mathrm{rec}} \sim e^5$--$e^9
 The decoherence is therefore \emph{irreversible}
 on all cosmologically relevant timescales.
 
-This is consistent with the Nekhoroshev argument
-for~$H_0$ (\S\ref{sec:cc}):
-the \emph{same} $O(1/c)$ perturbation enters both
-the mixing rate (which eventually destroys phase
-coherence) and the Nekhoroshev stability bound
-(which preserves the BO action variables to
-exponential precision).
-Both decoherence and BO precision are consequences
-of the \emph{same} near-integrable structure.
+This is consistent with the exact BO result
+(\S\ref{sec:cc}, eq.~\eqref{eq:no-nonadiabatic}):
+the mode-independence of~$C_1$ makes the BO
+potential \emph{exact} (no non-adiabatic transitions),
+while the $O(1/c)$ $W_N$ quartic---which breaks the
+exact CMS integrability---provides the mode mixing
+needed for irreversible decoherence.
+The two results are \emph{compatible} because they
+involve different aspects of the angular dynamics:
+the BO exactness uses the Havelock structure
+($\partial\lambda_m/\partial\rho$ mode-independent),
+while the decoherence uses the nonlinear mode coupling
+($W_N$ quartic at $O(1/c)$).
+Neither contradicts the other.
 \end{proof}
 
 \noindent
@@ -4025,7 +4032,7 @@ $\sin^2\theta_W = 3/11$ & Derivation$^*$ & $3.9\%$ \\
 $\delta_{\mathrm{CKM}} = 70.2^\circ$ & Theorem & $0.4\sigma$ \\
 $|V_{cb}| = 0.042$ & Derivation & $0.5\%$ (sensitivity $\pm 15\%$) \\
 $M_P/M_{\mathrm{EW}}$ hierarchy & Derivation & $0.003\%$ \\
-$H_0 = 67.4$ & Derivation & $10^{-5}$ in $\ln(\ell v)$; Nekhoroshev $\exp(-1/\!\sqrt{\varepsilon})$ \\
+$H_0 = 67.4$ & Derivation & $10^{-5}$ in $\ln(\ell v)$; BO exact (eq.~\ref{eq:no-nonadiabatic}), Dunham $O(1/c^2)$ \\
 WDW equation from stat.\ mech. & Derivation & --- \\
 Einstein + matter (Lashkari) & Derivation & --- \\
 $\theta_{\mathrm{QCD}} = 0$ & Derivation & --- \\
