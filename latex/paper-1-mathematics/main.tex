@@ -1796,7 +1796,7 @@ merely in a suborder.
 The correspondence is not a coincidence but a consequence
 of the palindromic structure.
 The threshold equation $\xi^2 - c\,\xi + 1 = 0$
-(Proposition~\ref{prop:palindromic}) is palindromic
+(equation~\eqref{eq:palindromic}) is palindromic
 because the Havelock Hessian is invariant under
 conformal inversion $\xi \leftrightarrow 1/\xi$.
 Any monic palindromic quadratic with integer trace~$c$
@@ -2883,7 +2883,9 @@ the sum~\eqref{eq:selberg-delta} is dominated by the
 $12$~systole geodesics.  The eigenfunction suppression at the
 centre (only trivial-rep modes of~$\mathrm{Aut}(S)$ contribute)
 gives the bound $|\delta C_1| \le 2/(4\pi\lambda_{\mathrm{triv}})
-\approx 0.16$, verified numerically.
+\approx 0.011$ (with $\lambda_{\mathrm{triv}} \approx 15.05$,
+the first trivial-representation eigenvalue),
+verified numerically.
 
 \subsection{Spectral flow stability}
 \label{sec:spectral-flow}
@@ -2957,8 +2959,11 @@ Since the $K_0$ classes agree, so does $N_{\mathrm{crit}}$.
 \end{proof}
 
 \paragraph{Bolza verification.}
-On the Bolza surface at $\xi_{\mathrm{Bolza}} = 0.217$
-(where $N_{\mathrm{crit}} = 12$):
+On the Bolza surface at
+$\xi_{\mathrm{Bolza}} \approx 0.217$
+(the smallest root of the palindromic quartic
+in Proposition~\ref{prop:higher-genus},
+giving $N_{\mathrm{crit}} = 12$ at this threshold):
 $|\delta C_1| \le 2/(4\pi\lambda_{\mathrm{triv}}) \approx 0.011$
 and $\lambda_{\mathrm{bind}}(12,1) \approx 0.78$.
 The bound $0.011 < 0.78$ is satisfied with a factor of $71$,
@@ -3113,18 +3118,63 @@ By Theorem~\ref{thm:spectral-flow},
 $[\mu_N(\mathbf{H}^2, \xi)] = [\mu_N(\Gamma, \xi)]$.
 \end{proof}
 
+\begin{corollary}[Kasparov product at the threshold]
+\label{cor:kk-threshold}
+At the palindromic threshold $\xi = \xi^*(N, m^*)$
+where $c_{m^*} = 0$, the gap condition fails for
+mode~$m^*$.
+The Kasparov module remains well-defined with
+$F_{\xi^*}|_{\rho_{m^*}} = \mathrm{sign}(h_\xi^\Gamma)$
+(the sign of the full automorphic correction, not a scalar).
+Its trace gives
+\[
+  \tau_*(\alpha_N(\xi^*) \otimes [D_S])
+  = \!\sum_{m \ne m^*}\!\mathrm{sign}(c_m)\,[\rho_m]
+  \;+\; \tau(P_-(h))\,[\rho_{m^*}],
+\]
+where $\tau(P_-(h)) \in (0, 1)$ is the fractional
+$L^2$-Morse index (Theorem~\ref{thm:fractional-morse}).
+This is the ``genuinely new information'' at the threshold:
+the scalar spectral flow produces integers, but the
+Kasparov product produces the \emph{fractional}
+$\tau(P_-)$ through the von~Neumann trace on~$C^*_r(\Gamma)$.
+On the Bolza surface: $\tau(P_-) = 0.644 \pm 0.001$
+(non-integer, Theorem~\ref{thm:fractional-morse}).
+\end{corollary}
+
+\begin{proof}
+For $m \ne m^*$, $c_m \ne 0$ (the thresholds are
+strictly ordered: Proposition~\ref{prop:monotonicity}),
+so $\mathrm{sign}(c_m + h)$ deforms to
+$\mathrm{sign}(c_m) \cdot 1$ by the gap homotopy.
+For $m = m^*$, $c_{m^*} = 0$ and
+$F|_{\rho_{m^*}} = \mathrm{sign}(h)$.
+Since $h$ is self-adjoint with mixed spectrum
+(Theorem~\ref{thm:fractional-morse}),
+$\mathrm{sign}(h)$ is a non-trivial projection
+in~$C^*_r(\Gamma)$ with
+$\tau(\mathrm{sign}(h)) = 2\tau(P_-(h)) - 1 \ne \pm 1$.
+The product with $[D_S]$ extracts the trace, giving
+the fractional contribution.
+\end{proof}
+
 \paragraph{Bolza verification.}
 On the Bolza surface ($g = 2$, systole $\ell_0 \approx 3.06$,
 $12$ systole geodesics):
 the $\ell^1$-norm is dominated by the $12$ shortest geodesics,
-giving $\|h\|_{\ell^1} \le 12\,G(\ell_0) + O(e^{-2\ell_0})
-\approx 0.02$ (direct computation from the Fuchsian generators;
-the bound $|\delta C_1| \le 0.06$ from
-Theorem~\ref{thm:index-pairing} is consistent).
+giving $\|h\|_{\ell^1} \le 12\,|G(\ell_0)|
++ O(e^{-2\ell_0}) \approx 0.18$
+(using $|G_{\mathbf{H}^2}(d)| = (2\pi)^{-1}|\!\ln\tanh(d/2)|
+\approx 0.015$ at $d = \ell_0$).
+The spectral bound gives the tighter estimate
+$|\delta C_1| \le 2/(4\pi\lambda_{\mathrm{triv}})
+\approx 0.011$
+(Theorem~\ref{thm:index-pairing}).
 At $N = 12$, $\xi = 0.217$: the binding eigenvalue is
 $\min_m |c_m| \approx 0.79$.
-The operator-norm gap ratio is $0.79/0.02 \approx 40$,
-confirming the product identity with wide margin.
+The gap ratio $0.79/0.011 \approx 72$ for the trace
+and $0.79/0.18 \approx 4.4$ for the operator norm,
+both confirming the product identity.
 More generally, for any compact arithmetic surface whose
 systole $\ell_0 \ge 2\operatorname{arccosh}(2) \approx 2.63$:
 the $\ell^1$ bound gives
