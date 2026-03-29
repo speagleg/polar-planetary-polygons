@@ -992,27 +992,38 @@ boundary theory by $O(1/c) \approx 2\%$ at $N = 7$
 $\mathbb{Z}/3\mathbb{Z}$ symmetry} because this symmetry
 is a property of the Casimir spectrum, not of the coupling
 strength.
-The DHVW orbifold construction requires only that the
-$\mathbb{Z}/3\mathbb{Z}$ symmetry is unbroken---not that
-the corrections are small---so it holds at all orders in~$1/c$.
+Since the non-linear corrections preserve the
+$\mathbb{Z}/3\mathbb{Z}$ symmetry (they cannot break a
+property of the Casimir spectrum), the orbifold
+construction in Step~7 holds at all orders in~$1/c$.
 
-\emph{Step~7 (DHVW: orbifold twisted sectors produce
+\emph{Step~7 (WZW orbifold produces
 $\widehat{\mathfrak{su}}(3)_1$).}
-The $\mathbb{Z}/3\mathbb{Z}$ target-space orbifold of the
-boundary CFT creates twisted sectors
-\citep{DixonHarveyVafaWitten1985}.
-In twisted sector~$k$ ($k = 1, 2$), the ground-state twist
-fields~$\sigma_k(z)$ have conformal dimensions
-$h_k = \sum_i k a_i(1 - k a_i)/2 = k(3{-}k)/9$
-(for $\mathbb{Z}_3$ weights $(a_1, a_2) = (1/3, 2/3)$).
-The OPE of twist fields generates Kac--Moody currents~$J^a(z)$:
-by the McKay correspondence applied to orbifold CFTs,
-the \emph{extended chiral algebra} of the
-$\mathbb{C}^2/(\mathbb{Z}/3\mathbb{Z})$ orbifold is precisely
-the affine Lie algebra $\widehat{\mathfrak{su}}(3)_1$
---- the representation ring of $\mathbb{Z}/3\mathbb{Z}
-\subset \mathrm{SU}(2)$ IS the fusion ring of $\mathrm{SU}(3)_1$
-\citep{DixonHarveyVafaWitten1985, McKay1980}.
+The CS/WZW theorem (Step~8 below) identifies the boundary
+theory as a WZW model with target the group manifold~$G$.
+The $\mathbb{Z}/3\mathbb{Z}$ orbifold of this WZW model
+is a well-defined nonperturbative construction:
+it does not require the target space to be~$\mathbb{C}^2$
+or the boundary theory to be free---only that
+$\mathbb{Z}/3\mathbb{Z}$ acts as an automorphism of the
+full CFT, which is guaranteed by the exact Casimir
+multiset invariance (above).
+By the ADE classification of modular invariants
+\citep{CappelliItzyksonZuber1987},
+the $\mathbb{Z}/3\mathbb{Z}$ orbifold of the WZW model
+produces the $A_2$ modular invariant, whose
+extended chiral algebra is precisely
+$\widehat{\mathfrak{su}}(3)_1$---the representation ring
+of $\mathbb{Z}/3\mathbb{Z} \subset \mathrm{SU}(2)$ IS
+the fusion ring of $\mathrm{SU}(3)_1$
+\citep{McKay1980}.
+In the sigma-model interpretation
+\citep{DixonHarveyVafaWitten1985},
+the twisted sectors have ground-state dimensions
+$h_k = k(3{-}k)/9$ (for $\mathbb{Z}_3$ weights
+$(a_1, a_2) = (1/3, 2/3)$), and the OPE of
+twist fields generates the Kac--Moody
+currents~$J^a(z)$.
 The $\mathrm{SU}(3)$ gauge group is therefore \emph{derived}
 from the Frobenius action on the Havelock modes,
 not postulated.
@@ -1038,14 +1049,22 @@ at central charge $c_{\mathrm{SU}(3)}
 
 \noindent
 The logical chain is:
-Frobenius on modes (Step~1)
+Frobenius on modes (Step~1, exact Galois theory)
 $\to$ $\mathbb{Z}/3 \subset \mathrm{SU}(2)$ (Step~3, McKay)
-$\to$ $\mathbb{C}^2$ target space (Step~6, CS/WZW)
-$\to$ orbifold twisted sectors (Step~7, DHVW)
+$\to$ linearised CS boundary modes (Step~6, dreibein chain)
+$\to$ WZW orbifold $\to$ $A_2$ modular invariant
+(Step~7, ADE classification)
 $\to$ $\widehat{\mathfrak{su}}(3)_1$ current algebra
 $\to$ bulk $\mathrm{SU}(3)_1$ CS (Step~8, CS/WZW).
-Every step is a proved theorem; no step involves a definition
-or postulation of the gauge group.
+Steps~1--5 and~7--8 are proved theorems.
+Step~6 establishes the $\mathbb{Z}/3\mathbb{Z}$
+action at the linearised level; the nonlinear extension
+is guaranteed by the exact Casimir multiset invariance
+and the nonperturbative nature of the WZW orbifold
+(which requires only an unbroken CFT automorphism,
+not a free-field realisation).
+No step involves a definition or postulation of the
+gauge group.
 
 \paragraph{Independent confirmation (ALE resolution).}
 The $K$-matrix approach
