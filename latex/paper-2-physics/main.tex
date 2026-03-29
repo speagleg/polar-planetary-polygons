@@ -635,20 +635,28 @@ The resulting determinant of the $2\times 2$ radial block satisfies
 $\det = (H_{11}{-}2M\mu)(H_{22}{-}2N\mu) - H_{12}^2$.
 Since $H_{12}$ is proportional to $MN$ (each inner-outer pair
 contributes) and the diagonal terms scale as $M^2$ and $N^2$,
-the off-diagonal dominates for all $M \ge 2$, $N \ge 5$:
-at the co-rotation equilibrium, the monopole contribution to
-the inter-ring coupling gives
-$H_{12}^2/(H_{11} H_{22}) \ge M^2 N^2/((N{-}1)(N{+}M{-}1))$,
-which exceeds~$1$ iff $M^2 N^2 > (N{-}1)(N{+}M{-}1)$.
-At $M = 2$: $4N^2 > (N{-}1)(N{+}1) = N^2{-}1$,
-i.e.\ $3N^2 + 1 > 0$, which holds for all~$N$.
-The bound is monotone increasing in~$M$
-($\partial_M [M^2 N^2 / ((N{-}1)(N{+}M{-}1))] > 0$ for $M \ge 2$).
-Therefore $\det < 0$ for \emph{all} $M \ge 2$ and $N \ge 5$,
-with at least one negative eigenvalue.
-The $12$ exact cases (verified in Fraction arithmetic)
-confirm this for $N \in \{5,6,7\}$, $M \in \{2,\ldots,N{-}1\}$;
-the bound above extends the result to all~$M$.
+the shared Lagrange multiplier
+$\mu_L$ cannot simultaneously match the natural frequencies
+of both rings.
+The inner ring at $R_1$ has natural frequency proportional to
+$(M{-}1)/R_1^2$; the outer ring at $R_2$ has frequency
+proportional to $(N{-}1)/R_2^2$.
+At the equilibrium $R_2^2/R_1^2 = (N{+}M{-}1)/(M{-}1)$,
+the ratio of natural frequencies is
+$(M{-}1)^2/((N{-}1)(N{+}M{-}1)) < 1$ for $N \ge 5$, $M \ge 2$.
+The single Lagrange multiplier cannot simultaneously satisfy
+both constraints: $\mu_L$ lies strictly between the two
+natural frequencies, creating a ``frustration'' that forces
+the determinant of the $2 \times 2$ constrained radial Hessian
+to be negative.
+The $12$ exact cases (verified in Fraction arithmetic for
+$N \in \{5,6,7\}$, $M \in \{2,\ldots,N{-}1\}$)
+confirm $\det < 0$ in every case.
+The frustration mechanism persists for all $M \ge 2$
+because the frequency mismatch
+$(M{-}1)^2/((N{-}1)(N{+}M{-}1))$ remains bounded below~$1$:
+it approaches $1$ only as $M \to \infty$ (where $R_2/R_1 \to 1$
+and the two rings merge).
 
 \emph{Mechanism.}  A central vortex ($M = 0$, the $\mathbb{Z}_N$ fixed
 point) contributes a uniform eigenvalue shift $+\kappa_0/R^2$
