@@ -2196,7 +2196,10 @@ edge lengths, hence the simplicial metric).
 \begin{lemma}[Onsager prerequisites for the Regge system]
 \label{lem:onsager-regge}
 Let $S$ be a compact surface and $\mathcal{T}$ a
-triangulation with $V$ vertices.
+triangulation with $V$ vertices whose deficit angles
+are all of the same sign
+(positive curvature: $\chi > 0$; or all negative:
+$\chi < 0$ on a compact quotient of~$\mathbf{H}^2$).
 The Regge polygon system satisfies the three prerequisites
 of the Onsager variational principle:
 \begin{enumerate}
@@ -2223,9 +2226,14 @@ of the Onsager variational principle:
 The Onsager principle is a statement about which
 macrostates dominate the microcanonical ensemble---it
 does not require specific equations of motion.
-In particular, it applies to the Regge system regardless
-of whether the Regge dynamics matches the Kirchhoff
-vortex dynamics: only the phase-space structure
+The microcanonical measure on $\{H = E\}$ is the
+Riemannian volume of the energy level set in~$S^V$,
+which is well-defined whenever $H$ is smooth on a
+compact manifold; no dynamics is needed to define it
+\citep{Kiessling1993}.
+In particular, the principle applies to the Regge system
+regardless of whether the Regge dynamics matches the
+Kirchhoff vortex dynamics: only the phase-space structure
 (compact, with bounded energy) is needed.
 \end{lemma}
 
@@ -2241,8 +2249,10 @@ sharpened to $O(h^\infty)$ by the Szeg\H{o}
 estimates below),
 and the entropy-maximising Regge metric converges to
 the entropy-maximising smooth metric
-($\Gamma$-convergence of strictly concave functionals
-under $H^1$ mesh refinement \citep{Aubin1998}).
+(since $S_{\mathrm{poly}}$ is strictly concave with a
+unique maximum, pointwise convergence of
+$S_h \to S$ implies convergence of the
+maximiser \citep{DalMaso1993}).
 No new physical assumption enters: the Regge
 approximation is a mathematical theorem, the
 vortex-gravity isomorphism is kinematic, and
