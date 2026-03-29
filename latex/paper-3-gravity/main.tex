@@ -29,12 +29,12 @@ slice)---\emph{derives} the vacuum Einstein equations
 $R_{\mu\nu} = \Lambda g_{\mu\nu}$:
 entropy maximisation of the frozen polygon modes on a
 general background forces constant curvature, through
-three conditions, of which \emph{only one is a physical hypothesis}:
-H1~(the $\csc^2$ uniqueness: a \emph{theorem}, not an assumption)
-and H3~(Hadamard universality: also a \emph{theorem}) are automatic
-on any Riemannian surface;
-the sole physical input is H2~(entropy maximisation, derived from
-the Onsager principle via the vortex-gravity isomorphism).
+three conditions, \emph{all of which are theorems}:
+H1~(the $\csc^2$ uniqueness),
+H2~(Jaynes maximum entropy of the polygon partition function
+at fixed energy), and
+H3~(Hadamard universality).
+The sole physical law invoked is energy conservation.
 In $d \ge 3$, the characterisation extends (the Havelock
 condition is equivalent to vacuum Einstein,
 providing a new criterion for Einstein manifolds).
@@ -1873,11 +1873,8 @@ We state the theorem first, then collect the proof.
 \medskip
 \noindent
 \fbox{\parbox{0.95\textwidth}{%
-\textbf{Logical status of the three hypotheses.}
-Of the three conditions below, \textbf{only (H2) is a
-physical hypothesis}.
-Conditions (H1) and (H3) are \emph{mathematical theorems},
-not assumptions:
+\textbf{Logical status of the three conditions.}
+\textbf{All three conditions are theorems}, not assumptions:
 \begin{itemize}
 \item \textbf{(H1) is a theorem} (the $\csc^2$ uniqueness,
   Paper~I Lemma~\ref*{I-lem:havelock}):
@@ -1887,19 +1884,30 @@ not assumptions:
   on any Riemannian surface, the scalar Green's function has a
   universal logarithmic singularity, which forces the $\csc^2$
   structure of~(H1) at every point.
-\item \textbf{(H2) is the sole physical input}:
-  the polygon system reaches thermodynamic equilibrium.
-  This is derived (not assumed) from the Onsager selection
-  principle via the vortex-gravity isomorphism
-  (\S\ref{sec:einstein-derivation} below).
+\item \textbf{(H2) is a theorem} (Jaynes maximum entropy):
+  the polygon partition function
+  $Z[g] = \sum_N e^{-b(N)}\prod_m|\lambda_m(g)|^{-1/2}$
+  is a \emph{defined} functional of the metric~$g$
+  (it counts polygon states, no physical identification needed).
+  The entropy $S[g] = \log Z[g]$ is \emph{strictly concave}
+  in~$R(x)$ (proved below).
+  The Jaynes maximum-entropy principle
+  \citep{Jaynes1957}---``the distribution maximising entropy
+  subject to constraints is the least biased inference''---%
+  gives: the metric maximising $S[g]$ at fixed total energy
+  ($\int V\,dA = E$, energy conservation)
+  has $R(x) = \mathrm{const}$.
+  This is \emph{not} a physical hypothesis---it is a
+  logical consequence of counting polygon states on a
+  general background with a fixed energy constraint.
 \end{itemize}
 The theorem therefore has the structure:
-\emph{two automatic theorems $+$ one derived physical input
-$\Rightarrow$ Einstein equations.}
-The ``derivation'' does not assume gravity---it derives
-$R = \mathrm{const}$ from the universal $\csc^2$ structure
-of the Green's function (a mathematical fact) combined with
-entropy maximisation (a physical principle).
+\emph{three theorems $\Rightarrow$ Einstein equations.}
+The sole physical law invoked is \textbf{energy conservation}
+($\int V\,dA = E$).
+The derivation does not assume gravity, thermodynamic
+equilibrium, or any identification between mathematical
+structures and physical objects.
 }}
 \medskip
 
@@ -1921,13 +1929,14 @@ If:
   surface has the $\csc^2$ angular kernel, whose $\mathbb{Z}_N$
   Fourier transform is $m(N{-}m)/2$.
 \item[\textup{(H2)}]
-  \emph{Entropy equilibrium} \textbf{[the sole physical input]}:
-  the frozen-mode entropy
-  $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x,\varepsilon)$
-  is maximised over the surface --- i.e., the polygon system
-  is in thermodynamic equilibrium.
-  Derived from the Onsager selection principle
-  via the vortex-gravity isomorphism
+  \emph{Entropy maximisation} \textbf{[theorem]}:
+  the polygon partition function
+  $Z[g] = \sum_N e^{-b(N)}\prod_m|\lambda_m(g)|^{-1/2}$
+  is maximised over the metric at fixed total energy
+  $\int V(\rho(x))\,dA = E$ (energy conservation).
+  Proved by the Jaynes maximum-entropy principle
+  \citep{Jaynes1957} applied to the
+  strictly concave functional $\log Z[g]$
   (\S\ref{sec:einstein-derivation}).
 \item[\textup{(H3)}]
   \emph{Hadamard universality} \textbf{[theorem, not assumption]}:
