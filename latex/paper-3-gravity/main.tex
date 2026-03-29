@@ -29,15 +29,19 @@ slice)---\emph{derives} the vacuum Einstein equations
 $R_{\mu\nu} = \Lambda g_{\mu\nu}$:
 entropy maximisation of the frozen polygon modes on a
 general background forces constant curvature, through
-three conditions, \emph{all of which are theorems}:
-H1~(the $\csc^2$ uniqueness),
-H2~(equidistribution of the integrable angular bath on
-Liouville--Arnold tori), and
-H3~(Hadamard universality).
-The physical content of~H2 is:
-``$N{-}2$ coupled oscillators equidistribute on their
-Liouville torus''---a consequence of the CMS integrability
-of the Havelock system.
+three conditions:
+H1~(the $\csc^2$ uniqueness, a theorem),
+H2~(entropy maximisation, combining a strict-concavity
+theorem with the Onsager selection principle at negative
+temperature), and
+H3~(Hadamard universality, a theorem).
+The mathematical content of~H2 is: the polygon entropy
+functional $S_{\mathrm{poly}}[g]$ is strictly concave and
+has a unique constrained maximum at $R(x) = \mathrm{const}$
+(Jensen's inequality).
+The physical content is the Onsager variational
+principle: at negative temperature, the microcanonical
+ensemble is dominated by the entropy-maximising macrostate.
 In $d \ge 3$, the characterisation extends (the Havelock
 condition is equivalent to vacuum Einstein,
 providing a new criterion for Einstein manifolds).
@@ -1898,7 +1902,6 @@ We state the theorem first, then collect the proof.
 \noindent
 \fbox{\parbox{0.95\textwidth}{%
 \textbf{Logical status of the three conditions.}
-\textbf{All three conditions are theorems}, not assumptions:
 \begin{itemize}
 \item \textbf{(H1) is a theorem} (the $\csc^2$ uniqueness,
   Paper~I Lemma~\ref*{I-lem:havelock}):
@@ -1908,51 +1911,57 @@ We state the theorem first, then collect the proof.
   on any Riemannian surface, the scalar Green's function has a
   universal logarithmic singularity, which forces the $\csc^2$
   structure of~(H1) at every point.
-\item \textbf{(H2) is a theorem}
-  (equidistribution on the integrable angular bath):
-  the Havelock diagonalisation decomposes the angular modes
-  into $N{-}2$ uncoupled oscillators---the CMS integrable system
-  (Paper~I, Remark~3.1; \S\ref{sec:three-layer}).
-  By the Liouville--Arnold theorem \citep{Arnold1978},
-  the motion of this classical integrable system is confined
-  to invariant tori in phase space, with quasi-periodic flow.
-  For non-resonant frequencies (a full-measure set of initial
-  conditions), the Weyl equidistribution theorem gives:
-  \emph{time averages equal torus averages}.
-  The torus average is the microcanonical measure constrained
-  by all conserved quantities---the \emph{classical generalised
-  Gibbs ensemble} (GGE)
-  \citep{Arnold1978,Yuzbashyan2016,Spohn1991}.
-  (This predates and is \emph{stronger} than the quantum GGE
-  of \citet{Rigol2007}: the classical trajectory is
-  \emph{exactly} confined to the torus, whereas quantum GGE
-  describes relaxation of expectation values.)
-  The conserved quantities of the CMS system are the
-  action variables $I_m$ ($m = 1, \ldots, N{-}2$) from
-  the Magri bihamiltonian hierarchy (\S\ref{sec:three-layer}).
-  The classical GGE equilibrium of the angular bath,
-  combined with the Caldeira--Leggett mechanism
-  (\S\ref{sec:wdw}), drives the breathing mode~$\rho$
-  to the state that maximises
-  $S[g] = \log Z[g]$
-  (the one-loop effective action of the polygon theory)
-  subject to fixed total energy $\int V\,dA = E$.
-  The entropy $S[g]$ is \emph{strictly concave} in~$R(x)$
-  (proved below), so the unique maximum is
-  $R(x) = \mathrm{const}$.
-  This is \emph{not} an inference principle---it is a
-  \emph{physical consequence} of equidistribution on
-  Liouville--Arnold tori, which is a theorem of classical
-  mechanics \citep{Arnold1978,Yuzbashyan2016}.
+\item \textbf{(H2) has two layers:}
+  \begin{itemize}
+  \item[\textbf{(H2a)}] \textbf{Entropy characterisation [theorem].}
+    Define the polygon entropy functional
+    $S_{\mathrm{poly}}[g] = \int_S S(x)\,dA$, where
+    $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$.
+    Then: (i)~$S_{\mathrm{poly}}$ is \emph{strictly concave}
+    in~$R(x)$
+    ($d^2S/dC_1^2 = -\tfrac{1}{2}\sum 1/\lambda_m^2 < 0$;
+    proved below).
+    (ii)~Subject to fixed total energy
+    $\int V\,dA = E$, the unique constrained maximum
+    is $R(x) = \mathrm{const}$ (Jensen's inequality).
+    This is a mathematical theorem---no physics enters.
+  \item[\textbf{(H2b)}] \textbf{Onsager selection
+    [physical principle].}
+    The $N$-polygon ring is a negative-temperature
+    equilibrium (Paper~II, Corollary~2.3).
+    The Onsager variational principle \citep{Onsager1949}
+    states that at negative temperature, the microcanonical
+    partition function is dominated by the macrostate of
+    maximum entropy
+    \citep{CagliotiFLMP1992,Kiessling1993}.
+    Applied to the polygon system via the vortex-gravity
+    isomorphism (\S\ref{sec:vortex-gravity}), this
+    selects the metric $g$ that maximises
+    $S_{\mathrm{poly}}[g]$---which, by~(H2a), is the
+    constant-curvature metric.
+    The Onsager principle is \emph{not} a thermalization
+    claim: it is a statement about which macrostates
+    dominate the microcanonical ensemble.
+    It is experimentally verified in point-vortex systems
+    \citep{Gauthier2019}.
+  \end{itemize}
+  The angular modes of the CMS/Havelock system
+  equidistribute on their Liouville--Arnold tori
+  \citep{Arnold1978,Yuzbashyan2016}---this correctly
+  describes the angular mode statistics at \emph{fixed}
+  geometry, but does not by itself select the metric.
+  The metric selection is the content of~(H2b).
 \end{itemize}
 The theorem therefore has the structure:
-\emph{three theorems $\Rightarrow$ Einstein equations.}
-The physical content of~(H2) is:
-\textbf{``$N{-}2$ coupled oscillators equidistribute on their
-Liouville torus''}%
----a consequence of the integrability of the CMS/Havelock
-system (Liouville--Arnold $+$ Weyl equidistribution),
-not an inference principle or a physical hypothesis.
+\emph{two geometric theorems~(H1, H3) $+$ one
+characterisation theorem~(H2a) $+$ Onsager
+selection~(H2b) $\Rightarrow$ Einstein equations.}
+The mathematical content (strict concavity, Jensen,
+Hadamard universality) is proved.
+The physical content is the Onsager variational
+principle---a standard result of negative-temperature
+statistical mechanics, not a hypothesis introduced
+for this paper.
 }}
 \medskip
 
@@ -1974,21 +1983,22 @@ If:
   surface has the $\csc^2$ angular kernel, whose $\mathbb{Z}_N$
   Fourier transform is $m(N{-}m)/2$.
 \item[\textup{(H2)}]
-  \emph{Entropy maximisation} \textbf{[theorem]}:
-  the $N{-}2$ angular Havelock modes form a classical
-  integrable (CMS) system.  By the Liouville--Arnold
-  theorem \citep{Arnold1978}, the motion is confined to
-  invariant tori; the Weyl equidistribution theorem gives
-  time average~$=$ torus average for non-resonant
-  frequencies.  This torus average is the classical GGE
-  \citep{Arnold1978,Yuzbashyan2016},
-  which maximises $S[g] = \log Z[g]$ (the one-loop
-  effective action) subject to fixed total energy
-  $\int V(\rho(x))\,dA = E$
-  and the CMS action variables.
-  The unique maximum is $R(x) = \mathrm{const}$
-  (from strict concavity of~$S$ in~$R$;
-  \S\ref{sec:einstein-derivation}).
+  \emph{Entropy maximisation}
+  \textbf{[characterisation theorem $+$ Onsager selection]}:
+  the polygon entropy functional
+  $S_{\mathrm{poly}}[g] = \int S(x)\,dA$, where
+  $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$,
+  is \emph{strictly concave} in~$R(x)$
+  ($d^2S/dC_1^2 < 0$; \S\ref{sec:einstein-derivation}).
+  Subject to fixed total energy
+  $\int V(\rho(x))\,dA = E$,
+  the unique maximum is $R(x) = \mathrm{const}$
+  (Jensen's inequality).
+  The Onsager selection principle
+  \citep{Onsager1949,CagliotiFLMP1992}---that the
+  microcanonical ensemble at negative temperature is
+  dominated by the entropy-maximising macrostate---selects
+  this unique maximum.
 \item[\textup{(H3)}]
   \emph{Hadamard universality} \textbf{[theorem, not assumption]}:
   condition~\textup{(H1)} holds
@@ -2014,6 +2024,7 @@ equations; the WDW equation determines their
 \emph{content} ($\Lambda$).
 
 \begin{proof}
+\label{sec:einstein-derivation}%
 The proof has four steps: (1)~force the interaction to be
 logarithmic, (2)~extract $R(x)$ from the Hadamard parametrix,
 (3)~conclude $R = \mathrm{const}$ from (H2) $+$ Step~2,
@@ -2066,11 +2077,14 @@ at $O(\varepsilon^3)$).  Together: $1/6 + 1/12 = 1/4$.
 
 \medskip
 \noindent\textbf{Step~3. (H2) $+$ Step~2 force $R = \mathrm{const}$.}
-By~(H2), entropy maximisation forces
-$C_1(x,\varepsilon)$ to be $x$-independent
-(the uniform-$C_1$ configuration maximises $S_{\mathrm{total}}$
-by Jensen's inequality and the concavity of~$S$;
-see below).
+By the mathematical content of~(H2):
+$S_{\mathrm{total}}[g] = \int S(x)\,dA$ is strictly
+concave in~$C_1(x)$, so Jensen's inequality gives a
+unique entropy maximum at uniform~$C_1$.
+The Onsager principle (the physical content of~(H2))
+selects this maximum: at negative temperature, the
+partition function is dominated by the macrostate
+maximising~$S_{\mathrm{total}}$.
 Write $C_1^{\mathrm{eq}}$ for this uniform value.
 Substituting the expansion~(\ref{eq:C1-expansion-proof}):
 \[
@@ -2094,27 +2108,44 @@ gives a mode-independent $C_1(x,\varepsilon)$ regardless
 of whether $R(x)$ is constant).
 Without~(H2), (H1) $+$ (H3) carry no curvature content.
 
-\emph{Second, independent route to\/ \textup{(H2)}:
-the vortex-gravity isomorphism.}
-The Liouville--Arnold derivation above is self-contained
-(it uses only the integrable structure and energy conservation).
-The vortex-gravity isomorphism provides a \emph{second},
-independent physical picture that reinforces the result
-and extends it to the dynamical setting.
-In this picture, one might object that the Onsager principle
+\emph{The physical mechanism: vortex-gravity isomorphism
+$+$ Onsager selection.}
+The Liouville--Arnold theorem
+(\S\ref{sec:three-layer}) correctly describes the
+angular mode statistics at \emph{fixed} geometry:
+the $N{-}2$ CMS modes equidistribute on invariant tori
+\citep{Arnold1978,Yuzbashyan2016}.
+The metric selection requires a separate physical
+principle---the Onsager variational principle at
+negative temperature---combined with the
+vortex-gravity isomorphism.
+
+One might object that the Onsager principle
 extremises vortex \emph{configurations} at fixed background
 geometry, not the geometry itself.
 The resolution comes from the vortex-gravity isomorphism
 (Paper~II, Proposition~\ref{II-prop:grav-stability}):
-in $2{+}1$D, the linearised gravitational interaction between
-point masses is \emph{identical} to the point-vortex interaction,
-with $\kappa \leftrightarrow 8\pi Gm$.
-Deficit angle $= 2\pi\kappa$, so the metric degrees of freedom
-(spatial curvature at each point) ARE vortex degrees of freedom.
+in $2{+}1$D, a conical singularity of deficit angle
+$\varepsilon_v$ has holonomy $\varepsilon_v/(2\pi)$
+around it (Gauss--Bonnet on a cone).
+This is a \emph{kinematic} identity---it follows from
+the definition of a conical metric, not from
+Einstein's equations.
+Setting $\kappa_v = \varepsilon_v/(2\pi)$ identifies
+each cone point with a point vortex of
+circulation~$\kappa_v$.
+The metric degrees of freedom
+(spatial curvature at each point) ARE vortex degrees of
+freedom.
 The Onsager principle, applied to the \emph{full} system of
 $N$ vortices whose circulations determine the deficit angles,
 therefore extremises entropy over configurations that
 include the background curvature.
+Using a kinematic identity (deficit angle~$=$~circulation)
+to derive a dynamical equation ($R = \mathrm{const}$) is
+not circular: the Einstein equations are the
+\emph{dynamical} consequence of the Onsager variational
+principle applied via the \emph{kinematic} isomorphism.
 
 Concretely: place a test $N$-gon at each point $x \in S$.
 The frozen-mode entropy at~$x$ is
@@ -2134,13 +2165,9 @@ which depends on the metric through $\rho(x)$ and is
 which is determined by the Euler characteristic).
 The Lagrange multiplier for this energy constraint is~$\Lambda$.
 
-The derivation is \emph{not} circular: it uses the
-\emph{proved} vortex-gravity isomorphism (that deficit
-angles~$=$ circulations) together with the Onsager
-selection principle (that the maximum-entropy configuration
-is selected at negative temperature).
-The metric is \emph{not} varied by hand --- it varies
-\emph{because it is a vortex degree of freedom}.
+The metric is \emph{not} varied by hand---it varies
+\emph{because it is a vortex degree of freedom}
+(see the non-circularity argument above).
 
 \emph{Extension to smooth metrics via Regge calculus.}
 The vortex-gravity isomorphism applies to conical deficits
@@ -2467,6 +2494,47 @@ In $d_{\mathrm{st}} = 5$ ($4{+}1$D), additional quadrupole
 components appear, requiring $N \ge 12$.
 \end{proof}
 
+\begin{remark}[The logical structure of~(H2)]
+\label{rem:H2-structure}
+Three points merit emphasis.
+\begin{enumerate}
+\item \emph{Integrable systems do not relax.}
+  Correct: we do \emph{not} claim that the CMS angular modes
+  relax or thermalize.
+  The Liouville--Arnold theorem gives
+  equidistribution on invariant tori
+  (stronger than relaxation: exact confinement).
+  The entropy maximisation in~(H2) comes from the
+  \emph{Onsager selection principle}
+  (which macrostate dominates the microcanonical ensemble
+  at negative temperature), not from relaxation dynamics.
+\item \emph{Two variational principles.}
+  Angular equidistribution at fixed geometry and metric
+  selection by the Onsager principle are logically
+  \emph{separate} claims, now stated separately as~(H2a)
+  and~(H2b).
+  Neither implies the other:
+  (H2a) is a mathematical characterisation of the entropy
+  functional;
+  (H2b) is the physical principle that selects the
+  entropy-maximising metric.
+\item \emph{The Born--Oppenheimer bridge.}
+  At fixed~$g$, the angular modes determine
+  $S(x,g)$ at each point
+  (the frozen-mode entropy from the BO partition function).
+  Varying~$g$ varies $S_{\mathrm{poly}}[g] = \int S(x,g)\,dA$.
+  The Onsager principle selects the~$g$ that maximises
+  $S_{\mathrm{poly}}$.
+  The BO decomposition
+  (fast angular modes, slow breathing mode~$\rho$)
+  provides the mechanism: the BO effective potential for~$\rho$
+  is $V_{\mathrm{BO}}(\rho) = V_0(\rho) - S(\rho)$, so
+  maximising~$S$ at fixed energy is equivalent to
+  minimising $V_{\mathrm{BO}}$
+  ---the standard BO equilibrium condition.
+\end{enumerate}
+\end{remark}
+
 \begin{proposition}[The cosmological constant from the WDW equation]
 \label{prop:wdw-lambda}
 The value of $\Lambda$ in
@@ -2482,8 +2550,9 @@ Two independent ingredients determine this equation:
 \emph{The mechanism} (why $\dot\rho^2$ appears).
 The Kirchhoff equations are first-order; the breathing
 mode~$\rho$ is a collective coordinate with no canonical momentum.
-The $N{-}2$ angular modes form a thermal bath whose fluctuations
-drive~$\rho$ stochastically (Caldeira--Leggett mechanism).
+The $N{-}2$ angular modes form a harmonic bath whose
+influence functional generates an effective kinetic term
+for~$\rho$ (Caldeira--Leggett mechanism).
 The Onsager--Machlup noise kernel gives
 $S_{\mathrm{OM}} = \int[c/2\;\dot\rho^2 + V]\,d\tau$.
 The CL conditions hold: (i)~the angular modes are
