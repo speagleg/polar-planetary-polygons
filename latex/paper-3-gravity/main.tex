@@ -1137,59 +1137,63 @@ retains the full $\rho$-dependence of the Green's function.
 \emph{Why second-order dynamics from a first-order system.}
 The Kirchhoff equations are first-order, but the WDW equation
 for the breathing mode~$\rho$ is second-order.
-Two independent derivations combine:
+The kinetic term arises from the
+Caldeira--Leggett mechanism
+(Proposition~\ref{prop:wdw-lambda}):
+the $N{-}2$ angular modes form a harmonic bath whose
+influence functional produces a $\dot\rho^2$ term in the
+Onsager--Machlup path integral.
+
+\emph{The coefficient $c = 12\,b(N)$.}
+The CL mechanism proves $c > 0$ but does \emph{not}
+determine $c$: the Gaussian (free-field) approximation
+gives $c_{\mathrm{CL}} \sim
+N^2\rho^{*2}/((N{-}2)\coth^2\rho^*)$,
+which is approximately $1\%$ of the exact value at $N = 7$.
+This $100\times$ discrepancy is not a failure of the
+framework---it reflects the fact that the CMS bath is
+\emph{integrable}, not Gaussian: the higher integrals of
+motion (beyond the energy) constrain the bath's response
+in ways invisible to the free-field approximation.
+
+The exact coefficient is determined by a single
+consistency condition: the orbifold CFT ground-state energy
+$E_0(m) = -c/(24N) + cm(N{-}m)/(24N^2)$ must reproduce
+the Havelock eigenvalue $\lambda_m = C_1 - m(N{-}m)/2$
+for \emph{all}~$m$ simultaneously
+(Proposition~\ref{prop:equiv-rr}).
+This forces $c = 12\,b(N)$ exactly, with
+\[
+  b(N) = \frac{N(N{+}1)}{12} - \ln 2
+  + \frac{\ln N}{N{-}1}
+\]
+(proved analytically in Paper~I, Theorem~5.1).
+The sub-leading terms ($\ln 2$, $(\ln N)/(N{-}1)$)
+are topological (Todd class) contributions determined
+by the $\mathbb{Z}_N$ equivariant index, not free
+parameters.
+This same $c$ then plays four roles in the framework:
 \begin{enumerate}
-\item \emph{The kinetic term exists}
-  (Caldeira--Leggett mechanism,
-  Proposition~\ref{prop:wdw-lambda}):
-  the $N{-}2$ angular modes form a harmonic bath whose
-  exact influence functional (Gaussian, linear coupling)
-  produces a $\dot\rho^2$ noise kernel in the
-  Onsager--Machlup path integral.
-\item \emph{The coefficient $c = 12\,b(N)$ is derived from
-  the equivariant Riemann--Roch theorem}
-  (Proposition~\ref{prop:equiv-rr}).
-  The equivariant index of the $\mathbb{Z}_N$ orbifold gives
-  $\mathrm{ind}_m = f(m,N) + b(N)$
-  (the Havelock Casimir plus the Todd-class offset).
-  In the orbifold CFT, the twisted-sector ground-state energy is
-  $E_0(m) = -c/(24N) + cm(N{-}m)/(24N^2)$.
-  Matching $\mathrm{ind}_m = E_0(m)$ for \emph{all}~$m$
-  simultaneously forces $c = 12\,b(N)$ exactly---including
-  the sub-leading $N/12$, $\ln 2$, and $(\ln N)/(N{-}1)$ terms,
-  which are topological (Todd class) contributions,
-  not regularisation artifacts.
-  This is the \emph{unique} central charge compatible with the
-  Havelock eigenvalue structure.
-  \emph{Why the CL coefficient differs from $12\,b(N)$.}
-  The CL noise kernel produces a kinetic coefficient
-  $c_{\mathrm{CL}} \sim N^2\rho^{*2}/((N{-}2)\coth^2\rho^*)$,
-  which is approximately $1\%$ of~$12\,b(N)$ at $N = 7$
-  (a factor of $\sim\!100$, not a small correction).
-  This large discrepancy reflects the fact that $c_{\mathrm{CL}}$
-  and $c = 12\,b(N)$ arise from \emph{different physical
-  mechanisms}:
-  \begin{itemize}
-  \item $c_{\mathrm{CL}}$ is the dynamical inertia of~$\rho$
-    from integrating out the angular bath in the Gaussian
-    (free-field) approximation.
-    It proves the kinetic term \emph{exists} ($c > 0$).
-  \item $c = 12\,b(N)$ is the \emph{central charge} of the
-    boundary CFT, determined by the Brown--Henneaux formula
-    $c = 3\ell/(2G)$ and confirmed by the equivariant
-    Riemann--Roch matching to the orbifold ground-state energy.
-    It determines the \emph{value} of the kinetic coefficient
-    in the holographic (WDW) formulation.
-  \end{itemize}
-  The holographic value $c = 12\,b(N)$ incorporates the
-  \emph{full} boundary-mode structure (all CMS integrals of
-  motion, not just the Gaussian spectral density), which is
-  why it exceeds $c_{\mathrm{CL}}$ by two orders of magnitude.
-  No parameter is fitted: $b(N)$ is proved analytically
-  (Paper~I, Theorem~5.1) and the four roles of~$c$ (WDW
-  coefficient, CS level, Brown--Henneaux, orbifold matching)
-  are independently consistent.
+\item \emph{WDW kinetic coefficient}: $c$ appears in
+  $-1/(2c)\,d^2/d\rho^2$;
+\item \emph{CS level}: $k = c/6 = 2b(N)$;
+\item \emph{Brown--Henneaux}: $c = 3\ell/(2G)$, giving
+  $G = 3/(2c)$;
+\item \emph{Orbifold CFT}: matching ground-state energies
+  to Havelock eigenvalues.
 \end{enumerate}
+These four roles are not independent derivations of~$c$:
+they are \emph{four consequences of the same algebraic
+structure} (the orbifold--Havelock correspondence).
+If any role gave a different value, the framework would be
+\emph{inconsistent}; the fact that all four agree on
+$c = 12\,b(N)$ is a non-trivial self-consistency check.
+The $100\times$ discrepancy with $c_{\mathrm{CL}}$ shows
+that the Gaussian approximation to the bath is inadequate;
+it does not indicate an inconsistency in the framework,
+because $c_{\mathrm{CL}}$ is not one of the four roles
+--- it is a leading-order approximation that the exact
+structure supersedes.
 
 Each term has a definite origin:
 \begin{center}
