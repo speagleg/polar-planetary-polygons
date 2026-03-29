@@ -3788,6 +3788,78 @@ Thermal correlation $\langle\rho(\tau_1)\rho(\tau_2)\rangle$
 \end{tabular}
 \end{center}
 \noindent
+\begin{theorem}[Quantum structure from polygon dynamics]
+\label{thm:qm-from-polygons}
+Starting from the classical Kirchhoff equations for
+$N$ point vortices on~$\mathbf{H}^2$, with no quantum
+postulate, the following quantum-mechanical structures
+are derived:
+\begin{enumerate}
+\item[\textup{(Q1)}] \emph{Hilbert space.}
+  $\mathcal{H} = L^2(\mathbb{R},\,d\rho)$
+  (Feynman--Kac, Step~4 above).
+\item[\textup{(Q2)}] \emph{Hamiltonian.}
+  $H = -\tfrac{1}{2c}\,d^2/d\rho^2 + V(\rho)$
+  with $c = 12\,b(N)$ (CL mechanism $+$ orbifold matching).
+\item[\textup{(Q3)}] \emph{Unique physical state.}
+  $H\Psi_0 = 0$ selects the ground state
+  (WDW constraint; excited states are unphysical).
+\item[\textup{(Q4)}] \emph{Born distribution.}
+  $|\Psi_0(\rho)|^2 = e^{-\beta V}/Z$
+  (mathematical identity: Boltzmann weight~$=$
+  ground-state probability).
+\item[\textup{(Q5)}] \emph{Pointer basis.}
+  The angular bath decoheres~$\rho$ with
+  $\gamma \to \infty$ at the stability threshold
+  (Proposition~\ref{prop:decoherence}).
+  The $\rho$-basis is the unique pointer basis.
+\item[\textup{(Q6)}] \emph{Uncertainty principle.}
+  $\Delta\rho\,\Delta p = 1/2$ (minimum-uncertainty
+  ground state of the WDW oscillator;
+  $\Delta\rho = 1/\!\sqrt{2c\omega}$,
+  $\Delta p = \sqrt{c\omega/2}$).
+\item[\textup{(Q7)}] \emph{Entanglement.}
+  The entanglement entropy between~$\rho$ and
+  the angular bath is $S_{\mathrm{ent}} \approx 12$~bits
+  ($N = 7$) and $44$~bits ($N = 11$),
+  computed from the CL squeezing parameters.
+\item[\textup{(Q8)}] \emph{Irreversibility.}
+  The $W_N$ quartic mode mixing destroys
+  Poincar\'e recurrences on timescale
+  $\tau_{\mathrm{mix}} \sim c \ll
+  \tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}$.
+\end{enumerate}
+Within the WDW framework ($H\Psi = 0$, unique state,
+no external time), items \textup{(Q1)--(Q8)} constitute
+the complete quantum-mechanical structure:
+no additional postulate (measurement, collapse, or
+Born rule for arbitrary states) is needed.
+\end{theorem}
+
+\begin{proof}
+Items (Q1)--(Q4) follow from the five-step chain above
+(Steps~1--5: Havelock $\to$ CL $\to$ Onsager--Machlup
+$\to$ Feynman--Kac $\to$ WDW).
+Item (Q5) is Proposition~\ref{prop:decoherence} with the
+mode-mixing irreversibility.
+Item (Q6): the WDW ground state near the turning point
+$\rho_1$ is $\Psi_0 \propto
+\exp(-c\omega(\rho{-}\rho_1)^2/2)$
+with $\omega^2 = |V''(\rho_1)| = \mathrm{csch}^2(\rho_1)$;
+the widths $\Delta\rho = 1/\!\sqrt{2c\omega}$ and
+$\Delta p = \sqrt{c\omega/2}$ give
+$\Delta\rho\,\Delta p = 1/2$ (minimum uncertainty).
+Item (Q7): the CL influence functional at zero temperature
+gives squeezing parameter
+$r_m = (C_1'/(2\lambda_m))^2$ for each bath mode;
+the entanglement entropy is
+$S_{\mathrm{ent}} = \sum_m [(r_m{+}1)\ln(r_m{+}1)
+- r_m\ln r_m]$.
+Item (Q8): the $O(1/c)$ $W_N$ quartic coupling
+gives $\tau_{\mathrm{mix}} \sim c$ and
+$c \ll e^{S_{\mathrm{BO}}}$ for all $N \ge 4$.
+\end{proof}
+
 \emph{The status of the Feynman--Kac correspondence.}
 The Feynman--Kac theorem is a mathematical \emph{equivalence}
 between a classical stochastic process (the Onsager--Machlup
