@@ -1793,23 +1793,41 @@ merely in a suborder.
 \end{proposition}
 
 \begin{proof}
-A $2 \times 2$ integer matrix with trace $c$ and determinant~$1$
-lies in $\mathrm{SL}(2,\mathbb{Z})$; its characteristic polynomial
-is $\lambda^2 - c\,\lambda + 1 = 0$, the same as the palindromic
-threshold equation.  The existence of such a matrix for each
-$c \in \mathbb{Z}_{\ge 3}$ is standard (every hyperbolic conjugacy
-class contains a representative with the given trace).
+The correspondence is not a coincidence but a consequence
+of the palindromic structure.
+The threshold equation $\xi^2 - c\,\xi + 1 = 0$
+(Proposition~\ref{prop:palindromic}) is palindromic
+because the Havelock Hessian is invariant under
+conformal inversion $\xi \leftrightarrow 1/\xi$.
+Any monic palindromic quadratic with integer trace~$c$
+and constant term~$1$ is \emph{automatically} the
+characteristic polynomial of a matrix in
+$\mathrm{SL}(2,\mathbb{Z})$:
+$M = \bigl[\begin{smallmatrix}a&b\\c'&d\end{smallmatrix}\bigr]$
+with $\det M = ad - bc' = 1$ and $\mathrm{tr}\,M = c$.
+(Existence: the companion matrix
+$\bigl[\begin{smallmatrix}0&-1\\1&c\end{smallmatrix}\bigr]$
+has trace~$c$, determinant~$1$.)
+Each such matrix defines a primitive hyperbolic conjugacy
+class, hence a primitive closed geodesic of length
+$\ell = 2\,\mathrm{arccosh}(c/2) = 2\ln\varepsilon$.
 The trace formula $c = 2 + 16/(N{-}7)$ follows from
 $c = -B/A = 2(N{+}1)/(N{-}7)$ (Proposition~\ref{prop:alg-int})
-by writing $2(N{+}1)/(N{-}7) = 2 + 16/(N{-}7)$.
+by the identity $2(N{+}1)/(N{-}7) = 2 + 16/(N{-}7)$.
 The conductor $f$ satisfies $c^2 - 4 = f^2 D$ where
 $D = \mathrm{sq\_free}(c^2 - 4)$.
 Among the five traces $c \in \{16, 10, 6, 4, 3\}$,
-the monic discriminants $c^2 - 4 = \{252, 96, 32, 12, 5\}$
+the discriminants $c^2 - 4 = \{252, 96, 32, 12, 5\}$
 have squarefree parts $\{7, 6, 2, 3, 5\}$ and
 conductors $f = \{6, 4, 4, 2, 1\}$.
 Only $c = 3$ ($N = 23$) gives $f = 1$,
-since $5$ is the only squarefree value in the list.
+since $5$ is the only squarefree discriminant.
+The structural reason for the correspondence is:
+the conformal inversion symmetry of the Havelock
+Hessian produces exactly the palindromic polynomials
+that define hyperbolic conjugacy classes;
+the algebraic-integer condition (Proposition~\ref{prop:alg-int})
+restricts the traces to the values $(N{-}7) | 16$.
 \end{proof}
 
 \begin{remark}[Automorphic correction on quotient surfaces]
