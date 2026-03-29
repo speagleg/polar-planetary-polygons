@@ -3626,33 +3626,35 @@ at the physical operating point---not by fine-tuning
 but as a structural consequence of the soft bath mode
 near the stability threshold.
 
-\emph{Recurrences and timescales.}
-The CMS angular bath is \emph{integrable} (this
-integrability is used in~\S\ref{sec:cc} for the
-Nekhoroshev precision of~$H_0$).
-For an integrable system on a compact phase space,
-Poincar\'e recurrences are guaranteed.
-The recurrence time for $N{-}2$ modes with
-incommensurate frequencies scales as
-$\tau_{\mathrm{rec}} \sim \exp(N)$
-(exponential in the number of modes, by a standard
-small-divisor estimate).
-For $N = 11$ ($9$ modes):
-$\tau_{\mathrm{rec}} \sim e^9 \approx 8000$,
-while the tunnelling time is
-$\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}
-\approx 10^{44}$.
-The decoherence is therefore
-\emph{effectively irreversible}: recurrences exist
-in principle but their timescale is
-$\tau_{\mathrm{rec}} \ll \tau_{\mathrm{tunnel}}$,
-so coherence is not restored on any cosmologically
-relevant timescale.
-(This is consistent with the Nekhoroshev argument
-for~$H_0$: the integrability is \emph{preserved},
-and the exponentially long recurrence time is
-a \emph{consequence} of integrability, not a
-contradiction.)
+\emph{Irreversibility from near-integrability.}
+The CMS angular bath is integrable \emph{in isolation}.
+The coupling to the breathing mode~$\rho$ through the
+$\rho$-dependent frequencies $\lambda_m(\rho)$
+breaks exact integrability at $O(1/c)$
+(the $W_N$ quartic coupling,
+$\sim\!2\%$ at $N = 7$).
+This converts exact Poincar\'e recurrences
+(which would periodically restore coherence)
+into diffusive mixing on timescale
+$\tau_{\mathrm{mix}} \sim c \approx 50$--$130$
+(the inverse of the $O(1/c)$ perturbation strength).
+Since $c \ll e^{S_{\mathrm{BO}}}$ for all $N \ge 4$,
+the mixing time is far shorter than the tunnelling time:
+$\tau_{\mathrm{mix}} \ll \tau_{\mathrm{tunnel}}$.
+The decoherence is therefore \emph{irreversible}
+on all cosmologically relevant timescales.
+This is consistent with the Nekhoroshev argument
+for~$H_0$ (\S\ref{sec:cc}): the Nekhoroshev theorem
+applies precisely to \emph{near-integrable} systems
+(integrable $+$ small perturbation), giving
+exponentially slow action diffusion
+$\delta I \sim \exp(-c_0/\varepsilon^a)$
+with $\varepsilon = O(1/c)$.
+The same $O(1/c)$ perturbation that provides the
+mode mixing for irreversible decoherence also
+enters the Nekhoroshev stability estimate, ensuring
+both decoherence and BO precision are consequences
+of the \emph{same} near-integrable structure.
 \end{proof}
 
 \noindent
@@ -3672,7 +3674,7 @@ without additional postulate:
   observer or environment is required.
 \item \emph{Classicality of the breathing mode.}
   For $\gamma \gg 1$ (which holds at the physical
-  operating point, with $\gamma \sim 10^3$ at the
+  operating point, with $\gamma \gg 1$ at the
   $N = 11$ threshold), the breathing mode behaves
   classically: superpositions of different~$\rho$
   values are destroyed on timescales
@@ -3843,15 +3845,16 @@ are derived:
   (from the CL squeezing parameters
   $r_m = (C_1'/(2\lambda_m))^2$; computed in
   \texttt{proofs/self\_decoherence.py}).
-\item[\textup{(Q8)}] \emph{Effective irreversibility.}
-  The CMS bath is integrable, so Poincar\'e recurrences
-  exist, but their timescale
-  $\tau_{\mathrm{rec}} \sim \exp(N)$ exceeds the
-  tunnelling time $\tau_{\mathrm{tunnel}}
-  \sim e^{S_{\mathrm{BO}}}$ only for $N \ll S_{\mathrm{BO}}$,
-  which holds at $N = 7$ and $N = 11$.
-  Decoherence is effectively irreversible on all
-  cosmologically relevant timescales.
+\item[\textup{(Q8)}] \emph{Irreversibility.}
+  The breathing-angular coupling breaks exact CMS
+  integrability at $O(1/c)$, converting Poincar\'e
+  recurrences into diffusive mixing on timescale
+  $\tau_{\mathrm{mix}} \sim c$.
+  Since $c \ll e^{S_{\mathrm{BO}}}$
+  ($c \approx 50$--$130$ vs.\
+  $e^{S_{\mathrm{BO}}} \approx 10^{16}$--$10^{44}$),
+  decoherence is irreversible on all physically
+  relevant timescales.
 \end{enumerate}
 Within the WDW framework ($H\Psi = 0$, unique state,
 no external time), items \textup{(Q1)--(Q8)} constitute
