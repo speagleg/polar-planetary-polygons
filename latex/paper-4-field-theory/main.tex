@@ -1566,6 +1566,11 @@ at warp factor $\sigma = \ln(M_{\mathrm{poly}}/v)$
 suppresses $f_1$ exponentially ($c_1 = 2.50$),
 giving the tree-level ratio $m_s/m_b \approx 0.63$---a factor
 ${\sim}30$ too mild.
+(The RS profile uses the exponential approximation
+$\sinh\rho \approx e^\rho/2$, which is accurate to $5\%$ at
+$\rho^* = 1.73$ ($\sinh(1.73)/(e^{1.73}/2) = 0.95$); this
+propagates as a ${\sim}10\%$ correction to mass ratios,
+within the quoted accuracy.)
 
 \emph{The BF instanton resolves this.}
 The same BF-crossing instanton that generates
@@ -1798,7 +1803,13 @@ The Yukawa overlap
 $I(m) = \int_0^{\rho^*}\! P_{-1/2+im}(\cosh\rho)\,w(\rho)\,
 \sinh\rho\;d\rho$
 (with $w = f_R\,\varphi_H > 0$) is therefore real
-and positive ($I(1) = 0.426 > 0$, verified numerically).
+and positive ($I(1) = 0.426 > 0$).
+The positivity $I(m) > 0$ follows analytically: the conical function
+satisfies $P_{-1/2+im}(\cosh\rho) > 0$ for all $\rho > 0$ and
+$m \in \mathbb{R}$, by the integral representation
+$P_\nu(x) = (2/\pi)\!\int_0^{\pi/2}\!(x + \sqrt{x^2{-}1}\cos\theta)^\nu\,d\theta > 0$
+for $x > 1$; since $w(\rho) > 0$ and $\sinh\rho > 0$ on $(0,\rho^*)$,
+every factor in the integrand of~$I(m)$ is positive.
 The normalisation $A = 1/\Gamma(\tfrac{1}{2}+im)$ is the
 Harish-Chandra $c$-function of the spectral decomposition
 on~$\mathbf{H}^2$: it is the unique normalisation for which

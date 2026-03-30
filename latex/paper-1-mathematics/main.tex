@@ -289,6 +289,12 @@ $\delta\Omega = -(-2NR)/R = 2N$.
 $\delta\lambda_m = -\delta\Omega - v_m^\top\,\delta\nabla^2\!H\,v_m
 = -(2N) - (-2N) = 0$.
 
+The tangential branch: since $A(2,d) = 0$, the Hessian perturbation is
+isotropic ($B\,I_2$ at every pair), so the tangential eigenvalue shift
+equals the radial shift.  Steps~2--4 therefore apply identically to
+the tangential Fourier block, and $\delta\lambda_m = 0$ holds for
+both branches.
+
 Verified to machine precision ($|\delta\lambda_m| < 10^{-14}$)
 for $4 \le N \le 12$
 (\texttt{proofs/rg\_stability\_characterization.py}).
