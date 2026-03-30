@@ -193,31 +193,9 @@ Since each Fourier mode $V_m$ is
 one-dimensional (for $m \ne N{-}m$; the palindromic pair
 shares a two-dimensional eigenspace with the
 same eigenvalue), eigenvalue matching on a 1D space
-is equivalent to operator matching up to normalisation.
-The numerical verification
-(\texttt{proofs/cms\_cs\_isomorphism.py}, $N = 3,\ldots,12$)
-confirms the eigenvalue identity $C_2^{\mathrm{CMS}} =
-C_2^{\mathrm{KZ}} = C_2^{\mathrm{CS}} = m(N{-}m)/2$;
+is equivalent to operator matching up to normalisation;
 the operator-level coincidence is the content of the
 EFK theorem.
-
-\emph{Physical content of the operator coincidence.}
-Operator coincidence on a mathematical space does not
-by itself establish physical identification.
-In $2{+}1$D, however, a stronger statement holds:
-the Weyl tensor vanishes identically, so there are
-\emph{no propagating gravitational modes}.
-The only gravitational degrees of freedom are
-\emph{boundary modes} (Brown--Henneaux 1986).
-By the CS/WZW theorem \citep{Witten1988}, the boundary
-modes of the CS gauge field are the WZW currents---which
-are the polygon modes (Paper~IV, Theorem~\ref*{IV-thm:su3}, Step~6).
-In $2{+}1$D, the boundary theory of CS gravity and the
-Kirchhoff/Havelock vortex system are mathematically
-identical: the CMS/CS operator coincidence is a
-spectral isomorphism (eigenvalue matching on each mode), not a spectral accident.
-This isomorphism is the mathematical expression
-of this physical equivalence.
 The critical mode has $f(m^*,N) = j(j{+}1)$
 with integer~$j$ only at specific~$N$:
 \begin{center}
@@ -280,6 +258,28 @@ $(N,y) = (1,1),\, (7,5),\, (41,29),\, \ldots$,
 giving $j = 0,\, 2,\, 14,\, \ldots$
 The first non-trivial solution is $N = 7$, $j = 2$.
 \end{proof}
+
+\begin{remark}[Physical content of the operator coincidence]
+\label{rmk:cms-cs-physical}
+The numerical verification
+(\texttt{proofs/cms\_cs\_isomorphism.py}, $N = 3,\ldots,12$)
+confirms the eigenvalue identity $C_2^{\mathrm{CMS}} =
+C_2^{\mathrm{KZ}} = C_2^{\mathrm{CS}} = m(N{-}m)/2$.
+Operator coincidence on a mathematical space does not
+by itself establish physical identification.
+In $2{+}1$D, however, a stronger statement holds:
+the Weyl tensor vanishes identically, so there are
+\emph{no propagating gravitational modes}.
+The only gravitational degrees of freedom are
+\emph{boundary modes} (Brown--Henneaux 1986).
+By the CS/WZW theorem \citep{Witten1988}, the boundary
+modes of the CS gauge field are the WZW currents---which
+are the polygon modes (Paper~IV, Theorem~\ref*{IV-thm:su3}, Step~6).
+In $2{+}1$D, the boundary theory of CS gravity and the
+Kirchhoff/Havelock vortex system are mathematically
+identical: the CMS/CS operator coincidence is a
+spectral isomorphism (eigenvalue matching on each mode), not a spectral accident.
+\end{remark}
 
 \paragraph{The Chern--Simons lift.}
 In $2{+}1$ dimensions, gravity with $\Lambda < 0$ is a
@@ -1077,6 +1077,7 @@ with the hyperbolic Haldane model.
 The bound $|\delta C_1| < 0.06$ shows that polygon
 stability is insensitive to the hyperbolic lattice topology.
 \paragraph{Lorentzian continuation and the BTZ horizon.}
+The Euclidean analysis above determines the thermal phase structure; the Lorentzian continuation identifies the real-time dynamics.
 The curvature coefficient $C_1 = \log(2\sinh\rho) + b(N)$ admits
 an analytic continuation $\rho \to \rho + i\pi/2$ that interchanges
 the BTZ exterior and interior:
@@ -2171,7 +2172,8 @@ logarithmic, (2)~extract $R(x)$ from the Hadamard parametrix,
 (4)~promote to Einstein in any spacetime dimension.
 
 \medskip
-\noindent\textbf{Step~1. Polynomial Casimir forces logarithmic interaction.}
+\noindent\emph{Step~1 (Hadamard extraction).}
+\textbf{Polynomial Casimir forces logarithmic interaction.}
 Condition~(H1) requires the angular Casimir
 to be the exact polynomial $f(m,N) = m(N{-}m)/2$.
 By the $\csc^2$ uniqueness theorem (Paper~I, Lemma~\ref*{I-lem:havelock}),
@@ -2183,7 +2185,8 @@ $V(z,w) = -G_S(z,w)$, where $G_S$ is the Green's function
 of the scalar Laplacian on~$(S, g)$.
 
 \medskip
-\noindent\textbf{Step~2. Small-ring expansion reveals local curvature.}
+\noindent\emph{Step~2 (Jensen maximisation).}
+\textbf{Small-ring expansion reveals local curvature.}
 The Green's function on any Riemannian surface has the short-distance
 expansion $G_S(z,w) = -(1/2\pi)\log d(z,w) + \gamma_S(z) + O(d^2)$,
 where $d(z,w)$ is the geodesic distance and $\gamma_S$ encodes
@@ -2222,7 +2225,8 @@ eigenvalue decomposition, so the $1/4$ extends to every
 constant-curvature surface.
 
 \medskip
-\noindent\textbf{Step~3. (H2) $+$ Step~2 force $R = \mathrm{const}$.}
+\noindent\emph{Step~3 (Schur promotion to Einstein).}
+\textbf{(H2) $+$ Step~2 force $R = \mathrm{const}$.}
 By the mathematical content of~(H2):
 $S_{\mathrm{total}}[g] = \int S(x)\,dA$ is strictly
 concave in~$C_1(x)$, so Jensen's inequality gives a
@@ -2703,7 +2707,8 @@ equation is solvable and its unique solution is
 constant curvature.
 
 \medskip
-\noindent\textbf{Step~4. Mode-independence + $R = \mathrm{const}$
+\noindent\emph{Step~4 (Higher dimensions).}
+\textbf{Mode-independence + $R = \mathrm{const}$
 implies Einstein in any spacetime dimension~$d_{\mathrm{st}}$.}
 In $d_{\mathrm{st}} = 3$ ($2{+}1$D): the Weyl tensor has
 $d_{\mathrm{st}}(d_{\mathrm{st}}{+}1)(d_{\mathrm{st}}{+}2)(d_{\mathrm{st}}{-}3)/12 = 0$
@@ -2935,6 +2940,7 @@ with residual $|R_m| < a|f_m|$ (verified for $N = 5,\ldots,20$
 and $d = 3, 4, 5$):
 the violation of~(H1) is controlled and measures
 the departure from Einstein geometry.
+The extension to full Riemann curvature (beyond Ricci) requires higher-rank tensor probes and is beyond the scope of this paper.
 \end{remark}
 
 \paragraph{Supporting evidence: spectral focusing.}

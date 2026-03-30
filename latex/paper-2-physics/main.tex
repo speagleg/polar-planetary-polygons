@@ -33,6 +33,8 @@ on hyperbolic lattices.
 This paper proves that the regular $N$-gon of point vortices is a constrained energy minimum for $N \le 7$ (Theorem~\ref{thm:constrained-min}), resolves the marginal $N = 7$ case with an exact quartic $\alpha_0 = 45/14$ (\S\ref{sec:n7}), and extends the stability analysis to curved surfaces, finite-core blobs, multiple rings, and planetary applications.
 Paper~I provides the Havelock eigenvalue identity used throughout; the present paper does not assume or use any gravitational interpretation.
 
+The central tension resolved is between Thomson--Havelock linear stability ($N \le 7$) and Onsager's negative-temperature prediction of large-scale clustering: the polygon is simultaneously an unconstrained saddle and a constrained minimum (Corollary~\ref{cor:min-not-max}). Five extensions establish robustness: central-vortex stabilisation (\S\ref{sec:central-vortex}), multi-ring dichotomy (\S\ref{sec:multiring}), blob bridge (\S\ref{sec:blob}), Rossby bridge (\S\ref{sec:rossby-bridge}), and deformation-radius corrections (\S\ref{sec:deformation}).
+
 \label{part:pvd}
 %% ====================================================================
 
@@ -474,7 +476,7 @@ $\mathbb{Q}(\zeta_7)$.  The Galois rationality argument is the
 proof: $\mathbb{Z}_7$-invariant sums over $\mathbb{Q}(\zeta_7)$
 lie in the fixed field $\mathbb{Q}$, so the quartic coefficient is
 rational \emph{a priori}; direct algebraic summation
-(\texttt{n7\_bifurcation.py}, independently confirmed by
+(computed in exact rational arithmetic by \texttt{n7\_bifurcation.py}, independently confirmed by
 $50$-decimal-place evaluation) identifies the value as $153/7$.
 The unconstrained quartic is computed by evaluating the
 fourth-order circulant Taylor coefficient (the explicit per-chord
@@ -1516,6 +1518,8 @@ Maxwell's $6$) arises because our analysis does not include the
 central mass (Maxwell's stability includes the stabilizing effect
 of the central body).
 
+Maxwell (1859) obtained $N_{\mathrm{crit}} = 6$ for the Coulomb ring \emph{with} a central mass; without the central mass, $N_{\mathrm{crit}} = 5$. The distinction: the central mass adds a uniform eigenvalue shift $+\kappa_0/R^2$ that stabilises $N = 6$.
+
 The Coulomb/gravity $N_{\mathrm{crit}} = 5$ is less than the
 logarithmic $N_{\mathrm{crit}} = 7$, confirming the class~(iii)
 reduction: the $1/r$ interaction has $(rh')' = 1/r^2 > 0$, placing
@@ -1914,6 +1918,8 @@ at the disk centre ($\xi = 0$) and central-vortex
 stabilisation (Section~\ref{sec:central-vortex}) raising
 $N_{\mathrm{crit}}$ to~$8$ for the outer ring.
 \end{remark}
+
+\paragraph{Supplementary remarks.}
 
 \begin{remark}[Laughlin quasihole polygons]
 \label{rmk:laughlin}
@@ -2344,75 +2350,18 @@ The central charge $c = 12\,b(N)$ is determined by the index theorem.
 
 
 \paragraph{The Wheeler--DeWitt bridge equation.}
-(This subsection previews the WDW equation developed fully
-in Paper~III, \S\ref{III-sec:wdw}; the presentation here
-is self-contained but abbreviated.)
-
 The single degree of freedom $\rho$ (geodesic radius of the polygon)
-and the potential $V(\rho) = \lambda_{m^*}(\rho)$ (the critical
-Havelock eigenvalue) define a minisuperspace Wheeler--DeWitt equation:
+and the potential $V(\rho) = \lambda_{m^*}(\rho)$ define a minisuperspace Wheeler--DeWitt equation:
 \begin{equation}\label{eq:wdw}
   \biggl[-\frac{\hbar^2}{2c}\,\frac{d^2}{d\rho^2}
   + \log(2\sinh\rho) + b(N) - \frac{m(N{-}m)}{2}
   + \delta_m\biggr]\Psi = 0,
 \end{equation}
-with $c = c_{\mathrm{orb}} = 12N^2$ (the UV orbifold central charge;
-the exact IR value $c = 12\,b(N)$ is developed in Paper~III,
-\S\ref{III-sec:wdw}) and $\hbar = 1/\sqrt{c}$.
-Each term has a definite origin:
-\begin{center}
-\small
-\begin{tabular}{lll}
-\toprule
-Term & Expression & Origin \\
-\midrule
-Quantum kinetic & $-\hbar^2/(2c)\;\Psi''$ &
-  Gravity dynamics (the dynamics of $\rho$) \\
-Classical potential & $\log(2\sinh\rho)$ &
-  $\mathbf{H}^2$ Green's function \\
-Vacuum energy & $b(N) \sim c/12$ &
-  Orbifold CFT vacuum (Todd class) \\
-Matter & $m(N{-}m)/2$ &
-  Twist-field dimension (first Chern class) \\
-One-loop & $\delta_m$ &
-  Weyl anomaly (traceless, palindromic) \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\noindent
-\emph{Three regimes.}
-\begin{enumerate}
-\item \textbf{Classical} ($c \to \infty$):
-  the kinetic term vanishes; the constraint reduces to $V(\rho) = 0$,
-  i.e., $\lambda_{m^*}(\rho^*) = 0$---the palindromic threshold,
-  which is the Einstein equation of the vortex--gravity system.
-\item \textbf{Semiclassical} (WKB):
-  $\Psi \sim \exp\!\bigl(\pm(i/\hbar)\!\int\!\sqrt{2c\,V}\,d\rho\bigr)$,
-  oscillatory in the exterior ($V > 0$, $\sinh$-branch) and evanescent
-  in the interior ($V < 0$, $\cosh$-branch).
-  The continuation $\rho \to \rho + i\pi/2$ maps between them
-  (Paper~III, \S\ref*{III-sec:btz}).
-\item \textbf{Quantum} (near threshold):
-  $\Psi \sim \mathrm{Ai}\bigl((2c\,\coth\rho^*)^{1/3}
-  (\rho - \rho^*)\bigr)$,
-  smoothing the classical horizon over the universal width
-\begin{equation}\label{eq:airy-width}
-  \delta\rho = \frac{1}{(2c)^{1/3}} = \frac{1}{(24N^2)^{1/3}}
-\end{equation}
-  (verified to $4$ digits for $N = 8,\ldots,20$:
-  $\delta\rho/N^{-2/3} \to 2^{-1/3}$).
-  At $c = \infty$: $\delta\rho \to 0$ (sharp classical threshold).
-  At finite~$c$: the horizon has quantum width $O(c^{-1/3})$.
-\end{enumerate}
-
-
-\medskip
-\noindent
-The full development of the gravitational theory---including the
-polygon--BTZ phase transition, the orbifold CFT at $c = 12N^2$,
-the derivation of the Einstein equations from polygon stability,
-and the higher-dimensional extension---is in Paper~III.
+with $c = 12\,b(N)$ and $\hbar = 1/\sqrt{c}$.
+Three regimes arise: \textbf{classical} ($c \to \infty$, where $V(\rho) = 0$ recovers the palindromic threshold);
+\textbf{semiclassical} (WKB oscillatory/evanescent matching across the horizon);
+and \textbf{quantum} (Airy smoothing over width $\delta\rho = (2c)^{-1/3}$).
+The full development, including the Airy width formula and the three-regime classification, is in Paper~III, \S\ref{III-sec:wdw}.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}

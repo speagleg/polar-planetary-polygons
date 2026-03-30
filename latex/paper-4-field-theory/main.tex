@@ -22,10 +22,11 @@ Standard Model gauge group
 $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
 (Frobenius orbits at $N = 7$, McKay correspondence,
 WZW orbifold).
-From one integer ($N = 7$) and one scale ($M_P$),
+From two structural inputs ($N = 7$ from the Pell equation and $M_P$), one calibration ($\Delta m^2_{\mathrm{atm}}$), and three structural identifications (CMS$=$CS, vortex$=$spacetime, McKay$=$gauge group),
 the framework yields $\sin^2\theta_W = 3/11$,
 $\delta_{\mathrm{CKM}} = 70.2^\circ$, and
-$H_0 = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$;
+$H_0 = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$
+(derived in \S\ref{sec:cosmology} from the $N = 11$ tunneling action $S_{\mathrm{BO}}(11) = 102.724$; the chain $M_P \to v \to \ell \to H_0$ is explicit at eq.~\eqref{eq:ell-cc});
 all structural choices (geometry, CS levels, cosmological
 sector) follow from these two inputs
 (\S\ref{sec:input-output}).
@@ -61,6 +62,7 @@ Every structural choice---the Seifert geometry
 (\S\ref{sec:input-output}).
 From these:
 \begin{enumerate}
+\item[\emph{Infrastructure:}]
 \item \S\ref{sec:spacetime}: the spacetime
   $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$
   with Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ geometry;
@@ -72,6 +74,7 @@ From these:
   $\Lambda = (N^2 - 16)/16$;
 \item \S\ref{sec:anomaly}: the Weyl anomaly vanishes
   ($\delta_m = 0$ on constant-curvature backgrounds);
+\item[\emph{Core results:}]
 \item \S\ref{sec:gauge-group}: the Standard Model gauge group
   $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$;
 \item \S\ref{sec:weinberg}: the Weinberg angle $\sin^2\theta_W = 3/11$;
@@ -79,6 +82,7 @@ From these:
   (gravity/colour $+$ electroweak);
 \item \S\ref{sec:action}: the complete action (Lagrangian);
 \item \S\ref{sec:uv}: UV completion via the orbifold CFT;
+\item[\emph{Applications:}]
 \item \S\ref{sec:loops}: one-loop corrections (coupling lock,
   $\sin^2\theta_W$ running, polygon scale $50$--$300$\,TeV);
 \item \S\ref{sec:fermions}: fermion masses, CKM mixing, neutrinos;
@@ -87,6 +91,8 @@ From these:
 \item \S\ref{sec:baryogenesis}: baryogenesis ($\eta_B \approx 3\,\eta_B^{\mathrm{obs}}$,
   $v_w$-independent).
 \end{enumerate}
+
+\emph{Reading guide.} Readers primarily interested in the gauge group may begin at \S\ref{sec:gauge-group}; those interested in cosmology at \S\ref{sec:cosmology}; those interested in falsifiable predictions at \S\ref{sec:discussion}.
 
 %% ====================================================================
 \section{The spacetime: $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$}
@@ -326,63 +332,8 @@ the definition of helicity~$+2$
 (and $\bar T(\bar z)$ gives helicity~$-2$).
 
 \emph{Step~3 (Boundary torus).}
-On the Seifert manifold, the conformal boundary
-$\partial\mathbf{H}^2 = S^1_\theta$ is fibred over $S^1_\varphi$.
-The fibre connection has total flux $N/2$ over the base.
-At geodesic radius~$\rho$, the local field strength is
-$|F| = N/(2\,\mathrm{Area}(\rho))
-= N/(4\pi(\cosh\rho{-}1)) \to 0$ as $\rho \to \infty$:
-the twist angle per unit base displacement vanishes.
-At the asymptotic boundary the local twist vanishes.
-The Fefferman--Graham expansion of the metric near
-$\rho \to \infty$ takes the standard form
-$ds^2 = d\rho^2 + e^{2\rho}\,g^{(0)}_{ab}\,dx^a dx^b + \ldots$
-where $g^{(0)}$ is the conformal boundary metric
-\citep{deHaroSolodukhinSkenderis2001}.
-The FG expansion applies to Seifert manifolds with non-trivial
-Euler class: the Euler class $e = N/2$ maps to the NUT charge
-of the Taub-NUT-AdS bulk filling, and holographic
-renormalisation proceeds without modification
-\citep{ToldoWillett2018, MartelliPassiasSparks2013}.
-The FG conditions (asymptotically AdS, well-defined conformal boundary) hold for the Seifert metric: the $\mathbf{H}^2$ base is asymptotically hyperbolic and the $S^1$ fibre is compact.
-For odd~$N$ (half-integral flux, $\mathrm{spin}^c$ structure),
-the gravitational Chern--Simons term modifies the boundary
-stress tensor by a gravitational anomaly
-\citep{Solodukhin2006, KrausLarsen2006}
-but the FG expansion itself remains valid.
-For odd~$N$, the $\mathrm{spin}^c$ structure modifies the graviton spectrum at subleading order $O(1/c)$; the leading DOF count ($2$ polarisations) is unchanged.
-For a Seifert manifold with connection~$A$, the induced
-boundary metric is $g^{(0)} = d\theta^2 + (d\varphi + A_\theta\,d\theta)^2$.
-Since $A_\theta = F \times \mathrm{Area}(\rho) \sim N/(4\pi(\cosh\rho{-}1))
-\to 0$ as $\rho \to \infty$, the conformal boundary metric
-$g^{(0)} \to d\theta^2 + d\varphi^2$ (flat product $T^2$).
-The total holonomy (Chern class $N/2$) persists as a
-\emph{global} topological invariant but enters the
-FG expansion only at subleading order
-$O(e^{-2\rho})$, affecting the boundary stress-tensor
-expectation value but not the graviton zero-mode counting.
-\emph{Explicit helicity derivation.}
-The linearised metric perturbation on $\mathbb{R} \times T^2$
-is $h_{ij}(t,\theta,\varphi)
-= \varepsilon_{ij}(k)\,e^{i(\omega t + k_\theta\theta + k_\varphi\varphi)}$,
-with on-shell condition $\omega^2 = k_\theta^2 + k_\varphi^2$
-(massless).
-The TT gauge ($k^i\varepsilon_{ij} = 0$, $\varepsilon^i{}_i = 0$)
-reduces the $3$ symmetric components to $2$ physical polarisations
-$\varepsilon^+$ and $\varepsilon^\times$.
-Under a rotation by~$\alpha$ in the transverse plane
-(the plane orthogonal to the $3$-momentum $(k_\theta, k_\varphi)$
-in the $(\theta, \varphi, t)$ space):
-$\varepsilon^+ + i\varepsilon^\times
-\to e^{2i\alpha}(\varepsilon^+ + i\varepsilon^\times)$
-(the standard spin-$2$ transformation of the TT polarisation
-tensor).
-The boundary stress tensor $T(z)$ with $z = \theta + i\varphi$
-transforms identically: under $z \to e^{i\alpha}z$,
-the conformal weight~$(2,0)$ gives
-$T(z) \to (dz'/dz)^{-2}\,T(z') = e^{2i\alpha}T(z)$.
-This is helicity~$+2$; $\bar T$ gives $-2$.
-
+The conformal boundary of the Seifert manifold is $T^2$.
+The stress tensor on $T^2$ has $2 = d(d{-}3)/2|_{d=4}$ independent components (Remark~\ref{rem:FG-WW} below).
 The boundary stress tensor $T(z, \varphi)$ has two momenta:
 $k_\theta$ (along the boundary circle) and $k_\varphi$ (along
 the fibre).
@@ -395,22 +346,43 @@ The boundary graviton has $2$ independent components
 tensor polarisations.
 Both propagate on $T^2$, giving $n_{\mathrm{phys}} = 2$---matching
 the standard $d(d{-}3)/2 = 2$ count for $4$D gravity.
-The Weinberg--Witten theorem is \emph{inapplicable}.
-The theorem's premise requires a massless spin-$2$ particle
-in a $4$D Poincar\'e-invariant \emph{local} QFT with a
-Lorentz-covariant conserved $T_{\mu\nu}$ constructible
-as a local polynomial in the fields.
-Our construction violates the premise in two independent ways:
-(i)~the $4$D graviton is a \emph{boundary} mode of a $3$D
-topological theory lifted by KK---not a particle in a local
-$4$D QFT;
-(ii)~the stress tensor $T(z)$ lives on the $2$D boundary,
-not in the $4$D bulk.
+The Weinberg--Witten theorem is \emph{inapplicable}
+(Remark~\ref{rem:FG-WW}).
 The $4$D effective $T_{\mu\nu}$ (which couples to the graviton
 at $r \gg R$) is constructed through the \emph{non-local}
 holographic dictionary, not as a local $4$D operator
 \citep{Maldacena1997}.
 \end{proof}
+
+\begin{remark}[FG expansion and Weinberg--Witten]
+\label{rem:FG-WW}
+On the Seifert manifold, the conformal boundary
+$\partial\mathbf{H}^2 = S^1_\theta$ is fibred over $S^1_\varphi$.
+The Fefferman--Graham expansion near
+$\rho \to \infty$ takes the standard form
+$ds^2 = d\rho^2 + e^{2\rho}\,g^{(0)}_{ab}\,dx^a dx^b + \ldots$
+\citep{deHaroSolodukhinSkenderis2001};
+the FG conditions hold for the Seifert metric
+\citep{ToldoWillett2018, MartelliPassiasSparks2013}.
+For odd~$N$ (half-integral flux, $\mathrm{spin}^c$ structure),
+the gravitational Chern--Simons term modifies the boundary
+stress tensor by a gravitational anomaly
+\citep{Solodukhin2006, KrausLarsen2006}
+but the FG expansion itself remains valid;
+the leading DOF count ($2$ polarisations) is unchanged.
+The conformal boundary metric
+$g^{(0)} \to d\theta^2 + d\varphi^2$ (flat $T^2$).
+The Weinberg--Witten theorem is inapplicable:
+the theorem's premise requires a massless spin-$2$ particle
+in a $4$D Poincar\'e-invariant local QFT with a
+Lorentz-covariant conserved $T_{\mu\nu}$ constructible
+as a local polynomial in the fields.
+Our construction violates the premise in two ways:
+(i)~the $4$D graviton is a boundary mode of a $3$D
+topological theory lifted by KK;
+(ii)~the stress tensor $T(z)$ lives on the $2$D boundary,
+not in the $4$D bulk.
+\end{remark}
 
 \begin{remark}[Bulk KK decomposition]
 \label{rmk:kk-dof}
@@ -553,6 +525,7 @@ The effective three-dimensional cosmological constant is
 $\Lambda = 0$ at $N = 4$ (the gauge threshold, $j = 1$);
 $\Lambda < 0$ for $N = 3$ (AdS);
 $\Lambda > 0$ for $N \ge 5$ (de~Sitter).
+At $N = 7$: $\Lambda_3 = (49{-}16)/16 = 2.0625$ (in $\ell^{-2}$ units). The physical $\Lambda_4 = \Lambda_3/\ell^2$, with $\ell$ from the $N = 11$ instanton (\S\ref{sec:cosmology}), gives $\Lambda_4 \sim 10^{-122}\,M_P^4$.
 \end{proposition}
 
 \begin{proof}
@@ -923,7 +896,7 @@ $\bigwedge^2(\chi_3) = \bar\chi_3$.
 The adjoint $\chi_8$ is irreducible under
 $\mathrm{PSL}(2,\mathbb{F}_7)$ (verified from the character table).
 
-\emph{Step~6 (Mode space is the boundary target space).}
+\emph{Step~6a (dreibein chain).}
 The charged Havelock modes $\eta_1, \eta_2$ (Step~3) are
 perturbations of the polygon equilibrium.
 Near the $N$-gon the effective action is quadratic:
@@ -969,7 +942,7 @@ dreibein, hence the CS connection, by algebraic
 computation (items~1--5 above;
 \texttt{proofs/dreibein\_havelock.py}).
 
-\emph{Why CS/WZW applies.}
+\emph{Step~6b (CS/WZW applicability).}
 The CS/WZW theorem \citep{Witten1988} states:
 boundary values of the CS gauge field~$A$ parametrise the
 WZW target manifold~$G$.
@@ -1003,7 +976,7 @@ $\mathbb{Z}/3\mathbb{Z}$ symmetry (they cannot break a
 property of the Casimir spectrum), the orbifold
 construction in Step~7 holds at all orders in~$1/c$.
 
-\emph{Step~7 (McKay $+$ DHVW $\to$ $\mathrm{SU}(3)_1$ gauge sector).}
+\emph{Step~7a (McKay $+$ DHVW $\to$ $\mathrm{SU}(3)_1$ gauge sector).}
 The McKay correspondence and the DHVW orbifold construction
 determine the gauge group and the CS level:
 \begin{itemize}
@@ -1037,6 +1010,7 @@ The compact gauge level $k = 1$ is independent of
 $k_{\mathrm{grav}} = c/6 = 2\,b(N)$ (the non-compact
 gravitational coupling).
 
+\emph{Step~7b ($G_L$ invariance).}
 The Frobenius $\mathbb{Z}/3\mathbb{Z}$ acts as an
 exact automorphism of the \emph{full nonlinear} boundary CFT.
 The proof is not the Casimir multiset invariance (which is
@@ -1089,15 +1063,15 @@ using the total central charge in the Brown--Henneaux relation.
 The logical chain is:
 Frobenius on modes (Step~1, exact Galois theory)
 $\to$ $\mathbb{Z}/3 \subset \mathrm{SU}(2)$ (Step~3, McKay embedding)
-$\to$ linearised CS boundary modes (Step~6, dreibein chain)
+$\to$ linearised CS boundary modes (Step~6a, dreibein chain)
 $\to$ McKay $+$ DHVW $\to$ $\mathrm{SU}(3)_1$
-as a separate gauge sector (Step~7)
+as a separate gauge sector (Step~7a)
 $\to$ boundary currents $J^a(z)$ (Step~8, CS/WZW).
-Steps~1--5 and~7--8 are proved theorems.
-Step~6 establishes the $\mathbb{Z}/3\mathbb{Z}$
+Steps~1--5 and~7a--8 are proved theorems.
+Step~6a establishes the $\mathbb{Z}/3\mathbb{Z}$
 action at the linearised level; the nonlinear extension
 follows from the exact target-space automorphism
-(Step~7: left multiplication preserves the full WZW action).
+(Step~7b: left multiplication preserves the full WZW action).
 No step involves a definition or postulation of the
 gauge group.
 
@@ -1621,7 +1595,7 @@ Standard SM two-loop running
 $b_{ij}$ of \citealt{MachacekVaughn1984})
 gives $\sin^2\theta_W = 3/11$ at
 $M_{\mathrm{poly}} = 294$\,TeV (two-loop) versus
-$274$\,TeV (one-loop)---a $7\%$ shift.
+$274$\,TeV (one-loop)---a $7\%$ shift.\footnote{The two-loop SM $\beta$-functions \citep{MachacekVaughn1984} shift $M_{\mathrm{poly}}$ from $274$ (one-loop) to $294$\,TeV (two-loop); see \texttt{mass\_hierarchy.py} for the computation.}
 The resulting mass ratio:
 $m_s/m_b = 0.045$ ($1.9\times$ the observed $0.024$).
 The remaining factor of~$2$ is the dominant theoretical
@@ -1663,7 +1637,7 @@ $m_s/m_b = 0.024$ (eq.~\eqref{eq:mass-hierarchy}),
 $m_d/m_s = 0.056$ (eq.~\eqref{eq:gatto}),
 $m_d/m_b = 0.0013$ (product; observed $0.0011$).
 
-\emph{The $u$-quark mass and the broad Higgs.}
+\subsubsection{The $u$-quark mass and the broad Higgs}
 The up-type conformal dimensions are
 $c_t = \sqrt{0{+}(1/2)^2} = 1/2$
 (exactly BF-marginal: the top quark is conformally coupled),

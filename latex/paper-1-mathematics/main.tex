@@ -25,8 +25,8 @@ hyperbolic plane are Pell units in quadratic fields---terminating
 at~$\xi^*(23) = \varphi^{-2}$---and correspond to closed
 geodesics on the modular surface with traces
 $c = 2 + 16/(N{-}7)$.
-The palindromic structure of the threshold equation generalises
-to arbitrary genus, with the degree controlled by the trace field.
+The palindromic structure of the threshold equation is
+conjectured to generalise to arbitrary genus (Conjecture~\ref{prop:higher-genus}), with the degree controlled by the trace field.
 \end{abstract}
 
 \section{Introduction}
@@ -114,7 +114,7 @@ below.
     (Conjecture~\ref{prop:higher-genus}),
     and the Legendre-symbol selection rule on arithmetic surfaces
     (Proposition~\ref{prop:legendre-selection}).
-  \item \textbf{The RG classification}
+  \item \textbf{Scale classification of perturbations}
     (Proposition~\ref{prop:rg-classification}):
     the logarithm is the unique IR fixed point of the additive
     coarse-graining map, with the sign rule demarcating its basin of
@@ -184,7 +184,7 @@ shows it additionally implies that the stability threshold is
 dilation-invariant.
 \end{remark}
 
-The RG terminology below is an analogy (the map $T_b$ is a pointwise rescaling, not a coarse-graining); the mathematical content is the stability classification itself.
+The scale-classification terminology below is an analogy (the map $T_b$ is a pointwise rescaling, not a coarse-graining); the mathematical content is the stability classification itself.
 
 \begin{proposition}[Scale classification of perturbations]
 \label{prop:rg-classification}
@@ -787,6 +787,7 @@ at the $N$-gon ring telescope via the product formula
 $\prod_{p=1}^{N-1}(1 - \xi\,e^{2\pi ip/N}) = 1 - \xi^N$
 (with $\xi = \rho^2/a^2$), giving
 $\ln|1 - \xi^N|$---a function of~$\rho$ alone.
+For tangential modes $m \ge 1$, the perturbation phases $a_k$ satisfy $\sum_k a_k = 0$ ($\mathbb{Z}_N$ orthogonality), preserving the product identity at all perturbation orders.
 Although the \emph{individual} image terms
 $\ln|a^2 - \rho^2\,e^{2\pi ip/N}|$ depend on the
 angular separation~$p/N$, their \emph{sum} does not.
@@ -826,8 +827,11 @@ Since none of the surface-dependent quantities
 tangential Hessian, the identity holds on
 \emph{every} constant-curvature surface simultaneously
 (\texttt{proofs/riemannian\_havelock\_step3.py}).
-On compact quotients $\Gamma\backslash M$, the automorphic Green's function has an additional image sum, but this sum contributes a mode-independent correction $\delta C_1$ (by the Selberg trace formula), preserving the eigenvalue decomposition.
 \end{proof}
+
+\begin{remark}[Compact quotients]
+On compact quotients $\Gamma\backslash M$, the automorphic Green's function has an additional image sum, but this sum contributes a mode-independent correction $\delta C_1$ (by the Selberg trace formula), preserving the eigenvalue decomposition.
+\end{remark}
 
 The stability threshold $N_{\mathrm{crit}}$ is therefore determined by
 $C_1(\text{surface}) \ge \max_m m(N{-}m)/2$: a condition involving the
@@ -2529,7 +2533,7 @@ is the same $B_2$ in its regularisation role:
 the csc$^2$ Laurent constant $2B_2 = 1/3$ governs
 the self-interaction in both contexts.
 
-\paragraph{The $\csc^2$ kernel as a universal object.}
+\paragraph{The $\csc^2$ kernel in seven contexts.}
 \label{rmk:csc2-universality}
 The Havelock identity
 $\sum_{p=1}^{N-1}\frac{1 - \cos(2\pi pm/N)}{4\sin^2(\pi p/N)} = \frac{m(N{-}m)}{2}$
@@ -3002,6 +3006,8 @@ $\delta C_1 > 0.79$ to change the spectral flow).
 \subsection{The Kasparov product}
 \label{sec:kk-programme}
 
+The representation-ring invariant $[\mu_N(\xi)]$ of Section~\ref{sec:k-theory} classifies stability phases but cannot detect fractional Morse indices at thresholds (where the gap condition fails). The Kasparov product provides this finer information, extending the classification to arithmetic surfaces.
+
 Theorem~\ref{thm:spectral-flow} uses the \emph{trace}
 $|\delta C_1| = |\tau_{z_0}(h_\xi^\Gamma)|$ to control
 the spectral flow.
@@ -3205,9 +3211,7 @@ systole $\ell_0 \ge 2\operatorname{arccosh}(2) \approx 2.63$:
 the $\ell^1$ bound gives
 $\|h\| \le 12\,G(\ell_0) \ll 0.79$, so the gap condition
 holds for all $N \le 15$.
-Conditionally on the Selberg $\tfrac{1}{4}$-conjecture
-($\lambda_1 \ge 1/4$ for congruence subgroups, unproved
-in general but verified for small level),
+Conditionally on $\lambda_1 > 1/4$ (which holds unconditionally for the Bolza surface: $\lambda_1 = 3.84$),
 systoles of congruence surfaces grow logarithmically
 in the area, extending the gap to all $N \le 23$.
 
