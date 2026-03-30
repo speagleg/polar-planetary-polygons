@@ -1068,10 +1068,15 @@ at central charge
   c_{\mathrm{SU}(3)}
   = \frac{k\dim(\mathrm{SU}(3))}{k{+}h^\vee} = \frac{8}{4} = 2.
 \end{equation}
-This is \emph{additive} to $c_{\mathrm{grav}} = 12\,b(N)$:
-the total boundary theory has
+This is \emph{subsumed within} $c_{\mathrm{grav}} = 12\,b(N)$
+at leading order: $c_{\mathrm{SU}(3)} = 2$ is an $O(1)$
+contribution to $c \approx N^2$, hence an $O(1/N^2)$
+correction.
+The total boundary theory has
 $c_{\mathrm{tot}} = c_{\mathrm{grav}} + c_{\mathrm{SU}(3)}
-+ c_{\mathrm{SU}(2)} + c_{\mathrm{U}(1)}$.
++ c_{\mathrm{SU}(2)} + c_{\mathrm{U}(1)}$,
+but gauge central charges modify the leading $12\,b(N)$
+only at $O(1/N^2)$.
 \end{proof}
 
 \noindent
@@ -2228,8 +2233,18 @@ However, for the Havelock bath they are
   = C_1'(\rho)\,\delta_{mm'}.
 \end{equation}
 The off-diagonal matrix elements vanish
-\emph{exactly} because $C_1$ is mode-independent
-(the Havelock identity, Paper~I).
+\emph{exactly} because the eigenvectors of the Havelock
+Hessian are the $\mathbb{Z}_N$ Fourier modes
+$|m\rangle = N^{-1/2}\sum_j \omega^{mj}$, which are
+fixed by the group structure and do \emph{not} depend
+on~$\rho$.
+Hence $\langle m|\partial/\partial\rho|m'\rangle = 0$:
+the non-adiabatic coupling vanishes because the
+eigenvectors are $\rho$-independent.
+The eigenvalue uniformity $\partial\lambda_m/\partial\rho
+= C_1'(\rho)$ (the Havelock identity, Paper~I)
+is a \emph{consequence} of this eigenvector independence,
+not its cause.
 The breathing motion shifts all angular frequencies
 uniformly, without mixing modes.
 Therefore there are \emph{no non-adiabatic transitions}
@@ -3036,9 +3051,14 @@ The structural predictions---which carry no uncertainty---are:
 The right-handed neutrino $\nu_R$ is an $\mathrm{SU}(2)$ singlet
 with $N = 4$ KK mass $\mu_4 = 3/2$
 (vs.\ $\mu_4 = 1/2$ for the doublet $\nu_L$).
-Its Majorana mass is \emph{derived} from the Pell identity:
+Its Dirac KK mass is \emph{derived} from the Pell identity.
+In the Seifert framework, $\nu_R$ is a Kaluza--Klein mode on~$S^1$
+with a \emph{Dirac} bulk mass; there is no Majorana mass term
+and lepton number is exactly conserved.
+The ``seesaw'' is a Dirac (type-III) seesaw: the heavy state
+is a Dirac KK mode at scale~$M_{\mathrm{KK}}$, not a Majorana state.
 \begin{equation}\label{eq:M-R}
-  M_R = M_{\mathrm{poly}} \times \varepsilon_7^{N_{\mathrm{grav}}}
+  M_{\mathrm{KK}} = M_{\mathrm{poly}} \times \varepsilon_7^{N_{\mathrm{grav}}}
   \times f(m^*, N_{\mathrm{grav}})
   = M_{\mathrm{poly}} \times \varepsilon_7^7 \times 6
   \sim 10^{13}\text{--}10^{14}\;\mathrm{GeV}.
@@ -3048,16 +3068,16 @@ The three factors have distinct physical origins:
 = \exp(S_{\mathrm{BO}} + \sqrt{2/\pi}\,\ln\varepsilon_7/2)$,
 using the Pell identity~\eqref{eq:pell-identity}: the BO instanton
 that generates the electroweak hierarchy also generates the
-Majorana mass, with the WDW mass gap correction replacing the
+KK mass, with the WDW mass gap correction replacing the
 bounce factor;
 (ii)~$f(3,7) = 6 = j(j{+}1)$ is the graviton Casimir---the
-lepton-number-violating operator couples through the $N = 7$
+heavy KK mode couples through the $N = 7$
 critical mode;
 (iii)~$M_{\mathrm{poly}}$ is the polygon scale (from
 $\sin^2\theta_W$ running).
-No free parameter remains: $M_R$ is determined by~$N = 7$.
+No free parameter remains: $M_{\mathrm{KK}}$ is determined by~$N = 7$.
 
-The type-I seesaw $m_\nu = m_D^2/M_R$ with Dirac masses
+The Dirac seesaw $m_\nu = m_D^2/M_{\mathrm{KK}}$ with Dirac masses
 from properly normalised radial profiles on~$\mathbf{H}^2$
 (at warp parameter $\rho^* = 1.734$) gives:
 \begin{center}
@@ -3073,21 +3093,21 @@ Gen & Pair & $\mu_7$ & $m_D$ & $m_\nu$ \\
 \end{tabular}
 \end{center}
 \noindent
-Predictions ($M_R$ from eq.~\eqref{eq:M-R}; see below for
+Predictions ($M_{\mathrm{KK}}$ from eq.~\eqref{eq:M-R}; see below for
 parameter status):
 \begin{itemize}
 \item \emph{Normal hierarchy}: $m_3 \gg m_2 \gg m_1$.\quad\checkmark
 \item $\Delta m^2_{\mathrm{atm}} = 2.45 \times 10^{-3}\;\mathrm{eV}^2$
-  (this fixes the overall scale $M_R$; see the parameter
+  (this fixes the overall scale $M_{\mathrm{KK}}$; see the parameter
   discussion below).
 \item $\Delta m^2_{\mathrm{sol}} = 7.8 \times 10^{-5}\;\mathrm{eV}^2$
   (observed: $7.5 \times 10^{-5}$; $3\%$ match).
   The \emph{ratio} $\Delta m^2_{\mathrm{atm}}/\Delta m^2_{\mathrm{sol}}
   = 31.5$ (observed: $32.5$, $3\%$) is a genuine prediction:
-  it is $M_R$-independent and determined entirely by the Yukawa texture.
-  The improvement from $2.3\times$ (diagonal $M_R$) to $3\%$
+  it is $M_{\mathrm{KK}}$-independent and determined entirely by the Yukawa texture.
+  The improvement from $2.3\times$ (diagonal $M_{\mathrm{KK}}$) to $3\%$
   comes from the $\mathbb{Z}/3\mathbb{Z}$ Galois twist,
-  which generates off-diagonal $M_R$ entries suppressed by
+  which generates off-diagonal $M_{\mathrm{KK}}$ entries suppressed by
   $e^{-\sqrt{|\Delta f|}\,\rho^*/N}$
   ($\Delta f = |f_i {-} f_j|$ the Casimir mismatch,
   $1/N$ the natural centrifugal barrier scale
@@ -3221,13 +3241,13 @@ the compact boson level $K = 1$ is the self-dual radius
 \paragraph{Neutrino sector.}
 The Galois centrifugal suppression $a = 1/N = 1/7$ is derived from the
 orbifold angular scale.
-The Majorana mass scale $M_R$ is set by eq.~\eqref{eq:M-R}
-($M_R = M_{\mathrm{poly}} \times \varepsilon_7^7 \times 6$);
+The Dirac KK mass scale $M_{\mathrm{KK}}$ is set by eq.~\eqref{eq:M-R}
+($M_{\mathrm{KK}} = M_{\mathrm{poly}} \times \varepsilon_7^7 \times 6$);
 the overall normalisation is calibrated to
 $\Delta m^2_{\mathrm{atm}}$, making this one input.
 The \emph{ratio} $\Delta m^2_{\mathrm{atm}}/\Delta m^2_{\mathrm{sol}}$
 and the mass hierarchy are genuine predictions
-($M_R$-independent).
+($M_{\mathrm{KK}}$-independent).
 
 \paragraph{Total.}
 One discrete input ($N = 7$) plus one dimensionful
@@ -4231,7 +4251,9 @@ LEGEND/nEXO for the absence of neutrinoless double beta decay):
 \item Normal neutrino hierarchy (if inverted $\to$ falsified);
 \item $w = -1$ exactly (if $w \ne -1$ $\to$ falsified:
   no dynamical dark energy in the framework);
-\item No $0\nu\beta\beta$ (Dirac neutrinos from the Seifert structure);
+\item No $0\nu\beta\beta$ (Dirac neutrinos from the Seifert structure:
+  the neutrino masses arise from the Dirac seesaw with a KK mass
+  on~$S^1$, not a Majorana mass, so lepton number is exactly conserved);
 \item Proton exactly stable ($\mathbb{Z}_{56}$ conservation;
   Hyper-K will reach $\tau > 10^{35}$\,yr);
 \item $\theta_{\mathrm{QCD}} = 0$, not $\sim\!10^{-10}$
