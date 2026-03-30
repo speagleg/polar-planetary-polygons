@@ -676,8 +676,21 @@ level $k = c/6$ (allowed for non-compact groups);
 the compact gauge sectors have integer levels
 $k = 1$ for SU$(2)$, $K = 1$ for $\mathrm{U}(1)$
 (required by large gauge invariance).
-These are \emph{independent topological sectors} on the same
-manifold, not a single CS theory at one level.
+These are independent topological sectors on the same manifold.
+Their coexistence is well-defined because the gauge algebras
+are orthogonal ($\mathrm{Tr}(T_a^{G_i} T_b^{G_j}) = 0$ for
+$i \ne j$), so the CS action is additive
+($S_{\mathrm{total}} = \sum_i S_i$) and the path integral
+factorises ($Z = \prod_i Z_i$).
+The irrational gravitational level $k = 2b(N)$ does not affect
+the compact sectors at integer level, and vice versa.
+The boundary CFT is a tensor product
+$\mathrm{WZW}_{\mathrm{grav}} \otimes \mathrm{WZW}_{\mathrm{gauge}}$
+with additive central charges:
+$c_{\mathrm{total}} = c_{\mathrm{grav}} + c_{\mathrm{SU}(3)}
++ c_{\mathrm{SU}(2)} + c_{\mathrm{U}(1)}
+= (12b(N){-}4) + 2 + 1 + 1 = 12b(N)$
+(\texttt{proofs/cs\_sector\_coexistence.py}).
 
 \emph{Step~3 (Zero mode at $N = 4$).}
 At $N = 4$, the critical mode $m^* = 2$ has KK mass
