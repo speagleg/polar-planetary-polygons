@@ -3233,6 +3233,55 @@ which equals the Rindler energy by the
 Bisognano--Wichmann theorem for the boundary CFT
 (Paper~IV, Theorem~\ref*{IV-thm:nonlinear-einstein}).
 
+\begin{proposition}[Partition function verification via the Gauss product]
+\label{prop:partition-verification}
+The polygon partition function
+$Z_{\mathrm{poly}} = \sum_N e^{-b(N)}\,Z_{\mathrm{frozen}}(N)$
+equals the Chern--Simons partition function
+$Z_{\mathrm{CS}}$ on the Seifert manifold, with three
+independent mathematical inputs:
+\begin{enumerate}
+\item \emph{Gauss product (algebra, Paper~I):}
+  $b(N) = N(N{+}1)/12 + \frac{1}{N{-}1}\sum_{m=1}^{N-1}
+  \ln\sin(\pi m/N)$.
+  The transcendental part of~$b(N)$ is the
+  \emph{mean log-sine} over the $N{-}1$ pairwise chord
+  distances---the regularised self-energy from the identity
+  $\prod_{m=1}^{N-1}\sin(\pi m/N) = N/2^{N-1}$.
+\item \emph{Cheeger--M\"uller theorem (differential geometry):}
+  the analytic torsion $\tau_{\mathrm{an}} = \prod|{\lambda_m}|$
+  (spectral determinant of the gauge-covariant Laplacian)
+  equals the Reidemeister torsion $\tau_R$ (combinatorial
+  invariant of the Seifert manifold).
+  For the $N$-gon flat connection:
+  $Z_{\mathrm{frozen}}(N) = \tau_{\mathrm{an}}^{-1/2}$
+  is the standard one-loop normalization.
+\item \emph{CMS--CS Casimir identification
+  (Proposition~\ref{prop:casimir-havelock}):}
+  the vortex Hessian eigenvalues $\lambda_m = f(m^*){-}f(m)$
+  are the eigenvalues of the cone Laplacian at the
+  $\mathbb{Z}_N$-symmetric point (proved via the
+  Helgason symmetric space theorem, \S\ref{sec:graviton}).
+\end{enumerate}
+The same Gauss product $\prod\sin(\pi m/N) = N/2^{N-1}$
+appears on both sides:
+\begin{itemize}
+\item \emph{Vortex side}: it regularises the self-energy,
+  giving the transcendental part of~$b(N)$;
+\item \emph{Spectral side}: it determines the cone spectral
+  zeta function $\zeta'_{\mathrm{cone}}(0)$, giving the
+  analytic torsion.
+\end{itemize}
+They agree because both compute the regularised determinant
+of the same $\mathbb{Z}_N$-circulant $\csc^2$ matrix---the
+vortex side via the Havelock decomposition (Paper~I),
+the spectral side via the zeta function
+(Cheeger--M\"uller).
+Points~(1) and~(2) are mathematical theorems.
+Point~(3) is the only step using a physical identification
+(the CMS--CS correspondence).
+\end{proposition}
+
 \paragraph{Matter coupling.}
 On a quotient $\Gamma\backslash\mathbf{H}^2$, the Selberg
 correction $\delta C_1$ shifts the threshold
