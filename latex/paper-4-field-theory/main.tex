@@ -878,63 +878,44 @@ representation theory; part~(b) is the Witten CS/WZW
 theorem (1989), which predates AdS/CFT.
 \end{theorem}
 
-\begin{proof}
-Seven steps: Steps~1--5 establish the representation structure
-(part~a); Steps~6--7 establish the gauge dynamics (part~b).
+\begin{proof}[Proof of part~(a): representation structure]
+Five algebraic steps.
 
-\emph{Step~1 (Frobenius $\to$ $\mathbb{Z}/3\mathbb{Z}$ orbits).}
-The Frobenius $\sigma\colon m \mapsto 2m \bmod 7$ has order~$3$
-(since $2^3 = 8 \equiv 1 \pmod{7}$) and generates
-$\mathbb{Z}/3\mathbb{Z} \subset (\mathbb{Z}/7\mathbb{Z})^\times$.
-The six Havelock modes $m = 1, \ldots, 6$ split into two orbits:
-\[
-  O_+ = \{1,\, 2,\, 4\}, \qquad
-  O_- = \{3,\, 5,\, 6\} = \{7{-}m : m \in O_+\}.
-\]
+\emph{1.\ Frobenius orbits.}
+$\sigma\colon m \mapsto 2m \bmod 7$ has order~$3$
+($2^3 \equiv 1$), giving orbits
+$O_+ = \{1, 2, 4\}$, $O_- = \{3, 5, 6\}$.
 
-\emph{Step~2 (Cyclic action).}
-On~$O_+$, $\sigma$ acts by the cyclic permutation
-$\phi_1 \mapsto \phi_2 \mapsto \phi_4 \mapsto \phi_1$.
+\emph{2.\ Cyclic action.}
+On~$O_+$: $\phi_1 \mapsto \phi_2 \mapsto \phi_4 \mapsto \phi_1$.
 
-\emph{Step~3 (Diagonalisation and McKay embedding).}
-Set $\omega = e^{2\pi i/3}$.  Define
-\[
-  \eta_0 = \tfrac{1}{\sqrt{3}}(\phi_1 + \phi_2 + \phi_4), \quad
-  \eta_1 = \tfrac{1}{\sqrt{3}}(\phi_1 + \omega\phi_2 + \omega^2\phi_4), \quad
-  \eta_2 = \tfrac{1}{\sqrt{3}}(\phi_1 + \omega^2\phi_2 + \omega\phi_4).
-\]
-Then $\sigma(\eta_0) = \eta_0$ (invariant),
-$\sigma(\eta_1) = \omega\,\eta_1$,
-$\sigma(\eta_2) = \bar{\omega}\,\eta_2$.
-On the charged sector $(\eta_1, \eta_2) \in \mathbb{C}^2$:
-\[
-  \sigma = \mathrm{diag}(\omega,\, \omega^{-1}) \in \mathrm{SU}(2),
-\]
-since $\det(\sigma) = \omega \cdot \omega^{-1} = 1$.
-This is the \emph{standard} McKay embedding of $\mathbb{Z}/3\mathbb{Z}
-\hookrightarrow \mathrm{SU}(2)$, giving the $A_2$ Dynkin diagram
-of $\mathrm{SU}(3)$ via the McKay correspondence
+\emph{3.\ McKay embedding.}
+Diagonalise: $\eta_k = \tfrac{1}{\sqrt{3}}\sum_j \omega^{jk}\phi_{2^j}$
+($\omega = e^{2\pi i/3}$).
+Then $\sigma(\eta_1) = \omega\eta_1$,
+$\sigma(\eta_2) = \bar\omega\eta_2$, so
+$\sigma = \mathrm{diag}(\omega, \omega^{-1}) \in \mathrm{SU}(2)$:
+the McKay embedding $\mathbb{Z}/3 \hookrightarrow \mathrm{SU}(2)
+\to A_2 = \mathrm{SU}(3)$
 \citep{McKay1980, GonzalezSprinberg1983}.
 
-\emph{Step~4 (Klein quartic $\to$ $\mathrm{PSL}(2,\mathbb{F}_7)
-\hookrightarrow \mathrm{SU}(3)$).}
-The level-$7$ modular curve
-$X(7) = \Gamma(7)\backslash\mathbf{H}^2$ has genus~$3$
-and $\mathrm{Aut}(X(7)) = \mathrm{PSL}(2,\mathbb{F}_7)$,
-order~$168$ (the Hurwitz bound).
-The holomorphic differentials $H^0(X(7),\Omega^1)$ carry
-the faithful $\chi_3$ of $\mathrm{PSL}(2,\mathbb{F}_7)$.
-The Frobenius $\sigma$ of Step~1 generates the
-$\mathbb{Z}/3\mathbb{Z} \subset \mathrm{PSL}(2,\mathbb{F}_7)$
-common to both paths.
+\emph{4.\ Klein quartic.}
+$X(7) = \Gamma(7)\backslash\mathbf{H}^2$ (genus~$3$,
+$\mathrm{Aut} = \mathrm{PSL}(2,\mathbb{F}_7)$, order~$168$).
+The differentials $H^0(X(7),\Omega^1)$ carry $\chi_3$;
+$\sigma$ generates
+$\mathbb{Z}/3 \subset \mathrm{PSL}(2,\mathbb{F}_7)$.
 
-\emph{Step~5 (Tensor algebra $=$ Eightfold Way).}
-The tensor products reproduce the full $\mathrm{SU}(3)$ algebra:
+\emph{5.\ Eightfold Way.}
 $\chi_3 \otimes \bar\chi_3 = \chi_1 \oplus \chi_8$,
 $\mathrm{Sym}^2(\chi_3) = \chi_6$,
 $\bigwedge^2(\chi_3) = \bar\chi_3$.
 The adjoint $\chi_8$ is irreducible under
-$\mathrm{PSL}(2,\mathbb{F}_7)$ (verified from the character table).
+$\mathrm{PSL}(2,\mathbb{F}_7)$.
+\end{proof}
+
+\begin{proof}[Proof of part~(b): gauge dynamics]
+Three steps: dreibein chain, nonlinear extension, KK reduction.
 
 \emph{Step~6a (dreibein chain).}
 The charged Havelock modes $\eta_1, \eta_2$ (Step~3) are
@@ -1152,22 +1133,6 @@ $c_{\mathrm{grav}} = 12\,b(N) - 4$, with
 $G = 3/(2c_{\mathrm{tot}}) = 3/(2 \times 12\,b(N))$
 using the total central charge in the Brown--Henneaux relation.
 \end{proof}
-
-\noindent
-The logical chain is:
-Frobenius on modes (Step~1, exact Galois theory)
-$\to$ $\mathbb{Z}/3 \subset \mathrm{SU}(2)$ (Step~3, McKay embedding)
-$\to$ linearised CS boundary modes (Step~6a, dreibein chain)
-$\to$ McKay $+$ DHVW $\to$ $\mathrm{SU}(3)_1$
-as a separate gauge sector (Step~7a)
-$\to$ boundary currents $J^a(z)$ (Step~8, CS/WZW).
-Steps~1--5 and~7a--8 are proved theorems.
-Step~6a establishes the $\mathbb{Z}/3\mathbb{Z}$
-action at the linearised level; the nonlinear extension
-follows from the exact target-space automorphism
-(Step~7b: left multiplication preserves the full WZW action).
-No step involves a definition or postulation of the
-gauge group.
 
 \paragraph{Independent confirmation (ALE resolution).}
 The $K$-matrix approach
