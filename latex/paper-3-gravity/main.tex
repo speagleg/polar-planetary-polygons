@@ -63,55 +63,17 @@ This paper develops the consequences:
     Einstein equations.
 \end{itemize}
 
-\paragraph{Logical architecture of the central charge.}
-A single quantity $c = 12\,b(N)$ appears in four roles in this paper:
-as the WDW mass parameter (\S\ref{sec:wdw}),
-the CS level $k = c/6$ (\S\ref{sec:graviton}),
-the orbifold CFT central charge (\S\ref{sec:three-layer}),
-and the Todd-class correction in the equivariant index
-(\S\ref{sec:three-layer}, Proposition~\ref{prop:equiv-rr}).
-These are \emph{not four independent claims};
-they form a single logical chain:
-\begin{enumerate}
-\item \emph{Definition (classical).}
-  The three-layer decomposition of the Havelock eigenvalue
-  $\lambda_m = C_1 - f_m + \delta_m$ extracts a unique
-  mode-independent offset $b(N)$ (Proposition~\ref{prop:equiv-rr}).
-  Define $c := 12\,b(N)$.
-  This is a \emph{classical} computation: $b(N)$ is the unique
-  value making the Toeplitz determinants of the $\csc^2$ kernel
-  positive for all angular modes (a total-positivity condition
-  on the circulant matrix, requiring no quantum input).
-\item \emph{The WDW kinetic coefficient.}
-  The Feynman--Kac mapping of the Onsager partition function
-  (\S\ref{sec:lichnerowicz}, Proposition~\ref{prop:wdw-lambda}) produces a kinetic
-  coefficient in the WDW equation.
-  This coefficient is $c = 12\,b(N)$ --- the same $c$
-  defined in step~1 from the eigenvalue data.
-  No gravitational input is required: $c$ is determined
-  by the vortex spectrum alone.
-\item \emph{Consistency check (Brown--Henneaux).}
-  \emph{Define} $G := 3\ell/(2c)$ (with $\ell = 1$).
-  The Brown--Henneaux relation $c = 3\ell/(2G)$ is then
-  a tautology ($c = c$); $G$ is a \emph{derived quantity},
-  not independently determined.
-  The consistency content is that a \emph{single} $c$
-  extracted from the eigenvalue data simultaneously
-  serves as the Virasoro central charge, the CS level
-  ($k = c/6$), and Newton's constant ($G = 3/(2c)$).
-  This identification is a \emph{consequence}, not an input.
-\item \emph{Orbifold matching.}
-  At leading order $c \approx N^2$,
-  the correspondence with the $\mathbb{Z}_N$ orbifold CFT
-  (Proposition~\ref{prop:orbifold-havelock})
-  follows from $c/(24N^2) \approx 1/2$.
-  The $O(N)$ discrepancy between $c$ and $N^2$
-  is the regularisation of the vortex self-energy.
-\end{enumerate}
-Every subsequent use of $c$ in this paper traces back to
-step~1 (extraction from the eigenvalue data).
-The gravitational interpretation (Brown--Henneaux) is a
-consistency check at step~3, not a logical prerequisite.
+\paragraph{The central charge.}
+The quantity $c = 12\,b(N)$ is extracted from the Havelock
+eigenvalue data as the unique mode-independent offset
+(Proposition~\ref{prop:equiv-rr}).
+It serves simultaneously as the WDW kinetic coefficient
+(\S\ref{sec:wdw}), the CS level $k = c/6$
+(\S\ref{sec:graviton}), the Brown--Henneaux central charge
+($G := 3\ell/(2c)$), and the orbifold CFT ground-state
+energy (\S\ref{sec:three-layer}).
+If any two roles required different values of~$c$, the
+framework would be falsified.
 
 %% ====================================================================
 \section{The graviton at $N = 7$ and the Chern--Simons lift}
@@ -326,7 +288,7 @@ are the polygon modes (Paper~IV, Theorem~\ref*{IV-thm:su3}, Step~6).
 In $2{+}1$D, the boundary theory of CS gravity and the
 Kirchhoff/Havelock vortex system are mathematically
 identical: the CMS/CS operator coincidence is a
-spectral isomorphism (eigenvalue matching on each mode), not a spectral accident.
+spectral isomorphism (eigenvalue matching on each mode).
 \end{remark}
 
 \paragraph{The Chern--Simons lift.}
@@ -1237,7 +1199,7 @@ retains the full $\rho$-dependence of the Green's function.
 
 \emph{Logical status of the coefficient $c = 12\,b(N)$.}
 The value $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$ is
-\emph{computed}, not fitted: it is the unique mode-independent
+\emph{computed}: it is the unique mode-independent
 offset in the Havelock decomposition
 $\lambda_m = C_1 - f_m + \delta_m$
 (Proposition~\ref{prop:equiv-rr}), proved analytically in
@@ -1483,7 +1445,7 @@ is the spectral analogue of the equivariant Riemann--Roch theorem:
 $f_m$ is the $c_1$-contribution (twist-field dimension),
 $b(N)$ is the Todd-class correction (vacuum energy $\approx c/12$),
 and $\delta_m$ is the one-loop remainder (the Weyl anomaly).
-The central charge is not a fitted parameter: it is $c = 12\,b(N)$,
+The central charge is $c = 12\,b(N)$,
 determined by the index theorem.
 
 \paragraph{Exact Weyl anomaly formula.}
@@ -2028,7 +1990,7 @@ interacting via the scalar Green's function of~$(S, g)$.
 If:
 \begin{enumerate}
 \item[\textup{(H1)}]
-  \emph{Havelock structure} \textbf{[theorem, not assumption]}:
+  \emph{Havelock structure} :
   the angular Hessian eigenvalues
   have the form $\lambda_m = C_1(x,\varepsilon) - m(N{-}m)/2$
   with $C_1$ independent of~$m$.
@@ -2054,7 +2016,7 @@ If:
   dominated by the entropy-maximising macrostate---selects
   this unique maximum.
 \item[\textup{(H3)}]
-  \emph{Hadamard universality} \textbf{[theorem, not assumption]}:
+  \emph{Hadamard universality} :
   condition~\textup{(H1)} holds
   at every point~$x \in S$.
   The Hadamard parametrix
@@ -2451,10 +2413,10 @@ The Szeg\H{o}--Toeplitz convergence analysis
 (Remark~\ref{rem:szego-toeplitz} below) sharpens the
 FEM convergence rate to $O(h^\infty)$ using the
 analyticity of the $\csc^2$ symbol; it is a quantitative
-refinement, not a logical prerequisite for the proof.
+refinement.
 
 \emph{Szeg\H{o}--Toeplitz convergence of the Regge entropy
-(quantitative refinement---not a logical prerequisite for the
+(quantitative refinement; may be skipped without loss of
 proof; may be skipped without loss of continuity).}
 \label{rem:szego-toeplitz}
 The Havelock Hessian at each Regge vertex is a
