@@ -1634,6 +1634,61 @@ $v$ from the BO instanton, and $\lambda_H$ from the orbifold
 effective potential.
 One integer~$N$ and one dimensionful scale ($v$ or $M_P$).
 
+\begin{remark}[From minisuperspace to $3{+}1$D QFT]
+\label{rmk:minisuperspace-4d}
+The WDW equation is $1$D quantum mechanics (the breathing
+mode~$\rho$).
+The full $3{+}1$D theory is assembled from four ingredients,
+each with its own origin:
+\begin{center}
+\small
+\begin{tabular}{llll}
+\toprule
+Dimension & Origin & DOF & Role \\
+\midrule
+Time ($1$D) & Feynman--Kac on $\rho(t)$ &
+  breathing mode & WDW clock \\
+Spatial ($2$D) & $\mathbf{H}^2$ base &
+  gauge fields $A_i(x)$, metric $g_{ij}(x)$ &
+  YM$_2$ $+$ Einstein \\
+Fiber ($1$D) & $S^1$ KK tower &
+  massive modes $\Phi_n(x)\,e^{in\varphi}$ &
+  extra dimension \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+The ``promotion from minisuperspace to QFT'' is not an
+assumption---it is the standard ADM decomposition
+(spatial slice $+$ time evolution $=$ spacetime):
+\begin{enumerate}
+\item The $\mathbf{H}^2 \times S^1$ Seifert manifold provides
+  \emph{three spatial dimensions} with infinitely many spatial
+  modes (YM$_2$ on~$\mathbf{H}^2$, KK tower on~$S^1$).
+\item The Feynman--Kac theorem adds the \emph{time direction}
+  by mapping the Onsager--Machlup path integral to the
+  WDW Hamiltonian.
+  This produces Euclidean (imaginary) time;
+  the Wick rotation $t_E \to it_L$ gives Lorentzian time.
+  The continuation is well-defined because the BO potential
+  $V(\rho) = \ln(2\sinh\rho) + b(N) - f_{m^*}$ is
+  real-analytic for $\rho > 0$.
+\item \emph{Lorentz invariance} of the $4$D effective theory
+  is not an additional assumption: it follows from the
+  Einstein equations $R_{\mu\nu} = \Lambda\,g_{\mu\nu}$
+  (Theorem~\ref{thm:polygon-einstein}, Steps~1--3),
+  which guarantee local Lorentz symmetry.
+\end{enumerate}
+The WDW equation describes the \emph{zero mode}
+(spatially homogeneous breathing).
+The full QFT is the product:
+$\mathcal{H}_{\mathrm{4D}} = \mathcal{H}_{\mathrm{WDW}}
+\otimes \mathcal{H}_{\mathrm{YM}_2}
+\otimes \mathcal{H}_{\mathrm{KK}}$,
+where the YM$_2$ and KK Hilbert spaces carry infinitely
+many spatial degrees of freedom.
+\end{remark}
+
 %% ====================================================================
 \section{One-loop corrections}
 \label{sec:loops}
