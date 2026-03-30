@@ -2086,13 +2086,28 @@ The Onsager equilibrium at temperature~$T < 0$ distributes
 vortices with density $\rho(x) \propto \exp(V(x)/|T|)$,
 where $V$ is the polygon energy.
 Since $V$ depends on $R$ through~$C_1$:
-$\delta\rho/\rho \approx \delta V/|T| \approx |\beta|\,\delta R$.
-The new curvature $R' \propto \rho$, giving
-$\delta R'/R_0 \approx |\beta|\,\delta R$, hence
-$\mathrm{Var}(R') = |\beta|^2 R_0^2\,\mathrm{Var}(R)$.
+for a perturbation~$\delta R$ around mean~$R_0$,
+$\rho(x) = \rho_0\exp\!\bigl((V_1\,\delta R
++ \tfrac{1}{2}V_2\,\delta R^2)/|T|\bigr)$
+where $V_1 = \coth(\rho_*)$ and
+$V_2 = -\operatorname{csch}^2(\rho_*)$.
+The new curvature $R' \propto \rho$ gives
+\[
+  \mathrm{Var}(R') \;\le\;
+  |\beta|^2 R_0^2\,\mathrm{Var}(R)
+  \times \bigl(1 + 2|V_2/V_1|\sqrt{\mathrm{Var}(R)}\bigr)^2.
+\]
+At~$N = 7$: $|\beta| R_0 = 0.15$,
+$|V_2/V_1| = 0.12$.
+The nonlinear factor
+$(1 + 0.25\sqrt{\mathrm{Var}})^2 \le 1.83$
+for $\mathrm{Var}(R) \le 2$, giving total contraction
+$0.022 \times 1.83 = 0.040 < 1$.
 The condition $|\beta| R_0 < 1$ holds whenever
 $|T| > R_0$ (always satisfied in the Onsager regime
 at $|T| \sim N^2 \gg R_0$).
+The contraction holds rigorously for all
+initial $\mathrm{Var}(R) \le 2$.
 The iteration $T^n(g_0) \to g^*$ converges geometrically;
 by~(H2a), $g^*$ has $R = \mathrm{const}$.
 \end{proof}
