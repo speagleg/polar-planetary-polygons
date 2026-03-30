@@ -24,7 +24,7 @@ $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
 WZW orbifold).
 From two structural inputs ($N = 7$ from the Pell equation and $M_P$), one calibration ($\Delta m^2_{\mathrm{atm}}$), and three structural identifications (CMS$=$CS, vortex$=$spacetime, McKay$=$gauge group),
 the framework yields $\sin^2\theta_W = 3/11$,
-$\delta_{\mathrm{CKM}} = 70.2^\circ$, and
+$\delta_{\mathrm{CKM}} = 70.2^\circ$ (Theorem~\ref{thm:ckm-phase}, derived in four steps in \S\ref{sec:ckm-np}), and
 $H_0 = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$
 (derived in \S\ref{sec:cosmology} from the $N = 11$ tunneling action $S_{\mathrm{BO}}(11) = 102.724$; the chain $M_P \to v \to \ell \to H_0$ is explicit at eq.~\eqref{eq:ell-cc});
 all structural choices (geometry, CS levels, cosmological
@@ -441,6 +441,7 @@ At distances $r \gg 1/N$ (the $S^1$ radius),
 the KK tower is integrated out and gravity is mediated by the
 boundary stress tensor~$T$; at $r \ll 1/N$, the full KK tower
 contributes.
+After Kaluza--Klein reduction on $S^1$, the $n = 0$ mode of $T(z)$ gives a massless 4D spin-$2$ field with propagator $G_4(\mathbf{x}) \sim 1/|\mathbf{x}|^2$ for $|\mathbf{x}| \gg R_{S^1}$---the standard 4D graviton. At distances $|\mathbf{x}| \ll R_{S^1}$, the propagator crosses over to the 3D form $1/|\mathbf{x}|$. This is standard Kaluza--Klein dimensional reduction (the $n = 0$ KK mode is massless and mediates the long-range $1/r^2$ force).
 \end{remark}
 
 %% ====================================================================
@@ -1028,6 +1029,7 @@ coefficients---not an approximation.
 The Casimir multiset invariance is a \emph{consequence}:
 the Havelock eigenvalues are spectral data of the
 $G_L$-invariant theory, so they must respect the $G_L$ symmetry.
+The $G_L$ invariance is a \emph{global} symmetry of the full WZW field theory, not a property restricted to the $\mathbb{Z}_N$-symmetric submanifold. The polygon modes are specific field configurations $g(x)$; the $\mathbb{Z}/3\mathbb{Z}$ symmetry maps them to other configurations that lie within the \emph{same} WZW model (by $G_L$ invariance). No analytic continuation or extension from a submanifold to the full target space is required---the symmetry acts on the entire field space, including configurations away from the symmetric locus.
 The $\mathrm{SU}(3)$ gauge group is therefore \emph{determined}
 by the Frobenius action on the Havelock modes
 (via McKay $+$ DHVW), not postulated
@@ -1223,10 +1225,7 @@ The electroweak mixing angle at the CS threshold is
 \end{equation}
 The Casimir factors $C_2(Q) = Q^2$ and $C_2(j) = j(j{+}1)$
 weight how the matter field couples to each gauge sector.
-The Sugawara decomposition $T = T_{\mathrm{SU}(2)} + T_{\mathrm{U}(1)}$
-of the stress tensor gives conformal weight
-$h_{j,Q} = j(j{+}1)/(k{+}h^\vee) + Q^2/K$;
-equation~\eqref{eq:weinberg-cs} is $\sin^2\theta_W = h_{\mathrm{U}(1)}/h_{\text{total}}$.
+The mixing angle uses the CS gauge coupling $g_W^2 = 4\pi/(k{+}h^\vee)$ and the matter Casimir $C_2(j) = j(j{+}1)$ as independent inputs; the Sugawara conformal weight $h = C_2/(k{+}h^\vee) = 2/3$ is not used (the mixing angle is a coupling-strength ratio, not a conformal weight).
 \end{proof}
 
 \paragraph{Matter versus gauge representations.}
