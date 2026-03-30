@@ -656,40 +656,18 @@ as~$\mathrm{SU}(2)$; the Sugawara formula and the Casimir
 eigenvalue are identical in both real forms.)
 The Chern--Simons level $k = 2\,b(N)$ is not integer---it contains
 the irrational terms $\ln 2$ and $(\ln N)/(N{-}1)$ from~$b(N)$.
-This is \emph{consistent}: for the non-compact gauge group
-$\mathrm{SL}(2,\mathbb{R})$, the level quantisation constraint
-is weaker than for compact groups.
-In the semiclassical regime $k = c/6 \gg 1$ (satisfied for
-$N \ge 4$ where $c \ge 17$), integrality corrections are
-$O(1/k)$ and the CS path integral is well-defined
-\citep{Witten1988}.
-By contrast, the compact gauge sectors have integer levels:
-$k = 1$ for SU$(2)$ (\S\ref{sec:weinberg}),
-$K = \mathrm{Cartan}(A_2)$ for SU$(3)$ (\S\ref{sec:gauge-group}).
-The coexistence is consistent: the boundary CFT decomposes as
-$c = c_{\mathrm{grav}} + c_{\mathrm{SU}(3)} + c_{\mathrm{SU}(2)}
-+ c_{\mathrm{U}(1)}$
-(Definition~\ref{def:central-charge}, central charge table),
-with each sector having its own CS formulation at its own level.
-The gravitational $\mathrm{SL}(2,\mathbb{R})$ has irrational
-level $k = c/6$ (allowed for non-compact groups);
-the compact gauge sectors have integer levels
-$k = 1$ for SU$(2)$, $K = 1$ for $\mathrm{U}(1)$
-(required by large gauge invariance).
-These are independent topological sectors on the same manifold.
-Their coexistence is well-defined because the gauge algebras
-are orthogonal ($\mathrm{Tr}(T_a^{G_i} T_b^{G_j}) = 0$ for
-$i \ne j$), so the CS action is additive
-($S_{\mathrm{total}} = \sum_i S_i$) and the path integral
-factorises ($Z = \prod_i Z_i$).
-The irrational gravitational level $k = 2b(N)$ does not affect
-the compact sectors at integer level, and vice versa.
-The boundary CFT is a tensor product
+The non-compact $\mathrm{SL}(2,\mathbb{R})$ admits irrational
+level ($\pi_3 = 0$, no topological quantisation;
+\citealt{Witten1988}).
+The compact gauge sectors have integer levels
+$k = 1$ for $\mathrm{SU}(2)$, $\mathrm{SU}(3)$, and
+$\mathrm{U}(1)$ (large gauge invariance).
+The sectors coexist because their gauge algebras are orthogonal:
+$\mathrm{Tr}(T_a^{G_i} T_b^{G_j}) = 0$ for $i \ne j$, so
+$S_{\mathrm{total}} = \sum_i S_i$ and $Z = \prod_i Z_i$.
+The boundary CFT is
 $\mathrm{WZW}_{\mathrm{grav}} \otimes \mathrm{WZW}_{\mathrm{gauge}}$
-with additive central charges:
-$c_{\mathrm{total}} = c_{\mathrm{grav}} + c_{\mathrm{SU}(3)}
-+ c_{\mathrm{SU}(2)} + c_{\mathrm{U}(1)}
-= (12b(N){-}4) + 2 + 1 + 1 = 12b(N)$
+with $c_{\mathrm{total}} = (12b(N){-}4) + 2 + 1 + 1 = 12b(N)$
 (\texttt{proofs/cs\_sector\_coexistence.py}).
 
 \emph{Step~3 (Zero mode at $N = 4$).}
