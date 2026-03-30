@@ -406,19 +406,18 @@ $\lambda_1 \approx 3.84$;
 $1/(4\pi \cdot 15.05) \approx 0.005$,
 $1/(4\pi \cdot 23.08) \approx 0.003$,
 $1/(4\pi \cdot 32.67) \approx 0.002$, $\ldots$.
-The ratio of consecutive trivial-representation eigenvalues
-$\lambda_n/\lambda_{n+1} \le 15.05/23.08 = 0.65$
-is verified for the first $8$ eigenvalues of
-\citet{Strohmaier2013}; Weyl asymptotics
-($\lambda_n \sim cn$ for large~$n$)
-guarantee the ratio decreases beyond this range.
-The geometric series bound gives
-$\sum_{n \ge 1} 1/\lambda_n \le (1/\lambda_1)/(1{-}0.65)
-= 2.86/\lambda_{\mathrm{triv}}$, so
-$|\delta C_1| \le 2.86/(4\pi\lambda_{\mathrm{triv}})
-\approx 0.015$.
+The first~$8$ trivial-representation eigenvalues of
+\citet{Strohmaier2013} give
+$\sum_{n=1}^{8} 1/(4\pi\lambda_n) = 0.019$.
+The tail is bounded by Sogge's sup-norm estimate
+($|\phi_n(z_0)|^2 \le C\lambda_n^{1/2}$)
+combined with Weyl asymptotics ($\lambda_n \ge c\,n$
+for the trivial representation):
+$\sum_{n > 8} 1/(4\pi\lambda_n^{3/2}) < 0.001$.
+Therefore
+$|\delta C_1| \le 0.019 + 0.001 = 0.020$.
 
-The bound $|\delta C_1| \le 0.015$ on the Bolza surface
+The bound $|\delta C_1| \le 0.020$ on the Bolza surface
 is conditional on the Strohmaier--Uski spectral data
 (numerical computation, not a closed-form proof)
 and unconditional with respect to the Selberg
