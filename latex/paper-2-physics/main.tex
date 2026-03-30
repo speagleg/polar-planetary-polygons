@@ -698,8 +698,12 @@ $|\lambda_{\min}^{\mathrm{inner}}| = (M{-}7)/2$
 exceeds the outer ring's stabilising contribution
 $|\delta\lambda| \le N$
 (each of $N$ outer vortices contributes at most~$1$
-to the angular Fourier eigenvalue, by Cauchy--Schwarz
-on the pairwise Green's function projection).
+to the angular Fourier eigenvalue: the projection
+of the pairwise Green's function $-\ln|z_j - z_k|$
+onto the $m$-th Fourier mode has $|c_m| \le 1$
+by Cauchy--Schwarz applied to $|c_m|^2 \le \sum_m |c_m|^2
+= \|G_{jk}\|^2 \le \csc^2(\pi/N)$, and the
+$N$-fold sum is bounded by~$N$).
 At $M = 22$, $N = 7$:
 $|\lambda_{\min}| = 7.5 > N = 7$.
 
@@ -959,7 +963,13 @@ with $d_{\min}$ fixed, which is the only bound needed below.
 
 \begin{proposition}[Inertia preservation]
 \label{prop:inertia}
-For sufficiently small $\varepsilon > 0$, the full Hessian of
+For $\varepsilon < \varepsilon_0(N)$, where
+$\varepsilon_0 = (\lambda_{\min}\,d_{\min}^6)^{1/4}$
+($\lambda_{\min}$ is the smallest positive constrained eigenvalue
+and $d_{\min} = 2\sin(\pi/N)$ is the minimum chord distance;
+$\varepsilon_0(5) = 1.27$, $\varepsilon_0(6) = 0.84$;
+at $N = 7$, $\lambda_{\min} = 0$ and the quartic analysis
+of~\S\ref{sec:n7-bifurcation} applies), the full Hessian of
 $E[\omega_\varepsilon] + \mu_L\,L[\omega_\varepsilon]$ on the space of
 $\mathbb{Z}_N$-symmetric vorticity perturbations has the same inertia
 (number of positive, zero, and negative eigenvalues along the constrained

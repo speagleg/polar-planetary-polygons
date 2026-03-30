@@ -788,6 +788,7 @@ $\prod_{p=1}^{N-1}(1 - \xi\,e^{2\pi ip/N}) = 1 - \xi^N$
 (with $\xi = \rho^2/a^2$), giving
 $\ln|1 - \xi^N|$---a function of~$\rho$ alone.
 For tangential modes $m \ge 1$, the perturbation phases $a_k$ satisfy $\sum_k a_k = 0$ ($\mathbb{Z}_N$ orthogonality), preserving the product identity at all perturbation orders.
+Explicitly: $\partial_\varepsilon|_0 \prod(1 - \xi\,e^{i(\theta_k + \varepsilon a_k)}) = -\xi\prod'(1{-}\xi\omega^k)\sum_k i a_k \omega^k/(1{-}\xi\omega^k)$; the constraint $\sum a_k = 0$ forces this into $\mathbb{Z}_N$ modes $m \ge 1$, each giving an independent eigenvalue.
 Although the \emph{individual} image terms
 $\ln|a^2 - \rho^2\,e^{2\pi ip/N}|$ depend on the
 angular separation~$p/N$, their \emph{sum} does not.
@@ -830,7 +831,7 @@ tangential Hessian, the identity holds on
 \end{proof}
 
 \begin{remark}[Compact quotients]
-On compact quotients $\Gamma\backslash M$, the automorphic Green's function has an additional image sum, but this sum contributes a mode-independent correction $\delta C_1$ (by the Selberg trace formula), preserving the eigenvalue decomposition.
+On compact quotients $\Gamma\backslash M$, the automorphic Green's function has an additional image sum, but this sum contributes a mode-independent correction $\delta C_1$ (by the Selberg trace formula: the automorphic image sum $\sum_\gamma G(z, \gamma w)$ is $\mathbb{Z}_N$-invariant because the automorphic action commutes with the $\mathbb{Z}_N$ rotation, so its contribution to $C_1$ is mode-independent), preserving the eigenvalue decomposition.
 \end{remark}
 
 The stability threshold $N_{\mathrm{crit}}$ is therefore determined by
@@ -1854,7 +1855,7 @@ Hessian produces exactly the palindromic polynomials
 that define hyperbolic conjugacy classes;
 the algebraic-integer condition (Proposition~\ref{prop:alg-int})
 restricts the traces to the values $(N{-}7) | 16$.
-Each trace $c$ gives a primitive hyperbolic element: $c = 3, 4, 6, 10, 16$ are not Chebyshev values $T_k(c')$ for any $k \ge 2$, $c' \ge 3$ (since $T_2(3) = 17$, $T_2(4) = 31$, etc.).
+Each trace $c$ gives a primitive hyperbolic element: $T_2(x) = 2x^2{-}1$ gives $T_2^{-1}(c) = \sqrt{(c{+}1)/2}$, which is irrational for all $c \in \{3, 4, 6, 10, 16\}$ (none of $(c{+}1)/2$ is a perfect square). No $T_k$ for $k \ge 3$ yields these values ($T_3(2) = 26 > 16$). All five are primitive.
 \end{proof}
 
 \begin{remark}[Automorphic correction on quotient surfaces]
