@@ -122,7 +122,7 @@ def bf_barrier_transmission(N=7, rho_star=1.734, c=1.5):
 
     Returns dict with d, cosh_d, T_2, V_cb, and all image contributions.
     """
-    from math import cos, acosh, cosh as _cosh, sinh as _sinh
+    from math import cos, acosh, cosh as _cosh, sinh as _sinh, tanh as _tanh
 
     # Geodesic distance to nearest Z_N image at radius rho*
     angle = 2 * pi / N
@@ -157,16 +157,20 @@ def bf_barrier_transmission(N=7, rho_star=1.734, c=1.5):
     V_cb_uncorrected = sqrt(V_cb_pert * T_2)
 
     # Self-consistent orbifold correction to rho*:
-    # The two nearest Z_N images (k=1, k=N-1) each shift the BO potential
-    # zero by Q_1(cosh d(rho*)). The self-consistent equation is:
-    #   rho* = rho_0 * (1 + 2*Q_1(cosh d(rho*)))
+    # The two nearest Z_N images (k=1, k=N-1) each contribute Q_1(cosh d)
+    # to the BO potential. Images are stabilising (same-sign vortex repulsion
+    # pushes the ring inward), so V_orb = V - 2*Q_1 < V at the threshold.
+    # The zero of V_orb shifts RIGHT: rho*_new > rho*_0.
+    # Linearised: V'(rho*)(rho_new - rho*_0) = 2*Q_1, i.e.
+    #   rho*_new = rho*_0 + 2*Q_1 / coth(rho*_0)
+    #            = rho*_0 + 2*Q_1 * tanh(rho*_0)
     rho_sc = rho_star
     for _ in range(10):
         cosh_d_sc = _cosh(rho_sc)**2 - _sinh(rho_sc)**2 * cos(angle)
         x_sc = cosh_d_sc
         Q0_sc = 0.5 * log((x_sc + 1) / (x_sc - 1))
         Q1_sc = x_sc * Q0_sc - 1
-        rho_sc = rho_star * (1 + 2 * Q1_sc)
+        rho_sc = rho_star + 2 * Q1_sc * _tanh(rho_star)
 
     T_2_sc = Q1_sc
     V_cb_sc = sqrt(V_cb_pert * T_2_sc)

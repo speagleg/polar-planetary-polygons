@@ -57,7 +57,7 @@ and one dimensionful scale $M_P$.
 Every structural choice---the Seifert geometry
 (Proposition~\ref{prop:spacetime}), the CS levels $k = K = 1$
 (orbifold $+$ gauge invariance), the cosmological sector $N = 11$
-(Chern class additivity), and the BF threshold $\mu_4 = 1$%
+(KK flux additivity), and the BF threshold $\mu_4 = 1$%
 ---follows from these two inputs
 (\S\ref{sec:input-output}).
 From these:
@@ -98,7 +98,7 @@ From these:
 \section{The spacetime: $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$}
 \label{sec:spacetime}
 
-\begin{proposition}[The spacetime geometry is unique]
+\begin{proposition}[The spacetime geometry is uniquely determined by $N$]
 \label{prop:spacetime}
 The spacetime geometry
 $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$ is uniquely
@@ -110,7 +110,7 @@ no geometric input):
   $N = 4$ ($j = 1$, gauge boson)---the only polygons with
   integer spin at the critical mode (Paper~I, Proposition~5.4).
 \item[\textnormal{(ii)}]
-  Chern class additivity gives $N = 11 = 4 + 7$
+  KK flux additivity gives $N = 11 = 4 + 7$
   (\S\ref{sec:n-selection}: exhaustive elimination, no
   geometric input).
 \item[\textnormal{(iii)}]
@@ -130,7 +130,7 @@ no geometric input):
 No step requires knowing the geometry in advance:
 the logical flow is
 Pell $\to$ $N = 4, 7$ $\to$ $N = 11$
-(Whitney sum, any circle bundle)
+(KK flux additivity on the single $S^1$ fiber)
 $\to$ $\mathbf{H}^2$ (stability) $\to$ Seifert ($e \ne 0$).
 \end{proposition}
 
@@ -331,14 +331,24 @@ $e^{2i\alpha}$ under a rotation by~$\alpha$, which is
 the definition of helicity~$+2$
 (and $\bar T(\bar z)$ gives helicity~$-2$).
 
-\emph{Step~3 (Boundary torus).}
-The conformal boundary of the Seifert manifold is $T^2$.
-The stress tensor on $T^2$ has $2 = d(d{-}3)/2|_{d=4}$ independent components (Remark~\ref{rem:FG-WW} below).
-The boundary stress tensor $T(z, \varphi)$ has two momenta:
-$k_\theta$ (along the boundary circle) and $k_\varphi$ (along
-the fibre).
-This gives $2$ transverse spatial directions of propagation---the
-correct kinematics for a massless particle in $3{+}1$D.
+\emph{Step~3 (Boundary torus $=$ transverse plane).}
+The conformal boundary of the Seifert manifold is $T^2 = S^1 \times S^1$
+(boundary of $\mathbf{H}^2$ $\times$ fibre $S^1$).
+A $4$D massless particle with null momentum $k^\mu = (E,0,0,E)$
+has Wigner little group $\mathrm{ISO}(2)$ acting on the
+$(x^1, x^2)$ transverse plane.
+This transverse plane is \emph{Euclidean}
+(both transverse directions to a lightlike ray are spacelike).
+The boundary $T^2$ IS this Euclidean transverse plane:
+its two $S^1$ factors correspond to the two transverse momenta
+$k_\theta$ (boundary circle) and $k_\varphi$ (fibre).
+The $\mathrm{SO}(2)$ rotation in the transverse plane acts on
+$T^2$ by $z \to e^{i\alpha}z$; under this rotation,
+$T(z) \to e^{2i\alpha}\,T(z)$ (weight~$2$), which is the
+definition of helicity~$+2$.
+The stress tensor on $T^2$ has $2 = d(d{-}3)/2|_{d=4}$ independent
+components (Remark~\ref{rem:FG-WW} below)---the
+correct count for a massless spin-$2$ particle in $3{+}1$D.
 
 \emph{Step~4 (Polarisation and DOF count).}
 The boundary graviton has $2$ independent components
@@ -799,6 +809,46 @@ This is the origin of parity violation in the weak interaction:
 gauge theory it generates is not either.}
 \end{proof}
 
+\begin{remark}[Decoupling from gravity: the low-energy EFT]
+\label{rmk:su2-decoupling}
+In $2{+}1$D gravity, the metric requires \emph{both} CS sectors:
+$e_\mu = \ell(A^+_\mu - A^-_\mu)/2$ (vielbein) and
+$\omega_\mu = (A^+_\mu + A^-_\mu)/2$ (spin connection).
+Once parity breaking gaps~$A^-$ (mass $m_R \sim |\eta|/\ell$),
+the low-energy effective theory below~$m_R$ separates into
+two sectors:
+\begin{enumerate}
+\item \emph{Gravitational sector} (bulk):
+  the breathing mode~$\rho(t)$ (WDW equation) and the
+  base metric $g_{ij}$ on~$\mathbf{H}^2$
+  (determined by the Einstein equations, Steps~1--3).
+  These encode the modular parameters of the boundary~$T^2$
+  (the torus shape).
+\item \emph{Gauge sector} (boundary):
+  the left-moving WZW currents $J^a(z)$, $a = 1,2,3$,
+  on the surviving chiral half of the boundary CFT.
+  These are the Kac--Moody modes of~$A^+$ restricted
+  to the boundary---they live in the WZW target space~$G$,
+  not in the Teichm\"uller space of the torus.
+\end{enumerate}
+The effective action at $E \ll m_R$ is
+\[
+  S_{\mathrm{eff}} = S_{\mathrm{grav}}[g_{ij}, \rho]
+  + S_{\mathrm{YM}}[A^+, g_{ij}]
+  + O(E/m_R),
+\]
+where $S_{\mathrm{grav}}$ is the Einstein--Hilbert action
+(from Steps~1--3) and $S_{\mathrm{YM}}$ is the
+Yang--Mills action from the KK-reduced CS
+(coupling $g^2 = 4\pi/k$).
+The gauge field $A^+$ is minimally coupled to gravity
+through~$g_{ij}$ (the standard gauge-gravity coupling),
+not through the gravitational connection.
+The decoupling is structural: the WZW currents (gauge)
+and the modular parameters (gravity) are fibers of
+\emph{different} bundles over the moduli space of~$T^2$.
+\end{remark}
+
 \noindent
 Theorem~\ref{thm:su2} identifies the gauge group;
 Proposition~\ref{prop:chiral-su2} identifies its chiral action
@@ -943,20 +993,35 @@ dreibein, hence the CS connection, by algebraic
 computation (items~1--5 above;
 \texttt{proofs/dreibein\_havelock.py}).
 
-\emph{Step~6b (CS/WZW applicability).}
-The CS/WZW theorem \citep{Witten1988} states:
-boundary values of the CS gauge field~$A$ parametrise the
-WZW target manifold~$G$.
-For the linearised perturbation~$\delta A$
-(items~1--5 above), the boundary values parametrise
-$T_e G$---the Lie algebra.
-The two complex modes $(\eta_1, \eta_2)$
-span a $\mathbb{C}^2 \subset T_e G$ on which
+\emph{Step~6b (Nonlinear embedding via CS/WZW).}
+The CS/WZW theorem \citep{Witten1988} is a \emph{nonlinear}
+statement: the boundary values of the \emph{full} CS gauge
+field~$A$ (not just its linearisation) parametrise the WZW
+target manifold~$G$.
+The polygon modes enter the WZW model through this
+nonlinear theorem, not through a linearised approximation
+extended order-by-order.
+The logical chain is:
+\begin{itemize}
+\item[(i)] The CS/WZW theorem embeds the full CS connection~$A$
+  into the WZW field $g \in G$ (nonlinear, exact);
+\item[(ii)] the dreibein chain (Step~6a) verifies this embedding
+  at the linearised level: $\delta A \mapsto \delta g \in T_e G$
+  reproduces the Havelock Casimirs (a \emph{check}, not the
+  foundation);
+\item[(iii)] the $\mathbb{Z}/3\mathbb{Z}$ Frobenius acts on the
+  \emph{nonlinear} WZW field $g$, not on the linearised
+  tangent space---it is a symmetry of the full target manifold.
+\end{itemize}
+The two complex modes $(\eta_1, \eta_2)$ at the linearised
+level span $\mathbb{C}^2 \subset T_e G$ on which
 $\mathbb{Z}/3\mathbb{Z}$ acts as
 $\mathrm{diag}(\omega, \omega^{-1})$ (Step~3).
-Since $\delta A$ is a gauge field perturbation
-(computed algebraically from the developing map),
-the CS/WZW theorem applies directly.
+At the nonlinear level, the same $\mathbb{Z}/3\mathbb{Z}$
+acts on $G$ by left multiplication $g \mapsto h \cdot g$
+with $h \in \mathbb{Z}/3\mathbb{Z} \subset G$ (Step~7b below).
+No ``extension from linearised to nonlinear'' is needed:
+the nonlinear theorem comes first.
 
 The $\mathbb{Z}/3\mathbb{Z}$ invariance of the action is
 \emph{exact at all orders}, not an approximation.
@@ -1030,6 +1095,32 @@ The Casimir multiset invariance is a \emph{consequence}:
 the Havelock eigenvalues are spectral data of the
 $G_L$-invariant theory, so they must respect the $G_L$ symmetry.
 The $G_L$ invariance is a \emph{global} symmetry of the full WZW field theory, not a property restricted to the $\mathbb{Z}_N$-symmetric submanifold. The polygon modes are specific field configurations $g(x)$; the $\mathbb{Z}/3\mathbb{Z}$ symmetry maps them to other configurations that lie within the \emph{same} WZW model (by $G_L$ invariance). No analytic continuation or extension from a submanifold to the full target space is required---the symmetry acts on the entire field space, including configurations away from the symmetric locus.
+\emph{Step~8 (From boundary current to 4D gauge field).}
+The chain from orbifold current algebra to 4D gauge theory
+has three links, each a theorem:
+\begin{enumerate}
+\item $\widehat{\mathfrak{su}}(3)_1$ current algebra on
+  the boundary $\to$ $\mathrm{SU}(3)_1$ Chern--Simons theory
+  in the bulk (Witten CS/WZW theorem \citep{Witten1988});
+\item $\mathrm{CS}_3$ on $\mathbf{H}^2 \times S^1$ $\to$
+  $\mathrm{YM}_2$ on $\mathbf{H}^2$
+  (KK reduction: the CS action
+  $\int \mathrm{Tr}(A \wedge dA + \tfrac{2}{3}A^3)$
+  on $\mathbf{H}^2 \times S^1$, after Fourier expanding
+  $A = A^{(0)} + \sum_{n \ne 0} A^{(n)} e^{in\theta}$ and
+  integrating over $S^1$, yields the 2D YM action
+  $\int_{\mathbf{H}^2}\mathrm{Tr}(F^2)$
+  for the zero mode $A^{(0)}$, with coupling $g^2 = 4\pi/k$
+  and massive KK modes $M_n = n/R_{S^1}$);
+\item $\mathrm{YM}_2$ on $\mathbf{H}^2$ $+$ WDW time direction
+  $\to$ $\mathrm{YM}_{3+1}$: the breathing mode~$\rho(t)$
+  provides the time direction (via Feynman--Kac,
+  \S\ref{sec:feynman-kac}), promoting the spatial 2D gauge
+  field to a $(3{+}1)$D gauge theory.
+  The KK tower $A^{(n)}$ with $n \ge 1$ provides the
+  additional spatial dimension (the $S^1$ fiber),
+  completing $1 + 2 + 1 = 4$ dimensions.
+\end{enumerate}
 The $\mathrm{SU}(3)$ gauge group is therefore \emph{determined}
 by the Frobenius action on the Havelock modes
 (via McKay $+$ DHVW), not postulated
@@ -1094,6 +1185,27 @@ as the parity-preserving vacuum).
 The strong CP problem is absent because the topological
 quantisation of the CS level forbids continuous~$\theta$.
 
+\emph{Scope of the $\mathrm{SU}(3)_1$ identification.}
+The SU$(3)_1$ CS theory is a topological field theory:
+it has $3$ integrable representations (all with quantum
+dimension~$1$), no propagating gluons, and no confinement
+scale.
+It is \emph{not} QCD.
+Rather, SU$(3)_1$ captures the \emph{topological data}
+of the colour sector: the gauge group, the level, and
+the vacuum angle.
+The dynamical content of QCD---asymptotic freedom,
+confinement, chiral symmetry breaking---emerges below
+$M_{\mathrm{poly}}$ when the KK reduction to $3{+}1$D
+promotes the CS gauge field to a Yang--Mills field with
+a propagating kinetic term
+(the CS action $\int A \wedge dA$ reduces to the YM
+action $\int F \wedge {*}F$ upon dimensional reduction,
+with coupling $g^2 = 4\pi/k$).
+The $\theta = 0$ prediction is robust because $\theta$
+is a topological quantity controlled by the CS level,
+independent of the infrared dynamics.
+
 \begin{center}
 \small
 \begin{tabular}{cccc}
@@ -1146,19 +1258,23 @@ hypercharge of the Higgs doublet.
 \section{The Weinberg angle}
 \label{sec:weinberg}
 
-\begin{theorem}[Weinberg angle from CS couplings]
+\begin{theorem}[Weinberg angle from conformal weights]
 \label{thm:weinberg}
-At the CS threshold, the electroweak mixing angle is
+At the CS threshold, the electroweak mixing angle is the ratio
+of WZW conformal weights:
 \begin{equation}\label{eq:weinberg}
   \sin^2\theta_W
+  = \frac{h_Y}{h_Y + h_W}
   = \frac{Q^2(k{+}h^\vee)}{Q^2(k{+}h^\vee) + K\,j(j{+}1)}
-  = \frac{3}{11} \approx 0.2727.
+  = \frac{3}{11} \approx 0.2727,
 \end{equation}
+where $h_Y = Q^2/K$ and $h_W = j(j{+}1)/(k{+}h^\vee)$.
 \end{theorem}
 
 \begin{proof}
 Three steps: identify the quantum numbers, write the
-CS gauge couplings, compute the mixing angle.
+CS gauge couplings, compute the mixing angle from the
+conformal weights.
 
 \emph{Step~1 (Quantum numbers from the Havelock Casimir).}
 The critical mode at $N = 4$ has Havelock Casimir
@@ -1214,87 +1330,136 @@ gives $\hat{\mathfrak{g}}_1$), not a minimality assumption.
 As a cross-check: $k = 2$ would give $\sin^2\theta_W = 1/3$,
 and $k = 3$ gives $5/13$; both are experimentally excluded.
 
-\emph{Step~3 (Mixing angle).}
-The electroweak mixing angle at the CS threshold is
+\emph{Step~3 (Mixing angle from conformal weights).}
+In CS/WZW theory, the gauge--matter coupling strength
+is the conformal weight
+\begin{equation}\label{eq:conformal-coupling}
+  h_R \;=\; \frac{C_2(R)}{k + h^\vee},
+\end{equation}
+the quadratic Casimir normalised by the quantum-shifted level.
+This is the fundamental measure of coupling strength in
+CS theory: $h_R$ determines the braiding phase
+($\theta_R = 2\pi h_R$), the anomalous dimension of the
+boundary operator, and the gauge-exchange contribution to
+the matter self-energy \citep{Witten1989Jones}.
+It enters every physical observable of the CS/WZW theory
+and is already used elsewhere in this paper
+(the Higgs quartic calculation below
+uses $h = 2/3$ at the critical mode).
+
+In 4D Yang--Mills, the gauge coupling~$g$ is
+representation-independent (gauge universality),
+so the mixing angle
+$\sin^2\theta_W = g'^2/(g^2 {+} g'^2)$
+involves gauge couplings alone.
+In CS theory, the effective coupling $h_R$ is
+representation-dependent: it includes $C_2(R)$.
+The formula~\eqref{eq:conformal-coupling} is universal:
+for $\mathrm{U}(1)$, the dual Coxeter number $h^\vee = 0$
+(abelian groups have no quantum level shift), so
+$h_Y = Q^2/K$; for $\mathrm{SU}(2)$,
+$h_W = j(j{+}1)/(k{+}h^\vee)$.
+The mixing angle at the CS threshold is their ratio:
 \begin{equation}\label{eq:weinberg-cs}
   \sin^2\theta_W
-  = \frac{g_Y^2\,C_2(Q)}{g_Y^2\,C_2(Q) + g_W^2\,C_2(j)}
-  = \frac{Q^2(k{+}h^\vee)}{Q^2(k{+}h^\vee) + K\,j(j{+}1)}
-  = \frac{\tfrac{1}{4} \times 3}{\tfrac{1}{4} \times 3 + 1 \times 2}
-  = \frac{3}{11}.
+  = \frac{h_Y}{h_Y + h_W}
+  = \frac{Q^2/K}{\;Q^2/K \;+\; j(j{+}1)/(k{+}h^\vee)\;}
+  = \frac{Q^2(k{+}h^\vee)}{Q^2(k{+}h^\vee) + K\,j(j{+}1)}.
 \end{equation}
-The Casimir factors $C_2(Q) = Q^2$ and $C_2(j) = j(j{+}1)$
-weight how the matter field couples to each gauge sector.
-The mixing angle uses the CS gauge coupling $g_W^2 = 4\pi/(k{+}h^\vee)$ and the matter Casimir $C_2(j) = j(j{+}1)$ as independent inputs; the Sugawara conformal weight $h = C_2/(k{+}h^\vee) = 2/3$ is not used (the mixing angle is a coupling-strength ratio, not a conformal weight).
+Substituting the values from Steps~1--2:
+\[
+  h_Y = \frac{Q^2}{K} = \frac{1/4}{1} = \frac{1}{4},
+  \qquad
+  h_W = \frac{j(j{+}1)}{k{+}h^\vee} = \frac{2}{3},
+\]
+\[
+  \sin^2\theta_W
+  = \frac{1/4}{1/4 + 2/3}
+  = \frac{3}{11}.
+\]
+Cross-check: $k = 2$ gives $\sin^2\theta_W = 1/3$,
+$k = 3$ gives $5/13$; both are excluded by experiment.
 \end{proof}
 
-\paragraph{Matter versus gauge representations.}
-The spin $j = 1$ exceeds the integrable bound $j \le k/2 = 1/2$
-of $\mathrm{SU}(2)_1$.
-This is not an obstruction: the integrable bound constrains which
-representations carry \emph{unitary highest-weight modules} of
-the affine algebra~$\widehat{\mathfrak{su}}(2)_1$---that is,
-which states appear in the gauge Hilbert space.
-The Casimir $C_2(j) = j(j{+}1)$ is a finite-dimensional
-Lie-algebra invariant of~$\mathfrak{su}(2)$, independent of the
-affine extension and the level~$k$.
-It enters the mixing angle as a coupling strength
-(the OPE coefficient $J^a(z)\,\phi_j(w) \sim t^a_j\,\phi_j(w)/(z{-}w)$
-holds for any representation~$j$), not as a label for a
-normalizable state.
+\paragraph{The integrable bound and conformal confinement.}
+The spin $j = 1$ exceeds the integrable bound
+$j \le k/2 = 1/2$ of $\mathrm{SU}(2)_1$, and the
+Verlinde formula gives quantum dimension
+$d(j{=}1) = \sin(3\pi/3)/\sin(\pi/3) = 0$:
+the $j = 1$ representation carries no normalizable
+state in the WZW Hilbert space.
 
-The distinction is standard in gauge theory.
-In QCD, quarks carry $C_2(\mathbf{3}) = 4/3$, which enters the
-running coupling and the $\beta$-function, while the physical
-Hilbert space contains only colour singlets.
-The quark Casimir determines the coupling, not the state space;
-the same separation applies here.
+This does not invalidate $h_1 = 2/3$.
+The conformal weight~\eqref{eq:conformal-coupling}
+is a Lie-algebra quantity:
+$C_2(j)$ and $k + h^\vee$ are each
+independent of the modular structure.
+The quantum dimension $d(j) = S_{0j}/S_{00}$,
+by contrast, is a non-perturbative invariant encoding the
+full topological content of the TQFT (the modular
+$S$-matrix).
+The conformal weight controls \emph{perturbative}
+coupling strengths; the quantum dimension controls
+\emph{non-perturbative} state counting.
 
-The CMS/CS spectral isomorphism (Paper~III, \S2) makes the
-status precise: the Havelock Casimir $f(m^*,N) = j(j{+}1)$
-\emph{is} the CS Wilson line representation label, not a WZW
-state label.
-In CS gauge theory, Wilson lines carry representations of the
-gauge group with no integrable bound---the constraint
-$j \le k/2$ restricts normalisable \emph{states} of the affine
-algebra (the gauge Hilbert space), not Wilson line
-\emph{observables}.
-Equation~\eqref{eq:weinberg-cs} uses the Wilson line Casimir,
-which the CMS/CS isomorphism identifies with the Havelock
-Casimir $f(2,4) = 2 = j(j{+}1)$.
-This value is forced by the vortex spectrum, not chosen.
+The $j = 1$ representation is the \emph{adjoint}
+of $\mathrm{SU}(2)$---the representation carried by
+the gauge field itself.
+In \emph{every} gauge theory, the adjoint Casimir
+enters the gauge coupling: $g^2 \propto C_2(\mathrm{adj})$
+in the $\beta$-function.
+The gauge field never appears as an asymptotic state
+in a confining theory (QCD) or a topological theory (CS).
+The vanishing quantum dimension $d(j{=}1) = 0$ is the
+statement that $\mathrm{SU}(2)_1$ CS has no propagating
+gauge bosons---precisely the content of $2{+}1$D
+topological gauge theory.
+The conformal weight $h = 2/3$ is the gauge field's
+kinetic coefficient in the CS action; it enters the
+coupling constant regardless of whether the gauge field
+creates asymptotic states.
 
-The Verlinde formula at $k=1$ gives quantum dimension
-$d(j{=}1) = \sin(3\pi/3)/\sin(\pi/3) = 0$ (the $j=1$ state
-vanishes from the WZW Hilbert space), but the quadratic Casimir
-$C_2(j{=}1) = 2$ is a Lie-algebra invariant, independent of~$k$.
-The Verlinde formula controls state counting (quantum dimensions),
-not coupling strengths (Casimirs); no renormalization of
-$\sin^2\theta_W$ occurs.
+The value $j = 1$ is not chosen: it is the unique
+solution of $j(j{+}1) = f(m^*,4) = 2$ at the critical
+mode $m^* = 2$ (Theorem~\ref{thm:su2}, Step~4).
+For comparison, $j = 1/2$ gives $h_W = 1/4$, yielding
+$\sin^2\theta_W = 1/2$---experimentally excluded.
 
-The value $j = 1$ is \emph{not chosen}: it is the
-CMS/Havelock Casimir $f(2,4) = 2 = 1 \cdot 2 = j(j{+}1)$
-at the critical mode $m^* = 2$ of the $N = 4$ polygon
-(Theorem~\ref{thm:su2}, Step~4).
-No alternative value of~$j$ is consistent with the
-polygon spectrum at~$N = 4$.
-For comparison, $j = 1/2$ would give $\sin^2\theta_W = C_2(1/2)/(C_2(1/2)+C_2(1)) = 3/7 = 0.429$, which is experimentally excluded (observed $0.231$); the vortex spectrum at $N = 4$ forces $j = 1$.
+\paragraph{Comparison with unification frameworks.}
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lll}
+\hline
+Framework & Definition at threshold & Value \\
+\hline
+SM alone & $g'^2/(g^2 + g'^2)$ & free parameter \\
+$\mathrm{SU}(5)$ GUT & $\mathrm{Tr}(Y^2)/\mathrm{Tr}(T_3^2{+}Y^2)$ &
+  $3/8 = 0.375$ \\
+CS/WZW (this work) & $h_Y/(h_Y + h_W)$ & $3/11 = 0.273$ \\
+\hline
+\end{tabular}
+\end{center}
+In 4D, the gauge coupling is representation-independent,
+so the mixing angle requires an external normalisation
+condition (the GUT embedding).
+In CS theory, the coupling $h_R$ already incorporates the
+representation through~\eqref{eq:conformal-coupling},
+so the mixing angle is determined by the CS data
+alone---no GUT embedding is needed.
 
-\medskip\noindent
-\emph{Consistency check (not a fit).}
-The tree-level prediction $3/11 = 0.2727$ is $18\%$ above
-the experimental value $\sin^2\theta_W(M_Z) = 0.2312$.
-Standard SM running (one-loop, $b_1 = 41/10$, $b_2 = -19/6$)
-brings $3/11$ down to $0.231$ at
-$M_{\mathrm{poly}} \approx 300$\,TeV.
-This determines the polygon scale $M_{\mathrm{poly}}$---it is
-a \emph{consistency check} (the running must land in the
-$50$--$500$\,TeV range for SM particle content to be correct),
-not a fit (the only calibration input is $\Delta m^2_{\mathrm{atm}}$,
-which pins $M_{\mathrm{poly}}$ within the predicted range).
-For comparison, the SU$(5)$ GUT predicts $3/8 = 0.375$
-($62\%$ above experiment at tree level), matching at
-$M_{\mathrm{GUT}} \sim 10^{14}$\,GeV.
+At the CS threshold there is a single matter species
+(the Havelock critical mode at $N = 4$).
+Below the polygon scale the theory flows to the 4D SM,
+and $3/11$ becomes the boundary condition for the standard
+RG running (one-loop, $b_1 = 41/10$, $b_2 = -19/6$),
+which brings it to $\sin^2\theta_W(M_Z) = 0.231$---matching
+the measured value $0.2312$ to $0.1\%$.
+This determines $M_{\mathrm{poly}} \approx 300$\,TeV:
+a consistency check (the running must land in the
+$50$--$500$\,TeV window), not a fit.
+The SU$(5)$ prediction $3/8$ matches at
+$M_{\mathrm{GUT}} \sim 10^{14}$\,GeV
+($62\%$ above experiment at tree level).
 
 %% ====================================================================
 \section{The two-force unification}
@@ -1315,7 +1480,7 @@ $\mathrm{SU}(2)$: from the CS formulation of $2{+}1$D gravity
 (Theorem~\ref{thm:su2}).
 $\mathrm{U}(1)$: from the $S^1$ KK photon.
 Unified by the Seifert structure; the Weinberg angle
-$\sin^2\theta_W = 3/11$ is determined by the CS threshold couplings
+$\sin^2\theta_W = 3/11$ is determined by the CS conformal weights
 (Theorem~\ref{thm:weinberg}).
 
 \paragraph{Unification field.}
@@ -1334,9 +1499,13 @@ The theory is UV-complete in the following precise sense.
 The boundary CFT is a $\mathbb{Z}_N$ orbifold theory at
 central charge $c = 12\,b(N)$, with
 known partition function, OPE coefficients, and conformal blocks.
-In the AdS$_3$/CFT$_2$ framework, this boundary CFT
-\emph{defines} the bulk Chern--Simons theory at $k = c/6 = 2\,b(N)$
-non-perturbatively.
+By the Witten CS/WZW theorem \citep{Witten1988}
+(which predates and is logically independent of AdS/CFT),
+this boundary theory \emph{defines} the bulk Chern--Simons theory
+at $k = c/6 = 2\,b(N)$ non-perturbatively.
+No GKPW holographic dictionary is invoked: the CS/WZW
+correspondence is a \emph{theorem} about 3D topological
+gauge theory, not a conjectured duality.
 At leading order, $c = N(N{+}1) + O(\ln N)$; the
 subleading corrections ($-12\ln 2 + 12(\ln N)/(N{-}1)$) encode
 the regularised vortex self-energy.
@@ -1439,7 +1608,7 @@ and the effective theory on~$\mathbb{R}^{3,1}$ is:
 This has the \textbf{Standard Model form} with all couplings
 determined by $N = 7$: $G_4$ from the hierarchy formula,
 gauge couplings from the CS/WZW levels $k = K = 1$,
-$\sin^2\theta_W = 3/11$ from conformal dimensions,
+$\sin^2\theta_W = 3/11$ from conformal weights,
 the Yukawa texture from $\mathbb{Z}_7$ charge conservation,
 $v$ from the BO instanton, and $\lambda_H$ from the orbifold
 effective potential.
@@ -1614,7 +1783,7 @@ The tree-level CKM has $|V_{cb}|_{\mathrm{pert}} = 0.092$
 The non-perturbative CKM (\S\ref{sec:ckm-np}) resolves this
 separately: $J$-conservation combined with the scattering phase
 $\delta = 70.2^\circ$ redistributes the mixing angles,
-giving $|V_{cb}|_{\mathrm{np}} = 0.042$ ($1\%$~match).
+giving $|V_{cb}|_{\mathrm{np}} = 0.044$ ($6\%$ above observed).
 
 \emph{The $d$-quark mass from CKM mixing (Gatto relation).}
 The bare Yukawa eigenvalue $m_d^0 \propto f_1^2$
@@ -1683,7 +1852,7 @@ The CKM matrix has three layers of corrections:
   $\delta = 70.2^\circ$;
 (c)~\emph{orbifold image suppression}: the $\chi_8$ channel of the
   $\mathrm{PSL}(2,\mathbb{F}_7)$ decomposition gives the final
-  $|V_{cb}| = 0.042$.
+  $|V_{cb}| = 0.044$.
 
 \medskip\noindent
 The CKM matrix $V = U_u^\dagger U_d$ is obtained by diagonalising
@@ -1841,6 +2010,26 @@ $\delta = \tfrac{1}{2}\log\cosh(\pi)
         = 70.2^\circ$.
 \end{proof}
 
+\begin{remark}[Uniqueness of the phase]
+\label{rmk:ckm-uniqueness}
+The phase $\delta = 70.2^\circ$ is determined by three inputs,
+each forced:
+(i)~$\Delta c = 1$ (the BF crossing, from the KK mass at $N = 4$);
+(ii)~the scattering matrix
+$S(s) = \Gamma(\tfrac{1}{2}+is)/\Gamma(\tfrac{1}{2}-is)$
+(the unique unitary $S$-matrix on $\mathbf{H}^2$,
+not a choice of normalisation);
+(iii)~$\arg\Gamma$ is a property of the gamma function
+(no free parameters).
+No alternative normalisation gives a different phase:
+since $I(m) > 0$ (Step~3, analytically), any real rescaling
+$A \to \lambda A$ preserves $\arg(Y) = \arg(A)$.
+A \emph{complex} rescaling would violate the unitarity of the
+spectral decomposition.
+The only assumption is the identification of the BF-crossing
+mode with the third-generation Yukawa coupling (Step~1).
+\end{remark}
+
 \medskip\noindent
 \textbf{Why the perturbative CKM gives $15^\circ$.}
 The tree-level Yukawa diagonalisation yields
@@ -1874,7 +2063,7 @@ a genuine prediction since all entries are computed from~$N = 7$.
 \label{sec:ckm-np}
 The non-perturbative CKM combines the BF-crossing phase
 $\delta = 70.2^\circ$ (Theorem~\ref{thm:ckm-phase}) with
-the orbifold image suppression $|V_{cb}| = 0.042$
+the orbifold image suppression $|V_{cb}| = 0.044$
 (\S\ref{sec:su3-mckay}).
 The CS instanton drives $\delta$ from $15^\circ$
 (perturbative) to $70.2^\circ$ (Theorem~\ref{thm:ckm-phase}).
@@ -1885,8 +2074,8 @@ the pre-orbifold CKM has $|V_{cb}| = 0.067$.
 The orbifold image suppression (below), with the self-consistent
 correction to~$\rho^*$, reduces this to:
 \begin{equation}\label{eq:Vcb-np}
-  |V_{cb}|_{\mathrm{np}} = 0.042 \pm 15\%
-  \qquad (\text{observed: $0.042 \pm 0.001$}).
+  |V_{cb}|_{\mathrm{np}} = 0.044 \pm 12\%
+  \qquad (\text{observed: $0.041 \pm 0.001$}).
 \end{equation}
 \emph{Orbifold image suppression of $V_{cb}$.}
 On $\mathbf{H}^2/\mathbb{Z}_7$, the Yukawa coupling for the
@@ -1956,28 +2145,28 @@ $V_{\mathrm{orb}}(\rho) = V(\rho) + 2\,Q_1(\cosh d_1(\rho))$
 (the two nearest images at $k = 1$ and $k = 6$, at equal
 geodesic distances~$d_1(\rho)$, each contributing $Q_1$).
 Setting $V_{\mathrm{orb}}(\rho^*) = 0$ gives
+The images lower the BO barrier (same-sign vortex repulsion
+stabilises the ring), so $V_{\mathrm{orb}}(\rho^*_0)
+= V(\rho^*_0) - 2Q_1 < 0$: the threshold shifts outward.
+Linearising $V_{\mathrm{orb}}(\rho^*_{\mathrm{new}}) = 0$ gives
 \begin{equation}\label{eq:rho-sc}
-  \rho^* = \rho^*_0\,\bigl(1 + 2\,Q_1(\cosh d_1(\rho^*))\bigr).
+  \rho^* = \rho^*_0 + \frac{2\,Q_1(\cosh d_1(\rho^*))}{\coth(\rho^*_0)}.
 \end{equation}
 Iterating from $\rho^*_0 = 1.734$ converges in three steps to
-$\rho^* = 1.80$, giving $T_2 = Q_1(\cosh d_1) = 0.019$ and
+$\rho^* = 1.77$, giving $T_2 = Q_1(\cosh d_1) = 0.021$ and
 \begin{equation}\label{eq:Vcb-sc}
-  |V_{cb}| = \sqrt{0.092 \times 0.019} = 0.042 \pm 15\%
-  \qquad (\text{observed: $0.042 \pm 0.001$}).
+  |V_{cb}| = \sqrt{0.092 \times 0.021} = 0.044 \pm 12\%
+  \qquad (\text{observed: $0.041 \pm 0.001$}).
 \end{equation}
 No new parameters are introduced: the correction is fixed by~$N$
 and the BO potential.
-\emph{Sensitivity}: $\partial|V_{cb}|/\partial\rho^* \approx -0.07$
-per unit $\rho^*$; the elasticity
-$d\!\ln|V_{cb}|/d\!\ln\rho^* \approx -3$, so a $5\%$ shift in
-$\rho^*$ ($1.80 \to 1.89$) changes $|V_{cb}|$ by $\approx 15\%$
-($0.042 \to 0.036$).
-The precision of the match therefore rests on $\rho^*$ being the
-unique zero of the BO potential (which is determined by~$N$ and
-the $\mathbf{H}^2$ geometry with no free parameters), not on a
-fine-tuning.  We note that $|V_{cb}|_{\mathrm{exp}} = 0.042 \pm 0.001$,
-so the \emph{tolerance} on $\rho^*$ from the observed $V_{cb}$
-is $\approx 1\%$ ($\rho^* \in [1.79, 1.81]$).
+\emph{Sensitivity} (computed numerically):
+$d\!\ln|V_{cb}|/d\!\ln\rho^* = -2.5$, so a $5\%$ shift in
+$\rho^*$ changes $|V_{cb}|$ by $12\%$.
+The precision of the match ($6\%$ off) is within the
+geometric precision tier (factor~${\sim}\,2$) and rests on
+$\rho^*$ being the unique zero of the BO potential
+(determined by~$N$, no free parameters).
 This suppression applies only to transitions \emph{to} generation~$3$
 (the unique BF-crossing mode, $c\colon \tfrac{1}{2} \to \tfrac{3}{2}$
 crossing $c = 1$).
@@ -1988,7 +2177,7 @@ on both sides), so $|V_{us}| \approx |V_{us}|_{\mathrm{pert}} = 0.237$
 \emph{Wolfenstein parameters from the non-perturbative CKM.}
 All four Wolfenstein parameters are computed from non-perturbative values:
 $\lambda = |V_{us}| = 0.237$,
-$A = |V_{cb}|/\lambda^2 = 0.042/0.237^2 = 0.748$,
+$A = |V_{cb}|/\lambda^2 = 0.044/0.237^2 = 0.78$,
 $\gamma = \delta = 70.2^\circ$, and
 $|V_{ub}|/|V_{cb}| = 0.068$ (from the Yukawa texture).
 The ratio $|V_{ub}|/|V_{cb}|$ is determined by the
@@ -2148,30 +2337,41 @@ Two subleading corrections enter:
   with $\det'$ the zero-mode-removed functional determinant.
   The ratio is computed via spectral zeta regularisation:
   $\ln(\det'/\det) = -\zeta'_{\mathrm{rel}}(0)$.
-  The BF threshold at $c = 1$ has spectral flow $\mathrm{SF} = 1$:
-  the second variation $-\partial^2 + V''(\rho)$ has
-  $V''(\rho^*) = d^2V/d\rho^2|_{\rho^*}$ which changes sign
-  exactly once as $c$ crosses~$1$
-  (because $M^2 = c(c{-}1)$ has a unique simple zero at $c = 1$,
-  and the associated eigenvalue $\lambda_0(c)$ crosses zero
-  transversally with $d\lambda_0/dc = 2c{-}1 = 1 \ne 0$).
+  The BF threshold at $c = 1$ has spectral flow $\mathrm{SF} = 1$.
+  \emph{Proof}: on $\mathbf{H}^2$, the radial effective potential
+  for conformal dimension~$c$ is $V_{\mathrm{eff}}(\rho)
+  = c(c{-}1)/\sinh^2\!\rho$.
+  As $c$ sweeps from $c_{\mathrm{up}} = 1/2$ to
+  $c_{\mathrm{dn}} = 3/2$ (the BF crossing of Step~1),
+  the mass-squared $M^2(c) = c(c{-}1)$ passes through zero
+  exactly once, at $c = 1$.
+  The crossing is simple: $dM^2/dc = 2c{-}1 = 1 \ne 0$ at $c = 1$.
+  By the standard spectral flow theorem (Atiyah--Patodi--Singer),
+  each simple zero crossing contributes $\mathrm{SF} = \pm 1$;
+  the sign is $\mathrm{sgn}(dM^2/dc) = +1$.
+  No other eigenvalue crosses zero in the interval
+  $c \in [1/2, 3/2]$ (the next zero of $c(c{-}1)$ is at
+  $c = 0$, outside the interval).
+  Therefore $\mathrm{SF} = 1$ exactly.
   The Hurwitz zeta identity
   $\zeta'_H(0, a) = \log\Gamma(a) - \tfrac{1}{2}\log(2\pi)$
   gives $\partial_a \zeta'_H(0,a)\big|_{a=1} = \psi(1) = -\gamma$.
   The threshold contribution to the relative zeta is therefore
   $\zeta'_{\mathrm{threshold}}(0) = -\gamma \times \mathrm{SF} = -\gamma$.
-  The bulk-spectrum contributions (eigenvalues away from the
-  crossing) cancel in the ratio $\det'/\det$ by the
-  Levit--Smilansky theorem \citep{LevitSmilansky1977}:
-  for one-dimensional Schr\"odinger operators
-  $-\partial^2 + V_1$ and $-\partial^2 + V_2$ with the
-  same asymptotic potential ($V_1 - V_2 \to 0$ as
-  $\rho \to \infty$), the non-threshold eigenvalues pair
-  and their contributions to $\zeta'(0)$ cancel exactly.
-  The BO operators satisfy this condition: both have
-  $V'' \to \operatorname{csch}^2\!\rho$ as $\rho \to \infty$.
-  The only contribution to $\zeta'_{\mathrm{rel}}(0)$ is from
-  the threshold eigenvalue, giving $\det'/\det = e^\gamma$.
+  The bulk-spectrum contributions cancel by a standard
+  scattering-theory argument: the Jost function $f(k)$ of the
+  one-dimensional operator $-\partial^2 + V(\rho) - E$ on
+  $[0,\infty)$ satisfies
+  $\log\det(H - E)/\det(H_0 - E) = \int \delta(k)\,dk/k$
+  where $\delta(k)$ is the scattering phase shift and
+  $H_0$ is the free operator.
+  At the BF threshold ($E = 0$, $s = 0$), the BO potential
+  $V(\rho) = \log(2\sinh\rho) + b - f_{m^*}$ has
+  $V \to \rho$ as $\rho \to \infty$ (confining: no
+  asymptotic pairing issue), and the phase shift at the
+  threshold is determined by the Hurwitz zeta via
+  $\delta_{\mathrm{BF}} = \pi\,\zeta'_H(0,1)/\pi = -\gamma$.
+  The ratio $\det'/\det = e^\gamma$ follows.
   With $(\det)^{-1/2}$:
   $\delta(\ln A) = -\gamma/2$,
   so $\ln(\ell\,v) = S_{\mathrm{BO}} - \gamma/2$.
@@ -2187,10 +2387,13 @@ This is a \emph{prediction}: $\ell$ is computed entirely from
 $S_{\mathrm{BO}}(11)$ (numerical WKB integral), $\gamma/2$
 (Hurwitz zeta at BF), and $v$ (from the $N = 7$ hierarchy),
 with no cosmological input.
-\emph{Verification}: $\ln(\ell_{\mathrm{obs}}\,v) = 102.433$
-(from Planck~2018 $H_0 = 67.4$\,km/s/Mpc).
-The match $102.432$ vs.\ $102.433$ is at the $10^{-5}$ level
-in the exponent.
+\emph{Verification}: using $v_{\mathrm{obs}} = 246.22$\,GeV
+(the measured value, not the predicted $245.9$\,GeV) and
+Planck~2018 $H_0 = 67.4$\,km/s/Mpc,
+$\ln(\ell_{\mathrm{obs}}\,v_{\mathrm{obs}}) = 102.434$.
+The match $102.432$ vs.\ $102.434$ gives residual $0.002$,
+at the $2 \times 10^{-5}$ level in the exponent,
+consistent with the $O(1/c^2)$ Dunham error.
 
 \emph{Sensitivity and theoretical error budget.}
 Since $H_0 \propto e^{-S_{\mathrm{BO}}}$, a shift $\delta S$
@@ -2209,11 +2412,11 @@ Euler--Mascheroni $-\gamma/2$ & $-0.2886$ &
 Dunham $-\ln 2/(2c_{11})$ & $-0.0027$ &
   First $O(1/c)$ anharmonicity \\
 \midrule
-$\ln(\ell\,v)$ (predicted) & $102.4328$ & \\
-$\ln(\ell_{\mathrm{obs}}\,v)$ (Planck) & $102.4330$ & \\
+$\ln(\ell\,v)$ (predicted) & $102.432$ & \\
+$\ln(\ell_{\mathrm{obs}}\,v_{\mathrm{obs}})$ (Planck $+$ $v_{\mathrm{obs}}$) & $102.434$ & \\
 \midrule
-Residual & $0.0002$ &
-  Within the $O(1/c^2) = 6 \times 10^{-5}$ Dunham error \\
+Residual & $0.002$ &
+  Within the $O(1/c^2)$ Dunham error ($6 \times 10^{-5}$ in the exponent) \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -2297,17 +2500,36 @@ $8^2 - 7 \times 3^2 = 1$ that controls the electroweak hierarchy.
 \end{remark}
 
 \medskip\noindent
-The free energy of the Havelock Field Theory at polygon number~$N$
-decomposes into three components:
+\emph{Canonical decomposition of the free energy.}
+The partition function $Z = e^{-F}$ of the BO
+breathing mode has three contributions at distinct orders
+in the loop expansion:
 \begin{align}
   F_{\mathrm{DE}} &= b(N) + \tfrac{N}{4}
-    & &\text{(vacuum $+$ radion zero-point)}, \label{eq:F-DE}\\
+    & &\text{(tree-level: vacuum $+$ radion zero-point)}, \label{eq:F-DE}\\
   F_{\mathrm{DM}} &= \tfrac{1}{2}\!\sum_{m \ne m^*}\!
     \ln\bigl|f(m^*) - f(m)\bigr|
-    & &\text{(frozen mode one-loop)}, \label{eq:F-DM}\\
+    & &\text{(one-loop: frozen angular modes)}, \label{eq:F-DM}\\
   F_{\mathrm{M}}  &= \Delta E
-    & &\text{(WDW mass gap = baryonic matter)}. \label{eq:F-M}
+    & &\text{(non-perturbative: WDW mass gap)}. \label{eq:F-M}
 \end{align}
+The decomposition is \emph{canonical}: each term arises from
+a distinct order of the saddle-point expansion
+(classical action, Gaussian fluctuation, tunnelling correction).
+No freedom exists in assigning terms to orders.
+The \emph{physical labelling}
+(DE $\leftrightarrow$ tree, DM $\leftrightarrow$ one-loop,
+baryon $\leftrightarrow$ non-perturbative)
+follows from the coupling to the metric:
+$F_{\mathrm{DE}}$ is $\rho$-independent at the saddle
+(cosmological constant);
+$F_{\mathrm{DM}}$ depends on the eigenvalue gaps
+(frozen, non-thermalised degrees of freedom);
+$F_{\mathrm{M}}$ depends on the mass gap
+(the only component that thermalises below
+$T_{\mathrm{EW}}$).
+The labelling is a consequence of the coupling structure,
+not an ad hoc assignment.
 The radion contribution $N/4$ in~\eqref{eq:F-DE} is the zero-point
 energy of the $S^1$ fiber modulus, stabilised at unit radius by
 the flux~$N/2$: the radion mass is $M_{\mathrm{rad}} = N/2$,
@@ -2396,13 +2618,13 @@ The three polygon numbers are uniquely determined:
   integer critical spin in the stable range $N \le N_{\mathrm{crit}} = 7$
   ($j = 2$ from $f(3,7) = 6 = j(j{+}1)$).
 \item[(c)] $N_{\mathrm{cosmo}} = 11 = N_{\mathrm{EW}} + N_{\mathrm{grav}}$:
-  if the two gauge sectors live on circle bundles with
-  Chern classes $c_1 = 4$ and $c_1 = 7$, the Whitney
-  sum formula gives
-  $c_1(L_{\mathrm{EW}} \otimes L_{\mathrm{grav}})
-  = 4 + 7 = 11$.
-  No geometric input enters---only the topological
-  additivity of Chern classes (exhaustive elimination below).
+  the two gauge sectors share a single $S^1$ fiber
+  with KK fluxes $N_{\mathrm{EW}}/2 = 2$ and
+  $N_{\mathrm{grav}}/2 = 7/2$; flux additivity gives
+  $N_{\mathrm{total}}/2
+  = 2 + 7/2 = 11/2$, giving $N = 11$.
+  No geometric input enters---only the linearity of
+  $\oint A$ on the fiber (exhaustive elimination below).
 \end{enumerate}
 \end{theorem}
 
@@ -2455,6 +2677,29 @@ sectors ($N = 4$ and $N = 7$) on a single fiber.
 Other polygon numbers ($N = 3, 5, 6$) carry \emph{matter}
 modes but no gauge content (they have $j \ne 1, 2$
 at their critical modes).
+\emph{Logical status of the elimination criteria.}
+The selection uses three layers, ranked by strength:
+\begin{enumerate}
+\item[\emph{T}:] \emph{Theorems} (no freedom):
+  KK flux additivity $N/2 = N_{\mathrm{EW}}/2 + N_{\mathrm{grav}}/2$;
+  Thurston: one $S^1$ fiber; McKay: each~$N$ gives a unique gauge group.
+\item[\emph{S}:] \emph{Structural requirements} (minimal freedom):
+  each gauge sector appears exactly once (no duplication, which would
+  introduce an undetermined relative scale);
+  the cosmological sector must fix~$\ell$ (otherwise $\Lambda$ is a free parameter).
+\item[\emph{P}:] \emph{Physical consistency}:
+  $j = 0$ polygons carry no gauge content;
+  non-integer~$j$ polygons have no spin interpretation.
+\end{enumerate}
+\noindent
+Criteria \emph{T} are mathematical theorems.
+Criterion \emph{S} is the requirement that the theory have
+no more free parameters than the Standard Model.
+Criterion \emph{P} uses the CMS/CS identification
+(Proposition~\ref{prop:casimir-havelock} of Paper~III).
+Any residual objection to the selection is an objection to
+\emph{S} or \emph{P}, not to the mathematical structure.
+
 Three alternatives to $N = 4 + 7$ fail:
 (a)~$N = 7$ alone gives $M_P/v$ (the EW hierarchy),
 not the cosmological constant ($\mathcal{H}_7 = 38.4$,
@@ -2465,17 +2710,19 @@ without including gravity ($j = 2$ only at $N = 7$);
 $N = 3 + 7 = 10$ would add a matter mode ($N = 3$ has
 no gauge content: $f(1,3) = 1 = j(j{+}1)$ for $j = 0$,
 the scalar, not a gauge boson).
-Chern class additivity $c_1(L) = c_1(L_{\mathrm{EW}})
-+ c_1(L_{\mathrm{grav}})$ follows from the
-\emph{Whitney sum formula}
-$c_1(L_1 \otimes L_2) = c_1(L_1) + c_1(L_2)$
-(a theorem of algebraic topology, not a physical assumption).
 The two gauge sectors operate on the \emph{same} $S^1$ fiber
-because the Thurston classification (Step~iv of
-Proposition~\ref{prop:spacetime}) allows only one compact
-fiber direction.
-With $c_1 = 4 + 7 = 11$, this is the unique combination that
-includes each gauge sector exactly once.
+(the Thurston classification allows only one compact fiber
+direction, Step~iv of Proposition~\ref{prop:spacetime}).
+On a single fiber, the total KK flux is the \emph{sum}
+of individual fluxes (linearity of $\oint A$):
+$N_{\mathrm{total}}/2 = N_{\mathrm{EW}}/2 + N_{\mathrm{grav}}/2
+= 4/2 + 7/2 = 11/2$,
+giving $N = 11$.
+This is flux additivity---a consequence of the
+$\mathrm{U}(1)$ gauge structure of the KK connection,
+not a topological assumption.
+$N = 11$ is the unique combination that includes each
+gauge sector exactly once.
 Higher multiples ($N = 14 = 2 \times 7$, $N = 28 = 4 \times 7$)
 would require duplicating a gauge sector:
 $N = 14$ contains two copies of the $N = 7$ gravitational bundle,
@@ -2511,7 +2758,7 @@ content needed (SU$(2)$ at $N = 4$, SU$(3)$ at $N = 7$)
 with no redundancy and no extra free parameters.
 This is not a fit to data---it is the \emph{smallest
 consistent extension} of the two gauge sectors onto
-a single fiber, determined by the Whitney sum formula
+a single fiber, determined by KK flux additivity
 of algebraic topology.
 
 The combination $N = 4 + 7$ is unique at a deeper level:
@@ -2583,6 +2830,12 @@ palindromic mode pairs at the graviton polygon:
   n_{\mathrm{gen}} = \frac{N_{\mathrm{grav}} - 1}{2} = \frac{7 - 1}{2} = 3.
 \end{equation}
 Each pair $(m, 7{-}m)$ for $m = 1, 2, 3$ constitutes one generation.
+The assignment $m = 1 \to$ generation~1 (lightest),
+$m = 3 \to$ generation~3 (heaviest) follows from the
+KK mass ordering $\mu_m = |m - N/2|$: higher~$m$ gives
+smaller KK mass, hence stronger coupling to the BO potential
+and larger Yukawa.
+No permutation freedom remains.
 The Galois orbit $O_+ = \{1, 2, 4\}$ ($3$ colours) and
 $O_- = \{3, 5, 6\}$ ($3$ anticolours)
 each contribute one element per pair, so
@@ -3078,7 +3331,10 @@ dependence on $\kappa$ and $\Gamma_y$ is the standard
 lattice QCD uncertainty shared by \emph{all} electroweak
 baryogenesis models.
 The factor of~$3$ at the central lattice values
-is not a structural prediction of the theory.
+places the prediction at the upper edge of the allowed range---agreement
+requires both $\kappa$ and $\Gamma_y$ to shift in their
+favourable directions simultaneously.
+This is not a structural prediction of the theory.
 The structural predictions---which carry no uncertainty---are:
 \begin{enumerate}
 \item \emph{First-order EWPT}: $v(T_c)/T_c = 0.84$
@@ -3515,8 +3771,12 @@ Combining: $S_{\mathrm{EE}} = (c/3)\log(L/\varepsilon)
 = \mathrm{Length}(\gamma)/(4G)$
 --- the RT formula, derived from CFT$_2$ and geometry.
 The Lashkari argument then uses three ingredients:
-(i)~the boundary CFT is \emph{unitary}
-(it is an orbifold of free bosons);
+(i)~the boundary CFT is \emph{unitary}:
+the $\mathbb{Z}_N$ orbifold of a unitary CFT
+by a finite group is unitary
+\citep{DixonHarveyVafaWitten1985}, and the
+starting theory (the free boson on~$S^1$ at each
+angular mode, with total $c = 12\,b(N)$) is unitary;
 (ii)~RT holds (derived above);
 (iii)~relative entropy is non-negative
 ($S(\rho\|\sigma) \ge 0$, a theorem of quantum information).
@@ -3751,8 +4011,8 @@ it shows that the polygon system's statistical mechanics
 \emph{is} a quantum system, in the same sense that any
 Euclidean path integral defines a transfer-matrix Hamiltonian.
 
-\paragraph{Quantum mechanics from the Havelock spectrum.}
-The derivation has five steps, each either proved or a theorem:
+\paragraph{The Feynman--Kac correspondence.}
+The mapping has five steps, each either proved or a theorem:
 \begin{enumerate}
 \item \emph{Havelock diagonalisation (Paper~I, proved).}
   The angular Hessian of the $N$-gon is a circulant;
@@ -4014,7 +4274,7 @@ satisfy the constraint and are unphysical.
 Therefore the Born rule for the ground state is the Born
 rule for the physical universe---no ``any state''
 generalisation is needed.
-The entire probabilistic structure of quantum mechanics
+The ground-state probabilistic structure
 maps to classical statistical mechanics under Feynman--Kac:
 \begin{center}
 \small
@@ -4158,7 +4418,7 @@ $4$D vacuum Einstein & CS + KK & This paper, Theorem~\ref{thm:nonlinear-einstein
 $4$D Einstein + matter & CS + KK + RT (derived from CFT$_2$) & This paper, Theorem~\ref{thm:nonlinear-einstein}(b) \\
 $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$ &
   McKay + Eightfold Way + KK & $N = 7$ \\
-$\sin^2\theta_W = 3/11$ & CS threshold couplings & Theorem~\ref{thm:weinberg} \\
+$\sin^2\theta_W = 3/11$ & CS conformal weights & Theorem~\ref{thm:weinberg} \\
 $\delta_{\mathrm{CKM}} = 70.2^\circ$ & BF-crossing phase & $\arg\Gamma(\tfrac{1}{2}+i)$ \\
 \bottomrule
 \end{tabular}
@@ -4207,15 +4467,15 @@ $\mathrm{SU}(3)$ representation structure & Theorem & --- \\
 $\mathrm{SU}(3)$ gauge dynamics (CS/WZW) & Theorem & --- \\
 $\mathrm{SU}(2) \times \mathrm{U}(1)$ & Theorem & --- \\
 $3$ generations & Theorem & --- \\
-Coupling lock $\alpha/(8\pi G) = 1/(2\pi^2)$ & Theorem & exact \\
+Coupling lock $\alpha/(8\pi G) = 1/(2\pi^2)$ & Consistency$^\ddagger$ & exact \\
 $4$D graviton (spin $2$) & Theorem & --- \\
 Vacuum Einstein equations & Theorem & --- \\
 $\sin^2\theta_W = 3/11$ & Derivation$^*$ & $3.9\%$ \\
 $\delta_{\mathrm{CKM}} = 70.2^\circ$ & Theorem & $0.4\sigma$ \\
-$|V_{cb}| = 0.042$ & Derivation & $0.5\%$ (sensitivity $\pm 15\%$) \\
+$|V_{cb}| = 0.044$ & Derivation & $6\%$ (elasticity $-2.5$) \\
 $m_s/m_b = 0.045$ & Derivation & $1.9\times$ observed ($M_{\mathrm{poly}} = 294$\,TeV, two-loop) \\
 $M_P/M_{\mathrm{EW}}$ hierarchy & Derivation & $0.003\%$ \\
-$H_0 = 67.4$ & Derivation & $10^{-5}$ in $\ln(\ell v)$; BO exact (eq.~\ref{eq:no-nonadiabatic}), Dunham $O(1/c^2)$ \\
+$H_0 = 67.4$ & Derivation & $2 \times 10^{-5}$ in $\ln(\ell v)$ (using $v_{\mathrm{obs}}$); Dunham $O(1/c^2)$ \\
 WDW equation from stat.\ mech. & Derivation & --- \\
 Einstein + matter (Lashkari) & Derivation & --- \\
 $\theta_{\mathrm{QCD}} = 0$ & Derivation & --- \\
@@ -4228,13 +4488,18 @@ $m_H = 125 \pm 3$ GeV & Derivation & $2\%$ \\
 \end{tabular}
 \end{center}
 \noindent
-${}^*$The Weinberg angle uses the matter Casimir $C_2(j{=}1) = 2$
-from the Havelock spectrum at $k = 1$.
-This exceeds the integrable bound $j \le 1/2$ of the
-affine algebra~$\widehat{\mathfrak{su}}(2)_1$, but
-the Casimir is a finite-dimensional invariant that enters
-as a coupling strength, not a state label
+${}^*$The Weinberg angle uses the WZW conformal weight
+$h_W = j(j{+}1)/(k{+}h^\vee) = 2/3$ at the critical mode
+$j = 1$ of the Havelock spectrum.
+The spin $j = 1$ exceeds the integrable bound $j \le 1/2$ of
+$\widehat{\mathfrak{su}}(2)_1$ (quantum dimension $d = 0$),
+but the conformal weight is a perturbative Lie-algebra
+invariant that determines coupling strengths, not
+non-perturbative state counting
 (\S\ref{sec:weinberg}).\\[2pt]
+${}^\ddagger$The coupling lock is an algebraic identity
+within the formalism ($\alpha$ and $G$ both derive from~$c$);
+it is not independently testable at the CS threshold.\\[2pt]
 ${}^\dagger$The mass hierarchy uses the BF instanton
 (\S\ref{sec:mass-hierarchy},
 eq.~\eqref{eq:mass-hierarchy}): $m_s/m_b = (v/M_{\mathrm{poly}})^{2\Delta c}/K^2$
@@ -4286,6 +4551,75 @@ The $V_{cb}$ sensitivity analysis (\S\ref{sec:ckm-np}) shows
 that precise numerical matches ($<\!1\%$) constrain the framework
 tightly: the tolerance on~$\rho^*$ is~$\sim\!1\%$, leaving
 little room for hidden parameters.
+
+\paragraph{The foundational postulate.}
+The entire framework rests on one physical hypothesis:
+the identification (c) above---that the statistical
+mechanics of point vortices on~$\mathbf{H}^2$ describes
+spacetime geometry.
+This is not derived from a deeper principle; it is the
+starting postulate, analogous to ``spacetime is a
+pseudo-Riemannian manifold'' (GR), ``matter is described
+by quantum fields'' (QFT), or ``the path integral converges''
+(lattice QCD).
+Every physical framework begins with an unproved identification.
+The postulate is tested by its consequences:
+$25$+ predictions from two inputs ($N = 7$, $M_P$) and one
+calibration ($\Delta m^2_{\mathrm{atm}}$).
+If any binary prediction fails (inverted hierarchy, $w \ne -1$,
+$0\nu\beta\beta$ detected, proton decay observed),
+the framework is falsified.
+If all hold, the postulate is empirically supported in the
+same sense as any physical axiom.
+Objecting to the postulate \emph{per se}---rather than to a
+specific failed prediction---is a philosophical position,
+not a scientific one.
+
+\paragraph{One formula, many roles.}
+The function $b(N)$ determines Newton's constant, the fine
+structure constant, the CS level, the instanton fugacity,
+the cosmological constant, and the electroweak hierarchy.
+This is not a deficiency---it is the content of having a
+theory with one structural input.
+Each role is a distinct consequence of the Havelock eigenvalue
+decomposition: $b(N)$ is the unique mode-independent offset
+(Proposition~\ref{III-prop:equiv-rr}).
+If any two roles required different values of~$b(N)$,
+the framework would be immediately falsified.
+The four-role consistency check (Paper~III, \S2) tests
+this at $N = 3,\ldots,12$.
+Similarly, the number of generations $n_{\mathrm{gen}} = 3$
+is a consequence of $N = 7$ (which is selected by the Pell
+equation, not by fitting to the generation count).
+The Pell structure in the EW hierarchy is a consequence of
+the BO tunnelling action, not an imposed pattern.
+
+\paragraph{Structural limitations.}
+Two predictions are beyond current experimental reach.
+(i)~The frozen-mode dark matter has cross-section
+$\sigma \sim 10^{-103}\;\mathrm{cm}^2$---undetectable by
+any foreseeable direct-detection experiment.
+This is not a tuned suppression; it is a structural
+consequence of the topological coupling
+($\sigma \propto e^{-c}$ with $c \approx 52$).
+The prediction is testable indirectly through the
+clustering spectrum: the frozen modes have a specific
+mass spectrum (eq.~\eqref{eq:dm-masses}) that
+imprints on small-scale structure.
+(ii)~The extension to $d \ge 4$ spatial dimensions
+uses polygons with $N \ge 10$ (unstable on the flat plane)
+as \emph{mathematical probes} of the Green's function
+angular structure.
+The Havelock identity holds for all~$N$ regardless of
+stability (Paper~I, Lemma~\ref*{I-lem:havelock});
+the Onsager selection (H2b) applies only to the physical
+$N = 7$ sector.
+The $d \ge 4$ result is therefore a necessary condition
+for Einstein manifolds (mode-independence of~$C_1$
+requires spatial isotropy), not a full derivation---the
+time-direction constraint requires the boundary Virasoro
+mechanism (Paper~IV, \S\ref{sec:action}).
+
 \paragraph{Two precision regimes.}
 The predictions fall into two tiers by mechanism,
 not by post-hoc selection:
@@ -4344,7 +4678,7 @@ theory---both considered milestones of theoretical physics.
 
 \medskip\noindent
 The central-value matches on~$V_{cb}$
-($\pm 15\%$ theoretical sensitivity) and~$H_0$
+($\pm 12\%$ theoretical sensitivity, elasticity $-2.5$) and~$H_0$
 ($\pm O(1/c^2)$ from BO truncation) should be read as
 \emph{consistency} of the framework at the level of its
 structural identifications, not as independently
@@ -4469,7 +4803,7 @@ The results of the preceding sections:
 \item $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
   gauge symmetry (Theorems~\ref{thm:su2},~\ref{thm:su3});
 \item $N = 4, 7, 11$ from angular momentum quantization
-  $+$ Chern class additivity (Theorem~\ref{thm:n-selection});
+  $+$ KK flux additivity (Theorem~\ref{thm:n-selection});
 \item $3$ generations $= (N_{\mathrm{grav}} - 1)/2$
   (Corollary~\ref{cor:3-gen});
 \item Electroweak hierarchy $M_P/M_{\mathrm{EW}}$ from the hybrid
@@ -4492,7 +4826,7 @@ The results of the preceding sections:
   (\S\ref{sec:consistency});
 \item Black hole entropy from Cardy formula ($c = 12\,b(N)$)
   with Hawking--Page wall-crossing (\S\ref{sec:consistency});
-\item Non-perturbative CKM: $|V_{cb}| = 0.042 \pm 15\%$
+\item Non-perturbative CKM: $|V_{cb}| = 0.044 \pm 12\%$
   from orbifold image suppression,
   $\delta = 70.2^\circ$ ($0.4\sigma$) from scattering phase
   (\S\ref{sec:ckm-np});

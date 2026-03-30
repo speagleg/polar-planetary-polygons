@@ -334,28 +334,21 @@ def u1_from_kk(N=7):
 # =====================================================================
 
 def weinberg_angle_cs_threshold():
-    """Derive sin²θ_W = 3/11 from conformal dimensions at the orbifold CFT.
+    """Derive sin²θ_W = 3/11 from conformal weights at the CS threshold.
 
-    The Weinberg angle is the U(1) fraction of the critical mode's
-    conformal weight:
+    The Weinberg angle is the ratio of WZW conformal weights:
 
-      sin²θ_W = h_{U(1)} / (h_{U(1)} + h_bar_{SU(2)})
+      sin²θ_W = h_Y / (h_Y + h_W)
 
-    where:
-      h_{U(1)} = Q²/(2K) = (1/2)²/2 = 1/8
-        (compact boson, Q = m*/N = 1/2, K = 1)
-      h_bar_{SU(2)} = j(j+1) / [2(k + h_dual)] = 2/6 = 1/3
-        (left-right average in SU(2)xSU(2) CS gravity;
-         j=1 from f(2,4)=2, k=1, h_dual(SU(2))=2)
+    using the universal formula h_R = C_2(R) / (k + h_dual):
+      h_Y   = Q²/K           = (1/2)²/1  = 1/4   (U(1): h_dual = 0)
+      h_W   = j(j+1)/(k+h_v) = 2/(1+2)   = 2/3   (SU(2): h_dual = 2)
 
-      sin²θ_W = (1/8)/(1/8 + 1/3) = 3/11
+      sin²θ_W = (1/4) / (1/4 + 2/3) = 3/11
 
-    The factor of 2 giving h_bar = h_WZW/2 is physical:
-    3D gravity = SU(2)_L x SU(2)_R CS (Witten 1988),
-    physical perturbations have h_L = h_R = h_total/2.
-
-    Compare SU(5) GUT: sin²θ_W = 3/8 uses CLASSICAL Casimir j(j+1).
-    Our 3/11 uses QUANTUM-CORRECTED conformal dim j(j+1)/(k+h_dual).
+    The h_dual = 0 for U(1) is the standard result for abelian groups
+    (no quantum shift of the level). The formula h = C_2/(k + h_dual)
+    is universal across all simple and abelian Lie algebras.
     """
     # Critical mode at N=4
     Q = 0.5              # U(1)_K charge = m*/N = 2/4
@@ -366,12 +359,13 @@ def weinberg_angle_cs_threshold():
     k_su3 = 1            # SU(3) CS level (from McKay)
     h_su3 = 3            # dual Coxeter number of SU(3)
 
-    # Conformal dimensions
-    h_U1 = Q**2 / (2 * K)                          # = 1/8
-    h_SU2_WZW = j * (j + 1) / (k_su2 + h_su2)     # = 2/3
-    h_SU2_phys = h_SU2_WZW / 2                      # = 1/3 (L-R average)
+    # Conformal weights via the universal formula h_R = C_2(R)/(k + h_dual)
+    # For U(1): h_dual = 0 (abelian), so h = Q^2/K
+    # For SU(2): h_dual = 2, so h = j(j+1)/(k+2)
+    h_U1 = Q**2 / K                                 # = 1/4  (h_dual(U(1)) = 0)
+    h_SU2 = j * (j + 1) / (k_su2 + h_su2)          # = 2/3
 
-    sin2_theta = h_U1 / (h_U1 + h_SU2_phys)
+    sin2_theta = h_U1 / (h_U1 + h_SU2)
 
     return {
         'method': 'Conformal dimensions at orbifold fixed point',
@@ -383,8 +377,7 @@ def weinberg_angle_cs_threshold():
         'k_su3': k_su3,
         'h_dual_su3': h_su3,
         'h_U1': h_U1,
-        'h_SU2_WZW': h_SU2_WZW,
-        'h_SU2_phys': h_SU2_phys,
+        'h_SU2': h_SU2,
         'sin2_theta_W': sin2_theta,
         'exact_fraction': '3/11',
         'numerical': sin2_theta,
@@ -399,10 +392,9 @@ def weinberg_angle_cs_threshold():
         'dim_su3': 8,
         'proof_chain': [
             f'1. Critical mode at N=4: Q = m*/N = {Q}, j = {j} (from f(2,4)=2).',
-            f'2. U(1)_K conformal dim: h = Q^2/(2K) = {Q**2}/(2*{K}) = {h_U1}.',
-            f'3. SU(2)_1 WZW dim: h = j(j+1)/(k+h_dual) = 2/{k_su2+h_su2} = {h_SU2_WZW:.4f}.',
-            f'4. Physical SU(2): h_bar = h_WZW/2 = {h_SU2_phys:.4f} (L-R average in SU(2)xSU(2) CS).',
-            f'5. sin^2 theta_W = h_U1/(h_U1 + h_bar) = {h_U1}/({h_U1}+{h_SU2_phys:.4f}) = 3/11.',
+            f'2. U(1) conformal weight: h = Q^2/K = {Q**2}/{K} = {h_U1} (h_dual(U(1))=0).',
+            f'3. SU(2) conformal weight: h = j(j+1)/(k+h_dual) = 2/{k_su2+h_su2} = {h_SU2:.4f}.',
+            f'4. sin^2 theta_W = h_U1/(h_U1 + h_SU2) = {h_U1}/({h_U1}+{h_SU2:.4f}) = 3/11.',
         ],
     }
 
