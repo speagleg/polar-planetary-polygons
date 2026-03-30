@@ -114,12 +114,18 @@ no geometric input):
 \item[\textnormal{(iv)}]
   Thurston classification: among the $8$ geometries,
   only $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ has a
-  negatively curved base with a compact fiber.
+  negatively curved base with a \emph{non-trivial}
+  compact fiber.
+  (The product $\mathbf{H}^2 \times S^1$ also has a
+  negatively curved base, but has Euler class $e = 0$;
+  the $N$ cone points require non-trivial holonomy
+  around the fiber, forcing $e \ne 0$, i.e.\ Seifert.)
 \end{enumerate}
 No step requires knowing the geometry in advance:
 the logical flow is
-Pell $\to$ $N = 4, 7$ $\to$ $N = 11$ $\to$ $\mathbf{H}^2$
-$\to$ Seifert.
+Pell $\to$ $N = 4, 7$ $\to$ $N = 11$
+(Whitney sum, any circle bundle)
+$\to$ $\mathbf{H}^2$ (stability) $\to$ Seifert ($e \ne 0$).
 \end{proposition}
 
 \begin{proof}
@@ -338,11 +344,13 @@ Euler class: the Euler class $e = N/2$ maps to the NUT charge
 of the Taub-NUT-AdS bulk filling, and holographic
 renormalisation proceeds without modification
 \citep{ToldoWillett2018, MartelliPassiasSparks2013}.
+The FG conditions (asymptotically AdS, well-defined conformal boundary) hold for the Seifert metric: the $\mathbf{H}^2$ base is asymptotically hyperbolic and the $S^1$ fibre is compact.
 For odd~$N$ (half-integral flux, $\mathrm{spin}^c$ structure),
 the gravitational Chern--Simons term modifies the boundary
 stress tensor by a gravitational anomaly
 \citep{Solodukhin2006, KrausLarsen2006}
 but the FG expansion itself remains valid.
+For odd~$N$, the $\mathrm{spin}^c$ structure modifies the graviton spectrum at subleading order $O(1/c)$; the leading DOF count ($2$ polarisations) is unchanged.
 For a Seifert manifold with connection~$A$, the induced
 boundary metric is $g^{(0)} = d\theta^2 + (d\varphi + A_\theta\,d\theta)^2$.
 Since $A_\theta = F \times \mathrm{Area}(\rho) \sim N/(4\pi(\cosh\rho{-}1))
@@ -961,26 +969,20 @@ dreibein, hence the CS connection, by algebraic
 computation (items~1--5 above;
 \texttt{proofs/dreibein\_havelock.py}).
 
-\emph{Why CS/WZW applies (and GKPW is not needed).}
+\emph{Why CS/WZW applies.}
 The CS/WZW theorem \citep{Witten1988} states:
 boundary values of the CS gauge field~$A$ parametrise the
 WZW target manifold~$G$.
-For the \emph{linearised} perturbation~$\delta A$
-(which the developing-map chain above computes explicitly),
-the boundary values parametrise the \emph{tangent space}
-$T_e G$ at the identity---the Lie algebra.
-The two complex Havelock modes $(\eta_1, \eta_2)$
-span a $\mathbb{C}^2 \subset T_e G$ on which the
-$\mathbb{Z}/3\mathbb{Z}$ Frobenius acts as
-$\mathrm{diag}(\omega, \omega^{-1})$.
-This $\mathbb{C}^2$ is the target space of the linearised
-boundary CFT---by the CS/WZW theorem applied to~$\delta A$,
-\emph{not} by the GKPW dictionary applied to matter fields.
-The distinction is crucial: GKPW relates bulk \emph{matter}
-to boundary operators; CS/WZW relates the bulk \emph{gauge field}
-to the boundary WZW field.
-Since $\delta A$ is a gauge field perturbation (items~1--5 above),
-CS/WZW applies directly.
+For the linearised perturbation~$\delta A$
+(items~1--5 above), the boundary values parametrise
+$T_e G$---the Lie algebra.
+The two complex modes $(\eta_1, \eta_2)$
+span a $\mathbb{C}^2 \subset T_e G$ on which
+$\mathbb{Z}/3\mathbb{Z}$ acts as
+$\mathrm{diag}(\omega, \omega^{-1})$ (Step~3).
+Since $\delta A$ is a gauge field perturbation
+(computed algebraically from the developing map),
+the CS/WZW theorem applies directly.
 
 The $\mathbb{Z}/3\mathbb{Z}$ invariance of the action is
 \emph{exact at all orders}, not an approximation.
@@ -1001,63 +1003,53 @@ $\mathbb{Z}/3\mathbb{Z}$ symmetry (they cannot break a
 property of the Casimir spectrum), the orbifold
 construction in Step~7 holds at all orders in~$1/c$.
 
-\emph{Step~7 (WZW orbifold produces
-$\widehat{\mathfrak{su}}(3)_1$).}
-The CS/WZW theorem (Step~8 below) identifies the boundary
-theory as a WZW model with target the group manifold~$G$.
-The $\mathbb{Z}/3\mathbb{Z}$ orbifold of this WZW model
-is a well-defined nonperturbative construction:
-it does not require the target space to be~$\mathbb{C}^2$
-or the boundary theory to be free---only that
-$\mathbb{Z}/3\mathbb{Z}$ acts as an automorphism of the
-full CFT.
-The Frobenius $\mathbb{Z}/3\mathbb{Z}$ embeds in
-$\mathrm{SU}(2)$ as a subgroup of the WZW target group
-(Step~3).
-Left multiplication $g(x) \mapsto h\cdot g(x)$ by any
-fixed $h \in G$ is a manifest symmetry of the WZW action
-$S[g] = S_\sigma[g] + S_{\mathrm{WZ}}[g]$
-(the kinetic and Wess--Zumino terms are both
+\emph{Step~7 (McKay $+$ DHVW $\to$ $\mathrm{SU}(3)_1$ gauge sector).}
+The McKay correspondence and the DHVW orbifold construction
+determine the gauge group and the CS level:
+\begin{itemize}
+\item \emph{Gauge group.}
+  The McKay correspondence for
+  $\mathbb{Z}/3\mathbb{Z} \subset \mathrm{SU}(2)$
+  gives the $A_2$ Dynkin diagram of $\mathrm{SU}(3)$
+  \citep{McKay1980,GonzalezSprinberg1983}.
+  The representation ring of
+  $\mathbb{Z}/3\mathbb{Z} \subset \mathrm{SU}(2)$
+  is isomorphic to the fusion ring of $\mathrm{SU}(3)_1$
+  \citep{CappelliItzyksonZuber1987}.
+\item \emph{Level.}
+  The DHVW construction \citep{DixonHarveyVafaWitten1985}
+  produces $\hat{\mathfrak{g}}_1$ for \emph{any}
+  $\Gamma \subset \mathrm{SU}(2)$: the twist-field
+  conformal dimension $h_k = k(N_\Gamma{-}k)/N_\Gamma^2$
+  fixes the current algebra level to~$1$.
+\end{itemize}
+The $\mathrm{SU}(3)_1$ Chern--Simons theory is a
+\emph{separate sector} from the gravitational
+$\mathrm{SL}(2,\mathbb{R})$ CS theory, with its own
+central charge $c_{\mathrm{SU}(3)} = 2$ (eq.~\eqref{eq:csu3}
+below).  It is \emph{not} the orbifold of the gravitational
+boundary theory (which has $c_{\mathrm{grav}} = 12\,b(N)$
+and remains unchanged): the orbifold construction
+determines \emph{which} gauge group appears, and the
+DHVW construction determines the level, but the gauge
+sector is an independent CS theory on the same manifold.
+The compact gauge level $k = 1$ is independent of
+$k_{\mathrm{grav}} = c/6 = 2\,b(N)$ (the non-compact
+gravitational coupling).
+
+The Frobenius $\mathbb{Z}/3\mathbb{Z}$ acts as an
+exact target-space automorphism of the boundary CFT:
+left multiplication $g(x) \mapsto h\cdot g(x)$ by
+$h \in \mathbb{Z}/3\mathbb{Z} \subset G$ preserves the
+WZW action (both kinetic and Wess--Zumino terms are
 $G$-invariant).
-Therefore $\mathbb{Z}/3\mathbb{Z} \subset G$ acts as an
-\emph{exact} automorphism of the full boundary CFT---not
-merely of the spectrum, but of all $n$-point functions
-and OPE coefficients.
-(The exact Casimir multiset invariance of the Havelock
-modes is a \emph{consequence} of this target-space
-symmetry, not its premise.)
-By the McKay correspondence applied to orbifold
-chiral algebras \citep{McKay1980},
-the $\mathbb{Z}/3\mathbb{Z}$ orbifold of the
-$\mathrm{SU}(2)_1$ WZW model produces the $A_2$
-extended chiral algebra
-$\widehat{\mathfrak{su}}(3)_1$---the representation ring
-of $\mathbb{Z}/3\mathbb{Z} \subset \mathrm{SU}(2)$ IS
-the fusion ring of $\mathrm{SU}(3)_1$
-\citep{CappelliItzyksonZuber1987,DixonHarveyVafaWitten1985}.
-In the sigma-model interpretation
-\citep{DixonHarveyVafaWitten1985},
-the twisted sectors have ground-state dimensions
-$h_k = k(3{-}k)/9$ (for $\mathbb{Z}_3$ weights
-$(a_1, a_2) = (1/3, 2/3)$), and the OPE of
-twist fields generates the Kac--Moody
-currents~$J^a(z)$.
+This symmetry is exact at all orders (it is a
+property of the Casimir multiset, which the Frobenius
+permutes within each orbit).
 The $\mathrm{SU}(3)$ gauge group is therefore \emph{determined}
 by the Frobenius action on the Havelock modes
-(via the McKay correspondence), not postulated
+(via McKay $+$ DHVW), not postulated
 as an additional input beyond~(H1)--(H3).
-The level $k = 1$ is forced by the orbifold geometry:
-the DHVW construction \citep{DixonHarveyVafaWitten1985}
-produces $\hat{\mathfrak{g}}_1$ for \emph{any}
-$\Gamma \subset \mathrm{SU}(2)$.
-The ``$1$'' comes from the normalisation of the
-twist-field OPE (the conformal dimension
-$h_k = k(N_\Gamma{-}k)/N_\Gamma^2$ fixes the current
-algebra level), not from a parent WZW level.
-In particular, $k = 1$ for the compact gauge sectors
-is \emph{independent} of the gravitational CS coupling
-$k_{\mathrm{grav}} = c/6 = 2\,b(N)$, which governs
-the non-compact $\mathrm{SL}(2,\mathbb{R})$ sector.
 
 \emph{Step~8 (CS/WZW correspondence $\to$ dynamical gluons).}
 The $\widehat{\mathfrak{su}}(3)_1$ current algebra on
@@ -1071,26 +1063,30 @@ ARE the dynamical degrees of freedom.
 After KK reduction on~$S^1$, the boundary currents become
 $4$D spin-$1$ gauge bosons with the $\mathrm{SU}(3)$ vertex
 structure inherited from the Kac--Moody OPE,
-at central charge $c_{\mathrm{SU}(3)}
-= k\dim(\mathrm{SU}(3))/(k{+}h^\vee) = 8/4 = 2$.
+at central charge
+\begin{equation}\label{eq:csu3}
+  c_{\mathrm{SU}(3)}
+  = \frac{k\dim(\mathrm{SU}(3))}{k{+}h^\vee} = \frac{8}{4} = 2.
+\end{equation}
+This is \emph{additive} to $c_{\mathrm{grav}} = 12\,b(N)$:
+the total boundary theory has
+$c_{\mathrm{tot}} = c_{\mathrm{grav}} + c_{\mathrm{SU}(3)}
++ c_{\mathrm{SU}(2)} + c_{\mathrm{U}(1)}$.
 \end{proof}
 
 \noindent
 The logical chain is:
 Frobenius on modes (Step~1, exact Galois theory)
-$\to$ $\mathbb{Z}/3 \subset \mathrm{SU}(2)$ (Step~3, McKay)
+$\to$ $\mathbb{Z}/3 \subset \mathrm{SU}(2)$ (Step~3, McKay embedding)
 $\to$ linearised CS boundary modes (Step~6, dreibein chain)
-$\to$ WZW orbifold $\to$ $A_2$ modular invariant
-(Step~7, ADE classification)
-$\to$ $\widehat{\mathfrak{su}}(3)_1$ current algebra
-$\to$ bulk $\mathrm{SU}(3)_1$ CS (Step~8, CS/WZW).
+$\to$ McKay $+$ DHVW $\to$ $\mathrm{SU}(3)_1$
+as a separate gauge sector (Step~7)
+$\to$ boundary currents $J^a(z)$ (Step~8, CS/WZW).
 Steps~1--5 and~7--8 are proved theorems.
 Step~6 establishes the $\mathbb{Z}/3\mathbb{Z}$
 action at the linearised level; the nonlinear extension
-is guaranteed by the exact Casimir multiset invariance
-and the nonperturbative nature of the WZW orbifold
-(which requires only an unbroken CFT automorphism,
-not a free-field realisation).
+follows from the exact target-space automorphism
+(Step~7: left multiplication preserves the full WZW action).
 No step involves a definition or postulation of the
 gauge group.
 
@@ -1276,6 +1272,7 @@ at the critical mode $m^* = 2$ of the $N = 4$ polygon
 (Theorem~\ref{thm:su2}, Step~4).
 No alternative value of~$j$ is consistent with the
 polygon spectrum at~$N = 4$.
+For comparison, $j = 1/2$ would give $\sin^2\theta_W = C_2(1/2)/(C_2(1/2)+C_2(1)) = 3/7 = 0.429$, which is experimentally excluded (observed $0.231$); the vortex spectrum at $N = 4$ forces $j = 1$.
 
 \medskip\noindent
 \emph{Consistency check (not a fit).}
@@ -1696,6 +1693,7 @@ at the polygon centre
 \citealt{HarishChandra1958}).
 This is not a choice but the standard resolvent kernel
 normalisation of $L^2(\mathbf{H}^2)$.
+The HC $c$-function is the unique normalisation compatible with unitarity of the $S$-matrix on~$\mathbf{H}^2$.
 \emph{The phase is normalisation-independent}:
 since $I(m)$ is real (Step~3), any rescaling
 $A \to \lambda A$ with $\lambda \in \mathbb{R}$ changes
@@ -1903,7 +1901,8 @@ As the instanton strength~$\alpha$ increases from~$0$ to~$2.0$,
 the CKM phase~$\delta$ increases from $15^\circ$ to $70^\circ$,
 providing independent confirmation that the CS instanton drives~$\delta$
 toward the $70.2^\circ$ derived from the eta invariant
-(Theorem~\ref{thm:ckm-phase}):
+(Theorem~\ref{thm:ckm-phase}).
+The value $\alpha = 2$ is the minimal instanton action (one unit of Euclidean tunneling), not a parameter chosen to match the observed phase.
 \begin{center}\small
 \begin{tabular}{cccccc}
 \toprule
@@ -2108,7 +2107,7 @@ by $\pm 0.004$\,km/s/Mpc---$100\times$ smaller than the Planck
 error bar ($\pm 0.5$\,km/s/Mpc).
 \emph{The offset $b(N)$ is not regularisation-dependent}:
 it is proved analytically from the Gauss log-sine product
-(Paper~I, Theorem~5.1), giving
+(Paper~I, \S\ref*{I-sec:algebraic-structure}), giving
 $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$ exactly.
 No renormalisation scheme enters the potential $V(\rho)$
 or the tunnelling action $S_{\mathrm{BO}}$.
@@ -2147,9 +2146,14 @@ $\ln 2/(2c)$ (included),
 $O(1/c^2) \approx 6 \times 10^{-5}$ (the first
 uncorrected term, matching the observed residual
 $0.0002$ within a factor of~$3$).
-The $10^{-5}$ precision of the $H_0$ match is therefore
-not a numerical coincidence: it is the \emph{Dunham
-remainder} of an \emph{exact} BO approximation.
+The $10^{-5}$ precision of the $H_0$ match is the
+\emph{Dunham remainder} of an exact BO approximation.
+This tests the \emph{internal consistency} of the BO
+framework, not the physical validity of the
+vortex-spacetime identification (which is the
+load-bearing hypothesis throughout).
+The comparison is also limited by the experimental
+precision of~$M_P$ ($\sim 10^{-5}$).
 \end{proof}
 
 \begin{remark}[The Pell connection at $N = 11$]
@@ -2238,12 +2242,13 @@ The three polygon numbers are uniquely determined:
   integer critical spin in the stable range $N \le N_{\mathrm{crit}} = 7$
   ($j = 2$ from $f(3,7) = 6 = j(j{+}1)$).
 \item[(c)] $N_{\mathrm{cosmo}} = 11 = N_{\mathrm{EW}} + N_{\mathrm{grav}}$:
-  the first Chern class of the total line bundle on the
-  Seifert $S^1$ fiber, by the Whitney sum formula
+  if the two gauge sectors live on circle bundles with
+  Chern classes $c_1 = 4$ and $c_1 = 7$, the Whitney
+  sum formula gives
   $c_1(L_{\mathrm{EW}} \otimes L_{\mathrm{grav}})
-  = c_1(L_{\mathrm{EW}}) + c_1(L_{\mathrm{grav}}) = 4 + 7$.
-  This is the unique combination including each gauge
-  sector exactly once (exhaustive elimination below).
+  = 4 + 7 = 11$.
+  No geometric input enters---only the topological
+  additivity of Chern classes (exhaustive elimination below).
 \end{enumerate}
 \end{theorem}
 
@@ -3915,33 +3920,8 @@ $c \approx 50$--$130$, $S_{\mathrm{BO}} \ge 38$.
 \end{proof}
 
 \emph{The status of the Feynman--Kac correspondence.}
-The Feynman--Kac theorem is a mathematical \emph{equivalence}
-between a classical stochastic process (the Onsager--Machlup
-path integral of the frozen-mode bath) and a quantum
-Hamiltonian (the WDW equation).
-We do not claim that this equivalence ``derives'' quantum
-mechanics from classical physics---as has been correctly
-noted, the Wiener path integral already contains the
-Euclidean quantum mechanics under Wick rotation.
-What the correspondence \emph{does} establish is:
-\begin{enumerate}
-\item The WDW equation is the \emph{unique} quantum
-  Hamiltonian equivalent to the classical Onsager partition
-  function of the polygon system (no freedom in operator
-  ordering, potential, or kinetic coefficient).
-\item The Born rule $|\Psi_0|^2 = e^{-\beta V}/Z$ is a
-  mathematical identity, not a postulate, within the WDW
-  framework ($H\Psi = 0$ selects a unique physical state).
-\item The coefficient $c = 12\,b(N)$ and the potential
-  $V(\rho)$ are determined by the \emph{classical} vortex
-  dynamics (the Havelock spectrum), with no quantum input.
-\end{enumerate}
-The framework therefore provides a \emph{classical mechanical
-system} (Kirchhoff equations on $\mathbf{H}^2$) whose
-statistical mechanics is \emph{equivalent to} the WDW
-equation of quantum gravity.
-Whether this equivalence constitutes ``emergence'' is a
-question of physical interpretation, not mathematics.
+The Feynman--Kac theorem is a mathematical equivalence between the classical Onsager--Machlup path integral and the WDW Hamiltonian; it does not ``derive'' quantum mechanics from classical physics (the Wiener integral already encodes Euclidean quantum mechanics).
+What the correspondence establishes is that the WDW equation, including operator ordering, potential, and central charge $c = 12\,b(N)$, is the \emph{unique} quantum Hamiltonian equivalent to the classical Onsager partition function of the polygon system.
 
 \paragraph{Gauge theory from the Chern--Simons partition function.}
 The Chern--Simons path integral

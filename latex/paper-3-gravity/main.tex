@@ -41,7 +41,7 @@ eigenvalues $\lambda_m = C_1(\xi) - m(N{-}m)/2$.
 The conformal invariance of the flat-plane backreaction
 (Proposition~\ref{II-prop:conformal-invariance}) ensures that
 $N_{\mathrm{crit}} = 7$ is independent of the deficit angle---a
-remarkable simplification that makes the algebraic-number thresholds of
+simplification that makes the algebraic-number thresholds of
 Paper~I into gravitational phase transitions.
 
 This paper develops the consequences:
@@ -137,8 +137,8 @@ Independently, in the CS formulation of $2{+}1$D gravity
 whose eigenvalue is the $\mathrm{SL}(2,\mathbb{R})$ Casimir
 $j(j{+}1)$ of the representation~$R$.
 The identification of the CMS and CS $\mathfrak{sl}(2,\mathbb{R})$
-algebras is a \emph{representation isomorphism}
-(not just an algebra-level match).
+algebras is a \emph{spectral isomorphism}
+(eigenvalue matching on each $\mathbb{Z}_N$ Fourier mode, not a full representation isomorphism).
 The proof uses the Knizhnik--Zamolodchikov (KZ) equation as a
 mediator:
 \begin{enumerate}
@@ -210,7 +210,7 @@ are the polygon modes (Paper~IV, Theorem~\ref*{IV-thm:su3}, Step~6).
 In $2{+}1$D, the boundary theory of CS gravity and the
 Kirchhoff/Havelock vortex system are mathematically
 identical: the CMS/CS operator coincidence is a
-representation isomorphism, not a spectral accident.
+spectral isomorphism (eigenvalue matching on each mode), not a spectral accident.
 This isomorphism is the mathematical expression
 of this physical equivalence.
 The critical mode has $f(m^*,N) = j(j{+}1)$
@@ -401,20 +401,25 @@ $\lambda_1 \approx 3.84$;
 $1/(4\pi \cdot 15.05) \approx 0.005$,
 $1/(4\pi \cdot 23.08) \approx 0.003$,
 $1/(4\pi \cdot 32.67) \approx 0.002$, $\ldots$.
-The spectral bound is rigorous: the ratio of consecutive
-trivial-representation eigenvalues
+The ratio of consecutive trivial-representation eigenvalues
 $\lambda_n/\lambda_{n+1} \le 15.05/23.08 = 0.65$
-(from the Strohmaier--Uski data; Weyl asymptotics
-guarantee $\lambda_n \sim cn$ for large~$n$, so the
-ratio decreases) gives
+is verified for the first $8$ eigenvalues of
+\citet{Strohmaier2013}; Weyl asymptotics
+($\lambda_n \sim cn$ for large~$n$)
+guarantee the ratio decreases beyond this range.
+The geometric series bound gives
 $\sum_{n \ge 1} 1/\lambda_n \le (1/\lambda_1)/(1{-}0.65)
 = 2.86/\lambda_{\mathrm{triv}}$, so
 $|\delta C_1| \le 2.86/(4\pi\lambda_{\mathrm{triv}})
 \approx 0.015$.
 
 The bound $|\delta C_1| \le 0.015$ on the Bolza surface
-is a \emph{rigorous inequality} (geometric series on the
-spectral data of Strohmaier--Uski).
+is conditional on the Strohmaier--Uski spectral data
+(numerical computation, not a closed-form proof)
+and unconditional with respect to the Selberg
+eigenvalue conjecture (the bound uses only
+$\lambda_{\mathrm{triv}} \approx 15.05$,
+well above the Selberg threshold $1/4$).
 The spectral gap $\lambda_1$ controls both $\delta C_1$
 (through the sum $\sum 1/\lambda_n$) and the gravitational
 partition function (through $\det{}'\Delta_S$), giving a
@@ -1162,12 +1167,9 @@ determine $c$: the Gaussian (free-field) approximation
 gives $c_{\mathrm{CL}} \sim
 N^2\rho^{*2}/((N{-}2)\coth^2\rho^*)$,
 which is approximately $1\%$ of the exact value at $N = 7$.
-This $100\times$ discrepancy is not a failure of the
-framework---it reflects the fact that the CMS bath is
-\emph{integrable}, not Gaussian: the higher integrals of
-motion (beyond the energy) constrain the bath's response
-in ways invisible to the free-field approximation.
-
+The discrepancy reflects the integrability of the CMS
+bath (the higher integrals constrain the response beyond
+the Gaussian approximation).
 The exact coefficient is determined by a single
 consistency condition: the orbifold CFT ground-state energy
 $E_0(m) = -c/(24N) + cm(N{-}m)/(24N^2)$ must reproduce
@@ -1179,7 +1181,8 @@ This forces $c = 12\,b(N)$ exactly, with
   b(N) = \frac{N(N{+}1)}{12} - \ln 2
   + \frac{\ln N}{N{-}1}
 \]
-(proved analytically in Paper~I, Theorem~5.1).
+(proved analytically in Paper~I, \S\ref*{I-sec:algebraic-structure},
+via the Gauss product $\prod_{p=1}^{N-1}\sin(\pi p/N) = N/2^{N-1}$).
 The sub-leading terms ($\ln 2$, $(\ln N)/(N{-}1)$)
 are topological (Todd class) contributions determined
 by the $\mathbb{Z}_N$ equivariant index, not free
@@ -1200,12 +1203,9 @@ structure} (the orbifold--Havelock correspondence).
 If any role gave a different value, the framework would be
 \emph{inconsistent}; the fact that all four agree on
 $c = 12\,b(N)$ is a non-trivial self-consistency check.
-The $100\times$ discrepancy with $c_{\mathrm{CL}}$ shows
-that the Gaussian approximation to the bath is inadequate;
-it does not indicate an inconsistency in the framework,
-because $c_{\mathrm{CL}}$ is not one of the four roles
---- it is a leading-order approximation that the exact
-structure supersedes.
+The CL Gaussian approximation motivates the kinetic term
+but does not determine $c$; the exact value comes from the
+orbifold consistency condition alone.
 
 Each term has a definite origin:
 \begin{center}
@@ -1941,7 +1941,12 @@ We state the theorem first, then collect the proof.
     selects the metric $g$ that maximises
     $S_{\mathrm{poly}}[g]$---which, by~(H2a), is the
     constant-curvature metric.
-    The Onsager principle is \emph{not} a thermalization
+    \textbf{This is the load-bearing physical hypothesis
+    of the series}: extending the Onsager principle from
+    vortex configurations on a \emph{given} surface
+    to the metric itself (via the vortex-gravity isomorphism)
+    is the framework's physical content.
+    The Onsager principle is not a thermalization
     claim: it is a statement about which macrostates
     dominate the microcanonical ensemble.
     It is experimentally verified in point-vortex systems

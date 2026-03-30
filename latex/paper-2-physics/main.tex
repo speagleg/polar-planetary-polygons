@@ -27,6 +27,12 @@ disorder resilience, and predictions for BEC vortex clusters
 on hyperbolic lattices.
 \end{abstract}
 
+\section{Introduction}
+\label{sec:intro}
+
+This paper proves that the regular $N$-gon of point vortices is a constrained energy minimum for $N \le 7$ (Theorem~\ref{thm:constrained-min}), resolves the marginal $N = 7$ case with an exact quartic $\alpha_0 = 45/14$ (\S\ref{sec:n7}), and extends the stability analysis to curved surfaces, finite-core blobs, multiple rings, and planetary applications.
+Paper~I provides the Havelock eigenvalue identity used throughout; the present paper does not assume or use any gravitational interpretation.
+
 \label{part:pvd}
 %% ====================================================================
 
@@ -541,7 +547,9 @@ the exact constrained quartic gives
 \end{equation}
 the energy-Casimir functional $\mathcal{H} = H + |\mu_L|L$ has a
 strict local minimum along the $m = 3$ direction at quartic order,
-$\mathcal{H} \ge \mathcal{H}_0 + (\alpha_0/4)\varepsilon^4$.  By the
+$\mathcal{H} \ge \mathcal{H}_0 + (\alpha_0/4)\varepsilon^4$.
+The $N = 7$ Hessian is positive semi-definite (not positive definite); strict stability is established at quartic order.
+By the
 Dirichlet stability criterion \citep{BoattoCabral2003}, the heptagonal
 configuration is nonlinearly stable.  The quartic (rather than
 quadratic) confinement explains why heptagonal rings are stable but
@@ -1028,7 +1036,8 @@ via two regions:
   \item \emph{Region~2} ($\varepsilon \in [\varepsilon_0, d_{\min})$):
     interval arithmetic on a $2{,}000$-point grid with
     mean-value-theorem bounds gives
-    $\lambda \ge 0.34 > 0$ on every subinterval.
+    $\lambda \ge 0.34 > 0$ on every subinterval
+    (\textsc{numerical}).
 \end{itemize}
 \end{corollary}
 

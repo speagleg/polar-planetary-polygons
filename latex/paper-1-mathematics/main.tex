@@ -108,10 +108,10 @@ below.
     (Proposition~\ref{prop:alg-int}), the golden ratio terminal case
     $\xi^*(23) = \varphi^{-2}$, the continued fraction structure
     (Proposition~\ref{prop:cf-palindromic}),
-    the geodesic correspondence with the modular surface
+    the geodesic structural observation
     (Proposition~\ref{prop:geodesic-correspondence}),
     the higher-genus palindromic hierarchy
-    (Proposition~\ref{prop:higher-genus}),
+    (Conjecture~\ref{prop:higher-genus}),
     and the Legendre-symbol selection rule on arithmetic surfaces
     (Proposition~\ref{prop:legendre-selection}).
   \item \textbf{The RG classification}
@@ -183,6 +183,8 @@ symmetry of the stream function; Corollary~\ref{cor:dilation-rg}
 shows it additionally implies that the stability threshold is
 dilation-invariant.
 \end{remark}
+
+The RG terminology below is an analogy (the map $T_b$ is a pointwise rescaling, not a coarse-graining); the mathematical content is the stability classification itself.
 
 \begin{proposition}[Scale classification of perturbations]
 \label{prop:rg-classification}
@@ -806,6 +808,7 @@ Since none of the surface-dependent quantities
 tangential Hessian, the identity holds on
 \emph{every} constant-curvature surface simultaneously
 (\texttt{proofs/riemannian\_havelock\_step3.py}).
+On compact quotients $\Gamma\backslash M$, the automorphic Green's function has an additional image sum, but this sum contributes a mode-independent correction $\delta C_1$ (by the Selberg trace formula), preserving the eigenvalue decomposition.
 \end{proof}
 
 The stability threshold $N_{\mathrm{crit}}$ is therefore determined by
@@ -1751,7 +1754,7 @@ on the modular surface $\mathrm{SL}(2,\mathbb{Z})\backslash
 \mathbf{H}^2$ of length
 $\ell = 2\,\mathrm{arccosh}(c/2) = 2\ln\varepsilon$.
 
-\begin{proposition}[Geodesic correspondence]
+\begin{proposition}[Geodesic structural observation]
 \label{prop:geodesic-correspondence}
 The five algebraic-integer stability thresholds correspond to
 five primitive closed geodesics on the modular surface.
@@ -1828,6 +1831,7 @@ Hessian produces exactly the palindromic polynomials
 that define hyperbolic conjugacy classes;
 the algebraic-integer condition (Proposition~\ref{prop:alg-int})
 restricts the traces to the values $(N{-}7) | 16$.
+Each trace $B$ gives a primitive hyperbolic element: $B = 3, 4, 6, 10, 18$ are not Chebyshev values $T_k(B')$ for any $k \ge 2$, $B' \ge 3$ (since $T_2(3) = 17$, $T_2(4) = 31$, etc.).
 \end{proof}
 
 \begin{remark}[Automorphic correction on quotient surfaces]
@@ -1882,7 +1886,7 @@ of degree $2d$ in $\xi$ over~$\mathbb{Q}$.
 (Palindromic because $\xi \to 1/\xi$ fixes $B = \xi + 1/\xi$.)
 Its roots are algebraic units of degree~$2d$.
 
-\begin{proposition}[Higher-genus palindromic hierarchy]
+\begin{conjecture}[Higher-genus palindromic hierarchy]
 \label{prop:higher-genus}
 On an arithmetic surface $\Gamma\backslash\mathbf{H}^2$ with
 trace field of degree $d$, the vortex stability threshold
@@ -1900,9 +1904,9 @@ giving the palindromic quartic
 $\xi^4 - 4\xi^3 - 2\xi^2 - 4\xi + 1 = 0$
 with threshold $\xi \approx 0.217$ in the quartic field
 $\mathbb{Q}(\sqrt{2},\,\sqrt{2{+}2\sqrt{2}})$.
-\end{proposition}
+\end{conjecture}
 
-\begin{proof}
+\begin{proof}[Proof of the palindromic structure and the Bolza example]
 The substitution $u = \xi + 1/\xi$ maps $\xi^2 - u\xi + 1 = 0$
 (palindromic quadratic) to a scalar equation $u = B$.
 If $B$ has minimal polynomial $P(u) = 0$ of degree $d$
@@ -2962,7 +2966,7 @@ Since the $K_0$ classes agree, so does $N_{\mathrm{crit}}$.
 On the Bolza surface at
 $\xi_{\mathrm{Bolza}} \approx 0.217$
 (the smallest root of the palindromic quartic
-in Proposition~\ref{prop:higher-genus},
+in Conjecture~\ref{prop:higher-genus},
 giving $N_{\mathrm{crit}} = 12$ at this threshold):
 $|\delta C_1| \le 2/(4\pi\lambda_{\mathrm{triv}}) \approx 0.011$
 and $\lambda_{\mathrm{bind}}(12,1) \approx 0.79$.
@@ -3053,21 +3057,22 @@ $E = C^*_r(\Gamma)^{N-1}$,
 $A = C^*(\mathbb{Z}_N)$,
 $B = C^*_r(\Gamma)$:
 \begin{itemize}
-\item \emph{$F_\xi$ is self-adjoint.}
+\item \emph{$F_\xi = F_\xi^*$ (self-adjoint).}
 Each $c_m \cdot 1 + h$ is self-adjoint in
 $C^*_r(\Gamma)$
 (since $c_m \in \mathbb{R}$ and $h^* = h$
 by $\overline{G(z,w)} = G(z,w)$).
 The functional calculus gives
-$\mathrm{sign}(c_m + h)^* = \mathrm{sign}(c_m + h)$.
-\item \emph{$F_\xi^2 = 1$ exactly.}
+$\mathrm{sign}(c_m + h)^* = \mathrm{sign}(c_m + h)$;
+hence $F_\xi = F_\xi^*$ on each summand.
+\item \emph{$F_\xi^2 - 1 \in \mathcal{K}_B(E)$ (spectral gap gives finite-rank).}
 For any self-adjoint invertible element $a$,
 $\mathrm{sign}(a)^2 = 1$ in the $C^*$-algebra.
 Under the gap condition, each $c_m + h$ is invertible,
 so $F_\xi^2 = 1$.
 In particular, $F_\xi^2 - 1 = 0 \in \mathcal{K}_B(E)$.
 \item \emph{$[\pi(a), F_\xi] \in \mathcal{K}_B(E)$
-for all $a \in A$.}
+for all $a \in A$ ($\mathbb{Z}_N$ action has finite orbits).}
 Since $A = C^*(\mathbb{Z}_N)$ is finite-dimensional
 ($\dim = N$), every adjointable operator on the
 finitely generated module $E$ is compact:
@@ -3077,6 +3082,7 @@ unital $C^*$-algebra~$B$).
 The condition is automatic.
 \end{itemize}
 Therefore $\alpha_N(\xi) \in KK(A, B)$.
+On the flat plane, the index pairing reduces to the Morse index count; the $K$-theoretic framing adds content only for arithmetic surfaces where the gap condition fails.
 
 \emph{Part~(iii).}
 The fundamental class $[D_S] \in KK(C^*_r(\Gamma), \mathbb{C})$
