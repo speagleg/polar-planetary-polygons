@@ -456,7 +456,17 @@ the breathing mode in the $N$-vortex system on~$\mathbf{H}^2$:
   b(N) = \frac{N(N{+}1)}{12} - \ln 2 + \frac{\ln N}{N{-}1}.
 \end{equation}
 For large~$N$: $c = N^2 + N + O(\ln N)$.
-The formula is exact and verified to machine precision for all $N \le 1000$.
+The \emph{instanton fugacity} is
+\begin{equation}\label{eq:instanton-K}
+  K = e^{-2\pi k_{\mathrm{frac}}}, \qquad
+  k_{\mathrm{frac}} = \mathrm{frac}(c/6 - N/2),
+\end{equation}
+where $\mathrm{frac}(\cdot)$ denotes the fractional part.
+At $N = 7$: $k_{\mathrm{frac}} = 0.096$, $K = 0.548$.
+This single computed constant links the fermion mass hierarchy
+(\S\ref{sec:mass-hierarchy}), the baryon fraction
+(\S\ref{sec:cosmology}), and the Higgs quartic
+(\S\ref{sec:consistency}).
 
 \emph{Central charge accounting.}
 The gauge symmetries are \emph{subsectors} of the single boundary
@@ -4708,14 +4718,9 @@ LEGEND/nEXO for the absence of neutrinoless double beta decay):
   (distinguishes from axion models; next-generation nEDM).
 \end{itemize}
 \emph{(ii)~Correlated observables.}
-The instanton fugacity $K = e^{-2\pi k_{\mathrm{frac}}} = 0.548$,
-where $k_{\mathrm{frac}} = \mathrm{frac}(c/6 - N/2) = 0.0957$
-is determined \emph{exactly} by $b(N)$ (Paper~I)
-via the rigid chain
-$b(N) \to c = 12b \to k_{\mathrm{phys}} = c/6 - N/2
-\to k_{\mathrm{frac}} = \mathrm{frac}(k_{\mathrm{phys}})
-\to K = e^{-2\pi k_{\mathrm{frac}}}$
-(no step involves a choice or fit;
+The instanton fugacity $K = 0.548$
+(eq.~\eqref{eq:instanton-K},
+determined by $b(N)$ with no free parameters;
 the factor-$1.9$ mismatch on $m_s/m_b$
 \emph{confirms} that $K$ is computed, not adjusted).
 $K$~links two independent observables:
