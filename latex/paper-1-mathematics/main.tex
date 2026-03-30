@@ -757,7 +757,7 @@ Substituting~\eqref{eq:angular-kernel} into the Fourier sum:
 \end{align*}
 using $T_m = m(N{-}m)/2$ (Lemma~\ref{lem:havelock}).
 The second sum is mode-independent by the following
-abstract argument, which works simultaneously on all
+argument, which works simultaneously on all
 constant-curvature surfaces.
 
 In conformal coordinates (Poincar\'e disk for
@@ -768,16 +768,28 @@ the Hamiltonian of $N$ equal point vortices on
   H = -\!\sum_{j<k}\!\ln|z_j {-} z_k|
     \;+\; V_{\mathrm{rad}}(\{|z_k|\}),
 \end{equation}
-where $V_{\mathrm{rad}}$ depends only on the
-radii~$|z_k|$
+where $V_{\mathrm{rad}}$ collects \emph{all}
+terms depending only on the radii~$|z_k|$.
+This includes the self-energy
 (on $\mathbf{H}^2$: $(N{-}1)/2\sum_k \ln(a^2{-}|z_k|^2)$;
 on $\mathbf{S}^2$: $-(N{-}1)/2\sum_k \ln(1{+}|z_k|^2)$;
-on the plane: $V_{\mathrm{rad}} = 0$).
+on the plane: $0$)
+\emph{and} the cross-image sum.
+The cross-image terms
+$\sum_{p=1}^{N-1}\ln|a^2 - \bar{z}_0\,z_p|$
+at the $N$-gon ring telescope via the product formula
+$\prod_{p=1}^{N-1}(1 - \xi\,e^{2\pi ip/N}) = 1 - \xi^N$
+(with $\xi = \rho^2/a^2$), giving
+$\ln|1 - \xi^N|$---a function of~$\rho$ alone.
+Although the \emph{individual} image terms
+$\ln|a^2 - \rho^2\,e^{2\pi ip/N}|$ depend on the
+angular separation~$p/N$, their \emph{sum} does not.
 Under a tangential perturbation
 $z_k \mapsto \rho\,e^{i(\theta_k + \varepsilon\,a_k)}$,
-the radius $|z_k| = \rho$ is \emph{preserved}.
-Therefore $V_{\mathrm{rad}}$ has \emph{zero}
-tangential Hessian.
+the radius $|z_k| = \rho$ is \emph{preserved},
+so the entire $V_{\mathrm{rad}}$
+(self-energy $+$ telescoped cross-images)
+has \emph{zero} tangential Hessian.
 
 The constraint $J$ (the angular impulse / moment map)
 also depends only on $|z_k|$, so $\partial^2 J/\partial\theta^2 = 0$
