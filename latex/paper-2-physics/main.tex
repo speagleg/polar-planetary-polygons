@@ -680,19 +680,21 @@ $\lambda_{\lfloor M/2 \rfloor}^{\mathrm{inner}} < 0$
 The case $M = 8$ is covered by numerical verification
 (the full constrained Hessian has negative eigenvalues
 for all $N \in \{5,6,7\}$).
-For $M \ge 9$, an analytical bound suffices:
-the inner ring's minimum eigenvalue
-$|\lambda_{\lfloor M/2 \rfloor}^{\mathrm{inner}}|$
-grows as $(M{-}7)/2 \ge 1$ (linearly in~$M$),
-while the inter-ring coupling perturbs each eigenvalue
-by $|\delta\lambda|
-\le N \cdot \max_k |H_{jk}^{\mathrm{inter}}|
-= O(N/d_{\min}^2)$, which is bounded above by a
-constant depending on~$N$ (since $d_{\min} = R_2 - R_1$
-and the equilibrium ratio $R_2/R_1 \to 1$ slowly).
-For $M \ge 9$: the $O(M)$ instability exceeds the
-$O(1)$ perturbation, and the inner ring's
-negative eigenvalue persists.
+For $M \ge 9$: numerical verification
+(\texttt{tests/test\_multiring.py}, all $M = 9,\ldots,21$,
+$N \in \{5,6,7\}$)
+confirms instability persists.
+For $M \ge 2N{+}8$ ($= 22$ at $N = 7$), an analytical
+bound suffices:
+the inner ring's instability
+$|\lambda_{\min}^{\mathrm{inner}}| = (M{-}7)/2$
+exceeds the outer ring's stabilising contribution
+$|\delta\lambda| \le N$
+(each of $N$ outer vortices contributes at most~$1$
+to the angular Fourier eigenvalue, by Cauchy--Schwarz
+on the pairwise Green's function projection).
+At $M = 22$, $N = 7$:
+$|\lambda_{\min}| = 7.5 > N = 7$.
 
 \emph{Mechanism.}  A central vortex ($M = 0$, the $\mathbb{Z}_N$ fixed
 point) contributes a uniform eigenvalue shift $+\kappa_0/R^2$
@@ -1011,9 +1013,16 @@ The explicit concentration condition for sign preservation is
   \frac{\varepsilon}{d_{\min}} < \delta(N)
   := \sqrt{\frac{\lambda_{\min}(N)}{6(2N{-}3)}},
 \end{equation}
-giving $\delta(4) = 0.18$, $\delta(5) = 0.15$, $\delta(6) = 0.096$
-(set by the center-sector bound; the Cauchy blob, with the slowest
-algebraic decay, provides the worst case).
+giving $\delta(4) = 0.18$, $\delta(5) = 0.15$, $\delta(6) = 0.096$.
+In physical units: at Saturn ($N = 6$, $d_{\min} \approx 30{,}000$\,km),
+$\varepsilon_{\max} = \delta \cdot d_{\min} \approx 2900$\,km.
+The observed vortex cores ($3000$--$5000$\,km) \emph{exceed}
+this bound: the concentration condition is \emph{sufficient}
+but not necessary.
+Stability at realistic $\varepsilon/d_{\min} \approx 0.13$
+is established by the blob bridge (Proposition~\ref{prop:blob-stability}),
+which gives direct $O(\varepsilon^2)$ convergence without requiring
+$\varepsilon/d_{\min} < \delta$.
 
 \begin{corollary}[Inertia preservation for $N \le 6$]
 \label{cor:inertia-N6}
