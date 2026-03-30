@@ -1192,10 +1192,18 @@ The numerical verification
 \texttt{catseye\_hessian.py}) is a cross-check,
 not a logical prerequisite.
 The same argument applies to the Prandtl--Batchelor
-cat's-eye (homogenised PV inside the lobes), the
-physically relevant model for Saturn's hexagon:
-the lobe concentration is even stronger (step-function
-PV profile, $\Gamma_{\mathrm{braid}} = 0$ exactly).
+cat's-eye, the physically relevant model for Saturn's
+hexagon, where the lobe dominance is \emph{exact}:
+the PB theorem \citep{Batchelor1956} gives
+$\omega = \omega_{\mathrm{lobe}}$ (constant) inside each
+separatrix and $\omega = \omega_{\mathrm{bg}}$ outside.
+The braid (the separatrix curve $\psi = \psi_{\mathrm{sep}}$)
+is a single streamline of zero area, so
+$\Gamma_{\mathrm{braid}}
+= \int_{\mathrm{separatrix}}\!\omega\,dA = 0$ exactly.
+Every unit of circulation is in either lobe or background;
+lobe dominance~\eqref{eq:lobe-fraction} holds with
+$1{-}\eta$ replaced by~$0$.
 Code: \texttt{catseye\_decomposition.py}, \texttt{catseye\_hessian.py}.
 \end{remark}
 
