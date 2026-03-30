@@ -1348,18 +1348,30 @@ and is already used elsewhere in this paper
 uses $h = 2/3$ at the critical mode).
 
 In 4D Yang--Mills, the gauge coupling~$g$ is
-representation-independent (gauge universality),
-so the mixing angle
+representation-independent, so
 $\sin^2\theta_W = g'^2/(g^2 {+} g'^2)$
 involves gauge couplings alone.
-In CS theory, the effective coupling $h_R$ is
-representation-dependent: it includes $C_2(R)$.
-The formula~\eqref{eq:conformal-coupling} is universal:
-for $\mathrm{U}(1)$, the dual Coxeter number $h^\vee = 0$
-(abelian groups have no quantum level shift), so
-$h_Y = Q^2/K$; for $\mathrm{SU}(2)$,
-$h_W = j(j{+}1)/(k{+}h^\vee)$.
-The mixing angle at the CS threshold is their ratio:
+In the KK-reduced CS theory, the couplings are
+representation-dependent.
+The KK reduction of $\mathrm{CS}_3$ on $\mathbf{H}^2 \times S^1(R)$
+at level~$k$ gives $\mathrm{YM}_2$ on~$\mathbf{H}^2$
+with bare coupling $g^2 = 2\pi/((k{+}h^\vee)\,R)$
+(\citealt{BlauThompson1993}; the shift $k \to k{+}h^\vee$
+is the standard one-loop CS renormalisation).
+The gauge--matter vertex couples with strength $g \times T^a_R$,
+so the \emph{effective} coupling for matter in representation~$R$ is
+\[
+  \alpha_{\mathrm{eff}}(R)
+  = g^2 \times C_2(R)
+  = \frac{2\pi}{(k{+}h^\vee)\,R}\,C_2(R)
+  = \frac{2\pi\,h_R}{R},
+\]
+where $h_R = C_2(R)/(k{+}h^\vee)$ is the conformal
+weight~\eqref{eq:conformal-coupling}.
+The fiber radius~$R$ cancels in the mixing angle ratio
+(\texttt{proofs/cs\_to\_4d\_bridge.py}, verified
+for $R \in \{0.5, 1, 2, 5\}$):
+\begin{equation}\label{eq:weinberg-cs}
 \begin{equation}\label{eq:weinberg-cs}
   \sin^2\theta_W
   = \frac{h_Y}{h_Y + h_W}
