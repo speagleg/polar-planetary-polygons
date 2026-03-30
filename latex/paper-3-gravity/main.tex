@@ -2005,88 +2005,19 @@ Paper~IV through the boundary Virasoro mechanism (the emergent
 spin-$2$ graviton of Theorem~\ref*{IV-thm:graviton-4d}).
 We state the theorem first, then collect the proof.
 
-\medskip
-\noindent
-\fbox{\parbox{0.95\textwidth}{%
-\textbf{Logical status of the three conditions.}
-\begin{itemize}
-\item \textbf{(H1) is a theorem} (the $\csc^2$ uniqueness,
-  Paper~I Lemma~\ref*{I-lem:havelock}):
-  on any surface where the interaction is the Laplacian Green's
-  function, the Havelock eigenvalue decomposition holds exactly.
-\item \textbf{(H3) is a theorem} (the Hadamard parametrix):
-  on any Riemannian surface, the scalar Green's function has a
-  universal logarithmic singularity, which forces the $\csc^2$
-  structure of~(H1) at every point.
-\item \textbf{(H2) has two layers:}
-  \begin{itemize}
-  \item[\textbf{(H2a)}] \textbf{Entropy characterisation [theorem].}
-    Define the polygon entropy functional
-    $S_{\mathrm{poly}}[g] = \int_S S(x)\,dA$, where
-    $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$.
-    Then: (i)~$S_{\mathrm{poly}}$ is \emph{strictly concave}
-    in~$R(x)$
-    ($d^2S/dC_1^2 = -\tfrac{1}{2}\sum 1/\lambda_m^2 < 0$;
-    proved below).
-    (ii)~Subject to fixed total energy
-    $\int V\,dA = E$, the unique constrained maximum
-    is $R(x) = \mathrm{const}$ (Jensen's inequality).
-    This is a mathematical theorem---no physics enters.
-  \item[\textbf{(H2b)}] \textbf{Onsager selection
-    [physical principle].}
-    The $N$-polygon ring is a negative-temperature
-    equilibrium (Paper~II, Corollary~2.3).
-    The Onsager variational principle \citep{Onsager1949}
-    states that at negative temperature, the microcanonical
-    partition function is dominated by the macrostate of
-    maximum entropy
-    \citep{CagliotiFLMP1992,Kiessling1993}.
-    Applied to the polygon system via the vortex-gravity
-    isomorphism (\S\ref{sec:vortex-gravity}), this
-    selects the metric $g$ that maximises
-    $S_{\mathrm{poly}}[g]$---which, by~(H2a), is the
-    constant-curvature metric.
-    This extension from a fixed surface to the metric itself
-    is proved by the Onsager contraction
-    (Corollary~\ref{cor:onsager-contraction}):
-    the iteration converges geometrically to $R = \mathrm{const}$,
-    using only the vortex-gravity isomorphism
-    (a kinematic identity in~$2{+}1$D).
-    The Onsager principle is not a thermalization
-    claim and does not require the thermodynamic limit
-    $N \to \infty$.
-    At finite~$N$, the polygon partition function has a
-    saddle-point controlled by~$c = 12\,b(N) \approx N^2$
-    (the central charge, not the vortex count):
-    $Z \propto e^{c\,S_{\mathrm{poly}}(\rho^*)}
-    [1 + O(1/c)]$.
-    At $N = 7$: $c = 52$, giving a $2\%$ saddle-point error.
-    The saddle-point approximation at finite $N$ is the standard Laplace method for integrals with a large parameter in the exponent (\citealt{Erdelyi1956}, \S2.4), not the mean-field limit $N \to \infty$. The partition function $Z = \int e^{c\,S_{\mathrm{poly}}(\rho)}\,d\rho$ has the large parameter $c = 12\,b(N) = 52$ at $N = 7$; the Laplace error is $O(1/c) \approx 2\%$ regardless of $N$. The cited references (Caglioti et al.\ 1992, Kiessling 1993) prove the mean-field limit; the finite-$N$ saddle-point is a weaker, standard result.
-    (The BO exactness---zero non-adiabatic coupling---eliminates the
-    leading BO correction but does not further reduce the $O(1/c)$
-    saddle-point error.)
-    It is experimentally verified in point-vortex systems
-    \citep{Gauthier2019}.
-  \end{itemize}
-  The angular modes of the CMS/Havelock system
-  equidistribute on their Liouville--Arnold tori
-  \citep{Arnold1978,Yuzbashyan2016}---this correctly
-  describes the angular mode statistics at \emph{fixed}
-  geometry, but does not by itself select the metric.
-  The metric selection is the content of~(H2b).
-\end{itemize}
-The theorem therefore has the structure:
-\emph{two geometric theorems~(H1, H3) $+$ one
-characterisation theorem~(H2a) $+$ Onsager
-selection~(H2b) $\Rightarrow$ Einstein equations.}
-The mathematical content (strict concavity, Jensen,
-Hadamard universality) is proved.
-The physical content is the Onsager variational
-principle---a standard result of negative-temperature
-statistical mechanics, not a hypothesis introduced
-for this paper.
-}}
-\medskip
+\begin{remark}[Logical status]
+\label{rmk:logical-status}
+(H1) and~(H3) are mathematical theorems
+($\csc^2$ uniqueness and Hadamard parametrix).
+(H2a) is a theorem (strict concavity $+$ Jensen).
+(H2b) is the Onsager variational principle
+\citep{Onsager1949,CagliotiFLMP1992,Kiessling1993}
+applied via the vortex-gravity isomorphism.
+The saddle-point approximation at finite~$N$ is
+controlled by $c = 12\,b(N)$ (Laplace method,
+$O(1/c) \approx 2\%$ at $N = 7$;
+\citealt{Erdelyi1956}, \S2.4).
+\end{remark}
 
 \begin{theorem}[Polygon entropy maximisation implies constant curvature]
 \label{thm:polygon-einstein}
@@ -2229,27 +2160,6 @@ The iteration $T^n(g_0) \to g^*$ converges geometrically;
 by~(H2a), $g^*$ has $R = \mathrm{const}$.
 \end{proof}
 
-\noindent
-\emph{Logical status (non-circularity of the contraction).}
-The iteration~$T$ uses the Onsager principle for vortices
-on a \emph{fixed} metric---a proved theorem
-\citep{CagliotiFLMP1992,Kiessling1993}.
-The conclusion is that the \emph{metric itself} converges
-to constant curvature.
-These are \emph{different} statements:
-the input is about vortex configurations;
-the output is about geometry.
-The contraction bridges the gap by the same logic as
-Picard iteration: $T$~is defined using a known map (Onsager
-on a given surface), and the contraction bound proves
-the fixed-point equation $g^* = T(g^*)$ has a solution
-with $R = \mathrm{const}$.
-Using the Onsager principle in the definition of~$T$
-is the \emph{proof method}, not a circular assumption.
-The remaining physical input is the vortex-gravity
-isomorphism (deficit angle~$=$ circulation,
-a kinematic identity in~$2{+}1$D).
-
 \begin{proof}[Proof of Theorem~\ref{thm:polygon-einstein}]
 \label{sec:einstein-derivation}%
 The proof has four steps: (1)~force the interaction to be
@@ -2340,62 +2250,9 @@ $C_1^{\mathrm{eq}} = f(m^*,N)$ at the BO threshold,
 with $R_0 = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon_0^2]$.
 
 \noindent
-\emph{Why (H2) is essential --- and why it is not circular.}
-Conditions~(H1) and~(H3) alone are automatic on
-\emph{any} Riemannian surface (the Hadamard parametrix
-gives a mode-independent $C_1(x,\varepsilon)$ regardless
-of whether $R(x)$ is constant).
-Without~(H2), (H1) $+$ (H3) carry no curvature content.
-This is by design: (H1) and~(H3) provide the mathematical
-arena (logarithmic interaction, Hadamard universality);
-(H2) provides the physics (the Onsager variational principle
-selects the entropy-maximising geometry from that arena).
-The entire gravitational content of the theorem resides
-in~(H2).
-Objecting that ``(H2) does all the work'' is equivalent
-to noting that the physical hypothesis has physical content.
-
 \label{sec:vortex-gravity}%
-\emph{The physical mechanism: vortex-gravity isomorphism
-$+$ Onsager selection.}
-The Liouville--Arnold theorem
-(\S\ref{sec:three-layer}) correctly describes the
-angular mode statistics at \emph{fixed} geometry:
-the $N{-}2$ CMS modes equidistribute on invariant tori
-\citep{Arnold1978,Yuzbashyan2016}.
-The metric selection requires a separate physical
-principle---the Onsager variational principle at
-negative temperature---combined with the
-vortex-gravity isomorphism.
-
-The Onsager principle extremises vortex
-\emph{configurations} at fixed background geometry---but
-the geometry is itself a vortex degree of freedom.
-This follows from the vortex-gravity isomorphism
-(Paper~II, Proposition~\ref{II-prop:grav-stability}):
-in $2{+}1$D, a conical singularity of deficit angle
-$\varepsilon_v$ has holonomy $\varepsilon_v/(2\pi)$
-around it (Gauss--Bonnet on a cone).
-This is a \emph{kinematic} identity---it follows from
-the definition of a conical metric, not from
-Einstein's equations.
-Setting $\kappa_v = \varepsilon_v/(2\pi)$ identifies
-each cone point with a point vortex of
-circulation~$\kappa_v$.
-The metric degrees of freedom
-(spatial curvature at each point) are vortex degrees of
-freedom.
-The Onsager principle, applied to the \emph{full} system of
-$N$ vortices whose circulations determine the deficit angles,
-therefore extremises entropy over configurations that
-include the background curvature.
-Using a kinematic identity (deficit angle~$=$~circulation)
-to derive a dynamical equation ($R = \mathrm{const}$) is
-not circular: the Einstein equations are the
-\emph{dynamical} consequence of the Onsager variational
-principle applied via the \emph{kinematic} isomorphism.
-
-Concretely: place a test $N$-gon at each point $x \in S$.
+\emph{Step~3 (Jensen maximisation $+$ Onsager selection).}
+Place a test $N$-gon at each point $x \in S$.
 The frozen-mode entropy at~$x$ is
 $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$,
 which depends on $R(x)$ through the Hadamard expansion
@@ -2446,7 +2303,7 @@ the small-ring regime.
 
 The metric is not varied by hand---it varies
 \emph{because it is a vortex degree of freedom}
-(see the non-circularity argument above).
+(Remark~\ref{rmk:logical-status} above).
 
 \emph{Extension to smooth metrics via Regge calculus.}
 The vortex-gravity isomorphism applies to conical deficits
