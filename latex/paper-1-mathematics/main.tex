@@ -1832,9 +1832,10 @@ has trace~$c$, determinant~$1$.)
 Each such matrix defines a primitive hyperbolic conjugacy
 class, hence a primitive closed geodesic of length
 $\ell = 2\,\mathrm{arccosh}(c/2) = 2\ln\varepsilon$.
-The trace formula $c = 2 + 16/(N{-}7)$ follows from
-$c = -B/A = 2(N{+}1)/(N{-}7)$ (Proposition~\ref{prop:alg-int})
-by the identity $2(N{+}1)/(N{-}7) = 2 + 16/(N{-}7)$.
+For odd~$N$, the trace is $c = 2(N{+}1)/(N{-}7) = 2 + 16/(N{-}7)$
+(Proposition~\ref{prop:alg-int}).
+For even~$N = 8$ the ratio $B/A = 16$ directly from the palindromic
+polynomial (the odd-$N$ formula does not apply).
 The conductor $f$ satisfies $c^2 - 4 = f^2 D$ where
 $D = \mathrm{sq\_free}(c^2 - 4)$.
 Among the five traces $c \in \{16, 10, 6, 4, 3\}$,
@@ -1849,7 +1850,7 @@ Hessian produces exactly the palindromic polynomials
 that define hyperbolic conjugacy classes;
 the algebraic-integer condition (Proposition~\ref{prop:alg-int})
 restricts the traces to the values $(N{-}7) | 16$.
-Each trace $B$ gives a primitive hyperbolic element: $B = 3, 4, 6, 10, 18$ are not Chebyshev values $T_k(B')$ for any $k \ge 2$, $B' \ge 3$ (since $T_2(3) = 17$, $T_2(4) = 31$, etc.).
+Each trace $c$ gives a primitive hyperbolic element: $c = 3, 4, 6, 10, 16$ are not Chebyshev values $T_k(c')$ for any $k \ge 2$, $c' \ge 3$ (since $T_2(3) = 17$, $T_2(4) = 31$, etc.).
 \end{proof}
 
 \begin{remark}[Automorphic correction on quotient surfaces]
