@@ -2194,26 +2194,28 @@ Then the curvature variance contracts:
   \mathrm{Var}(R(T(g)))
   \le |\beta|^2 R_0^2\,\mathrm{Var}(R(g)),
 \end{equation}
-where $\beta = -(N{-}1)/E$ is the inverse negative temperature
-($E = -\sum_{p<q}\ln\sin(\pi p/N)$ is the polygon energy),
-$R_0 = 2\pi\chi/\mathrm{Vol}$ is the mean curvature, and
+where $\beta_{\mathrm{eff}} = 1/f(m^*,N) = 1/C_1$ is the inverse
+Havelock stiffness (the effective temperature of the angular bath
+is set by the stiffest mode, not by the total polygon energy),
+$R_0 = 2\pi\chi/\mathrm{Vol}$ is the mean curvature
+($|R_0| = 1$ for the Bolza surface), and
 $V_1, V_2$ are defined in the proof below.
-At~$N = 7$: $|\beta| R_0 \approx 0.15$,
-giving $98\%$ variance reduction per step
-(convergence in~${\sim}2$ iterations).
+At~$N = 7$: $|\beta_{\mathrm{eff}}| R_0 = 1/f(3,7) = 1/6 \approx 0.17$,
+giving $97\%$ variance reduction per step.
+The contraction improves with~$N$: $|\beta_{\mathrm{eff}}| R_0
+= 1/8$ at $N = 8$, $1/15$ at $N = 11$.
 \end{corollary}
 
 \begin{proof}
-The Onsager equilibrium at temperature~$T < 0$ distributes
-vortices with mean-field density
-$\rho(x) \propto \exp(V(x)/|T|)$,
-where $V(x) = V(C_1(R(x)))$ is the BO potential evaluated
-at the local curvature~$R(x)$
-(through the Hadamard expansion of~$C_1$).
-Since $V$ depends on $R$ through~$C_1$:
-for a perturbation~$\delta R$ around mean~$R_0$,
-$\rho(x) = \rho_0\exp\!\bigl((V_1\,\delta R
-+ \tfrac{1}{2}V_2\,\delta R^2)/|T|\bigr)$
+The Onsager equilibrium distributes vortices with mean-field
+density $\rho(x) \propto \exp(\beta_{\mathrm{eff}}\,V(x))$,
+where $V(x) = V(C_1(R(x)))$ is the BO potential and
+$\beta_{\mathrm{eff}} = 1/C_1$ is the inverse stiffness
+(the angular bath's response to curvature perturbations is
+controlled by $C_1 = f(m^*,N)$, not by the total energy).
+For a perturbation~$\delta R$ around mean~$R_0$:
+$\rho(x) = \rho_0\exp\!\bigl(\beta_{\mathrm{eff}}
+(V_1\,\delta R + \tfrac{1}{2}V_2\,\delta R^2)\bigr)$
 where $V_1 = \coth(\rho_*)$ and
 $V_2 = -\operatorname{csch}^2(\rho_*)$.
 The $N$ vortices have \emph{equal} circulations~$\kappa$,
@@ -2228,15 +2230,15 @@ The contraction operates on the density field:
   |\beta|^2 R_0^2\,\mathrm{Var}(R)
   \times \bigl(1 + 2|V_2/V_1|\sqrt{\mathrm{Var}(R)}\bigr)^2.
 \]
-At~$N = 7$: $|\beta| R_0 = 0.15$,
-$|V_2/V_1| = 0.12$.
+At~$N = 7$: $|\beta_{\mathrm{eff}}| R_0 = 1/6$,
+$|V_2/V_1| = |\operatorname{csch}^2(\rho^*)/\coth(\rho^*)| = 0.12$.
 The nonlinear factor
-$(1 + 0.25\sqrt{\mathrm{Var}})^2 \le 1.83$
+$(1 + 0.24\sqrt{\mathrm{Var}})^2 \le 1.75$
 for $\mathrm{Var}(R) \le 2$, giving total contraction
-$0.022 \times 1.83 = 0.040 < 1$.
-The condition $|\beta| R_0 < 1$ holds whenever
-$|T| > R_0$ (always satisfied in the Onsager regime
-at $|T| \sim N^2 \gg R_0$).
+$(1/6)^2 \times 1.75 = 0.049 < 1$.
+The condition $|\beta_{\mathrm{eff}}| R_0 < 1$ is
+$f(m^*,N) > |R_0|$, which holds for all $N \ge 4$
+(since $f(m^*,N) \ge 2$ and $|R_0| = 1$ on the Bolza surface).
 The contraction holds rigorously for all
 initial $\mathrm{Var}(R) \le 2$.
 The iteration $T^n(g_0) \to g^*$ converges geometrically;
