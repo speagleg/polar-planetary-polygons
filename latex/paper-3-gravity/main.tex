@@ -354,13 +354,20 @@ This is consistent for three independent reasons:
   For $\mathrm{SL}(2,\mathbb{R})$:
   $\pi_3(\mathrm{SL}(2,\mathbb{R})) = 0$
   \citep[\S3]{Witten1988}, so no integrality constraint exists.
-\item \emph{Well-defined path integral.}
-  The CS path integral for non-compact groups at non-integer
-  level is defined by analytic continuation from the compact
-  form $\mathrm{SU}(2)$
-  (\citealt{Witten1991}; \citealt{BarNatan1991}):
-  the partition function $Z(k)$ extends to a meromorphic
-  function of~$k$, regular at $k = 2b(N)$ for all $N \ge 3$.
+\item \emph{Well-defined partition function.}
+  The CS partition function on the Seifert manifold decomposes as
+  $Z = e^{-kS_0} \times Z_{\mathrm{1\text{-}loop}} \times Z_{\mathrm{Wilson}}$,
+  where only the classical factor $e^{-kS_0}$ depends on~$k$
+  (the one-loop determinant and Wilson lines depend on the
+  Havelock eigenvalues, which are geometric, not on~$k$).
+  The classical factor is \emph{entire} in~$k$.
+  The nearest singularity of $Z(k)$ (from the analytic
+  continuation of the compact form, \citealt{Witten1991};
+  \citealt{BarNatan1991}) is at $k = -h^\vee = -2$.
+  Since $k = 2b(N) > 0$ for all $N \ge 3$, we are in the
+  regular region
+  (\texttt{proofs/cs\_noncompact\_welldefined.py},
+  verified $N = 3,\ldots,15$).
 \item \emph{Semiclassical validity.}
   For $N \ge 7$: $k = 2b(N) > 8.6$, and
   $1/k$ corrections are $< 2\%$.
@@ -1257,18 +1264,27 @@ The derivation has two steps:
   the $N{-}2$ angle-action variables decouple, so the one-loop
   partition function $Z_{\mathrm{bath}}(\rho)
   = \prod_{m \ne m^*}|\lambda_m(\rho)|^{-1/2}$ is
-  \emph{exact}---higher loops vanish identically.
+  exact at $O(c^0)$: the action-angle factorisation
+  gives $Z = (2\pi)^{N-2}\!\int\!\prod dI_m\,e^{-\beta H(I)}$
+  (the $\theta$-integrals are exact), and the remaining
+  $I$-integrals have anharmonic corrections
+  of order~$1/c$ where $c = 12\,b(N) \sim N^2$
+  (\texttt{proofs/oneloop\_exactness.py}: $1.9\%$ at
+  $N = 7$, $0.8\%$ at $N = 11$, decreasing as~$N^{-2}$).
+  Integrability prevents mode mixing (the actions~$I_m$
+  are independent), so the $1/c$ series converges
+  without secular terms.
   The effective action for~$\rho$ is therefore
   $S_{\mathrm{eff}}(\rho)
-  = \tfrac{1}{2}\sum_{m \ne m^*}\!\ln|\lambda_m(\rho)|$,
+  = \tfrac{1}{2}\sum_{m \ne m^*}\!\ln|\lambda_m(\rho)|
+  + O(1/c)$,
   and the Feynman--Kac theorem maps this to the WDW Hamiltonian
   $H = -1/(2c)\,d^2/d\rho^2 + V(\rho)$ with
   $c = 12\,b(N)$ (the unique mode-independent offset of the
   three-layer decomposition, Proposition~\ref{prop:equiv-rr}).
 \end{enumerate}
 The CL mechanism proves $c > 0$; the CMS integrability
-determines $c = 12\,b(N)$ exactly.
-No Gaussian approximation enters the final result.
+gives a controlled $1/c$ expansion with computable corrections.
 
 \emph{Four-role consistency.}
 The coefficient $c = 12\,b(N)$ (computed from the vortex
