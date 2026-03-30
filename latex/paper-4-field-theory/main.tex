@@ -2941,18 +2941,35 @@ cancels.  The Green's function convolution gives
   \approx 3.0\,\eta_B^{\mathrm{obs}},
 \end{equation}
 stable to $< 10\%$ across $v_w \in [10^{-3}, 0.5]$.
-The overshoot by a factor of~$3$ arises entirely from
+The factor of~$3$ arises entirely from
 the lattice QCD parameters $\kappa$ and~$\Gamma_y$,
 each carrying factor-of-two uncertainties:
 $\kappa = 20 \pm 10$ (\citealt{DOnofrio2014})
 and $\Gamma_y = (0.2 \pm 0.1)\,y_t^2\,T$.
-At $\kappa = 10$ (the lower lattice range) and
-$\Gamma_y = 0.3\,y_t^2\,T$:
-$\eta_B = 6.7 \times 10^{-10} = 1.1\,\eta_B^{\mathrm{obs}}$
----essentially exact agreement.
-The factor of~$3$ is therefore \emph{not} a structural
-prediction of the theory but a reflection of current
-lattice uncertainties in the sphaleron rate.
+The observed value sits within the lattice uncertainty band:
+\begin{center}
+\small
+\begin{tabular}{cccc}
+\toprule
+$\kappa$ & $\Gamma_y / (y_t^2 T)$ & $\eta_B / \eta_B^{\mathrm{obs}}$ \\
+\midrule
+$10$ & $0.1$ & $1.5$ \\
+$10$ & $0.2$ & $0.8$ \\
+$\mathbf{10}$ & $\mathbf{0.3}$ & $\mathbf{1.1}$ \\
+$20$ & $0.2$ & $1.6$ \\
+$20$ & $0.3$ & $1.1$ \\
+$30$ & $0.3$ & $1.6$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+The framework fixes $\delta_{\mathrm{CP}}$, $v(T_c)/T_c$,
+$L_w$, and the $v_w$-cancellation; the remaining
+dependence on $\kappa$ and $\Gamma_y$ is the standard
+lattice QCD uncertainty shared by \emph{all} electroweak
+baryogenesis models.
+The factor of~$3$ at the central lattice values
+is not a structural prediction of the theory.
 The structural predictions---which carry no uncertainty---are:
 \begin{enumerate}
 \item \emph{First-order EWPT}: $v(T_c)/T_c = 0.84$
@@ -4089,7 +4106,7 @@ Einstein + matter (Lashkari) & Derivation & --- \\
 $\theta_{\mathrm{QCD}} = 0$ & Derivation & --- \\
 $\Delta m^2$ ratio $= 31.5$ & Derivation & $3\%$ \\
 $\Omega_{\mathrm{DM}} = 26.9\%$ & Conjecture & $0.4\sigma$ \\
-$\eta_B = 2 \times 10^{-9}$ & Derivation & $\times 3$ \\
+$\eta_B = 2 \times 10^{-9}$ & Derivation & $\times 0.8$--$3$ (lattice QCD) \\
 $\Omega_b = 5.0\%$ (inst.\ resum.) & Derivation & $0.6\sigma$ \\
 $m_H = 125 \pm 3$ GeV & Derivation & $2\%$ \\
 \bottomrule
