@@ -1160,11 +1160,10 @@ reserving $C_1(\xi)$ for the constrained angular stiffness
 The WDW potential is $V(\rho) = \Phi(\rho) - f(m^*,N)$.
 
 \emph{Logical status of~$c$~\eqref{eq:central-charge}.}
-The value $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$ is
-computed analytically in Paper~I via the Gauss product
-$\prod_{p=1}^{N-1}\sin(\pi p/N) = N/2^{N-1}$
-(Proposition~\ref{prop:equiv-rr}).
-No free parameter is involved.
+The value of $b(N)$ (\S\ref{sec:graviton})
+is computed analytically in Paper~I
+(Proposition~\ref{prop:equiv-rr});
+no free parameter is involved.
 
 \emph{Why second-order dynamics from a first-order system.}
 The Kirchhoff equations are first-order, but the WDW equation
@@ -1365,9 +1364,8 @@ of the vortex Laplacian on the cusped Poincar\'e disk
     + \underbrace{b(N)}_{\text{Todd term}}
     + \delta_m,
 \end{equation}
-where $b(N) = N(N{+}1)/12 - \log 2 + \log N/(N{-}1)$
-is independent of both~$m$ and~$\rho$ (\S\ref{sec:intro-gravity},
-verified in Paper~I).
+where $b(N)$ (\S\ref{sec:graviton}) is independent of
+both~$m$ and~$\rho$.
 The central charge~$c$~\eqref{eq:central-charge} is the same
 for every mode~$m$, extracted from the Todd correction alone.
 \end{proposition}
@@ -1384,14 +1382,10 @@ part $b(N)$ is extracted exactly.
 \end{proof}
 
 \noindent
-The three-layer decomposition
-$\lambda_m = C_1 - f_m + \delta_m$
-is the spectral analogue of the equivariant Riemann--Roch theorem:
-$f_m$ is the $c_1$-contribution (twist-field dimension),
-$b(N)$ is the Todd-class correction (vacuum energy $\approx c/12$),
-and $\delta_m$ is the one-loop remainder (the Havelock remainder).
-The central charge~$c$~\eqref{eq:central-charge} is
-determined by the index theorem.
+The decomposition~\eqref{eq:three-layer} below is the spectral
+analogue of equivariant Riemann--Roch
+($f_m$: twist-field dimension; $b(N)$: Todd correction;
+$\delta_m$: one-loop remainder).
 
 \paragraph{Exact Havelock remainder formula.}
 On constant-curvature surfaces, $\delta_m = 0$ identically
@@ -1451,9 +1445,6 @@ verified numerically for $N \le 16$).
 The quartic coupling $Q = (N/48)f^2$ lies inside the hierarchy
 ($H_4^{\mathrm{diag}} \propto I_2$), guaranteeing
 $\{I_j, H_4\} = 0$ by integrability.
-The three-layer decomposition $\lambda_m = C_1 - f_m + \delta_m$
-is the truncation of this hierarchy at level~$1$.
-
 On arithmetic surfaces (Bolza, modular, etc.), the eigenvalue
 acquires a topological correction that is invisible to the
 confining potential $C_1(\xi)$:
@@ -1833,7 +1824,7 @@ on $\mathbf{H}^2$ is
   Z_{\mathrm{grav}} = \sum_{N=3}^{\infty}
   e^{-b(N)}\,Z_{\mathrm{frozen}}(N),
 \end{equation}
-where $b(N) = N(N{+}1)/12 - \log 2 + \log N/(N{-}1)$ is the
+where $b(N)$ (\S\ref{sec:graviton}) is the
 gravitational action and $Z_{\mathrm{frozen}} = 2^{3(N-2)/4}/(N{-}3)!!$
 is the one-loop determinant (even~$N$; the odd-$N$ case is computed
 from Casimir gaps).
