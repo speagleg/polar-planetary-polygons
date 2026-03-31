@@ -533,3 +533,67 @@ Tracked with source paper/lines, destination paper, and any compression applied.
 **Reason:** REDUNDANT -- "mathematical identity, not physical derivation" stated second time (first at line 2923)
 **Suggested home:** Discard
 **Lines saved:** ~3
+
+---
+
+## Session 2b Removals (2026-03-31)
+
+### I-014: Palindromic re-explanation #2 (lines 1420-1428 pre-edit)
+**Source:** Paper I, Section 6 (Algebraic structure)
+**Reason:** REDUNDANT — restates palindromic property from Section 5.1 (even-function explanation + conformal inversion identity)
+**Suggested home:** Discard (compressed to 2-line cross-reference)
+**Lines saved:** ~6
+
+### I-015: Palindromic re-explanation #3 (lines 1461-1464 pre-edit)
+**Source:** Paper I, Section 6 (field pattern discussion)
+**Reason:** REDUNDANT — "deeper content is palindromic encodes conformal inversion (as noted above)"
+**Suggested home:** Discard (compressed to 1-line reference)
+**Lines saved:** ~2
+
+### I-016: Palindromic re-explanation #4 (lines 1829-1833 pre-edit)
+**Source:** Paper I, geodesic correspondence proof
+**Reason:** REDUNDANT — re-derives palindromic origin for third time
+**Suggested home:** Discard (replaced with eqref)
+**Lines saved:** ~3
+
+### I-017: Palindromic re-explanation #5 (lines 1883-1889 pre-edit)
+**Source:** Paper I, Remark (automorphic correction)
+**Reason:** REDUNDANT — first sentence restates; quotient-surface new content retained
+**Suggested home:** Discard (compressed, quotient point kept)
+**Lines saved:** ~3
+
+### III-007: Step 4 higher-dimensions monolith (lines 2472-2536 pre-edit)
+**Source:** Paper III, Theorem 6.1 proof
+**Reason:** RESTRUCTURE — Step 4 (64 lines) duplicated existing Remark higher-d; replaced with 6-line reference
+**Suggested home:** Already in Remark rmk:higher-d
+**Lines saved:** ~55
+
+### III-008: δS/δg computation extracted as Proposition (lines 2446-2470 pre-edit)
+**Source:** Paper III, Theorem 6.1 proof
+**Reason:** RESTRUCTURE — extracted 25-line computation as standalone Proposition prop:variation before theorem
+**Suggested home:** Now Proposition (before theorem)
+**Lines saved:** ~20 (net: computation now more compact as Proposition)
+
+### III-009: Lemma lem:onsager-regge moved out of proof
+**Source:** Paper III, inside Theorem 6.1 proof (lines 2286-2328 pre-edit)
+**Reason:** RESTRUCTURE — 43-line lemma was inside proof; moved before theorem as standalone lemma
+**Suggested home:** Now standalone Lemma (before theorem)
+**Lines saved:** ~3 (net: replaced with 3-line reference in proof)
+
+### III-010: c=12b(N) re-definitions compressed (multiple locations)
+**Source:** Paper III, lines 1208-1216, 1254, 1260, 1419, 1441, 2899, 2912 (pre-edit)
+**Reason:** REDUNDANT — added eq:central-charge label at first definition; 6 subsequent re-definitions replaced with eqref
+**Suggested home:** Discard
+**Lines saved:** ~8
+
+### II-001: Infinite-dimensional convergence proof moved to appendix
+**Source:** Paper II, lines 856-1034 (pre-edit, within blob bridge section)
+**Reason:** RESTRUCTURE — 178-line proof (shape perturbations, center-shape coupling, Schur complement, inertia preservation proposition + 2 corollaries) moved to Appendix A
+**Suggested home:** Paper II Appendix A (app:convergence)
+**Lines saved:** ~97 (from main text; compressed version in appendix)
+
+### VI-001: Input-output classification table merged into status table
+**Source:** Paper VI, lines 451-512 (pre-edit)
+**Reason:** RESTRUCTURE — 62-line separate table had heavy overlap with status table (8+ shared items). Merged into master 4-column table (Result/Role/Status/Match); replaced section with 8-line summary
+**Suggested home:** Discard (content merged into master table)
+**Lines saved:** ~48

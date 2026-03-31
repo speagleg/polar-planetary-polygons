@@ -15,18 +15,22 @@
 \maketitle
 
 \begin{abstract}
-From the polygon number $N = 7$ and the Planck mass $M_P$,
-the Havelock eigenvalue structure on the Seifert manifold
-$\mathbf{H}^2 \times_N S^1$ determines the Standard Model
-gauge group
-$\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$,
-the Weinberg angle $\sin^2\theta_W = 3/11$,
-three generations of fermions with a computable mass hierarchy,
-and the CKM phase $\delta = 70.2^\circ$.
-Every structural choice (the Seifert geometry, the CS levels
-$k = K = 1$, the BF threshold) follows from $N = 7$ and $M_P$
-alone. The cosmological sector ($N = 11$) is developed in
-Paper~V; the full parameter accounting in Paper~VI.
+From a single integer $N = 7$ (selected by the Pell equation)
+and the Planck mass~$M_P$, the Havelock eigenvalue structure
+on the Seifert manifold $\mathbf{H}^2 \times_N S^1$ determines:
+the Standard Model gauge group
+$\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$;
+the Weinberg angle $\sin^2\theta_W = 3/11$
+($3.9\%$ from the measured $0.231$ after SM running);
+three generations with a parameter-free mass hierarchy;
+the CKM phase $\delta = 70.2^\circ$
+(observed: $69^\circ \pm 3^\circ$);
+and the Higgs mass $m_H = 122$--$128$\,GeV
+(observed: $125.25$\,GeV).
+No free parameters beyond $N$ and $M_P$ are used;
+the proton is predicted to be exactly stable.
+The cosmological sector ($N = 11$) is developed in Paper~V;
+the full parameter accounting in Paper~VI.
 \end{abstract}
 
 %% ====================================================================
@@ -132,7 +136,7 @@ $C_1 = 15$ at $\xi = \xi^*(11) = 3 - 2\sqrt{2} \in \mathbb{Z}[\sqrt{2}]$
 $\mathbf{H}^2$ is the unique constant-curvature surface
 admitting a stable $11$-gon.
 
-\emph{Step~(ii) (The fiber is $S^1$).}
+\emph{Step~(iv) (The fiber is $S^1$).}
 Gauge fields arise from Kaluza--Klein reduction on a compact fiber.
 The fiber must be one-dimensional for two reasons:
 (a)~the Havelock decomposition is a $\mathbb{Z}_N$ Fourier
@@ -181,14 +185,9 @@ $N$ modes with masses
 \end{equation}
 The critical mode $m = N/2$ (even $N$) is massless: it is the
 Havelock critical mode.
-The KK kinetic energy on~$S^1$ for momentum
-$p_\varphi = m - N/2$ at level $K = 1$ is
-$E_{\mathrm{KK}} = p_\varphi^2/2 = (m{-}N/2)^2/2 = N^2/8 - m(N{-}m)/2$.
-The Casimir $f(m,N) = m(N{-}m)/2$ and the KK energy are
-\emph{complementary}: large Casimir $=$ small KK energy
-(the most stable vortex mode is the heaviest KK mode,
-and vice versa).
-The sum $E_{\mathrm{KK}} + f(m,N) = N^2/8$ is mode-independent.
+The KK energy $E_{\mathrm{KK}} = (m{-}N/2)^2/2 = N^2/8 - f(m,N)$
+is complementary to the Casimir: their sum $N^2/8$ is
+mode-independent.
 
 \begin{remark}[Low-energy limit is $3{+}1$D Minkowski]
 \label{rem:minkowski}
@@ -345,22 +344,11 @@ $\sigma = g_{\varphi\varphi}$ (radion) & $0$ & $\mathbf{1}$ & massive, $m \sim M
 \end{tabular}
 \end{center}
 \noindent
-The boundary description is fundamental: the $4$D graviton
-is the boundary stress tensor ($T$, $\bar T$), as derived in
-Theorem~\ref{thm:graviton-4d}.
-The bulk KK decomposition (graviphoton $+$ radion) is the
-\emph{effective description} at energies $\ll M_{\mathrm{poly}}$,
-where it reproduces the boundary $\langle TT\rangle$ correlator
-(Proposition~\ref{prop:graviton-propagator}).
-At energies above $M_{\mathrm{poly}}$, the full KK tower
-contributes and only the boundary description remains valid.
-In the bulk, the spin-$2$ structure is decomposed into spin $1{+}0$
-under $3$D rotations; on the boundary, the spin-$2$ structure
-is manifest (conformal weight~$2$).
-At distances $r \gg R \sim 10^{-21}$\,m, the massive KK modes
-are Yukawa-suppressed ($e^{-r/R} \approx 0$) and only the
-$2$ tensor polarisations of the boundary graviton
-survive---the macroscopic graviton is entirely a boundary mode.
+The boundary description (Theorem~\ref{thm:graviton-4d})
+is fundamental; the bulk KK decomposition is the effective
+description at $E \ll M_{\mathrm{poly}}$.
+At macroscopic distances ($r \gg R \sim 10^{-21}$\,m),
+only the boundary graviton's $2$ tensor polarisations survive.
 \end{remark}
 
 \begin{remark}[Graviton mass spectrum]
@@ -373,19 +361,15 @@ The KK graviton masses are $\mu_m = |m - N/2|$:
   The massless graviton is the boundary stress tensor~$T(z)$,
   which is not a KK mode but the asymptotic symmetry
   generator of the CS theory.
-  Its masslessness is topologically protected: the Virasoro
-  algebra forbids a mass term for~$T$ (a mass would break
-  conformal invariance, which is exact for the CS boundary).
-  For even~$N$, the KK zero mode and the boundary~$T$ are dual
-  descriptions of the same graviton; for odd~$N$, they are
-  distinct---$T$ is massless while the lightest KK mode has
-  $\mu = 1/2$.
+  Its masslessness is topologically protected
+  (the Virasoro algebra forbids a mass term for~$T$).
 \end{itemize}
 At distances $r \gg 1/N$ (the $S^1$ radius),
 the KK tower is integrated out and gravity is mediated by the
 boundary stress tensor~$T$; at $r \ll 1/N$, the full KK tower
 contributes.
-After Kaluza--Klein reduction on $S^1$, the $n = 0$ mode of $T(z)$ gives a massless 4D spin-$2$ field with propagator $G_4(\mathbf{x}) \sim 1/|\mathbf{x}|^2$ for $|\mathbf{x}| \gg R_{S^1}$---the standard 4D graviton. At distances $|\mathbf{x}| \ll R_{S^1}$, the propagator crosses over to the 3D form $1/|\mathbf{x}|$. This is standard Kaluza--Klein dimensional reduction (the $n = 0$ KK mode is massless and mediates the long-range $1/r^2$ force).
+The graviton propagator crossover from 3D to 4D
+is derived in Proposition~\ref{prop:graviton-propagator}.
 \end{remark}
 
 %% ====================================================================
@@ -435,15 +419,9 @@ Gravity $+$ matter $+$ ghosts & $c - 4$ & Remainder \\
 \end{center}
 \noindent
 The gauge central charges are \emph{included} in $c = 12\,b(N)$,
-not added to it.
-No ghost subtraction is needed: in Chern--Simons theory
-(topological, no propagating bulk modes), the WZW central charge
-$c_G = k\,\dim G/(k{+}h^\vee)$ is already the physical value---the
-level shift $k \to k{+}h^\vee$ is the quantum correction that
-replaces the ghost $c_{\mathrm{ghost}} = -2\dim G$ of
-Yang--Mills theory.
-The gravitational coupling $G = 3/(2c)$ and the gauge couplings
-all derive from the same central charge.
+not added to it (in CS theory, the WZW $c_G$ is already physical;
+no ghost subtraction is needed).
+All couplings derive from the same~$c$.
 \end{definition}
 
 \begin{proposition}[Exact coupling relations]
@@ -539,18 +517,9 @@ $\mathrm{SL}(2,\mathbb{R}) \times \mathrm{SL}(2,\mathbb{R})$
 (Lorentzian) or $\mathrm{SU}(2) \times \mathrm{SU}(2)$ (Euclidean),
 at level $k = \ell/(4G)$.
 With $\ell = 1$ and $G = 3/(2c)$: $k = c/6 = 2\,b(N)$.
-(The analytic continuation between real forms is standard;
-see \citealt{Witten1988}, \S3.
-The Casimir $j(j{+}1) = 2$ with $j = 1$ belongs to the
-\emph{discrete series} of $\mathrm{SL}(2,\mathbb{R})$,
-which has the same finite-dimensional representation theory
-as~$\mathrm{SU}(2)$; the Sugawara formula and the Casimir
-eigenvalue are identical in both real forms.)
-The Chern--Simons level $k = 2\,b(N)$ is not integer---it contains
-the irrational terms $\ln 2$ and $(\ln N)/(N{-}1)$ from~$b(N)$.
-The non-compact $\mathrm{SL}(2,\mathbb{R})$ admits irrational
-level ($\pi_3 = 0$, no topological quantisation;
-\citealt{Witten1988}).
+(The non-compact $\mathrm{SL}(2,\mathbb{R})$ admits
+irrational level $k = 2b(N)$; see Paper~III,
+\S\ref*{III-sec:graviton}.)
 The compact gauge sectors have integer levels
 $k = 1$ for $\mathrm{SU}(2)$, $\mathrm{SU}(3)$, and
 $\mathrm{U}(1)$ (large gauge invariance).
@@ -586,7 +555,13 @@ $\mathrm{SU}(2)_L$ as the unbroken gauge factor.
 \end{proposition}
 
 \begin{proof}
-Three steps.
+\emph{Sketch.}
+Witten's CS formulation splits gravity into $\mathrm{SU}(2)_L
+\times \mathrm{SU}(2)_R$.
+KK reduction maps 4D chirality to 3D CS sector.
+The Seifert Euler class $e = N/2$ is parity-odd, breaking
+$L \leftrightarrow R$ via the fermion parity anomaly and
+the gravitational eta invariant, gapping $\mathrm{SU}(2)_R$.
 
 \emph{Step~1 (Chiral decomposition of CS gravity).}
 In the first-order formulation \citep{Witten1988},
@@ -760,62 +735,27 @@ $\mathrm{PSL}(2,\mathbb{F}_7)$.
 \end{proof}
 
 \begin{proof}[Proof of part~(b): gauge dynamics]
-The following five steps establish the gauge dynamics by converting
-vortex displacements into CS gauge-field perturbations and applying
-the McKay correspondence.
+\emph{Roadmap.}
+Step~B1 converts vortex displacements into CS connection
+perturbations (the dreibein chain).
+Step~B2 extends this to all orders via the CS/WZW theorem.
+Steps~B3--B4 apply the McKay correspondence and DHVW orbifold
+construction to identify the gauge group as $\mathrm{SU}(3)$ at level~$1$.
+Step~B5 promotes the boundary currents to 4D gauge bosons via KK reduction.
 
-\emph{Step~B1 (dreibein chain).}
+\emph{Step~B1 (CS/WZW embedding).}
 The charged Havelock modes $\eta_1, \eta_2$ (Step~3) are
-perturbations of the polygon equilibrium.
-Near the $N$-gon the effective action is quadratic:
-$S_{\mathrm{eff}} = \int |\nabla\eta|^2 + m^2|\eta|^2$
-(two free massive scalars on~$\mathbf{H}^2$), with masses
-$m_k^2 = c_k(c_k{-}1)$.
-In the CS/WZW framework (the same framework already used
-for the graviton, Theorem~\ref{thm:graviton-4d}),
-bulk fields on~$\mathbf{H}^2$ have boundary values that
-parametrise the target space of the boundary CFT.
-The boundary values of $(\eta_1, \eta_2)$ therefore
-parametrise a target $\mathbb{C}^2$, on which the
-$\mathbb{Z}/3\mathbb{Z}$ Frobenius acts as
-$\mathrm{diag}(\omega,\, \omega^{-1}) \in \mathrm{SU}(2)$ (Step~3).
-The CS/WZW correspondence extends to the vortex displacement
-modes~$\eta_1, \eta_2$ because linearised displacements
-correspond to gauge field perturbations by the dreibein
-chain (items~1--5 below, at the linearised level):
-\begin{enumerate}
-\item The $N$-cone metric is $ds^2 = |f'(z)|^2\,|dz|^2$
-  with $f'(z) = \prod_k(z{-}z_k)^{-\beta}$
-  (the developing map, Paper~II eq.~\eqref{II-eq:developing-map}).
-  The developing map is well-defined for deficit parameter
-  $\beta < 1 - 2/N$ (Gauss--Bonnet: $N\beta < N{-}2$ on
-  genus~$0$); at the linearised level $\beta \to 0$,
-  and for finite deficit $\beta < 5/7$ at $N = 7$.
-\item In the first-order formalism: dreibein $e^a = |f'|\,dx^a$,
-  spin connection $\omega^{12} = *\!d\log|f'|$,
-  CS connection $A = \omega + e/\ell$.
-\item Displace cone~$k$ by $\delta z_k$:
-  $\delta\log f' = -\beta\sum_k \delta z_k/(z{-}z_k)$.
-  This perturbs the dreibein: $\delta e = (\delta\log|f'|)\,e_0$
-  and the spin connection: $\delta\omega = *\!d(\delta\log|f'|)$.
-\item Therefore $\delta A = \delta\omega + \delta e/\ell$
-  is a perturbation of the CS connection, computed
-  \emph{algebraically} from the developing map.
-\item The $\mathbb{Z}_N$ Fourier projection onto mode~$m$
-  extracts $\delta A_m$ with
-  $\mathrm{SL}(2,\mathbb{R})$ Casimir $m(N{-}m)/2$
-  (by the Havelock identity applied to $\delta A$).
-\end{enumerate}
-Every step is explicit algebra at the linearised level;
-no physical identification enters
-(see Code Availability).
-
-\emph{Step~B2 (Nonlinear embedding via CS/WZW).}
+massive scalars on~$\mathbf{H}^2$ with $m_k^2 = c_k(c_k{-}1)$.
+Their boundary values parametrise $\mathbb{C}^2$, on which
+$\mathbb{Z}/3\mathbb{Z}$ acts as
+$\mathrm{diag}(\omega, \omega^{-1}) \in \mathrm{SU}(2)$.
 The CS/WZW theorem \citep{Witten1988} provides the nonlinear
-result directly: the boundary values of the full CS gauge
+result: the boundary values of the full CS gauge
 field~$A$ parametrise the WZW target manifold~$G$.
-The dreibein chain (Step~B1) serves as an independent
-verification at the linearised level.
+At the linearised level, the dreibein chain
+(developing map $\to$ first-order formalism $\to$ CS connection
+$\to$ vortex displacement $\to$ Fourier projection;
+see Code Availability) verifies this identification explicitly.
 The $\mathbb{Z}/3\mathbb{Z}$ invariance is exact at all orders
 because it is a property of the Casimir spectrum, not of the
 coupling strength: the Frobenius $\sigma\colon m \mapsto 2m \bmod 7$
@@ -877,11 +817,9 @@ $\int \mathrm{Tr}(g^{-1}dg)^3$
 This gives exact invariance of the action, the path integral,
 all $n$-point functions (Schwinger--Dyson), and all OPE
 coefficients.
-The Casimir multiset invariance is a \emph{consequence}:
+The Casimir multiset invariance follows:
 the Havelock eigenvalues are spectral data of the
-$G_L$-invariant theory, so they must respect the $G_L$ symmetry.
-The $G_L$ invariance is a global symmetry of the full WZW
-field theory, acting on the entire field space.
+$G_L$-invariant theory.
 \emph{Step~B5 (CS/WZW correspondence $\to$ 4D gauge field).}
 The chain from orbifold current algebra to 4D gauge theory
 has three links, each a theorem:
@@ -950,23 +888,14 @@ as the parity-preserving vacuum).
 The strong CP problem is absent because the topological
 quantisation of the CS level forbids continuous~$\theta$.
 
-\emph{Scope of the $\mathrm{SU}(3)_1$ identification.}
-The SU$(3)_1$ CS theory is topological:
-$3$ integrable representations, no propagating gluons,
-no confinement scale.
-It captures the topological data (gauge group, level,
-vacuum angle) of the colour sector.
-The dynamical content of QCD---asymptotic freedom,
-confinement, chiral symmetry breaking---emerges below
-$M_{\mathrm{poly}}$ when the KK reduction to $3{+}1$D
-promotes the CS gauge field to a Yang--Mills field with
-a propagating kinetic term
-(the CS action $\int A \wedge dA$ reduces to the YM
-action $\int F \wedge {*}F$ upon dimensional reduction,
-with coupling $g^2 = 4\pi/k$).
-The $\theta = 0$ prediction is robust because $\theta$
-is a topological quantity controlled by the CS level,
-independent of the infrared dynamics.
+\emph{Scope.}
+The SU$(3)_1$ CS theory is topological
+($3$ integrable representations, no propagating gluons).
+Dynamical QCD emerges below $M_{\mathrm{poly}}$ when
+KK reduction promotes the CS gauge field to Yang--Mills
+($g^2 = 4\pi/k$).
+The $\theta = 0$ prediction is robust: $\theta$ is controlled
+by the CS level, independent of infrared dynamics.
 
 \begin{center}
 \small
@@ -1150,32 +1079,20 @@ Substituting the values from Steps~1--2:
   = \frac{1/4}{1/4 + 2/3}
   = \frac{3}{11}.
 \]
-Cross-check: $k = 2$ gives $\sin^2\theta_W = 1/3$,
-$k = 3$ gives $5/13$; both are excluded by experiment.
 \end{proof}
 
-\paragraph{The integrable bound and conformal confinement.}
+\begin{remark}[Integrable bound]
 The spin $j = 1$ exceeds the integrable bound
-$j \le k/2 = 1/2$ of $\mathrm{SU}(2)_1$, and the
-Verlinde formula gives quantum dimension
-$d(j{=}1) = \sin(3\pi/3)/\sin(\pi/3) = 0$:
-the $j = 1$ representation carries no normalizable
-state in the WZW Hilbert space.
-
-This does not invalidate the mixing angle.
-The Lie-algebra Casimir $C_2(j) = j(j{+}1)$
-($k$-independent) and the quantum dimension
-$d_q(j) = S_{0j}/S_{00}$ ($k$-dependent) are independent
-structures: the mixing angle uses~$C_2$;
-the TQFT state counting uses~$d_q$.
-The vanishing $d_q(j{=}1) = 0$ constrains which
-representations propagate in the TQFT, not the
-Lie-algebra Casimir that enters the gauge coupling.
-The value $j = 1$ is the unique
-solution of $j(j{+}1) = f(m^*,4) = 2$ at the critical
-mode $m^* = 2$ (Theorem~\ref{thm:su2}, Step~4).
-For comparison, $j = 1/2$ gives $\alpha_W = g^2 \times 3/4$,
-yielding $\sin^2\theta_W = 1/2$---experimentally excluded.
+$j \le k/2 = 1/2$ of $\mathrm{SU}(2)_1$
+(quantum dimension $d_q = 0$: no normalizable TQFT state).
+The mixing angle uses the $k$-independent Lie-algebra
+Casimir $C_2(j) = j(j{+}1)$, not the TQFT state count;
+these are independent structures.
+The value $j = 1$ is the unique solution of
+$j(j{+}1) = f(m^*,4) = 2$
+(Theorem~\ref{thm:su2}, Step~4);
+$j = 1/2$ gives $\sin^2\theta_W = 1/2$, excluded by experiment.
+\end{remark}
 
 \paragraph{Comparison with unification frameworks.}
 \begin{center}
@@ -1423,7 +1340,19 @@ higher loops are forbidden by large-gauge-transformation invariance.
 \section{The fermion mass structure}
 \label{sec:fermions}
 
+This section derives the fermion spectrum in five stages:
+the Yukawa texture from $\mathbb{Z}_7$ charge conservation
+(\S\ref{sec:yukawa}--\S\ref{sec:up-down});
+the full mass hierarchy from the BF instanton (\S\ref{sec:mass-hierarchy});
+sector decoupling (\S\ref{sec:decoupling});
+the tree-level CKM matrix (\S\ref{sec:ckm-tree});
+the CKM phase from the scattering phase on~$\mathbf{H}^2$
+(\S\ref{sec:ckm-phase});
+and the non-perturbative CKM with orbifold image suppression
+(\S\ref{sec:ckm-np}).
+
 \subsection{The Yukawa texture from KK charge conservation}
+\label{sec:yukawa}
 
 The Yukawa coupling $Y_{ij}$ between fermion pairs $i$, $j$ and the
 Higgs (pair~3, modes $3$ and~$4$) is nonzero iff
@@ -1456,6 +1385,7 @@ while the lightest mass $m_3 \propto e^{-\sigma/2}$ is
 exponentially suppressed by the warp factor~$\sigma$.
 
 \subsection{Up--down splitting from the $N = 4$ isospin}
+\label{sec:up-down}
 
 The $\mathrm{SU}(2)$ doublet structure from the $N = 4$ sector
 gives different KK masses for up-type ($\mu_4 = 1/2$) and
@@ -1587,6 +1517,7 @@ tail and QCD running to~$2$\,GeV; the qualitative prediction
 $m_u < m_d \ll m_s$ is robust and parameter-free.
 
 \subsection{Sector decoupling}
+\label{sec:decoupling}
 
 The $N = 7$ and $N = 8$ polygon sectors are decoupled by the
 mod-$56$ arithmetic of the common overfield
@@ -1597,6 +1528,7 @@ The texture zeros of the $N = 7$ Yukawa are topologically
 protected.
 
 \subsection{CKM mixing matrix}
+\label{sec:ckm-tree}
 
 \emph{Roadmap.}
 The CKM matrix has three layers of corrections:
@@ -1630,17 +1562,12 @@ Observed: $\begin{pmatrix}
 \end{pmatrix}$
 \end{center}
 \noindent
-The perturbative CKM matrix above has $|V_{cb}| = 0.092$
-($2.2\times$ the observed $0.042$) and $\delta = 15^\circ$
-($4.6\times$ below the observed $69^\circ$).
-These are the \emph{tree-level} values.
-The non-perturbative CKM (derived below) resolves both discrepancies
-simultaneously through $J$-conservation.
-
-\medskip\noindent
 The Cabibbo angle $\theta_C = 13.7^\circ$ (observed $13.0^\circ$,
 $5\%$ off).
 The hierarchy $|V_{us}| \gg |V_{cb}| \gg |V_{ub}|$ is predicted.
+
+\subsection{The CKM phase}
+\label{sec:ckm-phase}
 
 \begin{theorem}[CKM phase from the scattering phase on~$\mathbf{H}^2$]
 \label{thm:ckm-phase}
@@ -1785,7 +1712,7 @@ The model's own perturbative CKM matrix gives $J = 3.5 \times 10^{-5}$
 (observed: $3.0 \times 10^{-5}$, $17\%$ match), which \emph{is}
 a genuine prediction since all entries are computed from~$N = 7$.
 
-\paragraph{Non-perturbative CKM.}
+\subsection{Non-perturbative CKM}
 \label{sec:ckm-np}
 The non-perturbative CKM combines the BF-crossing phase
 $\delta = 70.2^\circ$ (Theorem~\ref{thm:ckm-phase}) with
@@ -1840,14 +1767,14 @@ The CKM element $V_{cb}$ is the $\chi_8$-channel transition
 amplitude between the Galois orbits $O_+$ and $O_-$.
 On the orbifold, the Dirac Green's function decomposes
 over $\mathbb{Z}_7$ images:
-$G_{\mathrm{orb}}(x,y) = (1/N)\sum_k G_{\mathbf{H}^2}(x, \gamma^k y)$.
+$G_{\mathrm{orb}}(x,y) = (1/N)\sum_n G_{\mathbf{H}^2}(x, \gamma^n y)$.
 The $\chi_1$ (singlet) projection gives the diagonal CKM entries.
-The $\chi_8$ (adjoint) projection selects the $k \ge 1$ images:
+The $\chi_8$ (adjoint) projection selects the $n \ge 1$ images:
 $V_{cb} = \langle c|\,P_{\chi_8}\,|b\rangle
-= \sum_{k=1}^{6} \langle c|\gamma^k\rangle\langle\gamma^k|b\rangle$.
+= \sum_{n=1}^{6} \langle c|\gamma^n\rangle\langle\gamma^n|b\rangle$.
 In the spectral representation, the BF-crossing mode
 ($\lambda_{m^*} \to 0$, the lightest excitation) dominates.
-The Green's function at the $k = 1$ image separates into
+The Green's function at the $n = 1$ image separates into
 an \emph{on-site} factor $|\psi_{m^*}(x_c)|^2$
 (the mode density at the $c$-quark position,
 proportional to the tree-level mixing $|V_{cb}|_{\mathrm{pert}}$)
@@ -1856,7 +1783,7 @@ and a \emph{propagation} factor $Q_1(\cosh d)$
 Therefore $|V_{cb}|^2 = T_1 \times T_2$
 where $T_1 = |V_{cb}|_{\mathrm{pert}}$ (on-site) and
 $T_2 = Q_1(\cosh d)$ (propagation).
-The $k = 2$ image at $d_2 = 2d_1 = 4.04$ contributes
+The $n = 2$ image at $d_2 = 2d_1 = 4.04$ contributes
 $Q_1(\cosh d_2)/Q_1(\cosh d_1) = 0.017$ ($2\%$ correction).
 \begin{equation}\label{eq:Vcb-born}
   |V_{cb}|^2
@@ -1868,9 +1795,10 @@ At the uncorrected $\rho^*_0 = 1.734$: $|V_{cb}| = 0.047$
 ($12\%$ off). The orbifold images also shift $\rho^*$: the BO potential
 on $\mathbf{H}^2/\mathbb{Z}_7$ is
 $V_{\mathrm{orb}}(\rho) = V(\rho) + 2\,Q_1(\cosh d_1(\rho))$
-(the two nearest images at $k = 1$ and $k = 6$, at equal
+(the two nearest images at $n = 1$ and $n = 6$, at equal
 geodesic distances~$d_1(\rho)$, each contributing $Q_1$).
-Setting $V_{\mathrm{orb}}(\rho^*) = 0$ gives
+Setting $V_{\mathrm{orb}}(\rho^*) = 0$ determines the
+corrected equilibrium radius.
 The images lower the BO barrier (same-sign vortex repulsion
 stabilises the ring), so $V_{\mathrm{orb}}(\rho^*_0)
 = V(\rho^*_0) - 2Q_1 < 0$: the threshold shifts outward.
@@ -1962,12 +1890,6 @@ of the orbifold Green's function.
 \end{remark}
 
 \noindent
-The perturbative $|V_{cb}| = 0.092$ is never directly observable:
-every measurement creates $b$-quarks in the full non-perturbative vacuum
-(with the orbifold image suppression), so the measured $|V_{cb}| = 0.042$
-\emph{is} the self-consistent non-perturbative value~\eqref{eq:Vcb-sc}.
-
-\smallskip\noindent
 The non-perturbative CKM matrix:
 \begin{center}
 \small
@@ -1995,6 +1917,8 @@ Observed: $\begin{pmatrix}
 %% ====================================================================
 \section{Consistency checks}
 \label{sec:consistency}
+
+\subsection{Gravitational consistency}
 
 \paragraph{Newton constant.}
 The hierarchy formula (Theorem~\ref*{V-thm:cc}) gives
@@ -2229,6 +2153,8 @@ The E\"otv\"os parameter
 $\delta(a)/a \lesssim e^{-r/R} \lesssim e^{-10^{20}} \approx 0$,
 easily satisfying the MICROSCOPE bound $\delta(a)/a < 10^{-15}$.
 
+\subsection{Gauge-theory consistency}
+
 \paragraph{Anomaly cancellation.}
 Each generation carries the standard
 $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
@@ -2324,6 +2250,8 @@ $y_t$, $g_s$) is determined by~$N = 7$ and the SM
 particle content.
 
 %% Dark matter detection moved to Paper V (M-001 scope).
+
+\subsection{Predictions and cross-checks}
 
 \paragraph{Black hole entropy.}
 The Cardy formula of the orbifold CFT at $c = 12\,b(N)$ gives

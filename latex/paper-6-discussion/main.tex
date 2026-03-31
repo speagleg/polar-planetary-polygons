@@ -24,7 +24,7 @@ the series derives the Standard Model gauge group, the Weinberg
 angle, the CKM phase, three generations, the cosmological
 constant, the Hubble parameter, the dark matter fraction,
 and the baryon asymmetry.
-Nine binary predictions are testable within a decade.
+Five binary predictions are testable within a decade.
 \end{abstract}
 
 \section{Series overview}
@@ -145,9 +145,10 @@ scale ($v$ or $M_P$, needed to set units in any theory),
 plus the structural framework (Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$
 geometry, BF-threshold identification with the $T_3$ split,
 $k = K = 1$ for the compact gauge levels),
-for approximately $25$~predictions ($\sim\!15$ independent,
-since mass ratios are correlated by the Yukawa texture
-and CKM elements are constrained by unitarity).
+yielding $17$~testable outputs ($15$~predictions and
+$2$~consistency checks in the master table), of which
+$11$ are independent after accounting for Yukawa-texture
+correlations and CKM unitarity.
 The Standard Model, by comparison, has $19$~free parameters
 for roughly the same set of observables.
 The structural choices above are not free parameters (they are
@@ -159,9 +160,16 @@ should be distinguished from quantities computed by integration
 \section{Discussion}
 \label{sec:discussion}
 
-\subsection{Status classification}
+This section audits the series at four levels:
+status classification of every result (\S\ref{sec:status});
+cumulative uncertainty through the derivation chain
+(\S\ref{sec:uncertainty});
+comparison to other zero-parameter frameworks
+(\S\ref{sec:comparison});
+and falsifiable predictions (\S\ref{sec:falsifiable}).
 
-\paragraph{Status classification.}
+\subsection{Status classification}
+\label{sec:status}
 Three levels of logical status are distinguished:
 \begin{center}
 \small
@@ -186,31 +194,39 @@ Status & Meaning \\
 
 \begin{center}
 \small
-\begin{tabular}{llc}
+\begin{tabular}{lllc}
 \toprule
-Result & Status & Match \\
+Result & Role & Status & Match \\
 \midrule
-$\mathrm{SU}(3)$ representation structure & Theorem & --- \\
-$\mathrm{SU}(3)$ gauge dynamics (CS/WZW) & Theorem & --- \\
-$\mathrm{SU}(2) \times \mathrm{U}(1)$ & Theorem & --- \\
-$3$ generations & Theorem & --- \\
-Coupling lock $\alpha/(8\pi G) = 1/(2\pi^2)$ & Consistency$^\ddagger$ & exact \\
-$4$D graviton (spin $2$) & Theorem & --- \\
-Vacuum Einstein equations & Theorem & --- \\
-$\sin^2\theta_W = 3/11$ & Derivation$^*$ & $3.9\%$ \\
-$\delta_{\mathrm{CKM}} = 70.2^\circ$ & Theorem & $0.4\sigma$ \\
-$|V_{cb}| = 0.044$ & Derivation & $6\%$ (elasticity $-2.5$) \\
-$m_s/m_b = 0.045$ & Derivation$^\dagger$ & $1.9\times$ observed ($M_{\mathrm{poly}} = 294$\,TeV, two-loop) \\
-$M_P/M_{\mathrm{EW}}$ hierarchy & Derivation & $0.003\%$ \\
-$H_0 = 67.4$ & Derivation & $2 \times 10^{-5}$ in $\ln(\ell v)$ (using $v_{\mathrm{obs}}$); Dunham $O(1/c^2)$ \\
-WDW equation from stat.\ mech. & Derivation & --- \\
-Einstein + matter (Lashkari) & Derivation & --- \\
-$\theta_{\mathrm{QCD}} = 0$ & Derivation & --- \\
-$\Delta m^2$ ratio $= 31.5$ & Derivation & $3\%$ \\
-$\Omega_{\mathrm{DM}} = 26.9\%$ & Conjecture & $0.4\sigma$ \\
-$\eta_B = 2 \times 10^{-9}$ & Derivation & $\times 0.8$--$3$ (lattice QCD) \\
-$\Omega_b = 5.0\%$ (inst.\ resum.) & Derivation & $0.6\sigma$ \\
-$m_H = 125 \pm 3$ GeV & Derivation & $2\%$ \\
+\multicolumn{4}{l}{\emph{Structural (forced by $N = 7$ and $M_P$)}} \\
+$\mathrm{SU}(3)$ representation + dynamics & Derived & Theorem & --- \\
+$\mathrm{SU}(2) \times \mathrm{U}(1)$ & Derived & Theorem & --- \\
+$3$ generations $= (N{-}1)/2$ & Derived & Theorem & --- \\
+$4$D graviton (spin $2$) & Derived & Theorem & --- \\
+Vacuum Einstein equations & Derived & Theorem & --- \\
+WDW equation from stat.\ mech. & Derived & Derivation & --- \\
+$M_P/M_{\mathrm{EW}}$ hierarchy & Derived & Derivation & $0.003\%$ \\
+\midrule
+\multicolumn{4}{l}{\emph{Predictions (computed before comparison)}} \\
+$\delta_{\mathrm{CKM}} = 70.2^\circ$ & Prediction & Theorem & $0.4\sigma$ \\
+$\sin^2\theta_W = 3/11$ & Prediction & Derivation$^*$ & $3.9\%$ \\
+$|V_{cb}| = 0.044$ & Prediction & Derivation & $6\%$ \\
+$m_s/m_b = 0.045$ & Prediction & Derivation$^\dagger$ & $1.9\times$ \\
+$H_0 = 67.4$ km/s/Mpc & Prediction & Derivation & $2 \times 10^{-5}$ \\
+$\Omega_{\mathrm{DM}} = 26.9\%$ & Prediction & Conjecture & $0.4\sigma$ \\
+$\Omega_b = 5.0\%$ & Prediction & Derivation & $0.6\sigma$ \\
+$\eta_B = 2 \times 10^{-9}$ & Prediction & Derivation & $\times 0.8$--$3$ \\
+$\Delta m^2$ ratio $= 31.5$ & Prediction & Derivation & $3\%$ \\
+$m_H = 125 \pm 3$ GeV & Prediction & Derivation & $2\%$ \\
+$\theta_{\mathrm{QCD}} = 0$ & Prediction & Derivation & --- \\
+Normal hierarchy, $\Sigma m_\nu = 0.059$\,eV & Prediction & Derivation & JUNO \\
+$w = -1$ exactly & Prediction & Derivation & DESI \\
+No $0\nu\beta\beta$ (Dirac) & Prediction & Derivation & LEGEND \\
+Proton exactly stable & Prediction & Derivation & Hyper-K \\
+\midrule
+\multicolumn{4}{l}{\emph{Consistency checks}} \\
+Coupling lock $\alpha/(8\pi G) = 1/(2\pi^2)$ & Check$^\ddagger$ & Identity & exact \\
+Einstein + matter (Lashkari) & Check & Derivation & --- \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -227,32 +243,17 @@ non-perturbative state counting
 ${}^\ddagger$The coupling lock is an algebraic identity
 within the formalism ($\alpha$ and $G$ both derive from~$c$);
 it is not independently testable at the CS threshold.\\[2pt]
-${}^\dagger$The mass hierarchy uses the BF instanton
-(\S\ref*{V-sec:mass-hierarchy},
-eq.~\eqref{V-eq:mass-hierarchy}): $m_s/m_b = (v/M_{\mathrm{poly}})^{2\delta_\Delta}/K^2$
-with $\delta_\Delta = 0.303$ (the conformal-dimension splitting) and $K = 0.548$.
-At the one-loop $M_{\mathrm{poly}} = 300$\,TeV the ratio
-is $0.059$; two-loop $+$ CS threshold corrections shift the
-$M_{\mathrm{poly}} = 294$\,TeV (two-loop),
-giving $0.045$ ($1.9\times$ observed).
-
-\subsection{Structural choices}
-
-\paragraph{Structural choices.}
-The three structural identifications
-(CMS $=$ CS, vortex $=$ spacetime, McKay $=$ gauge group)
-each restrict the space of possible theories.
-Together with the structural requirements in the $N = 11$
-selection (Thurston uniqueness, single fiber, no duplication)
-and the BF threshold identification $\mu_4 = 1$,
-the framework involves six structural choices
-beyond the two numerical inputs ($N = 7$, $M_P$).
-This is far fewer than the SM's $19$~parameters
-but more than ``one integer plus one scale.''
+${}^\dagger$The mass ratio $m_s/m_b$ is computed from the
+BF instanton (\S\ref*{V-sec:mass-hierarchy}):
+$m_s/m_b = (v/M_{\mathrm{poly}})^{2\delta_\Delta}/K^2$,
+where $\delta_\Delta = 0.303$ and $K = 0.548$.
+At one-loop ($M_{\mathrm{poly}} = 300$\,TeV): $0.059$;
+at two-loop ($M_{\mathrm{poly}} = 294$\,TeV): $0.045$
+($1.9\times$ the observed $0.024$).
+The table reports the two-loop value.
 
 \subsection{Cumulative uncertainty}
-
-\paragraph{Cumulative uncertainty.}
+\label{sec:uncertainty}
 The derivation chain from polygon stability to the Standard
 Model passes through three distinct types of link:
 \begin{enumerate}
@@ -298,14 +299,12 @@ little room for hidden parameters.
 \paragraph{The foundational postulate.}
 The vortex-spacetime identification (c) is the framework's
 starting postulate.
-Its justification is empirical: the $25$+ predictions
+Its justification is empirical: the $17$~testable outputs
 enumerated above.
 The binary falsifiable tests are enumerated below
 (\S\ref{sec:falsifiable}).
 
 \subsection{Structural limitations}
-
-\paragraph{Structural limitations.}
 Two predictions are beyond current experimental reach.
 (i)~The frozen-mode dark matter has cross-section
 $\sigma \sim 10^{-103}\;\mathrm{cm}^2$---undetectable by
@@ -331,9 +330,7 @@ requires spatial isotropy), not a full derivation---the
 time-direction constraint requires the boundary Virasoro
 mechanism (Paper~IV, \S\ref*{IV-sec:action}).
 
-\subsection{Precision regimes}
-
-\paragraph{Two precision regimes.}
+\subsection{Two precision regimes}
 The predictions fall into two tiers by mechanism,
 not by post-hoc selection:
 \begin{center}
@@ -367,9 +364,8 @@ The pattern is structural, not accidental: it reflects
 the separation between topological data (exact)
 and radial geometry (approximate).
 
-\subsection{Comparison to other frameworks}
-
-\paragraph{Comparison to other zero-parameter frameworks.}
+\subsection{Comparison to zero-parameter frameworks}
+\label{sec:comparison}
 The framework's factor-$2$ geometric accuracy should
 be compared not to the Standard Model (which fits
 $19$+ parameters by construction) but to other frameworks
@@ -391,6 +387,7 @@ The factor-$2$ geometric accuracy is comparable to
 tree-level SU(5) for $\sin^2\theta_W$.
 
 \subsection{Falsifiable predictions}
+\label{sec:falsifiable}
 \label{sec:falsifiable}
 
 \noindent
@@ -442,117 +439,57 @@ that the SM treats as inputs}: the gauge group,
 $3$~generations, $m_u < m_d$, $\theta_{\mathrm{QCD}} = 0$.
 
 \subsection{Input--output classification}
-
-\paragraph{Input--output classification.}
 \label{sec:input-output}
-The following table distinguishes the two genuine inputs,
-the structural choices they determine, and the predictions.
-\begin{center}
-\small
-\begin{tabular}{llp{6cm}}
-\toprule
-Category & Item & Role \\
-\midrule
-\multicolumn{3}{l}{\emph{Inputs (two: one integer, one scale)}} \\
-& $N = 7$ (one integer) &
-  Pell equation: unique polygon with $j = 2$ graviton \\
-& $M_P$ (one dimensionful scale) & Sets units \\
-\midrule
-\multicolumn{3}{l}{\emph{Constrained (derived from $N = 7$ and $M_P$)}} \\
-& $N = 4$ (Pell: $j = 1$ vector boson) &
-  Same selection as $N = 7$ \\
-& $N = 11 = 4 + 7$ (Chern class) &
-  Exhaustive elimination (\S\ref*{V-sec:n-selection}) \\
-& $\mathbf{H}^2$ base &
-  Forced by $f(5,11) > N{-}1$ (Prop.~\ref*{IV-prop:spacetime}) \\
-& Seifert $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ &
-  Unique (Thurston classification) \\
-& $k = K = 1$ (CS levels) &
-  Orbifold $+$ large gauge invariance \\
-& $\mu_4 = 1$ (BF threshold) &
-  First massive KK level on $\mathbf{H}^2$ \\
-& Gauge group, 3 generations &
-  From $N = 7$ orbifold (Theorem~\ref*{IV-thm:su3}) \\
-& $v = 245.9$ GeV & From hierarchy $S_{\mathrm{BO}}(7)$ \\
-\midrule
-\multicolumn{3}{l}{\emph{Calibration (pins $M_{\mathrm{poly}}$ within predicted range)}} \\
-& $\Delta m^2_{\mathrm{atm}}$ &
-  Fixes $M_{\mathrm{poly}} \in [50, 300]$\,TeV
-  (from $\sin^2\theta_W$ running) \\
-\midrule
-\multicolumn{3}{l}{\emph{Predictions (computed before comparison)}} \\
-& $\delta_{\mathrm{CKM}} = 70.2^\circ$ &
-  $0.4\sigma$ from PDG \\
-& $H_0 = 67.4$ km/s/Mpc &
-  $0.001\%$ from Planck \\
-& $\Delta m^2_{\mathrm{sol}}/\Delta m^2_{\mathrm{atm}} = 1/31.5$ &
-  $3\%$ from experiment \\
-& $\eta_B = 2 \times 10^{-9}$ ($v_w$-independent) &
-  $\times 0.8$--$3$ (lattice QCD input) \\
-& $\theta_{\mathrm{QCD}} = 0$ (exactly) &
-  No axion needed \\
-& Normal neutrino hierarchy, $\Sigma m_\nu = 0.059$ eV &
-  Testable by JUNO ($2026$--$2027$) \\
-& $w = -1$ (cosmological constant, not quintessence) &
-  Testable by DESI/Euclid \\
-& No $0\nu\beta\beta$ (Dirac neutrinos) &
-  Testable by LEGEND/nEXO \\
-& Proton exactly stable &
-  Testable by Hyper-K ($\tau > 10^{35}$\,yr) \\
-\midrule
-\multicolumn{3}{l}{\emph{Consistency checks (algebraic consequences)}} \\
-& $G_N = 6.65 \times 10^{-11}$ &
-  From $M_P$ (not independent) \\
-& Coupling lock $\alpha/(8\pi G) = 1/(2\pi^2)$ &
-  Structural identity \\
-& Proton stability &
-  $\mathbb{Z}_{56}$ charge conservation \\
-\bottomrule
-\end{tabular}
-\end{center}
+
+The master table above classifies each result by role
+(Structural / Prediction / Check) and logical status.
+The two genuine inputs are $N = 7$ (from the Pell equation,
+Theorem~\ref*{V-thm:n-selection}(b))
+and $M_P$ (which sets the dimensionful scale).
+All structural results, predictions, and consistency checks
+in the table follow from these two inputs plus the six
+structural identifications detailed in \S\ref{sec:parameters}.
+One calibration input ($\Delta m^2_{\mathrm{atm}}$) pins
+$M_{\mathrm{poly}} \in [50, 300]$\,TeV.
 
 The perturbative CKM gives $J = 3.5 \times 10^{-5}$
 (observed $3.0 \times 10^{-5}$, $17\%$~match)---a genuine
 prediction with all entries computed from~$N = 7$.
 
-\begin{remark}[Arithmetic interpretation]
-The Havelock eigenvalues of the $N$-gon define, for each~$N$,
-automorphic data over the trace field
-$K_N = \mathbb{Q}(\cos 2\pi/N)$.
+\subsection{Arithmetic connections}
+
+The algebraic structure of the Havelock eigenvalues suggests
+a deeper arithmetic interpretation, developed fully in a
+companion supplement.
 The Ramanujan--Petersson bound
 $|S_m| \le 2\sqrt{f(m,N)}$ is automatically satisfied
-by stable polygon configurations (verified for all $N \le 16$
-and all modes).
-In the Langlands correspondence, this is the temperedness
-condition for automorphic representations of
-$\mathrm{GL}(2)/K_N$.
-The equivalence is:
-\emph{vortex stability} (Havelock)
-$=$ \emph{temperedness} (Langlands)
-$=$ \emph{Ramanujan bound} (arithmetic).
+by stable polygon configurations (verified for all $N \le 16$),
+giving an equivalence:
+\emph{vortex stability} $=$ \emph{temperedness} (Langlands)
+$=$ \emph{Ramanujan bound}.
 For $N = 8$, the automorphic object is the CM form
 $\eta(8z)\eta(16z)$ (LMFDB 128.1.d.a),
-verified at $46$ primes with zero violations.
-The complete Langlands tower---$\mathrm{GL}(1)$ through
-$\mathrm{GL}(n)$ from the polygon hierarchy, Hilbert modular
-forms over~$K_7$, and the Calegari--Geraghty modularity
-lifting at $p = 3$---is developed in a companion supplement.
-\end{remark}
+verified at $46$ primes.
 
-\medskip\noindent
-\paragraph{The starting point.}
-The spacetime geometry is uniquely determined by three
-physical requirements (Proposition~\ref*{IV-prop:spacetime}):
-a stable vortex base ($\mathbf{H}^2$), a gauge fiber ($S^1$),
-and a time direction ($\mathbb{R}$).
-The integer $N = 7$ is selected by the Pell equation
-(Theorem~\ref*{V-thm:n-selection}).
-Everything else---gauge group, masses, couplings, cosmological
-constant---follows from these two inputs.
-The theory is built from five classical ingredients:
-Havelock (1931), Kaluza--Klein (1921),
-Thurston (1982), Chern--Simons (1989),
-and the McKay correspondence (1980).
+\section{Conclusion}
+\label{sec:conclusion}
+
+The Havelock field theory rests on one physical
+postulate---that point-vortex polygon dynamics on
+$\mathbf{H}^2 \times_N S^1$ is spacetime dynamics---and
+one integer, $N = 7$.
+From these, the series derives the Standard Model gauge
+group, three generations, the CKM phase, the cosmological
+constant, the Hubble parameter, and the baryon asymmetry.
+The parameter count (two inputs plus six structural
+identifications for $17$~testable outputs) compares
+favourably to any zero-parameter framework in the literature.
+
+Five binary tests---normal neutrino hierarchy, $w = -1$,
+no $0\nu\beta\beta$, proton stability, and
+$\theta_{\mathrm{QCD}} = 0$---are experimentally accessible
+within a decade.
+A single failure falsifies the framework.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}

@@ -16,17 +16,19 @@
 \maketitle
 
 \begin{abstract}
-The stability eigenvalue of a regular $N$-gon of point vortices
-decomposes as $\lambda_m = C_1(\text{surface}) - m(N{-}m)/2$,
-separating a single surface-dependent number from a universal
-Casimir determined by the cyclic group~$\mathbb{Z}_N$.
-I prove the sign rule for general interactions, extend the
-Havelock identity to constant-curvature Riemannian surfaces,
-and show that the five algebraic-integer thresholds on the
-hyperbolic plane are Pell units in quadratic fields (terminating
-at~$\xi^*(23) = \varphi^{-2}$) and correspond to closed
-geodesics on the modular surface with traces
-$c = 2 + 16/(N{-}7)$.
+A regular $N$-gon of point vortices on the flat plane is linearly
+stable if and only if $N \le 7$.  We extend this classical result
+to constant-curvature surfaces via the eigenvalue decomposition
+$\lambda_m = C_1(\text{surface}) - m(N{-}m)/2$, which separates
+a single surface-dependent coefficient from a universal Casimir
+determined by~$\mathbb{Z}_N$.
+We prove a sign rule for general pairwise interactions,
+extend the Havelock identity to Riemannian surfaces of constant
+curvature, and show that the five algebraic-integer thresholds
+on the hyperbolic plane are Pell units in quadratic fields,
+terminating at~$\xi^*(23) = \varphi^{-2}$.
+These thresholds correspond to closed geodesics on the modular
+surface with traces $c = 2 + 16/(N{-}7)$.
 \end{abstract}
 
 
@@ -49,26 +51,7 @@ one number substituted in.
 This decomposition is implicit in
 \citet{Havelock1931} and explicit in \citet{BoattoCabral2003}.
 What has not been made explicit is the scope of its
-consequences.  The present paper develops six distinct routes:
-the first,  $m$-dependent part $f(m,N)$ is metric-independent
-(Section~\ref{sec:havelock-identity});
-second, the sign rule for $H''(0) < 0$ follows from the logarithm's
-dilation invariance (Section~\ref{sec:sign-rule});
-third, the stability threshold $N_{\mathrm{crit}} = 7$ is a closed-form
-output of the $\mathbb{Z}_N$ Casimir
-(Corollary~\ref{cor:why-7});
-fourth, the curvature stability dichotomy
-($K > 0$ destabilises, $K < 0$ stabilises)
-is topological
-(Proposition~\ref{prop:curvature-dichotomy}); fifth, 
-$N_{\mathrm{crit}} = 7$ is a topological universal,
-holding on every quotient $\Gamma\backslash\mathbf{H}^2$ at
-the flat-plane limit regardless of $\Gamma$
-(Theorem~\ref{thm:universality});
-and finally, the threshold polynomials on $\mathbf{H}^2$ connect to Pell
-equations, the golden ratio, and algebraic number theory
-(Section~\ref{sec:algebraic-structure}).
-
+consequences.
 
 \paragraph{What this paper proves.}
 \begin{enumerate}
@@ -1060,7 +1043,7 @@ mode carries a larger Havelock eigenvalue ($\lambda_{\min} = 1/2$ vs.\ $1$
 for $N \le 5$).  Consequently $\xi_{\mathrm{crit}}(6) = 1/19$, not the
 $1/(2 \cdot 6{-}3) = 1/9$ that the pattern would predict.
 
-The notation $\bar\lambda = \sin^2\!\varphi_0 \cdot \lambda$ (line~938--941)
+The notation $\bar\lambda = \sin^2\!\varphi_0 \cdot \lambda$ (introduced in \S\ref{sec:curved})
 converts the dimensionful eigenvalue $\lambda$ to the dimensionless form
 used in the numerical table above; the exact $\xi$-threshold~\eqref{eq:xi_crit_S2}
 is independent of this rescaling.
@@ -1392,22 +1375,11 @@ algebraic number theory.
 \section{Algebraic structure of the stability boundary}
 \label{sec:algebraic-structure}
 
-The $7\to 8$ transition is not an isolated result: the $N \to (N{+}1)$
-transition threshold on $\mathbf{H}^2$ is always the smaller positive root
-of a palindromic quadratic, derived as follows.
-The stability condition $\lambda_m(\xi^*) = 0$
-(equation~\eqref{eq:riemannian-havelock}) with
-$C_1 = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$
-(equation~\eqref{eq:C1_H2}) gives
-\[
-  (N{-}1)\,\frac{1+\xi^2}{(1-\xi)^2} = \frac{m(N{-}m)}{2}.
-\]
-Multiplying both sides by $(1{-}\xi)^2$ and rearranging:
-\[
-  (N{-}1)(1{+}\xi^2) = \tfrac{m(N{-}m)}{2}(1{-}\xi)^2
-  = \tfrac{m(N{-}m)}{2} - m(N{-}m)\xi + \tfrac{m(N{-}m)}{2}\xi^2.
-\]
-Collecting powers of $\xi$:
+The palindromic structure observed for $N = 8$
+(Section~\ref{sec:hyperbolic}) holds at every
+$N \to (N{+}1)$ transition.
+Setting $C_1(\xi^*) = m(N{-}m)/2$ and clearing
+denominators gives the general palindromic quadratic:
 \begin{equation}\label{eq:palindromic}
   A\,\xi^2 + B\,\xi + A = 0,
   \quad
@@ -1417,15 +1389,10 @@ Collecting powers of $\xi$:
   \quad
   m = \lfloor N/2\rfloor.
 \end{equation}
-The coefficient of $\xi^2$ equals the constant term (both are~$A$):
-this palindromic structure arises because $C_1(\xi)$ has the
-form $(1{+}\xi^2)/(1{-}\xi)^2$, whose numerator and denominator
-are both even functions of~$\xi$ (invariant under
-$\xi \to -\xi$), producing equal leading and trailing coefficients
-when cleared of denominators.
-The palindromic property forces $\xi_1\xi_2 = A/A = 1$ (the
-product of the two roots), so $\xi^* = 1/\xi^{*\prime}$---the
-conformal inversion identity.
+The coefficient of~$\xi^2$ equals the constant term (both are~$A$),
+so the polynomial is palindromic in the sense of
+Section~\ref{sec:hyperbolic}, forcing
+$\xi_1\xi_2 = 1$ and hence $\xi^* = 1/\xi^{*\prime}$.
 Since $A < 0$ for $N \ge 8$ and $B > 0$, the smaller positive root is
 $\xi^* = (B/2 - \sqrt{(B/2)^2 - A^2})\,/\,|A|$, and its field extension
 is determined by the squarefree part of the discriminant
@@ -1458,10 +1425,9 @@ The discriminant's squarefree part $D$ follows the pattern
     \mathrm{sq\_free}(N-3) & N \text{ odd},
   \end{cases}
 \end{equation}
-for all $N \ge 8$.  The deeper content is that the palindromic
-structure encodes the conformal inversion
-$\xi \leftrightarrow 1/\xi$ of the Poincar\'e disk (as noted above);
-the field pattern itself follows from elementary factorization.
+for all $N \ge 8$; the field pattern follows from
+elementary factorization of the palindromic
+discriminant~\eqref{eq:palindromic}.
 
 \begin{proof}[Proof of~\eqref{eq:field-pattern}]
 The palindromic quadratic $A\xi^2 + B\xi + A = 0$ has discriminant
@@ -1826,11 +1792,7 @@ merely in a suborder.
 
 \begin{proof}
 The correspondence is a consequence
-of the palindromic structure.
-The threshold equation $\xi^2 - c\,\xi + 1 = 0$
-(equation~\eqref{eq:palindromic}) is palindromic
-because the Havelock Hessian is invariant under
-conformal inversion $\xi \leftrightarrow 1/\xi$.
+of the palindromic structure~\eqref{eq:palindromic}.
 Any monic palindromic quadratic with integer trace~$c$
 and constant term~$1$ is \emph{automatically} the
 characteristic polynomial of a matrix in
@@ -1880,13 +1842,10 @@ $\Delta = f^2 D$ gives
 $\mathrm{csch}^2(\ell/2) = 4/(f^2 D)$:
 the correction strength is the inverse discriminant,
 factored through the conductor.
-The palindromic structure of the threshold equation on
-$\mathbf{H}^2$ reflects the conformal inversion
-$\xi \leftrightarrow 1/\xi$; this symmetry is generically
-\emph{broken} on quotient surfaces (it is preserved only
-when $\Gamma$ is invariant under the inversion).
-The stability thresholds on general quotients need not be
-palindromic units.
+The palindromic symmetry~\eqref{eq:palindromic} is generically
+\emph{broken} on quotient surfaces (preserved only when $\Gamma$
+is invariant under conformal inversion), so stability thresholds
+on general quotients need not be palindromic units.
 \end{remark}
 
 \begin{remark}[Topological sensitivity and the conductor]
@@ -2197,7 +2156,7 @@ $\mathrm{sgn}(K)$, which for constant-curvature surfaces is a
 topological invariant (it determines whether the universal cover
 is $\mathbf{S}^2$, $\mathbb{R}^2$, or~$\mathbf{H}^2$).
 In this sense the stability boundary $N = 7$ separates two
-\emph{topological phases} of vortex polygon stability.
+\emph{stability regimes} of vortex polygon stability.
 The \emph{quantitative} value $N_{\mathrm{crit}}(K, R)$ depends
 on the dimensionless product $K R^2$ and is purely geometric.
 \begin{proposition}[Morse index and spectral flow]
@@ -2392,65 +2351,31 @@ logarithmic interaction.
 \end{enumerate}
 
 %% ====================================================================
-\section{The $B_2$ organising principle}
+\begin{remark}[The $B_2$ organising principle]
 \label{sec:b2-tower}
-
-The three-layer decomposition reduces the Havelock eigenvalue
-to a single Bernoulli number.
-The asymptotic mode average of the $\mathbb{Z}_N$ orbifold
-Casimir is $\langle m(N{-}m)\rangle/N^2 \to B_2 = 1/6$,
-governing the growth law
-$\rho^* \sim N^2/24$ (\S\ref{sec:algebraic-structure}).
-The Havelock aliasing $\langle D\rangle = N(N{+}1)/12 \sim N^2 B_2/2$
-is the quadratic part of the orbifold Virasoro central extension,
-and the Casimir vacuum energy is $\zeta(-1) = -B_2/2 = -1/12$:
-the Dedekind eta exponent $q^{1/24}$, the Euler--Maclaurin
-correction, and the vortex self-energy all arise from the
-same $B_2 = 1/6$.
-
-\paragraph{The stability polynomial.}
-The polynomial $6B_2(x) = 6x^2 - 6x + 1$ is the shifted Legendre
-polynomial $P_2(2x{-}1)$.
-Its roots $(3 \pm \sqrt{3})/6$ are the two-point
-\emph{Gauss--Legendre quadrature nodes} on~$[0,1]$---the
-optimal sampling points for numerical integration.
-In the vortex system, these roots give the normalised
-critical mode $m^*/N$ at the stability threshold:
-the polygon ``samples'' the $\csc^2$ interaction kernel at
-the points that minimise the integration error of the
-angular Casimir.
-The palindromic symmetry $m \leftrightarrow N{-}m$ corresponds
-to the Gauss node symmetry $x \leftrightarrow 1{-}x$ about
-the midpoint.
-The root product $(3{-}\sqrt{3})(3{+}\sqrt{3})/36 = 1/6 = B_2$:
-the Bernoulli number is the product of its own zeros.
-
-The Gauss--Legendre and Euler--Maclaurin formulae are dual:
-the former converts integrals to sums (optimal interior nodes),
-the latter converts sums to integrals (boundary corrections
-$\propto B_{2k}$).
-The vortex stability analysis is an Euler--Maclaurin
-problem (the discrete Havelock sum $\sum\csc^2(\pi p/N)$
-approximating the integral); the Gauss--Legendre
-quadrature gives the optimal integrator for the same
-Hamiltonian flow.
-The $B_2$ zeros are where both operations agree
-exactly---the stability boundary \emph{is} the
-discrete--continuous meeting point.
-The Casimir vacuum energy $\zeta(-1) = -B_2/2 = -1/12$
-is the same $B_2$ in its regularisation role:
-the csc$^2$ Laurent constant $2B_2 = 1/3$ governs
-the self-interaction in both contexts.
-
-\begin{remark}[The $\csc^2$ kernel in other contexts]
-The $\csc^2$ kernel underlying the Havelock identity appears in
-the Calogero--Moser--Sutherland model, the Dyson circular ensemble,
-the Haldane--Shastry spin chain, the Laughlin edge theory,
-the Selberg integral, the $W_N$ algebra, and the AGT/Nekrasov
-correspondence.  In each context, $B_2 = 1/6$ governs the
-self-interaction correction ($\csc^2(x) = 1/x^2 + 2B_2 + O(x^2)$).
+The asymptotic growth law $f_{\mathrm{crit}} - b \sim N^2/24$
+(\S\ref{sec:algebraic-structure}) arises from the Euler--Maclaurin
+coefficient $B_2 = 1/6$ of the $\csc^2$ kernel on $\mathbb{Z}/N\mathbb{Z}$.
+The same $B_2$ governs the Dedekind eta exponent $q^{1/24}$,
+the Calogero--Moser self-energy, and the vortex vacuum energy
+$\zeta(-1) = -B_2/2 = -1/12$.
+The stability polynomial $6B_2(x) = P_2(2x{-}1)$ has roots at the
+Gauss--Legendre quadrature nodes on~$[0,1]$; whether this
+coincidence reflects a deeper connection remains open.
 \end{remark}
 
+\paragraph{Discussion and predictions.}
+The status classification, parameter accounting, cumulative
+uncertainty analysis, and falsifiable predictions for the
+results of this paper appear in Paper~VI.
+
+\paragraph{Code availability.}
+All numerical verifications and computational proofs are
+available in the companion code repository.
+The K-theoretic classification of stability phases is developed
+in Appendix~\ref{sec:k-theory}.
+
+\appendix
 %% ====================================================================
 \section{K-theoretic classification of stability phases}
 \label{sec:k-theory}
@@ -2775,10 +2700,7 @@ since $|\delta C_1|$ is too small to flip any.
 Since the $K_0$ classes agree, so does $N_{\mathrm{crit}}$.
 \end{proof}
 
-\paragraph{Bolza verification.}
-The Bolza bounds from the preceding paragraph
-($|\delta C_1| \le 0.011$, binding eigenvalue $0.79$,
-gap ratio~$72$) apply here: at $N = 12$,
+The Bolza bounds (preceding paragraph) confirm: at $N = 12$,
 $\xi_{\mathrm{Bolza}} \approx 0.217$, the spectral flow
 on the Bolza surface equals that on~$\mathbf{H}^2$.
 
@@ -2968,14 +2890,10 @@ The product with $[D_S]$ extracts the trace, giving
 the fractional contribution.
 \end{proof}
 
-\paragraph{Bolza verification.}
-On the Bolza surface (same bounds as above:
-$|\delta C_1| \le 0.011$, binding~$0.79$, gap ratio~$72$),
-the $\ell^1$-norm gives a weaker but independent check:
-$\|h\|_{\ell^1} \le 12|G(\ell_0)| \approx 0.18$
-(gap ratio $0.79/0.18 \approx 4.4$), confirming the
-product identity.
-More generally, for any compact arithmetic surface whose
+\paragraph{Bolza and arithmetic surfaces.}
+The $\ell^1$-norm gives an independent check on the Bolza surface:
+$\|h\|_{\ell^1} \le 0.18$ (gap ratio $4.4$).
+More generally, for any compact arithmetic surface with
 systole $\ell_0 \ge 2\operatorname{arccosh}(2) \approx 2.63$:
 the $\ell^1$ bound gives
 $\|h\| \le 12\,G(\ell_0) \ll 0.79$, so the gap condition
@@ -3167,7 +3085,7 @@ The stability of the polygon depends on its
 invisible to the elementary $R(\mathbb{Z}_N)$ invariant
 and to the scalar $\delta C_1$.
 
-\begin{remark}[Topological phases]
+\begin{remark}[Stability regimes]
 \label{rem:topological-phases}
 The palindromic thresholds $\xi^*(N,m)$ are critical values
 of the SO$(2)$ moment map: the $K_0$ class
@@ -3194,15 +3112,6 @@ the GPY sieve ratio~$1.92$ for ``Bolza twin primes,''
 the Fibonacci systole tower on congruence surfaces,
 and concrete Langlands test cases from non-solvable palindromic
 polynomials with $S_5$ Galois group.
-
-\paragraph{Discussion and predictions.}
-The status classification, parameter accounting, cumulative
-uncertainty analysis, and falsifiable predictions for the
-results of this paper appear in Paper~VI.
-
-\paragraph{Code availability.}
-All numerical verifications and computational proofs are
-available in the companion code repository.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}

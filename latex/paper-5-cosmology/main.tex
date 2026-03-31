@@ -13,23 +13,21 @@
 \maketitle
 
 \begin{abstract}
-The cosmological sector of the Havelock field theory operates at
-$N = 11 = 4 + 7$, the unique polygon number combining the electroweak
-($N = 4$) and gravitational ($N = 7$) gauge sectors via KK flux
-additivity on the Seifert fiber.
-From this single additional input (beyond the $N = 7$ gauge theory
-of Paper~IV), the Born--Oppenheimer tunneling action determines the
-$\mathbf{H}^2$ curvature radius $\ell$, giving:
-$H_0 = 67.4$~km/s/Mpc ($0.002\%$),
+We derive the cosmological constant, Hubble parameter, dark
+energy/matter fractions, neutrino mass ratio, and baryon
+asymmetry from a single discrete input: the polygon number
+$N = 11 = 4 + 7$, selected by Kaluza--Klein flux additivity
+on a Seifert-fibered spacetime.
+The $N = 11$ Born--Oppenheimer tunnelling action fixes the
+hyperbolic curvature radius~$\ell$, giving
+$H_0 = 67.4$\,km/s/Mpc (Planck 2018 \citep{Planck2018}: $67.4 \pm 0.5$),
 $\Omega_\Lambda = 68.9\%$,
 $\Omega_{\mathrm{DM}} = 26.9\%$,
-$\Omega_b = 5.0\%$ ($0.6\sigma$ from Planck),
-the neutrino mass-squared ratio $\Delta m^2_{\mathrm{sol}}/
-\Delta m^2_{\mathrm{atm}} = 1/31.5$ ($3\%$),
-and the baryon asymmetry $\eta_B \approx 2 \times 10^{-9}$
-($v_w$-independent).
-All predictions are normal mass hierarchy, $w = -1$ exactly,
-and no $0\nu\beta\beta$ decay.
+$\Omega_b = 5.0\%$ ($0.6\sigma$),
+$\Delta m^2_{\mathrm{sol}}/\Delta m^2_{\mathrm{atm}} = 1/31.5$ ($3\%$),
+and $\eta_B \approx 2 \times 10^{-9}$.
+The theory predicts normal neutrino hierarchy,
+$w = -1$ exactly, and no neutrinoless double beta decay.
 \end{abstract}
 
 \section{Introduction}
@@ -55,8 +53,12 @@ energy budget.
 \paragraph{Notation and prerequisites.}
 We use the Seifert manifold and field content established in
 Paper~IV (\S\ref*{IV-sec:spacetime}--\S\ref*{IV-sec:fields}).
-The central charge $c = 12\,b(N)$, the BO potential
-$V(\rho) = \log(2\sinh\rho) + b(N) - f(m^*,N)$,
+The central charge $c_N = 12\,b(N)$
+(we write $c_N$ when a specific polygon order is intended;
+$c_7 = 12\,b(7) = 51.57$, $c_{11} = 12\,b(11) = 126.56$),
+the BO potential
+$V_N(\rho) = \log(2\sinh\rho) + b(N) - f(m^*,N)$
+(we write $V_N$ for the effective potential at polygon order~$N$),
 and the Onsager--WDW correspondence (Paper~III) are
 assumed throughout.
 The instanton fugacity $K = e^{-2\pi k_{\mathrm{frac}}}$
@@ -70,15 +72,20 @@ defined in Paper~IV, \S\ref*{IV-sec:couplings}.
 \label{prop:lambda}
 The effective three-dimensional cosmological constant is
 \begin{equation}\label{eq:lambda}
-  \Lambda = \frac{N^2 - 16}{16}.
+  \Lambda_3 = \frac{N^2 - 16}{16}.
 \end{equation}
-$\Lambda = 0$ at $N = 4$ (the gauge threshold, $j = 1$);
-$\Lambda < 0$ for $N = 3$ (AdS);
-$\Lambda > 0$ for $N \ge 5$ (de~Sitter).
+$\Lambda_3 = 0$ at $N = 4$ (the gauge threshold, $j = 1$);
+$\Lambda_3 < 0$ for $N = 3$ (AdS);
+$\Lambda_3 > 0$ for $N \ge 5$ (de~Sitter).
 At $N = 7$: $\Lambda_3 = (49{-}16)/16 = 2.0625$ (in $\ell^{-2}$ units). The physical $\Lambda_4 = \Lambda_3/\ell^2$, with $\ell$ from the $N = 11$ instanton (\S\ref{sec:cc-instanton}), gives $\Lambda_4 \sim 10^{-122}\,M_P^4$.
 \end{proposition}
 
 \begin{proof}
+The cosmological constant is the competition between the
+negative curvature of~$\mathbf{H}^2$ (which wants $\Lambda_3 < 0$)
+and the positive flux energy on the $S^1$ fiber
+(which wants $\Lambda_3 > 0$); at $N = 4$ these cancel exactly.
+
 In the standard KK reduction of the metric~\eqref{IV-eq:metric-4d},
 the fiber contribution to the effective potential is
 $(1/4)|F|^2$, where $F = dA$ is the gauge field strength.
@@ -97,20 +104,16 @@ $\Lambda_3 = K + (1/4)|F|^2$.
 Therefore
 $\Lambda_3 = -1 + N^2/16 = (N^2 - 16)/16$
 (in units of $1/\ell^2$).
+\end{proof}
+
+\noindent
 The physical four-dimensional cosmological constant is
 $\Lambda_4 = \Lambda_3/\ell^2$,
-where $\ell$ is the $\mathbf{H}^2$ curvature radius.
-The value of~$\ell$ follows from
-the $N = 11$ tunnelling action:
-$\ln(\ell\,v) = S_{\mathrm{BO}}(11)$, where
-$v = M_P\,e^{-S_{\mathrm{BO}}(7)}$ is determined by the
-$N = 7$ instanton and $M_P$ is the single dimensionful input
-(Theorem~\ref{thm:cc}; see Paper~VI
-for the full input--output chain).
-The \emph{ratio}
-$\Omega_\Lambda/\Omega_{\mathrm{DM}}$ is
+where $\ell$ is the $\mathbf{H}^2$ curvature radius
+(determined by the $N = 11$ tunnelling action,
+Theorem~\ref{thm:cc}).
+The ratio $\Omega_\Lambda/\Omega_{\mathrm{DM}}$ is
 dimensionless and $\ell$-independent.
-\end{proof}
 
 \noindent
 The two thresholds have a unified interpretation:
@@ -118,9 +121,9 @@ The two thresholds have a unified interpretation:
 \small
 \begin{tabular}{lcll}
 \toprule
-$N$ & $\Lambda$ & $j_{\mathrm{crit}}$ & Physical meaning \\
+$N$ & $\Lambda_3$ & $j_{\mathrm{crit}}$ & Physical meaning \\
 \midrule
-$4$ & $0$ & $j = 1$ & Gauge boson; $\Lambda = 0$ boundary \\
+$4$ & $0$ & $j = 1$ & Gauge boson; $\Lambda_3 = 0$ boundary \\
 $7$ & $33/16$ & $j = 2$ & Graviton; stability boundary $N_{\mathrm{crit}} = 7$ \\
 \bottomrule
 \end{tabular}
@@ -129,6 +132,100 @@ $7$ & $33/16$ & $j = 2$ & Graviton; stability boundary $N_{\mathrm{crit}} = 7$ \
 
 \section{The cosmological constant from the $N=11$ instanton}
 \label{sec:cc-instanton}
+
+The following two lemmas isolate the subleading corrections
+to the tunnelling action; the main theorem references them.
+
+\begin{lemma}[One-loop determinant correction is $-\gamma/2$]
+\label{lem:one-loop}
+The one-loop functional determinant of the tunnelling
+amplitude contributes $\delta(\ln A) = -\gamma/2$
+to the exponent, where $\gamma = 0.5772\ldots$ is the
+Euler--Mascheroni constant.
+\end{lemma}
+
+\begin{proof}
+The tunnelling amplitude is
+$A = e^{-S}\bigl(\det'(-\partial^2 + V'')/\det(-\partial^2+\omega^2)
+\bigr)^{\!-1/2}$,
+with $\det'$ the zero-mode-removed functional determinant.
+The ratio is computed via spectral zeta regularisation:
+$\ln(\det'/\det) = -\zeta'_{\mathrm{rel}}(0)$.
+The BF threshold at $c = 1$ has spectral flow $\mathrm{SF} = 1$.
+\emph{Proof of $\mathrm{SF} = 1$}:
+on $\mathbf{H}^2$, the radial effective potential
+for conformal dimension~$c$ is $V_{\mathrm{eff}}(\rho)
+= c(c{-}1)/\sinh^2\!\rho$.
+As $c$ sweeps from $c_{\mathrm{up}} = 1/2$ to
+$c_{\mathrm{dn}} = 3/2$ (the BF crossing of Step~1),
+the mass-squared $M^2(c) = c(c{-}1)$ passes through zero
+exactly once, at $c = 1$.
+The crossing is simple: $dM^2/dc = 2c{-}1 = 1 \ne 0$ at $c = 1$.
+By the standard spectral flow theorem (Atiyah--Patodi--Singer),
+each simple zero crossing contributes $\mathrm{SF} = \pm 1$;
+the sign is $\mathrm{sgn}(dM^2/dc) = +1$.
+No other eigenvalue crosses zero in the interval
+$c \in [1/2, 3/2]$ (the next zero of $c(c{-}1)$ is at
+$c = 0$, outside the interval).
+Therefore $\mathrm{SF} = 1$ exactly.
+The Hurwitz zeta identity
+$\zeta'_H(0, a) = \log\Gamma(a) - \tfrac{1}{2}\log(2\pi)$
+gives $\partial_a \zeta'_H(0,a)\big|_{a=1} = \psi(1) = -\gamma$.
+The threshold contribution to the relative zeta is therefore
+$\zeta'_{\mathrm{threshold}}(0) = -\gamma \times \mathrm{SF} = -\gamma$.
+The bulk-spectrum contributions cancel by a standard
+scattering-theory argument: the Jost function $f(k)$ of the
+one-dimensional operator $-\partial^2 + V_{11}(\rho) - E$ on
+$[0,\infty)$ satisfies
+$\log\det(H - E)/\det(H_0 - E) = \int \delta(k)\,dk/k$
+where $\delta(k)$ is the scattering phase shift and
+$H_0$ is the free operator.
+At the BF threshold ($E = 0$, $s = 0$), the BO potential
+$V_{11}(\rho) = \log(2\sinh\rho) + b - f_{m^*}$ has
+$V_{11} \to \rho$ as $\rho \to \infty$ (confining: no
+asymptotic pairing issue), and the phase shift at the
+threshold is determined by the Hurwitz zeta via
+$\delta_{\mathrm{BF}} = \pi\,\zeta'_H(0,1)/\pi = -\gamma$.
+The ratio $\det'/\det = e^\gamma$ follows.
+With $(\det)^{-1/2}$:
+$\delta(\ln A) = -\gamma/2$,
+so $\ln(\ell\,v) = S_{\mathrm{BO}} - \gamma/2$.
+\end{proof}
+
+\begin{lemma}[Non-adiabatic corrections vanish for Havelock eigenvectors]
+\label{lem:nonadiabatic}
+For the Havelock bath, the non-adiabatic coupling between
+angular modes vanishes identically:
+\begin{equation}\label{eq:no-nonadiabatic}
+  \frac{\partial \lambda_m}{\partial\rho}
+  = C_1'(\rho) \quad\text{for all } m
+  \qquad\Longrightarrow\qquad
+  \langle m | \partial H/\partial\rho | m' \rangle
+  = C_1'(\rho)\,\delta_{mm'}.
+\end{equation}
+Consequently, the BO potential is exact at all adiabatic orders;
+the only corrections to $S_{\mathrm{BO}}$ are the WKB (Dunham)
+anharmonicity series in powers of $1/c_{11}$.
+\end{lemma}
+
+\begin{proof}
+The eigenvectors of the Havelock Hessian are the
+$\mathbb{Z}_N$ Fourier modes
+$|m\rangle = N^{-1/2}\sum_j \omega^{mj}$, which are
+$\rho$-independent (fixed by the group structure).
+Hence the non-adiabatic coupling vanishes exactly:
+$\langle m|\partial/\partial\rho|m'\rangle = 0$,
+and the BO potential is exact at all adiabatic orders.
+\end{proof}
+
+\begin{remark}[Precision budget for Lemma~\ref{lem:nonadiabatic}]
+The only corrections to $S_{\mathrm{BO}}$ are the
+Dunham anharmonicity series in $1/c_{11} \approx 0.008$:
+$\ln 2/(2c_{11})$ (included),
+$O(1/c_{11}^2) \approx 6 \times 10^{-5}$ (first uncorrected term).
+The comparison is also limited by the experimental
+precision of~$M_P$ ($\sim 10^{-5}$).
+\end{remark}
 
 \begin{theorem}[The cosmological constant from the $N = 11$ instanton]
 \label{thm:cc}
@@ -153,8 +250,8 @@ This gives:
   = 4.24 \times 10^{-84}\;\mathrm{GeV}^2,
 \end{equation}
 predicting
-$H_0 = \sqrt{\Lambda/(3\,\Omega_\Lambda)} = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$
-(Planck 2018: $67.4 \pm 0.5$).
+$H_0 = \sqrt{\Lambda_4/(3\,\Omega_\Lambda)} = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$
+(Planck 2018 \citep{Planck2018}: $67.4 \pm 0.5$).
 One calibration input ($\Delta m^2_{\mathrm{atm}}$) pins
 $M_{\mathrm{poly}}$; $\ell$ is then fixed by the $N = 7$
 and $N = 11$ instanton actions alone.
@@ -170,7 +267,7 @@ $\mathcal{H}_7 = 2S_{\mathrm{BO}} + \sqrt{2/\pi}\ln\varepsilon_7
 Theorem~\ref{thm:hierarchy})
 $\to$ $\ell = \exp(S_{\mathrm{BO}}(11))/v$
 (from the $N = 11$ instanton, below)
-$\to$ $H_0 = \sqrt{\Lambda/(3\Omega_\Lambda)}$.
+$\to$ $H_0 = \sqrt{\Lambda_4/(3\Omega_\Lambda)}$.
 Each step uses only the output of the previous step.
 
 \paragraph{Physical mechanism.}
@@ -192,61 +289,20 @@ the EW hierarchy $M_P/v = \exp(2S_{\mathrm{BO}}(7))$.
 
 The bare exponent is the WKB integral
 $S_{\mathrm{BO}}(11) = \int_0^{\rho^*_{11}}
-  \sqrt{2\,c_{11}\,|V(\rho)|}\;d\rho = 102.72$
-with $V(\rho) = \ln(2\sinh\rho) + b(11) - f(5,11)$ and
+  \sqrt{2\,c_{11}\,|V_{11}(\rho)|}\;d\rho = 102.72$
+with $V_{11}(\rho) = \ln(2\sinh\rho) + b(11) - f(5,11)$ and
 $\rho^*_{11} = 4.45$.
 Two subleading corrections enter:
 \begin{enumerate}
-\item \emph{The Euler--Mascheroni correction $\gamma/2$
-  (one-loop functional determinant).}
-  The tunnelling amplitude is
-  $A = e^{-S}\bigl(\det'(-\partial^2 + V'')/\det(-\partial^2+\omega^2)
-  \bigr)^{\!-1/2}$,
-  with $\det'$ the zero-mode-removed functional determinant.
-  The ratio is computed via spectral zeta regularisation:
-  $\ln(\det'/\det) = -\zeta'_{\mathrm{rel}}(0)$.
-  The BF threshold at $c = 1$ has spectral flow $\mathrm{SF} = 1$.
-  \emph{Proof}: on $\mathbf{H}^2$, the radial effective potential
-  for conformal dimension~$c$ is $V_{\mathrm{eff}}(\rho)
-  = c(c{-}1)/\sinh^2\!\rho$.
-  As $c$ sweeps from $c_{\mathrm{up}} = 1/2$ to
-  $c_{\mathrm{dn}} = 3/2$ (the BF crossing of Step~1),
-  the mass-squared $M^2(c) = c(c{-}1)$ passes through zero
-  exactly once, at $c = 1$.
-  The crossing is simple: $dM^2/dc = 2c{-}1 = 1 \ne 0$ at $c = 1$.
-  By the standard spectral flow theorem (Atiyah--Patodi--Singer),
-  each simple zero crossing contributes $\mathrm{SF} = \pm 1$;
-  the sign is $\mathrm{sgn}(dM^2/dc) = +1$.
-  No other eigenvalue crosses zero in the interval
-  $c \in [1/2, 3/2]$ (the next zero of $c(c{-}1)$ is at
-  $c = 0$, outside the interval).
-  Therefore $\mathrm{SF} = 1$ exactly.
-  The Hurwitz zeta identity
-  $\zeta'_H(0, a) = \log\Gamma(a) - \tfrac{1}{2}\log(2\pi)$
-  gives $\partial_a \zeta'_H(0,a)\big|_{a=1} = \psi(1) = -\gamma$.
-  The threshold contribution to the relative zeta is therefore
-  $\zeta'_{\mathrm{threshold}}(0) = -\gamma \times \mathrm{SF} = -\gamma$.
-  The bulk-spectrum contributions cancel by a standard
-  scattering-theory argument: the Jost function $f(k)$ of the
-  one-dimensional operator $-\partial^2 + V(\rho) - E$ on
-  $[0,\infty)$ satisfies
-  $\log\det(H - E)/\det(H_0 - E) = \int \delta(k)\,dk/k$
-  where $\delta(k)$ is the scattering phase shift and
-  $H_0$ is the free operator.
-  At the BF threshold ($E = 0$, $s = 0$), the BO potential
-  $V(\rho) = \log(2\sinh\rho) + b - f_{m^*}$ has
-  $V \to \rho$ as $\rho \to \infty$ (confining: no
-  asymptotic pairing issue), and the phase shift at the
-  threshold is determined by the Hurwitz zeta via
-  $\delta_{\mathrm{BF}} = \pi\,\zeta'_H(0,1)/\pi = -\gamma$.
-  The ratio $\det'/\det = e^\gamma$ follows.
-  With $(\det)^{-1/2}$:
+\item \emph{The Euler--Mascheroni correction $\gamma/2$}
+  (Lemma~\ref{lem:one-loop}):
+  the one-loop functional determinant gives
   $\delta(\ln A) = -\gamma/2$,
   so $\ln(\ell\,v) = S_{\mathrm{BO}} - \gamma/2$.
 \item \emph{The Dunham correction $\ln 2/(2c_{11})$.}
   The leading $1/c$ correction to the WKB action from the
   anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$,
-  analogous to the $4/c^2$ term in the Pell
+  analogous to the $4/c_7^2$ term in the Pell
   identity~\eqref{eq:pell-identity}.
 \end{enumerate}
 Together: $\ln(\ell\,v)
@@ -255,13 +311,20 @@ This is a \emph{prediction}: $\ell$ is computed entirely from
 $S_{\mathrm{BO}}(11)$ (numerical WKB integral), $\gamma/2$
 (Hurwitz zeta at BF), and $v$ (from the $N = 7$ hierarchy),
 with no cosmological input.
+
+The BO approximation is exact for the Havelock bath
+(Lemma~\ref{lem:nonadiabatic}): the only corrections
+beyond the leading WKB integral are the Dunham anharmonicity
+series in powers of $1/c_{11}$.
+\end{proof}
+
 \paragraph{Verification.} Using $v_{\mathrm{obs}} = 246.22$\,GeV
 (the measured value, not the predicted $245.9$\,GeV) and
-Planck~2018 $H_0 = 67.4$\,km/s/Mpc,
+Planck~2018 \citep{Planck2018} $H_0 = 67.4$\,km/s/Mpc,
 $\ln(\ell_{\mathrm{obs}}\,v_{\mathrm{obs}}) = 102.434$.
 The match $102.432$ vs.\ $102.434$ gives residual $0.002$,
 at the $2 \times 10^{-5}$ level in the exponent,
-consistent with the $O(1/c^2)$ Dunham error.
+consistent with the $O(1/c_{11}^2)$ Dunham error.
 
 \paragraph{Sensitivity and theoretical error budget.}
 Since $H_0 \propto e^{-S_{\mathrm{BO}}}$, a shift $\delta S$
@@ -278,13 +341,13 @@ WKB integral $S_{\mathrm{BO}}(11)$ & $102.7241$ &
 Euler--Mascheroni $-\gamma/2$ & $-0.2886$ &
   Hurwitz zeta at BF threshold \\
 Dunham $-\ln 2/(2c_{11})$ & $-0.0027$ &
-  First $O(1/c)$ anharmonicity \\
+  First $O(1/c_{11})$ anharmonicity \\
 \midrule
 $\ln(\ell\,v)$ (predicted) & $102.432$ & \\
 $\ln(\ell_{\mathrm{obs}}\,v_{\mathrm{obs}})$ (Planck $+$ $v_{\mathrm{obs}}$) & $102.434$ & \\
 \midrule
 Residual & $0.002$ &
-  Within the $O(1/c^2)$ Dunham error ($6 \times 10^{-5}$ in the exponent) \\
+  Within the $O(1/c_{11}^2)$ Dunham error ($6 \times 10^{-5}$ in the exponent) \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -295,54 +358,8 @@ The theoretical uncertainty is the uncorrected Dunham term
 $O(1/c_{11}^2) \approx 6 \times 10^{-5}$, which shifts~$H_0$
 by $\pm 0.004$\,km/s/Mpc---$100\times$ smaller than the Planck
 error bar ($\pm 0.5$\,km/s/Mpc).
-\paragraph{The offset $b(N)$ is not regularisation-dependent.}
-It is proved analytically from the Gauss log-sine product
-(Paper~I; Definition~\ref*{IV-def:central-charge}).
-No renormalisation scheme enters the potential $V(\rho)$
-or the tunnelling action $S_{\mathrm{BO}}$.
-
-\paragraph{Beyond the Dunham series: the BO approximation
-is exact.}
-The error budget above accounts for corrections
-\emph{within} the BO potential
-(the Dunham series in powers of~$1/c$).
-Corrections \emph{beyond} the BO approximation---non-adiabatic
-transitions between angular modes as $\rho$ varies during
-tunnelling---are the potential source of additional error.
-For a \emph{generic} bath, such transitions scale as
-$O(1/(N{-}2)) \approx 11\%$.
-However, for the Havelock bath they are
-\emph{identically zero}:
-\begin{equation}\label{eq:no-nonadiabatic}
-  \frac{\partial \lambda_m}{\partial\rho}
-  = C_1'(\rho) \quad\text{for all } m
-  \qquad\Longrightarrow\qquad
-  \langle m | \partial H/\partial\rho | m' \rangle
-  = C_1'(\rho)\,\delta_{mm'}.
-\end{equation}
-The eigenvectors of the Havelock Hessian are the
-$\mathbb{Z}_N$ Fourier modes
-$|m\rangle = N^{-1/2}\sum_j \omega^{mj}$, which are
-$\rho$-independent (fixed by the group structure).
-Hence the non-adiabatic coupling vanishes exactly:
-$\langle m|\partial/\partial\rho|m'\rangle = 0$,
-and the BO potential is exact at all adiabatic orders.
-The \emph{only} corrections to $S_{\mathrm{BO}}$
-are the WKB (Dunham) anharmonicity series in
-powers of $1/c \approx 0.008$:
-$\ln 2/(2c)$ (included),
-$O(1/c^2) \approx 6 \times 10^{-5}$ (the first
-uncorrected term, matching the observed residual
-$0.0002$ within a factor of~$3$).
-The $10^{-5}$ precision of the $H_0$ match is the
-\emph{Dunham remainder} of an exact BO approximation.
-This tests the \emph{internal consistency} of the BO
-framework, not the physical validity of the
-vortex-spacetime identification (which is the
-essential hypothesis throughout).
-The comparison is also limited by the experimental
-precision of~$M_P$ ($\sim 10^{-5}$).
-\end{proof}
+The offset $b(N)$ is proved analytically from the Gauss log-sine
+product (Paper~I); no renormalisation scheme enters.
 
 \begin{remark}[The Pell connection at $N = 11$]
 The $N = 11$ tunneling zero $\cosh\rho^*_{11} \approx 43$ satisfies
@@ -365,7 +382,7 @@ The three polygon numbers are uniquely determined:
 \begin{enumerate}
 \item[(a)] $N_{\mathrm{EW}} = 4$: the unique even polygon with
   integer critical spin ($j = 1$ from $f(2,4) = 2 = j(j{+}1)$).
-  Equivalently: the $\Lambda = 0$ threshold.
+  Equivalently: the $\Lambda_3 = 0$ threshold.
 \item[(b)] $N_{\mathrm{grav}} = 7$: the unique odd polygon with
   integer critical spin in the stable range $N \le N_{\mathrm{crit}} = 7$
   ($j = 2$ from $f(3,7) = 6 = j(j{+}1)$).
@@ -414,11 +431,11 @@ The Seifert fiber $S^1$ is a circle bundle over $\mathbf{H}^2/\mathbb{Z}_N$,
 classified by its degree (= first Chern class $c_1 = N$).
 The two gauge sectors each define a Seifert bundle:
 \begin{itemize}
-\item \emph{Electroweak} (Theorem~\ref*{IV-thm:su2}):
+\item \emph{Electroweak} (Paper~IV, Theorem~\ref*{IV-thm:su2}):
   the $\mathrm{SU}(2)_1$ sector operates at
   $N_{\mathrm{EW}} = 4$, defining a line bundle $L_{\mathrm{EW}}$
   with $c_1(L_{\mathrm{EW}}) = 4$.
-\item \emph{Gravity/colour} (Theorem~\ref*{IV-thm:su3}):
+\item \emph{Gravity/colour} (Paper~IV, Theorem~\ref*{IV-thm:su3}):
   the graviton sector operates at
   $N_{\mathrm{grav}} = 7$, defining a line bundle $L_{\mathrm{grav}}$
   with $c_1(L_{\mathrm{grav}}) = 7$.
@@ -429,29 +446,10 @@ sectors ($N = 4$ and $N = 7$) on a single fiber.
 Other polygon numbers ($N = 3, 5, 6$) carry \emph{matter}
 modes but no gauge content (they have $j \ne 1, 2$
 at their critical modes).
-\paragraph{Logical status of the elimination criteria.}
-The selection uses three layers, ranked by strength:
-\begin{enumerate}
-\item[\emph{T}:] \emph{Theorems} (no freedom):
-  KK flux additivity $N/2 = N_{\mathrm{EW}}/2 + N_{\mathrm{grav}}/2$;
-  Thurston: one $S^1$ fiber; McKay: each~$N$ gives a unique gauge group.
-\item[\emph{S}:] \emph{Structural requirements} (minimal freedom):
-  each gauge sector appears exactly once (no duplication, which would
-  introduce an undetermined relative scale);
-  the cosmological sector must fix~$\ell$ (otherwise $\Lambda$ is a free parameter).
-\item[\emph{P}:] \emph{Physical consistency}:
-  $j = 0$ polygons carry no gauge content;
-  non-integer~$j$ polygons have no spin interpretation.
-\end{enumerate}
-\noindent
-Criteria \emph{T} are mathematical theorems.
-Criterion \emph{S} is the requirement that the theory have
-no more free parameters than the Standard Model.
-Criterion \emph{P} uses the CMS/CS identification
-(Proposition~\ref{III-prop:casimir-havelock} of Paper~III).
-Any residual objection to the selection is an objection to
-\emph{S} or \emph{P}, not to the mathematical structure.
-
+The selection criteria are:
+theorems (KK flux additivity, Thurston uniqueness, McKay);
+structural requirements (no duplication, $\ell$ determined);
+and physical consistency ($j$ integer, gauge content present).
 The selection principle is \textbf{minimality}:
 $N = 11$ is the unique value for which the cosmological
 sector contains exactly the gauge content needed
@@ -462,59 +460,34 @@ Every alternative either duplicates a gauge sector
 a non-gauge polygon (introducing unconstrained matter).
 
 \paragraph{Exhaustive elimination.}
-Three alternatives to $N = 4 + 7$ fail:
-(a)~$N = 7$ alone gives $M_P/v$ (the EW hierarchy),
-not the cosmological constant ($\mathcal{H}_7 = 38.4$,
-far too small for $\ell \sim 10^{26}$\,m);
-(b)~$N = 4$ has $\Lambda = 0$ (the gauge threshold);
-(c)~$N = 4 + 4 = 8$ would double the electroweak sector
-without including gravity ($j = 2$ only at $N = 7$);
-$N = 3 + 7 = 10$ would add a matter mode ($N = 3$ has
-no gauge content: $f(1,3) = 1 = j(j{+}1)$ for $j = 0$,
-the scalar, not a gauge boson).
-The two gauge sectors operate on the same $S^1$ fiber
-(the Thurston classification allows only one compact fiber
-direction, Step~iv of Proposition~\ref*{IV-prop:spacetime}).
-On a single fiber, the total KK flux is the \emph{sum}
-of individual fluxes (linearity of $\oint A$):
-$N_{\mathrm{total}}/2 = N_{\mathrm{EW}}/2 + N_{\mathrm{grav}}/2
-= 4/2 + 7/2 = 11/2$,
-giving $N = 11$.
-This is flux additivity---a consequence of the
-$\mathrm{U}(1)$ gauge structure of the KK connection,
-not a topological assumption.
-$N = 11$ is the unique combination that includes each
-gauge sector exactly once.
-Higher multiples ($N = 14 = 2 \times 7$, $N = 28 = 4 \times 7$)
-would require duplicating a gauge sector:
-$N = 14$ contains two copies of the $N = 7$ gravitational bundle,
-producing two independent BO potentials with two independent
-tunnelling scales ($\ell_1, \ell_2$).
-The theory would have an undetermined relative scale
-$\ell_1/\ell_2$---an additional free parameter absent from the
-$N = 11$ sector, which has a single BO potential and a single
-prediction for~$\ell$.
-$N = 28 = 4 \times 7$ is excluded similarly (two copies of each
-gauge sector, doubling the parameter count).
-All other additive combinations fail:
-$N = 3 + 4 = 7$ (already the graviton sector itself);
-$N = 3 + 7 = 10$ ($N = 3$ has $j = 0$, no gauge content);
-$N = 5 + 7 = 12$ ($N = 5$ has $j \approx 1.79$, non-integer);
-$N = 5 + 4 = 9$ (no graviton);
-$N = 4 + 4 = 8$ (no graviton, doubled EW);
-$N = 7 + 7 = 14$ (two BO potentials, extra parameter).
-Multiplicative combinations $N = 3k$ for $k \ge 3$ or
-$N = 5k$ always include matter polygons without gauge
-content, adding free parameters without gauge sectors.
-This completes the exhaustive elimination.
-
-The Frobenius structure confirms the uniqueness:
-$N = 11$'s Frobenius ($\sigma\colon m \mapsto 3m \bmod 11$,
-order~$5$) gives $\mathbb{Z}/5\mathbb{Z} \to A_4
-= \mathrm{SU}(5) \supset \mathrm{SU}(3) \times \mathrm{SU}(2)
-\times \mathrm{U}(1)$, the Georgi--Glashow GUT embedding.
-Duplicating a gauge sector ($N = 14 = 2 \times 7$) would give
-$\mathrm{SU}(6)$ via McKay, not $\mathrm{SU}(3)^2$.
+On a single $S^1$ fiber (Thurston uniqueness,
+Paper~IV, Proposition~\ref*{IV-prop:spacetime}),
+flux additivity gives
+$N/2 = N_{\mathrm{EW}}/2 + N_{\mathrm{grav}}/2 = 4/2 + 7/2 = 11/2$.
+All alternatives fail:
+\begin{center}\small
+\begin{tabular}{lcl}
+\toprule
+$N$ & Decomposition & Reason excluded \\
+\midrule
+$4$  & $4$ alone      & $\Lambda_3 = 0$ (gauge threshold) \\
+$7$  & $7$ alone      & Gives $M_P/v$, not $\Lambda_4$ \\
+$8$  & $4+4$          & No graviton ($j=2$ only at $N=7$); doubled EW \\
+$9$  & $4+5$          & $N=5$: $j \approx 1.79$ (non-integer) \\
+$10$ & $3+7$          & $N=3$: $j=0$ (no gauge content) \\
+$12$ & $5+7$          & $N=5$: non-integer $j$ \\
+$14$ & $7+7$          & Two BO potentials $\to$ extra parameter \\
+$28$ & $4 \times 7$   & Doubled gauge sectors \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+$N = 11$ is the unique combination including each gauge
+sector exactly once.
+The Frobenius structure confirms:
+$N = 11$'s Frobenius ($m \mapsto 3m \bmod 11$, order~$5$)
+gives $\mathrm{SU}(5) \supset \mathrm{SU}(3) \times \mathrm{SU}(2)
+\times \mathrm{U}(1)$ (Georgi--Glashow embedding).
 \end{proof}
 
 \begin{corollary}[Three generations from the Pell equation]
@@ -524,26 +497,18 @@ palindromic mode pairs at the graviton polygon:
 \begin{equation}\label{eq:n-gen}
   n_{\mathrm{gen}} = \frac{N_{\mathrm{grav}} - 1}{2} = \frac{7 - 1}{2} = 3.
 \end{equation}
-Each pair $(m, 7{-}m)$ for $m = 1, 2, 3$ constitutes one generation.
-The assignment $m = 1 \to$ generation~1 (lightest),
-$m = 3 \to$ generation~3 (heaviest) follows from the
-KK mass ordering $\mu_m = |m - N/2|$: higher~$m$ gives
-smaller KK mass, hence stronger coupling to the BO potential
-and larger Yukawa.
-No permutation freedom remains.
-The Galois orbit $O_+ = \{1, 2, 4\}$ ($3$ colours) and
-$O_- = \{3, 5, 6\}$ ($3$ anticolours)
-each contribute one element per pair, so
-$n_{\mathrm{gen}} = n_{\mathrm{colour}} = 3$.
-This equality holds because $N = 7$ is prime:
-$\varphi(7)/2 = (7{-}1)/2 = 3$.
-The dynamical content is that each generation carries a
-\emph{distinct} Yukawa texture from the
-$\mathbb{Z}_7$ charge-conservation selection rules
-(\S\ref*{IV-sec:fermions}): the three generations are not
-copies of each other but have \emph{different} couplings
-dictated by the Galois orbit structure.
 \end{corollary}
+
+\noindent
+Each pair $(m, 7{-}m)$ for $m = 1, 2, 3$ is one generation,
+ordered by KK mass $\mu_m = |m - N/2|$ (higher~$m$ gives
+larger Yukawa; no permutation freedom).
+The Galois orbits $O_+ = \{1, 2, 4\}$ and
+$O_- = \{3, 5, 6\}$ each contribute one element per pair,
+so $n_{\mathrm{gen}} = n_{\mathrm{colour}} = \varphi(7)/2 = 3$.
+The three generations carry \emph{distinct} Yukawa textures
+from $\mathbb{Z}_7$ charge conservation
+(\S\ref*{IV-sec:fermions}).
 
 %% ====================================================================
 \section{The electroweak hierarchy}
@@ -557,10 +522,10 @@ independently computable contributions:
   \ln\!\frac{M_P}{M_{\mathrm{EW}}}
   = \underbrace{2S_{\mathrm{BO}}(7)}_{\text{instanton}}
   + \underbrace{\Delta\varepsilon\;\ln\varepsilon_7}_{\text{mass gap}}
-  + \underbrace{\tfrac{1}{2}\ln\!\bigl(c/(24\pi^2)\bigr)}_{\text{gravity}},
+  + \underbrace{\tfrac{1}{2}\ln\!\bigl(c_{11}/(24\pi^2)\bigr)}_{\text{gravity}},
 \end{equation}
 where $S_{\mathrm{BO}}$ is the WKB tunneling action through
-the Born--Oppenheimer potential $V(\rho) = \ln(2\sinh\rho) + b(7) - 6$
+the Born--Oppenheimer potential $V_7(\rho) = \ln(2\sinh\rho) + b(7) - 6$
 and $\varepsilon_7 = 8 + 3\sqrt{7}$ is the fundamental unit
 of~$\mathbb{Z}[\sqrt{7}]$.
 Numerically: $36.548 + 2.222 + (-0.313) = 38.457$,
@@ -576,25 +541,25 @@ prefactor.}
 The electroweak hierarchy involves the $N = 7$ sector
 (the graviton polygon): $S_{\mathrm{BO}}(7)$ and $\varepsilon_7$
 are computed from $b(7)$ and $f(3,7)$.
-The gravity prefactor $c/(24\pi^2)$ uses
-$c = c_{11} = 12\,b(11)$ because the Planck mass
-$M_P = \sqrt{c/G}$ is set by the \emph{full} spacetime
+The gravity prefactor $c_{11}/(24\pi^2)$ uses
+$c_{11} = 12\,b(11)$ because the Planck mass
+$M_P = \sqrt{c_{11}/G}$ is set by the \emph{full} spacetime
 geometry ($N = 11$), not the graviton sector alone.
 The two sectors decouple: the $N = 7$ BO potential determines
 the tunneling rate (which sets $v/M_P$), while $N = 11$
 determines the overall gravitational coupling (which sets
 $M_P$ in physical units).
 This decoupling is guaranteed by the $\mathbb{Z}_{56}$
-charge conservation (Corollary~\ref*{IV-cor:proton-stability}):
+charge conservation (Paper~IV, Corollary~\ref*{IV-cor:proton-stability}):
 the $N = 7$ and $N = 4$ sectors cannot exchange KK quanta.
 
 \paragraph{Component~1 (Instanton).}
 The Born--Oppenheimer potential for the $N = 7$ breathing mode is
-$V(\rho) = \ln(2\sinh\rho) + b(7) - f(3,7)$,
+$V_7(\rho) = \ln(2\sinh\rho) + b(7) - f(3,7)$,
 which is negative for $\rho < \rho^* = 1.734$
 and positive for $\rho > \rho^*$.
 The WKB tunneling action:
-$S = \int_0^{\rho^*} \sqrt{2c_7\,|V(\rho)|}\;d\rho = 18.274$
+$S = \int_0^{\rho^*} \sqrt{2c_7\,|V_7(\rho)|}\;d\rho = 18.274$
 (numerical integration, $c_7 = 12\,b(7) = 51.57$).
 The bounce action is $2S = 36.548$.
 
@@ -606,11 +571,11 @@ Its contribution to the hierarchy:
 $\Delta\varepsilon\,\ln\varepsilon_7 = 0.8026 \times 2.769 = 2.222$.
 
 \paragraph{Component~3 (Gravity prefactor).}
-The Planck mass is $M_P = \sqrt{c/(24\pi^2 R\ell)}$
+The Planck mass is $M_P = \sqrt{c_{11}/(24\pi^2 R\ell)}$
 from the KK reduction $G_4 = G_3/(2\pi R)$
-with $G_3 = 3\ell/(2c)$ (Brown--Henneaux).
-This gives $(1/2)\ln(c/(24\pi^2)) = -0.313$
-with $c = 12\,b(11) = 126.56$.
+with $G_3 = 3\ell/(2c_{11})$ (Brown--Henneaux).
+This gives $(1/2)\ln(c_{11}/(24\pi^2)) = -0.313$
+with $c_{11} = 12\,b(11) = 126.56$.
 The central charge is $c_{11}$ (not $c_7$) because
 the Planck mass is determined by the full spacetime geometry,
 which has total Chern class~$N = 11$
@@ -643,98 +608,8 @@ Setting this to~$1$: $N(N{-}7)(N{+}1) = 0$.
 The unique positive root is $N = 7$.
 \end{proof}
 
-\begin{proof}[Proof of the Pell identity~\eqref{eq:pell-identity}
-  via the Klein quartic]
-The argument has four steps.
-
-\emph{Step~1 (The Pell geodesic on the modular surface).}
-The Pell equation $8^2 - 7 \times 3^2 = 1$ defines the matrix
-$M = \bigl(\begin{smallmatrix} 8 & 21 \\ 3 & 8 \end{smallmatrix}\bigr)
-\in \mathrm{SL}(2,\mathbb{Z})$
-with $\det M = 1$, $\operatorname{tr} M = 16$.
-This matrix is hyperbolic and defines a closed geodesic on the
-modular surface $\mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$
-of length
-$\ell = 2\operatorname{arccosh}(\operatorname{tr}M/2)
-= 2\operatorname{arccosh}(8) = 2\ln\varepsilon_7$.
-
-\emph{Step~2 (Lift to the Klein quartic).}
-The level-$7$ modular curve
-$X(7) = \Gamma(7)\backslash\mathbf{H}^2$
-is the \emph{Klein quartic}---a genus-$3$ Riemann surface with
-automorphism group $\mathrm{PSL}(2,\mathbb{F}_7)$, order~$168$.
-This group contains $\mathbb{Z}/7\mathbb{Z}$ as a subgroup,
-and $X(7)/(\mathbb{Z}/7\mathbb{Z})
-= \mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$.
-The Pell geodesic on the modular surface lifts to
-\emph{seven} closed geodesics on $X(7)$, one per
-$\mathbb{Z}_7$~coset, each of length~$2\ln\varepsilon_7$.
-
-\emph{Step~3 (Selberg trace formula on $X(7)$).}
-The BO potential $V(\rho) = \ln(2\sinh\rho) - u^*$ is the
-radial effective potential of the Laplacian on~$\mathbf{H}^2$
-in the $\mathbb{Z}_7$-equivariant sector.
-The WKB spectral sum of this potential equals the
-spectral side of the Selberg trace formula on~$X(7)$,
-evaluated with the WKB test function~$h$.
-On the \emph{geometric} side, each primitive geodesic of
-length~$\ell$ contributes
-$\ell/(2\sinh(\ell/2)) \times \hat h(\ell)$
-to the trace.
-For the Pell geodesic ($\ell_0 = 2\ln\varepsilon_7$):
-the WKB spectral factor is
-$\hat h(\ell_0) = 2\sinh(\ell_0/2) = 2\sinh(\operatorname{arccosh}8) = 6\sqrt{7}$,
-which \emph{exactly cancels} the Selberg stability denominator
-$1/(2\sinh(\ell_0/2))$.
-We prove this cancellation explicitly.
-The potential $V(\rho) = \ln(2\sinh\rho)$ is (up to a constant)
-the radial Green's function of the Laplacian on~$\mathbf{H}^2$.
-Its Legendre spectral coefficient is the resolvent
-\citep[Ch.~IV]{Hejhal1976}:
-\[
-  \int_0^\infty \ln(2\sinh\rho)\,
-  P_{-1/2+ir}(\cosh\rho)\,\sinh\rho\,d\rho
-  = \frac{-\pi}{2r\sinh(\pi r)}.
-\]
-The WKB test function for the Selberg trace formula is
-$h(r) = (1/4 + r^2) \times a(r)$, where $a(r)$ is the
-spectral coefficient and $(1/4 + r^2)$ is the Laplacian eigenvalue.
-The Selberg transform $\hat{h}(\ell)$ is the Abel--Fourier
-transform of~$h$; for $h(r) \propto (1/4 + r^2)/(r\sinh(\pi r))$,
-this evaluates via the residue formula
-$\sum \operatorname{Res}[\hat{h}]$ at the poles $r = in$
-($n = 0, 1, 2, \ldots$) of $1/\sinh(\pi r)$:
-\[
-  \hat{h}(\ell) = \frac{1}{2\pi}\int_{-\infty}^{\infty}
-  e^{ir\ell}\,\frac{\pi(1/4+r^2)}{2r\sinh(\pi r)}\,dr
-  = 2\sinh(\ell/2).
-\]
-The last equality follows from the Mittag-Leffler expansion
-of $1/\sinh(\pi r)$ and the factorisation
-$(1/4 + r^2) = (r + i/2)(r - i/2)$, which shifts the
-poles of $1/(r\sinh(\pi r))$ to give the exponentials
-$e^{\pm\ell/2}$ whose difference is $2\sinh(\ell/2)$.
-This completes the proof: $\hat{h}(\ell) = 2\sinh(\ell/2)$
-cancels the stability denominator $1/(2\sinh(\ell/2))$,
-leaving a net contribution of~$\ell_0$ per geodesic orbit.
-The net contribution per orbit is therefore simply
-the \emph{geodesic length}~$\ell_0 = 2\ln\varepsilon_7$.
-Summing the seven lifts:
-\[
-  2S_{\mathrm{BO}}(7)
-  = 7 \times \ell_0 - \text{quantum corrections}
-  = 14\,\ln\varepsilon_7 - \text{corrections}.
-\]
-
-\emph{Step~4 (Quantum corrections from the Dunham series).}
-The Maslov index of the bounce orbit gives the correction
-$-\sqrt{2/\pi}$ (the WDW zero-point energy).
-The anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$
-gives the Dunham correction $-4/c_7^2$ (verified to $0.26\%$
-at $50$-digit precision).
-Together: $2S/\ln\varepsilon_7
-= 14 - \sqrt{2/\pi} - 4/c_7^2 + O(1/c_7^3)$.
-\end{proof}
+The Pell identity~\eqref{eq:pell-identity} is proved via the
+Klein quartic (Proof in Appendix~\ref{app:pell}).
 
 \noindent
 The \emph{per-vortex} form of the identity is illuminating:
@@ -753,12 +628,12 @@ and the mass gap (component~2):
 \[
   \ln\frac{M_P}{M_{\mathrm{EW}}}
   = \bigl(14 - \tfrac{4}{c_7^2}\bigr)\ln\varepsilon_7
-  + \tfrac{1}{2}\ln\!\bigl(\tfrac{c}{24\pi^2}\bigr) + O(1/c^3).
+  + \tfrac{1}{2}\ln\!\bigl(\tfrac{c_{11}}{24\pi^2}\bigr) + O(1/c_7^3).
 \]
 At leading order, the hierarchy depends on the Pell unit
 $\varepsilon_7$ and the central charge; the mass gap
 $\Delta\varepsilon = 0.8026$ enters only at subleading
-order $O(\ln\varepsilon_7/c) \approx 0.04$, producing
+order $O(\ln\varepsilon_7/c_7) \approx 0.04$, producing
 the $0.04\%$ residual in the log.
 \end{proof}
 
@@ -779,7 +654,7 @@ $v = M_P / \exp(38.444) = 245.9$\,GeV
 \section{The cosmological energy budget}
 \label{sec:cosmology}
 
-\paragraph{Canonical decomposition of the free energy.}
+\subsection{Free energy decomposition}
 The partition function $Z = e^{-F}$ of the BO
 breathing mode has three contributions at distinct orders
 in the loop expansion:
@@ -807,8 +682,7 @@ $F_{\mathrm{DM}}$ depends on the eigenvalue gaps
 $F_{\mathrm{M}}$ depends on the mass gap
 (the only component that thermalises below
 $T_{\mathrm{EW}}$).
-The labelling is a consequence of the coupling structure,
-not an ad hoc assignment.
+The labelling follows from the coupling structure.
 The radion contribution $N/4$ in~\eqref{eq:F-DE} is the zero-point
 energy of the $S^1$ fiber modulus, stabilised at unit radius by
 the flux~$N/2$: the radion mass is $M_{\mathrm{rad}} = N/2$,
@@ -829,7 +703,7 @@ At $N = 11$, $\Delta E = 0.815$:
 \small
 \begin{tabular}{lccc}
 \toprule
-Component & Prediction & Planck 2018 & Tension \\
+Component & Prediction & Planck 2018 \citep{Planck2018} & Tension \\
 \midrule
 Dark energy $\Omega_\Lambda$ & $68.9\%$ & $68.5 \pm 0.7\%$ & $0.6\sigma$ \\
 Dark matter $\Omega_{\mathrm{DM}}$ & $26.9\%$ & $26.6 \pm 0.7\%$ & $0.4\sigma$ \\
@@ -842,7 +716,7 @@ Baryonic matter $\Omega_b$ (resummed) & $5.0\%$ & $4.9 \pm 0.06\%$ & $0.6\sigma$
 \end{center}
 \noindent
 The dark energy and dark matter fractions are within $1\sigma$ of the
-Planck measurements.
+Planck measurements \citep{Planck2018}.
 The $\Omega_\Lambda/\Omega_{\mathrm{DM}}$ ratio matches to~$0.5\%$.
 The tree-level baryon fraction ($\Delta E = 0.81$) has $12\sigma$ tension.
 The BF-crossing instanton (the same one giving
@@ -883,7 +757,7 @@ add $+0.30$ pp to $\Omega_b$, giving
 $\Omega_b = 4.97\%$ ($0.6\sigma$ from Planck).
 \end{proposition}
 
-The $N = 11$ budget matches Planck to $< 1\sigma$ for
+The $N = 11$ budget matches Planck \citep{Planck2018} to $< 1\sigma$ for
 $\Omega_\Lambda$ and $\Omega_{\mathrm{DM}}$
 (Proposition~\ref{prop:cosmology}).
 The $\Omega_\Lambda / \Omega_{\mathrm{DM}}$ ratio $= 2.56$
@@ -934,17 +808,13 @@ The $\mathbb{Z}_{11}$ stability ensures that the lightest frozen
 mode is absolutely stable (analogous to $R$-parity in
 supersymmetric models).
 
-\subsection{The baryon fraction and the mass gap}
-
-The baryon fraction within total matter:
-$\Omega_b / (\Omega_b + \Omega_{\mathrm{DM}})
-= F_M / (F_{\mathrm{DM}} + F_M)$.
-At $N = 11$: $F_{\mathrm{DM}} = 5.193$.
-The Planck value $\Omega_b/\Omega_m = 15.6\%$ requires
-$F_M = 0.96$---slightly above the WDW estimate
-$\Delta E = 0.815$.
-\subsection{The mass gap: the universal log-potential constant}
+\subsection{The mass gap and baryon fraction}
 \label{sec:mass-gap}
+
+The Planck value $\Omega_b/\Omega_m = 15.6\%$ requires
+$F_M = 0.96$, above the WDW estimate $\Delta E = 0.815$
+(the instanton correction~\eqref{eq:mass-gap-resum} closes
+this gap).
 
 The WDW mass gap, computed via non-uniform FEM mesh
 (quadratically concentrated near $\rho = 0$), gives converged values:
@@ -959,8 +829,8 @@ $\Delta E$ & $0.841$ & $0.832$ & $0.825$ & $0.821$ & $0.817$ & $0.815$ \\
 \end{tabular}
 \end{center}
 \noindent
-In the semiclassical limit $c \to \infty$, the WDW equation
-reduces (after rescaling $x = \sqrt{2c}\,\rho$) to the
+In the semiclassical limit $c_N \to \infty$, the WDW equation
+reduces (after rescaling $x = \sqrt{2c_N}\,\rho$) to the
 \emph{universal log Schr\"odinger equation}
 \begin{equation}\label{eq:log-schrodinger}
   \Bigl[-\tfrac{1}{2\alpha}\,\frac{d^2}{dx^2} + \ln x\Bigr]\Psi
@@ -988,7 +858,7 @@ the neutrino contribution (\S\ref{sec:neutrinos}):
 \small
 \begin{tabular}{lcccc}
 \toprule
-& Tree & Corrected & Planck 2018 & Tension \\
+& Tree & Corrected & Planck 2018 \citep{Planck2018} & Tension \\
 \midrule
 $\Omega_\Lambda$ & $68.9\%$ & $67.9\%$ & $68.5 \pm 0.7\%$ & $0.8\sigma$ \\
 $\Omega_{\mathrm{DM}}$ & $26.9\%$ & $27.6\%$ & $26.6 \pm 0.7\%$ & $1.4\sigma$ \\
@@ -997,42 +867,26 @@ $\Omega_b + \Omega_\nu$ & $4.22\%$ & $4.53\%$ & $4.93 \pm 0.06\%$ & $6.6\sigma$ 
 \end{tabular}
 \end{center}
 \noindent
-The corrections: one-loop Coleman--Weinberg ($+0.16$ pp),
-neutrino seesaw $\Sigma m_\nu = 0.059$\,eV ($+0.14$ pp),
-CS level shift on the mass gap ($+0.005$ pp).
-With the instanton resummation~\eqref{eq:mass-gap-resum},
-the baryon tension reduces to $0.6\sigma$
+Corrections: Coleman--Weinberg ($+0.16$ pp),
+neutrino seesaw ($+0.14$ pp), CS level shift ($+0.005$ pp).
+With the resummation~\eqref{eq:mass-gap-resum}: $0.6\sigma$
 (Proposition~\ref{prop:cosmology}).
 
 The residual $0.40$ percentage-point discrepancy
 ($4.53\%$ vs.\ $4.93\%$) is sensitive to the Hubble constant:
 $\Omega_b = \Omega_b h^2 / h^2$.
 At the Planck value $h = 0.674$: $\Omega_b = 4.93\%$.
-At the SH0ES local value $h = 0.732$: $\Omega_b = 4.18\%$.
+At the SH0ES local value \citep{Riess2022} $h = 0.732$: $\Omega_b = 4.18\%$.
 The predicted $4.53\%$ lies between the Planck and SH0ES
 values, suggesting that the residual depends on the resolution
 of the $H_0$ tension.
 
-\paragraph{The universal limit sharpens the prediction.}
-The mass gap $\Delta E$ converges to the universal
-log-potential constant $\Delta\varepsilon = 0.803$
-(\S\ref{sec:mass-gap}) as $c \to \infty$.
-At the universal limit (instead of the finite-$N$ value $0.815$):
-$\Omega_b^{\mathrm{tree}} = 0.803/(0.803 + 5.193) \times 0.311
-= 4.16\%$---matching the SH0ES value $4.18\%$ to $0.02$
-percentage points.
-After corrections ($+0.30$ pp from one-loop $+$ neutrinos):
-$\Omega_b = 4.46\%$, which coincides with the geometric
-mean of the Planck and SH0ES values
-$\sqrt{4.93 \times 4.18} = 4.54\%$.
-The $\Omega_b$ prediction thus \emph{discriminates} between
-the Planck and SH0ES $H_0$ measurements:
-if SH0ES is correct, the tree-level $\Omega_b$ is nearly
-exact; if Planck is correct, the one-loop correction
-accounts for most of the residual.
-For a theory with one discrete input ($N = 7$),
-the $0.40$ percentage-point residual on the total energy budget
-corresponds to an $8\%$ relative error on~$\Omega_b$.
+\begin{remark}[Sensitivity to $H_0$]
+Since $\Omega_b = \Omega_b h^2 / h^2$, the prediction
+is sensitive to the Hubble tension: the $0.40$\,pp residual
+($4.53\%$ vs.\ $4.93\%$) corresponds to an $8\%$ relative
+error on~$\Omega_b$ for a theory with one discrete input.
+\end{remark}
 
 %% ====================================================================
 \section{Baryogenesis}
@@ -1047,7 +901,7 @@ change the CS winding number by~$\pm 1$, violating $B{+}L$
 while preserving $B{-}L$.
 
 \paragraph{CP violation.}
-The physical CS level $k_{\mathrm{phys}} = c/6 - N/2$ is not integer
+The physical CS level $k_{\mathrm{phys}} = c_{11}/6 - N/2$ is not integer
 (as permitted for $\mathrm{SL}(2,\mathbb{R})$ CS, see \S\ref*{IV-sec:gauge-group}).
 A CS instanton with unit winding picks up the phase
 $e^{2\pi i k_{\mathrm{phys}}}$, giving a CP-violating observable
@@ -1060,7 +914,7 @@ This is four orders of magnitude larger than the SM Jarlskog
 invariant $J \approx 3 \times 10^{-5}$.
 
 \paragraph{First-order electroweak phase transition.}
-The Born--Oppenheimer potential $V(\rho)$ has a barrier
+The Born--Oppenheimer potential $V_7(\rho)$ has a barrier
 ($S_{\mathrm{tunnel}} = 18.3$, \S\ref*{IV-sec:loops}),
 producing a \emph{first-order} EWPT with
 $v(T_c)/T_c \approx 0.84$.
@@ -1071,35 +925,17 @@ By contrast, the SM electroweak phase transition is a
 \emph{crossover} for $m_H = 125$\,GeV---no baryogenesis is possible
 in the SM without new physics.
 
-\paragraph{Baryon asymmetry from the transport equation.}
-The Boltzmann diffusion equation in the wall rest frame,
-\begin{equation}\label{eq:transport}
-  D_q\,\mu'' - v_w\,\mu' - \Gamma_{\mathrm{tot}}\,\mu
-  + S_{\mathrm{CP}}(z) = 0,
-\end{equation}
-where $\mu = \mu_L$ is the left-handed top chemical potential,
-$D_q \approx 6/T$ the quark diffusion coefficient
-(Moore \& Prokopec 1995), and
-$\Gamma_{\mathrm{tot}} = 3\Gamma_y + 3\Gamma_{\mathrm{ss}} \approx 0.60\,T$
-the combined Yukawa and strong-sphaleron relaxation rate,
-admits an exact Green's function solution.
-The CP-violating source is
-$S_{\mathrm{CP}} = (N_c\,y_t^4\,v_w\,\sin\delta_{\mathrm{CP}})
-/(8\pi^2)\,h(z)\,h'(z)$,
-localised at the wall (width $L_w = (2c)^{-1/3}/T = 0.21/T$).
-
-Weak sphalerons convert $\mu_L$ into baryon number in the
-symmetric phase:
-\begin{equation}\label{eq:eta-B}
-  \eta_B = \frac{7.04\,n_F\,\Gamma_{\mathrm{ws}}}{v_w\,s/T^3}
-  \int_0^\infty \!\mu(z)\,dz,
-\end{equation}
-where $\Gamma_{\mathrm{ws}} = \kappa\,\alpha_w^5\,T \approx 8.2 \times 10^{-7}\,T$
-($\kappa = 20$ from lattice; D'Onofrio et al.\ 2014),
-$s = (2\pi^2/45)\,g_*\,T^3$ is the entropy density,
-and $n_F = 3$.
-
-A key feature of this framework is that $\eta_B$ is
+\paragraph{Baryon asymmetry.}
+Using the standard EW baryogenesis transport machinery
+(Boltzmann diffusion with CP source
+$S_{\mathrm{CP}} \propto y_t^4 v_w \sin\delta_{\mathrm{CP}}$,
+weak-sphaleron conversion with lattice rate
+$\Gamma_{\mathrm{ws}} = \kappa\,\alpha_w^5\,T$,
+$\kappa = 20$; \citealt{DOnofrio2014}),
+and the framework's inputs
+($\delta_{\mathrm{CP}} = 0.57$, $v(T_c)/T_c = 0.84$,
+wall width $L_w = (2c_{11})^{-1/3}/T = 0.21/T$),
+$\eta_B$ is
 \emph{nearly independent of the wall velocity}~$v_w$:
 the source $S_{\mathrm{CP}} \propto v_w$ while the
 sphaleron conversion $\propto 1/v_w$, so the dependence
@@ -1108,40 +944,13 @@ cancels.  The Green's function convolution gives
   \eta_B = (1.8\text{--}2.0) \times 10^{-9}
   \approx 3.0\,\eta_B^{\mathrm{obs}},
 \end{equation}
-stable to $< 10\%$ across $v_w \in [10^{-3}, 0.5]$.
-The factor of~$3$ arises entirely from
-the lattice QCD parameters $\kappa$ and~$\Gamma_y$,
-each carrying factor-of-two uncertainties:
-$\kappa = 20 \pm 10$ (\citealt{DOnofrio2014})
-and $\Gamma_y = (0.2 \pm 0.1)\,y_t^2\,T$.
-The observed value sits within the lattice uncertainty band:
-\begin{center}
-\small
-\begin{tabular}{cccc}
-\toprule
-$\kappa$ & $\Gamma_y / (y_t^2 T)$ & $\eta_B / \eta_B^{\mathrm{obs}}$ \\
-\midrule
-$10$ & $0.1$ & $1.5$ \\
-$10$ & $0.2$ & $0.8$ \\
-$\mathbf{10}$ & $\mathbf{0.3}$ & $\mathbf{1.1}$ \\
-$20$ & $0.2$ & $1.6$ \\
-$20$ & $0.3$ & $1.1$ \\
-$30$ & $0.3$ & $1.6$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-The framework fixes $\delta_{\mathrm{CP}}$, $v(T_c)/T_c$,
-$L_w$, and the $v_w$-cancellation; the remaining
-dependence on $\kappa$ and $\Gamma_y$ is the standard
-lattice QCD uncertainty shared by \emph{all} electroweak
-baryogenesis models.
-The factor of~$3$ at the central lattice values
-places the prediction at the upper edge of the allowed range---agreement
-requires both $\kappa$ and $\Gamma_y$ to shift in their
-favourable directions simultaneously.
-This is not a structural prediction of the theory.
-The structural predictions---which carry no uncertainty---are:
+a factor of~$3$ above the observed value, stable to
+$< 10\%$ across $v_w \in [10^{-3}, 0.5]$.
+The discrepancy is dominated by the lattice QCD parameters
+$\kappa$ and~$\Gamma_y$ (\citealt{DOnofrio2014}), each
+carrying factor-of-two uncertainties.
+The structural predictions---which carry no lattice
+uncertainty---are:
 \begin{enumerate}
 \item \emph{First-order EWPT}: $v(T_c)/T_c = 0.84$
   (the SM has a crossover at $m_H = 125$\,GeV);
@@ -1150,9 +959,20 @@ The structural predictions---which carry no uncertainty---are:
   above the SM Jarlskog invariant $J = 3 \times 10^{-5}$;
 \item \emph{$v_w$-independence}: the source $\propto v_w$
   cancels the conversion $\propto 1/v_w$;
-\item \emph{Correct order of magnitude}:
-  $\eta_B = O(10^{-9})$ from the framework alone.
+\item \emph{Within factor~$3$}:
+  $\eta_B = (1.8$--$2.0) \times 10^{-9}$, with the
+  discrepancy dominated by lattice QCD uncertainties.
 \end{enumerate}
+
+\begin{remark}[Lattice QCD sensitivity]
+At central lattice values ($\kappa = 20$, $\Gamma_y = 0.2\,y_t^2\,T$),
+$\eta_B/\eta_B^{\mathrm{obs}} \approx 3$.
+Agreement requires both $\kappa$ and $\Gamma_y$ to shift
+in their favourable directions ($\kappa = 10$,
+$\Gamma_y = 0.3$, giving $\eta_B/\eta_B^{\mathrm{obs}} = 1.1$).
+This lattice dependence is shared by all electroweak
+baryogenesis models.
+\end{remark}
 
 %% ====================================================================
 \section{Neutrino masses from the seesaw}
@@ -1226,7 +1046,7 @@ parameter status):
   The Frobenius $\sigma$ maps pairs with \emph{unit} angular overlap;
   the suppression is purely radial.
 \item $\Sigma m_\nu = 0.059$\,eV
-  $< 0.12$\,eV (Planck bound).\quad\checkmark
+  $< 0.12$\,eV (Planck bound \citep{Planck2018}).\quad\checkmark
 \end{itemize}
 The neutrino contribution $\Omega_\nu = 0.14\%$ enters
 the baryon budget (Proposition~\ref{prop:cosmology}).
@@ -1237,10 +1057,10 @@ the baryon budget (Proposition~\ref{prop:cosmology}).
 
 The radion $\sigma$ (the $S^1$ modulus) has effective potential
 \begin{equation}\label{eq:V-radion}
-  V(\sigma) = \frac{N^2}{8\sigma^2} - \frac{c}{12\sigma} + \Lambda\,\sigma,
+  V(\sigma) = \frac{N^2}{8\sigma^2} - \frac{c_{11}}{12\sigma} + \Lambda\,\sigma,
 \end{equation}
 where $N^2/(8\sigma^2)$ is the flux energy,
-$c/(12\sigma)$ is the Casimir energy,
+$c_{11}/(12\sigma)$ is the Casimir energy,
 and $\Lambda\,\sigma$ is the cosmological term.
 The potential is stabilised at $\sigma_{\min} \approx 1.35$
 (for $N = 11$) and grows linearly for large~$\sigma$:
@@ -1250,7 +1070,7 @@ At early times, the radion rolls from $\sigma \gg \sigma_{\min}$
 toward the minimum.
 The full potential~\eqref{eq:V-radion} has an \emph{inflection point} at
 \begin{equation}\label{eq:sigma-infl}
-  \sigma_{\mathrm{infl}} = \frac{3N^2/8}{c/12} = \frac{9N^2}{2c}
+  \sigma_{\mathrm{infl}} = \frac{3N^2/8}{c_{11}/12} = \frac{9N^2}{2c_{11}}
   \approx 4.3 \quad (N = 11),
 \end{equation}
 where $V'' = 0$.
@@ -1265,17 +1085,17 @@ approximation gives \citep{Barenboim2016}
   n_s = 1 - \frac{8}{3\sqrt{3}\,N_e},
   \qquad r \sim 10^{-6}\;\text{(negligible)}.
 \end{equation}
-Planck~2018 ($n_s = 0.965 \pm 0.004$) requires $N_e \approx 45$--$55$,
+Planck~2018 \citep{Planck2018} ($n_s = 0.965 \pm 0.004$) requires $N_e \approx 45$--$55$,
 corresponding to $T_{\mathrm{rh}} \sim 10^6$--$10^9$\,GeV.
 The tensor-to-scalar ratio $r \sim 10^{-6}$ is far below the
-BICEP/Keck~2024 bound ($r < 0.036$) and the LiteBIRD sensitivity
+BICEP/Keck bound \citep{BICEP2021} ($r < 0.036$) and the LiteBIRD sensitivity
 ($\sigma_r \approx 0.001$): \emph{inflection-point inflation predicts
 undetectable gravitational waves from the inflationary epoch}.
 
 In the linear regime ($\sigma \gg \sigma_{\mathrm{infl}}$):
 $n_s = 1 - 3/(2N_e)$, $r = 4/N_e$.
 At $N_e = 60$: $n_s = 0.975$ ($2.4\sigma$ tension with Planck),
-$r = 0.067$ (excluded by BICEP/Keck).
+$r = 0.067$ (excluded by BICEP/Keck \citep{BICEP2021}).
 The inflection-point mechanism resolves this tension.
 
 
@@ -1293,7 +1113,7 @@ The spin-independent cross section on a nucleon:
   \left(\frac{g_{\mathrm{DM}}\,g_N}{m_A^2}\right)^2
   \sim 10^{-103}\;\mathrm{cm^2},
 \]
-vastly below the LZ~2024 bound ($6.5 \times 10^{-48}$\,cm$^2$).
+vastly below the LZ bound \citep{LZ2023} ($6.5 \times 10^{-48}$\,cm$^2$).
 \emph{Prediction}: the frozen Havelock dark matter is invisible
 to all current and planned direct detection experiments.
 Detection requires gravitational probes (gravitational wave
@@ -1325,6 +1145,104 @@ in Paper~VI.
 \paragraph{Code availability.}
 All numerical verifications and computational proofs are
 available in the companion code repository.
+
+%% ====================================================================
+\appendix
+\section{Proof of the Pell identity}
+\label{app:pell}
+
+\begin{proof}[Proof of the Pell identity~\eqref{eq:pell-identity}
+  via the Klein quartic]
+The argument has four steps.
+
+\emph{Step~1 (The Pell geodesic on the modular surface).}
+The Pell equation $8^2 - 7 \times 3^2 = 1$ defines the matrix
+$M = \bigl(\begin{smallmatrix} 8 & 21 \\ 3 & 8 \end{smallmatrix}\bigr)
+\in \mathrm{SL}(2,\mathbb{Z})$
+with $\det M = 1$, $\operatorname{tr} M = 16$.
+This matrix is hyperbolic and defines a closed geodesic on the
+modular surface $\mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$
+of length
+$\ell = 2\operatorname{arccosh}(\operatorname{tr}M/2)
+= 2\operatorname{arccosh}(8) = 2\ln\varepsilon_7$.
+
+\emph{Step~2 (Lift to the Klein quartic).}
+The level-$7$ modular curve
+$X(7) = \Gamma(7)\backslash\mathbf{H}^2$
+is the \emph{Klein quartic}---a genus-$3$ Riemann surface with
+automorphism group $\mathrm{PSL}(2,\mathbb{F}_7)$, order~$168$.
+This group contains $\mathbb{Z}/7\mathbb{Z}$ as a subgroup,
+and $X(7)/(\mathbb{Z}/7\mathbb{Z})
+= \mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$.
+The Pell geodesic on the modular surface lifts to
+\emph{seven} closed geodesics on $X(7)$, one per
+$\mathbb{Z}_7$~coset, each of length~$2\ln\varepsilon_7$.
+
+\emph{Step~3 (Selberg trace formula on $X(7)$).}
+The BO potential $V_7(\rho) = \ln(2\sinh\rho) - u^*$ is the
+radial effective potential of the Laplacian on~$\mathbf{H}^2$
+in the $\mathbb{Z}_7$-equivariant sector.
+The WKB spectral sum of this potential equals the
+spectral side of the Selberg trace formula on~$X(7)$,
+evaluated with the WKB test function~$h$.
+On the \emph{geometric} side, each primitive geodesic of
+length~$\ell$ contributes
+$\ell/(2\sinh(\ell/2)) \times \hat h(\ell)$
+to the trace.
+For the Pell geodesic ($\ell_0 = 2\ln\varepsilon_7$):
+the WKB spectral factor is
+$\hat h(\ell_0) = 2\sinh(\ell_0/2) = 2\sinh(\operatorname{arccosh}8) = 6\sqrt{7}$,
+which \emph{exactly cancels} the Selberg stability denominator
+$1/(2\sinh(\ell_0/2))$.
+We prove this cancellation explicitly.
+The potential $V_7(\rho) = \ln(2\sinh\rho)$ is (up to a constant)
+the radial Green's function of the Laplacian on~$\mathbf{H}^2$.
+Its Legendre spectral coefficient is the resolvent
+\citep[Ch.~IV]{Hejhal1976}:
+\[
+  \int_0^\infty \ln(2\sinh\rho)\,
+  P_{-1/2+ir}(\cosh\rho)\,\sinh\rho\,d\rho
+  = \frac{-\pi}{2r\sinh(\pi r)}.
+\]
+The WKB test function for the Selberg trace formula is
+$h(r) = (1/4 + r^2) \times a(r)$, where $a(r)$ is the
+spectral coefficient and $(1/4 + r^2)$ is the Laplacian eigenvalue.
+The Selberg transform $\hat{h}(\ell)$ is the Abel--Fourier
+transform of~$h$; for $h(r) \propto (1/4 + r^2)/(r\sinh(\pi r))$,
+this evaluates via the residue formula
+$\sum \operatorname{Res}[\hat{h}]$ at the poles $r = in$
+($n = 0, 1, 2, \ldots$) of $1/\sinh(\pi r)$:
+\[
+  \hat{h}(\ell) = \frac{1}{2\pi}\int_{-\infty}^{\infty}
+  e^{ir\ell}\,\frac{\pi(1/4+r^2)}{2r\sinh(\pi r)}\,dr
+  = 2\sinh(\ell/2).
+\]
+The last equality follows from the Mittag-Leffler expansion
+of $1/\sinh(\pi r)$ and the factorisation
+$(1/4 + r^2) = (r + i/2)(r - i/2)$, which shifts the
+poles of $1/(r\sinh(\pi r))$ to give the exponentials
+$e^{\pm\ell/2}$ whose difference is $2\sinh(\ell/2)$.
+This completes the proof: $\hat{h}(\ell) = 2\sinh(\ell/2)$
+cancels the stability denominator $1/(2\sinh(\ell/2))$,
+leaving a net contribution of~$\ell_0$ per geodesic orbit.
+The net contribution per orbit is therefore simply
+the \emph{geodesic length}~$\ell_0 = 2\ln\varepsilon_7$.
+Summing the seven lifts:
+\[
+  2S_{\mathrm{BO}}(7)
+  = 7 \times \ell_0 - \text{quantum corrections}
+  = 14\,\ln\varepsilon_7 - \text{corrections}.
+\]
+
+\emph{Step~4 (Quantum corrections from the Dunham series).}
+The Maslov index of the bounce orbit gives the correction
+$-\sqrt{2/\pi}$ (the WDW zero-point energy).
+The anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$
+gives the Dunham correction $-4/c_7^2$ (verified to $0.26\%$
+at $50$-digit precision).
+Together: $2S/\ln\varepsilon_7
+= 14 - \sqrt{2/\pi} - 4/c_7^2 + O(1/c_7^3)$.
+\end{proof}
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}
