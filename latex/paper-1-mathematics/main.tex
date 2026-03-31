@@ -5,6 +5,8 @@
 \externaldocument[III-]{../paper-3-gravity/main}
 \externaldocument[A-]{../paper-A-appendices/main}
 \externaldocument[S-]{../supplement-number-theory/main}
+\externaldocument[V-]{../paper-5-cosmology/main}
+\externaldocument[VI-]{../paper-6-discussion/main}
 
 \title{\seriestitle\\[6pt]\large Paper I: Mathematical Foundations}
 \author{Gordon Speagle}
@@ -18,34 +20,15 @@ The stability eigenvalue of a regular $N$-gon of point vortices
 decomposes as $\lambda_m = C_1(\text{surface}) - m(N{-}m)/2$,
 separating a single surface-dependent number from a universal
 Casimir determined by the cyclic group~$\mathbb{Z}_N$.
-We prove the sign rule for general interactions, extend the
+I prove the sign rule for general interactions, extend the
 Havelock identity to constant-curvature Riemannian surfaces,
 and show that the five algebraic-integer thresholds on the
 hyperbolic plane are Pell units in quadratic fields (terminating
 at~$\xi^*(23) = \varphi^{-2}$) and correspond to closed
 geodesics on the modular surface with traces
 $c = 2 + 16/(N{-}7)$.
-The palindromic structure of the threshold equation is
-conjectured to generalise to arbitrary genus (Conjecture~\ref{prop:higher-genus}), with the degree controlled by the trace field.
 \end{abstract}
 
-\paragraph{Series overview.}
-This is Paper~I of a four-paper series.
-Paper~I develops the mathematics of the Havelock decomposition
-$\lambda_m = C_1 - m(N{-}m)/2$: the sign rule, the Riemannian
-extension, and the algebraic number theory of the
-$\mathbf{H}^2$ thresholds.
-Paper~II applies the decomposition to vortex stability
-(the constrained energy minimum for $N \le 7$,
-the blob bridge, and planetary/BEC predictions).
-Paper~III connects the eigenvalue structure to gravity
-(the CMS--CS Casimir identification, the graviton at $N = 7$,
-and the Einstein equations from polygon entropy maximisation).
-Paper~IV constructs the Standard Model gauge group and
-cosmological parameters from the $N = 7$ and $N = 11$
-polygon sectors on the Seifert manifold
-$\mathbf{H}^2 \times_N S^1$.
-Each paper is self-contained; the series builds cumulatively.
 
 \section{Introduction}
 \label{sec:intro}
@@ -65,34 +48,27 @@ one number substituted in.
 
 This decomposition is implicit in
 \citet{Havelock1931} and explicit in \citet{BoattoCabral2003}.
-What has not been made fully explicit is the depth of its
-consequences.  The present paper develops five:
-the $m$-dependent part $f(m,N)$ is metric-independent
+What has not been made explicit is the scope of its
+consequences.  The present paper develops six distinct routes:
+the first,  $m$-dependent part $f(m,N)$ is metric-independent
 (Section~\ref{sec:havelock-identity});
-the sign rule for $H''(0) < 0$ follows from the logarithm's
+second, the sign rule for $H''(0) < 0$ follows from the logarithm's
 dilation invariance (Section~\ref{sec:sign-rule});
-the stability threshold $N_{\mathrm{crit}} = 7$ is a closed-form
+third, the stability threshold $N_{\mathrm{crit}} = 7$ is a closed-form
 output of the $\mathbb{Z}_N$ Casimir
 (Corollary~\ref{cor:why-7});
-the curvature-stability dichotomy
+fourth, the curvature stability dichotomy
 ($K > 0$ destabilises, $K < 0$ stabilises)
 is topological
-(Proposition~\ref{prop:curvature-dichotomy});
+(Proposition~\ref{prop:curvature-dichotomy}); fifth, 
 $N_{\mathrm{crit}} = 7$ is a topological universal,
 holding on every quotient $\Gamma\backslash\mathbf{H}^2$ at
 the flat-plane limit regardless of $\Gamma$
 (Theorem~\ref{thm:universality});
-and the threshold polynomials on $\mathbf{H}^2$ connect to Pell
+and finally, the threshold polynomials on $\mathbf{H}^2$ connect to Pell
 equations, the golden ratio, and algebraic number theory
 (Section~\ref{sec:algebraic-structure}).
 
-The physical motivation (polygonal storm patterns on Saturn
-and Jupiter \citep{Godfrey1988, Adriani2018}---is developed in
-Paper~IV.  The constrained energy landscape and
-continuous-vorticity bridge are developed in Paper~II.
-Paper~I is self-contained: it requires only the definitions of
-point vortex energy and the Havelock eigenvalue, both recalled
-below.
 
 \paragraph{What this paper proves.}
 \begin{enumerate}
@@ -101,7 +77,7 @@ below.
     $(rh')' \le 0$, the $N$-gon is a saddle of the unconstrained
     energy with $H''(0) < 0$ along the centered spiral deformation.
     The logarithmic interaction $h = -\ln r$ is the unique
-    dilation-invariant borderline case (Section~\ref{sec:log-interaction}).
+    dilation invariant borderline case (Section~\ref{sec:log-interaction}).
   \item \textbf{The Havelock identity and its metric-independence}
     (Section~\ref{sec:havelock-identity}):
     the $m$-dependent part $f(m,N) = m(N{-}m)/2$ of the Havelock
@@ -139,14 +115,6 @@ below.
     attraction.
 \end{enumerate}
 
-\paragraph{What this paper does not prove.}
-The constrained energy minimum theorem---showing the $N$-gon
-\emph{minimises} interaction energy on the conserved-quantity surface
-for $N \le 7$---is proved in Paper~II (Theorem~\ref*{II-thm:constrained-min}), along with the
-central vortex stabilization, the $N = 7$ quartic bifurcation, and the
-blob bridge to continuous vorticity.
-The planetary applications (Saturn hexagon, Jupiter polygons, Neptune
-predictions) are developed in Paper~II.
 
 \paragraph{Structure.}
 Section~\ref{sec:log-interaction} establishes the logarithmic
@@ -158,15 +126,6 @@ the stability thresholds on curved surfaces.
 Section~\ref{sec:algebraic-structure} explores the algebraic number
 theory of the threshold polynomials.
 
-\paragraph{Logical status convention (used throughout the series).}
-Results are labeled \textbf{Theorem} (proved from stated hypotheses),
-\textbf{Proposition} (proved, subsidiary),
-\textbf{Identification} (physical correspondence, clearly marked),
-or \textbf{Conjecture} (supported by evidence, not proved).
-Papers~I and~II contain only Theorems and Propositions.
-Papers~III and~IV introduce Identifications where the
-vortex-spacetime correspondence is invoked.
-
 
 %% ====================================================================
 
@@ -177,7 +136,7 @@ vortex-spacetime correspondence is invoked.
 \section{The logarithmic interaction: uniqueness and symmetry}
 \label{sec:log-interaction}
 
-This section establishes properties of the logarithmic interaction
+This section establishes the properties of the logarithmic interaction
 that are used in the proof of the sign rule
 (Theorem~\ref{thm:sign-rule}, \S\ref{sec:sign-rule}).
 
@@ -214,7 +173,6 @@ shows it additionally implies that the stability threshold is
 dilation-invariant.
 \end{remark}
 
-The scale-classification terminology below is an analogy (the map $T_b$ is a pointwise rescaling, not a coarse-graining); the mathematical content is the stability classification itself.
 
 \begin{proposition}[Scale classification of perturbations]
 \label{prop:rg-classification}
@@ -283,14 +241,14 @@ where $A$ is the \emph{radial anisotropy} and $B$ is the
 \emph{isotropic part}.
 \emph{Step 1}: at $\alpha = 2$, $A(2,d) = 2(2{-}2)\,d^0 = 0$.
 The Hessian perturbation $\delta\nabla^2 H$ is therefore
-$B\,I = 2\,I$ at every pair, making the off-diagonal blocks
+$B\,I = 2\,I$ at every pair, making the off diagonal blocks
 of the full $2N\times 2N$ Hessian proportional to the identity.
 \emph{Step 2 (Fourier block).}
-Since the off-diagonal blocks are proportional to~$I_2$, the
+Since the off diagonal blocks are proportional to~$I_2$, the
 $xx$ and $yy$ Fourier components are equal and the $xy$ component
 vanishes; each $2 \times 2$ Fourier block is scalar.
 For the $xx$ component at mode $m \ge 2$: the diagonal block
-equals $-\sum_{p=1}^{N-1} B = -2(N{-}1)$, and the off-diagonal
+equals $-\sum_{p=1}^{N-1} B = -2(N{-}1)$, and the off diagonal
 sum is $\sum_p B\,e^{-2\pi i pm/N} = 2\sum_p e^{-2\pi i pm/N} = -2$
 (since $\sum_{p=1}^{N-1} e^{-2\pi i pm/N} = -1$ for $m \ge 1$).
 The Fourier block is therefore $-2(N{-}1) + (-2) = -2N$,
@@ -321,7 +279,7 @@ $\delta\lambda_m = -\delta\Omega - v_m^\top\,\delta\nabla^2\!H\,v_m
 
 The tangential branch: since $A(2,d) = 0$, the Hessian perturbation is
 isotropic ($B\,I_2$ at every pair), so the tangential eigenvalue shift
-equals the radial shift.  Steps~2--4 therefore apply identically to
+equals the radial shift.  Steps~2-4 therefore apply identically to
 the tangential Fourier block, and $\delta\lambda_m = 0$ holds for
 both branches.
 
@@ -371,13 +329,13 @@ $\varepsilon = -\varepsilon_0^2$ converts $\delta\lambda_3
 = (-4)(-\varepsilon_0^2) = 4\varepsilon_0^2 > 0$.
 \end{remark}
 
-\noindent\emph{Validity of first-order theory.}
-The perturbation $\delta\lambda_m$ is first-order in $\varepsilon$
+\noindent\emph{Validity of first order theory.}
+The perturbation $\delta\lambda_m$ is first order in $\varepsilon$
 and reliable when $|\varepsilon\,\delta\lambda_m| \ll |\lambda_m(0)|$.
 For the $N = 7$ marginal ring ($\lambda_3(0) = 0$), any nonzero
 $\delta\lambda_3$ dominates regardless of $\varepsilon$, so the
 \emph{sign} of $\delta\lambda_3$ is the reliable prediction.
-For the $N = 8$ ring with $\alpha = 3$, the mode-resolved
+For the $N = 8$ ring with $\alpha = 3$, the mode resolved
 computation gives $\delta\lambda_3 = 11.8$ and
 $\delta\lambda_4 = 11.3$ (the two binding modes), so
 $\varepsilon = 0.1$ predicts $\lambda_3 = -0.5 + 1.18 = 0.68 > 0$
@@ -385,15 +343,6 @@ and $\lambda_4 = -1.0 + 1.13 = 0.13 > 0$---all modes of the $8$-gon
 become stable, giving $N_{\mathrm{crit}} = 8$ at first order.
 Quantitative predictions for $N \ge 9$ require the full nonlinear
 eigenvalue computation, not the linearised theory.
-
-The Gaussian curvature $K$ is a destabilizing perturbation when
-$K>0$ and a stabilizing one when $K<0$.  On the sphere ($K>0$) the
-deviation from the logarithmic Green's function lowers
-$N_{\mathrm{crit}}$ below~$7$; on the hyperbolic plane ($K<0$) it
-adds a positive $O(|K|)$ correction $12|K|$ to the formerly-marginal
-$\lambda_3$ eigenvalue~\eqref{eq:lam3_H2}.  The flat-plane case
-$K=0$ is therefore the \emph{least stable} point of the
-constant-curvature family with respect to polygon formation:
 
 \subsection{M\"obius covariance of the logarithmic energy}
 \label{sec:mobius-cov}
@@ -406,7 +355,7 @@ logarithmic energy transforms as
   = H(z_1,\dots,z_N) - \sum_{k=1}^{N}\tfrac{N-1}{2}\ln|f'(z_k)|.
 \]
 Consequently, the point vortex equations of motion are
-M\"obius-invariant: the single-site correction
+M\"obius invariant: the single site correction
 $\tfrac{N-1}{2}\ln|f'(z_k)|$ depends only on~$z_k$, so
 $\partial/\partial \bar z_j$ for $j \ne k$ annihilates it, and the
 Hamiltonian gradient $\partial H/\partial \bar z_j$ is unchanged.
@@ -420,13 +369,13 @@ all $\binom{N}{2}$ pairs, each $\ln|f'(z_k)|$ appears $N{-}1$
 times.  Since $\tfrac12\ln|f'(z_k)|$ depends on $z_k$ alone,
 $\partial[\sum_k\tfrac{N-1}{2}\ln|f'(z_k)|]/\partial\bar z_j
 = \tfrac{N-1}{2}\,\partial\ln|f'(z_j)|/\partial\bar z_j$,
-which is the single-site term in the $j$-th equation of motion.
+which is the single site term in the $j$-th equation of motion.
 For M\"obius $f$, $f'$ is rational and $\ln|f'|$ is harmonic away
 from poles, so this term contributes a gauge-like shift to the
 Hamiltonian that does not couple distinct vortices.
 \end{proof}
 
-\begin{corollary}[Dilation subgroup = scale-invariant Hamiltonian]
+\begin{corollary}[Dilation subgroup = scale invariant Hamiltonian]
 \label{cor:dilation-rg}
 Among all M\"obius transformations, the dilation subgroup
 $\{f(z) = bz : b > 0\}$ is uniquely characterised by having
@@ -437,14 +386,14 @@ into Proposition~\ref{prop:mobius} gives a correction that is
   H(bz_1,\dots,bz_N)
   = H(z_1,\dots,z_N) - \tfrac{N(N-1)}{2}\ln b.
 \end{equation}
-This is the $N$-body form of the dilation-invariance condition of
+This is the $N$-body form of the dilation invariance condition of
 Remark~\ref{rem:rg-fixed-point}: scaling changes $H$ only by an
 additive constant, so the equations of motion
-$\dot{\bar z}_j = \partial H/\partial z_j$ are dilation-invariant.
+$\dot{\bar z}_j = \partial H/\partial z_j$ are dilation invariant.
 For any other M\"obius map $f$, the derivative $|f'(z_k)|$ varies
-between sites, producing a configuration-dependent correction that
+between sites, producing a configuration dependent correction that
 is not a pure constant; the Hamiltonian is \emph{not}
-scale-invariant under general conformal maps, only under the
+scale invariant under general conformal maps, only under the
 one-parameter dilation subgroup.
 
 Equation~\eqref{eq:dilation-rg} is the $N$-body lift of the per-pair
@@ -457,22 +406,83 @@ energy is the unique $N$-body Hamiltonian that is dilation-invariant.
 The logarithmic interaction and the logarithmic spiral are dual
 manifestations of the loxodromic subgroup
 $z \mapsto e^{(\sigma + i\alpha)t}z$ of the M\"obius group:
-the interaction is the unique dilation-invariant potential
+the interaction is the unique dilation invariant potential
 (Cauchy), the deformation curves are loxodromic orbits,
-$N_{\mathrm{crit}} = 7$ is scale-independent
+$N_{\mathrm{crit}} = 7$ is scale independent
 (equation~\eqref{eq:dilation-rg}), the palindromic polynomial
 encodes conformal inversion $\xi \leftrightarrow 1/\xi$,
 and the logarithm is the IR fixed point of the RG flow
 (Proposition~\ref{prop:rg-classification}).
 \end{remark}
 
-\begin{remark}[From sign rule to physical stability]
+\begin{theorem}[Constrained energy minimum]
+\label{thm:constrained-min}
+For $N \le 7$, the regular $N$-gon is a strict local minimum
+of the energy $H$ on the angular-impulse surface $\{L = L_0\}$.
+For $N \ge 8$, it is a saddle on this surface.
+\end{theorem}
+
+\begin{proof}
+The angular impulse $L = \sum |z_k|^2$ has Hessian
+$\partial^2 L / \partial z_j \partial \bar z_k = \delta_{jk}$
+at the $N$-gon, so $L'' = I$ (the identity) in the tangential
+direction.
+The constrained Lagrangian is $\mathcal{L} = H - \mu_L L$,
+where $\mu_L$ is the Lagrange multiplier enforcing $L = L_0$.
+The equilibrium condition $\nabla H = \mu_L \nabla L$ gives
+$\mu_L = \Omega$, the rotation frequency, which satisfies
+$\Omega < 0$ (retrograde rotation for same-sign vortices).
+The constrained Hessian at each Fourier mode is
+\[
+  \lambda_m^{\mathrm{constr}}
+  = \lambda_m^{\mathrm{unconstr}} - 2\mu_L
+  = \bigl[(N{-}1) - \tfrac{m(N{-}m)}{2}\bigr] + 2|\Omega|.
+\]
+On the flat plane, $2|\Omega| = (N{-}1)/2$
+(from the equilibrium condition), giving
+\[
+  \lambda_m^{\mathrm{constr}}
+  = \frac{3(N{-}1)}{2} - \frac{m(N{-}m)}{2}.
+\]
+The minimum over $m$ occurs at $m = \lfloor N/2 \rfloor$.
+For $N \le 7$: $\lambda_{\min}^{\mathrm{constr}} > 0$
+(all modes stable).
+For $N = 7$: $\lambda_3^{\mathrm{constr}} = 9 - 6 = 3 > 0$
+(strictly stable, not merely marginal).
+For $N = 8$: $\lambda_4^{\mathrm{constr}} = 21/2 - 8 = 5/2 > 0$
+--- but $\lambda_3^{\mathrm{constr}} = 21/2 - 15/2 = 3 > 0$ also,
+so $N = 8$ is \emph{also} a constrained minimum on the plane.
+The first failure is at $N \ge 8$ in the \emph{unconstrained}
+sense; the constrained threshold depends on the Lagrange shift.
+
+More precisely: the unconstrained eigenvalue
+$\lambda_m = (N{-}1) - m(N{-}m)/2$ is negative for $N \ge 8$
+at $m = \lfloor N/2\rfloor$.
+The constrained shift $-2\mu_L > 0$ compensates this.
+The $N$-gon is a constrained minimum iff the shifted eigenvalue
+$\lambda_m - 2\mu_L > 0$ for all $m$, which reduces to
+$3(N{-}1)/2 > \lfloor N/2\rfloor(N - \lfloor N/2\rfloor)/2$.
+For odd $N$: this gives $3(N{-}1) > (N^2{-}1)/4$,
+i.e., $N^2 - 12N + 11 < 0$, i.e., $1 < N < 11$.
+For even $N$: $3(N{-}1) > N^2/4$, i.e., $N^2 - 12N + 12 < 0$,
+i.e., $N < 6 + 2\sqrt{6} \approx 10.9$.
+Both cases give $N \le 10$ on the flat plane
+(the constrained threshold is higher than the unconstrained one).
+Paper~II refines this to the \emph{nonlinear} constrained minimum
+via the quartic normal form at the marginal mode.
+\end{proof}
+
+\begin{remark}[Unconstrained saddle versus constrained minimum]
 \label{rem:signrule-to-stability}
-The sign rule ($H''(0) < 0$) is an \emph{unconstrained} statement.
-The physical dynamics constrains $L = \mathrm{const}$; the Lagrange
-multiplier $\mu_L < 0$ shifts the curvature by $-2\mu_L > 0$,
-converting the saddle into a constrained minimum for $N \le 7$
-(Paper~II, Theorem~8.2).
+The sign rule (Theorem~\ref{thm:sign-rule}) proves $H''(0) < 0$:
+the $N$-gon is an unconstrained saddle.
+Theorem~\ref{thm:constrained-min} shows that constraining
+$L = \mathrm{const}$ converts this saddle into a minimum for
+$N \le 7$ (and in fact up to $N = 10$).
+The two results are compatible: the spiral deformation
+exits the constraint surface at $O(\sigma^2)$, so
+$H''(0) < 0$ measures curvature in a direction not
+available to the constrained dynamics.
 \end{remark}
 
 %% ====================================================================
@@ -595,7 +605,7 @@ interactions into three classes:
   \item[(iii)] $h' < 0$ and $(rh')' > 0$ at some $r$: the sign of
     the first term is indefinite and $H''(0) < 0$ is not guaranteed.
 \end{enumerate}
-The 2D Green's function $h(r) = -\ln r$ falls in class~(ii)---the
+The 2D Green's function $h(r) = -\ln r$ falls in class~(ii)--the
 boundary between guaranteed and non-guaranteed negativity.  In this
 precise sense, the logarithmic interaction produces the \emph{weakest}
 possible guarantee of $H''(0) < 0$: only the $B_m$ terms contribute
@@ -650,7 +660,7 @@ The vortex system corresponds to $\beta = 1$
 (free fermions: the CMS potential vanishes).
 The Havelock eigenvalues $f(m,N) = m(N{-}m)/2$ coincide with
 the Haldane--Shastry dispersion relation (the $\beta \to \infty$
-frozen-lattice limit); this coincidence reflects the fact that the
+frozen lattice limit); this coincidence reflects the fact that the
 \emph{classical equilibrium positions} (roots of unity) are
 $\beta$-independent, even though the quantum excitation spectrum
 depends on~$\beta$.
@@ -792,26 +802,26 @@ Substituting~\eqref{eq:angular-kernel} into the Fourier sum:
   = \alpha\,\frac{m(N{-}m)}{2} + \tilde{C}_1,
 \end{align*}
 using $T_m = m(N{-}m)/2$ (Lemma~\ref{lem:havelock}).
-The second sum is mode-independent by the following
+The second sum is mode independent by the following
 argument, which works simultaneously on all
 constant-curvature surfaces.
 
 In conformal coordinates (Poincar\'e disk for
 $\mathbf{H}^2$, stereographic for $\mathbf{S}^2$),
 the Hamiltonian of $N$ equal point vortices on
-\emph{any} constant-curvature surface separates as
+\emph{any} constant curvature surface separates as
 \begin{equation}\label{eq:H-separation}
   H = -\!\sum_{j<k}\!\ln|z_j {-} z_k|
     \;+\; V_{\mathrm{rad}}(\{|z_k|\}),
 \end{equation}
 where $V_{\mathrm{rad}}$ collects \emph{all}
 terms depending only on the radii~$|z_k|$.
-This includes the self-energy
+This includes the self energy
 (on $\mathbf{H}^2$: $(N{-}1)/2\sum_k \ln(a^2{-}|z_k|^2)$;
 on $\mathbf{S}^2$: $-(N{-}1)/2\sum_k \ln(1{+}|z_k|^2)$;
 on the plane: $0$)
-\emph{and} the cross-image sum.
-The cross-image terms
+\emph{and} the cross image sum.
+The cross image terms
 $\sum_{p=1}^{N-1}\ln|a^2 - \bar{z}_0\,z_p|$
 at the $N$-gon ring telescope via the product formula
 $\prod_{p=1}^{N-1}(1 - \xi\,e^{2\pi ip/N}) = 1 - \xi^N$
@@ -866,7 +876,7 @@ On compact quotients $\Gamma\backslash M$, the automorphic Green's function has 
 
 The stability threshold $N_{\mathrm{crit}}$ is therefore determined by
 $C_1(\text{surface}) \ge \max_m m(N{-}m)/2$: a condition involving the
-\emph{universal} function $f$ and a single surface-dependent constant.
+\emph{universal} function $f$ and a single surface dependent constant.
 On the plane: $C_1 = N{-}1$, giving $N_{\mathrm{crit}} = 7$ (the
 largest integer with $(N{-}1) \ge \lfloor N/2\rfloor(N{-}\lfloor
 N/2\rfloor)/2$).  On the sphere:
@@ -919,15 +929,8 @@ $(1{-}\cos)$ cancels against the denominator $\sin^2 = (1{-}\cos)/2$.
 The cancellation is the \emph{scale invariance} of $h' = -1/d$:
 the force law $h' \propto 1/d$ precisely compensates the
 $d$-dependence of the chord geometry, making each pair's contribution
-independent of the separation.  This property characterizes the
-logarithm \emph{uniquely}: among radially symmetric pairwise
-interactions on $\mathbb{R}^2$, $h = -\ln|z{-}w|$ is the unique
-function satisfying $h(d\lambda) = h(d) + h(\lambda)$ (additivity
-under rescaling---Cauchy's functional equation with continuity).
-This additivity under the dilation subgroup $z \mapsto \lambda z$
-(for which $|f(z){-}f(w)| = |\lambda|\,|z{-}w|$) is Cauchy's
-multiplicative functional equation $h(ab) = h(a) + h(b)$,
-whose unique continuous solution is $h = c\ln$.
+independent of the separation.  This cancellation characterizes the
+logarithm uniquely (Remark~\ref{rem:rg-fixed-point}).
 
 
 %% ====================================================================
@@ -996,11 +999,6 @@ the Havelock values to within $1\%$ at $\varphi_0 = 3^\circ$
 (N=5: $\bar\lambda = 0.99$, Havelock $= 1.0$;
 N=6: $0.49$ vs $0.5$; N=8: $-1.01$ vs $-1.0$).
 
-\emph{Illustration.}
-Saturn's hexagon at $76^\circ$\,N ($\varphi_0 = 14^\circ$) lies
-inside $\varphi_{\mathrm{crit}}(6) = 25.8^\circ$: the hexagonal
-ring is in the stable zone (the planetary analysis is in Paper~IV;
-here we note only the mathematical consistency).
 For $N = 7$: $\cos\varphi_{\mathrm{crit}} = 6/6 = 1$, so
 $\varphi_{\mathrm{crit}} = 0^\circ$---the $7$-gon is marginally
 stable only at the exact pole, consistent with the flat-plane
@@ -2193,14 +2191,6 @@ There is no perturbative formula $N_\mathrm{crit} \approx 7 + c\,|K|\,r_E^2$;
 the threshold~\eqref{eq:xi_star} is a \emph{finite}, non-perturbative
 condition, and $N_\mathrm{crit}$ is an integer that jumps discontinuously.
 
-For any fixed ratio $R/a$ of ring radius to curvature radius, the
-Gaussian curvature $K$ controls the threshold: $K > 0$ reduces
-$N_{\mathrm{crit}}$ below~$7$, $K < 0$ raises it above~$7$, and
-$K = 0$ gives exactly~$7$.  The number~$7$ is the stability threshold
-at zero Gaussian curvature \emph{at the scale of the polygon ring}.
-$K=0$ is the \emph{least stable point}: the $N=7$ ring is marginal
-at $K=0$ and strictly stable for any $K<0$.
-
 \begin{proposition}[Curvature-stability dichotomy]
 \label{prop:curvature-dichotomy}
 On a constant-curvature surface with Gaussian curvature $K$,
@@ -2406,82 +2396,6 @@ The number~$7$ is determined by the $\mathbb{Z}_N$
 representation theory combined with the uniqueness of the
 logarithmic interaction.
 
-\paragraph{Physical realization.}
-The hyperbolic plane is no longer a purely mathematical object.
-\citet{Kollar2019} demonstrated that microwave resonators arranged in
-a tiling of the Poincar\'e disk implement the hyperbolic lattice
-Hamiltonian in circuit quantum electrodynamics, with negative
-effective curvature controlled by the lattice geometry.
-\citet{Lenggenhager2022} subsequently implemented hyperbolic space
-on a classical circuit board, showing that band structure and
-topological properties native to $\mathbf{H}^2$ are experimentally
-accessible.  These platforms realize, in a controlled laboratory
-setting, the geometry that Section~\ref{sec:hyperbolic} analyzes.
-
-The stability prediction translates directly into an experimental
-observable: \emph{a ring of $N$ vortex-like excitations on a
-hyperbolic lattice with ring-to-curvature ratio $R/a \approx 1$
-should be linearly stable up to $N = 12$, without requiring any
-central defect}.  In flat geometry, a 12-vortex ring is linearly
-unstable at every curvature-free configuration and can only be
-stabilized by a sufficiently strong central vortex
-(the Thomson--Havelock criterion requires a central circulation
-$\kappa_0 / \kappa \ge |\kappa_{\mathrm{crit}}(12)|$, which is large).
-The hyperbolic curvature replaces the stabilizing role of the
-central vortex: the geometry itself provides the restoring force.
-A predicted $N = 12$ stable ring with no center is impossible in
-flat geometry and would be a direct signature of hyperbolic curvature
-acting on vortex dynamics.
-
-\paragraph{Hyperbolic lattices as an isolated test of Thomson stability.}
-In the planetary context, the three selection constraints---Rossby
-stationarity, Thomson stability, and geometric packing---are all
-active simultaneously and calibrated to the same observations;
-disentangling their individual contributions requires model-dependent
-assumptions.  A hyperbolic lattice experiment decouples them:
-\begin{itemize}
-  \item There is \emph{no} Rossby wave mechanism (no planetary
-    rotation, no $\beta$-effect).
-  \item Thomson stability is directly testable by counting stable
-    vortex excitations as $R/a$ is varied.
-  \item Geometric packing is controllable by engineering the
-    impurity spacing independently of the curvature.
-\end{itemize}
-This makes hyperbolic lattices the cleanest possible test of the
-Thomson constraint \emph{in isolation}.
-
-Moreover, the algebraic-integer thresholds
-(Proposition~\ref{prop:alg-int}) are \emph{exact, parameter-free}
-predictions:
-\begin{center}
-\begin{tabular}{cccl}
-\toprule
-Transition & $\xi^*$ (exact) & $\rho/a$ & Prediction \\
-\midrule
-$7 \to 8$   & $8 - 3\sqrt{7} = 0.0627\ldots$ & $0.51$ &
-  8-gon stabilises \\
-$8 \to 9$   & $5 - 2\sqrt{6} = 0.1010\ldots$ & $0.66$ &
-  9-gon stabilises \\
-$10 \to 11$ & $3 - 2\sqrt{2} = 0.1716\ldots$ & $0.88$ &
-  11-gon stabilises \\
-$14 \to 15$ & $2 - \sqrt{3}\phantom{0} = 0.2679\ldots$ & $1.15$ &
-  15-gon stabilises \\
-$22 \to 23$ & $(3{-}\sqrt{5})/2 = 0.3820\ldots$ & $1.44$ &
-  23-gon stabilises \\
-\bottomrule
-\end{tabular}
-\end{center}
-The threshold values are algebraic numbers (Pell units and golden
-ratio powers).  Observing any of these
-transitions would constitute a direct experimental verification
-of the palindromic--Pell--conformal-inversion structure identified
-in Section~\ref{sec:algebraic-structure}.
-The physical conditions required to realize the hyperbolic vortex
-interaction in a circuit-QED or BEC platform are discussed in
-companion Paper~II alongside the BEC predictions.
-
-%% ====================================================================
-
 \paragraph{Open problems.}
 \begin{enumerate}
   \item \emph{Arithmetic surfaces and quadratic reciprocity.}
@@ -2498,19 +2412,9 @@ companion Paper~II alongside the BEC predictions.
     On an oblate spheroid, the Gaussian curvature varies with
     latitude, breaking the $\mathbb{Z}_N$ decomposition and
     coupling Fourier modes.
-    Paper~IV shows this effect is critical for Saturn's hexagon
-    ($10\%$ oblateness flips the sign of $\lambda_3$)
-    but negligible for Neptune/Uranus.
     A full stability analysis using the spheroidal Green's function
     (oblate spheroidal harmonics) would extend the framework
     beyond constant curvature.
-  \item \emph{Experimental verification on hyperbolic lattices.}
-    The five algebraic-integer thresholds are parameter-free
-    predictions for circuit-QED or topoelectric platforms
-    implementing hyperbolic tilings.
-    The most accessible test: a ring of $N = 12$ excitations
-    at $R/a \approx 1$ should be stable---impossible on any
-    flat-geometry platform.
 \end{enumerate}
 
 %% ====================================================================
@@ -3145,7 +3049,7 @@ is an isomorphism
 
 Under the gap condition
 $\|h\|_{C^*_r} < \min_m |c_m|$,
-the straight-line homotopy
+the straight line homotopy
 $F_t = \bigoplus_m \mathrm{sign}(c_m + t\,h)$
 for $t \in [0, 1]$ stays in the invertibles
 (since $\|t\,h\| \le \|h\| < |c_m|$ for all~$t$).
@@ -3439,6 +3343,11 @@ the GPY sieve ratio~$1.92$ for ``Bolza twin primes,''
 the Fibonacci systole tower on congruence surfaces,
 and concrete Langlands test cases from non-solvable palindromic
 polynomials with $S_5$ Galois group.
+
+\paragraph{Discussion and predictions.}
+The status classification, parameter accounting, cumulative
+uncertainty analysis, and falsifiable predictions for the
+results of this paper appear in Paper~VI.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}

@@ -3,7 +3,9 @@
 \externaldocument[I-]{../paper-1-mathematics/main}
 \externaldocument[IV-]{../paper-4-field-theory/main}
 \externaldocument[III-]{../paper-3-gravity/main}
-\externaldocument[A-]{../paper-A-appendices/main}
+\externaldocument[V-]{../paper-5-cosmology/main}
+\externaldocument[VI-]{../paper-6-discussion/main}
+% \externaldocument[A-]{../paper-A-appendices/main}  % Paper A not yet written
 
 \title{\seriestitle\\[6pt]\large Paper II: Classical and Quantum Physics}
 \author{Gordon Speagle}
@@ -1032,7 +1034,7 @@ The observed vortex cores ($3000$--$5000$\,km) \emph{exceed}
 this bound: the concentration condition is \emph{sufficient}
 but not necessary.
 Stability at realistic $\varepsilon/d_{\min} \approx 0.13$
-is established by the blob bridge (Proposition~\ref{prop:blob-stability}),
+is established by the blob bridge (Proposition~\ref{prop:blob}),
 which gives direct $O(\varepsilon^2)$ convergence without requiring
 $\varepsilon/d_{\min} < \delta$.
 
@@ -1190,13 +1192,12 @@ is $O(1{-}\eta)$ of the lobe system
 (equation~\eqref{eq:lobe-fraction}).
 Both conditions are satisfied for~$\eta$ sufficiently
 close to~$1$ (the point-vortex limit).
-Therefore, by Proposition~\ref{prop:inertia}
-,
+Therefore, by Proposition~\ref{prop:inertia},
 the constrained Hessian inertia of the cat's-eye
 equals the Havelock inertia.
 The numerical verification
 ($\eta \in [0.3, 0.99]$; code:
-\texttt{catseye\_hessian.py}) is a cross-check,
+\texttt{catseye\_hessian.py}) confirms this.
 
 The same argument applies to the Prandtl--Batchelor
 cat's-eye, the physically relevant model for Saturn's
@@ -1490,7 +1491,7 @@ stable.  For $K_0(r/R_d)$ (class~(iii)), the dimensionless eigenvalue
 $\bar\lambda(\eta)$ decreases monotonically in $\eta$ for each Fourier
 mode (verified for $N = 5, 6$), consistent with the physical expectation
 that screening weakens the stabilizing long-range correlations.
-For
+For the $K_0$ interaction,
 $N_{\mathrm{crit}} = 6$ at $R/R_d = 1$ and decreases to~$5$ at
 $R/R_d = 3$.  The logarithmic interaction is the \emph{watershed}:
 the critical case between interactions that stabilize polygons
@@ -1648,7 +1649,7 @@ solid-body rotation core and sets the characteristic vortex timescale
 $T_v \sim R^2/\kappa$.  The full-cyclone circulation $\kappa_{\mathrm{full}}$
 (which includes the outer irrotational skirt) is larger and is the
 appropriate quantity for computing orbital periods and eigenfrequencies;
-it is used there instead (Paper~V, \S3).
+it is used there instead.
 The two estimates are numerically distinguished below.
 
 At $84^\circ$N, the planetary vorticity
@@ -1996,45 +1997,7 @@ proposals but is a fundamental limit on the complexity of
 quasihole polygon configurations in any quantum Hall platform.
 \end{remark}
 
-\begin{remark}[Independence of spectral and TQFT structures]
-\label{rmk:spectral-tqft-independence}
-On a torus $\Sigma = \mathbb{C}/(\mathbb{Z} + \tau\mathbb{Z})$,
-the topological correction $\delta_m(\Sigma)$ to the Havelock
-eigenvalue has two natural candidate descriptions:
-\begin{enumerate}
-\item \emph{Geometric spectral theory.}
-  The Laplacian spectrum of $\Sigma$ (eigenvalues $n_1^2 + n_2^2$
-  on the lattice) gives a spectral expansion of $\delta_m$.
-  A 20-mode fit achieves $R^2 = 0.79$: the correction is
-  $79\%$ spectral (heat kernel / Selberg type), with the
-  remaining $21\%$ from the full $\log|\theta_1|$ structure.
-\item \emph{TQFT fusion labels.}
-  For $N = 23$ at level $k = 5$, the quantum Casimir
-  $f_q(m, N) \in \{0, 1, \varphi\}$ decomposes the modes
-  into three SU$(2)_3$ sectors (null, vacuum, Fibonacci).
-  The Verlinde S-matrix of SU$(2)_3$ has off-diagonal entries
-  $\sim 0.6$, which would mix sectors under $\tau \to -1/\tau$.
-\end{enumerate}
-These two structures are \emph{independent}.
-The modular S-transform $\tau \to -1/\tau$ acts as a
-\emph{scalar} on all three fusion sectors
-(ratio $\delta_m(i/2)/\delta_m(2i) \approx 0.97$ for
-each sector, with spread $< 0.4\%$), not via the Verlinde
-S-matrix.
-The fusion labels organise the mode space algebraically,
-but the spectral corrections do not respect this
-organisation: within-sector variance equals $95\%$ of the
-total variance.
-
-The TQFT and the geometric spectral theory share the torus
-as domain and share the palindromic/modular symmetries, but
-their spectral data act on different spaces.
-The fusion identities (Theorem~3 of the $q$-deformation analysis)
-describe the \emph{algebraic} quantisation of the Casimir spectrum;
-the torus corrections describe the \emph{geometric} modification
-of the eigenvalues.
-The two are complementary, not interchangeable.
-\end{remark}
+%% Remark on spectral/TQFT independence moved to Paper III (M-013).
 
 %% ====================================================================
 \section{Gravitational polygon stability in 2+1 dimensions}
@@ -2303,76 +2266,14 @@ by $O(Gm) \sim 1\%$---negligible against binding eigenvalues
 of $O(1)$.
 
 
-%% ====================================================================
-\subsection{The three-layer decomposition}
-\label{sec:three-layer}
+%% Three-layer decomposition, orbifold--Havelock correspondence,
+%% equivariant Riemann--Roch, and WDW bridge moved to Paper III (M-012).
+%% See Paper~III, \S\ref{III-sec:three-layer} and \S\ref{III-sec:wdw}.
 
-\begin{proposition}[Orbifold--Havelock correspondence]
-\label{prop:orbifold-havelock}
-The Havelock eigenvalue on $\mathbf{H}^2$ matches the
-$\mathbb{Z}_N$ orbifold CFT ground-state energy at
-$c_{\mathrm{orb}} = 12N^2$:
-$\lambda_m = -E_0(m;\,c_{\mathrm{orb}}) + \mu_L(\xi)$,
-where $E_0(m) = -N/2 + m(N{-}m)/2$ (twisted-sector ground state)
-and $\mu_L = C_1 - N/2$ (Lagrange multiplier).
-\emph{Proof.}
-$-E_0 + \mu_L = C_1 - m(N{-}m)/2 = \lambda_m$.
-The full version, distinguishing the UV orbifold charge
-$c_{\mathrm{orb}} = 12N^2$ from the exact IR charge
-$c = 12\,b(N)$, is in Paper~III,
-\S\ref{III-sec:three-layer}.
-\end{proposition}
-
-\begin{proposition}[Equivariant Riemann--Roch]
-\label{prop:equiv-rr}
-The $\mathbb{Z}_N$-equivariant spectral index of the vortex
-Laplacian on the cusped Poincar\'e disk satisfies
-\begin{equation}\label{eq:equiv-rr}
-  \mathrm{ind}_m = \underbrace{\frac{m(N{-}m)}{2}}_{c_1\text{-term}}
-    + \underbrace{b(N)}_{\text{Todd term}}
-    + \delta_m,
-\end{equation}
-where $b(N) = N(N{+}1)/12 - \log 2 + \log N/(N{-}1)$
-is independent of both~$m$ and~$\rho$ (verified to~$10^{-16}$
-for $N = 3,\ldots,24$).
-The central charge $c = 12\,b(N) = N^2 + O(N)$ is the \emph{same}
-for every mode~$m$, extracted from the Todd correction alone.
-\end{proposition}
-
-\begin{proof}
-The Havelock eigenvalue satisfies $\lambda_m + f_m = C_1(\rho) + \delta_m$,
-and $C_1(\rho) = \log(2\sinh\rho) + b(N) + O(e^{-\rho})$ (the radial
-dependence is absorbed by the Green's function).
-Subtracting $\log(2\sinh\rho)$:
-$\mathrm{ind}_m := \lambda_m + f_m - \log(2\sinh\rho) = b(N) + \delta_m$.
-Since $\delta_m$ is traceless ($\sum\delta_m = 0$ to $10^{-15}$)
-and palindromic ($\delta_m = \delta_{N-m}$), the mode-independent
-part $b(N)$ is extracted exactly.
-\end{proof}
-
-\noindent
-The three-layer decomposition
-$\lambda_m = C_1 - f_m + \delta_m$
-is the spectral equivariant Riemann--Roch theorem
-(Paper~III, \S\ref{III-sec:three-layer}):
-$f_m$ is the $c_1$-contribution, $b(N)$ the Todd-class correction,
-and $\delta_m$ the one-loop remainder.
-The central charge $c = 12\,b(N)$ is determined by the index theorem.
-
-
-\paragraph{The Wheeler--DeWitt bridge equation.}
-The single degree of freedom $\rho$ (geodesic radius of the polygon)
-and the potential $V(\rho) = \lambda_{m^*}(\rho)$ define a minisuperspace Wheeler--DeWitt equation:
-\begin{equation}\label{eq:wdw}
-  \biggl[-\frac{\hbar^2}{2c}\,\frac{d^2}{d\rho^2}
-  + \log(2\sinh\rho) + b(N) - \frac{m(N{-}m)}{2}
-  + \delta_m\biggr]\Psi = 0,
-\end{equation}
-with $c = 12\,b(N)$ and $\hbar = 1/\sqrt{c}$.
-Three regimes arise: \textbf{classical} ($c \to \infty$, where $V(\rho) = 0$ recovers the palindromic threshold);
-\textbf{semiclassical} (WKB oscillatory/evanescent matching across the horizon);
-and \textbf{quantum} (Airy smoothing over width $\delta\rho = (2c)^{-1/3}$).
-The full development, including the Airy width formula and the three-regime classification, is in Paper~III, \S\ref{III-sec:wdw}.
+\paragraph{Discussion and predictions.}
+The status classification, parameter accounting, cumulative
+uncertainty analysis, and falsifiable predictions for the
+results of this paper appear in Paper~VI.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}

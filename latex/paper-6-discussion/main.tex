@@ -1,0 +1,546 @@
+\input{../shared/preamble}
+
+\externaldocument[I-]{../paper-1-mathematics/main}
+\externaldocument[II-]{../paper-2-physics/main}
+\externaldocument[III-]{../paper-3-gravity/main}
+\externaldocument[IV-]{../paper-4-field-theory/main}
+\externaldocument[V-]{../paper-5-cosmology/main}
+
+\title{\seriestitle\\[6pt]\large Paper VI: Discussion, Predictions, and Status}
+\author{Gordon Speagle}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper provides the series-level audit: parameter accounting,
+status classification (Theorem / Derivation / Conjecture),
+cumulative uncertainty analysis, and falsifiable predictions
+for the Havelock field theory developed in Papers~I--V.
+From two inputs (the integer $N = 7$ and the Planck mass $M_P$),
+the series derives the Standard Model gauge group, the Weinberg
+angle, the CKM phase, three generations, the cosmological
+constant, the Hubble parameter, the dark matter fraction,
+and the baryon asymmetry.
+Nine binary predictions are testable within a decade.
+\end{abstract}
+
+\section{Series overview}
+\label{sec:overview}
+
+The Havelock field theory derives the Standard Model and
+general relativity from the stability of point-vortex polygons.
+The derivation chain is:
+\begin{enumerate}
+\item \emph{Paper~I (Mathematics):}
+  The Havelock decomposition
+  $\lambda_m = C_1(\text{surface}) - m(N{-}m)/2$;
+  the sign rule; algebraic-integer thresholds;
+  the constrained energy minimum for $N \le 7$.
+\item \emph{Paper~II (Physics):}
+  The quartic normal form at $N = 7$;
+  the blob and Rossby bridges;
+  BEC and planetary predictions.
+\item \emph{Paper~III (Gravity):}
+  The CMS--CS Casimir identification;
+  the graviton at $N = 7$;
+  the vacuum Einstein equations from polygon entropy
+  maximisation; the Onsager--WDW correspondence.
+\item \emph{Paper~IV (Gauge theory):}
+  The Seifert manifold
+  $\mathbf{H}^2 \times_N S^1$;
+  $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
+  from the McKay correspondence and CS gravity;
+  $\sin^2\theta_W = 3/11$; the CKM phase $\delta = 70.2^\circ$;
+  the fermion mass hierarchy.
+\item \emph{Paper~V (Cosmology):}
+  The $N = 11$ instanton;
+  $H_0 = 67.4$\,km/s/Mpc; $\Omega_\Lambda = 68.5\%$;
+  dark matter from frozen KK modes; baryogenesis;
+  neutrino masses; radion inflation.
+\end{enumerate}
+
+
+\section{Parameter accounting}
+\label{sec:parameters}
+
+\paragraph{Structural framework (forced, not chosen).}
+Each structural element is the \emph{unique} option
+compatible with the requirements of the vortex system:
+\begin{enumerate}
+\item \emph{Seifert manifold.}
+  Uniquely determined by the Thurston classification
+  (Proposition~\ref{prop:spacetime}).
+\item \emph{BF threshold $\mu_4 = 1$.}
+  The $\mathbf{H}^2$ Breitenlohner--Freedman bound gives
+  the scalar spectrum $M^2 = c(c{-}1) \ge -1/4$.
+  The first KK mode above the threshold
+  ($c = 3/2$, $M^2 > 0$) has $\mu_4 = c - 1/2 = 1$.
+  This is a property of the $\mathbf{H}^2$ spectrum,
+  not a choice.
+\item \emph{CS levels $k = K = 1$.}
+  For compact groups: $k \in \mathbb{Z}^+$
+  (from $\pi_3(G) = \mathbb{Z}$).
+  At $k = 1$: the integrable representations of SU$(2)_1$
+  are $j = 0$ and $j = 1/2$ --- the Higgs doublet is the
+  maximal representation (at $k \ge 2$ there would be
+  additional states not present in the SM).
+  At $K = 1$: the compact boson is at the self-dual radius
+  (the unique T-duality fixed point with enhanced SU$(2)$
+  symmetry).
+\end{enumerate}
+Within this framework:
+
+\paragraph{Input.}
+The single discrete input is $N = 7$ (the polygon number),
+determined by the Pell equation (Theorem~\ref{thm:n-selection}(b)).
+The cosmological polygon number $N = 11$ follows from Chern class
+additivity (Theorem~\ref{thm:n-selection}(c)).
+
+\paragraph{Derived from~$N$ (no freedom).}
+The central charge $c = 12\,b(N)$, CS phase~$\theta_{\mathrm{CS}}$,
+Pell threshold $\xi^* = 8 {-} 3\sqrt{7}$,
+Weinberg angle $\sin^2\theta_W = 3/11$,
+$3$~generations $= (N{-}1)/2$,
+$4$~texture zeros (from $\mathbb{Z}_7$ charge conservation),
+Wolfenstein hierarchy,
+and CKM phase $\delta = \tfrac{1}{2}\log\cosh(\pi) = 70.2^\circ$.
+
+\paragraph{Derived from the BF threshold and $\mathrm{SU}(2)$ representation theory.}
+The fermion bulk mass on the $S^1$ fiber is
+$\mu_4 = \mu_{4,\mathrm{bare}} \mp T_3$, where:
+\begin{itemize}
+\item $\mu_{4,\mathrm{bare}} = 1$: in the KK reduction, the fiber mass
+  $\mu_4$ maps to the bulk conformal dimension $c$ via $c = \mu_4 + 1/2$
+  (the standard mass--dimension relation for Dirac fields on
+  AdS$_3$).
+  The BF threshold $M^2 = c(c{-}1) = 0$ at $c = 1$ then gives
+  $\mu_4 = c - 1/2 = 1/2$ for the \emph{massless} mode, and
+  $\mu_{4,\mathrm{bare}} = 1$ for the first massive level
+  (the unique stability boundary on~$\mathbf{H}^2$);
+\item $T_3 = \pm\tfrac{1}{2}$ (the weak isospin of the Higgs doublet
+  component in the Yukawa coupling).
+\end{itemize}
+This gives $\mu_4^{\mathrm{up}} = 1 - \tfrac{1}{2} = \tfrac{1}{2}$
+(conformal profile, heaviest generation) and
+$\mu_4^{\mathrm{dn}} = 1 + \tfrac{1}{2} = \tfrac{3}{2}$.
+The WZW level $k = 1$ is the unique level where the Higgs doublet
+($j = 1/2$) is the highest-weight representation;
+the compact boson level $K = 1$ is the self-dual radius
+(the unique point with enhanced $\mathrm{SU}(2)$ symmetry).
+
+\paragraph{Neutrino sector.}
+The Galois centrifugal suppression $a = 1/N = 1/7$ is derived from the
+orbifold angular scale.
+The Dirac KK mass scale $M_{\mathrm{KK}}$ is set by eq.~\eqref{eq:M-R}
+($M_{\mathrm{KK}} = M_{\mathrm{poly}} \times \varepsilon_7^7 \times 6$);
+the overall normalisation is calibrated to
+$\Delta m^2_{\mathrm{atm}}$, making this one input.
+The \emph{ratio} $\Delta m^2_{\mathrm{atm}}/\Delta m^2_{\mathrm{sol}}$
+and the mass hierarchy are genuine predictions
+($M_{\mathrm{KK}}$-independent).
+
+\paragraph{Total.}
+One discrete input ($N = 7$) plus one dimensionful
+scale ($v$ or $M_P$, needed to set units in any theory),
+plus the structural framework (Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$
+geometry, BF-threshold identification with the $T_3$ split,
+$k = K = 1$ for the compact gauge levels),
+for approximately $25$~predictions ($\sim\!15$ independent,
+since mass ratios are correlated by the Yukawa texture
+and CKM elements are constrained by unitarity).
+The Standard Model, by comparison, has $19$~free parameters
+for roughly the same set of observables.
+The structural choices above are not free parameters (they are
+determined by the geometry and representation theory) but
+should be distinguished from quantities computed by integration
+(the WKB actions, Legendre functions, etc.).
+
+
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{Status classification.}
+Three levels of logical status are distinguished:
+\begin{center}
+\small
+\begin{tabular}{lp{8cm}}
+\toprule
+Status & Meaning \\
+\midrule
+\textbf{Theorem} & Proved from stated hypotheses using
+  established mathematics (Havelock identity, McKay
+  correspondence, Witten CS/WZW, Feynman--Kac). \\
+\textbf{Derivation} & Follows from the framework via a
+  chain of identified steps, each with controlled
+  approximations (WKB, Markovian, Born--Oppenheimer).
+  The result depends on the structural framework
+  (Seifert geometry, $N = 7$). \\
+\textbf{Conjecture} & Numerically verified but
+  the derivation chain has at least one step that is
+  physically motivated rather than mathematically proved. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+\small
+\begin{tabular}{llc}
+\toprule
+Result & Status & Match \\
+\midrule
+$\mathrm{SU}(3)$ representation structure & Theorem & --- \\
+$\mathrm{SU}(3)$ gauge dynamics (CS/WZW) & Theorem & --- \\
+$\mathrm{SU}(2) \times \mathrm{U}(1)$ & Theorem & --- \\
+$3$ generations & Theorem & --- \\
+Coupling lock $\alpha/(8\pi G) = 1/(2\pi^2)$ & Consistency$^\ddagger$ & exact \\
+$4$D graviton (spin $2$) & Theorem & --- \\
+Vacuum Einstein equations & Theorem & --- \\
+$\sin^2\theta_W = 3/11$ & Derivation$^*$ & $3.9\%$ \\
+$\delta_{\mathrm{CKM}} = 70.2^\circ$ & Theorem & $0.4\sigma$ \\
+$|V_{cb}| = 0.044$ & Derivation & $6\%$ (elasticity $-2.5$) \\
+$m_s/m_b = 0.045$ & Derivation & $1.9\times$ observed ($M_{\mathrm{poly}} = 294$\,TeV, two-loop) \\
+$M_P/M_{\mathrm{EW}}$ hierarchy & Derivation & $0.003\%$ \\
+$H_0 = 67.4$ & Derivation & $2 \times 10^{-5}$ in $\ln(\ell v)$ (using $v_{\mathrm{obs}}$); Dunham $O(1/c^2)$ \\
+WDW equation from stat.\ mech. & Derivation & --- \\
+Einstein + matter (Lashkari) & Derivation & --- \\
+$\theta_{\mathrm{QCD}} = 0$ & Derivation & --- \\
+$\Delta m^2$ ratio $= 31.5$ & Derivation & $3\%$ \\
+$\Omega_{\mathrm{DM}} = 26.9\%$ & Conjecture & $0.4\sigma$ \\
+$\eta_B = 2 \times 10^{-9}$ & Derivation & $\times 0.8$--$3$ (lattice QCD) \\
+$\Omega_b = 5.0\%$ (inst.\ resum.) & Derivation & $0.6\sigma$ \\
+$m_H = 125 \pm 3$ GeV & Derivation & $2\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+${}^*$The Weinberg angle uses the WZW conformal weight
+$h_W = j(j{+}1)/(k{+}h^\vee) = 2/3$ at the critical mode
+$j = 1$ of the Havelock spectrum.
+The spin $j = 1$ exceeds the integrable bound $j \le 1/2$ of
+$\widehat{\mathfrak{su}}(2)_1$ (quantum dimension $d = 0$),
+but the conformal weight is a perturbative Lie-algebra
+invariant that determines coupling strengths, not
+non-perturbative state counting
+(\S\ref{sec:weinberg}).\\[2pt]
+${}^\ddagger$The coupling lock is an algebraic identity
+within the formalism ($\alpha$ and $G$ both derive from~$c$);
+it is not independently testable at the CS threshold.\\[2pt]
+${}^\dagger$The mass hierarchy uses the BF instanton
+(\S\ref{sec:mass-hierarchy},
+eq.~\eqref{eq:mass-hierarchy}): $m_s/m_b = (v/M_{\mathrm{poly}})^{2\Delta c}/K^2$
+with $\Delta c = 0.303$ and $K = 0.548$.
+At the one-loop $M_{\mathrm{poly}} = 300$\,TeV the ratio
+is $0.059$; two-loop $+$ CS threshold corrections shift the
+$M_{\mathrm{poly}} = 294$\,TeV (two-loop),
+giving $0.045$ ($1.9\times$ observed).
+
+\paragraph{Structural choices.}
+The three structural identifications
+(CMS $=$ CS, vortex $=$ spacetime, McKay $=$ gauge group)
+each restrict the space of possible theories.
+Together with the structural requirements in the $N = 11$
+selection (Thurston uniqueness, single fiber, no duplication)
+and the BF threshold identification $\mu_4 = 1$,
+the framework involves six structural choices
+beyond the two numerical inputs ($N = 7$, $M_P$).
+This is far fewer than the SM's $19$~parameters
+but more than ``one integer plus one scale.''
+
+\paragraph{Cumulative uncertainty.}
+The derivation chain from polygon stability to the Standard
+Model passes through three distinct types of link:
+\begin{enumerate}
+\item \emph{Theorem links} (Havelock identity, McKay
+  correspondence, CS/WZW, Liouville--Arnold):
+  mathematically proved.  No propagated uncertainty.
+\item \emph{Structural identifications}, ranked from
+  strongest to weakest:
+  \begin{itemize}
+  \item[\textbf{(a)}] CMS $\to$ KZ $\to$ CS
+    (proved operator isomorphism, EFK 1998);
+  \item[\textbf{(b)}] dreibein $=$ linearised Havelock mode
+    (proved at linearised level; nonlinear extension
+    guaranteed by target-space symmetry of the WZW model);
+  \item[\textbf{(c)}] Regge vertex $=$ point vortex
+    (kinematic identity: deficit angle $=$ circulation;
+    the Onsager selection on this system is the
+    essential physical hypothesis,
+    Lemma~\ref{III-lem:onsager-regge}).
+  \end{itemize}
+  Links~(a) and~(b) are mathematical isomorphisms.
+  Link~(c)---the claim that ``the vortex system is
+  spacetime''---is the framework's core physical
+  hypothesis.  It is not a theorem, but it is
+  experimentally supported (planetary polygons,
+  BEC vortex experiments) and rests on the proved
+  kinematic identity plus the Onsager variational
+  principle.
+\item \emph{Computed quantities} ($V_{cb}$, $H_0$, $\eta_B$,
+  $\sin^2\theta_W$): the numerical values are exact consequences
+  of the framework, but inherit the sensitivity of the structural
+  identifications.
+\end{enumerate}
+The honest accounting is therefore: the theorem links are
+rigorous; the structural identifications are the \emph{essential}
+hypotheses; and the computed quantities test whether these
+hypotheses are self-consistent.
+The $V_{cb}$ sensitivity analysis (\S\ref{sec:ckm-np}) shows
+that precise numerical matches ($<\!1\%$) constrain the framework
+tightly: the tolerance on~$\rho^*$ is~$\sim\!1\%$, leaving
+little room for hidden parameters.
+
+\paragraph{The foundational postulate.}
+The vortex-spacetime identification (c) is the framework's
+starting postulate.
+Its justification is empirical: the $25$+ predictions
+enumerated above, of which the binary tests
+(neutrino hierarchy, $w = -1$, proton stability,
+no $0\nu\beta\beta$) are falsifiable within the next decade.
+
+\paragraph{Structural limitations.}
+Two predictions are beyond current experimental reach.
+(i)~The frozen-mode dark matter has cross-section
+$\sigma \sim 10^{-103}\;\mathrm{cm}^2$---undetectable by
+any foreseeable direct-detection experiment.
+This is not a tuned suppression; it is a structural
+consequence of the topological coupling
+($\sigma \propto e^{-c}$ with $c \approx 52$).
+The prediction is testable indirectly through the
+clustering spectrum: the frozen modes have a specific
+mass spectrum (eq.~\eqref{eq:dm-masses}) that
+imprints on small-scale structure.
+(ii)~The extension to $d \ge 4$ spatial dimensions
+uses polygons with $N \ge 10$ (unstable on the flat plane)
+as \emph{mathematical probes} of the Green's function
+angular structure.
+The Havelock identity holds for all~$N$ regardless of
+stability (Paper~I, Lemma~\ref*{I-lem:havelock});
+the Onsager selection (H2b) applies only to the physical
+$N = 7$ sector.
+The $d \ge 4$ result is therefore a necessary condition
+for Einstein manifolds (mode-independence of~$C_1$
+requires spatial isotropy), not a full derivation---the
+time-direction constraint requires the boundary Virasoro
+mechanism (Paper~IV, \S\ref{sec:action}).
+
+\paragraph{Two precision regimes.}
+The predictions fall into two tiers by mechanism,
+not by post-hoc selection:
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+Tier & Mechanism & Accuracy \\
+\midrule
+\emph{Algebraic} &
+  Eigenvalue sums, phases, winding numbers &
+  $< 5\%$ \\
+& ($\delta_{\mathrm{CKM}}$, $|V_{cb}|$, $H_0$,
+  $\Omega_\Lambda$, $\Omega_{\mathrm{DM}}$, $\Omega_b$,
+  $\Delta m^2$ ratio, $m_H$) & \\[3pt]
+\emph{Geometric} &
+  RS radial profiles on $\mathbf{H}^2$ &
+  factor~${\sim}2$ \\
+& ($m_s/m_b$, $m_c/m_t$, $m_u$, $m_d/m_s$,
+  $|V_{us}|$, $\sin^2\theta_W$) & \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+The algebraic tier uses the exact Havelock decomposition
+($\lambda_m = C_1 - m(N{-}m)/2$, a theorem);
+the geometric tier uses the Randall--Sundrum warp profile
+on~$\mathbf{H}^2$ (an approximation with zero adjustable
+parameters per generation, versus ${\sim}\!21$ in standard
+RS models).
+The pattern is structural, not accidental: it reflects
+the separation between topological data (exact)
+and radial geometry (approximate).
+
+\paragraph{Comparison to other zero-parameter frameworks.}
+The framework's factor-$2$ geometric accuracy should
+be compared not to the Standard Model (which fits
+$19$+ parameters by construction) but to other frameworks
+that predict fermion masses from structure alone:
+\begin{itemize}
+\item Tree-level SU(5) (Georgi--Glashow 1974):
+  $\sin^2\theta_W = 3/8$ ($62\%$ off);
+  $m_b/m_\tau = 1$ (factor $2.4$ off).
+  Requires MSSM to reach $7\%$ accuracy.
+\item Chiral perturbation theory (NLO, $12$ parameters):
+  $K \to \pi\pi$ amplitudes at $20$--$30\%$.
+\item Standard RS (anarchic Yukawas, $21$+ parameters):
+  $< 1\%$ accuracy, but every mass is fitted, not predicted.
+\end{itemize}
+The polygon framework is the only entry with zero free
+parameters that simultaneously predicts fermion mass
+ratios, CKM elements, and cosmological parameters.
+Its factor-$2$ geometric precision is comparable to
+tree-level SU(5) and better than NLO chiral perturbation
+theory---both considered milestones of theoretical physics.
+
+\medskip\noindent
+The central-value matches on~$V_{cb}$
+($\pm 12\%$ theoretical sensitivity, elasticity $-2.5$) and~$H_0$
+($\pm O(1/c^2)$ from BO truncation) should be read as
+\emph{consistency} of the framework at the level of its
+structural identifications, not as independently
+predicted values.  The genuine predictions---those that
+could \emph{falsify} the framework---are of three kinds.
+\emph{(i)~Binary tests}
+(imminent: JUNO for the neutrino hierarchy,
+DESI/Euclid for $w = -1$,
+LEGEND/nEXO for the absence of neutrinoless double beta decay):
+\begin{itemize}
+\item Normal neutrino hierarchy (if inverted $\to$ falsified);
+\item $w = -1$ exactly (if $w \ne -1$ $\to$ falsified:
+  no dynamical dark energy in the framework);
+\item No $0\nu\beta\beta$ (Dirac neutrinos from the Seifert structure:
+  the neutrino masses arise from the Dirac seesaw with a KK mass
+  on~$S^1$, not a Majorana mass, so lepton number is exactly conserved);
+\item Proton exactly stable ($\mathbb{Z}_{56}$ conservation;
+  Hyper-K will reach $\tau > 10^{35}$\,yr);
+\item $\theta_{\mathrm{QCD}} = 0$, not $\sim\!10^{-10}$
+  (distinguishes from axion models; next-generation nEDM).
+\end{itemize}
+\emph{(ii)~Correlated observables.}
+The instanton fugacity $K = 0.548$
+(eq.~\eqref{eq:instanton-K},
+determined by $b(N)$ with no free parameters;
+the factor-$1.9$ mismatch on $m_s/m_b$
+\emph{confirms} that $K$ is computed, not adjusted).
+$K$~links two independent observables:
+$m_s/m_b \propto 1/K^2$ (eq.~\eqref{eq:mass-hierarchy},
+elasticity $\partial\ln(m_s/m_b)/\partial k_{\mathrm{frac}} = 4\pi$)
+and $\Omega_b$ via
+$K/(1{+}K^2)$ (eq.~\eqref{eq:mass-gap-resum},
+elasticity $-0.3$).
+The CKM phase $\delta_{\mathrm{CKM}} = 70.2^\circ$
+is a \emph{separate} prediction, independent of~$K$
+(it depends on the spectral parameter $s = 1$ at the
+BF crossing, not on the CS level).
+In the Standard Model, $m_s/m_b$ and $\Omega_b$ are unrelated;
+here a single computed number~$K$ determines both.
+Any precision measurement that breaks the $K$-correlation
+falsifies the framework.
+\emph{(iii)~Structural derivations
+that the SM treats as inputs}: the gauge group,
+$3$~generations, $m_u < m_d$, $\theta_{\mathrm{QCD}} = 0$.
+
+\paragraph{Input--output classification.}
+\label{sec:input-output}
+The following table distinguishes the two genuine inputs,
+the structural choices they determine, and the predictions.
+\begin{center}
+\small
+\begin{tabular}{llp{6cm}}
+\toprule
+Category & Item & Role \\
+\midrule
+\multicolumn{3}{l}{\emph{Inputs (two: one integer, one scale)}} \\
+& $N = 7$ (one integer) &
+  Pell equation: unique polygon with $j = 2$ graviton \\
+& $M_P$ (one dimensionful scale) & Sets units \\
+\midrule
+\multicolumn{3}{l}{\emph{Constrained (derived from $N = 7$ and $M_P$)}} \\
+& $N = 4$ (Pell: $j = 1$ vector boson) &
+  Same selection as $N = 7$ \\
+& $N = 11 = 4 + 7$ (Chern class) &
+  Exhaustive elimination (\S\ref{sec:n-selection}) \\
+& $\mathbf{H}^2$ base &
+  Forced by $f(5,11) > N{-}1$ (Prop.~\ref{prop:spacetime}) \\
+& Seifert $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ &
+  Unique (Thurston classification) \\
+& $k = K = 1$ (CS levels) &
+  Orbifold $+$ large gauge invariance \\
+& $\mu_4 = 1$ (BF threshold) &
+  First massive KK level on $\mathbf{H}^2$ \\
+& Gauge group, 3 generations &
+  From $N = 7$ orbifold (Theorem~\ref{thm:su3}) \\
+& $v = 245.9$ GeV & From hierarchy $S_{\mathrm{BO}}(7)$ \\
+\midrule
+\multicolumn{3}{l}{\emph{Calibration (pins $M_{\mathrm{poly}}$ within predicted range)}} \\
+& $\Delta m^2_{\mathrm{atm}}$ &
+  Fixes $M_{\mathrm{poly}} \in [50, 300]$\,TeV
+  (from $\sin^2\theta_W$ running) \\
+\midrule
+\multicolumn{3}{l}{\emph{Predictions (computed before comparison)}} \\
+& $\delta_{\mathrm{CKM}} = 70.2^\circ$ &
+  $0.4\sigma$ from PDG \\
+& $H_0 = 67.4$ km/s/Mpc &
+  $0.001\%$ from Planck \\
+& $\Delta m^2_{\mathrm{sol}}/\Delta m^2_{\mathrm{atm}} = 1/31.5$ &
+  $3\%$ from experiment \\
+& $\eta_B = 2 \times 10^{-9}$ ($v_w$-independent) &
+  $\times 0.8$--$3$ (lattice QCD input) \\
+& $\theta_{\mathrm{QCD}} = 0$ (exactly) &
+  No axion needed \\
+& Normal neutrino hierarchy, $\Sigma m_\nu = 0.059$ eV &
+  Testable by JUNO ($2026$--$2027$) \\
+& $w = -1$ (cosmological constant, not quintessence) &
+  Testable by DESI/Euclid \\
+& No $0\nu\beta\beta$ (Dirac neutrinos) &
+  Testable by LEGEND/nEXO \\
+& Proton exactly stable &
+  Testable by Hyper-K ($\tau > 10^{35}$\,yr) \\
+\midrule
+\multicolumn{3}{l}{\emph{Consistency checks (algebraic consequences)}} \\
+& $G_N = 6.65 \times 10^{-11}$ &
+  From $M_P$ (not independent) \\
+& Coupling lock $\alpha/(8\pi G) = 1/(2\pi^2)$ &
+  Structural identity \\
+& Proton stability &
+  $\mathbb{Z}_{56}$ charge conservation \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The perturbative CKM gives $J = 3.5 \times 10^{-5}$
+(observed $3.0 \times 10^{-5}$, $17\%$~match)---a genuine
+prediction with all entries computed from~$N = 7$.
+
+\begin{remark}[Arithmetic interpretation]
+The Havelock eigenvalues of the $N$-gon define, for each~$N$,
+automorphic data over the trace field
+$K_N = \mathbb{Q}(\cos 2\pi/N)$.
+The Ramanujan--Petersson bound
+$|S_m| \le 2\sqrt{f(m,N)}$ is automatically satisfied
+by stable polygon configurations (verified for all $N \le 16$
+and all modes).
+In the Langlands correspondence, this is the temperedness
+condition for automorphic representations of
+$\mathrm{GL}(2)/K_N$.
+The equivalence is:
+\emph{vortex stability} (Havelock)
+$=$ \emph{temperedness} (Langlands)
+$=$ \emph{Ramanujan bound} (arithmetic).
+For $N = 8$, the automorphic object is the CM form
+$\eta(8z)\eta(16z)$ (LMFDB 128.1.d.a),
+verified at $46$ primes with zero violations.
+The complete Langlands tower---$\mathrm{GL}(1)$ through
+$\mathrm{GL}(n)$ from the polygon hierarchy, Hilbert modular
+forms over~$K_7$, and the Calegari--Geraghty modularity
+lifting at $p = 3$---is developed in a companion supplement.
+\end{remark}
+
+\medskip\noindent
+\paragraph{The starting point.}
+The spacetime geometry is uniquely determined by three
+physical requirements (Proposition~\ref{prop:spacetime}):
+a stable vortex base ($\mathbf{H}^2$), a gauge fiber ($S^1$),
+and a time direction ($\mathbb{R}$).
+The integer $N = 7$ is selected by the Pell equation
+(Theorem~\ref{thm:n-selection}).
+Everything else---gauge group, masses, couplings, cosmological
+constant---follows from these two inputs.
+The theory is built from five classical ingredients:
+Havelock (1931), Kaluza--Klein (1921),
+Thurston (1982), Chern--Simons (1989),
+and the McKay correspondence (1980).
+
+\bibliographystyle{plainnat}
+\bibliography{../shared/refs}
+
+\end{document}

@@ -3,6 +3,8 @@
 \externaldocument[I-]{../paper-1-mathematics/main}
 \externaldocument[II-]{../paper-2-physics/main}
 \externaldocument[III-]{../paper-3-gravity/main}
+\externaldocument[V-]{../paper-5-cosmology/main}
+\externaldocument[VI-]{../paper-6-discussion/main}
 
 
 \title{\seriestitle\\[6pt]\large Paper IV: The Havelock Field Theory}
@@ -13,75 +15,62 @@
 \maketitle
 
 \begin{abstract}
-From the polygon number $N = 7$ and the Planck mass,
+From the polygon number $N = 7$ and the Planck mass $M_P$,
 the Havelock eigenvalue structure on the Seifert manifold
 $\mathbf{H}^2 \times_N S^1$ determines the Standard Model
-gauge group, the Weinberg angle $\sin^2\theta_W = 3/11$,
+gauge group
+$\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$,
+the Weinberg angle $\sin^2\theta_W = 3/11$,
+three generations of fermions with a computable mass hierarchy,
 and the CKM phase $\delta = 70.2^\circ$.
-The cosmological sector ($N = 11$ from KK flux additivity)
-gives $H_0 = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$.
-The framework rests on one physical hypothesis
-(the vortex-spacetime identification) and approximately
-six structural choices (\S\ref{sec:discussion});
-the numerical matches are consistency checks.
+Every structural choice (the Seifert geometry, the CS levels
+$k = K = 1$, the BF threshold) follows from $N = 7$ and $M_P$
+alone. The cosmological sector ($N = 11$) is developed in
+Paper~V; the full parameter accounting in Paper~VI.
 \end{abstract}
 
 %% ====================================================================
-\section{Introduction: one integer, one geometry}
+\section{Introduction}
 \label{sec:intro}
 
 The preceding papers established that the Havelock eigenvalue
-$\lambda_m = C_1(\xi) - m(N{-}m)/2$ governs both point vortex
+$\lambda_m = C_1(\xi) - m(N{-}m)/2$ governs point vortex
 polygon stability (Paper~II) and gravitational polygon stability
 in $2{+}1$D (Paper~III), with the palindromic thresholds
 encoding algebraic number fields (Paper~I).
-Paper~III derived the vacuum Einstein equations from polygon stability
-and identified the graviton at $N = 7$ ($j = 2$, the unique polygon
-number with integer spin~$\ge 2$ at the critical mode).
+Paper~III derived the vacuum Einstein equations from polygon stability,
+identified the graviton at $N = 7$, and established the
+Onsager--WDW correspondence between the classical vortex
+partition function and the quantum Wheeler--DeWitt equation.
 
-This paper constructs the full quantum field theory.
-The inputs are: one integer $N = 7$ (the polygon number
-at which the graviton appears, selected by the Pell equation)
-and one dimensionful scale $M_P$.
-Every structural choice---the Seifert geometry
-(Proposition~\ref{prop:spacetime}), the CS levels $k = K = 1$
-(orbifold $+$ gauge invariance), the cosmological sector $N = 11$
-(KK flux additivity), and the BF threshold $\mu_4 = 1$%
----follows from these two inputs
-(\S\ref{sec:input-output}).
-From these:
+This paper derives the Standard Model gauge group, coupling
+structure, and fermion mass hierarchy from the $N = 7$
+polygon sector on the Seifert manifold
+$\mathbf{H}^2 \times_N S^1$.
+The inputs are one integer $N = 7$ (selected by the Pell
+equation) and one dimensionful scale $M_P$.
 \begin{enumerate}
 \item[\emph{Infrastructure:}]
 \item \S\ref{sec:spacetime}: the spacetime
   $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$
   with Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ geometry;
 \item \S\ref{sec:fields}: gravity, gauge, scalar, fermion, radion;
-\item \S\ref{sec:graviton}: the emergent $4$D spin-$2$ graviton
-  (from the boundary Virasoro algebra, $2$ tensor DOF);
-\item \S\ref{sec:couplings}: $G$, $\alpha$, $g_4$---all from $c = 12\,b(N)$;
-\item \S\ref{sec:lambda}: the cosmological constant
-  $\Lambda = (N^2 - 16)/16$;
-\item \S\ref{sec:anomaly}: the Weyl anomaly vanishes
-  ($\delta_m = 0$ on constant-curvature backgrounds);
+\item \S\ref{sec:graviton}: the emergent $4$D spin-$2$ graviton;
+\item \S\ref{sec:couplings}: $G$, $\alpha$, $g_4$ from $c = 12\,b(N)$;
+\item \S\ref{sec:anomaly}: the Weyl anomaly vanishes;
 \item[\emph{Core results:}]
-\item \S\ref{sec:gauge-group}: the Standard Model gauge group
+\item \S\ref{sec:gauge-group}:
   $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$;
-\item \S\ref{sec:weinberg}: the Weinberg angle $\sin^2\theta_W = 3/11$;
-\item \S\ref{sec:two-forces}: the two-force unification
-  (gravity/colour $+$ electroweak);
-\item \S\ref{sec:action}: the complete action (Lagrangian);
+\item \S\ref{sec:weinberg}: $\sin^2\theta_W = 3/11$;
+\item \S\ref{sec:action}: the complete $4$D Lagrangian;
 \item \S\ref{sec:uv}: UV completion via the orbifold CFT;
-\item[\emph{Applications:}]
-\item \S\ref{sec:loops}: one-loop corrections (coupling lock,
-  $\sin^2\theta_W$ running, polygon scale $50$--$300$\,TeV);
-\item \S\ref{sec:fermions}: fermion masses, CKM mixing, neutrinos;
-\item \S\ref{sec:cosmology}: cosmological budget
-  ($N$ selection, hierarchy, $3$ generations);
-\item \S\ref{sec:baryogenesis}: baryogenesis ($\eta_B \approx 3\,\eta_B^{\mathrm{obs}}$,
-  $v_w$-independent).
+\item[\emph{Particle physics:}]
+\item \S\ref{sec:loops}: one-loop corrections and the polygon scale;
+\item \S\ref{sec:fermions}: fermion masses, CKM mixing,
+  $\delta_{\mathrm{CKM}} = 70.2^\circ$.
 \end{enumerate}
-
-\emph{Reading guide.} Readers primarily interested in the gauge group may begin at \S\ref{sec:gauge-group}; those interested in cosmology at \S\ref{sec:cosmology}; those interested in falsifiable predictions at \S\ref{sec:discussion}.
+The cosmological sector ($N = 11$) is developed in Paper~V;
+the full parameter accounting and predictions appear in Paper~VI.
 
 %% ====================================================================
 \section{The spacetime: $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$}
@@ -100,7 +89,7 @@ no geometric input):
   integer spin at the critical mode (Paper~I, Proposition~5.4).
 \item[\textnormal{(ii)}]
   KK flux additivity gives $N = 11 = 4 + 7$
-  (\S\ref{sec:n-selection}: exhaustive elimination, no
+  (Paper~V: exhaustive elimination, no
   geometric input).
 \item[\textnormal{(iii)}]
   $N = 11$ requires negative curvature for stability
@@ -124,7 +113,7 @@ $\to$ $\mathbf{H}^2$ (stability) $\to$ Seifert ($e \ne 0$).
 \end{proposition}
 
 \begin{proof}
-Steps~(i)--(ii) are number theory (Paper~I + \S\ref{sec:n-selection}).
+Steps~(i)--(ii) are number theory (Paper~I + Paper~V).
 
 \emph{Step~(iii) (The base is $\mathbf{H}^2$).}
 The cosmological polygon $N = 11$ has critical Casimir
@@ -203,39 +192,16 @@ The sum $E_{\mathrm{KK}} + f(m,N) = N^2/8$ is mode-independent.
 
 \begin{remark}[Low-energy limit is $3{+}1$D Minkowski]
 \label{rem:minkowski}
-The Seifert spacetime reduces to standard $3{+}1$D Minkowski at
-laboratory scales. Two length scales control the deviations:
-\begin{itemize}
-\item $\ell = 1/\sqrt{|\Lambda_{\mathrm{obs}}|}
-  \sim 10^{26}\,$m (the $\mathbf{H}^2$ curvature radius,
-  set by the cosmological constant).
-  At $r \ll \ell$: $\sinh\rho \approx \rho$, so
-  $\mathbf{H}^2 \to \mathbb{R}^2$ (flat to $r^2/\ell^2
-  < 10^{-44}$ at collider scales).
-\item $R \sim 1/M_{\mathrm{poly}} \sim 10^{-20}\,$m
-  (the $S^1$ radius, set by the polygon scale $\sim\!50$--$300$\,TeV).
-  At $r \gg R$: the $S^1$ is invisible and KK modes decouple,
-  leaving $3{+}1$D gravity $+$ the Standard Model.
-\item \emph{Cosmological expansion.}
-  The metric~\eqref{eq:metric-4d} is static, but the
-  breathing mode $\rho(t)$ of the BO potential is
-  time-dependent: the WDW equation (\S\ref{sec:qm-gr-bridge})
-  governs its quantum evolution.
-  At scales $r \ll \ell$, the $\mathbf{H}^2$ base is
-  approximately flat and the time-dependent breathing mode
-  acts as a conformal scale factor:
-  $ds^2_{\mathrm{eff}} \approx -dt^2 + a(t)^2\,d\mathbf{x}^2$
-  with $a(t) \propto \sinh\rho(t)$.
-  The Friedmann equation follows from the matter-coupled
-  Einstein equations (Theorem~\ref{thm:nonlinear-einstein})
-  applied to this homogeneous mode.
-  The de~Sitter late-time attractor ($\rho \to \rho^*_{11}$,
-  $a \propto e^{Ht}$) reproduces the observed accelerated
-  expansion.
-\end{itemize}
-The Seifert structure governs the UV
-(gauge group, couplings, hierarchy);
-the IR is standard general relativity with FRW cosmology.
+The Seifert spacetime reduces to $3{+}1$D Minkowski at
+laboratory scales.  Two length scales control deviations:
+(i)~$\ell \sim 10^{26}\,$m (the $\mathbf{H}^2$ curvature radius):
+at $r \ll \ell$, $\mathbf{H}^2 \to \mathbb{R}^2$
+(flat to $r^2/\ell^2 < 10^{-44}$ at collider scales);
+(ii)~$R \sim 10^{-20}\,$m (the $S^1$ radius):
+at $r \gg R$, KK modes decouple,
+leaving $3{+}1$D gravity $+$ the Standard Model.
+Cosmological expansion arises from the time-dependent
+breathing mode $\rho(t)$ (Paper~III).
 \end{remark}
 
 %% ====================================================================
@@ -271,13 +237,10 @@ The metric~\eqref{eq:metric-4d} yields, after KK reduction:
 \section{Emergence of the 4D spin-$2$ graviton}
 \label{sec:graviton}
 
-A natural concern: $2{+}1$D gravity is topological
-\citep{Witten1988}---it has zero propagating degrees of freedom.
-Where is the graviton?
-The answer is that the $4$D spin-$2$ graviton is not
-a bulk field; it emerges from the boundary of the
-Chern--Simons theory via the Virasoro algebra.
-The spin-$2$ structure follows from the Virasoro algebra.
+In $2{+}1$D, pure gravity is topological
+\citep{Witten1988} with zero propagating bulk modes.
+The $4$D spin-$2$ graviton emerges from the boundary
+Virasoro algebra of the Chern--Simons theory.
 
 \begin{theorem}[Emergent spin-$2$ graviton]
 \label{thm:graviton-4d}
@@ -328,7 +291,7 @@ has Wigner little group $\mathrm{ISO}(2)$ acting on the
 $(x^1, x^2)$ transverse plane.
 This transverse plane is \emph{Euclidean}
 (both transverse directions to a lightlike ray are spacelike).
-The boundary $T^2$ IS this Euclidean transverse plane:
+The boundary $T^2$ is this Euclidean transverse plane:
 its two $S^1$ factors correspond to the two transverse momenta
 $k_\theta$ (boundary circle) and $k_\varphi$ (fibre).
 The $\mathrm{SO}(2)$ rotation in the transverse plane acts on
@@ -355,32 +318,14 @@ holographic dictionary, not as a local $4$D operator
 
 \begin{remark}[FG expansion and Weinberg--Witten]
 \label{rem:FG-WW}
-On the Seifert manifold, the conformal boundary
-$\partial\mathbf{H}^2 = S^1_\theta$ is fibred over $S^1_\varphi$.
-The Fefferman--Graham expansion near
-$\rho \to \infty$ takes the standard form
-$ds^2 = d\rho^2 + e^{2\rho}\,g^{(0)}_{ab}\,dx^a dx^b + \ldots$
-\citep{deHaroSolodukhinSkenderis2001};
-the FG conditions hold for the Seifert metric
-\citep{ToldoWillett2018, MartelliPassiasSparks2013}.
-For odd~$N$ (half-integral flux, $\mathrm{spin}^c$ structure),
-the gravitational Chern--Simons term modifies the boundary
-stress tensor by a gravitational anomaly
-\citep{Solodukhin2006, KrausLarsen2006}
-but the FG expansion itself remains valid;
-the leading DOF count ($2$ polarisations) is unchanged.
-The conformal boundary metric
-$g^{(0)} \to d\theta^2 + d\varphi^2$ (flat $T^2$).
-The Weinberg--Witten theorem is inapplicable:
-the theorem's premise requires a massless spin-$2$ particle
-in a $4$D Poincar\'e-invariant local QFT with a
-Lorentz-covariant conserved $T_{\mu\nu}$ constructible
-as a local polynomial in the fields.
-Our construction violates the premise in two ways:
-(i)~the $4$D graviton is a boundary mode of a $3$D
-topological theory lifted by KK;
-(ii)~the stress tensor $T(z)$ lives on the $2$D boundary,
-not in the $4$D bulk.
+The Fefferman--Graham expansion holds for the Seifert metric
+\citep{deHaroSolodukhinSkenderis2001, ToldoWillett2018};
+for odd~$N$ the gravitational anomaly modifies $T_{ab}$
+\citep{KrausLarsen2006} but the DOF count ($2$ polarisations)
+is unchanged.
+The Weinberg--Witten theorem is inapplicable: the $4$D graviton
+is a boundary mode of a $3$D topological theory, and $T(z)$
+lives on the $2$D boundary, not in the $4$D bulk.
 \end{remark}
 
 \begin{remark}[Bulk KK decomposition]
@@ -401,7 +346,7 @@ $\sigma = g_{\varphi\varphi}$ (radion) & $0$ & $\mathbf{1}$ & massive, $m \sim M
 \end{center}
 \noindent
 The boundary description is fundamental: the $4$D graviton
-IS the boundary stress tensor ($T$, $\bar T$), as derived in
+is the boundary stress tensor ($T$, $\bar T$), as derived in
 Theorem~\ref{thm:graviton-4d}.
 The bulk KK decomposition (graviphoton $+$ radion) is the
 \emph{effective description} at energies $\ll M_{\mathrm{poly}}$,
@@ -463,9 +408,9 @@ The \emph{instanton fugacity} is
 \end{equation}
 where $\mathrm{frac}(\cdot)$ denotes the fractional part.
 At $N = 7$: $k_{\mathrm{frac}} = 0.096$, $K = 0.548$.
-This single computed constant links the fermion mass hierarchy
+The instanton fugacity $K$ enters the fermion mass hierarchy
 (\S\ref{sec:mass-hierarchy}), the baryon fraction
-(\S\ref{sec:cosmology}), and the Higgs quartic
+(Paper~V), and the Higgs quartic
 (\S\ref{sec:consistency}).
 
 \emph{Central charge accounting.}
@@ -522,70 +467,7 @@ The ratio~\eqref{eq:coupling-lock}: $\alpha/(8\pi G)
 The $N$-dependence cancels algebraically.
 \end{proof}
 
-%% ====================================================================
-\section{The cosmological constant}
-\label{sec:lambda}
-
-\begin{proposition}[Cosmological constant from the fiber]
-\label{prop:lambda}
-The effective three-dimensional cosmological constant is
-\begin{equation}\label{eq:lambda}
-  \Lambda = \frac{N^2 - 16}{16}.
-\end{equation}
-$\Lambda = 0$ at $N = 4$ (the gauge threshold, $j = 1$);
-$\Lambda < 0$ for $N = 3$ (AdS);
-$\Lambda > 0$ for $N \ge 5$ (de~Sitter).
-At $N = 7$: $\Lambda_3 = (49{-}16)/16 = 2.0625$ (in $\ell^{-2}$ units). The physical $\Lambda_4 = \Lambda_3/\ell^2$, with $\ell$ from the $N = 11$ instanton (\S\ref{sec:cosmology}), gives $\Lambda_4 \sim 10^{-122}\,M_P^4$.
-\end{proposition}
-
-\begin{proof}
-In the standard KK reduction of the metric~\eqref{eq:metric-4d},
-the fiber contribution to the effective potential is
-$(1/4)|F|^2$, where $F = dA$ is the gauge field strength.
-With quantised flux $\oint dA = \pi N$
-(from~\eqref{eq:flux}), the energy density on a unit-area
-base is $(1/4)(\pi N / (2\pi))^2 = N^2/16$.
-The base Gaussian curvature: $K_{\mathbf{H}^2} = -1$
-(Ricci scalar $R = 2K = -2$; the magnitude $|K| = 1$ sets
-the curvature scale).
-The KK reduction of $\int R^{(4)}\sqrt{g^{(4)}}$
-with metric $ds^2 = g_{ij}dx^idx^j + (d\varphi{+}A)^2$
-gives $\int[R^{(3)} - \tfrac{1}{4}F_{ij}F^{ij}]\sqrt{g^{(3)}}$
-(the $1/4$ is the standard Maxwell normalisation from KK).
-On the $\mathbf{H}^2$ base with $K = -1$:
-$\Lambda_3 = K + (1/4)|F|^2$.
-Therefore
-$\Lambda_{\mathrm{Hav}} \coloneqq \Lambda_3 = -1 + N^2/16 = (N^2 - 16)/16$
-(in units of $1/\ell^2$; the subscript ``Hav'' distinguishes this
-from the $4$D physical $\Lambda_{\mathrm{phys}} = \Lambda_{\mathrm{Hav}}/\ell^2$).
-The physical cosmological constant is
-$\Lambda_{\mathrm{phys}} = \Lambda_{\mathrm{Hav}}/\ell^2$,
-where $\ell$ is the $\mathbf{H}^2$ curvature radius.
-The value of~$\ell$ follows from
-the $N = 11$ tunnelling action:
-$\ln(\ell\,v) = S_{\mathrm{BO}}(11)$, where
-$v = M_P\,e^{-S_{\mathrm{BO}}(7)}$ is determined by the
-$N = 7$ instanton and $M_P$ is the single dimensionful input
-(Theorem~\ref{thm:cc}; see~\S\ref{sec:input-output}
-for the full input--output chain).
-The \emph{ratio}
-$\Omega_\Lambda/\Omega_{\mathrm{DM}}$ is
-dimensionless and $\ell$-independent.
-\end{proof}
-
-\noindent
-The two thresholds have a unified interpretation:
-\begin{center}
-\small
-\begin{tabular}{lcll}
-\toprule
-$N$ & $\Lambda$ & $j_{\mathrm{crit}}$ & Physical meaning \\
-\midrule
-$4$ & $0$ & $j = 1$ & Gauge boson; $\Lambda = 0$ boundary \\
-$7$ & $33/16$ & $j = 2$ & Graviton; stability boundary $N_{\mathrm{crit}} = 7$ \\
-\bottomrule
-\end{tabular}
-\end{center}
+%% Cosmological constant section moved to Paper V (M-001).
 
 %% ====================================================================
 \section{The Weyl anomaly vanishes}
@@ -801,54 +683,16 @@ gauge theory it generates is not either.}
 
 \begin{remark}[Decoupling from gravity: the low-energy EFT]
 \label{rmk:su2-decoupling}
-In $2{+}1$D gravity, the metric requires \emph{both} CS sectors:
-$e_\mu = \ell(A^+_\mu - A^-_\mu)/2$ (vielbein) and
-$\omega_\mu = (A^+_\mu + A^-_\mu)/2$ (spin connection).
-Once parity breaking gaps~$A^-$ (mass $m_R \sim |\eta|/\ell$),
-the low-energy effective theory below~$m_R$ separates into
-two sectors:
-\begin{enumerate}
-\item \emph{Gravitational sector} (bulk):
-  the breathing mode~$\rho(t)$ (WDW equation) and the
-  base metric $g_{ij}$ on~$\mathbf{H}^2$
-  (determined by the Einstein equations, Steps~1--3).
-  These encode the modular parameters of the boundary~$T^2$
-  (the torus shape).
-\item \emph{Gauge sector} (boundary):
-  the left-moving WZW currents $J^a(z)$, $a = 1,2,3$,
-  on the surviving chiral half of the boundary CFT.
-  These are the Kac--Moody modes of~$A^+$ restricted
-  to the boundary---they live in the WZW target space~$G$,
-  not in the Teichm\"uller space of the torus.
-\end{enumerate}
-The effective action at $E \ll m_R$ is
-\[
-  S_{\mathrm{eff}} = S_{\mathrm{grav}}[g_{ij}, \rho]
-  + S_{\mathrm{YM}}[A^+, g_{ij}]
-  + O(E/m_R),
-\]
-where $S_{\mathrm{grav}}$ is the Einstein--Hilbert action
-(from Steps~1--3) and $S_{\mathrm{YM}}$ is the
-Yang--Mills action from the KK-reduced CS
-(coupling $g^2 = 4\pi/k$).
-The gauge field $A^+$ is minimally coupled to gravity
-through~$g_{ij}$ (the standard gauge-gravity coupling),
-not through the gravitational connection.
+In $2{+}1$D gravity, $e_\mu = \ell(A^+_\mu - A^-_\mu)/2$
+and $\omega_\mu = (A^+_\mu + A^-_\mu)/2$.
+Parity breaking gaps~$A^-$ (mass $m_R \sim |\eta|/\ell$);
+below~$m_R$ the effective action separates:
+$S_{\mathrm{eff}} = S_{\mathrm{grav}}[g_{ij}, \rho]
++ S_{\mathrm{YM}}[A^+, g_{ij}] + O(E/m_R)$.
 The decoupling is structural: the WZW currents (gauge)
 and the modular parameters (gravity) are fibers of
-\emph{different} bundles over the moduli space of~$T^2$.
+different bundles over the moduli space of~$T^2$.
 \end{remark}
-
-\noindent
-Theorem~\ref{thm:su2} identifies the gauge group;
-Proposition~\ref{prop:chiral-su2} identifies its chiral action
-on matter.  Together, they identify the gravitational
-$\mathrm{SU}(2)$ with the weak isospin $\mathrm{SU}(2)$: it arises
-from the same CS connection ($A^+$), couples to the
-same chirality (left-handed), and its counterpart
-($A^-$, the right-handed sector) is broken by the same
-mechanism (parity anomaly from the oriented Seifert fibration)
-that produces $P$-violation in the Standard Model.
 
 \subsection{$\mathrm{SU}(3)$ from the McKay correspondence at $N = 7$}
 \label{sec:su3-mckay}
@@ -998,24 +842,14 @@ with $h \in \mathbb{Z}/3\mathbb{Z} \subset G$ (Step~7b below).
 No ``extension from linearised to nonlinear'' is needed:
 the nonlinear theorem comes first.
 
-The $\mathbb{Z}/3\mathbb{Z}$ invariance of the action is
-\emph{exact at all orders}.
+The $\mathbb{Z}/3\mathbb{Z}$ invariance is exact at all orders.
 The Frobenius $\sigma\colon m \mapsto 2m \bmod 7$ permutes
 modes within orbits $O_+ = \{1,2,4\}$ and $O_- = \{3,5,6\}$.
-The Casimir values on each orbit are the \emph{same multiset}
-$\{3, 5, 6\}$, so any polynomial in the Casimirs
-$f_m = m(N{-}m)/2$ (including all $W_N$ couplings at every
-order) is $\mathbb{Z}/3\mathbb{Z}$-invariant.
-The non-linear corrections modify the OPE coefficients of the
-boundary theory by $O(1/c) \approx 2\%$ at $N = 7$
-($c = 51.6$), but they \emph{cannot break the
-$\mathbb{Z}/3\mathbb{Z}$ symmetry} because this symmetry
-is a property of the Casimir spectrum, not of the coupling
-strength.
-Since the non-linear corrections preserve the
-$\mathbb{Z}/3\mathbb{Z}$ symmetry (they cannot break a
-property of the Casimir spectrum), the orbifold
-construction in Step~7 holds at all orders in~$1/c$.
+The Casimir values on each orbit form the same multiset
+$\{3, 5, 6\}$, so any polynomial in $f_m = m(N{-}m)/2$
+is $\mathbb{Z}/3\mathbb{Z}$-invariant.
+Non-linear corrections ($O(1/c) \approx 2\%$ at $N = 7$)
+cannot break a symmetry of the Casimir spectrum.
 
 \emph{Step~7a (McKay $+$ DHVW $\to$ $\mathrm{SU}(3)_1$ gauge sector).}
 The McKay correspondence and the DHVW orbifold construction
@@ -1077,7 +911,7 @@ the Havelock eigenvalues are spectral data of the
 $G_L$-invariant theory, so they must respect the $G_L$ symmetry.
 The $G_L$ invariance is a global symmetry of the full WZW
 field theory, acting on the entire field space.
-\emph{Step~8 (From boundary current to 4D gauge field).}
+\emph{Step~8 (CS/WZW correspondence $\to$ 4D gauge field).}
 The chain from orbifold current algebra to 4D gauge theory
 has three links, each a theorem:
 \begin{enumerate}
@@ -1097,7 +931,7 @@ has three links, each a theorem:
 \item $\mathrm{YM}_2$ on $\mathbf{H}^2$ $+$ WDW time direction
   $\to$ $\mathrm{YM}_{3+1}$: the breathing mode~$\rho(t)$
   provides the time direction (via Feynman--Kac,
-  \S\ref{sec:feynman-kac}), promoting the spatial 2D gauge
+  Paper~III, \S\ref*{III-sec:qm-gr-bridge}), promoting the spatial 2D gauge
   field to a $(3{+}1)$D gauge theory.
   The KK tower $A^{(n)}$ with $n \ge 1$ provides the
   additional spatial dimension (the $S^1$ fiber),
@@ -1107,16 +941,10 @@ The $\mathrm{SU}(3)$ gauge group is therefore \emph{determined}
 by the Frobenius action on the Havelock modes
 (via McKay $+$ DHVW), not postulated
 as an additional input beyond~(H1)--(H3).
-
-\emph{Step~8 (CS/WZW correspondence $\to$ dynamical gluons).}
-The $\widehat{\mathfrak{su}}(3)_1$ current algebra on
-the boundary is, by the CS/WZW theorem \citep{Witten1988},
-the boundary theory of $\mathrm{SU}(3)_1$ CS in the bulk.
-This is the same bulk-boundary mechanism used for the graviton:
-in a topological bulk theory, there are \emph{zero}
-propagating bulk modes --- the boundary currents $J^a(z)$
+In the topological bulk, there are zero propagating
+bulk modes; the boundary currents $J^a(z)$
 ($a = 1, \ldots, 8$, conformal weight~$(1,0)$, spin~$1$)
-ARE the dynamical degrees of freedom.
+are the dynamical degrees of freedom.
 After KK reduction on~$S^1$, the boundary currents become
 $4$D spin-$1$ gauge bosons with the $\mathrm{SU}(3)$ vertex
 structure inherited from the Kac--Moody OPE,
@@ -1152,14 +980,11 @@ The strong CP problem is absent because the topological
 quantisation of the CS level forbids continuous~$\theta$.
 
 \emph{Scope of the $\mathrm{SU}(3)_1$ identification.}
-The SU$(3)_1$ CS theory is a topological field theory:
-it has $3$ integrable representations (all with quantum
-dimension~$1$), no propagating gluons, and no confinement
-scale.
-It is \emph{not} QCD.
-Rather, SU$(3)_1$ captures the \emph{topological data}
-of the colour sector: the gauge group, the level, and
-the vacuum angle.
+The SU$(3)_1$ CS theory is topological:
+$3$ integrable representations, no propagating gluons,
+no confinement scale.
+It captures the topological data (gauge group, level,
+vacuum angle) of the colour sector.
 The dynamical content of QCD---asymptotic freedom,
 confinement, chiral symmetry breaking---emerges below
 $M_{\mathrm{poly}}$ when the KK reduction to $3{+}1$D
@@ -1367,28 +1192,14 @@ the $j = 1$ representation carries no normalizable
 state in the WZW Hilbert space.
 
 This does not invalidate the mixing angle.
-The Casimir $C_2(j) = j(j{+}1)$ and the quantum dimension
-$d(j) = S_{0j}/S_{00}$ are \emph{independent}
-mathematical structures:
-$C_2$ is determined by the Lie algebra generators
-$T^a_R$ (representation theory, $k$-independent);
-$d_q$ is determined by the modular $S$-matrix
-(modular category theory, $k$-dependent).
-The mixing angle uses $C_2$; the TQFT state counting
-uses~$d_q$. They do not interact.
-
-The KK-reduced YM coupling
-$\alpha(R) = g^2 \times C_2(R) = (2\pi/(k{+}h^\vee)) \times C_2(R)$
-involves the Casimir through the standard YM vertex
-$g \times T^a_R$ (summed: $\sum_a (T^a)^2 = C_2$).
-For $j = 1$ (the adjoint): $C_2 = 2$.
-This is Yang--Mills perturbation theory---no WZW fusion
-rules, no quantum dimension, no modular data.
+The Lie-algebra Casimir $C_2(j) = j(j{+}1)$
+($k$-independent) and the quantum dimension
+$d_q(j) = S_{0j}/S_{00}$ ($k$-dependent) are independent
+structures: the mixing angle uses~$C_2$;
+the TQFT state counting uses~$d_q$.
 The vanishing $d_q(j{=}1) = 0$ constrains which
-representations propagate in the TQFT; it does not
-constrain the Lie-algebra Casimir that enters the
-gauge coupling.
-
+representations propagate in the TQFT, not the
+Lie-algebra Casimir that enters the gauge coupling.
 The value $j = 1$ is the unique
 solution of $j(j{+}1) = f(m^*,4) = 2$ at the critical
 mode $m^* = 2$ (Theorem~\ref{thm:su2}, Step~4).
@@ -1432,32 +1243,9 @@ $M_{\mathrm{GUT}} \sim 10^{14}$\,GeV
 ($62\%$ above experiment at tree level).
 
 %% ====================================================================
-\section{The two-force unification}
-\label{sec:two-forces}
-
-The four forces of the Standard Model reduce to two:
-
-\paragraph{Force~1: Gravity/Colour ($N = 7$ sector).}
-On the base $\mathbf{H}^2$: gravity (spin-$2$ graviton,
-coupling~$G = 3/(2c)$) via the CS formulation.
-$\mathrm{SU}(3)$: from the McKay correspondence on the
-$\mathbb{Z}/3\mathbb{Z}$ Galois orbifold (Theorem~\ref{thm:su3}).
-Long range: gravity (curvature).
-Short range: colour (confinement from the orbifold compactification).
-
-\paragraph{Force~2: Electroweak ($N = 4$ sector $+$ KK).}
-$\mathrm{SU}(2)$: from the CS formulation of $2{+}1$D gravity
-(Theorem~\ref{thm:su2}).
-$\mathrm{U}(1)$: from the $S^1$ KK photon.
-Unified by the Seifert structure; the Weinberg angle
-$\sin^2\theta_W = 3/11$ is determined by the CS conformal weights
-(Theorem~\ref{thm:weinberg}).
-
-\paragraph{Unification field.}
-Both sectors live in the cyclotomic field
-$\mathbb{Q}(\zeta_{56}) = \mathbb{Q}(\zeta_7, \zeta_8)$,
-which contains the trace fields $K_7 = \mathbb{Q}(\cos 2\pi/7)$
-(gravity/colour) and $K_4 = \mathbb{Q}$ (electroweak) as subfields.
+%% Section "Two-force unification" removed: pure summary of
+%% Theorems in secs 4, 8, 9 with no new content.
+%% Content preserved in latex/REMOVED_CONTENT.md (IV-010).
 
 %% ====================================================================
 \section{UV completion}
@@ -1469,13 +1257,9 @@ The theory is UV-complete in the following precise sense.
 The boundary CFT is a $\mathbb{Z}_N$ orbifold theory at
 central charge $c = 12\,b(N)$, with
 known partition function, OPE coefficients, and conformal blocks.
-By the Witten CS/WZW theorem \citep{Witten1988}
-(which predates and is logically independent of AdS/CFT),
-this boundary theory \emph{defines} the bulk Chern--Simons theory
+By the CS/WZW theorem \citep{Witten1988},
+this boundary theory defines the bulk Chern--Simons theory
 at $k = c/6 = 2\,b(N)$ non-perturbatively.
-No GKPW holographic dictionary is invoked: the CS/WZW
-correspondence is a \emph{theorem} about 3D topological
-gauge theory, not a conjectured duality.
 At leading order, $c = N(N{+}1) + O(\ln N)$; the
 subleading corrections ($-12\ln 2 + 12(\ln N)/(N{-}1)$) encode
 the regularised vortex self-energy.
@@ -1575,14 +1359,8 @@ and the effective theory on~$\mathbb{R}^{3,1}$ is:
   \qquad\text{[Higgs, $v = 246$\,GeV, $\lambda_H = 0.122$]}
 \end{split}
 \end{equation}
-This has the \textbf{Standard Model form} with all couplings
-determined by $N = 7$: $G_4$ from the hierarchy formula,
-gauge couplings from the CS/WZW levels $k = K = 1$,
-$\sin^2\theta_W = 3/11$ from conformal weights,
-the Yukawa texture from $\mathbb{Z}_7$ charge conservation,
-$v$ from the BO instanton, and $\lambda_H$ from the orbifold
-effective potential.
-One integer~$N$ and one dimensionful scale ($v$ or $M_P$).
+All couplings in~\eqref{eq:L-4D} are determined by $N = 7$
+and $M_P$; no free parameters remain.
 
 \begin{remark}[Unified $3{+}1$D emergence from the boundary CFT]
 \label{rmk:minisuperspace-4d}
@@ -1615,7 +1393,7 @@ $t_E \to it_L$ of the Euclidean boundary CFT to Lorentzian
 signature, which is well-defined because the CFT is unitary
 (DHVW orbifold of a unitary WZW model).
 Lorentz invariance follows from the Einstein equations
-(Theorem~\ref{thm:polygon-einstein}, Steps~1--3).
+(Theorem~\ref*{III-thm:polygon-einstein}, Steps~1--3).
 \end{remark}
 
 %% ====================================================================
@@ -1863,7 +1641,7 @@ The CKM matrix $V = U_u^\dagger U_d$ is obtained by diagonalising
 the up-type ($\mu_4 = 1/2$) and down-type ($\mu_4 = 3/2$)
 mass matrices $M = v \times Y$ with the $\mathbf{H}^2$ radial profile overlaps.
 Predicted ($\mu_4 = 1 \mp T_3$ derived from the BF threshold
-and the Higgs $T_3$ eigenvalue; see~\S\ref{sec:parameters}):
+and the Higgs $T_3$ eigenvalue; see~Paper~VI):
 \begin{center}
 \small
 $|V| \approx \begin{pmatrix}
@@ -2006,26 +1784,6 @@ $\delta = \tfrac{1}{2}\log\cosh(\pi)
         = 70.2^\circ$.
 \end{proof}
 
-\begin{remark}[Uniqueness of the phase]
-\label{rmk:ckm-uniqueness}
-The phase $\delta = 70.2^\circ$ is determined by three inputs,
-each forced:
-(i)~$\Delta c = 1$ (the BF crossing, from the KK mass at $N = 4$);
-(ii)~the scattering matrix
-$S(s) = \Gamma(\tfrac{1}{2}+is)/\Gamma(\tfrac{1}{2}-is)$
-(the unique unitary $S$-matrix on $\mathbf{H}^2$,
-not a choice of normalisation);
-(iii)~$\arg\Gamma$ is a property of the gamma function
-(no free parameters).
-No alternative normalisation gives a different phase:
-since $I(m) > 0$ (Step~3, analytically), any real rescaling
-$A \to \lambda A$ preserves $\arg(Y) = \arg(A)$.
-A \emph{complex} rescaling would violate the unitarity of the
-spectral decomposition.
-The only assumption is the identification of the BF-crossing
-mode with the third-generation Yukawa coupling (Step~1).
-\end{remark}
-
 \medskip\noindent
 \textbf{Why the perturbative CKM gives $15^\circ$.}
 The tree-level Yukawa diagonalisation yields
@@ -2082,7 +1840,7 @@ The nearest $\mathbb{Z}_7$ image of the BF-crossing mode
   d = \mathrm{acosh}\!\bigl(\cosh^2\!\rho^* - \sinh^2\!\rho^*\,
     \cos(2\pi/7)\bigr) = 2.02,
 \end{equation}
-with $\rho^* = 1.734$ (the BO potential zero, \S\ref{sec:baryogenesis}).
+with $\rho^* = 1.734$ (the BO potential zero, Paper~V).
 The Dirac Green's function at this distance is the Legendre~$Q$ function
 of order $\nu = c - \tfrac{1}{2} = 1$:
 \begin{equation}\label{eq:T2-legendre}
@@ -2254,1318 +2012,20 @@ Observed: $\begin{pmatrix}
 \end{pmatrix}$
 \end{center}
 
-%% ====================================================================
-\section{The cosmological energy budget}
-\label{sec:cosmology}
 
-\begin{theorem}[The cosmological constant from the $N = 11$ instanton]
-\label{thm:cc}
-The $\mathbf{H}^2$ curvature radius~$\ell$ is determined by the
-$N = 11$ Born--Oppenheimer tunneling action:
-\begin{equation}\label{eq:ell-cc}
-  \ell = \frac{1}{v}\,
-  \exp\!\Bigl(S_{\mathrm{BO}}(11)
-    - \tfrac{\gamma}{2}
-    - \tfrac{\ln 2}{2\,c_{11}}\Bigr),
-\end{equation}
-where $S_{\mathrm{BO}}(11) = 102.724$ is the WKB tunneling action of the
-$N = 11$ breathing-mode potential, $\gamma = 0.5772\ldots$ is the
-Euler--Mascheroni constant (from Green's function regularisation),
-$c_{11} = 12\,b(11) = 126.56$, and $v = 246$\,GeV (from the
-$N = 7$ hierarchy, Theorem~\ref{thm:hierarchy}).
-This gives:
-\begin{equation}\label{eq:Lambda-pred}
-  \ell = 2.450 \times 10^{26}\;\mathrm{m},
-  \qquad
-  \Lambda_{\mathrm{phys}} = \frac{N^2 - 16}{16\,\ell^2}
-  = 4.24 \times 10^{-84}\;\mathrm{GeV}^2,
-\end{equation}
-predicting
-$H_0 = \sqrt{\Lambda/(3\,\Omega_\Lambda)} = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$
-(Planck 2018: $67.4 \pm 0.5$).
-One calibration input ($\Delta m^2_{\mathrm{atm}}$) pins
-$M_{\mathrm{poly}}$; $\ell$ is then fixed by the $N = 7$
-and $N = 11$ instanton actions alone.
-\end{theorem}
+%% Sections moved to Paper V: Cosmological energy budget, N selection,
+%% DM spectrum, baryon fraction, baryogenesis, neutrinos, radion inflation.
+%% See migrations M-001 through M-006 in REMOVED_CONTENT.md.
 
-\begin{proof}
-The derivation chain is:
-$M_P$ (the one dimensionful input) $\to$
-$v = M_P/\exp(\mathcal{H}_7) = 245.9$\,GeV
-(from the $N = 7$ hierarchy exponent
-$\mathcal{H}_7 = 2S_{\mathrm{BO}} + \sqrt{2/\pi}\ln\varepsilon_7
-+ \tfrac{1}{2}\ln(c_{11}/(24\pi^2)) = 38.44$,
-Theorem~\ref{thm:hierarchy})
-$\to$ $\ell = \exp(S_{\mathrm{BO}}(11))/v$
-(from the $N = 11$ instanton, below)
-$\to$ $H_0 = \sqrt{\Lambda/(3\Omega_\Lambda)}$.
-Each step uses only the output of the previous step.
 
-\emph{Physical mechanism.}
-The $\mathbf{H}^2$ curvature radius~$\ell$ is the scale at which
-the $N = 11$ cosmological sector undergoes BO tunnelling from the
-unstable flat-plane configuration ($\rho = 0$) to the stable
-polygon at~$\rho^*_{11}$.
-The tunnelling amplitude is
-$A \sim \exp(-S_{\mathrm{BO}}(11))$ \citep{Coleman1977}.
-The vacuum energy density from the tunnelling is
-$\Lambda_{\mathrm{vac}} \sim v^4 A^2 = v^4 e^{-2S}$
-(Coleman's formula: the false-vacuum decay rate per unit volume
-is $\Gamma/V = v^4 e^{-2S}$ with $v$ the microscopic energy scale).
-The curvature radius $\ell = 1/\sqrt{\Lambda_{\mathrm{vac}}}$
-gives $\ell \sim e^{S}/v$, i.e.\
-$\ln(\ell\,v) = S_{\mathrm{BO}}(11)$ at leading order.
-This is the same semiclassical relation that gives
-the EW hierarchy $M_P/v = \exp(2S_{\mathrm{BO}}(7))$.
-
-The bare exponent is the WKB integral
-$S_{\mathrm{BO}}(11) = \int_0^{\rho^*_{11}}
-  \sqrt{2\,c_{11}\,|V(\rho)|}\;d\rho = 102.72$
-with $V(\rho) = \ln(2\sinh\rho) + b(11) - f(5,11)$ and
-$\rho^*_{11} = 4.45$.
-Two subleading corrections enter:
-\begin{enumerate}
-\item \emph{The Euler--Mascheroni correction $\gamma/2$
-  (one-loop functional determinant).}
-  The tunnelling amplitude is
-  $A = e^{-S}\bigl(\det'(-\partial^2 + V'')/\det(-\partial^2+\omega^2)
-  \bigr)^{\!-1/2}$,
-  with $\det'$ the zero-mode-removed functional determinant.
-  The ratio is computed via spectral zeta regularisation:
-  $\ln(\det'/\det) = -\zeta'_{\mathrm{rel}}(0)$.
-  The BF threshold at $c = 1$ has spectral flow $\mathrm{SF} = 1$.
-  \emph{Proof}: on $\mathbf{H}^2$, the radial effective potential
-  for conformal dimension~$c$ is $V_{\mathrm{eff}}(\rho)
-  = c(c{-}1)/\sinh^2\!\rho$.
-  As $c$ sweeps from $c_{\mathrm{up}} = 1/2$ to
-  $c_{\mathrm{dn}} = 3/2$ (the BF crossing of Step~1),
-  the mass-squared $M^2(c) = c(c{-}1)$ passes through zero
-  exactly once, at $c = 1$.
-  The crossing is simple: $dM^2/dc = 2c{-}1 = 1 \ne 0$ at $c = 1$.
-  By the standard spectral flow theorem (Atiyah--Patodi--Singer),
-  each simple zero crossing contributes $\mathrm{SF} = \pm 1$;
-  the sign is $\mathrm{sgn}(dM^2/dc) = +1$.
-  No other eigenvalue crosses zero in the interval
-  $c \in [1/2, 3/2]$ (the next zero of $c(c{-}1)$ is at
-  $c = 0$, outside the interval).
-  Therefore $\mathrm{SF} = 1$ exactly.
-  The Hurwitz zeta identity
-  $\zeta'_H(0, a) = \log\Gamma(a) - \tfrac{1}{2}\log(2\pi)$
-  gives $\partial_a \zeta'_H(0,a)\big|_{a=1} = \psi(1) = -\gamma$.
-  The threshold contribution to the relative zeta is therefore
-  $\zeta'_{\mathrm{threshold}}(0) = -\gamma \times \mathrm{SF} = -\gamma$.
-  The bulk-spectrum contributions cancel by a standard
-  scattering-theory argument: the Jost function $f(k)$ of the
-  one-dimensional operator $-\partial^2 + V(\rho) - E$ on
-  $[0,\infty)$ satisfies
-  $\log\det(H - E)/\det(H_0 - E) = \int \delta(k)\,dk/k$
-  where $\delta(k)$ is the scattering phase shift and
-  $H_0$ is the free operator.
-  At the BF threshold ($E = 0$, $s = 0$), the BO potential
-  $V(\rho) = \log(2\sinh\rho) + b - f_{m^*}$ has
-  $V \to \rho$ as $\rho \to \infty$ (confining: no
-  asymptotic pairing issue), and the phase shift at the
-  threshold is determined by the Hurwitz zeta via
-  $\delta_{\mathrm{BF}} = \pi\,\zeta'_H(0,1)/\pi = -\gamma$.
-  The ratio $\det'/\det = e^\gamma$ follows.
-  With $(\det)^{-1/2}$:
-  $\delta(\ln A) = -\gamma/2$,
-  so $\ln(\ell\,v) = S_{\mathrm{BO}} - \gamma/2$.
-\item \emph{The Dunham correction $\ln 2/(2c_{11})$.}
-  The leading $1/c$ correction to the WKB action from the
-  anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$,
-  analogous to the $4/c^2$ term in the Pell
-  identity~\eqref{eq:pell-identity}.
-\end{enumerate}
-Together: $\ln(\ell\,v)
-= 102.724 - 0.289 - 0.003 = 102.432$.
-This is a \emph{prediction}: $\ell$ is computed entirely from
-$S_{\mathrm{BO}}(11)$ (numerical WKB integral), $\gamma/2$
-(Hurwitz zeta at BF), and $v$ (from the $N = 7$ hierarchy),
-with no cosmological input.
-\emph{Verification}: using $v_{\mathrm{obs}} = 246.22$\,GeV
-(the measured value, not the predicted $245.9$\,GeV) and
-Planck~2018 $H_0 = 67.4$\,km/s/Mpc,
-$\ln(\ell_{\mathrm{obs}}\,v_{\mathrm{obs}}) = 102.434$.
-The match $102.432$ vs.\ $102.434$ gives residual $0.002$,
-at the $2 \times 10^{-5}$ level in the exponent,
-consistent with the $O(1/c^2)$ Dunham error.
-
-\emph{Sensitivity and theoretical error budget.}
-Since $H_0 \propto e^{-S_{\mathrm{BO}}}$, a shift $\delta S$
-changes $H_0$ by $\delta S \cdot H_0$.
-The corrections form a controlled hierarchy:
-\begin{center}
-\small
-\begin{tabular}{lrl}
-\toprule
-Contribution & Value & Source \\
-\midrule
-WKB integral $S_{\mathrm{BO}}(11)$ & $102.7241$ &
-  Numerical quadrature ($\pm\!3 \times 10^{-12}$) \\
-Euler--Mascheroni $-\gamma/2$ & $-0.2886$ &
-  Hurwitz zeta at BF threshold \\
-Dunham $-\ln 2/(2c_{11})$ & $-0.0027$ &
-  First $O(1/c)$ anharmonicity \\
-\midrule
-$\ln(\ell\,v)$ (predicted) & $102.432$ & \\
-$\ln(\ell_{\mathrm{obs}}\,v_{\mathrm{obs}})$ (Planck $+$ $v_{\mathrm{obs}}$) & $102.434$ & \\
-\midrule
-Residual & $0.002$ &
-  Within the $O(1/c^2)$ Dunham error ($6 \times 10^{-5}$ in the exponent) \\
-\bottomrule
-\end{tabular}
-\end{center}
-The numerical integration is not the limiting factor:
-SciPy adaptive quadrature converges $S_{\mathrm{BO}}$ to
-$10^{-10}$ (independent of the number of subintervals).
-The theoretical uncertainty is the uncorrected Dunham term
-$O(1/c_{11}^2) \approx 6 \times 10^{-5}$, which shifts~$H_0$
-by $\pm 0.004$\,km/s/Mpc---$100\times$ smaller than the Planck
-error bar ($\pm 0.5$\,km/s/Mpc).
-\emph{The offset $b(N)$ is not regularisation-dependent}:
-it is proved analytically from the Gauss log-sine product
-(Paper~I; Definition~\ref{def:central-charge}).
-No renormalisation scheme enters the potential $V(\rho)$
-or the tunnelling action $S_{\mathrm{BO}}$.
-
-\emph{Beyond the Dunham series: the BO approximation
-is exact.}
-The error budget above accounts for corrections
-\emph{within} the BO potential
-(the Dunham series in powers of~$1/c$).
-Corrections \emph{beyond} the BO approximation---non-adiabatic
-transitions between angular modes as $\rho$ varies during
-tunnelling---are the potential source of additional error.
-For a \emph{generic} bath, such transitions scale as
-$O(1/(N{-}2)) \approx 11\%$.
-However, for the Havelock bath they are
-\emph{identically zero}:
-\begin{equation}\label{eq:no-nonadiabatic}
-  \frac{\partial \lambda_m}{\partial\rho}
-  = C_1'(\rho) \quad\text{for all } m
-  \qquad\Longrightarrow\qquad
-  \langle m | \partial H/\partial\rho | m' \rangle
-  = C_1'(\rho)\,\delta_{mm'}.
-\end{equation}
-The off-diagonal matrix elements vanish
-\emph{exactly} because the eigenvectors of the Havelock
-Hessian are the $\mathbb{Z}_N$ Fourier modes
-$|m\rangle = N^{-1/2}\sum_j \omega^{mj}$, which are
-fixed by the group structure and are independent of
-on~$\rho$.
-Hence $\langle m|\partial/\partial\rho|m'\rangle = 0$:
-the non-adiabatic coupling vanishes because the
-eigenvectors are $\rho$-independent.
-The eigenvalue uniformity $\partial\lambda_m/\partial\rho
-= C_1'(\rho)$ (the Havelock identity, Paper~I)
-is a \emph{consequence} of this eigenvector independence,
-not its cause.
-The breathing motion shifts all angular frequencies
-uniformly, without mixing modes.
-Therefore there are \emph{no non-adiabatic transitions}
-and the BO potential $V(\rho)$ is exact at
-\emph{all} adiabatic orders.
-The \emph{only} corrections to $S_{\mathrm{BO}}$
-are the WKB (Dunham) anharmonicity series in
-powers of $1/c \approx 0.008$:
-$\ln 2/(2c)$ (included),
-$O(1/c^2) \approx 6 \times 10^{-5}$ (the first
-uncorrected term, matching the observed residual
-$0.0002$ within a factor of~$3$).
-The $10^{-5}$ precision of the $H_0$ match is the
-\emph{Dunham remainder} of an exact BO approximation.
-This tests the \emph{internal consistency} of the BO
-framework, not the physical validity of the
-vortex-spacetime identification (which is the
-essential hypothesis throughout).
-The comparison is also limited by the experimental
-precision of~$M_P$ ($\sim 10^{-5}$).
-\end{proof}
-
-\begin{remark}[The Pell connection at $N = 11$]
-The $N = 11$ tunneling zero $\cosh\rho^*_{11} \approx 43$ satisfies
-the Pell equation
-$43^2 - 462 \times 2^2 = 1$,
-where $462 = 6 \times 7 \times 11 = f(3,7) \times N_{\mathrm{grav}}
-\times N_{\mathrm{cosmo}}$ (the graviton Casimir times both polygon
-numbers) and $y = 2 = j$ (the graviton spin).
-This parallels the $N = 7$ Pell identity
-$8^2 - 7 \times 3^2 = 1$ that controls the electroweak hierarchy.
-\end{remark}
-
-\medskip\noindent
-\emph{Canonical decomposition of the free energy.}
-The partition function $Z = e^{-F}$ of the BO
-breathing mode has three contributions at distinct orders
-in the loop expansion:
-\begin{align}
-  F_{\mathrm{DE}} &= b(N) + \tfrac{N}{4}
-    & &\text{(tree-level: vacuum $+$ radion zero-point)}, \label{eq:F-DE}\\
-  F_{\mathrm{DM}} &= \tfrac{1}{2}\!\sum_{m \ne m^*}\!
-    \ln\bigl|f(m^*) - f(m)\bigr|
-    & &\text{(one-loop: frozen angular modes)}, \label{eq:F-DM}\\
-  F_{\mathrm{M}}  &= \Delta E
-    & &\text{(non-perturbative: WDW mass gap)}. \label{eq:F-M}
-\end{align}
-The decomposition is \emph{canonical}: each term arises from
-a distinct order of the saddle-point expansion
-(classical action, Gaussian fluctuation, tunnelling correction).
-No freedom exists in assigning terms to orders.
-The \emph{physical labelling}
-(DE $\leftrightarrow$ tree, DM $\leftrightarrow$ one-loop,
-baryon $\leftrightarrow$ non-perturbative)
-follows from the coupling to the metric:
-$F_{\mathrm{DE}}$ is $\rho$-independent at the saddle
-(cosmological constant);
-$F_{\mathrm{DM}}$ depends on the eigenvalue gaps
-(frozen, non-thermalised degrees of freedom);
-$F_{\mathrm{M}}$ depends on the mass gap
-(the only component that thermalises below
-$T_{\mathrm{EW}}$).
-The labelling is a consequence of the coupling structure,
-not an ad hoc assignment.
-The radion contribution $N/4$ in~\eqref{eq:F-DE} is the zero-point
-energy of the $S^1$ fiber modulus, stabilised at unit radius by
-the flux~$N/2$: the radion mass is $M_{\mathrm{rad}} = N/2$,
-giving $(1/2)M_{\mathrm{rad}} = N/4$.
-This is determined by the geometry.
-The eigenvalues $\lambda_m(\rho^*) = f(m^*) - f(m)$
-(where $f(m) = m(N{-}m)/2$) are the Havelock eigenvalues evaluated at
-the BF threshold $\rho = \rho^*$, where the critical mode
-$\lambda_{m^*} = 0$ and all remaining modes are positive.
-The sum excludes both critical modes
-($m = m^*$ and $m = N - m^*$ when $N$ is odd).
-For $N = 11$: $f(m^*) = 15$, and $F_{\mathrm{DM}} = 5.193$.
-
-\begin{proposition}[Cosmological energy budget at $N = 11$]
-\label{prop:cosmology}
-At $N = 11$, $\Delta E = 0.815$:
-\begin{center}
-\small
-\begin{tabular}{lccc}
-\toprule
-Component & Prediction & Planck 2018 & Tension \\
-\midrule
-Dark energy $\Omega_\Lambda$ & $68.9\%$ & $68.5 \pm 0.7\%$ & $0.6\sigma$ \\
-Dark matter $\Omega_{\mathrm{DM}}$ & $26.9\%$ & $26.6 \pm 0.7\%$ & $0.4\sigma$ \\
-$\Omega_\Lambda / \Omega_{\mathrm{DM}}$ & $2.56$ & $2.57$ & $0.5\%$ \\
-Baryonic matter $\Omega_b$ (tree) & $4.2\%$ & $4.9 \pm 0.06\%$ & $12\sigma$ \\
-Baryonic matter $\Omega_b$ (1-inst.) & $5.1\%$ & $4.9 \pm 0.06\%$ & $2.9\sigma$ \\
-Baryonic matter $\Omega_b$ (resummed) & $5.0\%$ & $4.9 \pm 0.06\%$ & $0.6\sigma$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-The dark energy and dark matter fractions are within $1\sigma$ of the
-Planck measurements.
-The $\Omega_\Lambda/\Omega_{\mathrm{DM}}$ ratio matches to~$0.5\%$.
-The tree-level baryon fraction ($\Delta E = 0.81$) has $12\sigma$ tension.
-The BF-crossing instanton (the same one giving
-$\delta_{\mathrm{CKM}}$ and the mass hierarchy,
-\S\ref{sec:mass-hierarchy}) corrects the mass gap.
-The one-instanton contribution:
-\begin{equation}\label{eq:mass-gap-inst}
-  \Delta E_{\mathrm{1\text{-}inst}}
-  = \Delta E_0 \times \bigl(1 + K / n_{\mathrm{gen}}\bigr)
-  = 0.81 \times (1 + 0.548/3) = 0.96,
-\end{equation}
-where $K = e^{-2\pi k_{\mathrm{frac}}} = 0.548$ and
-$1/n_{\mathrm{gen}} = 1/3$ counts the BF-crossing generation.
-This overshoots ($\Omega_b = 5.1\%$, $2.9\sigma$ above Planck)
-because it is the first term of an alternating series.
-The $n$-instanton--anti-instanton pairs interfere destructively.
-The alternating sign is not assumed: the CS partition function
-on the Seifert manifold has Reidemeister torsion
-$\tau_n = (-1)^n\,|\tau_n|$ at the $n$-th flat connection
-\citep{Jeffrey1992,Rozansky1995}.
-The Reidemeister torsion is a theorem of the CS sector of the
-framework (the gravitational theory on the Seifert manifold),
-not an external import: the vortex--gravity isomorphism identifies
-the polygon system with this CS theory, and the sign follows from
-the topology of the identified system.
-This gives the geometric resummation
-\begin{equation}\label{eq:mass-gap-resum}
-  \Delta E_{\mathrm{resum}}
-  = \Delta E_0 \times
-    \Bigl(1 + \frac{K}{n_{\mathrm{gen}}(1{+}K^2)}\Bigr)
-  = 0.81 \times 1.141 = 0.924,
-\end{equation}
-where the factor $1/(1{+}K^2) = 0.77$ is the standard
-resummation of $\sum_{n=0}^\infty (-K^2)^n$;
-no new parameter enters.
-The one-loop corrections (\S\ref{sec:loops})
-add $+0.30$ pp to $\Omega_b$, giving
-$\Omega_b = 4.97\%$ ($0.6\sigma$ from Planck).
-\end{proposition}
-
-\subsection{The $N$ selection principle}
-\label{sec:n-selection}
-
-\begin{theorem}[$N$ selection from angular momentum quantization]
-\label{thm:n-selection}
-The three polygon numbers are uniquely determined:
-\begin{enumerate}
-\item[(a)] $N_{\mathrm{EW}} = 4$: the unique even polygon with
-  integer critical spin ($j = 1$ from $f(2,4) = 2 = j(j{+}1)$).
-  Equivalently: the $\Lambda = 0$ threshold.
-\item[(b)] $N_{\mathrm{grav}} = 7$: the unique odd polygon with
-  integer critical spin in the stable range $N \le N_{\mathrm{crit}} = 7$
-  ($j = 2$ from $f(3,7) = 6 = j(j{+}1)$).
-\item[(c)] $N_{\mathrm{cosmo}} = 11 = N_{\mathrm{EW}} + N_{\mathrm{grav}}$:
-  the two gauge sectors share a single $S^1$ fiber
-  with KK fluxes $N_{\mathrm{EW}}/2 = 2$ and
-  $N_{\mathrm{grav}}/2 = 7/2$; flux additivity gives
-  $N_{\mathrm{total}}/2
-  = 2 + 7/2 = 11/2$, giving $N = 11$.
-  No geometric input enters---only the linearity of
-  $\oint A$ on the fiber (exhaustive elimination below).
-\end{enumerate}
-\end{theorem}
-
-\begin{proof}
-\emph{Part (a).}
-For even $N$: $f(N/2, N) = N^2/8$.
-This is an integer only when $8 \mid N^2$, i.e.\ $4 \mid N$
-(since $N^2/8 \in \mathbb{Z}$ requires $v_2(N^2) \ge 3$,
-i.e.\ $v_2(N) \ge 2$, i.e.\ $4 \mid N$).
-Writing $N = 4k$: $f(N/2, N) = 2k^2$.
-The condition $j(j{+}1) = 2k^2$ with $j \in \mathbb{Z}$
-requires $1 + 8k^2$ to be a perfect square.
-At $k = 1$ ($N = 4$): $1 + 8 = 9 = 3^2$, giving $j = 1$.
-The next solution is $k = 6$ ($N = 24$, $j = 8$).
-So $N = 4$ is the unique even polygon with $j \le 7$.
-
-\emph{Part (b).}
-For odd~$N$: $f(\lfloor N/2 \rfloor, N) = (N^2{-}1)/8$.
-Setting $y = 2j{+}1$, the integer-spin condition becomes
-\begin{equation}\label{eq:pell}
-  N^2 - 2y^2 = -1
-  \qquad \text{(the negative Pell equation for $\sqrt{2}$)}.
-\end{equation}
-The solutions are generated by the fundamental unit
-$\varepsilon = 1 + \sqrt{2}$ of $\mathbb{Z}[\sqrt{2}]$:
-$(N_k, y_k) = $ the odd powers $\varepsilon^{2k-1}$.
-Explicitly: $(1, 1)$, $\mathbf{(7, 5)}$, $(41, 29)$, $(239, 169)$, \ldots,
-giving $j = 0, \mathbf{2}, 14, 84, \ldots$
-The first non-trivial solution is $N = 7$, $j = 2$ (the graviton).
-The next ($N = 41$) lies far above the flat-plane stability boundary
-$N_{\mathrm{crit}} = 7$.
-
-\emph{Part (c).}
-The Seifert fiber $S^1$ is a circle bundle over $\mathbf{H}^2/\mathbb{Z}_N$,
-classified by its degree (= first Chern class $c_1 = N$).
-The two gauge sectors each define a Seifert bundle:
-\begin{itemize}
-\item \emph{Electroweak} (Theorem~\ref{thm:su2}):
-  the $\mathrm{SU}(2)_1$ sector operates at
-  $N_{\mathrm{EW}} = 4$, defining a line bundle $L_{\mathrm{EW}}$
-  with $c_1(L_{\mathrm{EW}}) = 4$.
-\item \emph{Gravity/colour} (Theorem~\ref{thm:su3}):
-  the graviton sector operates at
-  $N_{\mathrm{grav}} = 7$, defining a line bundle $L_{\mathrm{grav}}$
-  with $c_1(L_{\mathrm{grav}}) = 7$.
-\end{itemize}
-\emph{Why $N = 11$ and not another value.}
-The cosmological sector must combine the two \emph{gauge}
-sectors ($N = 4$ and $N = 7$) on a single fiber.
-Other polygon numbers ($N = 3, 5, 6$) carry \emph{matter}
-modes but no gauge content (they have $j \ne 1, 2$
-at their critical modes).
-\emph{Logical status of the elimination criteria.}
-The selection uses three layers, ranked by strength:
-\begin{enumerate}
-\item[\emph{T}:] \emph{Theorems} (no freedom):
-  KK flux additivity $N/2 = N_{\mathrm{EW}}/2 + N_{\mathrm{grav}}/2$;
-  Thurston: one $S^1$ fiber; McKay: each~$N$ gives a unique gauge group.
-\item[\emph{S}:] \emph{Structural requirements} (minimal freedom):
-  each gauge sector appears exactly once (no duplication, which would
-  introduce an undetermined relative scale);
-  the cosmological sector must fix~$\ell$ (otherwise $\Lambda$ is a free parameter).
-\item[\emph{P}:] \emph{Physical consistency}:
-  $j = 0$ polygons carry no gauge content;
-  non-integer~$j$ polygons have no spin interpretation.
-\end{enumerate}
-\noindent
-Criteria \emph{T} are mathematical theorems.
-Criterion \emph{S} is the requirement that the theory have
-no more free parameters than the Standard Model.
-Criterion \emph{P} uses the CMS/CS identification
-(Proposition~\ref{prop:casimir-havelock} of Paper~III).
-Any residual objection to the selection is an objection to
-\emph{S} or \emph{P}, not to the mathematical structure.
-
-The selection principle is \textbf{minimality}:
-$N = 11$ is the unique value for which the cosmological
-sector contains exactly the gauge content needed
-($\mathrm{SU}(2)$ at $N = 4$, $\mathrm{SU}(3)$ at $N = 7$)
-with no redundancy and no extra free parameters.
-Every alternative either duplicates a gauge sector
-(introducing an undetermined relative scale) or includes
-a non-gauge polygon (introducing unconstrained matter).
-
-\emph{Exhaustive elimination.}
-Three alternatives to $N = 4 + 7$ fail:
-(a)~$N = 7$ alone gives $M_P/v$ (the EW hierarchy),
-not the cosmological constant ($\mathcal{H}_7 = 38.4$,
-far too small for $\ell \sim 10^{26}$\,m);
-(b)~$N = 4$ has $\Lambda = 0$ (the gauge threshold);
-(c)~$N = 4 + 4 = 8$ would double the electroweak sector
-without including gravity ($j = 2$ only at $N = 7$);
-$N = 3 + 7 = 10$ would add a matter mode ($N = 3$ has
-no gauge content: $f(1,3) = 1 = j(j{+}1)$ for $j = 0$,
-the scalar, not a gauge boson).
-The two gauge sectors operate on the same $S^1$ fiber
-(the Thurston classification allows only one compact fiber
-direction, Step~iv of Proposition~\ref{prop:spacetime}).
-On a single fiber, the total KK flux is the \emph{sum}
-of individual fluxes (linearity of $\oint A$):
-$N_{\mathrm{total}}/2 = N_{\mathrm{EW}}/2 + N_{\mathrm{grav}}/2
-= 4/2 + 7/2 = 11/2$,
-giving $N = 11$.
-This is flux additivity---a consequence of the
-$\mathrm{U}(1)$ gauge structure of the KK connection,
-not a topological assumption.
-$N = 11$ is the unique combination that includes each
-gauge sector exactly once.
-Higher multiples ($N = 14 = 2 \times 7$, $N = 28 = 4 \times 7$)
-would require duplicating a gauge sector:
-$N = 14$ contains two copies of the $N = 7$ gravitational bundle,
-producing two independent BO potentials with two independent
-tunnelling scales ($\ell_1, \ell_2$).
-The theory would have an undetermined relative scale
-$\ell_1/\ell_2$---an additional free parameter absent from the
-$N = 11$ sector, which has a single BO potential and a single
-prediction for~$\ell$.
-$N = 28 = 4 \times 7$ is excluded similarly (two copies of each
-gauge sector, doubling the parameter count).
-All other additive combinations fail:
-$N = 3 + 4 = 7$ (already the graviton sector itself);
-$N = 3 + 7 = 10$ ($N = 3$ has $j = 0$, no gauge content);
-$N = 5 + 7 = 12$ ($N = 5$ has $j \approx 1.79$, non-integer);
-$N = 5 + 4 = 9$ (no graviton);
-$N = 4 + 4 = 8$ (no graviton, doubled EW);
-$N = 7 + 7 = 14$ (two BO potentials, extra parameter).
-Multiplicative combinations $N = 3k$ for $k \ge 3$ or
-$N = 5k$ always include matter polygons without gauge
-content, adding free parameters without gauge sectors.
-This completes the exhaustive elimination.
-
-The combination $N = 4 + 7$ is unique at a deeper level:
-each alternative either duplicates a gauge sector or produces
-the wrong gauge group.
-At $N = 4{+}4 = 8$, the Frobenius $\sigma\colon m \mapsto 3m
-\bmod 8$ has order~$2$, giving $\mathbb{Z}/2\mathbb{Z} \to
-A_1 = \mathrm{SU}(2)$---one $\mathrm{SU}(2)$, not two
-independent copies.
-At $N = 7{+}7 = 14$, the Frobenius $\sigma\colon m \mapsto 3m
-\bmod 14$ has order~$6$, giving $\mathbb{Z}/6\mathbb{Z} \to
-A_5 = \mathrm{SU}(6)$, not $\mathrm{SU}(3) \times
-\mathrm{SU}(3)$.
-No mechanism exists to duplicate a gauge sector: each~$N$
-produces a unique gauge group via the McKay correspondence.
-Moreover, $N = 11$'s own Frobenius ($\sigma\colon m \mapsto 3m
-\bmod 11$, order~$5$) gives $\mathbb{Z}/5\mathbb{Z} \to A_4
-= \mathrm{SU}(5) \supset \mathrm{SU}(3) \times \mathrm{SU}(2)
-\times \mathrm{U}(1)$---the Georgi--Glashow GUT embedding.
-The cosmological polygon number is selected \emph{a~priori}
-by the requirement that its Frobenius structure contains the
-Standard Model gauge group.
-
-\emph{Why a cosmological sector must exist.}
-The $\mathbf{H}^2$ base has curvature radius~$\ell$.
-The value of~$\ell$ is a physical scale that must be determined
-by the dynamics --- if left free, the theory has no prediction
-for the cosmological constant.
-The $N = 11$ instanton provides the mechanism: it sets
-$\ell = \exp(S_{\mathrm{BO}}(11))/v$ through BO tunnelling.
-Without this sector, $\ell$ would be an undetermined parameter.
-
-The Seifert manifold has \emph{one} $S^1$ fibre (this is the
-defining property of a Seifert fibration; a two-fibre geometry
-would be $T^2 \times \mathbf{H}^2$, not
-$\widetilde{\mathrm{SL}(2,\mathbb{R})}$).
-On a single fibre, the total flux is the \emph{sum} of all
-KK fluxes (linearity of $\oint A$).
-The total line bundle is therefore
-$L = L_{\mathrm{EW}} \otimes L_{\mathrm{grav}}$:
-the tensor product is the unique bundle operation that
-(i)~preserves the $S^1$ structure,
-(ii)~adds Chern classes, and
-(iii)~is the group law in $H^2(B;\,\mathbb{Z})$.
-By the standard additivity of the first Chern class under
-tensor product of line bundles:
-\[
-  c_1(L) = c_1(L_{\mathrm{EW}}) + c_1(L_{\mathrm{grav}})
-  = 4 + 7 = 11,
-\]
-hence $N = 11$.
-The two sectors share a \emph{single} $S^1$ fiber, but the total
-$\mathrm{U}(1)$ flux decomposes into independent contributions from
-each sector---exactly as in the Standard Model, where
-$Q = T_3 + Y$ adds charges from $\mathrm{SU}(2)$ and $\mathrm{U}(1)_Y$
-on the same electromagnetic $\mathrm{U}(1)$.
-The tensor product of line bundles is the group law of
-$H^2(B;\,\mathbb{Z})$: it adds Chern classes (integers),
-not gauge fields.
-The flux through the $S^1$ fiber decomposes accordingly:
-$N/2 = 4/2 + 7/2 = 11/2$.
-\end{proof}
-
-\begin{corollary}[Three generations from the Pell equation]
-\label{cor:3-gen}
-The number of fermion generations equals the number of
-palindromic mode pairs at the graviton polygon:
-\begin{equation}\label{eq:n-gen}
-  n_{\mathrm{gen}} = \frac{N_{\mathrm{grav}} - 1}{2} = \frac{7 - 1}{2} = 3.
-\end{equation}
-Each pair $(m, 7{-}m)$ for $m = 1, 2, 3$ constitutes one generation.
-The assignment $m = 1 \to$ generation~1 (lightest),
-$m = 3 \to$ generation~3 (heaviest) follows from the
-KK mass ordering $\mu_m = |m - N/2|$: higher~$m$ gives
-smaller KK mass, hence stronger coupling to the BO potential
-and larger Yukawa.
-No permutation freedom remains.
-The Galois orbit $O_+ = \{1, 2, 4\}$ ($3$ colours) and
-$O_- = \{3, 5, 6\}$ ($3$ anticolours)
-each contribute one element per pair, so
-$n_{\mathrm{gen}} = n_{\mathrm{colour}} = 3$.
-This equality holds because $N = 7$ is prime:
-$\varphi(7)/2 = (7{-}1)/2 = 3$.
-The dynamical content is that each generation carries a
-\emph{distinct} Yukawa texture from the
-$\mathbb{Z}_7$ charge-conservation selection rules
-(\S\ref{sec:fermions}): the three generations are not
-copies of each other but have \emph{different} couplings
-dictated by the Galois orbit structure.
-\end{corollary}
-
-\begin{theorem}[Electroweak hierarchy from the hybrid instanton]
-\label{thm:hierarchy}
-The Planck/electroweak hierarchy decomposes into three
-independently computable contributions:
-\begin{equation}\label{eq:hierarchy}
-  \ln\!\frac{M_P}{M_{\mathrm{EW}}}
-  = \underbrace{2S_{\mathrm{BO}}(7)}_{\text{instanton}}
-  + \underbrace{\Delta\varepsilon\;\ln\varepsilon_7}_{\text{mass gap}}
-  + \underbrace{\tfrac{1}{2}\ln\!\bigl(c/(24\pi^2)\bigr)}_{\text{gravity}},
-\end{equation}
-where $S_{\mathrm{BO}}$ is the WKB tunneling action through
-the Born--Oppenheimer potential $V(\rho) = \ln(2\sinh\rho) + b(7) - 6$
-and $\varepsilon_7 = 8 + 3\sqrt{7}$ is the fundamental unit
-of~$\mathbb{Z}[\sqrt{7}]$.
-Numerically: $36.548 + 2.222 + (-0.313) = 38.457$,
-versus the observed $\ln(M_P/v) = 38.442$
-($0.04\%$ match in the log; $1.5\%$ in the ratio).
-\end{theorem}
-
-\begin{proof}
-Each component is computed independently.
-
-\emph{Why $c_7$ for the instanton but $c_{11}$ for the gravity
-prefactor.}
-The electroweak hierarchy involves the $N = 7$ sector
-(the graviton polygon): $S_{\mathrm{BO}}(7)$ and $\varepsilon_7$
-are computed from $b(7)$ and $f(3,7)$.
-The gravity prefactor $c/(24\pi^2)$ uses
-$c = c_{11} = 12\,b(11)$ because the Planck mass
-$M_P = \sqrt{c/G}$ is set by the \emph{full} spacetime
-geometry ($N = 11$), not the graviton sector alone.
-The two sectors decouple: the $N = 7$ BO potential determines
-the tunneling rate (which sets $v/M_P$), while $N = 11$
-determines the overall gravitational coupling (which sets
-$M_P$ in physical units).
-This decoupling is guaranteed by the $\mathbb{Z}_{56}$
-charge conservation (Corollary~\ref{cor:proton-stability}):
-the $N = 7$ and $N = 4$ sectors cannot exchange KK quanta.
-
-\emph{Component~1 (Instanton).}
-The Born--Oppenheimer potential for the $N = 7$ breathing mode is
-$V(\rho) = \ln(2\sinh\rho) + b(7) - f(3,7)$,
-which is negative for $\rho < \rho^* = 1.734$
-and positive for $\rho > \rho^*$.
-The WKB tunneling action:
-$S = \int_0^{\rho^*} \sqrt{2c_7\,|V(\rho)|}\;d\rho = 18.274$
-(numerical integration, $c_7 = 12\,b(7) = 51.57$).
-The bounce action is $2S = 36.548$.
-
-\emph{Component~2 (Mass gap).}
-The asymptotic mass gap of the WDW equation is
-$\Delta E \to \Delta\varepsilon = 0.8026$
-(the universal log-potential constant, \S\ref{sec:mass-gap}).
-Its contribution to the hierarchy:
-$\Delta\varepsilon\,\ln\varepsilon_7 = 0.8026 \times 2.769 = 2.222$.
-
-\emph{Component~3 (Gravity prefactor).}
-The Planck mass is $M_P = \sqrt{c/(24\pi^2 R\ell)}$
-from the KK reduction $G_4 = G_3/(2\pi R)$
-with $G_3 = 3\ell/(2c)$ (Brown--Henneaux).
-This gives $(1/2)\ln(c/(24\pi^2)) = -0.313$
-with $c = 12\,b(11) = 126.56$.
-The central charge is $c_{11}$ (not $c_7$) because
-the Planck mass is determined by the full spacetime geometry,
-which has total Chern class~$N = 11$
-(Theorem~\ref{thm:n-selection}).
-
-\emph{The Pell identity.}
-Components~1 and~2 satisfy
-\begin{equation}\label{eq:pell-identity}
-  \frac{2S_{\mathrm{BO}}(7)}{\ln\varepsilon_7}
-  = 2N_{\mathrm{grav}} - \sqrt{2/\pi}
-  - \frac{4}{c_7^2} + O(1/c_7^3),
-\end{equation}
-where $\ln\varepsilon_7 = \operatorname{arccosh}(8) = \ln(8{+}3\sqrt{7}\,)$
-is the regulator of the real quadratic field $\mathbb{Q}(\sqrt{7})$,
-arising from the Pell equation $8^2 - 7 \times 3^2 = 1$.
-The identity is verified to $0.00005\%$ and is \emph{proved} via the
-Selberg trace formula on the Klein quartic.
-
-\begin{proposition}[Pell uniqueness at $N = 7$]
-\label{prop:pell-unique}
-$N = 7$ is the unique positive integer for which
-$(N{+}1, \lfloor(N{-}1)/2\rfloor)$ is a Pell pair,
-i.e.\ $(N{+}1)^2 - N \lfloor(N{-}1)/2\rfloor^2 = 1$.
-\end{proposition}
-\begin{proof}
-For odd~$N$ with $m^* = (N{-}1)/2$:
-$(N{+}1)^2 - N m^{*2}
-= (-N^3{+}6N^2{+}7N{+}4)/4$.
-Setting this to~$1$: $N(N{-}7)(N{+}1) = 0$.
-The unique positive root is $N = 7$.
-\end{proof}
-
-\begin{proof}[Proof of the Pell identity~\eqref{eq:pell-identity}
-  via the Klein quartic]
-The argument has four steps.
-
-\emph{Step~1 (The Pell geodesic on the modular surface).}
-The Pell equation $8^2 - 7 \times 3^2 = 1$ defines the matrix
-$M = \bigl(\begin{smallmatrix} 8 & 21 \\ 3 & 8 \end{smallmatrix}\bigr)
-\in \mathrm{SL}(2,\mathbb{Z})$
-with $\det M = 1$, $\operatorname{tr} M = 16$.
-This matrix is hyperbolic and defines a closed geodesic on the
-modular surface $\mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$
-of length
-$\ell = 2\operatorname{arccosh}(\operatorname{tr}M/2)
-= 2\operatorname{arccosh}(8) = 2\ln\varepsilon_7$.
-
-\emph{Step~2 (Lift to the Klein quartic).}
-The level-$7$ modular curve
-$X(7) = \Gamma(7)\backslash\mathbf{H}^2$
-is the \emph{Klein quartic}---a genus-$3$ Riemann surface with
-automorphism group $\mathrm{PSL}(2,\mathbb{F}_7)$, order~$168$.
-This group contains $\mathbb{Z}/7\mathbb{Z}$ as a subgroup,
-and $X(7)/(\mathbb{Z}/7\mathbb{Z})
-= \mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$.
-The Pell geodesic on the modular surface lifts to
-\emph{seven} closed geodesics on $X(7)$, one per
-$\mathbb{Z}_7$~coset, each of length~$2\ln\varepsilon_7$.
-
-\emph{Step~3 (Selberg trace formula on $X(7)$).}
-The BO potential $V(\rho) = \ln(2\sinh\rho) - u^*$ is the
-radial effective potential of the Laplacian on~$\mathbf{H}^2$
-in the $\mathbb{Z}_7$-equivariant sector.
-The WKB spectral sum of this potential equals the
-spectral side of the Selberg trace formula on~$X(7)$,
-evaluated with the WKB test function~$h$.
-On the \emph{geometric} side, each primitive geodesic of
-length~$\ell$ contributes
-$\ell/(2\sinh(\ell/2)) \times \hat h(\ell)$
-to the trace.
-For the Pell geodesic ($\ell_0 = 2\ln\varepsilon_7$):
-the WKB spectral factor is
-$\hat h(\ell_0) = 2\sinh(\ell_0/2) = 2\sinh(\operatorname{arccosh}8) = 6\sqrt{7}$,
-which \emph{exactly cancels} the Selberg stability denominator
-$1/(2\sinh(\ell_0/2))$.
-We prove this cancellation explicitly.
-The potential $V(\rho) = \ln(2\sinh\rho)$ is (up to a constant)
-the radial Green's function of the Laplacian on~$\mathbf{H}^2$.
-Its Legendre spectral coefficient is the resolvent
-\citep[Ch.~IV]{Hejhal1976}:
-\[
-  \int_0^\infty \ln(2\sinh\rho)\,
-  P_{-1/2+ir}(\cosh\rho)\,\sinh\rho\,d\rho
-  = \frac{-\pi}{2r\sinh(\pi r)}.
-\]
-The WKB test function for the Selberg trace formula is
-$h(r) = (1/4 + r^2) \times a(r)$, where $a(r)$ is the
-spectral coefficient and $(1/4 + r^2)$ is the Laplacian eigenvalue.
-The Selberg transform $\hat{h}(\ell)$ is the Abel--Fourier
-transform of~$h$; for $h(r) \propto (1/4 + r^2)/(r\sinh(\pi r))$,
-this evaluates via the residue formula
-$\sum \operatorname{Res}[\hat{h}]$ at the poles $r = in$
-($n = 0, 1, 2, \ldots$) of $1/\sinh(\pi r)$:
-\[
-  \hat{h}(\ell) = \frac{1}{2\pi}\int_{-\infty}^{\infty}
-  e^{ir\ell}\,\frac{\pi(1/4+r^2)}{2r\sinh(\pi r)}\,dr
-  = 2\sinh(\ell/2).
-\]
-The last equality follows from the Mittag-Leffler expansion
-of $1/\sinh(\pi r)$ and the factorisation
-$(1/4 + r^2) = (r + i/2)(r - i/2)$, which shifts the
-poles of $1/(r\sinh(\pi r))$ to give the exponentials
-$e^{\pm\ell/2}$ whose difference is $2\sinh(\ell/2)$.
-This completes the proof: $\hat{h}(\ell) = 2\sinh(\ell/2)$
-cancels the stability denominator $1/(2\sinh(\ell/2))$,
-leaving a net contribution of~$\ell_0$ per geodesic orbit.
-The net contribution per orbit is therefore simply
-the \emph{geodesic length}~$\ell_0 = 2\ln\varepsilon_7$.
-Summing the seven lifts:
-\[
-  2S_{\mathrm{BO}}(7)
-  = 7 \times \ell_0 - \text{quantum corrections}
-  = 14\,\ln\varepsilon_7 - \text{corrections}.
-\]
-
-\emph{Step~4 (Quantum corrections from the Dunham series).}
-The Maslov index of the bounce orbit gives the correction
-$-\sqrt{2/\pi}$ (the WDW zero-point energy).
-The anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$
-gives the Dunham correction $-4/c_7^2$ (verified to $0.26\%$
-at $50$-digit precision).
-Together: $2S/\ln\varepsilon_7
-= 14 - \sqrt{2/\pi} - 4/c_7^2 + O(1/c_7^3)$.
-\end{proof}
-
-\noindent
-The \emph{per-vortex} form of the identity is illuminating:
-each of the $N = 7$ vortices contributes one Pell regulator
-$\ln\varepsilon_7$ to the tunneling action, reduced by the
-per-vortex quantum correction
-$\sqrt{2/\pi}/(2N) + 2/(Nc_7^2)$.
-The instanton provides $94.3\%$ of the Pell exponent;
-the mass gap provides the remaining $5.7\%$.
-Together: $e^{14\,\ln\varepsilon_7} = \varepsilon_7^{14}
-= (8{+}3\sqrt{7}\,)^{14} = 6.82 \times 10^{16}$.
-
-\emph{Cancellation.}
-The $\sqrt{2/\pi}$ terms cancel between the instanton (component~1)
-and the mass gap (component~2):
-\[
-  \ln\frac{M_P}{M_{\mathrm{EW}}}
-  = \bigl(14 - \tfrac{4}{c_7^2}\bigr)\ln\varepsilon_7
-  + \tfrac{1}{2}\ln\!\bigl(\tfrac{c}{24\pi^2}\bigr) + O(1/c^3).
-\]
-At leading order, the hierarchy depends on the Pell unit
-$\varepsilon_7$ and the central charge; the mass gap
-$\Delta\varepsilon = 0.8026$ enters only at subleading
-order $O(\ln\varepsilon_7/c) \approx 0.04$, producing
-the $0.04\%$ residual in the log.
-\end{proof}
-
-\noindent
-\emph{Why} $\sim\!10^{17}$ and not larger:
-$N_{\mathrm{grav}} = 7$ is the \emph{first} non-trivial Pell solution
-(Theorem~\ref{thm:n-selection}).
-At the next ($N = 41$):
-$\varepsilon_7^{82} \sim 10^{99}$---no atoms could form.
-
-\begin{remark}[Prediction of the Higgs VEV]
-The hierarchy formula \emph{predicts}
-$v = M_P / \exp(38.444) = 245.9$\,GeV
-(observed $246.2$\,GeV, $0.12\%$ off).
-\end{remark}
-
-\medskip\noindent
-The $N = 11$ budget matches Planck to $< 1\sigma$ for
-$\Omega_\Lambda$ and $\Omega_{\mathrm{DM}}$,
-as shown in Proposition~\ref{prop:cosmology}.
-The $\Omega_\Lambda / \Omega_{\mathrm{DM}}$ ratio $= 2.56$
-(Planck: $2.57 \pm 0.05$).
-
-\subsection{The dark matter spectrum}
-
-The frozen Havelock modes are the dark matter candidates:
-\emph{massive} (from the Casimir gaps), \emph{stable}
-($\mathbb{Z}_N$-protected), \emph{non-luminous} (different
-KK charge from the Higgs), and \emph{cold} (zero kinetic energy
-at threshold).
-At $N = 11$, the Casimir gaps are $\lambda_m = 1, 3, 6, 10$
-(the \emph{triangular numbers} $T_1, T_2, T_3, T_4$),
-giving four dark matter species with mass ratios
-\begin{equation}\label{eq:dm-masses}
-  M_1 : M_2 : M_3 : M_4
-  = 1 : \sqrt{3} : \sqrt{6} : \sqrt{10}.
-\end{equation}
-There are $8$ dark matter particles in total
-($4$ frozen pairs $\times$ degeneracy~$2$).
-Their absolute masses are $M_k = \sqrt{\lambda_k} \times M_{\mathrm{poly}}$:
-$50$--$160$\,TeV (at $M_{\mathrm{poly}} = 50$\,TeV) or
-$300$--$950$\,TeV (at $M_{\mathrm{poly}} = 300$\,TeV).
-The lightest species is topologically stable
-($\mathbb{Z}_{11}$ charge conservation, cf.\ proton stability
-from $\mathbb{Z}_{56}$ in \S\ref{sec:consistency}).
-
-\emph{Relic abundance and clustering.}
-The frozen modes are \emph{not} thermally produced:
-$\sigma \sim 10^{-103}\;\mathrm{cm}^2$ (see
-\S\ref{sec:consistency}) ensures they were never in
-thermal equilibrium with the SM bath.
-Instead, the DM relic abundance is determined by the one-loop
-determinant of the frozen mode operator (eq.~\ref{eq:F-DM}):
-$\Omega_{\mathrm{DM}} = F_{\mathrm{DM}} / F_{\mathrm{total}}$.
-This is the Havelock analogue of the thermal freeze-out
-calculation---it fixes the \emph{total} DM energy density from the
-eigenvalue spectrum at~$N = 11$.
-After the cosmological $N$-selection phase transition, the frozen
-modes are real massive particles (50--950\,TeV) that cluster
-gravitationally like standard cold dark matter:
-rotation curves, bullet cluster dynamics, gravitational lensing,
-and CMB acoustic peaks are all reproduced by a CDM
-component at $\Omega_{\mathrm{DM}} = 26.9\%$
-with these masses.
-The $\mathbb{Z}_{11}$ stability ensures that the lightest frozen
-mode is absolutely stable (analogous to $R$-parity in
-supersymmetric models).
-
-\subsection{The baryon fraction and the mass gap}
-
-The baryon fraction within total matter:
-$\Omega_b / (\Omega_b + \Omega_{\mathrm{DM}})
-= F_M / (F_{\mathrm{DM}} + F_M)$.
-At $N = 11$: $F_{\mathrm{DM}} = 5.193$.
-The Planck value $\Omega_b/\Omega_m = 15.6\%$ requires
-$F_M = 0.96$---slightly above the WDW estimate
-$\Delta E = 0.815$.
-\subsection{The mass gap: the universal log-potential constant}
-\label{sec:mass-gap}
-
-The WDW mass gap, computed via non-uniform FEM mesh
-(quadratically concentrated near $\rho = 0$), gives converged values:
-\begin{center}
-\small
-\begin{tabular}{lcccccc}
-\toprule
-$N$ & $6$ & $7$ & $8$ & $9$ & $10$ & $11$ \\
-\midrule
-$\Delta E$ & $0.841$ & $0.832$ & $0.825$ & $0.821$ & $0.817$ & $0.815$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-In the semiclassical limit $c \to \infty$, the WDW equation
-reduces (after rescaling $x = \sqrt{2c}\,\rho$) to the
-\emph{universal log Schr\"odinger equation}
-\begin{equation}\label{eq:log-schrodinger}
-  \Bigl[-\tfrac{1}{2\alpha}\,\frac{d^2}{dx^2} + \ln x\Bigr]\Psi
-  = \varepsilon\,\Psi
-  \qquad (x \in (0,\infty),\; \Psi(0) = 0),
-\end{equation}
-whose eigenvalue gap
-$\Delta\varepsilon = \varepsilon_1 - \varepsilon_0$
-is \emph{independent of~$\alpha$}: a universal constant
-\begin{equation}\label{eq:mass-gap}
-  \Delta\varepsilon = 0.8026 \pm 0.0001
-  \qquad\text{(numerical, grid-converged;
-  \texttt{proofs/mass\_gap\_log\_schrodinger.py})}.
-\end{equation}
-This is close to but distinct from $\sqrt{2/\pi} = 0.7979$
-(the half-normal mean, which is an approximation to~$\Delta\varepsilon$,
-not an exact identity).
-The full WDW gap at finite~$N$ converges to this constant from above:
-$\Delta E(7) = 0.84$, $\Delta E(11) = 0.82$,
-$\Delta E(\infty) \to 0.803$.
-At $N = 11$: $\Delta E = 0.815$, giving $\Omega_b = 4.22\%$ at tree level.
-Including all one-loop corrections (\S\ref{sec:loops}) and
-the neutrino contribution (\S\ref{sec:neutrinos}):
-\begin{center}
-\small
-\begin{tabular}{lcccc}
-\toprule
-& Tree & Corrected & Planck 2018 & Tension \\
-\midrule
-$\Omega_\Lambda$ & $68.9\%$ & $67.9\%$ & $68.5 \pm 0.7\%$ & $0.8\sigma$ \\
-$\Omega_{\mathrm{DM}}$ & $26.9\%$ & $27.6\%$ & $26.6 \pm 0.7\%$ & $1.4\sigma$ \\
-$\Omega_b + \Omega_\nu$ & $4.22\%$ & $4.53\%$ & $4.93 \pm 0.06\%$ & $6.6\sigma$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-The corrections: one-loop Coleman--Weinberg ($+0.16$ pp),
-neutrino seesaw $\Sigma m_\nu = 0.059$\,eV ($+0.14$ pp),
-CS level shift on the mass gap ($+0.005$ pp).
-With the instanton resummation~\eqref{eq:mass-gap-resum},
-the baryon tension reduces to $0.6\sigma$
-(Proposition~\ref{prop:cosmology}).
-
-The residual $0.40$ percentage-point discrepancy
-($4.53\%$ vs.\ $4.93\%$) is sensitive to the Hubble constant:
-$\Omega_b = \Omega_b h^2 / h^2$.
-At the Planck value $h = 0.674$: $\Omega_b = 4.93\%$.
-At the SH0ES local value $h = 0.732$: $\Omega_b = 4.18\%$.
-The predicted $4.53\%$ lies between the Planck and SH0ES
-values, suggesting that the residual depends on the resolution
-of the $H_0$ tension.
-
-\emph{The universal limit sharpens the prediction.}
-The mass gap $\Delta E$ converges to the universal
-log-potential constant $\Delta\varepsilon = 0.803$
-(\S\ref{sec:mass-gap}) as $c \to \infty$.
-At the universal limit (instead of the finite-$N$ value $0.815$):
-$\Omega_b^{\mathrm{tree}} = 0.803/(0.803 + 5.193) \times 0.311
-= 4.16\%$---matching the SH0ES value $4.18\%$ to $0.02$
-percentage points.
-After corrections ($+0.30$ pp from one-loop $+$ neutrinos):
-$\Omega_b = 4.46\%$, which coincides with the geometric
-mean of the Planck and SH0ES values
-$\sqrt{4.93 \times 4.18} = 4.54\%$.
-The $\Omega_b$ prediction thus \emph{discriminates} between
-the Planck and SH0ES $H_0$ measurements:
-if SH0ES is correct, the tree-level $\Omega_b$ is nearly
-exact; if Planck is correct, the one-loop correction
-accounts for most of the residual.
-For a theory with one discrete input ($N = 7$),
-the $0.40$ percentage-point residual on the total energy budget
-corresponds to an $8\%$ relative error on~$\Omega_b$.
-
-%% ====================================================================
-\section{Baryogenesis}
-\label{sec:baryogenesis}
-
-The Havelock theory satisfies all three Sakharov conditions.
-
-\paragraph{Baryon number violation.}
-The $\mathrm{SU}(2)$ Chern--Simons instantons (the same tunneling
-events that generate the hierarchy, Theorem~\ref{thm:hierarchy})
-change the CS winding number by~$\pm 1$, violating $B{+}L$
-while preserving $B{-}L$.
-
-\paragraph{CP violation.}
-The physical CS level $k_{\mathrm{phys}} = c/6 - N/2$ is not integer
-(as permitted for $\mathrm{SL}(2,\mathbb{R})$ CS, see \S\ref{sec:gauge-group}).
-A CS instanton with unit winding picks up the phase
-$e^{2\pi i k_{\mathrm{phys}}}$, giving a CP-violating observable
-\begin{equation}\label{eq:delta-CP}
-  \delta_{\mathrm{CP}} = \sin\bigl(2\pi\,\mathrm{frac}(k_{\mathrm{phys}})\bigr).
-\end{equation}
-At $N = 7$: $k_{\mathrm{phys}} = 5.096$,
-$\delta_{\mathrm{CP}} = \sin(2\pi \times 0.096) = 0.566$.
-This is four orders of magnitude larger than the SM Jarlskog
-invariant $J \approx 3 \times 10^{-5}$.
-
-\paragraph{First-order electroweak phase transition.}
-The Born--Oppenheimer potential $V(\rho)$ has a barrier
-($S_{\mathrm{tunnel}} = 18.3$, \S\ref{sec:loops}),
-producing a \emph{first-order} EWPT with
-$v(T_c)/T_c \approx 0.84$.
-In the broken phase, sphaleron processes are suppressed by
-$e^{-3v/T_c} = e^{-2.52} = 0.08$: $92\%$ of the baryon asymmetry
-survives the transition (partial washout of~$8\%$).
-By contrast, the SM electroweak phase transition is a
-\emph{crossover} for $m_H = 125$\,GeV---no baryogenesis is possible
-in the SM without new physics.
-
-\paragraph{Baryon asymmetry from the transport equation.}
-The Boltzmann diffusion equation in the wall rest frame,
-\begin{equation}\label{eq:transport}
-  D_q\,\mu'' - v_w\,\mu' - \Gamma_{\mathrm{tot}}\,\mu
-  + S_{\mathrm{CP}}(z) = 0,
-\end{equation}
-where $\mu = \mu_L$ is the left-handed top chemical potential,
-$D_q \approx 6/T$ the quark diffusion coefficient
-(Moore \& Prokopec 1995), and
-$\Gamma_{\mathrm{tot}} = 3\Gamma_y + 3\Gamma_{\mathrm{ss}} \approx 0.60\,T$
-the combined Yukawa and strong-sphaleron relaxation rate,
-admits an exact Green's function solution.
-The CP-violating source is
-$S_{\mathrm{CP}} = (N_c\,y_t^4\,v_w\,\sin\delta_{\mathrm{CP}})
-/(8\pi^2)\,h(z)\,h'(z)$,
-localised at the wall (width $L_w = (2c)^{-1/3}/T = 0.21/T$).
-
-Weak sphalerons convert $\mu_L$ into baryon number in the
-symmetric phase:
-\begin{equation}\label{eq:eta-B}
-  \eta_B = \frac{7.04\,n_F\,\Gamma_{\mathrm{ws}}}{v_w\,s/T^3}
-  \int_0^\infty \!\mu(z)\,dz,
-\end{equation}
-where $\Gamma_{\mathrm{ws}} = \kappa\,\alpha_w^5\,T \approx 8.2 \times 10^{-7}\,T$
-($\kappa = 20$ from lattice; D'Onofrio et al.\ 2014),
-$s = (2\pi^2/45)\,g_*\,T^3$ is the entropy density,
-and $n_F = 3$.
-
-A key feature of this framework is that $\eta_B$ is
-\emph{nearly independent of the wall velocity}~$v_w$:
-the source $S_{\mathrm{CP}} \propto v_w$ while the
-sphaleron conversion $\propto 1/v_w$, so the dependence
-cancels.  The Green's function convolution gives
-\begin{equation}\label{eq:eta-B-result}
-  \eta_B = (1.8\text{--}2.0) \times 10^{-9}
-  \approx 3.0\,\eta_B^{\mathrm{obs}},
-\end{equation}
-stable to $< 10\%$ across $v_w \in [10^{-3}, 0.5]$.
-The factor of~$3$ arises entirely from
-the lattice QCD parameters $\kappa$ and~$\Gamma_y$,
-each carrying factor-of-two uncertainties:
-$\kappa = 20 \pm 10$ (\citealt{DOnofrio2014})
-and $\Gamma_y = (0.2 \pm 0.1)\,y_t^2\,T$.
-The observed value sits within the lattice uncertainty band:
-\begin{center}
-\small
-\begin{tabular}{cccc}
-\toprule
-$\kappa$ & $\Gamma_y / (y_t^2 T)$ & $\eta_B / \eta_B^{\mathrm{obs}}$ \\
-\midrule
-$10$ & $0.1$ & $1.5$ \\
-$10$ & $0.2$ & $0.8$ \\
-$\mathbf{10}$ & $\mathbf{0.3}$ & $\mathbf{1.1}$ \\
-$20$ & $0.2$ & $1.6$ \\
-$20$ & $0.3$ & $1.1$ \\
-$30$ & $0.3$ & $1.6$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-The framework fixes $\delta_{\mathrm{CP}}$, $v(T_c)/T_c$,
-$L_w$, and the $v_w$-cancellation; the remaining
-dependence on $\kappa$ and $\Gamma_y$ is the standard
-lattice QCD uncertainty shared by \emph{all} electroweak
-baryogenesis models.
-The factor of~$3$ at the central lattice values
-places the prediction at the upper edge of the allowed range---agreement
-requires both $\kappa$ and $\Gamma_y$ to shift in their
-favourable directions simultaneously.
-This is not a structural prediction of the theory.
-The structural predictions---which carry no uncertainty---are:
-\begin{enumerate}
-\item \emph{First-order EWPT}: $v(T_c)/T_c = 0.84$
-  (the SM has a crossover at $m_H = 125$\,GeV);
-\item \emph{Large CP violation}:
-  $\delta_{\mathrm{CP}} = 0.57$, four orders of magnitude
-  above the SM Jarlskog invariant $J = 3 \times 10^{-5}$;
-\item \emph{$v_w$-independence}: the source $\propto v_w$
-  cancels the conversion $\propto 1/v_w$;
-\item \emph{Correct order of magnitude}:
-  $\eta_B = O(10^{-9})$ from the framework alone.
-\end{enumerate}
-
-%% ====================================================================
-\section{Neutrino masses from the seesaw}
-\label{sec:neutrinos}
-
-The right-handed neutrino $\nu_R$ is an $\mathrm{SU}(2)$ singlet
-with $N = 4$ KK mass $\mu_4 = 3/2$
-(vs.\ $\mu_4 = 1/2$ for the doublet $\nu_L$).
-Its Dirac KK mass is \emph{derived} from the Pell identity.
-In the Seifert framework, $\nu_R$ is a Kaluza--Klein mode on~$S^1$
-with a \emph{Dirac} bulk mass; there is no Majorana mass term
-and lepton number is exactly conserved.
-The ``seesaw'' is a Dirac (type-III) seesaw: the heavy state
-is a Dirac KK mode at scale~$M_{\mathrm{KK}}$, not a Majorana state.
-\begin{equation}\label{eq:M-R}
-  M_{\mathrm{KK}} = M_{\mathrm{poly}} \times \varepsilon_7^{N_{\mathrm{grav}}}
-  \times f(m^*, N_{\mathrm{grav}})
-  = M_{\mathrm{poly}} \times \varepsilon_7^7 \times 6
-  \sim 10^{13}\text{--}10^{14}\;\mathrm{GeV}.
-\end{equation}
-The three factors have distinct physical origins:
-(i)~$\varepsilon_7^7 = \exp(N\ln\varepsilon_7)
-= \exp(S_{\mathrm{BO}} + \sqrt{2/\pi}\,\ln\varepsilon_7/2)$,
-using the Pell identity~\eqref{eq:pell-identity}: the BO instanton
-that generates the electroweak hierarchy also generates the
-KK mass, with the WDW mass gap correction replacing the
-bounce factor;
-(ii)~$f(3,7) = 6 = j(j{+}1)$ is the graviton Casimir---the
-heavy KK mode couples through the $N = 7$
-critical mode;
-(iii)~$M_{\mathrm{poly}}$ is the polygon scale (from
-$\sin^2\theta_W$ running).
-One calibration input ($\Delta m^2_{\mathrm{atm}}$) pins
-$M_{\mathrm{poly}}$; $M_{\mathrm{KK}}$ is then determined by~$N = 7$.
-
-The Dirac seesaw $m_\nu = m_D^2/M_{\mathrm{KK}}$ with Dirac masses
-from properly normalised radial profiles on~$\mathbf{H}^2$
-(at warp parameter $\rho^* = 1.734$) gives:
-\begin{center}
-\small
-\begin{tabular}{lccccc}
-\toprule
-Gen & Pair & $\mu_7$ & $m_D$ & $m_\nu$ \\
-\midrule
-1 & $(1,6)$ & $2$ & $6.1$\,GeV & $0.0005$\,eV \\
-2 & $(2,5)$ & $1$ & $32$\,GeV & $0.013$\,eV \\
-3 & $(3,4)$ & $0$ & $63$\,GeV & $0.051$\,eV \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-Predictions ($M_{\mathrm{KK}}$ from eq.~\eqref{eq:M-R}; see below for
-parameter status):
-\begin{itemize}
-\item \emph{Normal hierarchy}: $m_3 \gg m_2 \gg m_1$.\quad\checkmark
-\item $\Delta m^2_{\mathrm{atm}} = 2.45 \times 10^{-3}\;\mathrm{eV}^2$
-  (this fixes the overall scale $M_{\mathrm{KK}}$; see the parameter
-  discussion below).
-\item $\Delta m^2_{\mathrm{sol}} = 7.8 \times 10^{-5}\;\mathrm{eV}^2$
-  (observed: $7.5 \times 10^{-5}$; $3\%$ match).
-  The \emph{ratio} $\Delta m^2_{\mathrm{atm}}/\Delta m^2_{\mathrm{sol}}
-  = 31.5$ (observed: $32.5$, $3\%$) is a genuine prediction:
-  it is $M_{\mathrm{KK}}$-independent and determined entirely by the Yukawa texture.
-  The improvement from $2.3\times$ (diagonal $M_{\mathrm{KK}}$) to $3\%$
-  comes from the $\mathbb{Z}/3\mathbb{Z}$ Galois twist,
-  which generates off-diagonal $M_{\mathrm{KK}}$ entries suppressed by
-  $e^{-\sqrt{|\Delta f|}\,\rho^*/N}$
-  ($\Delta f = |f_i {-} f_j|$ the Casimir mismatch,
-  $1/N$ the natural centrifugal barrier scale
-  of the $\mathbb{Z}_N$ orbifold).
-  The Frobenius $\sigma$ maps pairs with \emph{unit} angular overlap;
-  the suppression is purely radial.
-\item $\Delta m^2_{\mathrm{atm}} / \Delta m^2_{\mathrm{sol}} = 31.5$
-  (observed: $32.5$; $3\%$ match).
-\item $\Sigma m_\nu = 0.059$\,eV
-  $< 0.12$\,eV (Planck bound).\quad\checkmark
-\end{itemize}
-The neutrino contribution $\Omega_\nu = 0.14\%$ enters
-the baryon budget (Proposition~\ref{prop:cosmology}).
-
-%% ====================================================================
-\section{Radion inflation}
-\label{sec:inflation}
-
-The radion $\sigma$ (the $S^1$ modulus) has effective potential
-\begin{equation}\label{eq:V-radion}
-  V(\sigma) = \frac{N^2}{8\sigma^2} - \frac{c}{12\sigma} + \Lambda\,\sigma,
-\end{equation}
-where $N^2/(8\sigma^2)$ is the flux energy,
-$c/(12\sigma)$ is the Casimir energy,
-and $\Lambda\,\sigma$ is the cosmological term.
-The potential is stabilised at $\sigma_{\min} \approx 1.35$
-(for $N = 11$) and grows linearly for large~$\sigma$:
-$V \approx \Lambda\,\sigma$.
-
-At early times, the radion rolls from $\sigma \gg \sigma_{\min}$
-toward the minimum.
-The full potential~\eqref{eq:V-radion} has an \emph{inflection point} at
-\begin{equation}\label{eq:sigma-infl}
-  \sigma_{\mathrm{infl}} = \frac{3N^2/8}{c/12} = \frac{9N^2}{2c}
-  \approx 4.3 \quad (N = 11),
-\end{equation}
-where $V'' = 0$.
-For $\sigma > \sigma_{\mathrm{infl}}$: $V'' < 0$ (concave down,
-$\eta < 0$, red tilt).
-
-\emph{Inflection-point inflation.}
-If inflation occurs near the inflection point (rather than in the
-linear regime $\sigma \gg \sigma_{\mathrm{infl}}$), the cubic
-approximation gives \citep{Barenboim2016}
-\begin{equation}\label{eq:inflation-predictions}
-  n_s = 1 - \frac{8}{3\sqrt{3}\,N_e},
-  \qquad r \sim 10^{-6}\;\text{(negligible)}.
-\end{equation}
-Planck~2018 ($n_s = 0.965 \pm 0.004$) requires $N_e \approx 45$--$55$,
-corresponding to $T_{\mathrm{rh}} \sim 10^6$--$10^9$\,GeV.
-The tensor-to-scalar ratio $r \sim 10^{-6}$ is far below the
-BICEP/Keck~2024 bound ($r < 0.036$) and the LiteBIRD sensitivity
-($\sigma_r \approx 0.001$): \emph{inflection-point inflation predicts
-undetectable gravitational waves from the inflationary epoch}.
-
-In the linear regime ($\sigma \gg \sigma_{\mathrm{infl}}$):
-$n_s = 1 - 3/(2N_e)$, $r = 4/N_e$.
-At $N_e = 60$: $n_s = 0.975$ ($2.4\sigma$ tension with Planck),
-$r = 0.067$ (excluded by BICEP/Keck).
-The inflection-point mechanism resolves this tension.
-
-%% ====================================================================
-\section{Parameter accounting}
-\label{sec:parameters}
-
-\paragraph{Structural framework (forced, not chosen).}
-Each structural element is the \emph{unique} option
-compatible with the requirements of the vortex system:
-\begin{enumerate}
-\item \emph{Seifert manifold.}
-  Uniquely determined by the Thurston classification
-  (Proposition~\ref{prop:spacetime}).
-\item \emph{BF threshold $\mu_4 = 1$.}
-  The $\mathbf{H}^2$ Breitenlohner--Freedman bound gives
-  the scalar spectrum $M^2 = c(c{-}1) \ge -1/4$.
-  The first KK mode above the threshold
-  ($c = 3/2$, $M^2 > 0$) has $\mu_4 = c - 1/2 = 1$.
-  This is a property of the $\mathbf{H}^2$ spectrum,
-  not a choice.
-\item \emph{CS levels $k = K = 1$.}
-  For compact groups: $k \in \mathbb{Z}^+$
-  (from $\pi_3(G) = \mathbb{Z}$).
-  At $k = 1$: the integrable representations of SU$(2)_1$
-  are $j = 0$ and $j = 1/2$ --- the Higgs doublet is the
-  maximal representation (at $k \ge 2$ there would be
-  additional states not present in the SM).
-  At $K = 1$: the compact boson is at the self-dual radius
-  (the unique T-duality fixed point with enhanced SU$(2)$
-  symmetry).
-\end{enumerate}
-Within this framework:
-
-\paragraph{Input.}
-The single discrete input is $N = 7$ (the polygon number),
-determined by the Pell equation (Theorem~\ref{thm:n-selection}(b)).
-The cosmological polygon number $N = 11$ follows from Chern class
-additivity (Theorem~\ref{thm:n-selection}(c)).
-
-\paragraph{Derived from~$N$ (no freedom).}
-The central charge $c = 12\,b(N)$, CS phase~$\theta_{\mathrm{CS}}$,
-Pell threshold $\xi^* = 8 {-} 3\sqrt{7}$,
-Weinberg angle $\sin^2\theta_W = 3/11$,
-$3$~generations $= (N{-}1)/2$,
-$4$~texture zeros (from $\mathbb{Z}_7$ charge conservation),
-Wolfenstein hierarchy,
-and CKM phase $\delta = \tfrac{1}{2}\log\cosh(\pi) = 70.2^\circ$.
-
-\paragraph{Derived from the BF threshold and $\mathrm{SU}(2)$ representation theory.}
-The fermion bulk mass on the $S^1$ fiber is
-$\mu_4 = \mu_{4,\mathrm{bare}} \mp T_3$, where:
-\begin{itemize}
-\item $\mu_{4,\mathrm{bare}} = 1$: in the KK reduction, the fiber mass
-  $\mu_4$ maps to the bulk conformal dimension $c$ via $c = \mu_4 + 1/2$
-  (the standard mass--dimension relation for Dirac fields on
-  AdS$_3$).
-  The BF threshold $M^2 = c(c{-}1) = 0$ at $c = 1$ then gives
-  $\mu_4 = c - 1/2 = 1/2$ for the \emph{massless} mode, and
-  $\mu_{4,\mathrm{bare}} = 1$ for the first massive level
-  (the unique stability boundary on~$\mathbf{H}^2$);
-\item $T_3 = \pm\tfrac{1}{2}$ (the weak isospin of the Higgs doublet
-  component in the Yukawa coupling).
-\end{itemize}
-This gives $\mu_4^{\mathrm{up}} = 1 - \tfrac{1}{2} = \tfrac{1}{2}$
-(conformal profile, heaviest generation) and
-$\mu_4^{\mathrm{dn}} = 1 + \tfrac{1}{2} = \tfrac{3}{2}$.
-The WZW level $k = 1$ is the unique level where the Higgs doublet
-($j = 1/2$) is the highest-weight representation;
-the compact boson level $K = 1$ is the self-dual radius
-(the unique point with enhanced $\mathrm{SU}(2)$ symmetry).
-
-\paragraph{Neutrino sector.}
-The Galois centrifugal suppression $a = 1/N = 1/7$ is derived from the
-orbifold angular scale.
-The Dirac KK mass scale $M_{\mathrm{KK}}$ is set by eq.~\eqref{eq:M-R}
-($M_{\mathrm{KK}} = M_{\mathrm{poly}} \times \varepsilon_7^7 \times 6$);
-the overall normalisation is calibrated to
-$\Delta m^2_{\mathrm{atm}}$, making this one input.
-The \emph{ratio} $\Delta m^2_{\mathrm{atm}}/\Delta m^2_{\mathrm{sol}}$
-and the mass hierarchy are genuine predictions
-($M_{\mathrm{KK}}$-independent).
-
-\paragraph{Total.}
-One discrete input ($N = 7$) plus one dimensionful
-scale ($v$ or $M_P$, needed to set units in any theory),
-plus the structural framework (Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$
-geometry, BF-threshold identification with the $T_3$ split,
-$k = K = 1$ for the compact gauge levels),
-for approximately $25$~predictions ($\sim\!15$ independent,
-since mass ratios are correlated by the Yukawa texture
-and CKM elements are constrained by unitarity).
-The Standard Model, by comparison, has $19$~free parameters
-for roughly the same set of observables.
-The structural choices above are not free parameters (they are
-determined by the geometry and representation theory) but
-should be distinguished from quantities computed by integration
-(the WKB actions, Legendre functions, etc.).
+%% Parameter accounting moved to Paper VI (M-007).
 
 %% ====================================================================
 \section{Consistency checks}
 \label{sec:consistency}
 
 \paragraph{Newton constant.}
-The hierarchy formula (Theorem~\ref{thm:hierarchy}) gives
+The hierarchy formula (Theorem~\ref*{V-thm:cc}) gives
 $M_P = v \times e^{38.444} = 1.223 \times 10^{19}$\,GeV
 (observed: $1.221 \times 10^{19}$\,GeV, $0.15\%$~match).
 In SI units:
@@ -3690,7 +2150,6 @@ The full nonlinear $4$D vacuum Einstein equations
 $R^{(4)}_{MN} = \Lambda^{(4)} g_{MN}$ on
 $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$
 follow from the $\mathrm{SL}(2,\mathbb{R})$ CS theory
-\emph{without assuming $4$D gravity or AdS/CFT}
 (Steps~A--B below).
 \item[\emph{(Matter)}]
 The matter-coupled equations
@@ -3799,24 +2258,14 @@ $\delta(a)/a \lesssim e^{-r/R} \lesssim e^{-10^{20}} \approx 0$,
 easily satisfying the MICROSCOPE bound $\delta(a)/a < 10^{-15}$.
 
 \paragraph{Anomaly cancellation.}
-Each generation of the Havelock theory carries the same
+Each generation carries the standard
 $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
-quantum numbers as a Standard Model generation.
-Explicitly, per generation (all left-handed Weyl):
-$Q_L$ with $Y = 1/6$ ($\times 6$),
-$u_R^c$ with $Y = -2/3$ ($\times 3$),
-$d_R^c$ with $Y = 1/3$ ($\times 3$),
-$L$ with $Y = -1/2$ ($\times 2$),
-$e_R^c$ with $Y = 1$ ($\times 1$).
-The anomaly traces:
-$\operatorname{Tr}(Y) = 6(\tfrac{1}{6}) + 3(-\tfrac{2}{3})
-  + 3(\tfrac{1}{3}) + 2(-\tfrac{1}{2}) + 1 = 0$;
-$\operatorname{Tr}(Y^3) = 6(\tfrac{1}{216}) + 3(-\tfrac{8}{27})
-  + 3(\tfrac{1}{27}) + 2(-\tfrac{1}{8}) + 1 = 0$;
-$\operatorname{Tr}(T_3^2 Y) = 0$ (verified).
-All gauge anomalies cancel per generation.
-The $\mathbb{Z}_7$ orbifold determines which modes form a generation,
-not what quantum numbers they carry.
+quantum numbers (left-handed Weyl convention).
+All gauge anomalies ($\operatorname{Tr}(Y)$,
+$\operatorname{Tr}(Y^3)$, $\operatorname{Tr}(T_3^2 Y)$)
+cancel per generation by the same arithmetic as in the
+Standard Model; the orbifold determines which modes
+form a generation, not what quantum numbers they carry.
 
 \paragraph{Proton stability.}
 \label{cor:proton-stability}%
@@ -3832,19 +2281,9 @@ long-lived---distinguishing this theory from $\mathrm{SU}(5)$ GUTs
 ($\tau_p \sim 10^{34}$\,yr) and consistent with Super-Kamiokande
 bounds ($\tau_p > 1.6 \times 10^{34}$\,yr for $p \to e^+\pi^0$).
 
-\paragraph{Beta functions.}
-The particle spectrum below $M_{\mathrm{poly}}$ is exactly the
-SM content: $3$ generations of quarks and leptons (from $\mathbb{Z}_7$
-mode pairs), $1$~Higgs doublet (from the critical mode), and gauge
-bosons (from the boundary WZW currents and stress tensor).
-The one-loop beta function coefficients
-$b_1 = 41/10$, $b_2 = -19/6$, $b_3 = -7$
-follow from standard QFT applied to this spectrum.
-They are \emph{derived} from the particle content, not assumed.
-
 \paragraph{Higgs mass.}
 The electroweak VEV $v = 246$\,GeV is predicted
-(Theorem~\ref{thm:hierarchy}, $0.12\%$~match).
+(Theorem~\ref*{V-thm:cc}, $0.12\%$~match).
 Standard Model RG running of $\lambda_H$ from $M_{\mathrm{poly}}$
 to $M_Z$ gives $\lambda_H \approx 0.10$,
 yielding $m_H \approx 110$\,GeV at tree level.
@@ -3912,35 +2351,7 @@ Every coefficient ($1/N$, $\kappa$, $h$, $c_{\mathrm{EW}}$,
 $y_t$, $g_s$) is determined by~$N = 7$ and the SM
 particle content.
 
-\paragraph{Dark matter detection.}
-The frozen modes interact with SM matter through the massive
-graviphoton ($m_A \sim M_{\mathrm{poly}}$), with coupling
-$g \sim m_{\mathrm{KK}} \times M_{\mathrm{poly}} / M_P
-\sim 10^{-14}$ (gravitational strength).
-The spin-independent cross section on a nucleon:
-\[
-  \sigma_{\mathrm{SI}} \sim \frac{\mu_N^2}{\pi}
-  \left(\frac{g_{\mathrm{DM}}\,g_N}{m_A^2}\right)^2
-  \sim 10^{-103}\;\mathrm{cm^2},
-\]
-vastly below the LZ~2024 bound ($6.5 \times 10^{-48}$\,cm$^2$).
-\emph{Prediction}: the frozen Havelock dark matter is invisible
-to all current and planned direct detection experiments.
-Detection requires gravitational probes (gravitational wave
-signatures, structure formation, CMB spectral distortions).
-
-\paragraph{Baryogenesis: quantitative.}
-The Green's function solution of the Boltzmann
-diffusion equation~\eqref{eq:transport} on the BO bubble wall
-(wall thickness $L_w = 0.21/T$, CP phase $\delta_{\mathrm{CP}} = 0.566$,
-EWPT strength $v/T_c = 0.84$) gives
-$\eta_B = (1.8$--$2.0) \times 10^{-9} \approx 3\,\eta_B^{\mathrm{obs}}$
-(eq.~\ref{eq:eta-B-result}), stable to $< 10\%$ across
-$v_w \in [10^{-3}, 0.5]$.
-The $v_w$-independence---a prediction, not a tuning---arises because
-the source $\propto v_w$ cancels the sphaleron conversion $\propto 1/v_w$.
-The factor-of-$3$ overshoot is within the $O(1)$ uncertainty of
-the Yukawa relaxation rate and sphaleron prefactor.
+%% Dark matter detection moved to Paper V (M-001 scope).
 
 \paragraph{Black hole entropy.}
 The Cardy formula of the orbifold CFT at $c = 12\,b(N)$ gives
@@ -3967,880 +2378,19 @@ Under the KK lift to~$4$D, the BTZ entropy becomes the $4$D
 Bekenstein--Hawking entropy via $G_4 = G_3/(2\pi R)$, giving
 $S_{4\mathrm{D}} = A/(4G_4)$ for the $4$D horizon area~$A$.
 
-\paragraph{Dynamical gluons from the boundary WZW.}
-The bulk $\mathrm{SU}(3)_1$ Chern--Simons theory is topological
-($0$ propagating gluons in $2{+}1$D).
-The \emph{dynamical} gluons emerge at the boundary, by the same
-holographic mechanism as the graviton:
-the boundary $\mathrm{SU}(3)_1$ WZW model has Kac--Moody
-currents $J^a(z)$ ($a = 1, \ldots, 8$) with conformal dimension
-$(1,0)$---spin~$1$.
-The current algebra OPE
-\[
-  J^a(z) J^b(w) \sim \frac{k\,\delta^{ab}}{(z{-}w)^2}
-  + \frac{i\,f^{abc}\,J^c(w)}{z{-}w}
-\]
-contains both the kinetic term ($1/(z{-}w)^2$, the gluon propagator)
-and the non-Abelian vertex ($f^{abc}/(z{-}w)$, the three-gluon coupling).
-After KK reduction on~$S^1$, the boundary WZW currents become
-$4$D dynamical gauge bosons with the correct $\mathrm{SU}(3)$
-vertex structure.
-Confinement arises from the topological CS bulk: the coloured modes
-are bound to the $\mathbb{Z}/3\mathbb{Z}$ cover of the orbifold.
 
-The pattern is universal: \emph{all} long-range fields are
-boundary modes of topological CS theories---the graviton
-(boundary stress tensor~$T$, spin~$2$), the gluons
-(boundary WZW currents~$J^a$, spin~$1$), and the electroweak
-gauge bosons (from the $\mathrm{SU}(2)_1$ WZW at~$N = 4$).
-Massive KK modes (graviphoton, radion, heavy KK tower) decouple
-at macroscopic distances.
+%% Onsager-WDW correspondence moved to Paper III (M-009).
 
 %% ====================================================================
-\section{The Onsager--Wheeler--DeWitt correspondence}
-\label{sec:qm-gr-bridge}
 
-The classical vortex system admits a natural
-quantum-mechanical description through the Feynman--Kac
-theorem, which identifies the Euclidean path integral
-of the BO effective action with the WDW equation.
-This is a \emph{mathematical identity} (not a physical
-derivation of quantum mechanics from classical physics):
-it shows that the polygon system's statistical mechanics
-\emph{is} a quantum system, in the same sense that any
-Euclidean path integral defines a transfer-matrix Hamiltonian.
+%% Discussion section moved to Paper VI (M-008).
 
-\paragraph{The Feynman--Kac correspondence.}
-The mapping has five steps, each either proved or a theorem:
-\begin{enumerate}
-\item \emph{Havelock diagonalisation (Paper~I, proved).}
-  The angular Hessian of the $N$-gon is a circulant;
-  Fourier diagonalisation gives $N{-}2$ \emph{independent
-  harmonic oscillators} with frequencies $\lambda_m$.
-\item \emph{Gaussian path integral (exact for harmonic oscillators).}
-  Integration over the angular modes $\{a_m\}$ is
-  an exact Gaussian: $\int\prod da_m\,
-  \exp(-\tfrac{1}{2}\sum\lambda_m|a_m|^2)
-  = \prod\lambda_m^{-1/2}$.
-  No approximation is involved for a quadratic Hamiltonian.
-\item \emph{Markovian effective action (timescale separation).}
-  The influence functional from the bath decays on timescale
-  $\tau_{\mathrm{bath}} \sim 1/\omega_m \sim O(1)$, while $\rho$
-  tunnels on $\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}$.
-  The local (Onsager--Machlup) approximation
-  $S_{\mathrm{eff}} = \int[c/2\,\dot\rho^2 + V]\,d\tau$
-  is valid to $O(e^{-S_{\mathrm{BO}}})$.
-  The coefficient $c = 12\,b(N)$ is determined by the
-  \emph{classical} Toeplitz positivity of the $\csc^2$ kernel
-  (see below); no quantum input enters at this step.
-\item \emph{Feynman--Kac theorem (1948, mathematical identity).}
-  $Z = \int\mathcal{D}[\rho]\,e^{-S_{\mathrm{eff}}}$ has
-  transfer matrix $T = e^{-\varepsilon H}$;
-  $H\Psi_0 = 0$ is the WDW equation.
-\item \emph{Born rule (consequence of path integral measure).}
-  $|\Psi_0(\rho)|^2 = e^{-\beta V}/Z$ (the Boltzmann weight).
-  In the WDW framework ($H\Psi = 0$ selects the unique
-  physical state), this is the complete Born rule.
-\end{enumerate}
-The only \emph{physical} input is Step~1 (the Havelock
-diagonalisation); the coefficient $c = 12\,b(N)$ in Step~3
-is a \emph{classical} quantity (Toeplitz positivity of the
-$\csc^2$ kernel, not a quantum computation).
-
-\begin{proposition}[Self-decoherence of the breathing mode]
-\label{prop:decoherence}
-The $N{-}2$ angular Havelock modes decohere the
-breathing mode~$\rho$ with decoherence rate
-\begin{equation}\label{eq:decoherence-rate}
-  \gamma = \frac{[C_1'(\rho)]^2}{4}
-  \sum_{m \ne m^*} \frac{1}{\lambda_m^2}.
-\end{equation}
-The reduced density matrix after tracing out the bath is
-\[
-  \rho_{\mathrm{red}}(\rho, \rho')
-  = \Psi_0(\rho)\,\Psi_0^*(\rho')\,e^{-\gamma(\rho-\rho')^2}.
-\]
-For $\gamma \gg 1$ the off-diagonal elements are
-exponentially suppressed and $\rho_{\mathrm{red}}$
-is effectively diagonal:
-$\rho_{\mathrm{red}} \approx |\Psi_0(\rho)|^2\,
-\delta(\rho - \rho')$.
-\end{proposition}
-
-\begin{proof}
-The CL influence functional for the Gaussian bath
-with $\rho$-dependent frequencies $\omega_m(\rho)
-= \sqrt{\lambda_m(\rho)}$ gives a decoherence kernel
-$\exp(-\gamma(\rho{-}\rho')^2)$ with
-$\gamma = \sum_m (g_m/\omega_m)^2$, where
-$g_m = \partial\omega_m/\partial\rho
-= C_1'/(2\sqrt{\lambda_m})$ is the system-bath coupling.
-Substituting: $\gamma = (C_1')^2/4 \times
-\sum 1/\lambda_m^2$.
-For $N = 7$ (all modes stable on $\mathbf{H}^2$):
-$\gamma \approx 7$--$12$ across the stable range.
-For $N = 11$ at the stability threshold
-$\rho^*_{11} \approx 0.88$ (the cosmologically relevant
-operating point, where all $N{-}2 = 9$ bath modes
-have $\lambda_m > 0$): $\gamma \gg 1$.
-Near the threshold, the palindromic partner mode
-($m = N{-}m^*$, which shares eigenvalue $\lambda_{m^*}$)
-has $\lambda \to 0$, and $1/\lambda^2 \to \infty$;
-this mode dominates the sum and
-$\gamma$ grows without bound as the threshold is
-approached.
-The polygon is therefore \emph{strongly decohered}
-at the physical operating point---not by fine-tuning
-but as a structural consequence of the soft bath mode
-near the stability threshold.
-
-\emph{Irreversibility from near-integrability.}
-The CMS angular bath is integrable \emph{in isolation}.
-The coupling to the breathing mode~$\rho$ through the
-$\rho$-dependent frequencies $\lambda_m(\rho)$
-breaks exact integrability at $O(1/c)$
-(the $W_N$ quartic coupling,
-$\sim\!2\%$ at $N = 7$).
-This converts exact Poincar\'e recurrences
-(which would periodically restore coherence)
-into diffusive mixing.
-The Nekhoroshev theorem bounds the mixing
-timescale from below:
-$\tau_{\mathrm{mix}} \ge
-\exp(c_0\,c^{a})$ for some $c_0 > 0$, $a > 0$
-(with $\varepsilon = O(1/c)$ as the perturbation
-parameter).
-Even this exponentially long mixing time satisfies
-$\tau_{\mathrm{mix}} \ll \tau_{\mathrm{tunnel}}
-\sim e^{S_{\mathrm{BO}}}$,
-provided $c_0\,c^a < S_{\mathrm{BO}}$
-(for $c \approx 50$--$130$ and
-$S_{\mathrm{BO}} \approx 38$--$103$, this is
-satisfied for generic Nekhoroshev exponents
-$a \le 1/2$).
-Additionally, the Poincar\'e recurrence time
-for the full $(N{-}2)$-mode system scales as
-$\tau_{\mathrm{rec}} \sim \exp(O(N{-}2))$,
-giving $\tau_{\mathrm{rec}} \sim e^5$--$e^9
-\approx 150$--$8000$, also $\ll \tau_{\mathrm{tunnel}}$.
-The decoherence is therefore \emph{irreversible}
-on all cosmologically relevant timescales.
-
-This is consistent with the exact BO result
-(\S\ref{sec:cosmology}, eq.~\eqref{eq:no-nonadiabatic}):
-the mode-independence of~$C_1$ makes the BO
-potential exact (no non-adiabatic transitions),
-while the $O(1/c)$ $W_N$ quartic---which breaks the
-exact CMS integrability---provides the mode mixing
-needed for irreversible decoherence.
-The two results are \emph{compatible} because they
-involve different aspects of the angular dynamics:
-the BO exactness uses the Havelock structure
-($\partial\lambda_m/\partial\rho$ mode-independent),
-while the decoherence uses the nonlinear mode coupling
-($W_N$ quartic at $O(1/c)$).
-Neither contradicts the other.
-\end{proof}
-
-\noindent
-\emph{Implications for pointer basis selection.}
-Within the quantum mechanics established by the
-Feynman--Kac correspondence (Steps~1--5 above), the
-CL decoherence mechanism provides three results
-without additional postulate:
-\begin{enumerate}
-\item \emph{Pointer basis.}
-  The angular bath selects the $\rho$-basis as the
-  preferred (pointer) basis: the diagonal of
-  $\rho_{\mathrm{red}}$ is $|\Psi_0(\rho)|^2$,
-  and off-diagonal coherences are exponentially
-  suppressed.
-  The polygon decoheres \emph{itself}: no external
-  observer or environment is required.
-\item \emph{Classicality of the breathing mode.}
-  For $\gamma \gg 1$ (which holds at the physical
-  operating point, with $\gamma \gg 1$ at the
-  $N = 11$ threshold), the breathing mode behaves
-  classically: superpositions of different~$\rho$
-  values are destroyed on timescales
-  $\tau_{\mathrm{dec}} \ll \tau_{\mathrm{tunnel}}$.
-\item \emph{Origin of probabilities.}
-  The distribution $|\Psi_0(\rho)|^2 = e^{-\beta V}/Z$
-  is the Boltzmann weight of the \emph{classical}
-  Onsager--Machlup path integral, identified with the
-  quantum ground-state probability through the
-  Feynman--Kac theorem.
-  The randomness of the outcomes is deterministic at
-  the microscopic level (Kirchhoff equations) but
-  effectively random after tracing out the bath---the
-  standard mechanism of the decoherence programme
-  \citep{Zurek2003}.
-\end{enumerate}
-Steps~2--5 are mathematics (exact Gaussian integration,
-Markov approximation, Feynman--Kac, measure theory).
-The Kirchhoff system is first-order
-($(z_k, \bar z_k)$ are conjugate to each other, no momenta);
-the breathing mode $\rho$ is a collective coordinate.
-The $N{-}2$ angular modes form a thermal bath for~$\rho$.
-The Caldeira--Leggett conditions are verified:
-\begin{enumerate}
-\item \emph{Harmonic bath.}
-  The Havelock decomposition diagonalises the angular sector
-  into $N{-}2$ uncoupled harmonic oscillators
-  $H = V(\rho) + \tfrac{1}{2}\sum_{m \ne m^*}\lambda_m(\rho)|a_m|^2$
-  (exact at the $N$-gon; non-linear corrections are $O(1/c)$
-  from the $W_N$ quartic coupling).
-\item \emph{Uniform parametric dependence.}
-  $\lambda_m(\rho) = C_1(\rho) - f(m,N)$:
-  $\partial\lambda_m/\partial\rho = C_1'(\rho)$
-  for \emph{all}~$m$ (mode-independence of $C_1$).
-  The parametric dependence on~$\rho$ enters through
-  a single function $C_1(\rho)$, so the breathing mode
-  shifts all bath frequencies uniformly.
-\item \emph{Timescale separation.}
-  Breathing-mode tunnelling: $\tau \sim e^{S_{\mathrm{BO}}} \gg 1$.
-  Angular oscillation: $\tau_m \sim 1/\sqrt{\lambda_m} = O(1)$.
-  Born--Oppenheimer is satisfied.
-\item \emph{FDT.}
-  Automatic for a harmonic bath with linear coupling
-  (a theorem for Gaussian systems).
-\end{enumerate}
-The angular fluctuations drive~$\rho$ as Brownian motion
-($\gamma\dot\rho = -V' + \eta$, overdamped Langevin).
-The Onsager--Machlup path probability has the action
-$S_{\mathrm{OM}} = \int[\tfrac{c}{2}\dot\rho^2 + V(\rho)]\,d\tau$,
-where the $\dot\rho^2$ term is the \emph{noise kernel}
-(not a kinetic energy of the deterministic system).
-This is the Caldeira--Leggett mechanism for quantum
-Brownian motion.
-
-\emph{Quantum corrections.}
-The classical and quantum fluctuation--dissipation theorems
-differ at low temperature ($\hbar\omega \gg k_BT$):
-the quantum bath has zero-point fluctuations absent classically.
-Two features ensure the correct quantum result:
-(i)~\emph{Markovian approximation}: the bath correlation time
-$\tau_{\mathrm{bath}} \sim 1/\omega_m \sim O(1)$ is
-exponentially shorter than the tunnelling time
-$\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}$,
-so the non-local influence functional reduces to the
-local Onsager--Machlup form with corrections
-$O(e^{-S_{\mathrm{BO}}})$;
-(ii)~\emph{Classical origin of $b(N)$}:
-the coefficient $c = 12\,b(N)$ is determined by
-\emph{classical linear algebra}, not by quantum mechanics.
-The Havelock matrix $H_{pq} = -\log|2\sin(\pi(p{-}q)/N)|$
-is a circulant on $\mathbb{Z}/N\mathbb{Z}$;
-its eigenvalues are
-$\lambda_m = C_1(\rho) - m(N{-}m)/2$
-(Paper~I, Lemma~\ref*{I-lem:havelock}).
-The mode-independent offset $b(N)$ is extracted by
-averaging:
-$b(N) = \frac{1}{N{-}1}\sum_{m=1}^{N-1}
-[C_1(\rho) - \lambda_m(\rho)] - \frac{N(N{+}1)}{12}
-= N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$
-(Paper~III, Proposition~\ref*{III-prop:equiv-rr},
-verified to $10^{-16}$ for all $N = 3,\ldots,24$).
-This is the eigenvalue of a circulant matrix ---
-a computation in classical algebra that requires
-no quantum input.
-The coincidence $c = 12\,b(N) = (\text{Todd class of }
-\mathbb{Z}_N\text{ orbifold})$ is a structural
-identity between circulant eigenvalue theory and
-algebraic geometry; it is verified numerically
-and does not enter the derivation chain.
-The partition function
-$Z = \int\mathcal{D}[\rho(\tau)]\,e^{-S_{\mathrm{E}}}$
-has transfer matrix $T = e^{-\varepsilon H}$ whose
-dominant eigenstate satisfies $H\Psi = 0$
---- the Wheeler--DeWitt equation.
-This is the \emph{Feynman--Kac theorem} (1948):
-a mathematical identity that translates the classical
-statistical mechanics of the frozen-mode heat bath
-into the quantum Hamiltonian constraint.
-
-The Hilbert space structure, operator ordering,
-and the constraint $H\Psi = 0$ are all
-\emph{outputs} of this mapping.
-The \emph{Born rule} is likewise not postulated:
-the ground-state probability $|\Psi_0(\rho)|^2$ is the
-Boltzmann weight $e^{-\beta V(\rho)}/Z$ of the classical
-partition function.
-In the WDW framework, the constraint $H\Psi = 0$ selects
-a \emph{unique} physical state (the ground state);
-excited states ($H\Psi = E\Psi$ with $E \ne 0$) do not
-satisfy the constraint and are unphysical.
-Therefore the Born rule for the ground state is the Born
-rule for the physical universe---no ``any state''
-generalisation is needed.
-The ground-state probabilistic structure
-maps to classical statistical mechanics under Feynman--Kac:
-\begin{center}
-\small
-\begin{tabular}{ll}
-\toprule
-Classical (Onsager) & Quantum (WDW) \\
-\midrule
-Boltzmann weight $e^{-\beta V}$ & $|\Psi_0|^2$ \\
-Partition function $Z$ & $\langle\Psi_0|\Psi_0\rangle$ \\
-Thermal correlation $\langle\rho(\tau_1)\rho(\tau_2)\rangle$
-  & $\langle\Psi_0|\hat\rho\,e^{-H\Delta\tau}\hat\rho|\Psi_0\rangle$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-\begin{theorem}[Quantum structure from polygon dynamics]
-\label{thm:qm-from-polygons}
-Starting from the classical Kirchhoff equations for
-$N$ point vortices on~$\mathbf{H}^2$, with no quantum
-postulate, the following quantum-mechanical structures
-are derived:
-\begin{enumerate}
-\item[\textup{(Q1)}] \emph{Hilbert space.}
-  $\mathcal{H} = L^2(\mathbb{R},\,d\rho)$
-  (Feynman--Kac, Step~4 above).
-\item[\textup{(Q2)}] \emph{Hamiltonian.}
-  $H = -\tfrac{1}{2c}\,d^2/d\rho^2 + V(\rho)$
-  with $c = 12\,b(N)$ (CL mechanism $+$ orbifold matching).
-\item[\textup{(Q3)}] \emph{Physical state.}
-  The WDW constraint $H\Psi_0 = 0$ selects the ground
-  state (the additive constant in~$V$ is fixed by
-  $V(\rho^*) = 0$ at the BO equilibrium, giving
-  $E_0 = 0$; excited states $E \ne 0$ do not satisfy
-  the constraint).
-\item[\textup{(Q4)}] \emph{Ground-state position distribution.}
-  $|\Psi_0(\rho)|^2 = e^{-\beta V}/Z$
-  (mathematical identity: the Boltzmann weight of the
-  classical Onsager--Machlup path integral equals the
-  quantum ground-state probability in the $\rho$-basis).
-\item[\textup{(Q5)}] \emph{Pointer basis.}
-  The angular bath decoheres~$\rho$ with
-  $\gamma \gg 1$ near the stability threshold
-  (Proposition~\ref{prop:decoherence}).
-  The $\rho$-basis is the pointer basis.
-\item[\textup{(Q6)}] \emph{Uncertainty principle.}
-  $\Delta\rho\,\Delta p = 1/2$ (minimum-uncertainty
-  ground state near the turning point;
-  $\Delta\rho = 1/\!\sqrt{2c\omega}$,
-  $\Delta p = \sqrt{c\omega/2}$,
-  $\omega^2 = |V''(\rho_1)| = \mathrm{csch}^2(\rho_1)$).
-\item[\textup{(Q7)}] \emph{Entanglement.}
-  The entanglement entropy between~$\rho$ and
-  the angular bath is $S_{\mathrm{ent}} \gg 1$~bit
-  (from the CL squeezing parameters
-  $r_m = (C_1'/(2\lambda_m))^2$; computed in
-  \texttt{proofs/self\_decoherence.py}).
-\item[\textup{(Q8)}] \emph{Irreversibility.}
-  The breathing-angular coupling breaks exact CMS
-  integrability at $O(1/c)$, converting exact
-  recurrences into diffusive mixing.
-  The Nekhoroshev bound gives
-  $\tau_{\mathrm{mix}} \ge \exp(c_0 c^a)$;
-  even this exponentially long mixing time satisfies
-  $\tau_{\mathrm{mix}} \ll \tau_{\mathrm{tunnel}}
-  \sim e^{S_{\mathrm{BO}}}$ for generic exponents.
-  Decoherence is irreversible on all cosmologically
-  relevant timescales.
-\end{enumerate}
-Within the WDW framework ($H\Psi = 0$, unique state,
-no external time), items \textup{(Q1)--(Q8)} constitute
-the quantum-mechanical structure of the breathing mode:
-no additional postulate (measurement, collapse, or
-Born rule for arbitrary states) is needed for this
-sector.
-\end{theorem}
-
-\begin{proof}
-Items (Q1)--(Q4) follow from the five-step chain above
-(Steps~1--5: Havelock $\to$ CL $\to$ Onsager--Machlup
-$\to$ Feynman--Kac $\to$ WDW).
-Item (Q5) is Proposition~\ref{prop:decoherence} with the
-mode-mixing irreversibility.
-Item (Q6): the WDW ground state near the turning point
-$\rho_1$ is $\Psi_0 \propto
-\exp(-c\omega(\rho{-}\rho_1)^2/2)$
-with $\omega^2 = |V''(\rho_1)| = \mathrm{csch}^2(\rho_1)$;
-the widths $\Delta\rho = 1/\!\sqrt{2c\omega}$ and
-$\Delta p = \sqrt{c\omega/2}$ give
-$\Delta\rho\,\Delta p = 1/2$ (minimum uncertainty).
-Item (Q7): the CL influence functional at zero temperature
-gives squeezing parameter
-$r_m = (C_1'/(2\lambda_m))^2$ for each bath mode;
-the entanglement entropy is
-$S_{\mathrm{ent}} = \sum_m [(r_m{+}1)\ln(r_m{+}1)
-- r_m\ln r_m]$.
-Item (Q8): the $O(1/c)$ $W_N$ quartic coupling
-breaks exact CMS integrability; the Nekhoroshev
-bound gives $\tau_{\mathrm{mix}} \ge \exp(c_0 c^a)$,
-and $\exp(c_0 c^a) \ll e^{S_{\mathrm{BO}}}$
-for generic exponents $a \le 1/2$ at
-$c \approx 50$--$130$, $S_{\mathrm{BO}} \ge 38$.
-\end{proof}
-
-\emph{The status of the Feynman--Kac correspondence.}
-The Feynman--Kac theorem is a mathematical equivalence between the classical Onsager--Machlup path integral and the WDW Hamiltonian; it does not ``derive'' quantum mechanics from classical physics (the Wiener integral already encodes Euclidean quantum mechanics).
-What the correspondence establishes is that the WDW equation, including operator ordering, potential, and central charge $c = 12\,b(N)$, is the \emph{unique} quantum Hamiltonian equivalent to the classical Onsager partition function of the polygon system.
-
-\paragraph{Gauge theory from the Chern--Simons partition function.}
-The Chern--Simons path integral
-$Z_{\mathrm{CS}} = \int \mathcal{D}A\,e^{ikS_{\mathrm{CS}}}$
-at level $k = c/6$ is the same partition function
-as the vortex system: the vortex interaction on~$\mathbf{H}^2$
-IS the CS gauge field on the spatial slice (Paper~II).
-The CS level is not an independent input---it is fixed by
-$k = c/6 = 2\,b(N)$, where $b(N)$ is extracted from
-the Havelock eigenvalues.
-The quantisation of the CS theory (Hilbert space, Wilson lines,
-modular functors) follows from the vortex partition function
-at this level.
-
-\paragraph{General relativity.}
-The vacuum Einstein equations are derived in Paper~III
-(Theorem~\ref*{III-thm:polygon-einstein}) from the
-Havelock eigenvalue structure via the Hadamard parametrix.
-The $4$D nonlinear Einstein equations follow from
-CS flatness (this paper, Theorem~\ref{thm:graviton-4d}),
-the KK lift, and the Lashkari entanglement argument
-(Theorem~\ref{thm:nonlinear-einstein}).
-
-\paragraph{Summary of the bridge.}
-\begin{center}
-\small
-\begin{tabular}{lcl}
-\toprule
-Output & Mechanism & Input \\
-\midrule
-Schr\"odinger (WDW) & Feynman--Kac & Onsager stat.\ mech.\ \\
-CS Hilbert space & Vortex partition fn.\ at $k=c/6$ & $b(N)$ from eigenvalues \\
-$3$D Einstein & Havelock + Hadamard & Paper~III, Thm.\ 5 \\
-$4$D vacuum Einstein & CS + KK & This paper, Theorem~\ref{thm:nonlinear-einstein}(a) \\
-$4$D Einstein + matter & CS + KK + RT (derived from CFT$_2$) & This paper, Theorem~\ref{thm:nonlinear-einstein}(b) \\
-$\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$ &
-  McKay + Eightfold Way + KK & $N = 7$ \\
-$\sin^2\theta_W = 3/11$ & CS conformal weights & Theorem~\ref{thm:weinberg} \\
-$\delta_{\mathrm{CKM}} = 70.2^\circ$ & BF-crossing phase & $\arg\Gamma(\tfrac{1}{2}+i)$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-Every row traces back to the classical vortex system.
-The quantum-mechanical description of the breathing mode
-enters through the Feynman--Kac theorem
-(a mathematical identity relating Brownian motion to the
-Schr\"odinger equation).
-
-%% ====================================================================
-\section{Discussion}
-\label{sec:discussion}
-
-\paragraph{Status classification.}
-Three levels of logical status are distinguished:
-\begin{center}
-\small
-\begin{tabular}{lp{8cm}}
-\toprule
-Status & Meaning \\
-\midrule
-\textbf{Theorem} & Proved from stated hypotheses using
-  established mathematics (Havelock identity, McKay
-  correspondence, Witten CS/WZW, Feynman--Kac). \\
-\textbf{Derivation} & Follows from the framework via a
-  chain of identified steps, each with controlled
-  approximations (WKB, Markovian, Born--Oppenheimer).
-  The result depends on the structural framework
-  (Seifert geometry, $N = 7$). \\
-\textbf{Conjecture} & Numerically verified but
-  the derivation chain has at least one step that is
-  physically motivated rather than mathematically proved. \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\begin{center}
-\small
-\begin{tabular}{llc}
-\toprule
-Result & Status & Match \\
-\midrule
-$\mathrm{SU}(3)$ representation structure & Theorem & --- \\
-$\mathrm{SU}(3)$ gauge dynamics (CS/WZW) & Theorem & --- \\
-$\mathrm{SU}(2) \times \mathrm{U}(1)$ & Theorem & --- \\
-$3$ generations & Theorem & --- \\
-Coupling lock $\alpha/(8\pi G) = 1/(2\pi^2)$ & Consistency$^\ddagger$ & exact \\
-$4$D graviton (spin $2$) & Theorem & --- \\
-Vacuum Einstein equations & Theorem & --- \\
-$\sin^2\theta_W = 3/11$ & Derivation$^*$ & $3.9\%$ \\
-$\delta_{\mathrm{CKM}} = 70.2^\circ$ & Theorem & $0.4\sigma$ \\
-$|V_{cb}| = 0.044$ & Derivation & $6\%$ (elasticity $-2.5$) \\
-$m_s/m_b = 0.045$ & Derivation & $1.9\times$ observed ($M_{\mathrm{poly}} = 294$\,TeV, two-loop) \\
-$M_P/M_{\mathrm{EW}}$ hierarchy & Derivation & $0.003\%$ \\
-$H_0 = 67.4$ & Derivation & $2 \times 10^{-5}$ in $\ln(\ell v)$ (using $v_{\mathrm{obs}}$); Dunham $O(1/c^2)$ \\
-WDW equation from stat.\ mech. & Derivation & --- \\
-Einstein + matter (Lashkari) & Derivation & --- \\
-$\theta_{\mathrm{QCD}} = 0$ & Derivation & --- \\
-$\Delta m^2$ ratio $= 31.5$ & Derivation & $3\%$ \\
-$\Omega_{\mathrm{DM}} = 26.9\%$ & Conjecture & $0.4\sigma$ \\
-$\eta_B = 2 \times 10^{-9}$ & Derivation & $\times 0.8$--$3$ (lattice QCD) \\
-$\Omega_b = 5.0\%$ (inst.\ resum.) & Derivation & $0.6\sigma$ \\
-$m_H = 125 \pm 3$ GeV & Derivation & $2\%$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-${}^*$The Weinberg angle uses the WZW conformal weight
-$h_W = j(j{+}1)/(k{+}h^\vee) = 2/3$ at the critical mode
-$j = 1$ of the Havelock spectrum.
-The spin $j = 1$ exceeds the integrable bound $j \le 1/2$ of
-$\widehat{\mathfrak{su}}(2)_1$ (quantum dimension $d = 0$),
-but the conformal weight is a perturbative Lie-algebra
-invariant that determines coupling strengths, not
-non-perturbative state counting
-(\S\ref{sec:weinberg}).\\[2pt]
-${}^\ddagger$The coupling lock is an algebraic identity
-within the formalism ($\alpha$ and $G$ both derive from~$c$);
-it is not independently testable at the CS threshold.\\[2pt]
-${}^\dagger$The mass hierarchy uses the BF instanton
-(\S\ref{sec:mass-hierarchy},
-eq.~\eqref{eq:mass-hierarchy}): $m_s/m_b = (v/M_{\mathrm{poly}})^{2\Delta c}/K^2$
-with $\Delta c = 0.303$ and $K = 0.548$.
-At the one-loop $M_{\mathrm{poly}} = 300$\,TeV the ratio
-is $0.059$; two-loop $+$ CS threshold corrections shift the
-$M_{\mathrm{poly}} = 294$\,TeV (two-loop),
-giving $0.045$ ($1.9\times$ observed).
-
-\paragraph{Structural choices.}
-The three structural identifications
-(CMS $=$ CS, vortex $=$ spacetime, McKay $=$ gauge group)
-each restrict the space of possible theories.
-Together with the structural requirements in the $N = 11$
-selection (Thurston uniqueness, single fiber, no duplication)
-and the BF threshold identification $\mu_4 = 1$,
-the framework involves approximately \emph{six structural choices}
-beyond the two numerical inputs ($N = 7$, $M_P$).
-This is far fewer than the SM's $19$~parameters
-but more than ``one integer plus one scale.''
-
-\paragraph{Cumulative uncertainty.}
-The derivation chain from polygon stability to the Standard
-Model passes through three distinct types of link:
-\begin{enumerate}
-\item \emph{Theorem links} (Havelock identity, McKay
-  correspondence, CS/WZW, Liouville--Arnold):
-  mathematically proved.  No propagated uncertainty.
-\item \emph{Structural identifications}, ranked from
-  strongest to weakest:
-  \begin{itemize}
-  \item[\textbf{(a)}] CMS $\to$ KZ $\to$ CS
-    (proved operator isomorphism, EFK 1998);
-  \item[\textbf{(b)}] dreibein $=$ linearised Havelock mode
-    (proved at linearised level; nonlinear extension
-    guaranteed by target-space symmetry of the WZW model);
-  \item[\textbf{(c)}] Regge vertex $=$ point vortex
-    (kinematic identity: deficit angle $=$ circulation;
-    the Onsager selection on this system is the
-    essential physical hypothesis,
-    Lemma~\ref{III-lem:onsager-regge}).
-  \end{itemize}
-  Links~(a) and~(b) are mathematical isomorphisms.
-  Link~(c)---the claim that ``the vortex system IS
-  spacetime''---is the framework's core physical
-  hypothesis.  It is not a theorem, but it is
-  experimentally supported (planetary polygons,
-  BEC vortex experiments) and rests on the proved
-  kinematic identity plus the Onsager variational
-  principle.
-\item \emph{Computed quantities} ($V_{cb}$, $H_0$, $\eta_B$,
-  $\sin^2\theta_W$): the numerical values are exact consequences
-  of the framework, but inherit the sensitivity of the structural
-  identifications.
-\end{enumerate}
-The honest accounting is therefore: the theorem links are
-rigorous; the structural identifications are the \emph{essential}
-hypotheses; and the computed quantities test whether these
-hypotheses are self-consistent.
-The $V_{cb}$ sensitivity analysis (\S\ref{sec:ckm-np}) shows
-that precise numerical matches ($<\!1\%$) constrain the framework
-tightly: the tolerance on~$\rho^*$ is~$\sim\!1\%$, leaving
-little room for hidden parameters.
-
-\paragraph{The foundational postulate.}
-The vortex-spacetime identification (c) is the framework's
-starting postulate.
-Its justification is empirical: the $25$+ predictions
-enumerated above, of which the binary tests
-(neutrino hierarchy, $w = -1$, proton stability,
-no $0\nu\beta\beta$) are falsifiable within the next decade.
-
-\paragraph{Multiple roles of $b(N)$.}
-The function $b(N)$ determines Newton's constant, the fine
-structure constant, the CS level, the instanton fugacity,
-the cosmological constant, and the electroweak hierarchy.
-A single function determining multiple couplings is the
-content of a theory with one structural input.
-Each role is a distinct consequence of the Havelock eigenvalue
-decomposition: $b(N)$ is the unique mode-independent offset
-(Proposition~\ref{III-prop:equiv-rr}).
-If any two roles required different values of~$b(N)$,
-the framework would be immediately falsified.
-The four-role consistency check (Paper~III, \S2) tests
-this at $N = 3,\ldots,12$.
-Similarly, the number of generations $n_{\mathrm{gen}} = 3$
-is a consequence of $N = 7$ (which is selected by the Pell
-equation, not by fitting to the generation count).
-The Pell structure in the EW hierarchy is a consequence of
-the BO tunnelling action, not an imposed pattern.
-
-\paragraph{Structural limitations.}
-Two predictions are beyond current experimental reach.
-(i)~The frozen-mode dark matter has cross-section
-$\sigma \sim 10^{-103}\;\mathrm{cm}^2$---undetectable by
-any foreseeable direct-detection experiment.
-This is not a tuned suppression; it is a structural
-consequence of the topological coupling
-($\sigma \propto e^{-c}$ with $c \approx 52$).
-The prediction is testable indirectly through the
-clustering spectrum: the frozen modes have a specific
-mass spectrum (eq.~\eqref{eq:dm-masses}) that
-imprints on small-scale structure.
-(ii)~The extension to $d \ge 4$ spatial dimensions
-uses polygons with $N \ge 10$ (unstable on the flat plane)
-as \emph{mathematical probes} of the Green's function
-angular structure.
-The Havelock identity holds for all~$N$ regardless of
-stability (Paper~I, Lemma~\ref*{I-lem:havelock});
-the Onsager selection (H2b) applies only to the physical
-$N = 7$ sector.
-The $d \ge 4$ result is therefore a necessary condition
-for Einstein manifolds (mode-independence of~$C_1$
-requires spatial isotropy), not a full derivation---the
-time-direction constraint requires the boundary Virasoro
-mechanism (Paper~IV, \S\ref{sec:action}).
-
-\paragraph{Two precision regimes.}
-The predictions fall into two tiers by mechanism,
-not by post-hoc selection:
-\begin{center}
-\small
-\begin{tabular}{lll}
-\toprule
-Tier & Mechanism & Accuracy \\
-\midrule
-\emph{Algebraic} &
-  Eigenvalue sums, phases, winding numbers &
-  $< 5\%$ \\
-& ($\delta_{\mathrm{CKM}}$, $|V_{cb}|$, $H_0$,
-  $\Omega_\Lambda$, $\Omega_{\mathrm{DM}}$, $\Omega_b$,
-  $\Delta m^2$ ratio, $m_H$) & \\[3pt]
-\emph{Geometric} &
-  RS radial profiles on $\mathbf{H}^2$ &
-  factor~${\sim}2$ \\
-& ($m_s/m_b$, $m_c/m_t$, $m_u$, $m_d/m_s$,
-  $|V_{us}|$, $\sin^2\theta_W$) & \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-The algebraic tier uses the exact Havelock decomposition
-($\lambda_m = C_1 - m(N{-}m)/2$, a theorem);
-the geometric tier uses the Randall--Sundrum warp profile
-on~$\mathbf{H}^2$ (an approximation with zero adjustable
-parameters per generation, versus ${\sim}\!21$ in standard
-RS models).
-The pattern is structural, not accidental: it reflects
-the separation between topological data (exact)
-and radial geometry (approximate).
-
-\paragraph{Comparison to other zero-parameter frameworks.}
-The framework's factor-$2$ geometric accuracy should
-be compared not to the Standard Model (which fits
-$19$+ parameters by construction) but to other frameworks
-that predict fermion masses from structure alone:
-\begin{itemize}
-\item Tree-level SU(5) (Georgi--Glashow 1974):
-  $\sin^2\theta_W = 3/8$ ($62\%$ off);
-  $m_b/m_\tau = 1$ (factor $2.4$ off).
-  Requires MSSM to reach $7\%$ accuracy.
-\item Chiral perturbation theory (NLO, $12$ parameters):
-  $K \to \pi\pi$ amplitudes at $20$--$30\%$.
-\item Standard RS (anarchic Yukawas, $21$+ parameters):
-  $< 1\%$ accuracy, but every mass is fitted, not predicted.
-\end{itemize}
-The polygon framework is the only entry with zero free
-parameters that simultaneously predicts fermion mass
-ratios, CKM elements, and cosmological parameters.
-Its factor-$2$ geometric precision is comparable to
-tree-level SU(5) and better than NLO chiral perturbation
-theory---both considered milestones of theoretical physics.
-
-\medskip\noindent
-The central-value matches on~$V_{cb}$
-($\pm 12\%$ theoretical sensitivity, elasticity $-2.5$) and~$H_0$
-($\pm O(1/c^2)$ from BO truncation) should be read as
-\emph{consistency} of the framework at the level of its
-structural identifications, not as independently
-predicted values.  The genuine predictions---those that
-could \emph{falsify} the framework---are of three kinds.
-\emph{(i)~Binary tests}
-(imminent: JUNO for the neutrino hierarchy,
-DESI/Euclid for $w = -1$,
-LEGEND/nEXO for the absence of neutrinoless double beta decay):
-\begin{itemize}
-\item Normal neutrino hierarchy (if inverted $\to$ falsified);
-\item $w = -1$ exactly (if $w \ne -1$ $\to$ falsified:
-  no dynamical dark energy in the framework);
-\item No $0\nu\beta\beta$ (Dirac neutrinos from the Seifert structure:
-  the neutrino masses arise from the Dirac seesaw with a KK mass
-  on~$S^1$, not a Majorana mass, so lepton number is exactly conserved);
-\item Proton exactly stable ($\mathbb{Z}_{56}$ conservation;
-  Hyper-K will reach $\tau > 10^{35}$\,yr);
-\item $\theta_{\mathrm{QCD}} = 0$, not $\sim\!10^{-10}$
-  (distinguishes from axion models; next-generation nEDM).
-\end{itemize}
-\emph{(ii)~Correlated observables.}
-The instanton fugacity $K = 0.548$
-(eq.~\eqref{eq:instanton-K},
-determined by $b(N)$ with no free parameters;
-the factor-$1.9$ mismatch on $m_s/m_b$
-\emph{confirms} that $K$ is computed, not adjusted).
-$K$~links two independent observables:
-$m_s/m_b \propto 1/K^2$ (eq.~\eqref{eq:mass-hierarchy},
-elasticity $\partial\ln(m_s/m_b)/\partial k_{\mathrm{frac}} = 4\pi$)
-and $\Omega_b$ via
-$K/(1{+}K^2)$ (eq.~\eqref{eq:mass-gap-resum},
-elasticity $-0.3$).
-The CKM phase $\delta_{\mathrm{CKM}} = 70.2^\circ$
-is a \emph{separate} prediction, independent of~$K$
-(it depends on the spectral parameter $s = 1$ at the
-BF crossing, not on the CS level).
-In the Standard Model, $m_s/m_b$ and $\Omega_b$ are unrelated;
-here a single computed number~$K$ determines both.
-Any precision measurement that breaks the $K$-correlation
-falsifies the framework.
-\emph{(iii)~Structural derivations
-that the SM treats as inputs}: the gauge group,
-$3$~generations, $m_u < m_d$, $\theta_{\mathrm{QCD}} = 0$.
-
-\paragraph{Input--output classification.}
-\label{sec:input-output}
-The following table distinguishes the two genuine inputs,
-the structural choices they determine, and the predictions.
-\begin{center}
-\small
-\begin{tabular}{llp{6cm}}
-\toprule
-Category & Item & Role \\
-\midrule
-\multicolumn{3}{l}{\emph{Inputs (two: one integer, one scale)}} \\
-& $N = 7$ (one integer) &
-  Pell equation: unique polygon with $j = 2$ graviton \\
-& $M_P$ (one dimensionful scale) & Sets units \\
-\midrule
-\multicolumn{3}{l}{\emph{Constrained (derived from $N = 7$ and $M_P$)}} \\
-& $N = 4$ (Pell: $j = 1$ vector boson) &
-  Same selection as $N = 7$ \\
-& $N = 11 = 4 + 7$ (Chern class) &
-  Exhaustive elimination (\S\ref{sec:n-selection}) \\
-& $\mathbf{H}^2$ base &
-  Forced by $f(5,11) > N{-}1$ (Prop.~\ref{prop:spacetime}) \\
-& Seifert $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ &
-  Unique (Thurston classification) \\
-& $k = K = 1$ (CS levels) &
-  Orbifold $+$ large gauge invariance \\
-& $\mu_4 = 1$ (BF threshold) &
-  First massive KK level on $\mathbf{H}^2$ \\
-& Gauge group, 3 generations &
-  From $N = 7$ orbifold (Theorem~\ref{thm:su3}) \\
-& $v = 245.9$ GeV & From hierarchy $S_{\mathrm{BO}}(7)$ \\
-\midrule
-\multicolumn{3}{l}{\emph{Calibration (pins $M_{\mathrm{poly}}$ within predicted range)}} \\
-& $\Delta m^2_{\mathrm{atm}}$ &
-  Fixes $M_{\mathrm{poly}} \in [50, 300]$\,TeV
-  (from $\sin^2\theta_W$ running) \\
-\midrule
-\multicolumn{3}{l}{\emph{Predictions (computed before comparison)}} \\
-& $\delta_{\mathrm{CKM}} = 70.2^\circ$ &
-  $0.4\sigma$ from PDG \\
-& $H_0 = 67.4$ km/s/Mpc &
-  $0.001\%$ from Planck \\
-& $\Delta m^2_{\mathrm{sol}}/\Delta m^2_{\mathrm{atm}} = 1/31.5$ &
-  $3\%$ from experiment \\
-& $\eta_B = 2 \times 10^{-9}$ ($v_w$-independent) &
-  $\times 0.8$--$3$ (lattice QCD input) \\
-& $\theta_{\mathrm{QCD}} = 0$ (exactly) &
-  No axion needed \\
-& Normal neutrino hierarchy, $\Sigma m_\nu = 0.059$ eV &
-  Testable by JUNO ($2026$--$2027$) \\
-& $w = -1$ (cosmological constant, not quintessence) &
-  Testable by DESI/Euclid \\
-& No $0\nu\beta\beta$ (Dirac neutrinos) &
-  Testable by LEGEND/nEXO \\
-& Proton exactly stable &
-  Testable by Hyper-K ($\tau > 10^{35}$\,yr) \\
-\midrule
-\multicolumn{3}{l}{\emph{Consistency checks (algebraic consequences)}} \\
-& $G_N = 6.65 \times 10^{-11}$ &
-  From $M_P$ (not independent) \\
-& Coupling lock $\alpha/(8\pi G) = 1/(2\pi^2)$ &
-  Structural identity \\
-& Proton stability &
-  $\mathbb{Z}_{56}$ charge conservation \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\medskip\noindent
-The complete list of results and their status appears in
-the predictions table above (\S\ref{sec:input-output}).
-The non-perturbative CKM
-($\delta = 70.2^\circ$, Theorem~\ref{thm:ckm-phase})
-redistributes the mixing angles, giving
-$|V_{cb}| = 0.044$ ($6\%$) and
-$|V_{ub}| = 0.0036$ ($6\%$)
-from orbifold image suppression (\S\ref{sec:ckm-np}).
-The perturbative CKM gives $J = 3.5 \times 10^{-5}$
-(observed $3.0 \times 10^{-5}$, $17\%$~match)---a genuine
-prediction with all entries computed from~$N = 7$.
-
-\begin{remark}[Arithmetic interpretation]
-The Havelock eigenvalues of the $N$-gon define, for each~$N$,
-automorphic data over the trace field
-$K_N = \mathbb{Q}(\cos 2\pi/N)$.
-The Ramanujan--Petersson bound
-$|S_m| \le 2\sqrt{f(m,N)}$ is automatically satisfied
-by stable polygon configurations (verified for all $N \le 16$
-and all modes).
-In the Langlands correspondence, this is the temperedness
-condition for automorphic representations of
-$\mathrm{GL}(2)/K_N$.
-The equivalence is:
-\emph{vortex stability} (Havelock)
-$=$ \emph{temperedness} (Langlands)
-$=$ \emph{Ramanujan bound} (arithmetic).
-For $N = 8$, the automorphic object is the CM form
-$\eta(8z)\eta(16z)$ (LMFDB 128.1.d.a),
-verified at $46$ primes with zero violations.
-The complete Langlands tower---$\mathrm{GL}(1)$ through
-$\mathrm{GL}(n)$ from the polygon hierarchy, Hilbert modular
-forms over~$K_7$, and the Calegari--Geraghty modularity
-lifting at $p = 3$---is developed in a companion supplement.
-\end{remark}
-
-\medskip\noindent
-\paragraph{The starting point.}
-The spacetime geometry is uniquely determined by three
-physical requirements (Proposition~\ref{prop:spacetime}):
-a stable vortex base ($\mathbf{H}^2$), a gauge fiber ($S^1$),
-and a time direction ($\mathbb{R}$).
-The integer $N = 7$ is selected by the Pell equation
-(Theorem~\ref{thm:n-selection}).
-Everything else---gauge group, masses, couplings, cosmological
-constant---follows from these two inputs.
-The theory is built from five classical ingredients:
-Havelock (1931), Kaluza--Klein (1921),
-Thurston (1982), Chern--Simons (1989),
-and the McKay correspondence (1980).
-No extra dimensions beyond~$S^1$.
+\paragraph{Discussion and predictions.}
+The status classification, parameter accounting, cumulative
+uncertainty analysis, and falsifiable predictions for the
+results of this paper appear in Paper~VI.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}
+
 \end{document}

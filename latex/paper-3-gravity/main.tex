@@ -3,6 +3,8 @@
 \externaldocument[I-]{../paper-1-mathematics/main}
 \externaldocument[II-]{../paper-2-physics/main}
 \externaldocument[IV-]{../paper-4-field-theory/main}
+\externaldocument[V-]{../paper-5-cosmology/main}
+\externaldocument[VI-]{../paper-6-discussion/main}
 
 \title{\seriestitle\\[6pt]\large Paper III: Gravitational Theory}
 \author{Gordon Speagle}
@@ -36,7 +38,7 @@ criterion for Einstein manifolds.
 
 Papers~I and~II develop the Havelock decomposition as
 pure mathematics and fluid dynamics.
-This paper takes the next step: connecting the eigenvalue
+This paper connects the eigenvalue
 structure to gravity.
 The starting point is the observation (Paper~II) that
 $N$ equal point masses on a spatial slice of
@@ -1951,8 +1953,7 @@ is the boundary self-energy ($N/12$) plus regularisation terms.
 \section{From polygon stability to the Einstein equations}
 \label{sec:lichnerowicz}
 
-We now present the central result of the gravitational theory:
-the Havelock eigenvalue structure \emph{characterises} the vacuum
+The Havelock eigenvalue structure characterises the vacuum
 Einstein equations.
 In $d = 2$ ($2{+}1$D), the three conditions below follow
 from the vortex dynamics (two by theorem, one by the Onsager
@@ -2125,7 +2126,7 @@ by~(H2a), $g^*$ has $R = \mathrm{const}$.
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:polygon-einstein}]
-\label{sec:einstein-derivation}%
+%\label{sec:einstein-derivation}% label on proof block; use thm ref instead
 The proof has four steps: (1)~force the interaction to be
 logarithmic, (2)~extract $R(x)$ from the Hadamard parametrix,
 (3)~conclude $R = \mathrm{const}$ from (H2) $+$ Step~2,
@@ -2188,7 +2189,7 @@ eigenvalue decomposition, so the $1/4$ extends to every
 constant-curvature surface.
 
 \medskip
-\noindent\emph{Step~3 (Schur promotion to Einstein).}
+\noindent\emph{Step~3 (Jensen maximisation $+$ Onsager selection).}
 \textbf{(H2) $+$ Step~2 force $R = \mathrm{const}$.}
 By the mathematical content of~(H2):
 $S_{\mathrm{total}}[g] = \int S(x)\,dA$ is strictly
@@ -2214,16 +2215,15 @@ $C_1^{\mathrm{eq}} = f(m^*,N)$ at the BO threshold,
 with $R_0 = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon_0^2]$.
 
 \noindent
-\label{sec:vortex-gravity}%
-\emph{Step~3 (Jensen maximisation $+$ Onsager selection).}
+%\label{sec:vortex-gravity}% dead label, never referenced
 Place a test $N$-gon at each point $x \in S$.
 The frozen-mode entropy at~$x$ is
 $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$,
 which depends on $R(x)$ through the Hadamard expansion
 $C_1(x) = (N{-}1)[1 - R(x)\varepsilon^2/4 + O(\varepsilon^4)]$.
 The entropy $S(x) = \tfrac{1}{2}\sum\log\lambda_m$ is
-exact (the CMS angular modes approximation: the CMS angular modes
-are integrable (Liouville--Arnold, Paper~III \S\ref{sec:three-layer}),
+exact: the CMS angular modes
+are integrable (Liouville--Arnold, \S\ref{sec:three-layer}),
 so the microcanonical entropy equals the one-loop (log-determinant)
 entropy---the higher-order corrections vanish identically because
 the $N{-}2$ angle-action variables decouple.
@@ -3100,11 +3100,406 @@ locally~$\mathbf{H}^2$), giving
 $G_{\mathrm{eff}} = 1/(16\pi)$ in natural units
 ($8\pi G_{\mathrm{eff}} = 1/2$ as $\rho^* \to \infty$).
 
-\medskip
+
+%% ====================================================================
+\section{The Onsager--Wheeler--DeWitt correspondence}
+\label{sec:qm-gr-bridge}
+
+The classical vortex system admits a natural
+quantum-mechanical description through the Feynman--Kac
+theorem, which identifies the Euclidean path integral
+of the BO effective action with the WDW equation.
+This is a \emph{mathematical identity} (not a physical
+derivation of quantum mechanics from classical physics):
+it shows that the polygon system's statistical mechanics
+\emph{is} a quantum system, in the same sense that any
+Euclidean path integral defines a transfer-matrix Hamiltonian.
+
+\paragraph{The Feynman--Kac correspondence.}
+The mapping has five steps, each either proved or a theorem:
+\begin{enumerate}
+\item \emph{Havelock diagonalisation (Paper~I, proved).}
+  The angular Hessian of the $N$-gon is a circulant;
+  Fourier diagonalisation gives $N{-}2$ \emph{independent
+  harmonic oscillators} with frequencies $\lambda_m$.
+\item \emph{Gaussian path integral (exact for harmonic oscillators).}
+  Integration over the angular modes $\{a_m\}$ is
+  an exact Gaussian: $\int\prod da_m\,
+  \exp(-\tfrac{1}{2}\sum\lambda_m|a_m|^2)
+  = \prod\lambda_m^{-1/2}$.
+  No approximation is involved for a quadratic Hamiltonian.
+\item \emph{Markovian effective action (timescale separation).}
+  The influence functional from the bath decays on timescale
+  $\tau_{\mathrm{bath}} \sim 1/\omega_m \sim O(1)$, while $\rho$
+  tunnels on $\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}$.
+  The local (Onsager--Machlup) approximation
+  $S_{\mathrm{eff}} = \int[c/2\,\dot\rho^2 + V]\,d\tau$
+  is valid to $O(e^{-S_{\mathrm{BO}}})$.
+  The coefficient $c = 12\,b(N)$ is determined by the
+  \emph{classical} Toeplitz positivity of the $\csc^2$ kernel
+  (see below); no quantum input enters at this step.
+\item \emph{Feynman--Kac theorem (1948, mathematical identity).}
+  $Z = \int\mathcal{D}[\rho]\,e^{-S_{\mathrm{eff}}}$ has
+  transfer matrix $T = e^{-\varepsilon H}$;
+  $H\Psi_0 = 0$ is the WDW equation.
+\item \emph{Born rule (consequence of path integral measure).}
+  $|\Psi_0(\rho)|^2 = e^{-\beta V}/Z$ (the Boltzmann weight).
+  In the WDW framework ($H\Psi = 0$ selects the unique
+  physical state), this is the complete Born rule.
+\end{enumerate}
+The only \emph{physical} input is Step~1 (the Havelock
+diagonalisation); the coefficient $c = 12\,b(N)$ in Step~3
+is a \emph{classical} quantity (Toeplitz positivity of the
+$\csc^2$ kernel, not a quantum computation).
+
+\begin{proposition}[Self-decoherence of the breathing mode]
+\label{prop:decoherence}
+The $N{-}2$ angular Havelock modes decohere the
+breathing mode~$\rho$ with decoherence rate
+\begin{equation}\label{eq:decoherence-rate}
+  \gamma = \frac{[C_1'(\rho)]^2}{4}
+  \sum_{m \ne m^*} \frac{1}{\lambda_m^2}.
+\end{equation}
+The reduced density matrix after tracing out the bath is
+\[
+  \rho_{\mathrm{red}}(\rho, \rho')
+  = \Psi_0(\rho)\,\Psi_0^*(\rho')\,e^{-\gamma(\rho-\rho')^2}.
+\]
+For $\gamma \gg 1$ the off-diagonal elements are
+exponentially suppressed and $\rho_{\mathrm{red}}$
+is effectively diagonal:
+$\rho_{\mathrm{red}} \approx |\Psi_0(\rho)|^2\,
+\delta(\rho - \rho')$.
+\end{proposition}
+
+\begin{proof}
+The CL influence functional for the Gaussian bath
+with $\rho$-dependent frequencies $\omega_m(\rho)
+= \sqrt{\lambda_m(\rho)}$ gives a decoherence kernel
+$\exp(-\gamma(\rho{-}\rho')^2)$ with
+$\gamma = \sum_m (g_m/\omega_m)^2$, where
+$g_m = \partial\omega_m/\partial\rho
+= C_1'/(2\sqrt{\lambda_m})$ is the system-bath coupling.
+Substituting: $\gamma = (C_1')^2/4 \times
+\sum 1/\lambda_m^2$.
+For $N = 7$ (all modes stable on $\mathbf{H}^2$):
+$\gamma \approx 7$--$12$ across the stable range.
+For $N = 11$ at the stability threshold
+$\rho^*_{11} \approx 0.88$ (the cosmologically relevant
+operating point, where all $N{-}2 = 9$ bath modes
+have $\lambda_m > 0$): $\gamma \gg 1$.
+Near the threshold, the palindromic partner mode
+($m = N{-}m^*$, which shares eigenvalue $\lambda_{m^*}$)
+has $\lambda \to 0$, and $1/\lambda^2 \to \infty$;
+this mode dominates the sum and
+$\gamma$ grows without bound as the threshold is
+approached.
+The polygon is therefore \emph{strongly decohered}
+at the physical operating point---not by fine-tuning
+but as a structural consequence of the soft bath mode
+near the stability threshold.
+
+\emph{Irreversibility from near-integrability.}
+The CMS angular bath is integrable \emph{in isolation}.
+The coupling to the breathing mode~$\rho$ through the
+$\rho$-dependent frequencies $\lambda_m(\rho)$
+breaks exact integrability at $O(1/c)$
+(the $W_N$ quartic coupling,
+$\sim\!2\%$ at $N = 7$).
+This converts exact Poincar\'e recurrences
+(which would periodically restore coherence)
+into diffusive mixing.
+The Nekhoroshev theorem bounds the mixing
+timescale from below:
+$\tau_{\mathrm{mix}} \ge
+\exp(c_0\,c^{a})$ for some $c_0 > 0$, $a > 0$
+(with $\varepsilon = O(1/c)$ as the perturbation
+parameter).
+Even this exponentially long mixing time satisfies
+$\tau_{\mathrm{mix}} \ll \tau_{\mathrm{tunnel}}
+\sim e^{S_{\mathrm{BO}}}$,
+provided $c_0\,c^a < S_{\mathrm{BO}}$
+(for $c \approx 50$--$130$ and
+$S_{\mathrm{BO}} \approx 38$--$103$, this is
+satisfied for generic Nekhoroshev exponents
+$a \le 1/2$).
+Additionally, the Poincar\'e recurrence time
+for the full $(N{-}2)$-mode system scales as
+$\tau_{\mathrm{rec}} \sim \exp(O(N{-}2))$,
+giving $\tau_{\mathrm{rec}} \sim e^5$--$e^9
+\approx 150$--$8000$, also $\ll \tau_{\mathrm{tunnel}}$.
+The decoherence is therefore \emph{irreversible}
+on all cosmologically relevant timescales.
+
+This is consistent with the exact BO result
+(Paper~V, eq.~\eqref{V-eq:no-nonadiabatic}):
+the mode-independence of~$C_1$ makes the BO
+potential exact (no non-adiabatic transitions),
+while the $O(1/c)$ $W_N$ quartic---which breaks the
+exact CMS integrability---provides the mode mixing
+needed for irreversible decoherence.
+The two results are \emph{compatible} because they
+involve different aspects of the angular dynamics:
+the BO exactness uses the Havelock structure
+($\partial\lambda_m/\partial\rho$ mode-independent),
+while the decoherence uses the nonlinear mode coupling
+($W_N$ quartic at $O(1/c)$).
+Neither contradicts the other.
+\end{proof}
+
 \noindent
-The arithmetic of the palindromic hierarchy is the interference
-between conformal invariance and geometric curvature---the residue
-that the renormalisation group cannot wash away.
+\emph{Implications for pointer basis selection.}
+Within the quantum mechanics established by the
+Feynman--Kac correspondence (Steps~1--5 above), the
+CL decoherence mechanism provides three results
+without additional postulate:
+\begin{enumerate}
+\item \emph{Pointer basis.}
+  The angular bath selects the $\rho$-basis as the
+  preferred (pointer) basis: the diagonal of
+  $\rho_{\mathrm{red}}$ is $|\Psi_0(\rho)|^2$,
+  and off-diagonal coherences are exponentially
+  suppressed.
+  The polygon decoheres \emph{itself}: no external
+  observer or environment is required.
+\item \emph{Classicality of the breathing mode.}
+  For $\gamma \gg 1$ (which holds at the physical
+  operating point, with $\gamma \gg 1$ at the
+  $N = 11$ threshold), the breathing mode behaves
+  classically: superpositions of different~$\rho$
+  values are destroyed on timescales
+  $\tau_{\mathrm{dec}} \ll \tau_{\mathrm{tunnel}}$.
+\item \emph{Origin of probabilities.}
+  The distribution $|\Psi_0(\rho)|^2 = e^{-\beta V}/Z$
+  is the Boltzmann weight of the \emph{classical}
+  Onsager--Machlup path integral, identified with the
+  quantum ground-state probability through the
+  Feynman--Kac theorem.
+  The randomness of the outcomes is deterministic at
+  the microscopic level (Kirchhoff equations) but
+  effectively random after tracing out the bath---the
+  standard mechanism of the decoherence programme
+  \citep{Zurek2003}.
+\end{enumerate}
+Steps~2--5 are mathematics (exact Gaussian integration,
+Markov approximation, Feynman--Kac, measure theory).
+The Kirchhoff system is first-order
+($(z_k, \bar z_k)$ are conjugate to each other, no momenta);
+the breathing mode $\rho$ is a collective coordinate.
+The $N{-}2$ angular modes form a thermal bath for~$\rho$.
+The Caldeira--Leggett conditions are verified:
+\begin{enumerate}
+\item \emph{Harmonic bath.}
+  The Havelock decomposition diagonalises the angular sector
+  into $N{-}2$ uncoupled harmonic oscillators
+  $H = V(\rho) + \tfrac{1}{2}\sum_{m \ne m^*}\lambda_m(\rho)|a_m|^2$
+  (exact at the $N$-gon; non-linear corrections are $O(1/c)$
+  from the $W_N$ quartic coupling).
+\item \emph{Uniform parametric dependence.}
+  $\lambda_m(\rho) = C_1(\rho) - f(m,N)$:
+  $\partial\lambda_m/\partial\rho = C_1'(\rho)$
+  for \emph{all}~$m$ (mode-independence of $C_1$).
+  The parametric dependence on~$\rho$ enters through
+  a single function $C_1(\rho)$, so the breathing mode
+  shifts all bath frequencies uniformly.
+\item \emph{Timescale separation.}
+  Breathing-mode tunnelling: $\tau \sim e^{S_{\mathrm{BO}}} \gg 1$.
+  Angular oscillation: $\tau_m \sim 1/\sqrt{\lambda_m} = O(1)$.
+  Born--Oppenheimer is satisfied.
+\item \emph{FDT.}
+  Automatic for a harmonic bath with linear coupling
+  (a theorem for Gaussian systems).
+\end{enumerate}
+The angular fluctuations drive~$\rho$ as Brownian motion
+($\gamma\dot\rho = -V' + \eta$, overdamped Langevin).
+The Onsager--Machlup path probability has the action
+$S_{\mathrm{OM}} = \int[\tfrac{c}{2}\dot\rho^2 + V(\rho)]\,d\tau$,
+where the $\dot\rho^2$ term is the \emph{noise kernel}
+(not a kinetic energy of the deterministic system).
+This is the Caldeira--Leggett mechanism for quantum
+Brownian motion.
+
+\emph{Quantum corrections.}
+The classical and quantum fluctuation--dissipation theorems
+differ at low temperature ($\hbar\omega \gg k_BT$):
+the quantum bath has zero-point fluctuations absent classically.
+Two features ensure the correct quantum result:
+(i)~\emph{Markovian approximation}: the bath correlation time
+$\tau_{\mathrm{bath}} \sim 1/\omega_m \sim O(1)$ is
+exponentially shorter than the tunnelling time
+$\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}$,
+so the non-local influence functional reduces to the
+local Onsager--Machlup form with corrections
+$O(e^{-S_{\mathrm{BO}}})$;
+(ii)~\emph{Classical origin of $b(N)$}:
+the coefficient $c = 12\,b(N)$ is determined by
+the circulant eigenvalue theory of the Havelock matrix
+(Paper~I, Lemma~\ref*{I-lem:havelock};
+Paper~III, Proposition~\ref*{III-prop:equiv-rr})---classical
+linear algebra, not quantum mechanics.
+The partition function
+$Z = \int\mathcal{D}[\rho(\tau)]\,e^{-S_{\mathrm{E}}}$
+has transfer matrix $T = e^{-\varepsilon H}$ whose
+dominant eigenstate satisfies $H\Psi = 0$
+--- the Wheeler--DeWitt equation.
+This is the \emph{Feynman--Kac theorem} (1948):
+a mathematical identity that translates the classical
+statistical mechanics of the frozen-mode heat bath
+into the quantum Hamiltonian constraint.
+
+The Hilbert space structure, operator ordering,
+and the constraint $H\Psi = 0$ are all
+\emph{outputs} of this mapping.
+The \emph{Born rule} is likewise not postulated:
+the ground-state probability $|\Psi_0(\rho)|^2$ is the
+Boltzmann weight $e^{-\beta V(\rho)}/Z$ of the classical
+partition function.
+In the WDW framework, the constraint $H\Psi = 0$ selects
+a \emph{unique} physical state (the ground state);
+excited states ($H\Psi = E\Psi$ with $E \ne 0$) do not
+satisfy the constraint and are unphysical.
+Therefore the Born rule for the ground state is the Born
+rule for the physical universe---no ``any state''
+generalisation is needed.
+The ground-state probabilistic structure
+maps to classical statistical mechanics under Feynman--Kac:
+\begin{center}
+\small
+\begin{tabular}{ll}
+\toprule
+Classical (Onsager) & Quantum (WDW) \\
+\midrule
+Boltzmann weight $e^{-\beta V}$ & $|\Psi_0|^2$ \\
+Partition function $Z$ & $\langle\Psi_0|\Psi_0\rangle$ \\
+Thermal correlation $\langle\rho(\tau_1)\rho(\tau_2)\rangle$
+  & $\langle\Psi_0|\hat\rho\,e^{-H\Delta\tau}\hat\rho|\Psi_0\rangle$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+\begin{theorem}[Quantum structure from polygon dynamics]
+\label{thm:qm-from-polygons}
+Starting from the classical Kirchhoff equations for
+$N$ point vortices on~$\mathbf{H}^2$, with no quantum
+postulate, the following quantum-mechanical structures
+are derived:
+\begin{enumerate}
+\item[\textup{(Q1)}] \emph{Hilbert space.}
+  $\mathcal{H} = L^2(\mathbb{R},\,d\rho)$
+  (Feynman--Kac, Step~4 above).
+\item[\textup{(Q2)}] \emph{Hamiltonian.}
+  $H = -\tfrac{1}{2c}\,d^2/d\rho^2 + V(\rho)$
+  with $c = 12\,b(N)$ (CL mechanism $+$ orbifold matching).
+\item[\textup{(Q3)}] \emph{Physical state.}
+  The WDW constraint $H\Psi_0 = 0$ selects the ground
+  state (the additive constant in~$V$ is fixed by
+  $V(\rho^*) = 0$ at the BO equilibrium, giving
+  $E_0 = 0$; excited states $E \ne 0$ do not satisfy
+  the constraint).
+\item[\textup{(Q4)}] \emph{Ground-state position distribution.}
+  $|\Psi_0(\rho)|^2 = e^{-\beta V}/Z$
+  (mathematical identity: the Boltzmann weight of the
+  classical Onsager--Machlup path integral equals the
+  quantum ground-state probability in the $\rho$-basis).
+\item[\textup{(Q5)}] \emph{Pointer basis.}
+  The angular bath decoheres~$\rho$ with
+  $\gamma \gg 1$ near the stability threshold
+  (Proposition~\ref{prop:decoherence}).
+  The $\rho$-basis is the pointer basis.
+\item[\textup{(Q6)}] \emph{Uncertainty principle.}
+  $\Delta\rho\,\Delta p = 1/2$ (minimum-uncertainty
+  ground state near the turning point;
+  $\Delta\rho = 1/\!\sqrt{2c\omega}$,
+  $\Delta p = \sqrt{c\omega/2}$,
+  $\omega^2 = |V''(\rho_1)| = \mathrm{csch}^2(\rho_1)$).
+\item[\textup{(Q7)}] \emph{Entanglement.}
+  The entanglement entropy between~$\rho$ and
+  the angular bath is $S_{\mathrm{ent}} \gg 1$~bit
+  (from the CL squeezing parameters
+  $r_m = (C_1'/(2\lambda_m))^2$; computed in
+  \texttt{proofs/self\_decoherence.py}).
+\item[\textup{(Q8)}] \emph{Irreversibility.}
+  The breathing-angular coupling breaks exact CMS
+  integrability at $O(1/c)$, converting exact
+  recurrences into diffusive mixing.
+  The Nekhoroshev bound gives
+  $\tau_{\mathrm{mix}} \ge \exp(c_0 c^a)$;
+  even this exponentially long mixing time satisfies
+  $\tau_{\mathrm{mix}} \ll \tau_{\mathrm{tunnel}}
+  \sim e^{S_{\mathrm{BO}}}$ for generic exponents.
+  Decoherence is irreversible on all cosmologically
+  relevant timescales.
+\end{enumerate}
+Within the WDW framework ($H\Psi = 0$, unique state,
+no external time), items \textup{(Q1)--(Q8)} constitute
+the quantum-mechanical structure of the breathing mode:
+no additional postulate (measurement, collapse, or
+Born rule for arbitrary states) is needed for this
+sector.
+\end{theorem}
+
+\begin{proof}
+Items (Q1)--(Q4) follow from the five-step chain above
+(Steps~1--5: Havelock $\to$ CL $\to$ Onsager--Machlup
+$\to$ Feynman--Kac $\to$ WDW).
+Item (Q5) is Proposition~\ref{prop:decoherence} with the
+mode-mixing irreversibility.
+Item (Q6): the WDW ground state near the turning point
+$\rho_1$ is $\Psi_0 \propto
+\exp(-c\omega(\rho{-}\rho_1)^2/2)$
+with $\omega^2 = |V''(\rho_1)| = \mathrm{csch}^2(\rho_1)$;
+the widths $\Delta\rho = 1/\!\sqrt{2c\omega}$ and
+$\Delta p = \sqrt{c\omega/2}$ give
+$\Delta\rho\,\Delta p = 1/2$ (minimum uncertainty).
+Item (Q7): the CL influence functional at zero temperature
+gives squeezing parameter
+$r_m = (C_1'/(2\lambda_m))^2$ for each bath mode;
+the entanglement entropy is
+$S_{\mathrm{ent}} = \sum_m [(r_m{+}1)\ln(r_m{+}1)
+- r_m\ln r_m]$.
+Item (Q8): the $O(1/c)$ $W_N$ quartic coupling
+breaks exact CMS integrability; the Nekhoroshev
+bound gives $\tau_{\mathrm{mix}} \ge \exp(c_0 c^a)$,
+and $\exp(c_0 c^a) \ll e^{S_{\mathrm{BO}}}$
+for generic exponents $a \le 1/2$ at
+$c \approx 50$--$130$, $S_{\mathrm{BO}} \ge 38$.
+\end{proof}
+
+\emph{The status of the Feynman--Kac correspondence.}
+The Feynman--Kac theorem is a mathematical equivalence between the classical Onsager--Machlup path integral and the WDW Hamiltonian; it does not ``derive'' quantum mechanics from classical physics (the Wiener integral already encodes Euclidean quantum mechanics).
+What the correspondence establishes is that the WDW equation, including operator ordering, potential, and central charge $c = 12\,b(N)$, is the \emph{unique} quantum Hamiltonian equivalent to the classical Onsager partition function of the polygon system.
+
+\paragraph{Summary of the bridge.}
+\begin{center}
+\small
+\begin{tabular}{lcl}
+\toprule
+Output & Mechanism & Input \\
+\midrule
+Schr\"odinger (WDW) & Feynman--Kac & Onsager stat.\ mech.\ \\
+CS Hilbert space & Vortex partition fn.\ at $k=c/6$ & $b(N)$ from eigenvalues \\
+$3$D Einstein & Havelock + Hadamard & Paper~III, Thm.\ 5 \\
+$4$D vacuum Einstein & CS + KK & Paper~IV, Theorem~\ref*{IV-thm:nonlinear-einstein}(a) \\
+$4$D Einstein + matter & CS + KK + RT (derived from CFT$_2$) & Paper~IV, Theorem~\ref*{IV-thm:nonlinear-einstein}(b) \\
+$\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$ &
+  McKay + Eightfold Way + KK & $N = 7$ \\
+$\sin^2\theta_W = 3/11$ & CS conformal weights & Paper~IV, Theorem~\ref*{IV-thm:weinberg} \\
+$\delta_{\mathrm{CKM}} = 70.2^\circ$ & BF-crossing phase & $\arg\Gamma(\tfrac{1}{2}+i)$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+Every row traces back to the classical vortex system.
+The quantum-mechanical description of the breathing mode
+enters through the Feynman--Kac theorem
+(a mathematical identity relating Brownian motion to the
+Schr\"odinger equation).
+
+
+\paragraph{Discussion and predictions.}
+The status classification, parameter accounting, cumulative
+uncertainty analysis, and falsifiable predictions for the
+results of this paper appear in Paper~VI.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}
