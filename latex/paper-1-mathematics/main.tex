@@ -1375,6 +1375,8 @@ algebraic number theory.
 \section{Algebraic structure of the stability boundary}
 \label{sec:algebraic-structure}
 
+\subsection{The palindromic quadratic and field extensions}
+
 The palindromic structure observed for $N = 8$
 (Section~\ref{sec:hyperbolic}) holds at every
 $N \to (N{+}1)$ transition.
@@ -1458,7 +1460,7 @@ $\mathrm{sq\_free}(N{-}3)$, since $(N{-}1)^2$ is a perfect square.
 Hence $\xi^* \in \mathbb{Q}(\sqrt{\mathrm{sq\_free}(N{-}3)})$.
 \end{proof}
 
-\paragraph{Algebraic integers and the Pell equation.}
+\subsection{Algebraic integers, Pell units, and the golden ratio}
 The threshold $\xi^*(N)$ is an algebraic integer---i.e., it
 satisfies a \emph{monic} polynomial $\xi^2 - c\,\xi + 1 = 0$ with
 $c \in \mathbb{Z}$---if and only if $B/A \in \mathbb{Z}$.
@@ -1707,6 +1709,8 @@ is the mode-averaged orbifold Casimir of the Havelock eigenvalue,
 minus a subleading correction.
 \end{remark}
 
+\subsection{Geodesics on the modular surface}
+
 \begin{proposition}[Galois group as conformal inversion group]
 \label{prop:galois-inversion}
 The composite field
@@ -1914,7 +1918,7 @@ $Q(\xi) = \xi^4 - 4\xi^3 - 2\xi^2 - 4\xi + 1$, verified
 palindromic with coefficients $[1, -4, -2, -4, 1]$.
 \end{proof}
 
-\paragraph{Arithmetic surfaces and quadratic reciprocity.}
+\subsection{Arithmetic surfaces and selection rules}
 On the congruence surface $\Gamma_0(p)\backslash\mathbf{H}^2$,
 the geodesic of trace $B$ (and discriminant
 $\Delta = B^2 - 4$) has a $\Gamma_0(p)$-representative if and
@@ -2183,16 +2187,8 @@ upper boundary is $m_{\max} = N - 3$.
 Hence $\mu(N) = (N{-}3) - 3 + 1 = N - 5$.
 \end{proof}
 
-\begin{corollary}[Why $N_{\mathrm{crit}} = 7$]
-\label{cor:why-7}
-$N_{\mathrm{crit}} = 7$ is the unique solution of $f(3, N) = C_1$
-on the flat plane.
-\end{corollary}
-\begin{proof}
-By Proposition~\ref{prop:morse-index}, the first unstable mode is
-always $m = 3$.  Setting $f(3, N) = 3(N{-}3)/2 = N{-}1 = C_1$ gives
-$N = 7$.
-\end{proof}
+The closed-form $N_{\mathrm{crit}} = 7$ follows from
+Theorem~\ref{thm:why-7-algebraic} below.
 
 The family $H_N(\xi) = C_1(\xi)\,I - F_N$ parametrised by
 $\xi \in [0, 1)$ has a monotone spectral flow: since

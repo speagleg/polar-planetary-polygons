@@ -74,9 +74,12 @@ This paper develops the consequences:
     Einstein equations.
 \end{itemize}
 
-\paragraph{Main result.}
-The central theorem of this paper (Theorem~\ref{thm:polygon-einstein},
-proved in Section~\ref{sec:lichnerowicz}) is:
+\paragraph{Main result and reading guide.}
+The central theorem (Theorem~\ref{thm:polygon-einstein},
+\S\ref{sec:lichnerowicz}) is:
+the impatient reader may proceed directly to
+\S\ref{sec:lichnerowicz}, referring back as needed.
+The theorem states:
 under conditions (H1)--(H3), the polygon entropy functional
 has a unique maximum at uniform curvature $R = \mathrm{const}$,
 implying the vacuum Einstein equations $R_{\mu\nu} = \Lambda g_{\mu\nu}$.
@@ -2221,32 +2224,12 @@ $C_1^{\mathrm{eq}} = f(m^*,N)$ at the BO threshold,
 with $R_0 = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon_0^2]$.
 
 \noindent
-%\label{sec:vortex-gravity}% dead label, never referenced
-Place a test $N$-gon at each point $x \in S$.
-The frozen-mode entropy at~$x$ is
-$S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$,
-which depends on $R(x)$ through the Hadamard expansion
-$C_1(x) = (N{-}1)[1 - R(x)\varepsilon^2/4 + O(\varepsilon^4)]$.
-The entropy $S(x) = \tfrac{1}{2}\sum\log\lambda_m$ is
-exact: the CMS angular modes
-are integrable (Liouville--Arnold, \S\ref{sec:three-layer}),
-so the microcanonical entropy equals the one-loop (log-determinant)
-entropy---the higher-order corrections vanish identically because
-the $N{-}2$ angle-action variables decouple.
-$S$ is strictly concave in $C_1$:
-$d^2S/dC_1^2 = -\tfrac{1}{2}\sum_{m \ne m^*}1/\lambda_m^2 < 0$.
-The total entropy $S_{\mathrm{total}} = \int_S S(x)\,dA$
-is therefore maximised (Jensen's inequality) when $C_1(x)$ is
-uniform---i.e.\ when $R(x) = \mathrm{const}$.
-The energy constraint $E = \int V(C_1(x))\,dA$ is compatible:
-$V = \Phi(\rho) - f_{m^*}$ is a \emph{monotone}
-function of $C_1$ (since $V' = \coth(\rho) > 0$), so fixing
-$\bar{V} = E/\mathrm{Vol}$ is equivalent to fixing
-$\bar{C}_1$ via the monotone map $V \mapsto C_1$.
-Jensen's inequality on the concave functional $S(C_1)$
-at fixed $\bar{C}_1$ gives the unique maximum at
-$C_1(x) = \bar{C}_1$ for all~$x$.
-The Lagrange multiplier for this energy constraint is~$\Lambda$.
+The strict concavity $d^2S/dC_1^2 = -\tfrac{1}{2}\sum 1/\lambda_m^2 < 0$
+is exact (CMS integrability: the angle-action variables decouple,
+so the one-loop entropy equals the microcanonical entropy).
+The energy constraint is compatible: $V$ is monotone in~$C_1$,
+so fixing $\bar{V}$ fixes $\bar{C}_1$ and the Lagrange
+multiplier is~$\Lambda$.
 
 The $O(\varepsilon^4)$ Seeley--DeWitt correction ($\alpha = 1/48$)
 is subdominant: the concavity-to-correction ratio
