@@ -71,6 +71,13 @@ This paper develops the consequences:
     Einstein equations.
 \end{itemize}
 
+\paragraph{Main result.}
+The central theorem of this paper (Theorem~\ref{thm:polygon-einstein},
+proved in Section~\ref{sec:lichnerowicz}) is:
+under conditions (H1)--(H3), the polygon entropy functional
+has a unique maximum at uniform curvature $R = \mathrm{const}$,
+implying the vacuum Einstein equations $R_{\mu\nu} = \Lambda g_{\mu\nu}$.
+
 \paragraph{The central charge.}
 The quantity $c = 12\,b(N)$ is extracted from the Havelock
 eigenvalue data as the unique mode-independent offset
@@ -361,7 +368,7 @@ decomposition corresponds to
 bulk (cosmological) $\times$ representation (matter) $\times$
 one-loop (quantum) factors.
 The CS partition function on Seifert manifolds is computed
-Stieltjes--Wigert polynomials \citep{Tierz2006},
+via Stieltjes--Wigert polynomials \citep{Tierz2006},
 linking the Havelock eigenvalue sequence to the
 log-normal moment problem.
 
@@ -1116,11 +1123,11 @@ The bound $|\delta C_1| < 0.06$ shows that polygon
 stability is insensitive to the hyperbolic lattice topology.
 \paragraph{Lorentzian continuation and the BTZ horizon.}
 The Euclidean analysis above determines the thermal phase structure; the Lorentzian continuation identifies the real-time dynamics.
-The curvature coefficient $C_1 = \log(2\sinh\rho) + b(N)$ admits
+The Green's function offset $\Phi(\rho) = \log(2\sinh\rho) + b(N)$ admits
 an analytic continuation $\rho \to \rho + i\pi/2$ that interchanges
 the BTZ exterior and interior:
 $\sinh(\rho + i\pi/2) = i\cosh\rho$, so
-$C_1^{\mathrm{int}} = \log(2\cosh\rho) + b(N) + i\pi/2$.
+$\Phi^{\mathrm{int}} = \log(2\cosh\rho) + b(N) + i\pi/2$.
 The analytically continued kernel interpolates between curvature
 signs:
 \begin{center}
@@ -1178,32 +1185,21 @@ and the potential $V(\rho) = \lambda_{m^*}(\rho)$ (the critical
 Havelock eigenvalue) define a minisuperspace Wheeler--DeWitt equation:
 \begin{equation}\label{eq:wdw}
   \biggl[-\frac{1}{2c}\,\frac{d^2}{d\rho^2}
-  + \log(2\sinh\rho) + b(N) - \frac{m(N{-}m)}{2}
+  + \Phi(\rho) - \frac{m(N{-}m)}{2}
   \biggr]\Psi = 0,
+  \qquad \Phi(\rho) := \log(2\sinh\rho) + b(N),
 \end{equation}
 with $c = 12\,b(N)$ and $\hbar = 1$
 (the semiclassical limit is $c \to \infty$).
-On constant-curvature $\mathbf{H}^2$ the Weyl anomaly $\delta_m = 0$
+On constant-curvature $\mathbf{H}^2$ the Havelock remainder $\delta_m = 0$
 identically (\S\ref{sec:three-layer}), so it does not appear.
 
-\emph{Notation: two forms of $C_1$ (distinguished by superscript).}
-The WDW potential uses $C_1^{\mathrm{GF}}(\rho) = \log(2\sinh\rho) + b(N)$
-(the \emph{Green's function offset}, superscript GF throughout),
-which diverges as $\rho \to 0$.
-The holographic sections use plain $C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$
-(the \emph{constrained angular stiffness}, eq.~\ref{eq:C1-H2}),
-which gives $C_1 \to N{-}1$ as $\xi \to 0$.
-These are \emph{distinct} quantities: the constrained form
-subtracts the self-energy divergence via the angular-impulse
-constraint, leaving a finite limit.
-Both share the same large-$\rho$ behaviour
-($\sim \rho$ for $\rho \gg 1$) and the same
-$O(\varepsilon^2)$ curvature coefficient ($R/4$) in the
-small-ring expansion.
-The WDW potential is
-$V(\rho) = C_1^{\mathrm{GF}}(\rho) - f(m^*,N)$.
-The WDW equation uses the unconstrained form because it
-retains the full $\rho$-dependence of the Green's function.
+\emph{Notation.}
+We write $\Phi(\rho) = \log(2\sinh\rho) + b(N)$ for the
+Green's function offset (the unconstrained radial potential),
+reserving $C_1(\xi)$ for the constrained angular stiffness
+(eq.~\ref{eq:C1-H2}).
+The WDW potential is $V(\rho) = \Phi(\rho) - f(m^*,N)$.
 
 \emph{Logical status of the coefficient $c = 12\,b(N)$.}
 The value $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$ is
@@ -1256,14 +1252,7 @@ The derivation has two steps:
 The CL mechanism proves $c > 0$; the CMS integrability
 gives a controlled $1/c$ expansion with computable corrections.
 
-\emph{Four-role consistency}
-(details in \S\ref{sec:intro-gravity}).
-The same $c = 12\,b(N)$ serves as WDW kinetic coefficient,
-CS level ($k = c/6$), Brown--Henneaux central charge
-($G := 3\ell/(2c)$), and orbifold CFT ground-state energy.
-If any role required a different~$c$, the framework would
-be falsified.
-
+The four-role consistency of $c = 12\,b(N)$ (Section~\ref{sec:intro-gravity}) is preserved.
 Each term has a definite origin:
 \begin{center}
 \small
@@ -1280,7 +1269,7 @@ Vacuum energy & $b(N) \sim c/12$ &
 Matter & $m(N{-}m)/2$ &
   Twist-field dimension (first Chern class) \\
 One-loop & $\delta_m$ &
-  Weyl anomaly (traceless, palindromic) \\
+  Havelock remainder (traceless, palindromic) \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1432,8 +1421,8 @@ for every mode~$m$, extracted from the Todd correction alone.
 \end{proposition}
 
 \begin{proof}
-The Havelock eigenvalue satisfies $\lambda_m + f_m = C_1(\rho) + \delta_m$,
-and $C_1(\rho) = \log(2\sinh\rho) + b(N) + O(e^{-\rho})$ (the radial
+The Havelock eigenvalue satisfies $\lambda_m + f_m = \Phi(\rho) + \delta_m + O(e^{-\rho})$,
+where $\Phi(\rho) = \log(2\sinh\rho) + b(N)$ (the radial
 dependence is absorbed by the Green's function).
 Subtracting $\log(2\sinh\rho)$:
 $\mathrm{ind}_m := \lambda_m + f_m - \log(2\sinh\rho) = b(N) + \delta_m$.
@@ -1448,11 +1437,11 @@ $\lambda_m = C_1 - f_m + \delta_m$
 is the spectral analogue of the equivariant Riemann--Roch theorem:
 $f_m$ is the $c_1$-contribution (twist-field dimension),
 $b(N)$ is the Todd-class correction (vacuum energy $\approx c/12$),
-and $\delta_m$ is the one-loop remainder (the Weyl anomaly).
+and $\delta_m$ is the one-loop remainder (the Havelock remainder).
 The central charge is $c = 12\,b(N)$,
 determined by the index theorem.
 
-\paragraph{Exact Weyl anomaly formula.}
+\paragraph{Exact Havelock remainder formula.}
 \emph{Clarification:} The anomaly $\delta_m$ below is the
 \emph{raw} three-layer residual for the \emph{unconstrained} eigenvalue
 on the flat plane.
@@ -1497,7 +1486,7 @@ testable predictions beyond the Casimir:
 (iv)~the quartic coupling $Q/f_{\mathrm{crit}}^2 = N/48$ (exact for even~$N$);
 (v)~the mode-independent Laplacian $\Delta_{\mathbf{H}^2} h = -1/2$.
 All five follow from $c = 12\,b(N) \approx N^2$ through the $B_2$-tower:
-the Casimir $m(N{-}m)/2$ is $O(c)$; the Weyl anomaly $\delta_m$
+the Casimir $m(N{-}m)/2$ is $O(c)$; the Havelock remainder $\delta_m$
 is $O(c^0)$ (topological); the Virasoro block correction is
 $O(1/c) \approx 10^{-5}$ (\S\ref{sec:holographic}).
 
@@ -1528,7 +1517,7 @@ confining potential $C_1(\xi)$:
 \begin{equation}\label{eq:three-layer}
   \lambda_m = \underbrace{C_1(\xi)}_{\text{Ricci scalar}}
     - \underbrace{\frac{m(N{-}m)}{2}}_{\text{Casimir}}
-    + \underbrace{\delta_m(N)}_{\text{Weyl anomaly}}.
+    + \underbrace{\delta_m(N)}_{\text{Havelock remainder}}.
 \end{equation}
 Each layer has a distinct character:
 \begin{enumerate}
@@ -1593,7 +1582,7 @@ form $\omega_{\mathrm{KR}}$ (mode-independent) and the Weil--Petersson
 form $\omega_{\mathrm{WP}}$ (mode-dependent) are \emph{not} proportional;
 their discrepancy $\omega_{\mathrm{WP}} - \alpha\,\omega_{\mathrm{KR}}
 \propto f(m,N)$ is the Casimir (Layer~2), and the residual beyond
-this linear relation is the Weyl anomaly (Layer~3).
+this linear relation is the Havelock remainder (Layer~3).
 
 The $B_2$ organising principle --- connecting the stability polynomial
 $6B_2(x) = P_2(2x{-}1)$ to Gauss--Legendre quadrature, the
@@ -1716,7 +1705,7 @@ However, the \emph{structural skeleton} survives in all dimensions:
   (equation~\ref{eq:block-1-over-c}),
   preserving the algebraic structure at every order.
 
-\item \textbf{Weyl anomaly shape.}
+\item \textbf{Havelock remainder shape.}
   The normalised anomaly profile $\delta_m/\|\delta\|$
   has inner products $> 0.98$ between $\Delta = 0$ and
   $\Delta = 2$ for $N \le 6$: the number-theoretic fingerprint
@@ -1848,7 +1837,7 @@ Three independent arguments:
   The Havelock eigenvalue $\lambda_1 = (N{-}1) - 1 = 1 > 0$.
   Mode competition requires at least two independent modes ($N \ge 4$).
 
-\item \emph{Zero Weyl anomaly.}
+\item \emph{Zero Havelock remainder.}
   The anomaly $\delta_m$ is traceless: $\sum \delta_m = 0$.
   With one mode: $\delta_1 = 0$ identically.
   Verified: anomaly norm $= 2.2 \times 10^{-16}$ (machine zero) on
@@ -2233,7 +2222,7 @@ The total entropy $S_{\mathrm{total}} = \int_S S(x)\,dA$
 is therefore maximised (Jensen's inequality) when $C_1(x)$ is
 uniform---i.e.\ when $R(x) = \mathrm{const}$.
 The energy constraint $E = \int V(C_1(x))\,dA$ is compatible:
-$V = \log(2\sinh\rho) + b(N) - f_{m^*}$ is a \emph{monotone}
+$V = \Phi(\rho) - f_{m^*}$ is a \emph{monotone}
 function of $C_1$ (since $V' = \coth(\rho) > 0$), so fixing
 $\bar{V} = E/\mathrm{Vol}$ is equivalent to fixing
 $\bar{C}_1$ via the monotone map $V \mapsto C_1$.
@@ -2594,7 +2583,7 @@ Wheeler--DeWitt equation for the breathing mode~$\rho$:
 \[
   \Bigl[-\frac{1}{2c}\,\frac{d^2}{d\rho^2}
   + V(\rho)\Bigr]\Psi = 0,
-  \qquad V(\rho) = C_1(\rho) - f(m^*,N).
+  \qquad V(\rho) = \Phi(\rho) - f(m^*,N).
 \]
 Two independent ingredients determine this equation:
 
@@ -2609,7 +2598,7 @@ $S_{\mathrm{OM}} = \int[c/2\;\dot\rho^2 + V]\,d\tau$.
 The CL conditions hold: (i)~the angular modes are
 harmonic (exact Fourier diagonalisation);
 (ii)~the coupling is mode-independent
-($C_1' = \coth\rho$ for all~$m$);
+($\Phi' = \coth\rho$ for all~$m$);
 (iii)~timescale separation
 ($\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}} \gg 1$).
 The bath has $N{-}2$ discrete modes; the CL derivation is
@@ -2625,16 +2614,16 @@ The frozen-mode entropy is
 $S_{\mathrm{bath}}(\rho)
 = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(\rho)$,
 and $b(N)$ is the mode-independent offset in the
-eigenvalue decomposition $\lambda_m = C_1 - f_m + \delta_m$
-with $C_1 = \log(2\sinh\rho) + b(N)$
+eigenvalue decomposition $\lambda_m = \Phi - f_m + \delta_m$
+with $\Phi(\rho) = \log(2\sinh\rho) + b(N)$
 (Proposition~\ref{prop:equiv-rr}).
 The coefficient $c = 12\,b(N)$ is the unique value for which
 the WDW ground-state energy reproduces the classical Havelock
 spectrum: if $c$ were different, the quantum corrections to
-$V(\rho)$ would break the mode-independence of~$C_1$
+$V(\rho)$ would break the mode-independence of~$\Phi$
 (the defining property of the Havelock decomposition).
 In the classical limit $c \to \infty$:
-$V(\rho^*) = 0$, giving $C_1 = f(m^*,N)$ and hence
+$V(\rho^*) = 0$, giving $\Phi(\rho^*) = f(m^*,N)$ and hence
 $\Lambda = -4[f(m^*) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
 \end{proposition}
 
@@ -2779,7 +2768,7 @@ the full Einstein equations $G_{\mu\nu} + \Lambda g_{\mu\nu}
 = 8\pi G_{\mathrm{eff}}\,T_{\mu\nu}$.
 
 The three thermodynamic quantities are determined by
-the BO potential $V(\rho) = \log(2\sinh\rho) + b(N) - f(m^*,N)$:
+the BO potential $V(\rho) = \Phi(\rho) - f(m^*,N)$:
 \begin{itemize}
 \item $T = V'(\rho^*)/(2\pi) = \coth(\rho^*)/(2\pi)$
   (Unruh temperature from the surface gravity $\kappa = V'$);
@@ -2844,9 +2833,9 @@ The one-loop spectral sum~\eqref{eq:dS-spectral} provides
 an $N$-dependent quantum correction beyond the Cardy entropy;
 incorporating it would improve the finite-$\rho^*$ convergence.
 The \citet{Lashkari2014}
-entanglement argument: positivity of relative entropy
+entanglement argument shows that positivity of relative entropy
 $S(\rho\|\sigma) \ge 0$ in the unitary boundary CFT implies
-$\delta Q = T\,\delta S$ at every Rindler horizon,
+$\delta Q = T\,\delta S$ at every Rindler horizon.
 The Clausius relation is verified numerically at all
 palindromic thresholds $N = 7, \ldots, 17$
 (test suite: \texttt{test\_jacobson\_derivation.py}).
@@ -2979,7 +2968,7 @@ $\csc^2$ kernel, not a quantum computation).
 The $N{-}2$ angular Havelock modes decohere the
 breathing mode~$\rho$ with decoherence rate
 \begin{equation}\label{eq:decoherence-rate}
-  \gamma = \frac{[C_1'(\rho)]^2}{4}
+  \gamma = \frac{[\Phi'(\rho)]^2}{4}
   \sum_{m \ne m^*} \frac{1}{\lambda_m^2}.
 \end{equation}
 The reduced density matrix after tracing out the bath is
@@ -3001,8 +2990,8 @@ with $\rho$-dependent frequencies $\omega_m(\rho)
 $\exp(-\gamma(\rho{-}\rho')^2)$ with
 $\gamma = \sum_m (g_m/\omega_m)^2$, where
 $g_m = \partial\omega_m/\partial\rho
-= C_1'/(2\sqrt{\lambda_m})$ is the system-bath coupling.
-Substituting: $\gamma = (C_1')^2/4 \times
+= \Phi'/(2\sqrt{\lambda_m})$ is the system-bath coupling.
+Substituting: $\gamma = (\Phi')^2/4 \times
 \sum 1/\lambda_m^2$.
 For $N = 7$ (all modes stable on $\mathbf{H}^2$):
 $\gamma \approx 7$--$12$ across the stable range.
@@ -3055,7 +3044,7 @@ on all cosmologically relevant timescales.
 
 This is consistent with the exact BO result
 (Paper~V, eq.~\eqref{V-eq:no-nonadiabatic}):
-the mode-independence of~$C_1$ makes the BO
+the mode-independence of~$\Phi$ makes the BO
 potential exact (no non-adiabatic transitions),
 while the $O(1/c)$ $W_N$ quartic---which breaks the
 exact CMS integrability---provides the mode mixing
@@ -3070,121 +3059,34 @@ Neither contradicts the other.
 \end{proof}
 
 \noindent
-\emph{Implications for pointer basis selection.}
-Within the quantum mechanics established by the
-Feynman--Kac correspondence (Steps~1--5 above), the
-CL decoherence mechanism provides three results
-without additional postulate:
-\begin{enumerate}
-\item \emph{Pointer basis.}
-  The angular bath selects the $\rho$-basis as the
-  preferred (pointer) basis: the diagonal of
-  $\rho_{\mathrm{red}}$ is $|\Psi_0(\rho)|^2$,
-  and off-diagonal coherences are exponentially
-  suppressed.
-  The polygon decoheres \emph{itself}: no external
-  observer or environment is required.
-\item \emph{Classicality of the breathing mode.}
-  For $\gamma \gg 1$ (which holds at the physical
-  operating point, with $\gamma \gg 1$ at the
-  $N = 11$ threshold), the breathing mode behaves
-  classically: superpositions of different~$\rho$
-  values are destroyed on timescales
-  $\tau_{\mathrm{dec}} \ll \tau_{\mathrm{tunnel}}$.
-\item \emph{Origin of probabilities.}
-  The distribution $|\Psi_0(\rho)|^2 = e^{-\beta V}/Z$
-  is the Boltzmann weight of the \emph{classical}
-  Onsager--Machlup path integral, identified with the
-  quantum ground-state probability through the
-  Feynman--Kac theorem.
-  The randomness of the outcomes is deterministic at
-  the microscopic level (Kirchhoff equations) but
-  effectively random after tracing out the bath---the
-  standard mechanism of the decoherence programme
-  \citep{Zurek2003}.
-\end{enumerate}
-Steps~2--5 are mathematics (exact Gaussian integration,
-Markov approximation, Feynman--Kac, measure theory).
-The Kirchhoff system is first-order
-($(z_k, \bar z_k)$ are conjugate to each other, no momenta);
-the breathing mode $\rho$ is a collective coordinate.
-The $N{-}2$ angular modes form a thermal bath for~$\rho$.
-The Caldeira--Leggett conditions are verified:
-\begin{enumerate}
-\item \emph{Harmonic bath.}
-  The Havelock decomposition diagonalises the angular sector
-  into $N{-}2$ uncoupled harmonic oscillators
-  $H = V(\rho) + \tfrac{1}{2}\sum_{m \ne m^*}\lambda_m(\rho)|a_m|^2$
-  (exact at the $N$-gon; non-linear corrections are $O(1/c)$
-  from the $W_N$ quartic coupling).
-\item \emph{Uniform parametric dependence.}
-  $\lambda_m(\rho) = C_1(\rho) - f(m,N)$:
-  $\partial\lambda_m/\partial\rho = C_1'(\rho)$
-  for \emph{all}~$m$ (mode-independence of $C_1$).
-  The parametric dependence on~$\rho$ enters through
-  a single function $C_1(\rho)$, so the breathing mode
-  shifts all bath frequencies uniformly.
-\item \emph{Timescale separation.}
-  Breathing-mode tunnelling: $\tau \sim e^{S_{\mathrm{BO}}} \gg 1$.
-  Angular oscillation: $\tau_m \sim 1/\sqrt{\lambda_m} = O(1)$.
-  Born--Oppenheimer is satisfied.
-\item \emph{FDT.}
-  Automatic for a harmonic bath with linear coupling
-  (a theorem for Gaussian systems).
-\end{enumerate}
-The angular fluctuations drive~$\rho$ as Brownian motion
-($\gamma\dot\rho = -V' + \eta$, overdamped Langevin).
-The Onsager--Machlup path probability has the action
+\emph{Implications.}
+The CL decoherence selects the $\rho$-basis as the pointer basis
+($\gamma \gg 1$ at the physical operating point),
+with $|\Psi_0(\rho)|^2 = e^{-\beta V}/Z$
+as the Boltzmann weight \citep{Zurek2003}.
+The polygon decoheres \emph{itself}: no external
+observer or environment is required.
+The $N{-}2$ angular modes form a Caldeira--Leggett bath for
+the breathing mode~$\rho$.
+The four CL conditions hold:
+(i)~harmonic bath (Havelock diagonalisation, exact);
+(ii)~uniform parametric coupling
+($\partial\lambda_m/\partial\rho = \Phi'(\rho)$ for all~$m$);
+(iii)~timescale separation
+($\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}} \gg \tau_m \sim O(1)$);
+(iv)~FDT (automatic for Gaussian systems).
+The resulting Onsager--Machlup action is
 $S_{\mathrm{OM}} = \int[\tfrac{c}{2}\dot\rho^2 + V(\rho)]\,d\tau$,
-where the $\dot\rho^2$ term is the \emph{noise kernel}
-(not a kinetic energy of the deterministic system).
-This is the Caldeira--Leggett mechanism for quantum
-Brownian motion.
+where $\dot\rho^2$ is the noise kernel (not a kinetic energy).
 
-\emph{Quantum corrections.}
-The classical and quantum fluctuation--dissipation theorems
-differ at low temperature ($\hbar\omega \gg k_BT$):
-the quantum bath has zero-point fluctuations absent classically.
-Two features ensure the correct quantum result:
-(i)~\emph{Markovian approximation}: the bath correlation time
-$\tau_{\mathrm{bath}} \sim 1/\omega_m \sim O(1)$ is
-exponentially shorter than the tunnelling time
-$\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}$,
-so the non-local influence functional reduces to the
-local Onsager--Machlup form with corrections
-$O(e^{-S_{\mathrm{BO}}})$;
-(ii)~\emph{Classical origin of $b(N)$}:
-the coefficient $c = 12\,b(N)$ is determined by
-the circulant eigenvalue theory of the Havelock matrix
-(Paper~I, Lemma~\ref*{I-lem:havelock};
-Paper~III, Proposition~\ref*{III-prop:equiv-rr})---classical
-linear algebra, not quantum mechanics.
-The partition function
-$Z = \int\mathcal{D}[\rho(\tau)]\,e^{-S_{\mathrm{E}}}$
-has transfer matrix $T = e^{-\varepsilon H}$ whose
-dominant eigenstate satisfies $H\Psi = 0$
---- the Wheeler--DeWitt equation.
-This is the \emph{Feynman--Kac theorem} (1948):
-a mathematical identity that translates the classical
-statistical mechanics of the frozen-mode heat bath
-into the quantum Hamiltonian constraint.
-
-The Hilbert space structure, operator ordering,
-and the constraint $H\Psi = 0$ are all
-\emph{outputs} of this mapping.
-The \emph{Born rule} is likewise not postulated:
-the ground-state probability $|\Psi_0(\rho)|^2$ is the
-Boltzmann weight $e^{-\beta V(\rho)}/Z$ of the classical
-partition function.
-In the WDW framework, the constraint $H\Psi = 0$ selects
-a \emph{unique} physical state (the ground state);
-excited states ($H\Psi = E\Psi$ with $E \ne 0$) do not
-satisfy the constraint and are unphysical.
-Therefore the Born rule for the ground state is the Born
-rule for the physical universe---no ``any state''
-generalisation is needed.
-The ground-state probabilistic structure
-maps to classical statistical mechanics under Feynman--Kac:
+The Markovian approximation
+($\tau_{\mathrm{bath}} \sim O(1) \ll \tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}$)
+ensures corrections are $O(e^{-S_{\mathrm{BO}}})$;
+the coefficient $c = 12\,b(N)$ is classical
+(Proposition~\ref{prop:equiv-rr}).
+The Feynman--Kac transfer matrix gives $H\Psi_0 = 0$
+(the WDW equation, Step~4 above), with Born rule
+$|\Psi_0|^2 = e^{-\beta V}/Z$ as a mathematical consequence:
 \begin{center}
 \small
 \begin{tabular}{ll}
@@ -3238,7 +3140,7 @@ are derived:
   The entanglement entropy between~$\rho$ and
   the angular bath is $S_{\mathrm{ent}} \gg 1$~bit
   (from the CL squeezing parameters
-  $r_m = (C_1'/(2\lambda_m))^2$; computed in
+  $r_m = (\Phi'/(2\lambda_m))^2$; computed in
   \texttt{proofs/self\_decoherence.py}).
 \item[\textup{(Q8)}] \emph{Irreversibility.}
   The breathing-angular coupling breaks exact CMS
@@ -3275,7 +3177,7 @@ $\Delta p = \sqrt{c\omega/2}$ give
 $\Delta\rho\,\Delta p = 1/2$ (minimum uncertainty).
 Item (Q7): the CL influence functional at zero temperature
 gives squeezing parameter
-$r_m = (C_1'/(2\lambda_m))^2$ for each bath mode;
+$r_m = (\Phi'/(2\lambda_m))^2$ for each bath mode;
 the entanglement entropy is
 $S_{\mathrm{ent}} = \sum_m [(r_m{+}1)\ln(r_m{+}1)
 - r_m\ln r_m]$.
@@ -3286,10 +3188,6 @@ and $\exp(c_0 c^a) \ll e^{S_{\mathrm{BO}}}$
 for generic exponents $a \le 1/2$ at
 $c \approx 50$--$130$, $S_{\mathrm{BO}} \ge 38$.
 \end{proof}
-
-\emph{The status of the Feynman--Kac correspondence.}
-The Feynman--Kac theorem is a mathematical equivalence between the classical Onsager--Machlup path integral and the WDW Hamiltonian; it does not ``derive'' quantum mechanics from classical physics (the Wiener integral already encodes Euclidean quantum mechanics).
-What the correspondence establishes is that the WDW equation, including operator ordering, potential, and central charge $c = 12\,b(N)$, is the \emph{unique} quantum Hamiltonian equivalent to the classical Onsager partition function of the polygon system.
 
 \paragraph{Summary of the bridge.}
 \begin{center}
