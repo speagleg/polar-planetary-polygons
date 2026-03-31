@@ -105,7 +105,7 @@ equations, the golden ratio, and algebraic number theory
     the geodesic structural observation
     (Proposition~\ref{prop:geodesic-correspondence}),
     the higher-genus palindromic hierarchy
-    (Conjecture~\ref{prop:higher-genus}),
+    (Conjecture~\ref{conj:higher-genus}),
     and the Legendre-symbol selection rule on arithmetic surfaces
     (Proposition~\ref{prop:legendre-selection}).
   \item \textbf{Scale classification of perturbations}
@@ -145,32 +145,14 @@ that are used in the proof of the sign rule
 
 \begin{remark}[The logarithm as the unique dilation-invariant interaction]
 \label{rem:rg-fixed-point}
-Among all pairwise interactions $h:(0,\infty)\to\mathbb{R}$ with
-$h'<0$, the logarithmic interaction $h(r)=-\ln r$ is the
-\emph{unique interaction invariant under spatial dilation up to an
-additive constant}.  Define the scale map $T_b[h](r) = h(br)$
-($b>0$).  Dilation-invariance means $h(br) = h(r) + c(b)$ for
-all $r$---that is, rescaling changes $h$ only by an additive constant
-(irrelevant to the force $-h'$).  This is a Cauchy functional equation
-whose continuous solutions with $h'<0$ are exactly $h(r)=-a\ln r + b$,
-$a>0$, confirming class~(ii) as the unique dilation-invariant class.
-The $N$-body lift of this per-pair statement is
-Corollary~\ref{cor:dilation-rg}: the M\"obius covariance of $H$
-(Proposition~\ref{prop:mobius}), restricted to the dilation subgroup,
-gives $H(bz_1,\dots,bz_N)=H(z_1,\dots,z_N)-\tfrac{N(N-1)}{2}\ln b$,
-which is position-independent---the same fixed-point condition at the
-$N$-body level.
-This symmetry explains the \emph{scale-independence}
-of $N_{\mathrm{crit}}=7$.  Because scaling changes $H$ by an
-additive constant (Corollary~\ref{cor:dilation-rg}), the Havelock
-eigenvalue $\lambda_m = (N{-}1) - m(N{-}m)/2$---which determines
-whether the $N$-gon is a stable constrained minimum---is
-scale-independent, and the threshold $N=7$ cannot drift under
-spatial rescaling.  Prior treatments of M\"obius covariance in vortex
-dynamics (e.g.\ \citealt{Newton2001}) identify it as a conformal
-symmetry of the stream function; Corollary~\ref{cor:dilation-rg}
-shows it additionally implies that the stability threshold is
-dilation-invariant.
+Dilation-invariance $h(br) = h(r) + c(b)$ is a Cauchy functional
+equation whose continuous solutions with $h'<0$ are exactly
+$h(r)=-a\ln r + b$, $a>0$.  The $N$-body lift is
+Corollary~\ref{cor:dilation-rg}:
+$H(bz_1,\dots,bz_N)=H(z_1,\dots,z_N)-\tfrac{N(N-1)}{2}\ln b$,
+a position-independent shift.  Because $\lambda_m$ depends only on
+inter-vortex ratios, $N_{\mathrm{crit}}=7$ is scale-independent
+and cannot drift under spatial rescaling.
 \end{remark}
 
 
@@ -936,7 +918,6 @@ logarithm uniquely (Remark~\ref{rem:rg-fixed-point}).
 %% ====================================================================
 \section{Stability thresholds on constant-curvature surfaces}
 \label{sec:curvature-thresholds}
-\label{sec:curvature-invariant}
 
 \noindent\emph{Prior work and what is new.}
 \citet{BoattoCabral2003} computed the constrained Lagrangian eigenvalues
@@ -950,12 +931,10 @@ What the proof in~\S\ref{sec:riemannian} adds is an explicit algebraic
 argument that the $m$-dependent part $f(m,N) = m(N{-}m)/2$ is
 \emph{metric-independent}---a consequence of $\mathbb{Z}_N$
 representation theory alone---while only the additive constant $C_1$
-carries the geometric information.  A specialist who worked through the
-Boatto--Cabral calculation would likely have noticed this; the value
-here is in making the separation explicit and, more substantively, in
-extending the framework to the hyperbolic plane~(\S\ref{sec:hyperbolic}),
-where $N_{\mathrm{crit}} > 7$ and systematic stability tables do not
-appear to be in the existing literature.
+carries the geometric information.  The separation is implicit in the
+Boatto--Cabral calculation; we make it explicit and extend the framework
+to~$\mathbf{H}^2$~(\S\ref{sec:hyperbolic}), where systematic stability
+tables do not appear in the literature.
 
 \subsection{Curved 2D surfaces: the spherical stability boundary}
 \label{sec:curved}
@@ -1156,8 +1135,7 @@ entering at the domain scale.
 \citet{Kimura1999} and others have studied point vortex dynamics on
 surfaces of constant curvature; the Hamiltonian for the hyperbolic plane
 is known.  Systematic stability tables for $N$-gons on $\mathbf{H}^2$
-do not appear to be in the literature, and the results of this subsection
-are likely the most novel part of Section~\ref{sec:curvature-invariant}.
+do not appear in the existing literature.
 
 The threshold $N_{\mathrm{crit}}$ on any surface is the largest $N$
 with $C_1(\text{surface}) \ge \max_m m(N{-}m)/2$.
@@ -1939,7 +1917,7 @@ of degree $2d$ in $\xi$ over~$\mathbb{Q}$.
 Its roots are algebraic units of degree~$2d$.
 
 \begin{conjecture}[Higher-genus palindromic hierarchy]
-\label{prop:higher-genus}
+\label{conj:higher-genus}
 On an arithmetic surface $\Gamma\backslash\mathbf{H}^2$ with
 trace field of degree $d$, the vortex stability threshold
 satisfies a palindromic polynomial of degree $2d$
@@ -2468,153 +2446,34 @@ is the same $B_2$ in its regularisation role:
 the csc$^2$ Laurent constant $2B_2 = 1/3$ governs
 the self-interaction in both contexts.
 
-\paragraph{The $\csc^2$ kernel in seven contexts.}
-\label{rmk:csc2-universality}
-The Havelock identity
-$\sum_{p=1}^{N-1}\frac{1 - \cos(2\pi pm/N)}{4\sin^2(\pi p/N)} = \frac{m(N{-}m)}{2}$
---- proved for vortex stability (1931) ---
-is the eigenvalue equation of the \emph{same} operator that
-appears in several other contexts (each identification
-below is established in the cited literature; we make
-no new claims here):
-\begin{enumerate}
-\item \emph{Calogero--Moser--Sutherland (1969--71):}
-  $H_{\mathrm{CMS}} = -\sum\partial_\theta^2
-  + \beta(\beta{-}1)\sum_{j<k}\csc^2((\theta_j{-}\theta_k)/2)$.
-  The vortex system is the classical ($\beta \to \infty$) limit.
-\item \emph{Dyson circular ensemble (1962):}
-  the equilibrium measure of $P(\theta) \propto
-  \prod|e^{i\theta_j}{-}e^{i\theta_k}|^\beta$ at $\beta = 2$
-  is the CMS ground state.
-  The vortex $N$-gon is the zero-temperature limit.
-\item \emph{Haldane--Shastry spin chain (1988):}
-  the Polychronakos freezing trick freezes
-  CMS particles to the Thomson ring ($\beta \to \infty$);
-  the surviving spin excitations obey the HS Hamiltonian
-  $H_{\mathrm{HS}} = \sum_{j<k}\csc^2(\pi(j{-}k)/N)\,
-  (\mathbf{S}_j \cdot \mathbf{S}_k - 1/4)$,
-  with spinon dispersion $\varepsilon_m = m(N{-}m)/2 = f(m,N)$
-  (the Havelock Casimir).
-\item \emph{Laughlin wavefunction (1983):}
-  the edge theory of $\Psi_L = \prod(z_j{-}z_k)^m\,e^{-|z|^2/4}$
-  reduces to the CMS model on the boundary circle
-  with $\beta = m$ (the inverse filling fraction $1/\nu$).
-  The CMS coupling $\beta$ equals the Laughlin filling
-  denominator $m = 1/\nu$.
-  The Havelock stability bound ($N \le 7$ vortices) constrains
-  the \emph{ring size} at each~$\beta$; the Laughlin
-  fractions $\nu = 1/m$ for odd~$m$ exist for all~$m$,
-  but the edge excitations of the $\nu = 1/m$ state
-  share the $\csc^2$ kernel at coupling $\beta = m$.
-  At $m = 1$ (filled Landau level), the modes obey
-  Haldane exclusion statistics with $g_s = 1$
-  (fermionic): modes fill from $m = 1$ upward
-  until the Fermi level reaches the instability boundary.
-\item \emph{Selberg integral (1944):}
-  the Selberg integral
-  $S_N(\alpha) = \int_0^1 \prod|x_i{-}x_j|^{2\alpha}
-  \prod x_i^{a-1}(1{-}x_i)^{b-1}\,dx$
-  is the partition function of the CMS model on~$[0,1]$.
-  For $N = 2$ particles in the symmetric case ($a = b = 1$),
-  the equilibrium positions are the $B_2$ zeros
-  $(3 \pm \sqrt{3})/6$
-  (the Gauss--Legendre nodes).
-\item \emph{$W_N$ algebra (1985--):}
-  the CMS Hamiltonian is the $L_0$ mode of the Virasoro
-  subalgebra of $W_N$; Jack polynomials at $\alpha = 1/\beta$
-  are singular vectors.
-\item \emph{AGT/Nekrasov (2009):}
-  the Nekrasov partition function $Z(\varepsilon_1,\varepsilon_2)$
-  equals the Virasoro conformal block via AGT, with
-  $\varepsilon_1/\varepsilon_2 = \beta$.
-\end{enumerate}
-The Havelock identity is the classical limit of CMS,
-the zero-temperature limit of Dyson,
-the frozen-particle limit of Haldane--Shastry,
-the edge limit of Laughlin,
-the $N = 2$ equilibrium of the Selberg integral,
-the Virasoro truncation of $W_N$,
-and the $\varepsilon_2 \to 0$ limit of Nekrasov.
-In each case, $B_2 = 1/6$ governs the self-interaction
-correction ($\csc^2(x) = 1/x^2 + 2B_2 + O(x^2)$).
-
-The $B_2$ circle closes through the index theorem:
-the Haldane fractional exclusion statistics of the
-CMS model at $g_s = 1$ (fermionic) are governed by the
-Riemann--Roch theorem on the Landau level
-\citep{LiOuvry1994},
-whose leading correction is the Todd class $\mathrm{Td}
-= 1 + c_1/2 + (c_1^2 + c_2)/12 + \cdots$,
-where the coefficient $1/12 = B_2/2$ is the same
-$B_2$ that appears in the Havelock offset $b(N)$
-(Paper~III, Proposition~\ref{III-prop:equiv-rr}).
-The chain CMS $\to$ Haldane statistics $\to$
-Riemann--Roch $\to$ Todd class $\to$ $B_2 = 1/6$ $\to$
-Havelock eigenvalue is therefore a closed loop:
-the index theorem and the integrable system
-see the same $B_2$ because they solve the same
-spectral problem on the $\mathbb{Z}_N$ orbifold.
-
-\paragraph{The $4/3$ self-interaction identity.}
-The identity $4/3 = 1 + 2B_2$ connects two classical
-self-interaction anomalies to the vortex system:
-(i)~the \emph{vortex} ratio of the $\csc^2$ Laurent constant
-to the small-ring curvature coefficient,
-$(1/3)/(1/4) = 4/3$ (Paper~III, \S\ref{III-sec:lichnerowicz}, Step~4);
-(ii)~the \emph{classical electron} $4/3$ problem
-($\int_0^\pi \sin^3\!\theta\,d\theta = 4/3$: the angular
-integral producing the electromagnetic momentum excess
-in the Abraham--Lorentz model).
-In both cases, the ``$1$'' is the singular (Coulomb/Casimir)
-part of the kernel, and the ``$1/3 = 2B_2$'' is the
-finite self-interaction remainder from the regular part.
-The vortex system is distinguished by an \emph{exact} balance:
-$\sum_{m=0}^{N-1}\lambda_m = 0$ for the circulant
-(the diagonal of the interaction matrix vanishes), so no
-regularisation or Poincar\'e stress is needed.
+\begin{remark}[The $\csc^2$ kernel in other contexts]
+The $\csc^2$ kernel underlying the Havelock identity appears in
+the Calogero--Moser--Sutherland model, the Dyson circular ensemble,
+the Haldane--Shastry spin chain, the Laughlin edge theory,
+the Selberg integral, the $W_N$ algebra, and the AGT/Nekrasov
+correspondence.  In each context, $B_2 = 1/6$ governs the
+self-interaction correction ($\csc^2(x) = 1/x^2 + 2B_2 + O(x^2)$).
+\end{remark}
 
 %% ====================================================================
 \section{K-theoretic classification of stability phases}
 \label{sec:k-theory}
 %% ====================================================================
 
-The stability results of the preceding sections treat each
-arithmetic surface as a black box that contributes a single
-number~$\delta C_1$.
-This section opens the box, in three stages of increasing depth:
-\begin{enumerate}
-\item[\emph{(i)}]
-  The \emph{elementary invariant}
-  $[\mu_N(\xi)] \in R(\mathbb{Z}_N) \cong \mathbb{Z}^N$
-  records the signs of the eigenvalues---a $K_0$-class that
-  changes by $[\rho_m]{+}[\rho_{N-m}]$ at each palindromic
-  threshold (\S\ref{sec:index-pairing}).
-\item[\emph{(ii)}]
-  On arithmetic quotients $\Gamma\backslash\mathbf{H}^2$,
-  the Selberg trace formula computes $\delta C_1$ as a sum over
-  closed geodesics, and spectral flow preservation
-  (\S\ref{sec:spectral-flow}) shows the wall-crossing pattern
-  is the \emph{same} as on~$\mathbf{H}^2$.
-\item[\emph{(iii)}]
-  At a palindromic threshold ($c_m = 0$), the scalar $\delta C_1$
-  no longer determines the stability: the spectral projection
-  becomes a non-trivial element of the von~Neumann algebra
-  $L(\Gamma)$, and the $L^2$-Morse index is \emph{fractional}%
-  ---on the Bolza surface, $\approx\!64\%$ of the $L^2$-weight
-  is unstable while the automorphism-fixed centre remains stable
-  (\S\ref{sec:gap-free}).
-  The stability of a vortex polygon depends on its
-  \emph{placement} on the surface, a phenomenon invisible to
-  $R(\mathbb{Z}_N)$ and to $\delta C_1$ alike.
-\end{enumerate}
-The natural language for stage~(iii) is $KK$-theory:
-the Havelock Hessian defines an element of the Kasparov group
-$KK(C^*(\mathbb{Z}_N),\, C^*_r(\Gamma))$, and the Kasparov
-product with the fundamental class of~$S$ recovers the Morse
-index (\S\ref{sec:kk-programme}).
-Away from thresholds, the Kasparov product reduces to the
-scalar $\delta C_1$; at the threshold, it carries genuinely
-new information.
+This section classifies stability phases in three stages:
+(i)~the elementary $K_0$-class
+$[\mu_N(\xi)] \in R(\mathbb{Z}_N)$ records eigenvalue signs
+and changes at palindromic thresholds (\S\ref{sec:index-pairing});
+(ii)~on arithmetic quotients $\Gamma\backslash\mathbf{H}^2$,
+the Selberg trace formula computes the spectral correction
+$\delta C_1$ as an index pairing, and spectral flow preservation
+shows the wall-crossing pattern is the same as
+on~$\mathbf{H}^2$ (\S\ref{sec:spectral-flow});
+(iii)~at palindromic thresholds where the spectral gap fails,
+the Kasparov product
+$KK(C^*(\mathbb{Z}_N),\,C^*_r(\Gamma))$ captures the
+fractional $L^2$-Morse index---$0.644$ on the Bolza
+surface (\S\ref{sec:gap-free}, \S\ref{sec:kk-programme}).
 
 \subsection{The elementary invariant}
 

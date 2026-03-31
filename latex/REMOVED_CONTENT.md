@@ -438,3 +438,98 @@ Tracked with source paper/lines, destination paper, and any compression applied.
 > (for which $|f(z){-}f(w)| = |\lambda|\,|z{-}w|$) is Cauchy's
 > multiplicative functional equation $h(ab) = h(a) + h(b)$,
 > whose unique continuous solution is $h = c\ln$.
+
+---
+
+### I-009: "csc^2 kernel in seven contexts" enumeration (~70 lines)
+**Source:** Paper I, lines 2471-2539 (pre-edit numbering), Section 6 (B2 organising principle)
+**Reason:** NO_NEW_CLAIMS -- self-described survey ("we make no new claims here"); 7-item enumeration of CMS, Dyson, Haldane-Shastry, Laughlin, Selberg, W_N, AGT/Nekrasov parallels
+**Suggested home:** Discard (replaced with 5-line remark summarising the seven contexts)
+**Original text summary:**
+> Enumerated list connecting the Havelock csc^2 eigenvalue equation to seven integrable-system/random-matrix/CFT contexts. Each item identified the limit (classical, zero-temperature, frozen-particle, edge, etc.) relating Havelock to that context. Concluded with a summary paragraph listing all seven limits.
+
+---
+
+### I-010: "B2 circle closes through the index theorem" paragraph (~16 lines)
+**Source:** Paper I, lines 2541-2556 (pre-edit numbering), Section 6
+**Reason:** CHAIN_OF_ASSOCIATIONS -- CMS -> Haldane statistics -> Riemann-Roch -> Todd class -> B2 chain without proof
+**Suggested home:** Discard
+**Original text summary:**
+> Argued that the Haldane fractional exclusion statistics of CMS at g_s=1 are governed by Riemann-Roch, whose Todd class has coefficient 1/12 = B2/2, closing a loop: CMS -> Haldane -> Riemann-Roch -> Todd -> B2 -> Havelock. Cited LiOuvry1994 and Paper III Prop equiv-rr.
+
+---
+
+### I-011: "4/3 self-interaction identity" paragraph (~18 lines)
+**Source:** Paper I, lines 2558-2575 (pre-edit numbering), Section 6
+**Reason:** TENUOUS_CONNECTION -- connects vortex 4/3 ratio to classical electron 4/3 problem via 4/3 = 1 + 2B2
+**Suggested home:** Discard
+**Original text summary:**
+> Identified 4/3 = 1 + 2B2 connecting: (i) vortex csc^2 Laurent constant ratio (1/3)/(1/4)=4/3, (ii) classical electron Abraham-Lorentz angular integral sin^3(theta) = 4/3. Noted the vortex system's exact balance (sum of eigenvalues = 0) avoids regularisation.
+
+---
+
+### I-012: Remark 2.1 compression (28 -> 10 lines)
+**Source:** Paper I, lines 146-174 (pre-edit numbering)
+**Reason:** VERBOSE -- re-explains dilation invariance (already in Proposition above), includes prior-work comparison not essential
+**Suggested home:** N/A (compressed version retained)
+**Lines saved:** ~18
+**Removed portions:**
+> Definition of scale map T_b, explicit statement "rescaling changes h only by an additive constant (irrelevant to the force -h')", re-derivation that continuous solutions are -a ln r + b, N-body lift details (H(bz_1,...) formula), prior work comparison with Newton2001 conformal symmetry of stream function.
+
+---
+
+### I-013: K-theory section overview compression (37 -> 14 lines)
+**Source:** Paper I, lines 2485-2521 (pre-edit numbering)
+**Reason:** VERBOSE -- three-stage enumeration with full detail; compressed to single paragraph
+**Suggested home:** N/A (compressed version retained)
+**Lines saved:** ~23
+**Removed portions:**
+> Full enumerated description of stages (i)-(iii) with details: von Neumann algebra L(Gamma), L^2-weight percentages, placement-dependence invisible to R(Z_N), full Kasparov group description. Compressed to single paragraph retaining all three stages with key identifiers.
+
+---
+
+### III-001: Four-role consistency paragraph compressed (7 -> 1 line)
+**Source:** Paper III, WDW section (lines ~1248-1254 pre-edit)
+**Reason:** REDUNDANT -- restates Introduction paragraph (lines 74-84) verbatim
+**Suggested home:** Discard (replaced with one-sentence back-reference)
+**Lines saved:** ~6
+
+---
+
+### III-002: C1 notation disambiguation paragraph compressed (17 -> 3 lines)
+**Source:** Paper III, WDW section (lines ~1189-1206 pre-edit)
+**Reason:** IMPROVE -- replaced with concise Phi(rho) definition; C_1^GF superscript eliminated
+**Suggested home:** N/A (compressed version retained)
+**Lines saved:** ~14
+
+---
+
+### III-003: Pointer basis enumeration compressed (33 -> 5 lines)
+**Source:** Paper III, Onsager-WDW section (lines ~3062-3094 pre-edit)
+**Reason:** REDUNDANT -- three enumerated items (pointer basis, classicality, probabilities) duplicated in Theorem Q4/Q5/Q3
+**Suggested home:** Discard (replaced with 5-line paragraph)
+**Lines saved:** ~28
+
+---
+
+### III-004: CL conditions checklist compressed (37 -> 11 lines)
+**Source:** Paper III, Onsager-WDW section (lines ~3095-3131 pre-edit)
+**Reason:** VERBOSE -- four enumerated conditions with multi-line explanations compressed to inline list
+**Suggested home:** N/A (compressed version retained)
+**Lines saved:** ~26
+
+---
+
+### III-005: Quantum corrections + Born rule paragraph compressed (44 -> 6 lines)
+**Source:** Paper III, Onsager-WDW section (lines ~3133-3174 pre-edit)
+**Reason:** REDUNDANT -- Markov approximation, Feynman-Kac identity, Born rule all stated in the five-step chain above
+**Suggested home:** N/A (compressed version retained)
+**Lines saved:** ~38
+
+---
+
+### III-006: Feynman-Kac status paragraph removed (3 lines)
+**Source:** Paper III, Onsager-WDW section (lines ~3279-3281 pre-edit)
+**Reason:** REDUNDANT -- "mathematical identity, not physical derivation" stated second time (first at line 2923)
+**Suggested home:** Discard
+**Lines saved:** ~3
