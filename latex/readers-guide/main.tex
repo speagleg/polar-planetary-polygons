@@ -1,0 +1,311 @@
+\input{../shared/preamble}
+
+\title{\seriestitle\\[6pt]\large A Guide for Readers}
+\author{Gordon Speagle}
+\date{}
+
+\begin{document}
+\maketitle
+
+%% ====================================================================
+\section{What this series claims}
+%% ====================================================================
+
+The stability eigenvalue of a regular polygon of point vortices
+splits into two pieces:
+\begin{equation}\label{eq:central}
+  \lambda_m = C_1(\text{surface}) - \frac{m(N{-}m)}{2}.
+\end{equation}
+The first piece depends on the surface geometry.
+The second depends only on the number of vortices~$N$ and the
+mode index~$m$.
+This one formula, applied on the Seifert manifold
+$\mathbf{H}^2 \times_N S^1$, produces
+the Standard Model gauge group, the Weinberg angle,
+the CKM phase, three generations of fermions,
+the cosmological constant, the Hubble parameter,
+and the dark matter fraction---from one integer ($N = 7$)
+and one scale ($M_P$).
+
+The series is six papers.
+Papers~I--III develop the mathematics, the vortex physics,
+and the gravitational theory.
+Paper~IV derives gauge theory and particle physics from $N = 7$.
+Paper~V derives cosmology from $N = 11$.
+Paper~VI collects the predictions, parameter accounting,
+and status classification.
+
+%% ====================================================================
+\section{What is new}
+%% ====================================================================
+
+\subsection{New mathematics}
+
+Results proved for the first time in this series.
+
+\medskip
+\begin{tabular}{p{6.5cm}lp{4cm}}
+\toprule
+Result & Equation / Ref & Paper \\
+\midrule
+Sign rule: $H''(0) < 0$ for any
+  $h$ with $h' < 0$, $(rh')' \le 0$ &
+  Thm~I-2.1 & I \\[4pt]
+Constrained energy minimum: the $N$-gon
+  minimises $H$ on $\{L = \mathrm{const}\}$
+  for $N \le 7$ &
+  Thm~I-2.2 & I \\[4pt]
+Metric-independence of $f(m,N) = m(N{-}m)/2$
+  on all constant-curvature surfaces &
+  Thm~I-3.2 & I \\[4pt]
+$\mathbf{S}^2$ thresholds are all rational:
+  $\xi_{\mathrm{crit}} \in \{1/3, 1/5, 1/7, 1/19\}$ &
+  eq.~I-(4.4) & I \\[4pt]
+$\mathbf{H}^2$ thresholds are Pell units in
+  quadratic fields &
+  Prop~I-5.1 & I \\[4pt]
+Algebraic-integer classification:
+  $N \in \{8, 9, 11, 15, 23\}$ only &
+  Prop~I-5.1 & I \\[4pt]
+Field extension pattern:
+  even $N \to \mathbb{Q}(\sqrt{\mathrm{sq\_free}(N{-}1)})$,
+  odd $N \to \mathbb{Q}(\sqrt{\mathrm{sq\_free}(N{-}3)})$ &
+  eq.~I-(5.1) & I \\[4pt]
+Geodesic correspondence: five thresholds
+  $=$ five closed geodesics on the modular surface,
+  traces $c = 2 + 16/(N{-}7)$ &
+  Prop~I-5.9 & I \\[4pt]
+Universality: $N_{\mathrm{crit}} = 7$ at $\xi = 0$
+  on every quotient $\Gamma\backslash\mathbf{H}^2$ &
+  Thm~I-5.12 & I \\[4pt]
+Higher-genus palindromic hierarchy:
+  degree-$2d$ palindromic polynomial for
+  trace-field degree $d$ &
+  Conj~I-5.14 & I \\[4pt]
+Quadratic reciprocity as a selection rule
+  for visible thresholds on $\Gamma_0(p)$ &
+  Prop~I-5.10 & I \\[4pt]
+Quartic normal form: $\alpha_0 = 45/14$
+  resolves $N = 7$ marginal stability &
+  \S II-5 & II \\[4pt]
+CMS--CS Casimir identification:
+  $C_2^{\mathrm{CMS}} = C_2^{\mathrm{CS}}$ via
+  symmetric-space Laplacian &
+  Prop~III-2.1 & III \\[4pt]
+Polygon entropy maximisation implies
+  $R = \mathrm{const}$ (Einstein equations) &
+  Thm~III-6.1 & III \\[4pt]
+\bottomrule
+\end{tabular}
+
+\subsection{New physics}
+
+Physical results and predictions not previously in the literature.
+
+\medskip
+\begin{tabular}{p{6.5cm}lp{4cm}}
+\toprule
+Result & Ref & Paper \\
+\midrule
+The $N$-gon is a constrained energy
+  \emph{minimum}, not a maximum
+  (corrects the statistical-mechanics literature) &
+  Thm~I-2.2 & I, II \\[4pt]
+Blob bridge: finite-core vortex patches
+  converge to point-vortex stability at
+  $O(\varepsilon^2)$, profile-independent &
+  Prop~II-7.1 & II \\[4pt]
+Circulation disorder resilience:
+  $N = 6$ stability domain is robust,
+  not a knife-edge &
+  \S II-9 & II \\[4pt]
+Graviton emerges at $N = 7$ as a boundary
+  Virasoro mode ($j = 2$, spin-$2$) &
+  Prop~III-2.2 & III \\[4pt]
+Vacuum Einstein equations from polygon
+  entropy maximisation + Onsager selection &
+  Thm~III-6.1 & III \\[4pt]
+$\mathrm{SU}(3) \times \mathrm{SU}(2) \times
+  \mathrm{U}(1)$ from $N = 7$ orbifold +
+  McKay + CS gravity &
+  Thms~IV-6.1, IV-6.3 & IV \\[4pt]
+Weinberg angle $\sin^2\theta_W = 3/11$
+  from CS conformal weight ratio &
+  Thm~IV-9.1 & IV \\[4pt]
+CKM phase $\delta = 70.2^\circ$ from
+  BF-crossing scattering phase on
+  $\mathbf{H}^2$ &
+  Thm~IV-14.1 & IV \\[4pt]
+$N = 11$ uniquely selected by KK flux
+  additivity; $H_0 = 67.4$~km/s/Mpc &
+  Thm~V-3.1 & V \\[4pt]
+Dark matter from frozen KK polygon modes
+  ($50$--$950$~TeV, absolutely stable) &
+  \S V-5 & V \\[4pt]
+Baryogenesis: $\eta_B \approx 2 \times 10^{-9}$,
+  $v_w$-independent &
+  \S V-7 & V \\[4pt]
+\bottomrule
+\end{tabular}
+
+\subsection{New connections}
+
+Known results connected for the first time in this series.
+
+\medskip
+\begin{tabular}{p{6.5cm}lp{4cm}}
+\toprule
+Connection & Ref & Paper \\
+\midrule
+Havelock eigenvalues $=$ CMS Casimir values
+  $=$ CS Wilson-line Casimirs (all from the
+  same $\mathrm{sl}(2,\mathbb{R})$ Laplacian) &
+  Prop~III-2.1 & III \\[4pt]
+Pell equation governs both vortex stability
+  thresholds and the graviton spin ($j = 2$) &
+  Prop~III-2.2 & I, III \\[4pt]
+Vortex stability thresholds $=$ closed
+  geodesics on the modular surface &
+  Prop~I-5.9 & I \\[4pt]
+$\xi^* = 8 - 3\sqrt{7}$ is the inverse
+  fundamental unit of $\mathbb{Z}[\sqrt{7}]$ &
+  eq.~I-(4.9) & I \\[4pt]
+Onsager negative-temperature condensation
+  $=$ WDW quantum cosmology
+  (Feynman--Kac identity) &
+  \S III-13 & III \\[4pt]
+McKay correspondence + DHVW orbifold
+  $\to$ $\mathrm{SU}(3)_1$ gauge sector &
+  Thm~IV-6.3 & IV \\[4pt]
+\bottomrule
+\end{tabular}
+
+
+%% ====================================================================
+\section{What is known}
+%% ====================================================================
+
+Established results used as building blocks (not claimed as new).
+
+\medskip
+\begin{tabular}{p{6.5cm}p{6.5cm}}
+\toprule
+Result & Source \\
+\midrule
+Havelock eigenvalue formula $\lambda_m = (N{-}1) - m(N{-}m)/2$ &
+  Havelock (1931) \\[3pt]
+Calogero--Moser--Sutherland integrability &
+  Calogero (1971), Sutherland (1971) \\[3pt]
+Chern--Simons / WZW correspondence &
+  Witten (1989) \\[3pt]
+McKay correspondence ($\mathbb{Z}/n \subset \mathrm{SU}(2)
+  \to A_{n-1}$ Dynkin diagram) &
+  McKay (1980) \\[3pt]
+Brown--Henneaux central charge $c = 3\ell/(2G)$ &
+  Brown--Henneaux (1986) \\[3pt]
+Thurston geometrisation of 3-manifolds &
+  Thurston (1982), Perelman (2003) \\[3pt]
+Born--Oppenheimer approximation &
+  Born--Oppenheimer (1927) \\[3pt]
+Selberg trace formula &
+  Selberg (1956) \\[3pt]
+Kaluza--Klein dimensional reduction &
+  Kaluza (1921), Klein (1926) \\[3pt]
+\bottomrule
+\end{tabular}
+
+%% ====================================================================
+\section{Where to find it}
+%% ====================================================================
+
+\paragraph{Planetary scientist.}
+Start at Paper~II, \S6 (the Rossby bridge) and \S8
+(deformation radius).
+The key result: the polygon is stable for $N \le 7$
+(Paper~I, Corollary~5.8).
+Saturn's hexagon ($N = 6$) and Jupiter's octagon ($N = 8$
+with a central vortex) are discussed in Paper~II, \S4 and \S8.
+Skip Papers~III--VI.
+
+\paragraph{Fluid dynamicist.}
+Paper~I proves the sign rule and the Havelock identity.
+Paper~II proves the constrained minimum (Theorem~3.2),
+resolves $N = 7$ (the quartic normal form, \S5),
+and develops the blob and Rossby bridges (\S7).
+The curved-surface thresholds (Paper~I, \S4--5) are new.
+Skip Papers~III--VI.
+
+\paragraph{Mathematical physicist / number theorist.}
+The algebraic number theory is in Paper~I, \S5:
+palindromic Pell units, the field extension pattern,
+the geodesic correspondence, quadratic reciprocity
+as a selection rule, and the higher-genus conjecture.
+The K-theory classification of stability phases is in
+Paper~I, \S7.
+The CMS--CS Casimir identification is in Paper~III, \S2.
+
+\paragraph{Particle physicist.}
+Paper~IV derives the gauge group (\S8), the Weinberg angle
+(\S9), fermion masses and CKM mixing (\S14).
+The complete $4$D Lagrangian is in \S12.
+For the logical foundations, read Paper~III, \S12
+(Einstein equations from polygon stability) and \S13
+(Onsager--WDW correspondence).
+
+\paragraph{Cosmologist.}
+Paper~V derives $H_0$, $\Omega_\Lambda$, $\Omega_{\mathrm{DM}}$,
+$\Omega_b$, the neutrino mass spectrum, and baryogenesis from
+the $N = 11$ instanton.
+For the logical foundation, read Paper~IV, \S2 (the Seifert
+manifold) and Paper~III, \S7 (the WDW equation).
+The full predictions table is in Paper~VI.
+
+\paragraph{Skeptic / referee.}
+Read Paper~VI first: the parameter accounting (\S2) lists
+every input and structural choice; the status classification
+(\S3) labels each result as Theorem, Derivation, or Conjecture.
+The falsifiable predictions (\S7) are binary: normal hierarchy,
+$w = -1$, no $0\nu\beta\beta$, proton stable,
+$\theta_{\mathrm{QCD}} = 0$.
+Five experiments will test these within a decade.
+
+%% ====================================================================
+\section{The derivation chain}
+%% ====================================================================
+
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+Paper & Input & Output \\
+\midrule
+I (Mathematics) & $\mathbb{Z}_N$ representation theory &
+  Sign rule, Havelock identity, $N_{\mathrm{crit}} = 7$, \\
+  & & Pell units, geodesic correspondence \\[3pt]
+II (Physics) & Paper I + physical constraints &
+  Constrained minimum, quartic at $N = 7$, \\
+  & & blob/Rossby bridges, BEC/planetary predictions \\[3pt]
+III (Gravity) & Papers I--II + $2{+}1$D gravity &
+  CMS--CS identification, graviton at $N = 7$, \\
+  & & Einstein equations, Onsager--WDW \\[3pt]
+IV (Gauge theory) & Paper III + Seifert $+$ $N = 7$ &
+  $\mathrm{SU}(3){\times}\mathrm{SU}(2){\times}\mathrm{U}(1)$,
+  $\sin^2\theta_W = 3/11$, \\
+  & & CKM phase, fermion masses \\[3pt]
+V (Cosmology) & Paper IV + $N = 11$ &
+  $H_0 = 67.4$, $\Omega_\Lambda$, DM, baryogenesis, \\
+  & & neutrinos, inflation \\[3pt]
+VI (Discussion) & Papers I--V &
+  Parameter accounting, status, predictions \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Each paper depends only on the papers above it.
+Paper~I is self-contained.
+
+\bibliographystyle{plainnat}
+\bibliography{../shared/refs}
+
+\end{document}
