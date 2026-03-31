@@ -146,9 +146,9 @@ At the $N$-gon ring of radius~$\rho_0$, the tangential Hessian
 of $-\sum_{p<q}\log d_{\mathrm{hyp}}(z_p, z_q)$ is a
 $\mathbb{Z}_N$-circulant with entries
 $h_p = (4\sinh^2\!\rho_0\,\sin^2(\pi p/N))^{-1}$
-(\texttt{proofs/casimir\_equals\_havelock.py},
-verified to $10^{-15}$ for $N = 3,\ldots,12$
-at five values of~$\rho_0$).
+(verified numerically to $10^{-15}$ for $N = 3,\ldots,12$
+at five values of~$\rho_0$;
+see Code Availability).
 
 \emph{Step 3 (Havelock eigenvalue).}
 The $\mathbb{Z}_N$ Fourier eigenvalue of this circulant is
@@ -287,7 +287,7 @@ The first non-trivial solution is $N = 7$, $j = 2$.
 \begin{remark}[Physical content of the operator coincidence]
 \label{rmk:cms-cs-physical}
 The numerical verification
-(\texttt{proofs/cms\_cs\_isomorphism.py}, $N = 3,\ldots,12$)
+($N = 3,\ldots,12$; see Code Availability)
 confirms the eigenvalue identity $C_2^{\mathrm{CMS}} =
 C_2^{\mathrm{KZ}} = C_2^{\mathrm{CS}} = m(N{-}m)/2$.
 Operator coincidence on a mathematical space does not
@@ -343,8 +343,8 @@ This is consistent for three independent reasons:
   \citealt{BarNatan1991}) is at $k = -h^\vee = -2$.
   Since $k = 2b(N) > 0$ for all $N \ge 3$, we are in the
   regular region
-  (\texttt{proofs/cs\_noncompact\_welldefined.py},
-  verified $N = 3,\ldots,15$).
+  (verified numerically for $N = 3,\ldots,15$;
+  see Code Availability).
 \item \emph{Semiclassical validity.}
   For $N \ge 7$: $k = 2b(N) > 8.6$, and
   $1/k$ corrections are $< 2\%$.
@@ -880,8 +880,8 @@ by two independent bounds:
     \frac{\delta F}{F}
     \le (N{-}1)\exp\!\bigl(-b(N)\ln N\bigr)
   \]
-  (\texttt{proofs/identity\_block\_dominance.py},
-  verified $N = 3,\ldots,16$):
+  (verified numerically for $N = 3,\ldots,16$;
+  see Code Availability):
   $11\%$ at $N = 5$,
   $1.7\%$ at $N = 6$,
   $0.14\%$ at $N = 7$,
@@ -1045,7 +1045,7 @@ $f(m^*,N) - f(m,N) = [m^*(N{-}m^*) - m(N{-}m)]/2$).
 The closed-form expression includes the normalisation of the
 first-order Kirchhoff path integral measure; it is verified
 numerically against the gap-by-gap product for all~$N \le 20$
-(test suite: \texttt{test\_gravity\_partition.py}).
+(see Code Availability).
 The polygon--BTZ transition is second-order with mean-field exponents.
 
 \paragraph{The entropy gap.}
@@ -1168,8 +1168,8 @@ opposite exponent: $\rho \propto |\lambda - \lambda_{\mathrm{edge}}|^{+1/2}$
 The sign flip $-1/2 \to +1/2$ is a theorem:
 the Havelock gaps satisfy $\lambda_{m^*+\delta} = \delta^2/2$
 (even~$N$) or $\delta(\delta{-}1)/2$ (odd~$N$)
-(\texttt{proofs/spectral\_edge\_transition.py}, verified
-$N = 7,\ldots,30$), giving $\rho(\lambda) = (2\lambda)^{-1/2}$
+(verified numerically for
+$N = 7,\ldots,30$; see Code Availability), giving $\rho(\lambda) = (2\lambda)^{-1/2}$
 (van~Hove, the integrable exponent \citep{BerryTabor1977}).
 The GUE edge exponent $+1/2$ is the Tracy--Widom theorem
 \citep{TracyWidom1994}.
@@ -1235,8 +1235,9 @@ The derivation has two steps:
   (the $\theta$-integrals are exact), and the remaining
   $I$-integrals have anharmonic corrections
   of order~$1/c$ where $c = 12\,b(N) \sim N^2$
-  (\texttt{proofs/oneloop\_exactness.py}: $1.9\%$ at
-  $N = 7$, $0.8\%$ at $N = 11$, decreasing as~$N^{-2}$).
+  ($1.9\%$ at
+  $N = 7$, $0.8\%$ at $N = 11$, decreasing as~$N^{-2}$;
+  see Code Availability).
   Integrability prevents mode mixing (the actions~$I_m$
   are independent), so the $1/c$ series converges
   without secular terms.
@@ -1654,7 +1655,7 @@ $N_{\mathrm{crit}}$ & $7$ & $5$ & $5$ & $5$ & $4$--$5$ \\
 The hexagon ($N = 6$, Saturn) is a \emph{uniquely two-dimensional}
 phenomenon: it is marginally stable at $d = 2$ ($\lambda_{\min} = 1/2$)
 but unstable for $d \ge 3$ ($\lambda_{\min} = -0.02$ at $d = 3$;
-\texttt{test\_ncrit\_delta.py}, $N_{\mathrm{crit}}(\Delta{=}0.5) = 5 < 6$).
+$N_{\mathrm{crit}}(\Delta{=}0.5) = 5 < 6$; see Code Availability).
 The pentagon ($N = 5$) survives in all tested dimensions $d \le 10$.
 
 \begin{proposition}[Soft Havelock decomposition in dimension $d$]
@@ -2247,7 +2248,7 @@ where $\sigma_1 = \sum' 1/\lambda_m$ and
 $\sigma_2 = \sum' 1/\lambda_m^2$ are spectral sums
 at the threshold.
 This ratio is computed for all $N = 7, \ldots, 24$
-(\texttt{proofs/jensen\_epsilon4\_bound.py}):
+(see Code Availability):
 it equals $7.5$ at $N = 7$ (the minimum) and grows
 monotonically with~$N$.
 The concavity term dominates the $O(\varepsilon^4)$ correction
@@ -2792,8 +2793,8 @@ at~$\rho^*$:
   \frac{1}{f_{m^*} - f_m},
 \end{equation}
 where the sum runs over non-zero modes
-(\texttt{proofs/entropy\_regularization.py};
-$\sigma(7) = 8/3$, $\sigma(8) = 49/9$, verified $N = 7,\ldots,15$).
+($\sigma(7) = 8/3$, $\sigma(8) = 49/9$, verified $N = 7,\ldots,15$;
+see Code Availability).
 The zero mode's crossing contributes to the spectral flow
 (APS eta-invariant shift $= \pm 1$ per palindromic pair),
 not to $|{\det{}'H}|$.
@@ -2825,7 +2826,7 @@ The correction $\tanh(\rho^*) = 1 - 2e^{-2\rho^*} + O(e^{-4\rho^*})$
 is the standard BTZ finite-horizon correction, vanishing
 exponentially: $6\%$ at $N = 7$, $0.03\%$ at $N = 11$,
 $< 10^{-7}$ for $N \ge 15$
-(\texttt{proofs/clausius\_cardy\_rt.py}, verified $N = 7,\ldots,20$).
+(verified numerically for $N = 7,\ldots,20$; see Code Availability).
 The common factor $\coth(\rho^*) = V'(\rho^*)$ is not a
 free choice: it is determined by the $\csc^2$ kernel
 ($V = \log(2\sinh\rho)$ is the $\mathbf{H}^2$ Green's function).
@@ -2838,7 +2839,7 @@ $S(\rho\|\sigma) \ge 0$ in the unitary boundary CFT implies
 $\delta Q = T\,\delta S$ at every Rindler horizon.
 The Clausius relation is verified numerically at all
 palindromic thresholds $N = 7, \ldots, 17$
-(test suite: \texttt{test\_jacobson\_derivation.py}).
+(see Code Availability).
 The extension to the full matter-coupled Einstein equations
 $G_{\mu\nu} + \Lambda g_{\mu\nu} = 8\pi G\,T_{\mu\nu}$
 requires the Jacobson thermodynamic argument
@@ -3140,8 +3141,8 @@ are derived:
   The entanglement entropy between~$\rho$ and
   the angular bath is $S_{\mathrm{ent}} \gg 1$~bit
   (from the CL squeezing parameters
-  $r_m = (\Phi'/(2\lambda_m))^2$; computed in
-  \texttt{proofs/self\_decoherence.py}).
+  $r_m = (\Phi'/(2\lambda_m))^2$;
+  see Code Availability).
 \item[\textup{(Q8)}] \emph{Irreversibility.}
   The breathing-angular coupling breaks exact CMS
   integrability at $O(1/c)$, converting exact
@@ -3220,6 +3221,10 @@ Schr\"odinger equation).
 The status classification, parameter accounting, cumulative
 uncertainty analysis, and falsifiable predictions for the
 results of this paper appear in Paper~VI.
+
+\paragraph{Code availability.}
+All numerical verifications and computational proofs are
+available in the companion code repository.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}

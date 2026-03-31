@@ -560,7 +560,7 @@ $S_{\mathrm{total}} = \sum_i S_i$ and $Z = \prod_i Z_i$.
 The boundary CFT is
 $\mathrm{WZW}_{\mathrm{grav}} \otimes \mathrm{WZW}_{\mathrm{gauge}}$
 with $c_{\mathrm{total}} = (12b(N){-}4) + 2 + 1 + 1 = 12b(N)$
-(\texttt{proofs/cs\_sector\_coexistence.py}).
+(verified numerically; see Code Availability).
 
 \emph{Step~3 (Zero mode at $N = 4$).}
 At $N = 4$, the critical mode $m^* = 2$ has KK mass
@@ -620,8 +620,8 @@ decomposes in KK modes:
 $\psi_L = \sum_m \chi_m(x)\,e^{i(m+1/2)\varphi}$,
 where the half-integer shift arises from the spin connection
 on the $S^1$ fiber (the spinor acquires a sign $(-1)$ under
-$\varphi \to \varphi + 2\pi$; see
-\texttt{extensions/fermions\_uv.py}, eq.~(3.2)).
+$\varphi \to \varphi + 2\pi$;
+see Code Availability).
 Under KK reduction, $\gamma^5$-eigenvalue maps to the
 $3$D CS sector: $4$D left-handed $\leftrightarrow$ couples to $A^+$
 (the dreibein component along $S^1$ determines the chirality
@@ -653,7 +653,7 @@ two contributions to the effective CS level:
   $\Delta k_{\mathrm{grav}} = \eta(M)/2$
   that distinguishes $A^+$ from~$A^-$.
   The eta invariant is computed \emph{exactly} via Dedekind sums
-  (\texttt{proofs/eta\_invariant\_seifert.py}):
+  (see Code Availability):
   using the closed form $s(1,N) = (N{-}1)(N{-}2)/(12N)$
   for the Dedekind sum, the gravitational contribution is
   \begin{equation}\label{eq:eta-grav}
@@ -808,7 +808,7 @@ chain (items~1--5 below, at the linearised level):
 \end{enumerate}
 Every step is explicit algebra at the linearised level;
 no physical identification enters
-(\texttt{proofs/dreibein\_havelock.py}).
+(see Code Availability).
 
 \emph{Step~B2 (Nonlinear embedding via CS/WZW).}
 The CS/WZW theorem \citep{Witten1988} provides the nonlinear
@@ -1131,8 +1131,8 @@ so the \emph{effective} coupling for matter in representation~$R$ is
 where $h_R = C_2(R)/(k{+}h^\vee)$ is the conformal
 weight~\eqref{eq:conformal-coupling}.
 The fiber radius~$R$ cancels in the mixing angle ratio
-(\texttt{proofs/cs\_to\_4d\_bridge.py}, verified
-for $R \in \{0.5, 1, 2, 5\}$):
+(verified numerically
+for $R \in \{0.5, 1, 2, 5\}$; see Code Availability):
 \begin{equation}\label{eq:weinberg-cs}
   \sin^2\theta_W
   = \frac{h_Y}{h_Y + h_W}
@@ -1516,7 +1516,7 @@ Standard SM two-loop running
 $b_{ij}$ of \citealt{MachacekVaughn1984})
 gives $\sin^2\theta_W = 3/11$ at
 $M_{\mathrm{poly}} = 294$\,TeV (two-loop) versus
-$274$\,TeV (one-loop)---a $7\%$ shift.\footnote{The two-loop SM $\beta$-functions \citep{MachacekVaughn1984} shift $M_{\mathrm{poly}}$ from $274$ (one-loop) to $294$\,TeV (two-loop); see \texttt{mass\_hierarchy.py} for the computation.}
+$274$\,TeV (one-loop)---a $7\%$ shift.\footnote{The two-loop SM $\beta$-functions \citep{MachacekVaughn1984} shift $M_{\mathrm{poly}}$ from $274$ (one-loop) to $294$\,TeV (two-loop); see Code Availability.}
 The resulting mass ratio:
 $m_s/m_b = 0.045$ ($1.9\times$ the observed $0.024$).
 The remaining factor of~$2$ is the dominant theoretical
@@ -2359,6 +2359,10 @@ $S_{4\mathrm{D}} = A/(4G_4)$ for the $4$D horizon area~$A$.
 The status classification, parameter accounting, cumulative
 uncertainty analysis, and falsifiable predictions for the
 results of this paper appear in Paper~VI.
+
+\paragraph{Code availability.}
+All numerical verifications and computational proofs are
+available in the companion code repository.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}

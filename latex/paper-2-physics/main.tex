@@ -446,13 +446,12 @@ $\mathbb{Q}(\zeta_7)$.  The Galois rationality argument is the
 proof: $\mathbb{Z}_7$-invariant sums over $\mathbb{Q}(\zeta_7)$
 lie in the fixed field $\mathbb{Q}$, so the quartic coefficient is
 rational \emph{a priori}; direct algebraic summation
-(computed in exact rational arithmetic by \texttt{n7\_bifurcation.py}, independently confirmed by
-$50$-decimal-place evaluation) identifies the value as $153/7$.
+(computed in exact rational arithmetic, independently confirmed by
+$50$-decimal-place evaluation; see Code Availability) identifies the value as $153/7$.
 The unconstrained quartic is computed by evaluating the
 fourth-order circulant Taylor coefficient (the explicit per-chord
 sum involves products of $\csc^2$ and $\csc^4$ terms coupled
-across modes; the full expression is in
-\texttt{n7\_bifurcation.py}).
+across modes; see Code Availability).
 The value $153/7$ is confirmed by exact rational arithmetic
 and Richardson extrapolation to $50$ decimal places.
 (The $\mathbb{Z}_7$ symmetry forces the degree-$4$ form on
@@ -608,12 +607,11 @@ $7$ & $6$ & $-3.012$ & $6$ & minor$(9) < 0$ \\
 \end{tabular}
 \end{center}
 Both tests are verified in \emph{exact rational arithmetic}
-(sympy~1.14, all matrix entries converted to $\mathbb{Q}$ via
-\texttt{nsimplify}; determinants computed symbolically with no
+(sympy~1.14, all matrix entries converted to $\mathbb{Q}$;
+determinants computed symbolically with no
 floating-point rounding).  The signs are algebraically exact:
-there is no numerical error to bound.  Code:
-\texttt{two\_ring.py} (numerical),
-\texttt{symbolic\_two\_ring\_proof.py} (exact).
+there is no numerical error to bound
+(see Code Availability).
 
 \emph{Extension to all $M \ge 2$ (complete proof).}
 The proof has two parts.
@@ -622,7 +620,7 @@ The proof has two parts.
 For $N \in \{5,6,7\}$ and $M \in \{2,\ldots,N{-}1\}$
 ($12$ cases), the full constrained Lagrangian Hessian
 is computed in exact rational arithmetic
-(\texttt{symbolic\_two\_ring\_proof.py});
+(verified in exact rational arithmetic; see Code Availability);
 at least one eigenvalue is negative in every case
 (the table above records the certificates).
 The remaining $6$ cases with $N \le M \le 7$
@@ -643,8 +641,8 @@ The case $M = 8$ is covered by numerical verification
 (the full constrained Hessian has negative eigenvalues
 for all $N \in \{5,6,7\}$).
 For $M \ge 9$: numerical verification
-(\texttt{tests/test\_multiring.py}, all $M = 9,\ldots,21$,
-$N \in \{5,6,7\}$)
+(all $M = 9,\ldots,21$,
+$N \in \{5,6,7\}$; see Code Availability)
 confirms instability persists.
 For $M \ge 2N{+}8$ ($= 22$ at $N = 7$), an analytical
 bound suffices:
@@ -785,9 +783,8 @@ is a finite quadratic form: a sum over $N(N{-}1)$ pair
 contributions, each involving trigonometric values at $N$-th roots
 of unity.  Since $\sin(\pi p/N)$ and $\cos(2\pi p/N)$ are algebraic
 for integer $p$ and $N$, every term is rational and so is the sum.
-Explicit values (verified to machine precision in
-\texttt{blob\_correction.compute\_Pm(N)} and notebook
-\texttt{05\_Blob\_Correction.ipynb}):
+Explicit values (verified to machine precision;
+see Code Availability):
 \begin{center}
 \begin{tabular}{lcccccc}
 \toprule
@@ -1155,8 +1152,7 @@ Therefore, by Proposition~\ref{prop:inertia},
 the constrained Hessian inertia of the cat's-eye
 equals the Havelock inertia.
 The numerical verification
-($\eta \in [0.3, 0.99]$; code:
-\texttt{catseye\_hessian.py}) confirms this.
+($\eta \in [0.3, 0.99]$; see Code Availability) confirms this.
 
 The same argument applies to the Prandtl--Batchelor
 cat's-eye, the physically relevant model for Saturn's
@@ -1171,7 +1167,7 @@ $\Gamma_{\mathrm{braid}}
 Every unit of circulation is in either lobe or background;
 lobe dominance~\eqref{eq:lobe-fraction} holds with
 $1{-}\eta$ replaced by~$0$.
-Code: \texttt{catseye\_decomposition.py}, \texttt{catseye\_hessian.py}.
+See Code Availability.
 \end{remark}
 
 The Saturn bridge thus arrives at the \emph{same} energy landscape as
@@ -1573,10 +1569,7 @@ stable region remain stable under the circulation fluctuations
 observed at Jupiter ($\sigma_\eta \approx 0.2$) and Saturn
 ($\sigma_\eta \lesssim 0.05$).
 
-Code: \texttt{circulation\_disorder.instability\_probability(N,~$\rho$,~$\sigma_\eta$)}
-and \texttt{disorder\_min\_eigenvalue\_h2(N,~$\rho$,~$\eta$)} in
-\texttt{src/planetary\_polygons/extensions/circulation\_disorder.py};
-test suite in \texttt{tests/test\_circulation\_disorder.py}.
+See Code Availability.
 
 \subsubsection{The regime criterion}
 
@@ -2230,6 +2223,10 @@ of $O(1)$.
 The status classification, parameter accounting, cumulative
 uncertainty analysis, and falsifiable predictions for the
 results of this paper appear in Paper~VI.
+
+\paragraph{Code availability.}
+All numerical verifications and computational proofs are
+available in the companion code repository.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}

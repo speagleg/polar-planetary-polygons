@@ -267,7 +267,7 @@ both branches.
 
 Verified to machine precision ($|\delta\lambda_m| < 10^{-14}$)
 for $4 \le N \le 12$
-(\texttt{proofs/rg\_stability\_characterization.py}).
+(see Code Availability).
 \end{proof}
 
 \begin{remark}[RG classification versus stability classification]
@@ -849,7 +849,7 @@ Since none of the surface-dependent quantities
 ($V_{\mathrm{rad}}$, $J$, or $\mu_L$) enter the
 tangential Hessian, the identity holds on
 \emph{every} constant-curvature surface simultaneously
-(\texttt{proofs/riemannian\_havelock\_step3.py}).
+(verified numerically; see Code Availability).
 \end{proof}
 
 \begin{remark}[Compact quotients]
@@ -945,7 +945,7 @@ $(\sin\theta\cdot h')' = \tfrac12\sin\theta > 0$ (class~(iii)).
 Numerical evaluation shows $H''(0) > 0$ along the spiral
 for $N = 3,\ldots,8$ at colatitudes $\varphi_0 \in \{5^\circ,
 15^\circ, \ldots, 85^\circ\}$
-(\texttt{proofs/rg\_stability\_characterization.py}):
+(verified numerically; see Code Availability):
 the polygon is a spiral-direction energy minimum even without
 the Lagrange shift.  The \emph{constrained} Hessian tells a
 different story.
@@ -1284,7 +1284,7 @@ of \citealt{Kimura1999}, eq.~(2.8)):
 \end{equation}
 Verified by numerical Hessian to relative precision $10^{-5}$
 for $3 \le N \le 12$ and $0 < \xi < 0.9$
-(\texttt{extensions/h2\_stability.py}).
+(see Code Availability).
 \end{proof}
 
 Since $(1+\xi^2)/(1-\xi)^2 > 1$ for all $\xi > 0$,
@@ -2266,8 +2266,9 @@ $\mu(N)$ is insensitive to any bounded perturbation $V(\xi)$
 with $V(0) = 0$ that couples Fourier modes in the interior---even
 perturbations that break the $\mathbb{Z}_N$ diagonal structure
 and create avoided crossings cannot change the net spectral flow
-(\texttt{proofs/topological\_protection.py} verifies this for
-$N = 8$--$10$ with coupling strengths up to $\|V\| = 100$).
+(verified numerically for
+$N = 8$--$10$ with coupling strengths up to $\|V\| = 100$;
+see Code Availability).
 At $N = 7$, the kernel of $H_7(0)$ (modes $m = 3, 4$ with
 $\lambda_m = 0$) breaks this robustness:
 sufficiently strong mode coupling can push the zero eigenvalues
@@ -3207,6 +3208,10 @@ polynomials with $S_5$ Galois group.
 The status classification, parameter accounting, cumulative
 uncertainty analysis, and falsifiable predictions for the
 results of this paper appear in Paper~VI.
+
+\paragraph{Code availability.}
+All numerical verifications and computational proofs are
+available in the companion code repository.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}
