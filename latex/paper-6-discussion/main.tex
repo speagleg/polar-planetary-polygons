@@ -18,7 +18,8 @@ This paper provides the series-level audit: parameter accounting,
 status classification (Theorem / Derivation / Conjecture),
 cumulative uncertainty analysis, and falsifiable predictions
 for the Havelock field theory developed in Papers~I--V.
-From two inputs (the integer $N = 7$ and the Planck mass $M_P$),
+From one discrete input ($N = 7$), one dimensionful scale ($M_P$),
+and six structural identifications forced by the geometry,
 the series derives the Standard Model gauge group, the Weinberg
 angle, the CKM phase, three generations, the cosmological
 constant, the Hubble parameter, the dark matter fraction,
@@ -74,9 +75,9 @@ compatible with the requirements of the vortex system:
   (Proposition~\ref*{IV-prop:spacetime}).
 \item \emph{BF threshold $\mu_4 = 1$.}
   The $\mathbf{H}^2$ Breitenlohner--Freedman bound gives
-  the scalar spectrum $M^2 = c(c{-}1) \ge -1/4$.
+  the scalar spectrum $M^2 = \Delta(\Delta{-}1) \ge -1/4$.
   The first KK mode above the threshold
-  ($c = 3/2$, $M^2 > 0$) has $\mu_4 = c - 1/2 = 1$.
+  ($\Delta = 3/2$, $M^2 > 0$) has $\mu_4 = \Delta - 1/2 = 1$.
   This is a property of the $\mathbf{H}^2$ spectrum,
   not a choice.
 \item \emph{CS levels $k = K = 1$.}
@@ -112,11 +113,11 @@ The fermion bulk mass on the $S^1$ fiber is
 $\mu_4 = \mu_{4,\mathrm{bare}} \mp T_3$, where:
 \begin{itemize}
 \item $\mu_{4,\mathrm{bare}} = 1$: in the KK reduction, the fiber mass
-  $\mu_4$ maps to the bulk conformal dimension $c$ via $c = \mu_4 + 1/2$
+  $\mu_4$ maps to the bulk conformal dimension $\Delta$ via $\Delta = \mu_4 + 1/2$
   (the standard mass--dimension relation for Dirac fields on
   AdS$_3$).
-  The BF threshold $M^2 = c(c{-}1) = 0$ at $c = 1$ then gives
-  $\mu_4 = c - 1/2 = 1/2$ for the \emph{massless} mode, and
+  The BF threshold $M^2 = \Delta(\Delta{-}1) = 0$ at $\Delta = 1$ then gives
+  $\mu_4 = \Delta - 1/2 = 1/2$ for the \emph{massless} mode, and
   $\mu_{4,\mathrm{bare}} = 1$ for the first massive level
   (the unique stability boundary on~$\mathbf{H}^2$);
 \item $T_3 = \pm\tfrac{1}{2}$ (the weak isospin of the Higgs doublet
@@ -125,10 +126,7 @@ $\mu_4 = \mu_{4,\mathrm{bare}} \mp T_3$, where:
 This gives $\mu_4^{\mathrm{up}} = 1 - \tfrac{1}{2} = \tfrac{1}{2}$
 (conformal profile, heaviest generation) and
 $\mu_4^{\mathrm{dn}} = 1 + \tfrac{1}{2} = \tfrac{3}{2}$.
-The WZW level $k = 1$ is the unique level where the Higgs doublet
-($j = 1/2$) is the highest-weight representation;
-the compact boson level $K = 1$ is the self-dual radius
-(the unique point with enhanced $\mathrm{SU}(2)$ symmetry).
+The $k = K = 1$ reasoning is as above.
 
 \paragraph{Neutrino sector.}
 The Galois centrifugal suppression $a = 1/N = 1/7$ is derived from the
@@ -160,6 +158,8 @@ should be distinguished from quantities computed by integration
 
 \section{Discussion}
 \label{sec:discussion}
+
+\subsection{Status classification}
 
 \paragraph{Status classification.}
 Three levels of logical status are distinguished:
@@ -200,7 +200,7 @@ Vacuum Einstein equations & Theorem & --- \\
 $\sin^2\theta_W = 3/11$ & Derivation$^*$ & $3.9\%$ \\
 $\delta_{\mathrm{CKM}} = 70.2^\circ$ & Theorem & $0.4\sigma$ \\
 $|V_{cb}| = 0.044$ & Derivation & $6\%$ (elasticity $-2.5$) \\
-$m_s/m_b = 0.045$ & Derivation & $1.9\times$ observed ($M_{\mathrm{poly}} = 294$\,TeV, two-loop) \\
+$m_s/m_b = 0.045$ & Derivation$^\dagger$ & $1.9\times$ observed ($M_{\mathrm{poly}} = 294$\,TeV, two-loop) \\
 $M_P/M_{\mathrm{EW}}$ hierarchy & Derivation & $0.003\%$ \\
 $H_0 = 67.4$ & Derivation & $2 \times 10^{-5}$ in $\ln(\ell v)$ (using $v_{\mathrm{obs}}$); Dunham $O(1/c^2)$ \\
 WDW equation from stat.\ mech. & Derivation & --- \\
@@ -229,12 +229,14 @@ within the formalism ($\alpha$ and $G$ both derive from~$c$);
 it is not independently testable at the CS threshold.\\[2pt]
 ${}^\dagger$The mass hierarchy uses the BF instanton
 (\S\ref*{V-sec:mass-hierarchy},
-eq.~\eqref{V-eq:mass-hierarchy}): $m_s/m_b = (v/M_{\mathrm{poly}})^{2\Delta c}/K^2$
-with $\Delta c = 0.303$ and $K = 0.548$.
+eq.~\eqref{V-eq:mass-hierarchy}): $m_s/m_b = (v/M_{\mathrm{poly}})^{2\delta_\Delta}/K^2$
+with $\delta_\Delta = 0.303$ (the conformal-dimension splitting) and $K = 0.548$.
 At the one-loop $M_{\mathrm{poly}} = 300$\,TeV the ratio
 is $0.059$; two-loop $+$ CS threshold corrections shift the
 $M_{\mathrm{poly}} = 294$\,TeV (two-loop),
 giving $0.045$ ($1.9\times$ observed).
+
+\subsection{Structural choices}
 
 \paragraph{Structural choices.}
 The three structural identifications
@@ -247,6 +249,8 @@ the framework involves six structural choices
 beyond the two numerical inputs ($N = 7$, $M_P$).
 This is far fewer than the SM's $19$~parameters
 but more than ``one integer plus one scale.''
+
+\subsection{Cumulative uncertainty}
 
 \paragraph{Cumulative uncertainty.}
 The derivation chain from polygon stability to the Standard
@@ -295,9 +299,11 @@ little room for hidden parameters.
 The vortex-spacetime identification (c) is the framework's
 starting postulate.
 Its justification is empirical: the $25$+ predictions
-enumerated above, of which the binary tests
-(neutrino hierarchy, $w = -1$, proton stability,
-no $0\nu\beta\beta$) are falsifiable within the next decade.
+enumerated above.
+The binary falsifiable tests are enumerated below
+(\S\ref{sec:falsifiable}).
+
+\subsection{Structural limitations}
 
 \paragraph{Structural limitations.}
 Two predictions are beyond current experimental reach.
@@ -324,6 +330,8 @@ for Einstein manifolds (mode-independence of~$C_1$
 requires spatial isotropy), not a full derivation---the
 time-direction constraint requires the boundary Virasoro
 mechanism (Paper~IV, \S\ref*{IV-sec:action}).
+
+\subsection{Precision regimes}
 
 \paragraph{Two precision regimes.}
 The predictions fall into two tiers by mechanism,
@@ -359,6 +367,8 @@ The pattern is structural, not accidental: it reflects
 the separation between topological data (exact)
 and radial geometry (approximate).
 
+\subsection{Comparison to other frameworks}
+
 \paragraph{Comparison to other zero-parameter frameworks.}
 The framework's factor-$2$ geometric accuracy should
 be compared not to the Standard Model (which fits
@@ -374,14 +384,16 @@ that predict fermion masses from structure alone:
 \item Standard RS (anarchic Yukawas, $21$+ parameters):
   $< 1\%$ accuracy, but every mass is fitted, not predicted.
 \end{itemize}
-The polygon framework is the only entry with zero free
-parameters that simultaneously predicts fermion mass
-ratios, CKM elements, and cosmological parameters.
-Its factor-$2$ geometric precision is comparable to
-tree-level SU(5) and better than NLO chiral perturbation
-theory---both considered milestones of theoretical physics.
+Among frameworks with zero free parameters, this is the first
+to simultaneously predict fermion mass ratios, CKM elements,
+and cosmological parameters.
+The factor-$2$ geometric accuracy is comparable to
+tree-level SU(5) for $\sin^2\theta_W$.
 
-\medskip\noindent
+\subsection{Falsifiable predictions}
+\label{sec:falsifiable}
+
+\noindent
 The central-value matches on~$V_{cb}$
 ($\pm 12\%$ theoretical sensitivity, elasticity $-2.5$) and~$H_0$
 ($\pm O(1/c^2)$ from BO truncation) should be read as
@@ -428,6 +440,8 @@ falsifies the framework.
 \emph{(iii)~Structural derivations
 that the SM treats as inputs}: the gauge group,
 $3$~generations, $m_u < m_d$, $\theta_{\mathrm{QCD}} = 0$.
+
+\subsection{Input--output classification}
 
 \paragraph{Input--output classification.}
 \label{sec:input-output}
