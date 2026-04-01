@@ -581,13 +581,14 @@ $\mathrm{SU}(2)_L$ as the unbroken gauge factor.
 \end{proposition}
 
 \begin{proof}
-\emph{Sketch.}
+The proof has three steps.
 Witten's CS formulation splits gravity into $\mathrm{SU}(2)_L
-\times \mathrm{SU}(2)_R$.
-KK reduction maps 4D chirality to 3D CS sector.
+\times \mathrm{SU}(2)_R$ (Step~1).
+KK reduction maps 4D chirality to 3D CS sector (Step~2).
 The Seifert Euler class $e = N/2$ is parity-odd, breaking
 $L \leftrightarrow R$ via the fermion parity anomaly and
-the gravitational eta invariant, gapping $\mathrm{SU}(2)_R$.
+the gravitational eta invariant, gapping $\mathrm{SU}(2)_R$
+(Step~3).
 
 \emph{Step~1 (Chiral decomposition of CS gravity).}
 In the first-order formulation \citep{Witten1988},
@@ -1467,9 +1468,18 @@ higher loops are forbidden by large-gauge-transformation invariance.
   $-2$ from the parity anomaly in odd dimensions)
   does not affect the ratio.  This is exact at all orders.
 \item \textbf{CS level shift.}
-  The $N$ Dirac fermion KK modes shift the CS level by
-  $\Delta k = -N/2$ (parity anomaly):
-  $k_{\mathrm{phys}} = c/6 - N/2$.
+  Each massive $3$D Dirac fermion shifts the CS level
+  by $\mathrm{sgn}(\mu_m)/2$ (parity anomaly).
+  The KK spectrum $\mu_m = (m{+}\tfrac{1}{2}{-}N/2)/R$
+  is antisymmetric, so the massive modes cancel pairwise;
+  for odd~$N$, the single zero mode at $m = (N{-}1)/2$
+  contributes $\pm 1/2$ (sign from fiber orientation).
+  The physical level is $k_{\mathrm{phys}} = c/6 - 1/2$
+  (odd~$N$) or $c/6$ (even~$N$).
+  All downstream quantities depend only on the
+  fractional part $\kappa = \mathrm{frac}(k_{\mathrm{phys}})
+  = 0.096$ (at $N = 7$), which is unaffected by the
+  integer shift $-(N{-}1)/2$.
   No further renormalisation occurs beyond one loop.
 \item \textbf{Cosmological constant.}
   The 3D Coleman--Weinberg correction
@@ -2373,8 +2383,8 @@ Two corrections, both derived from the orbifold structure, raise this:
   $\delta\lambda_{\mathrm{tw}} = \lambda_{\mathrm{SM}}/N
   = 0.10/7 = 0.014$.
 \item \emph{Instanton quartic.}
-  The fractional CS level
-  $k_{\mathrm{phys}} = c/6 - N/2 = 5.096$ (at $N = 7$)
+  The physical CS level
+  $k_{\mathrm{phys}} = c/6 - 1/2 = 8.096$ (at $N = 7$)
   has fractional part $\kappa = 0.096$.
   The instanton fugacity is
   $\mathcal{K} = 0.548$~\eqref{eq:instanton-K}.

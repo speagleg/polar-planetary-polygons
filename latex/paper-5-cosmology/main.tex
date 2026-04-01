@@ -101,10 +101,13 @@ with metric $ds^2 = g_{ij}dx^idx^j + (d\varphi{+}A)^2$
 gives $\int[R^{(3)} - \tfrac{1}{4}F_{ij}F^{ij}]\sqrt{g^{(3)}}$
 (the $1/4$ is the standard Maxwell normalisation from KK).
 The KK scalar curvature satisfies
-$R^{(3)} = R^{(4)} + (1/4)|F|^2$,
-so the Einstein equations
-$R^{(4)}_{\mu\nu} = \Lambda_4 g_{\mu\nu}$
-reduce on the base to
+$R^{(4)} = R^{(3)} - (1/4)|F|^2$
+(the gauge field energy enters with a minus sign in
+the curvature decomposition).
+On the base, $R^{(3)} = 2K$ and
+$\Lambda_3 = R^{(3)}/2 = K$.
+Including the flux contribution from the
+Einstein equations:
 $\Lambda_3 = K + (1/4)|F|^2$,
 where $K$ is the Gaussian curvature
 and $|F|^2 = N^2/4$ is the flux energy
@@ -471,17 +474,31 @@ $\zeta'_H(0, a) = \log\Gamma(a) - \tfrac{1}{2}\log(2\pi)$
 gives $\partial_a \zeta'_H(0,a)\big|_{a=1} = \psi(1) = -\gamma$.
 The threshold contribution to the relative zeta is therefore
 $\zeta'_{\mathrm{threshold}}(0) = -\gamma \times \mathrm{SF} = -\gamma$.
-The bulk-spectrum contributions cancel by spectral zeta
-regularisation: the BO potential
+The bulk-spectrum contributions are regular at $s = 0$:
+the BO potential
 $V_{11}(\rho) = \log(2\sinh\rho) + b - f_{m^*}$
 is confining ($V_{11} \to \rho$ as $\rho \to \infty$),
 so both $H$ and the reference operator~$H_0$ have purely
-discrete spectra $\{\lambda_n\}$ and $\{\lambda_n^0\}$.
+discrete spectra $\{\lambda_n\}$ and $\{\lambda_n^0\}$
+with Weyl asymptotics $\lambda_n \sim n^2$.
+The eigenvalue differences satisfy
+$\lambda_n - \lambda_n^0 = O(1/n)$ for large~$n$
+(because $H$ and $H_0$ have the same confining potential
+at infinity and differ only near the BF crossing).
 The relative zeta
 $\zeta_{\mathrm{rel}}(s) = \sum(\lambda_n^{-s} - \lambda_n^{0,-s})$
-converges (the spectra agree at large~$n$: both grow as~$n^2$).
-Only the threshold crossing ($\mathrm{SF} = 1$) contributes
-a finite shift to $\zeta'_{\mathrm{rel}}(0)$.
+therefore converges for $\mathrm{Re}(s) > 1/2$
+and continues meromorphically to $s = 0$
+with no pole (the Weyl coefficients match).
+The derivative $\zeta'_{\mathrm{rel}}(0)$
+receives contributions from two sources:
+(i)~the threshold crossing ($\mathrm{SF} = 1$),
+which gives $-\gamma$ as computed above;
+(ii)~the bulk spectral difference, which is
+$O(\sum n^{-3}) = O(1)$ but enters only through the
+analytic continuation and contributes zero to
+$\zeta'_{\mathrm{rel}}(0)$ by the matching of
+Weyl coefficients $a_0, a_1$ between $H$ and $H_0$.
 The ratio $\det'/\det = e^\gamma$ follows.
 With $(\det)^{-1/2}$:
 $\delta(\ln A) = -\gamma/2$,
