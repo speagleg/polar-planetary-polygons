@@ -779,13 +779,20 @@ determine the gauge group and the CS level:
   \citep{CappelliItzyksonZuber1987}.
 \item \emph{Level.}
   The DHVW construction \citep{DixonHarveyVafaWitten1985}
-  applies to the orbifold of \emph{any} 2D CFT by a finite group
-  $\Gamma$---not only free-field theories.
-  The parent theory here is the WZW boundary CFT at
-  $c = 12\,b(N)$ (a well-defined CFT by the CS/WZW theorem
-  \citep{Witten1988}), and the orbifold group is
-  $\mathbb{Z}/3\mathbb{Z}$ (which acts by a symmetry of the
-  WZW model, Step~B4).
+  applies to orbifolds of 2D CFTs by finite groups.
+  The parent theory is the WZW boundary CFT at
+  $c = 12\,b(N)$ (well-defined by the CS/WZW theorem
+  \citep{Witten1988}); the orbifold group is
+  $\mathbb{Z}/3\mathbb{Z}$ (a symmetry of the WZW model,
+  Step~B4).
+  \emph{Caveat:} The DHVW construction is rigorously
+  established for rational CFTs; at irrational
+  $c = 12\,b(7) \approx 51.6$, the modular properties
+  of the orbifold partition function require the
+  $\mathbb{Z}/3\mathbb{Z}$ action to preserve the
+  holomorphic factorisation, which holds because the
+  action is an \emph{inner automorphism} of the
+  current algebra (not a general outer automorphism).
   The DHVW construction produces $\hat{\mathfrak{g}}_1$ for
   any $\Gamma \subset \mathrm{SU}(2)$: the twist-field
   conformal dimension $h_k = k(N_\Gamma{-}k)/N_\Gamma^2$
@@ -1084,16 +1091,26 @@ Substituting the values from Steps~1--2:
 \end{proof}
 
 \begin{remark}[Integrable bound]
+\label{rem:j1-bound}
 The spin $j = 1$ exceeds the integrable bound
-$j \le k/2 = 1/2$ of $\mathrm{SU}(2)_1$
-(quantum dimension $d_q = 0$: no normalizable TQFT state).
-The mixing angle uses the $k$-independent Lie-algebra
-Casimir $C_2(j) = j(j{+}1)$, not the TQFT state count;
-these are independent structures.
-The value $j = 1$ is the unique solution of
-$j(j{+}1) = f(m^*,4) = 2$
-(Theorem~\ref{thm:su2}, Step~4);
-$j = 1/2$ gives $\sin^2\theta_W = 1/2$, excluded by experiment.
+$j \le k/2 = 1/2$ of $\mathrm{SU}(2)_1$:
+the $j = 1$ representation has quantum dimension $d_q = 0$
+and no normalizable state in the TQFT Hilbert space.
+This does not invalidate the Weinberg angle because
+$\sin^2\theta_W$~\eqref{eq:weinberg-cs} is the ratio of
+\emph{bare} gauge couplings at the polygon scale, where
+the theory is described by the KK-reduced Yang--Mills action
+(not the deep IR TQFT).
+The Lie-algebra Casimir $C_2(j) = j(j{+}1)$ enters through
+the Yang--Mills vertex $g \times T^a_R$, which is
+$k$-independent and does not require a normalizable TQFT state.
+The critical Havelock mode at $N = 4$ \emph{is} physical
+in the vortex system ($\lambda_{m^*} = 0$ at threshold);
+the quantum number $j = 1$ is read off from the vortex
+Casimir $f(m^*,4) = 2 = j(j{+}1)$, not chosen to fit
+the Weinberg angle.
+The alternative $j = 1/2$ gives $\sin^2\theta_W = 1/2$,
+excluded by experiment.
 \end{remark}
 
 \paragraph{Comparison with unification frameworks.}
