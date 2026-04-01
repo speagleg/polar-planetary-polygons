@@ -799,38 +799,32 @@ so fixing $\bar{V}$ fixes $\bar{C}_1$ and the Lagrange
 multiplier is~$\Lambda$.
 
 \noindent
-\emph{Strict concavity at all orders.}
-The second functional derivative of $S_\varepsilon[R]$ with respect
-to $R(x)$ has two contributions:
-\[
-  \frac{\delta^2 S_\varepsilon}{\delta R(x)^2}
-  \;=\; \underbrace{S''(C_1)\!\left(\frac{\partial C_1}{\partial R}\right)^{\!2}}_{\text{concavity (negative)}}
-  \;+\; \underbrace{S'(C_1)\,\frac{\partial^2 C_1}{\partial R^2}}_{\text{correction}}.
-\]
-From the Hadamard expansion,
-$\partial C_1/\partial R = -(N{-}1)\varepsilon^2/4 + O(\varepsilon^4)$
-and
-$\partial^2 C_1/\partial R^2 = 2(N{-}1)\alpha\,\varepsilon^4$
-with $\alpha = 1/48$ (the angular-averaged second
-Seeley--DeWitt coefficient).
-The concavity term contributes
-$S'' \times (N{-}1)^2\varepsilon^4/16$;
-the correction contributes
-$S' \times 2(N{-}1)\alpha\,\varepsilon^4$.
-Both are $O(\varepsilon^4)$, so $\varepsilon$ cancels from
-their ratio:
+\emph{Strict concavity: non-perturbative argument.}
+The concavity of~$S$ in~$C_1$ is exact (CMS integrability),
+so Jensen's inequality applies to~$C_1$ directly:
+$\int_M S(C_1(x))\,dA \le A\cdot S(\bar C_1)$
+with equality if and only if $C_1(x) = \mathrm{const}$.
+The coincident Green's function
+$G_\varepsilon(x,x)$ encodes the local geometry at
+scale~$\varepsilon$; constancy of
+$C_1(x) = G_\varepsilon(x,x) + b(N)$ implies
+isotropy of the metric by Schur's lemma,
+hence $R = \mathrm{const}$.
+This argument holds at every~$\varepsilon$
+with no Seeley--DeWitt expansion.
+As a quantitative check on the second variation,
+the ratio
 \begin{equation}\label{eq:concavity-ratio}
-  \frac{|S''|\,(N{-}1)}{32\,\alpha\,S'}
-  \;=\; \frac{(N{-}1)\,\sigma_2}{32\,\alpha\,\sigma_1}
+  \frac{(N{-}1)\,\sigma_2}{32\,\alpha\,\sigma_1}
   \;\ge\; 7.5
   \quad\text{for all } N \ge 7,
 \end{equation}
-where $\sigma_k = \sum_{m \ne m^*} \lambda_m^{-k}$
+where $\sigma_k = \sum_{m \ne m^*}\lambda_m^{-k}$
+and $\alpha = 1/48$ is the second Seeley--DeWitt
+coefficient,
+confirms that the concavity term dominates the
+curvature-nonlinearity correction by at least $7.5:1$
 (see Code Availability).
-Since the ratio is $\varepsilon$-independent, the concavity
-term dominates the correction at every~$\varepsilon$
-in the stability range.
-Strict concavity of $S_\varepsilon[R]$ holds exactly.
 
 The extension from conical deficits to smooth metrics
 is established by Lemma~\ref{lem:regge-bridge}.
