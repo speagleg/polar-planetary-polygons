@@ -680,11 +680,11 @@ On the plane: $C_1 = N{-}1$ (no correction; $R = 0$).
 All three model surfaces give
 $C_1/(N{-}1) = 1 - R\varepsilon^2/4 + O(\varepsilon^4)$
 with the same coefficient $1/4$.
-By the Riemannian Havelock identity
-(Paper~I, Theorem~\ref*{I-thm:riemannian-havelock}),
-$C_1$ is the unique surface-dependent coefficient in the
-eigenvalue decomposition, so the $1/4$ extends to every
-constant-curvature surface.
+This coefficient is universal: it follows from the
+Hadamard--Minakshisundaram--Pleijel heat kernel expansion,
+whose first Seeley--DeWitt coefficient $a_1 = R/6$ for the
+scalar Laplacian in $2$D gives $R\varepsilon^2/4$ upon
+angular averaging over the $N$-gon ring.
 
 \medskip
 \noindent\emph{Step~3 (Jensen maximisation $+$ Onsager selection).}
@@ -2997,14 +2997,10 @@ enters through the Feynman--Kac theorem
 Schr\"odinger equation).
 
 
-\paragraph{Discussion and predictions.}
-The status classification, parameter accounting, cumulative
-uncertainty analysis, and falsifiable predictions for the
-results of this paper appear in Paper~VI.
-
 \paragraph{Code availability.}
-All numerical verifications and computational proofs are
-available in the companion code repository.
+All numerical verifications are in the companion repository
+(\texttt{github.com/gspea/planetary-polygons-unified}).
+Parameter accounting and predictions appear in Paper~VI.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}

@@ -134,110 +134,43 @@ Every factor in the sum is strictly positive, so $H''(0) < 0$.
 
 \subsection{The constrained energy minimum}
 
-\noindent\emph{Attribution note.}
-The Havelock eigenvalue formula $\lambda_m = (N{-}1) - m(N{-}m)/2$
-and the linear stability boundary $N \le 7$ are due to
-\citet{Havelock1931}.  The new contribution of the theorem below is
-the reframing: the $N$-gon is a \emph{constrained energy minimum}
-(not a saddle point or maximum), which resolves the apparent tension
-with Onsager's statistical-mechanics picture.
-
-\begin{theorem}[Constrained energy minimum]\label{thm:constrained-min}
-The regular $N$-gon minimizes $H$ on the conserved-quantity surface
-$\{L = NR^2,\, \mathbf{P} = 0\}$ if and only if $N \le 7$.
-The Lagrangian Hessian
+By Theorem~\ref*{I-thm:constrained-min} (Paper~I), the
+$N$-gon is a constrained energy minimum on the angular-impulse
+surface $\{L = NR^2,\, \mathbf{P} = 0\}$ if and only if
+$N \le 7$.
+The Lagrangian Hessian is
 \begin{equation}\label{eq:lagr-hess}
   \nabla^2\!\mathcal{L} = \nabla^2 H - 2\mu_L\, I,
-  \qquad \mu_L = -\frac{N-1}{4},
+  \qquad \mu_L = -\frac{N-1}{4}.
 \end{equation}
-restricted to the constraint tangent space, is positive semi-definite
-for $N \le 7$ and indefinite for $N \ge 8$.
-\end{theorem}
+The following decomposition, used in the quartic computation
+(\S\ref{sec:n7}) and the blob bridge (\S\ref{sec:blob}),
+gives the mode-by-mode structure:
+
+\begin{proposition}[Hessian block structure]\label{prop:hessian-blocks}
+The Hessian $\nabla^2\!H$ at the $N$-gon block-diagonalises
+under the $\mathbb{Z}_N$ action into diagonal $2 \times 2$
+blocks with eigenvalues $\pm\sigma_m$, where
+\begin{equation}\label{eq:sigma-m}
+  \sigma_m = \frac{N-1}{2} - \frac{m(N-m)}{2}.
+\end{equation}
+The Lagrangian eigenvalues are
+$\lambda_m^+ = \sigma_m + (N{-}1)/2 = (N{-}1) - m(N{-}m)/2$
+(radial) and $\lambda_m^- = m(N{-}m)/2$ (tangential).
+\end{proposition}
 
 \begin{proof}
-\emph{Step~1 (Block-diagonalisation).}
-The energy-Casimir functional is $\mathcal{H} = H + |\mu_L|\, L$,
-whose Hessian is \eqref{eq:lagr-hess}.  The Hessian $\nabla^2 H$
-commutes with the $\mathbb{Z}_N$ action and, by Schur's lemma,
-block-diagonalizes into $2 \times 2$ blocks per mode
-$m \in \{0, \ldots, N-1\}$.
-
-\emph{Step~2 (The $2 \times 2$ Hessian block).}
-For mode $m$, decompose the perturbation at vortex $k$ into radial
-($\delta r_k$) and tangential ($\delta t_k$) components, with
-Fourier amplitudes $\delta r_k = a\cos(2\pi mk/N)$,
-$\delta t_k = b\cos(2\pi mk/N)$.  The $2\times 2$ Hessian block
-for the pair $(a, b)$ involves two sums over separations
-$p = 1, \ldots, N-1$:
-\begin{align*}
-  H_{rr}^{(m)} &= \textstyle\sum_p
-    \bigl[\tfrac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
-    + \tfrac{1+\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}\bigr]
-    \;-\; 2\textstyle\sum_p
-    \tfrac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}, \\[3pt]
-  H_{rt}^{(m)} &= \textstyle\sum_p
-    \tfrac{\sin(2\pi pm/N)}{4\sin^2(\pi p/N)}, \\[3pt]
-  H_{tt}^{(m)} &= -H_{rr}^{(m)}.
-\end{align*}
-\emph{Step~3 (Off-diagonal vanishing).}
-The off-diagonal $H_{rt}^{(m)}$ vanishes identically by the
-anti-symmetry $\sin(2\pi p m/N) \to -\sin(2\pi(N{-}p)m/N)$
-under $p \to N{-}p$, since $\sin^2(\pi p/N) = \sin^2(\pi(N{-}p)/N)$
-(so the denominator is symmetric while the numerator is
-anti-symmetric; the sum over the full range $p = 1, \ldots, N-1$
-cancels in pairs).  Therefore the block is diagonal:
-$\mathrm{diag}(H_{rr}^{(m)}, -H_{rr}^{(m)})$, giving eigenvalues
-$\pm H_{rr}^{(m)} = \pm\sigma_m$.
-
-\emph{Step~4 (Havelock substitution).}
-The diagonal entry $H_{rr}^{(m)}$ simplifies using the Havelock
-identity (Appendix~Paper~I, \S4.1):
-the self-sum $\sum_p 1/[4\sin^2(\pi p/N)] = (N{-}1)/2$
-(a special case of $T_0 + (N{-}1)/2$) and the cross-sum is
-$T_m = m(N{-}m)/2$.  Thus
-\begin{equation}\label{eq:sigma-m}
-  \sigma_m = H_{rr}^{(m)} = \frac{N-1}{2} - \frac{m(N-m)}{2},
-\end{equation}
-using
-\begin{equation}\label{eq:havelock}
-  T_m := \sum_{p=1}^{N-1}\frac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
-  = \frac{m(N-m)}{2}
-\end{equation}
-(proven in Appendix~Paper~I, \S4.1; cf.\
-\citet{Havelock1931}, \S3).  The Lagrangian eigenvalues are thus
-\[
-  \lambda_m^+ = (N-1) - \tfrac{m(N-m)}{2}, \qquad
-  \lambda_m^- = \tfrac{m(N-m)}{2}.
-\]
-\emph{Step~5 (Mode counting and $N \le 7$).}
-Since $\lambda_m^- \ge 0$ always, positive semi-definiteness requires
-$\lambda_m^+ \ge 0$ for the modes tangent to the constraint surface.
-Three modes are removed:
-\emph{Mode $m = 0$} corresponds to uniform dilation
-$\delta z_k \propto z_k$, which changes $L = \sum|z_k|^2$ and is
-therefore not tangent to $\{L = NR^2\}$.
-\emph{Modes $m = 1$ and $m = N-1$} generate infinitesimal translation
-($\delta z_k = \mathrm{const}$, changing $\mathbf{P} = \sum z_k$) and
-overall rotation ($\delta z_k = iz_k$, a Goldstone mode of the $SO(2)$
-symmetry of $H$).  Both have $\sigma_m = 0$, consistent with the
-continuous symmetry group; they lie in the kernel of $\nabla^2 H$ and
-produce the zero eigenvalues.
-The remaining modes $m = 2, \ldots, N-2$ are tangent to the constraint
-surface and carry the stability information.  The minimum of
-$\lambda_m^+$ over $m$ occurs at $m = \lfloor N/2 \rfloor$:
-\[
-  \min_m \lambda_m^+ = \begin{cases}
-    (N{-}1)(7{-}N)/8 & N \text{ odd}, \\
-    (N{-}1) - N^2/8 & N \text{ even}.
-  \end{cases}
-\]
-Both expressions are $> 0$ for $N \le 6$, equal to zero at $N = 7$,
-and $< 0$ for $N \ge 8$.  Thus $N \le 6$ is \emph{strictly} stable
-(positive definite Lagrangian), $N = 7$ is \emph{neutrally} stable
-(positive semi-definite, with a zero eigenvalue at $m = 3$),
-consistent with \citet{Havelock1931}, and $N \ge 8$ is unstable.
-(The $N = 7$ marginal case is further analyzed in
-Section~\ref{sec:n7}.)
+The Hessian commutes with the $\mathbb{Z}_N$ action;
+by Schur's lemma it decomposes into $2 \times 2$ blocks
+per Fourier mode~$m$, with radial entry $H_{rr}^{(m)}$,
+tangential entry $H_{tt}^{(m)} = -H_{rr}^{(m)}$,
+and off-diagonal $H_{rt}^{(m)} = 0$
+(by anti-symmetry of $\sin(2\pi pm/N)$ under $p \to N{-}p$).
+The Havelock identity
+(Paper~I, \S\ref*{I-sec:havelock-identity})
+gives $H_{rr}^{(m)} = (N{-}1)/2 - T_m = (N{-}1)/2 - m(N{-}m)/2$.
+Adding the Lagrange shift $-2\mu_L = (N{-}1)/2$
+yields $\lambda_m^\pm$.
 \end{proof}
 
 \begin{corollary}[Constrained minimum versus unconstrained saddle]
@@ -1365,7 +1298,7 @@ parametrically small.  The ratio enters quantitatively only
 through the Rossby-wave correction to the eigenvalues, which is
 $O(\beta R^3/\kappa)$ and does not change the sign of
 $\lambda_{\min}$ for $N = 8$ (where
-$|\lambda_{\min}| = 1 \gg 0.61$).
+$|\lambda_{\min}| = 1 > 0.61$).
 Using the full-cyclone circulation
 $\kappa_{\mathrm{full}} \approx 1.6\times10^9$\,m$^2$\,s$^{-1}$
 gives $\beta R^3/\kappa \approx 0.13$, firmly in the
@@ -1954,14 +1887,10 @@ of $O(1)$.
 %% equivariant Riemann--Roch, and WDW bridge moved to Paper III (M-012).
 %% See Paper~III, \S\ref{III-sec:three-layer} and \S\ref{III-sec:wdw}.
 
-\paragraph{Discussion and predictions.}
-The status classification, parameter accounting, cumulative
-uncertainty analysis, and falsifiable predictions for the
-results of this paper appear in Paper~VI.
-
 \paragraph{Code availability.}
-All numerical verifications and computational proofs are
-available in the companion code repository.
+All numerical verifications are in the companion repository
+(\texttt{github.com/gspea/planetary-polygons-unified}).
+Parameter accounting and predictions appear in Paper~VI.
 
 \appendix
 \section{Infinite-dimensional convergence proof}
