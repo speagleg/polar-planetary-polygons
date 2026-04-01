@@ -685,14 +685,14 @@ invariants.  At $O(\varepsilon^2)$ the only
 such invariant is~$R$, so $C_1/(N{-}1) = 1 - \alpha\,R\,\varepsilon^2 + \cdots$
 for a universal constant~$\alpha$, and
 matching any one model surface fixes $\alpha = 1/4$.
-The Seeley--DeWitt coefficient $a_1 = R/6$ controls the
-curvature dependence of the diagonal heat kernel
-$K(x,x;t) = (4\pi t)^{-1}(1 + Rt/6 + \cdots)$;
-the angular average over the $N$-gon chord geometry
-converts $1/6$ to $1/4$, with the additional $R\varepsilon^2/12$
-arising from the metric distortion of chord distances on
-the geodesic circle: $d_p^2 = 4\varepsilon^2\sin^2(\pi p/N)
-(1 - R\varepsilon^2/6 + O(\varepsilon^4))$.
+(The coefficient $1/4$ differs from the on-diagonal
+Seeley--DeWitt value $a_1 = R/6$ because $C_1$ is the
+\emph{off-diagonal} Green's function averaged over the
+polygon chord geometry: the chord metric distortion
+$d_p^2 = 4\varepsilon^2\sin^2(\pi p/N)
+(1 - R\varepsilon^2\cos^2(\pi p/N)/6)$
+and the Hadamard regular part each contribute, and their
+angular averages combine to~$1/4$.)
 \end{proof}
 
 \begin{lemma}[Regge bridge to smooth metrics]
