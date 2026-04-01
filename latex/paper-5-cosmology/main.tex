@@ -451,19 +451,17 @@ $\zeta'_H(0, a) = \log\Gamma(a) - \tfrac{1}{2}\log(2\pi)$
 gives $\partial_a \zeta'_H(0,a)\big|_{a=1} = \psi(1) = -\gamma$.
 The threshold contribution to the relative zeta is therefore
 $\zeta'_{\mathrm{threshold}}(0) = -\gamma \times \mathrm{SF} = -\gamma$.
-The bulk-spectrum contributions cancel by a standard
-scattering-theory argument: the Jost function $f(k)$ of the
-one-dimensional operator $-\partial^2 + V_{11}(\rho) - E$ on
-$[0,\infty)$ satisfies
-$\log\det(H - E)/\det(H_0 - E) = \int \delta(k)\,dk/k$
-where $\delta(k)$ is the scattering phase shift and
-$H_0$ is the free operator.
-At the BF threshold ($E = 0$, $s = 0$), the BO potential
-$V_{11}(\rho) = \log(2\sinh\rho) + b - f_{m^*}$ has
-$V_{11} \to \rho$ as $\rho \to \infty$ (confining: no
-asymptotic pairing issue), and the phase shift at the
-threshold is determined by the Hurwitz zeta via
-$\delta_{\mathrm{BF}} = \pi\,\zeta'_H(0,1)/\pi = -\gamma$.
+The bulk-spectrum contributions cancel by spectral zeta
+regularisation: the BO potential
+$V_{11}(\rho) = \log(2\sinh\rho) + b - f_{m^*}$
+is confining ($V_{11} \to \rho$ as $\rho \to \infty$),
+so both $H$ and the reference operator~$H_0$ have purely
+discrete spectra $\{\lambda_n\}$ and $\{\lambda_n^0\}$.
+The relative zeta
+$\zeta_{\mathrm{rel}}(s) = \sum(\lambda_n^{-s} - \lambda_n^{0,-s})$
+converges (the spectra agree at large~$n$: both grow as~$n^2$).
+Only the threshold crossing ($\mathrm{SF} = 1$) contributes
+a finite shift to $\zeta'_{\mathrm{rel}}(0)$.
 The ratio $\det'/\det = e^\gamma$ follows.
 With $(\det)^{-1/2}$:
 $\delta(\ln A) = -\gamma/2$,

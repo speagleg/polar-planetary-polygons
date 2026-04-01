@@ -517,67 +517,34 @@ constraint rescues stability:
 
 \begin{theorem}[Constrained energy minimum]
 \label{thm:constrained-min}
-\textup{(a)}
-The unconstrained Havelock eigenvalue $\lambda_m = (N{-}1) - m(N{-}m)/2$
-is nonnegative for all $m$ if and only if $N \le 7$.
-\textup{(b)}
-The constrained Lagrangian eigenvalue
-$\lambda_m^{\mathrm{constr}} = 3(N{-}1)/2 - m(N{-}m)/2$
-is nonnegative for all $m$ if and only if $N \le 10$.
-Thus the $N$-gon is an unconstrained saddle for $N \ge 8$
-but a constrained minimum on $\{L = L_0\}$ for $N \le 10$.
-The marginal case $N = 7$ (where $\lambda_3 = 0$) is resolved
+The Lagrangian eigenvalue of the $N$-gon on the
+angular-impulse surface $\{L = L_0\}$ is
+$\lambda_m = (N{-}1) - m(N{-}m)/2$.
+This is nonnegative for all binding modes $m = 2,\ldots,N{-}2$
+if and only if $N \le 7$.
+The $N$-gon is a constrained energy minimum for $N \le 7$;
+the marginal case $N = 7$ ($\lambda_3 = 0$) is resolved
 nonlinearly in Paper~II.
 \end{theorem}
 
 \begin{proof}
-The angular impulse $L = \sum |z_k|^2$ has Hessian
-$\partial^2 L / \partial z_j \partial \bar z_k = \delta_{jk}$
-at the $N$-gon, so $L'' = I$ (the identity) in the tangential
-direction.
-The constrained Lagrangian is $\mathcal{L} = H - \mu_L L$,
-where $\mu_L$ is the Lagrange multiplier enforcing $L = L_0$.
-The equilibrium condition $\nabla H = \mu_L \nabla L$ gives
-$\mu_L = \Omega$, the rotation frequency, which satisfies
-$\Omega < 0$ (retrograde rotation for same-sign vortices).
-The constrained Hessian at each Fourier mode is
+The constrained Lagrangian $\mathcal{L} = H - \mu_L L$
+has $\mu_L = \Omega = -(N{-}1)/4$ (retrograde rotation).
+The Hessian $\nabla^2\!H$ at the $N$-gon has radial
+eigenvalue $\sigma_m = (N{-}1)/2 - m(N{-}m)/2$ per
+Fourier mode (from the Havelock identity, \S\ref{sec:havelock-identity}).
+Adding the Lagrange shift $-2\mu_L = (N{-}1)/2$:
 \[
-  \lambda_m^{\mathrm{constr}}
-  = \lambda_m^{\mathrm{unconstr}} - 2\mu_L
-  = \bigl[(N{-}1) - \tfrac{m(N{-}m)}{2}\bigr] + 2|\Omega|.
+  \lambda_m = \sigma_m + \frac{N{-}1}{2}
+  = (N{-}1) - \frac{m(N{-}m)}{2}.
 \]
-On the flat plane, $2|\Omega| = (N{-}1)/2$
-(from the equilibrium condition), giving
-\[
-  \lambda_m^{\mathrm{constr}}
-  = \frac{3(N{-}1)}{2} - \frac{m(N{-}m)}{2}.
-\]
-The minimum over $m$ occurs at $m = \lfloor N/2 \rfloor$.
-For $N \le 7$: $\lambda_{\min}^{\mathrm{constr}} > 0$
-(all modes stable).
-For $N = 7$: $\lambda_3^{\mathrm{constr}} = 9 - 6 = 3 > 0$
-(strictly stable, not merely marginal).
-For $N = 8$: $\lambda_4^{\mathrm{constr}} = 21/2 - 8 = 5/2 > 0$
---- but $\lambda_3^{\mathrm{constr}} = 21/2 - 15/2 = 3 > 0$ also,
-so $N = 8$ is \emph{also} a constrained minimum on the plane.
-The first failure is at $N \ge 8$ in the \emph{unconstrained}
-sense; the constrained threshold depends on the Lagrange shift.
-
-More precisely: the unconstrained eigenvalue
-$\lambda_m = (N{-}1) - m(N{-}m)/2$ is negative for $N \ge 8$
-at $m = \lfloor N/2\rfloor$.
-The constrained shift $-2\mu_L > 0$ compensates this.
-The $N$-gon is a constrained minimum iff the shifted eigenvalue
-$\lambda_m - 2\mu_L > 0$ for all $m$, which reduces to
-$3(N{-}1)/2 > \lfloor N/2\rfloor(N - \lfloor N/2\rfloor)/2$.
-For odd $N$: this gives $3(N{-}1) > (N^2{-}1)/4$,
-i.e., $N^2 - 12N + 11 < 0$, i.e., $1 < N < 11$.
-For even $N$: $3(N{-}1) > N^2/4$, i.e., $N^2 - 12N + 12 < 0$,
-i.e., $N < 6 + 2\sqrt{6} \approx 10.9$.
-Both cases give $N \le 10$ on the flat plane
-(the constrained threshold is higher than the unconstrained one).
-Paper~II refines this to the \emph{nonlinear} constrained minimum
-via the quartic normal form at the marginal mode.
+The tangential eigenvalue $m(N{-}m)/2 \ge 0$ is always stable.
+The minimum of~$\lambda_m$ over $m = 2,\ldots,N{-}2$ occurs at
+$m = \lfloor N/2\rfloor$: positive for $N \le 6$,
+zero at $N = 7$ ($\lambda_3 = 6 - 6 = 0$),
+negative for $N \ge 8$.
+Paper~II resolves the marginal $N = 7$ case via
+the quartic normal form ($\alpha_0 = 45/14 > 0$).
 \end{proof}
 
 \begin{remark}[Unconstrained saddle versus constrained minimum]
@@ -586,7 +553,7 @@ The sign rule (Theorem~\ref{thm:sign-rule}) proves $H''(0) < 0$:
 the $N$-gon is an unconstrained saddle.
 Theorem~\ref{thm:constrained-min} shows that constraining
 $L = \mathrm{const}$ converts this saddle into a minimum for
-$N \le 7$ (and in fact up to $N = 10$).
+$N \le 7$.
 The two results are compatible: the spiral deformation
 exits the constraint surface at $O(\sigma^2)$, so
 $H''(0) < 0$ measures curvature in a direction not
