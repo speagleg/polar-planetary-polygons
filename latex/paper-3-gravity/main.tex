@@ -922,21 +922,18 @@ Two independent ingredients determine this equation:
 \emph{The mechanism} (why $\dot\rho^2$ appears).
 The Kirchhoff equations are first-order; the breathing
 mode~$\rho$ is a collective coordinate with no canonical momentum.
-The $N{-}2$ angular modes form a harmonic bath whose
-influence functional generates an effective kinetic term
-for~$\rho$ (Caldeira--Leggett mechanism).
-The Onsager--Machlup noise kernel gives
-$S_{\mathrm{OM}} = \int[c/2\;\dot\rho^2 + V]\,d\tau$.
-The CL conditions hold: (i)~the angular modes are
-harmonic (exact Fourier diagonalisation);
-(ii)~the coupling is mode-independent
-($\Phi' = \coth\rho$ for all~$m$);
-(iii)~timescale separation
-($\tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}} \gg 1$).
-The bath has $N{-}2$ discrete modes; the CL derivation is
-exact for any number of harmonic oscillators with linear coupling
-(Caldeira \& Leggett 1983, eq.~3.1), not only in the
-continuum limit.
+The second-order kinetic term is \emph{geometric}, not perturbative:
+the functional determinant of the first-order angular-mode operator
+$\partial_\tau + \lambda_m(\rho(\tau))$ depends only
+on~$\int\!\lambda_m\,d\tau$ (no $\dot\rho$ dependence),
+so the $\dot\rho^2$ term does not arise from the action.
+It arises from the Feynman--Kac path-integral \emph{measure}
+$\mu[\rho] = \prod_\tau\!\sqrt{c/(2\pi\,d\tau)}$, whose
+coefficient~$c$ is the Fisher--Rao information metric on the
+family of angular-mode Boltzmann distributions parametrised by~$\rho$.
+The coupling is mode-independent ($\Phi' = \coth\rho$ for all~$m$),
+and the CMS integrability (exact action-angle decoupling) ensures
+the one-loop effective action is exact at $O(c^0)$.
 
 \emph{The coefficient~$c$~\eqref{eq:central-charge}.}
 The WDW kinetic coefficient is the mode-independent offset
@@ -2099,43 +2096,65 @@ no free parameter is involved.
 \emph{Why second-order dynamics from a first-order system.}
 The Kirchhoff equations are first-order, but the WDW equation
 for the breathing mode~$\rho$ is second-order.
-The derivation has two steps:
+The derivation has three steps:
 \begin{enumerate}
-\item \emph{Existence (Caldeira--Leggett).}
-  The $N{-}2$ angular modes form a bath whose influence functional
-  produces a $\dot\rho^2$ term in the Onsager--Machlup path integral
-  (Proposition~\ref{prop:wdw-lambda}).
-  The Gaussian (CL) approximation gives a coefficient
-  $c_{\mathrm{CL}} \sim N^2\rho^{*2}/((N{-}2)\coth^2\rho^*)$
-  that is quantitatively wrong (factor~$0.5$--$2$ depending on~$N$),
-  because the Gaussian truncation does not preserve the exact
-  mode-by-mode factorisation of the integrable bath.
-\item \emph{Exact coefficient (integrability).}
-  The CMS angular modes are integrable (Liouville--Arnold):
-  the $N{-}2$ angle-action variables decouple, so the one-loop
-  partition function $Z_{\mathrm{bath}}(\rho)
-  = \prod_{m \ne m^*}|\lambda_m(\rho)|^{-1/2}$ is
-  exact at $O(c^0)$: the action-angle factorisation
-  gives $Z = (2\pi)^{N-2}\!\int\!\prod dI_m\,e^{-\beta H(I)}$
-  (the $\theta$-integrals are exact), and the remaining
-  $I$-integrals have anharmonic corrections
-  of order~$1/c$ where $c = 12\,b(N) \sim N^2$
-  ($1.9\%$ at
-  $N = 7$, $0.8\%$ at $N = 11$, decreasing as~$N^{-2}$;
+\item \emph{No-go for perturbative kinetic terms.}
+  For a first-order operator $A_m = \partial_\tau + \lambda_m(\rho(\tau))$
+  on the thermal circle~$[0,\beta]$, the functional determinant is
+  $\det A_m = 1 - \exp(-\!\int_0^\beta\!\lambda_m\,d\tau)$,
+  which depends only on the time-integral of~$\lambda_m$, not
+  on~$\dot\rho$.
+  Equivalently, the Matsubara influence kernel
+  $\sum_n[(i\omega_n{+}\lambda)(i\omega_{n+k}{+}\lambda)]^{-1}$
+  vanishes for $k \ne 0$ by shift invariance of the absolutely
+  convergent sum ($n \mapsto n{+}k$ is a relabelling).
+  The integrable bath therefore contributes \emph{no}
+  $\dot\rho^2$ term to the effective action;
+  the kinetic coefficient is not perturbative.
+
+\item \emph{Geometric origin (Fisher--Rao).}
+  The kinetic term arises from the path-integral
+  \emph{measure}, not the action.
+  The Feynman--Kac correspondence
+  $Z = \int\!\mathcal{D}\rho\;\mu[\rho]\,e^{-S[\rho]}$
+  carries the measure
+  $\mu[\rho] = \prod_\tau\!\sqrt{c/(2\pi\,d\tau)}$,
+  whose coefficient~$c$ is the Fisher--Rao information metric
+  on the family of Boltzmann distributions
+  $P_m(\varepsilon\,|\,\rho) \propto e^{-\lambda_m(\rho)|\varepsilon|^2}$
+  parametrised by~$\rho$:
+  \[
+    g_{\mathrm{FR}}(\rho)
+    = \coth^2\!\rho\;\sum_{m \ne m^*}\frac{1}{\lambda_m(\rho)^2}.
+  \]
+  This metric is $\rho$-dependent; a constant~$c$ is selected
+  by the orbifold matching (step~3).
+
+\item \emph{Exact coefficient (four-fold consistency).}
+  The CMS integrability makes the one-loop partition function
+  $Z_{\mathrm{bath}}(\rho) = \prod_{m \ne m^*}|\lambda_m(\rho)|^{-1/2}$
+  exact at $O(c^0)$,
+  with anharmonic corrections of order~$1/c$
+  ($1.9\%$ at $N = 7$, $0.8\%$ at $N = 11$, decreasing as~$N^{-2}$;
   see Code Availability).
-  Integrability prevents mode mixing (the actions~$I_m$
-  are independent), so the $1/c$ series converges
-  without secular terms.
-  The effective action for~$\rho$ is therefore
-  $S_{\mathrm{eff}}(\rho)
-  = \tfrac{1}{2}\sum_{m \ne m^*}\!\ln|\lambda_m(\rho)|
-  + O(1/c)$,
-  and the Feynman--Kac theorem maps this to the WDW Hamiltonian
-  $H = -1/(2c)\,d^2/d\rho^2 + V(\rho)$ with
-  $c$~\eqref{eq:central-charge}.
+  The effective action
+  $S_{\mathrm{eff}}(\rho) = \tfrac{1}{2}\sum_{m \ne m^*}
+  \ln|\lambda_m(\rho)| + O(1/c)$
+  and the Feynman--Kac theorem map this to the WDW Hamiltonian
+  $H = -(1/2c)\,d^2/d\rho^2 + V(\rho)$.
+  The value $c = 12\,b(N)$~\eqref{eq:central-charge}
+  is the unique constant matching all four roles simultaneously:
+  WDW kinetic coefficient, Chern--Simons level $k = c/6$,
+  Brown--Henneaux central charge, and Todd class offset
+  (Proposition~\ref{prop:equiv-rr}).
+  No other value of~$c$ preserves this consistency.
 \end{enumerate}
-The CL mechanism proves $c > 0$; the CMS integrability
-gives a controlled $1/c$ expansion with computable corrections.
+The no-go result (step~1) shows the kinetic term is genuinely
+geometric---it encodes the information-theoretic
+distinguishability of neighbouring equilibria, not a perturbative
+bath correction.
+The four-fold matching (step~3) fixes $c = 12\,b(N)$ without
+free parameters.
 
 The four-role consistency of~$c$~\eqref{eq:central-charge} (Section~\ref{sec:intro-gravity}) is preserved.
 Each term has a definite origin:
