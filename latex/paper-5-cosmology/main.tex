@@ -349,8 +349,8 @@ Components~1 and~2 satisfy
 where $\ln\varepsilon_7 = \operatorname{arccosh}(8) = \ln(8{+}3\sqrt{7}\,)$
 is the regulator of the real quadratic field $\mathbb{Q}(\sqrt{7})$,
 arising from the Pell equation $8^2 - 7 \times 3^2 = 1$.
-The identity is verified to $0.00005\%$ and is \emph{proved} via the
-Selberg trace formula on the Klein quartic.
+The identity is verified to $0.00005\%$ and proved via the
+Klein quartic (Supplement~S, \S\ref*{SP-sec:pell-proof}).
 
 \begin{proposition}[Pell uniqueness at $N = 7$]
 \label{prop:pell-unique}
@@ -366,10 +366,6 @@ Setting this to~$1$: $N(N{-}7)(N{+}1) = 0$.
 The unique positive root is $N = 7$.
 \end{proof}
 
-The Pell identity~\eqref{eq:pell-identity} is proved via the
-Klein quartic (proof in Supplement~S, \S\ref*{SP-sec:pell-proof}).
-
-\noindent
 The \emph{per-vortex} form of the identity is illuminating:
 each of the $N = 7$ vortices contributes one Pell regulator
 $\ln\varepsilon_7$ to the tunneling action, reduced by the
@@ -522,7 +518,7 @@ $N = 11$ Born--Oppenheimer tunneling action:
 where $S_{\mathrm{BO}}(11) = 102.724$ is the WKB tunneling action of the
 $N = 11$ breathing-mode potential, $\gamma = 0.5772\ldots$ is the
 Euler--Mascheroni constant (from Green's function regularisation),
-$c_{11} = 12\,b(11) = 126.56$, and $v = 246$\,GeV (from the
+$c_{11} = 12\,b(11) = 126.56$, and $v = 245.9$\,GeV (from the
 $N = 7$ hierarchy, Theorem~\ref{thm:hierarchy}).
 This gives:
 \begin{equation}\label{eq:Lambda-pred}
@@ -690,7 +686,6 @@ $F_{\mathrm{DM}}$ depends on the eigenvalue gaps
 $F_{\mathrm{M}}$ depends on the mass gap
 (the only component that thermalises below
 $T_{\mathrm{EW}}$).
-The labelling follows from the coupling structure.
 The radion contribution $N/4$ in~\eqref{eq:F-DE} is the zero-point
 energy of the $S^1$ fiber modulus, stabilised at unit radius by
 the flux~$N/2$: the radion mass is $M_{\mathrm{rad}} = N/2$,
@@ -706,7 +701,8 @@ For $N = 11$: $f(m^*) = 15$, and $F_{\mathrm{DM}} = 5.193$.
 
 \begin{proposition}[Cosmological energy budget at $N = 11$]
 \label{prop:cosmology}
-At $N = 11$, $\Delta E = 0.815$:
+At $N = 11$, with the resummed mass gap~\eqref{eq:mass-gap-resum}
+and one-loop corrections (\S\ref*{IV-sec:loops}):
 \begin{center}
 \small
 \begin{tabular}{lccc}
@@ -716,9 +712,7 @@ Component & Prediction & Planck 2018 \citep{Planck2018} & Tension \\
 Dark energy $\Omega_\Lambda$ & $68.9\%$ & $68.5 \pm 0.7\%$ & $0.6\sigma$ \\
 Dark matter $\Omega_{\mathrm{DM}}$ & $26.9\%$ & $26.6 \pm 0.7\%$ & $0.4\sigma$ \\
 $\Omega_\Lambda / \Omega_{\mathrm{DM}}$ & $2.56$ & $2.57$ & $0.5\%$ \\
-Baryonic matter $\Omega_b$ (tree) & $4.2\%$ & $4.9 \pm 0.06\%$ & $12\sigma$ \\
-Baryonic matter $\Omega_b$ (1-inst.) & $5.1\%$ & $4.9 \pm 0.06\%$ & $2.9\sigma$ \\
-Baryonic matter $\Omega_b$ (resummed) & $5.0\%$ & $4.9 \pm 0.06\%$ & $0.6\sigma$ \\
+Baryonic matter $\Omega_b$ & $5.0\%$ & $4.9 \pm 0.06\%$ & $0.6\sigma$ \\
 \bottomrule
 \end{tabular}
 \end{center}

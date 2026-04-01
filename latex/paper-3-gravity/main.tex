@@ -58,21 +58,20 @@ Paper~I into gravitational phase transitions.
 
 This paper develops the consequences:
 \begin{itemize}
-  \item \S\ref{sec:graviton}--\S\ref{sec:spectral-bound}:
-    the graviton at $N = 7$ and the spectral bound as a
-    quantum gravitational bound.
-  \item \S\ref{sec:holographic}--\S\ref{sec:ope-identification}:
-    holographic interpretation and the conformal block identification.
-  \item \S\ref{sec:btz}:
-    the polygon--BTZ phase transition, entropy accounting,
-    and Lorentzian continuation.
-  \item \S\ref{sec:wdw}--\S\ref{sec:three-layer}:
-    the Wheeler--DeWitt equation and the three-layer decomposition.
-  \item \S\ref{sec:cft3}--\S\ref{sec:triangle}:
-    higher-dimensional extension and triangle universality.
-  \item \S\ref{sec:gravity-partition}--\S\ref{sec:lichnerowicz}:
-    the gravity partition function and the derivation of the
-    Einstein equations.
+  \item \S\ref{sec:graviton}: the graviton at $N = 7$ and
+    the Chern--Simons lift.
+  \item \S\ref{sec:lichnerowicz}: the main theorem ---
+    polygon entropy maximisation implies the Einstein equations.
+  \item \S\ref{sec:spectral-bound}--\S\ref{sec:ope-identification}:
+    spectral bound, holographic interpretation, and conformal
+    block identification.
+  \item \S\ref{sec:btz}--\S\ref{sec:wdw}: the polygon--BTZ
+    phase transition and the Wheeler--DeWitt equation.
+  \item \S\ref{sec:three-layer}--\S\ref{sec:triangle}:
+    three-layer decomposition, higher-dimensional extension,
+    and triangle universality.
+  \item \S\ref{sec:gravity-partition}--\S\ref{sec:qm-gr-bridge}:
+    partition function and Onsager--WDW correspondence.
 \end{itemize}
 
 \paragraph{Main result.}
@@ -916,16 +915,16 @@ mode-independence of~$\Phi$ (the defining property of
 the Havelock decomposition).
 In the classical limit $c \to \infty$:
 $V(\rho^*) = 0$, giving $\Phi(\rho^*) = f(m^*,N)$ and hence
-$\Lambda = -4[f(m^*) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
+$\Lambda = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
 \end{proposition}
 
 \begin{corollary}[Sign of the cosmological constant from the polygon number]
-\label{rmk:lambda-from-N}
+\label{cor:lambda-from-N}
 The sign of $\Lambda$ is fixed by the polygon:
-$N \le 6$: $f(m^*) < N{-}1$, so $\Lambda > 0$
+$N \le 6$: $f(m^*,N) < N{-}1$, so $\Lambda > 0$
 (positive curvature, $S^2$-like---surface curvature destabilises);
 $N = 7$: $f(3,7) = 6 = N{-}1$, so $\Lambda = 0$ (flat);
-$N \ge 8$: $f(m^*) > N{-}1$, so $\Lambda < 0$
+$N \ge 8$: $f(m^*,N) > N{-}1$, so $\Lambda < 0$
 (negative curvature, $\mathbf{H}^2$-like---surface curvature stabilises).
 The flat threshold $N = 7$---Havelock's 1931
 stability boundary---sits exactly at $\Lambda = 0$.
@@ -1169,7 +1168,7 @@ independent mathematical inputs:
   is the standard one-loop normalization.
 \item \emph{CMS--CS Casimir identification
   (Proposition~\ref{prop:casimir-havelock}):}
-  the vortex Hessian eigenvalues $\lambda_m = f(m^*){-}f(m)$
+  the vortex Hessian eigenvalues $\lambda_m = f(m^*,N){-}f(m,N)$
   are the eigenvalues of the cone Laplacian at the
   $\mathbb{Z}_N$-symmetric point (proved via the
   Helgason symmetric space theorem, \S\ref{sec:graviton}).
@@ -1931,7 +1930,9 @@ the van~Hove spectral singularity at the threshold, and the
 connection to GUE spectral statistics, is developed in
 Supplement~S, \S\ref*{SP-sec:btz-lorentzian}.
 
+\section{The Wheeler--DeWitt equation on the breathing mode}
 \label{sec:wdw}
+
 The single degree of freedom $\rho$ (geodesic radius of the polygon)
 and the potential $V(\rho) = \lambda_{m^*}(\rho)$ (the critical
 Havelock eigenvalue) define a minisuperspace Wheeler--DeWitt equation:
