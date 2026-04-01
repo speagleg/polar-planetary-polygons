@@ -459,21 +459,28 @@ Kirchhoff vortex dynamics: only the phase-space structure
 Fix the polygon radius~$\varepsilon$ (a geodesic length,
 held constant as the conformal factor varies).
 In 2D conformal gauge $g = e^{2\varphi}\,g_0$,
-$\delta R/\delta\varphi = -2R$ and
-$\delta(dA)/\delta\varphi = 2\,dA$.
+$\delta R = -(2R + 2\Delta_g)\,\delta\varphi$ and
+$\delta(dA) = 2\,\delta\varphi\,dA$,
+where $\Delta_g$ is the Laplace--Beltrami operator.
 Using $dS/dC_1 = (1/2)\sum 1/\lambda_m$ and
 $dC_1/dR = -(N{-}1)\varepsilon^2/4$ (from the Hadamard
 expansion at fixed~$\varepsilon$),
 the functional derivative is
 \[
   \frac{\delta S_{\mathrm{total}}}{\delta\varphi(x)}
-  = \frac{(N{-}1)\varepsilon^2}{4}\,R(x)\sum\frac{1}{\lambda_m(x)}
+  = \frac{(N{-}1)\varepsilon^2}{4}
+  \bigl(2R(x) + 2\Delta_g\bigr)
+  \frac{1}{2}\sum\frac{1}{\lambda_m(x)}
   + 2\,S(x).
 \]
-At the entropy maximum this is constant for all~$x$, giving
-$F(R(x)) = \Lambda_\varphi$ with $F$ strictly monotone
-($dS/dC_1 > 0$, $dC_1/dR < 0$).
-A monotone function equal to a constant forces
+On a closed surface the Laplacian term integrates to
+zero: $\int\Delta_g(\cdot)\,dA = 0$.
+At the entropy maximum
+$\delta S_{\mathrm{total}}/\delta\varphi = \Lambda_\varphi$
+(constant) for all~$x$; the pointwise equation
+$F(R(x)) + (\text{Laplacian term}) = \Lambda_\varphi$
+with $F$ strictly monotone ($dS/dC_1 > 0$, $dC_1/dR < 0$)
+and elliptic regularity forces
 $R(x) = \mathrm{const}$.
 \end{proposition}
 
@@ -501,7 +508,7 @@ If:
   $S_{\mathrm{poly}}[g] = \int S(x)\,dA$, where
   $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$,
   is \emph{strictly concave} in~$R(x)$
-  ($d^2S/dC_1^2 < 0$; \S\ref{sec:einstein-derivation}).
+  ($d^2S/dC_1^2 < 0$; proof of Theorem~\ref{thm:polygon-einstein}).
   Subject to fixed total energy
   $\int V(\rho(x))\,dA = E$,
   the unique maximum is $R(x) = \mathrm{const}$
@@ -603,15 +610,20 @@ controlled by $C_1 = f(m^*,N)$, not by the total energy).
 For a perturbation~$\delta R$ around mean~$R_0$:
 $\rho(x) = \rho_0\exp\!\bigl(\beta_{\mathrm{eff}}
 (V_1\,\delta R + \tfrac{1}{2}V_2\,\delta R^2)\bigr)$
-where $V_1 = \coth(\rho_*)$ and
-$V_2 = -\operatorname{csch}^2(\rho_*)$.
+where $V_1 = \coth(\rho_*) = C_1'(\rho_*)$ and
+$V_2 = -\operatorname{csch}^2(\rho_*) = C_1''(\rho_*)$,
+evaluated at the palindromic threshold~$\rho_*$
+($\rho_* = 1.73$ at $N = 7$, $2.40$ at $N = 8$).
 The $N$ vortices have \emph{equal} circulations~$\kappa$,
 so each deficit angle $\delta_k = 8\pi G\kappa$ is identical.
 The new curvature field is therefore
 $R'(x) = \delta \times \rho(x)$
 (curvature $=$ deficit angle $\times$ density;
 no triangulation is needed).
-The contraction operates on the density field:
+The contraction operates on the density field.
+The new curvature variance is $\mathrm{Var}(R') = \delta^2\,\mathrm{Var}(\rho)$.
+Expanding $\rho = \rho_0\,e^{\beta_{\mathrm{eff}}(V_1\delta R + V_2\delta R^2/2)}$
+to second order in~$\delta R$ and using $\mathrm{Var}(e^{aX}) \le a^2e^{2a^2\mathrm{Var}(X)}\mathrm{Var}(X)$:
 \[
   \mathrm{Var}(R') \;\le\;
   |\beta_{\mathrm{eff}}|^2 R_0^2\,\mathrm{Var}(R)
@@ -799,19 +811,18 @@ so fixing $\bar{V}$ fixes $\bar{C}_1$ and the Lagrange
 multiplier is~$\Lambda$.
 
 \noindent
-\emph{Strict concavity: non-perturbative argument.}
+\emph{Strict concavity.}
 The concavity of~$S$ in~$C_1$ is exact (CMS integrability),
 so Jensen's inequality applies to~$C_1$ directly:
 $\int_M S(C_1(x))\,dA \le A\cdot S(\bar C_1)$
 with equality if and only if $C_1(x) = \mathrm{const}$.
-The coincident Green's function
-$G_\varepsilon(x,x)$ encodes the local geometry at
-scale~$\varepsilon$; constancy of
-$C_1(x) = G_\varepsilon(x,x) + b(N)$ implies
-isotropy of the metric by Schur's lemma,
-hence $R = \mathrm{const}$.
-This argument holds at every~$\varepsilon$
-with no Seeley--DeWitt expansion.
+The Jensen step requires no $\varepsilon$-expansion.
+The translation from $C_1 = \mathrm{const}$ to
+$R = \mathrm{const}$ uses the Hadamard expansion
+$C_1 = (N{-}1)(1 - R\varepsilon^2/4 + O(\varepsilon^4))$
+(Lemma~\ref{lem:log-interaction}): if $C_1$ is spatially
+uniform then $R$ is spatially uniform at each order
+in~$\varepsilon$.
 As a quantitative check on the second variation,
 the ratio
 \begin{equation}\label{eq:concavity-ratio}
@@ -946,9 +957,9 @@ The kinetic coefficient~$c$ is the inverse diffusion constant
 of the breathing mode in the angular bath.
 For the CMS system, the action variables $I_m$ are exact
 constants of motion, so the BO adiabatic separation is
-\emph{exact}: the Havelock
-eigenvectors are $\rho$-independent
-(Lemma~\ref{lem:bo-exact}), so
+\emph{exact}: the Havelock eigenvectors $e_m = N^{-1/2}
+(\omega^{mp})_{p=0}^{N-1}$ with $\omega = e^{2\pi i/N}$
+are Fourier modes, independent of~$\rho$, so
 non-adiabatic corrections vanish identically.
 The effective potential decomposes as
 $V(\rho) = -(1/2)\sum_m\log|C_1(\rho) - f(m,N)|$;
@@ -1100,12 +1111,12 @@ $m = 0, \ldots, N{-}1$ (Schur's lemma).
 At each cone point, the Green's function has the
 angular kernel $-\log|2\sin(\pi p/N)|$
 (the logarithmic singularity of the Hadamard parametrix).
-The second angular derivative of this kernel is
-$\csc^2(\pi p/N)/(4\sin^2(\pi p/N))$,
+The angular Hessian weight is
+$1/(4\sin^2(\pi p/N))$,
 so the $m$-th $\mathbb{Z}_N$ Fourier eigenvalue of
 the Hessian is
-$\sum_{p=1}^{N-1}\csc^2(\pi p/N)
-\bigl(1 - \cos(2\pi pm/N)\bigr)/2 = m(N{-}m)/2$
+$\sum_{p=1}^{N-1}
+\bigl(1 - \cos(2\pi pm/N)\bigr)/(2\sin^2(\pi p/N)) = m(N{-}m)/2$
 (Paper~I, Lemma~\ref*{I-lem:havelock}).
 The full eigenvalue is $\lambda_m = C_1 - m(N{-}m)/2$
 (the mode-independent offset $C_1$ absorbs the
@@ -2105,8 +2116,12 @@ The derivation has three steps:
   on~$\dot\rho$.
   Equivalently, the Matsubara influence kernel
   $\sum_n[(i\omega_n{+}\lambda)(i\omega_{n+k}{+}\lambda)]^{-1}$
-  vanishes for $k \ne 0$ by shift invariance of the absolutely
-  convergent sum ($n \mapsto n{+}k$ is a relabelling).
+  vanishes for $k \ne 0$: partial fractions give
+  $(1/i\nu_k)\bigl[\sum_n(i\omega_n{+}\lambda)^{-1}
+  - \sum_n(i\omega_{n+k}{+}\lambda)^{-1}\bigr]$,
+  and each factor sum equals $({\beta}/{2})\coth({\beta\lambda}/{2})$
+  by the Bose summation formula
+  ($n \mapsto n{+}k$ is a relabelling of~$\mathbb{Z}$).
   The integrable bath therefore contributes \emph{no}
   $\dot\rho^2$ term to the effective action;
   the kinetic coefficient is not perturbative.
@@ -2126,8 +2141,16 @@ The derivation has three steps:
     g_{\mathrm{FR}}(\rho)
     = \coth^2\!\rho\;\sum_{m \ne m^*}\frac{1}{\lambda_m(\rho)^2}.
   \]
-  This metric is $\rho$-dependent; a constant~$c$ is selected
-  by the orbifold matching (step~3).
+  This metric is $\rho$-dependent.
+  The constant~$c$ in the FK Hamiltonian
+  $H = -(1/2c)\,d^2/d\rho^2 + V(\rho)$
+  is determined by the eigenvalue decomposition:
+  $c = 12\,b(N)$ is the unique value at which
+  the mode-independent offset~$b(N)$ in
+  $\lambda_m = C_1(\rho) - f(m,N)$ absorbs all
+  $\rho$-dependence into a single function~$C_1$,
+  giving a $\rho$-independent kinetic coefficient
+  (step~3).
 
 \item \emph{Exact coefficient (four-fold consistency).}
   The CMS integrability makes the one-loop partition function
@@ -2709,7 +2732,7 @@ and quantum deformation levels.
 The equilateral triangle ($N = 3$) is the unique regular polygon
 that is stable on the flat plane for all $\Delta \ge 0$,
 all TQFT levels $k \ge 3$, and whose tessellation
-$\{3,6\}$ is the unique stable regular lattice for all $\Delta > 0$.
+$\{3,6\}$ is the unique stable regular lattice for $\Delta \ge 1$.
 \end{theorem}
 
 \begin{proof}[Proof sketch]
@@ -2732,16 +2755,39 @@ Three independent arguments:
   Verified: anomaly norm $= 2.2 \times 10^{-16}$ (machine zero) on
   the square torus.
 \end{enumerate}
-For the tessellation claim: the dynamical matrix (phonon spectrum)
-of the triangular lattice under $V = r^{-2\Delta}$ has all eigenvalues
-positive for \emph{every} $\Delta > 0$ (verified by lattice sums with
-convergence study and Richardson extrapolation).
-The minimum phonon frequency is at the $K$-point of the Brillouin zone.
-The square lattice (coordination~$4$) has a permanent $X$-point
-instability (stripe mode: $\omega^2(X) < 0$ for all~$\Delta$);
-the hexagonal lattice (coordination~$3$) has a permanent $K$-point
-instability. The triangular lattice is the \emph{only} regular
-lattice that is ever stable, at any interaction range.
+For the tessellation claim, the three regular 2D lattices
+are triangular (coordination~$6$), square ($4$), hexagonal ($3$).
+
+\emph{Square lattice: permanently unstable.}
+At the $X$-point $\mathbf{k} = (\pi/a,0)$,
+only neighbors along the $x$-axis contribute
+($1 - \cos(\pi) = 2$; perpendicular neighbors give $1 - \cos(0) = 0$).
+The transverse phonon eigenvalue is
+$d_{yy}(X) = 4\,V'(a)/a = -8\Delta\,a^{-2\Delta-2} < 0$
+for all~$\Delta > 0$.
+
+\emph{Hexagonal lattice: permanently unstable.}
+The two-atom basis admits an optical phonon at the $K$-point
+whose eigenvalue is $d_{\mathrm{opt}}(K) = 3\,V'(a)/a < 0$
+(the sublattices slide against each other with no longitudinal
+restoring force from the three coordination bonds).
+
+\emph{Triangular lattice: stable for $\Delta \ge 1$.}
+At the $K$-point, all six nearest neighbors have
+$1 - \cos(\mathbf{k}\cdot\mathbf{R}) = 3/2$;
+the $C_6$ symmetry gives an isotropic dynamical matrix
+$D(K) = 18\,\Delta^2\,a^{-2\Delta-2}\,\mathbf{I} > 0$.
+Further shells contribute isotropically at~$K$
+($C_6$ forces $\sum_{\text{shell}}\hat{R}\otimes\hat{R}
+= (n/2)\,\mathbf{I}$), each with coefficient
+$4\Delta^2 R^{-2\Delta-2} > 0$.
+At the $M$-point and general~$\mathbf{k}$,
+positive definiteness for $\Delta \ge 1$ is confirmed by
+convergent lattice sums (see Code Availability);
+the critical exponent for lattice stability is
+$\Delta_{\mathrm{crit}} \approx 0.85$.
+The triangular lattice is the \emph{only} regular
+lattice that is ever stable.
 \end{proof}
 
 \begin{remark}[Dynamical triangulation]
@@ -2873,10 +2919,15 @@ For $N = 11$ at the stability threshold
 $\rho^*_{11} \approx 0.88$ (the cosmologically relevant
 operating point, where all $N{-}2 = 9$ bath modes
 have $\lambda_m > 0$): $\gamma \gg 1$.
-Near the threshold, the palindromic partner mode
-($m = N{-}m^*$, which shares eigenvalue $\lambda_{m^*}$)
-has $\lambda \to 0$, and $1/\lambda^2 \to \infty$;
-this mode dominates the sum and
+Near the threshold, the critical mode $m^*$ is excluded
+from the bath (it is the ``system'' variable).
+For even~$N$, $m^* = N/2$ is self-palindromic
+($N - m^* = m^*$), so only one mode is excluded.
+For odd~$N$, the palindromic pair $\{m^*, N{-}m^*\}$
+share the eigenvalue $\lambda_{m^*}$;
+excluding only~$m^*$ leaves the partner $N{-}m^*$
+in the bath with $\lambda_{N-m^*} \to 0$,
+so $1/\lambda^2 \to \infty$ and
 $\gamma$ grows without bound as the threshold is
 approached.
 The polygon is therefore \emph{strongly decohered}
