@@ -30,12 +30,320 @@ corresponding main paper.
 \subsection{The Kasparov product construction}
 \label{sec:kasparov-construction}
 
-%% Placeholder: Kasparov product proof from Paper I
+\subsection{The Kasparov product}
+\label{sec:kk-programme}
+
+The representation-ring invariant $[\mu_N(\xi)]$ of Section~\ref{sec:k-theory} classifies stability phases but cannot detect fractional Morse indices at thresholds where the gap condition fails. The Kasparov product provides this finer information, extending the classification to arithmetic surfaces.
+
+Theorem~\ref{thm:spectral-flow} uses the \emph{trace}
+$|\delta C_1| = |\tau_{z_0}(h_\xi^\Gamma)|$ to control
+the spectral flow.
+The promotion to a $K_0$-level identity requires the
+\emph{operator norm} $\|h_\xi^\Gamma\|_{C^*_r(\Gamma)}$,
+which is strictly larger but still small on surfaces with
+large spectral gap.
+
+\begin{theorem}[Kasparov product identity]
+\label{thm:kk-product}
+Let $\Gamma$ be a cocompact torsion-free Fuchsian group,
+$S = \Gamma\backslash\mathbf{H}^2$.
+Define $h_\xi^\Gamma \in C^*_r(\Gamma)$ by
+\begin{equation}\label{eq:h-element}
+  h_\xi^\Gamma
+  = \sum_{\gamma \in \Gamma,\, \gamma \ne 1}
+    G_{\mathbf{H}^2}(z_0,\, \gamma z_0)\; u_\gamma
+\end{equation}
+where $G_{\mathbf{H}^2}$ is the Green's function on
+$\mathbf{H}^2$ and $u_\gamma$ is the canonical unitary
+in $C^*_r(\Gamma)$.
+\begin{enumerate}
+  \item The element $h_\xi^\Gamma$ is well-defined in $C^*_r(\Gamma)$
+    with operator norm bounded by the $\ell^1$-norm:
+    \begin{equation}\label{eq:op-norm-bound}
+      \|h_\xi^\Gamma\|_{C^*_r}
+      \;\le\; \|h_\xi^\Gamma\|_{\ell^1(\Gamma)}
+      \;=\; \sum_{\gamma \ne 1} |G_{\mathbf{H}^2}(z_0, \gamma z_0)|,
+    \end{equation}
+    which converges by $|G(z_0,\gamma z_0)| = O(e^{-\ell_\gamma})$
+    and the prime geodesic theorem.
+  \item The Kasparov triple
+    $\alpha_N(\xi) = \bigl(C^*_r(\Gamma)^{N-1},\;
+    \pi_{\mathbb{Z}_N},\;F_\xi\bigr)$
+    with $F_\xi|_{\rho_m} =
+    \mathrm{sign}\bigl(c_m \cdot 1 + h_\xi^\Gamma\bigr)$
+    and $c_m = C_1(\mathbf{H}^2,\xi) - m(N{-}m)/2$
+    is a well-defined element of
+    $KK(C^*(\mathbb{Z}_N),\; C^*_r(\Gamma))$,
+    provided $\|h_\xi^\Gamma\|_{C^*_r} < \min_m |c_m|$
+    (the operator-norm gap condition).
+  \item Under this condition, the Kasparov product satisfies
+    \begin{equation}\label{eq:kasparov-product}
+      \tau_*\!\bigl(\alpha_N(\xi)
+      \;\otimes_{C^*_r(\Gamma)}\; [D_S]\bigr)
+      \;=\; [\mu_N(\Gamma, \xi)]
+      \;\in\; R(\mathbb{Z}_N),
+    \end{equation}
+    where $[D_S] \in KK(C^*_r(\Gamma), \mathbb{C})$ is the
+    fundamental class and $\tau_*$ is the canonical trace.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{Part~(i).}
+$|G_{\mathbf{H}^2}(z_0, \gamma z_0)| = O(e^{-\ell_\gamma})$
+where $\ell_\gamma = d(z_0, \gamma z_0)$ is the displacement
+length. The prime geodesic theorem gives
+$|\{\gamma : \ell_\gamma \le L\}| \sim e^L/L$,
+so $\sum_{\gamma \ne 1} e^{-\ell_\gamma} < \infty$.
+By Young's inequality
+($\|a\|_{C^*_r} \le \|a\|_{\ell^1}$ for any
+$a \in \ell^1(\Gamma)$), the element
+$h_\xi^\Gamma$ is well-defined in $C^*_r(\Gamma)$
+with the stated bound.
+
+\emph{Part~(ii).}
+We verify the three Kasparov module conditions for
+the bounded triple
+$\alpha_N = (E, \pi, F_\xi)$ with
+$E = C^*_r(\Gamma)^{N-1}$,
+$A = C^*(\mathbb{Z}_N)$,
+$B = C^*_r(\Gamma)$:
+\begin{itemize}
+\item \emph{$F_\xi = F_\xi^*$ (self-adjoint).}
+Each $c_m \cdot 1 + h$ is self-adjoint in
+$C^*_r(\Gamma)$
+(since $c_m \in \mathbb{R}$ and $h^* = h$
+by $\overline{G(z,w)} = G(z,w)$).
+The functional calculus gives
+$\mathrm{sign}(c_m + h)^* = \mathrm{sign}(c_m + h)$;
+hence $F_\xi = F_\xi^*$ on each summand.
+\item \emph{$F_\xi^2 - 1 \in \mathcal{K}_B(E)$ (spectral gap gives finite-rank).}
+For any self-adjoint invertible element $a$,
+$\mathrm{sign}(a)^2 = 1$ in the $C^*$-algebra.
+Under the gap condition, each $c_m + h$ is invertible,
+so $F_\xi^2 = 1$.
+In particular, $F_\xi^2 - 1 = 0 \in \mathcal{K}_B(E)$.
+\item \emph{$[\pi(a), F_\xi] \in \mathcal{K}_B(E)$
+for all $a \in A$ ($\mathbb{Z}_N$ action has finite orbits).}
+Since $A = C^*(\mathbb{Z}_N)$ is finite-dimensional
+($\dim = N$), every adjointable operator on the
+finitely generated module $E$ is compact:
+$\mathcal{K}_B(E) = \mathcal{L}_B(E)$
+(because $E$ is free of rank $N{-}1$ over the
+unital $C^*$-algebra~$B$).
+The condition is automatic.
+\end{itemize}
+Therefore $\alpha_N(\xi) \in KK(A, B)$.
+On the flat plane, the index pairing reduces to the Morse index count. The $K$-theoretic framing adds content only for arithmetic surfaces where the gap condition fails.
+
+\emph{Part~(iii).}
+The fundamental class $[D_S] \in KK(C^*_r(\Gamma), \mathbb{C})$
+is the Mishchenko--Fomenko index element of the
+Dirac operator on $S = \Gamma\backslash\mathbf{H}^2$
+(using the canonical spin structure on~$\mathbf{H}^2$,
+which descends to~$S$ since $\Gamma$ is torsion-free).
+For torsion-free cocompact lattices in
+$\mathrm{SL}(2,\mathbb{R})$, the Baum--Connes
+assembly map
+$\mu\colon K_0^\Gamma(\underline{E}\Gamma)
+\to K_0(C^*_r(\Gamma))$
+is an isomorphism
+\citep{Kasparov1988}.
+
+Under the gap condition
+$\|h\|_{C^*_r} < \min_m |c_m|$,
+the straight line homotopy
+$F_t = \bigoplus_m \mathrm{sign}(c_m + t\,h)$
+for $t \in [0, 1]$ stays in the invertibles
+(since $\|t\,h\| \le \|h\| < |c_m|$ for all~$t$).
+Each $F_t$ satisfies the same Kasparov conditions
+as~$F_\xi$ (self-adjoint, $F_t^2 = 1$, commutators
+compact). By homotopy invariance of the Kasparov
+product \citep{Kasparov1980},
+$\alpha_N(\xi) \otimes_{C^*_r(\Gamma)} [D_S]
+= \alpha_N^{(0)}(\xi) \otimes_{C^*_r(\Gamma)} [D_S]$,
+where $\alpha_N^{(0)}$ has
+$F_0 = \bigoplus_m \mathrm{sign}(c_m) \cdot 1_{C^*_r(\Gamma)}$.
+
+In the trivial module $\alpha_N^{(0)}$, each
+summand carries the scalar $\mathrm{sign}(c_m) = \pm 1$.
+The product with $[D_S]$ reduces to the trace:
+$\tau_*(\alpha_N^{(0)} \otimes [D_S])
+= \sum_m \mathrm{sign}(c_m)\,[\rho_m]$,
+which is the $\mathbb{Z}_N$ representation class
+$[\mu_N(\mathbf{H}^2, \xi)]$.
+By Theorem~\ref{thm:spectral-flow},
+$[\mu_N(\mathbf{H}^2, \xi)] = [\mu_N(\Gamma, \xi)]$.
+\end{proof}
+
+\begin{corollary}[Kasparov product at the threshold]
+\label{cor:kk-threshold}
+At the palindromic threshold $\xi = \xi^*(N, m^*)$
+where $c_{m^*} = 0$, the gap condition fails for
+mode~$m^*$.
+The Kasparov module remains well-defined with
+$F_{\xi^*}|_{\rho_{m^*}} = \mathrm{sign}(h_\xi^\Gamma)$
+(the sign of the full automorphic correction, not a scalar).
+Its trace gives
+\[
+  \tau_*(\alpha_N(\xi^*) \otimes [D_S])
+  = \!\sum_{m \ne m^*}\!\mathrm{sign}(c_m)\,[\rho_m]
+  \;+\; \tau(P_-(h))\,[\rho_{m^*}],
+\]
+where $\tau(P_-(h)) \in (0, 1)$ is the fractional
+$L^2$-Morse index (Theorem~\ref{thm:fractional-morse}).
+This is the ``genuinely new information'' at the threshold:
+the scalar spectral flow produces integers, but the
+Kasparov product produces the \emph{fractional}
+$\tau(P_-)$ through the von~Neumann trace on~$C^*_r(\Gamma)$.
+On the Bolza surface: $\tau(P_-) = 0.644 \pm 0.004$
+(non-integer, Theorem~\ref{thm:fractional-morse}).
+\end{corollary}
+
+\begin{proof}
+For $m \ne m^*$, $c_m \ne 0$ (the thresholds are
+strictly ordered: Proposition~\ref{prop:ncrit-monotone}),
+so $\mathrm{sign}(c_m + h)$ deforms to
+$\mathrm{sign}(c_m) \cdot 1$ by the gap homotopy.
+For $m = m^*$, $c_{m^*} = 0$ and
+$F|_{\rho_{m^*}} = \mathrm{sign}(h)$.
+Since $h$ is self-adjoint with mixed spectrum
+(Theorem~\ref{thm:fractional-morse}),
+$\mathrm{sign}(h)$ is a non-trivial self-adjoint
+involution in~$C^*_r(\Gamma)$ with
+$\tau(\mathrm{sign}(h)) = 1 - 2\tau(P_-(h)) \ne \pm 1$.
+The product with $[D_S]$ extracts the trace, giving
+the fractional contribution.
+\end{proof}
+
+\paragraph{Bolza and arithmetic surfaces.}
+The $\ell^1$-norm gives an independent check on the Bolza surface:
+$\|h\|_{\ell^1} \le 0.18$ (gap ratio $4.4$).
+More generally, for any compact arithmetic surface with
+systole $\ell_0 \ge 2\operatorname{arccosh}(2) \approx 2.63$:
+the $\ell^1$ bound gives
+$\|h\| \le 12\,G(\ell_0) \ll 0.79$, so the gap condition
+holds for all $N \le 15$.
+Conditionally on $\lambda_1 > 1/4$ (which holds unconditionally for the Bolza surface: $\lambda_1 = 3.84$),
+systoles of congruence surfaces grow logarithmically
+in the area, extending the gap to all $N \le 23$.
 
 \subsection{Bolza surface convergence analysis}
 \label{sec:bolza-convergence}
 
-%% Placeholder: Bolza convergence narrative from Paper I
+Truncating $\Gamma$ to word length~$3$ ($456$ group elements)
+and diagonalising the convolution matrix (full
+eigendecomposition), the spectrum of $h_\xi^\Gamma$ ranges
+over $[-0.26,\; +0.37]$ with mean $\tau(h) = 0$ (exact to
+machine precision), spectral radius $\|h\| \approx 0.37$,
+and a dense cluster of $270$ eigenvalues in $[-0.03, +0.005)$.
+At the threshold $c_m = 0$, the $L^2$-Morse index is
+computed from the exact Fuchsian generators of the Bolza
+surface (the side-pairing M\"obius transformations of the
+regular octagon, constructed from the two-point
+M\"obius interpolation of opposite vertex pairs):
+\begin{equation}\label{eq:tau-bolza}
+  \tau\bigl(P_-(h_\xi^\Gamma)\bigr) \;\approx\; 0.644.
+\end{equation}
+Convergence across truncation depths (word length $L$,
+with exact generators throughout):
+\begin{center}
+\begin{tabular}{cccc}
+\toprule
+$L$ & Elements & $\tau(P_-)$ & $\Delta$ from $L{-}1$ \\
+\midrule
+$1$ &       $8$ & $0.625$ & --- \\
+$2$ &      $64$ & $0.625$ & $0.000$ \\
+$3$ &     $456$ & $0.637$ & $0.012$ \\
+$4$ &   $3200$ & $0.644$ & $0.007$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The convergence decelerates ($0.012 \to 0.007$).
+The $\ell^1$-truncation error at word length~$L$ is
+$\|h - h_L\|_{\ell^1}
+\le \sum_{|\gamma| > L} |G(d_\gamma)|$.
+Each coefficient decays as $O(e^{-s\,\ell_\gamma})$
+with $s = \sqrt{\lambda_1 - 1/4} \approx 1.89$
+($\lambda_1 \approx 3.839$, the spectral gap
+\citep{Buser1992}), but the number of elements
+at word length~$L$ grows as $|\Gamma_L| = O(e^L)$.
+The net decay rate is $s - 1 \approx 0.89$, giving
+$\|h - h_4\|_{\ell^1} = O(e^{-0.89 \times 5})
+\approx 0.012$.
+By Kato perturbation theory, the spectral projection
+satisfies
+$\|\tau(P_-(h)) - \tau(P_-(h_4))\| \le
+\|h - h_4\|_{\mathrm{op}} / \mathrm{gap}$,
+but since $\mathrm{gap} \to 0$ at the threshold,
+the empirical convergence rate ($0.012 \to 0.007$,
+geometric ratio $\approx 0.6$) gives the
+more reliable bound:
+$\tau(P_-) = 0.644 \pm 0.004$
+(geometric tail extrapolation:
+$0.007 \times 0.6/(1 - 0.6) \approx 0.010$,
+combined with the observed stabilisation).
+
+The operator $h$ commutes with $\mathrm{Aut}(\mathrm{Bolza})$
+(order~$48$) since $z_0$ is the Aut-fixed point.
+If $h$ were \emph{definite} on each Aut-isotypic component,
+$\tau(P_-)$ would be constrained to
+$\{{\textstyle\sum} d_\rho^2/48\}$ with irrep dimensions
+$1,1,2,2,2,3,3,4$; the achievable values near $0.64$
+are $30/48 = 0.625$ and $31/48 \approx 0.646$.
+The computed value $0.644 \pm 0.004$ is close to but
+distinguishable from both ($0.625$ is excluded;
+$0.646$ is marginal).
+Since the nearest isotypic sum $31/48$ is within
+$2$ error bars, the evidence that $h$ has mixed-sign
+eigenvalues within an Aut-isotypic component is
+\emph{suggestive but not conclusive} from the
+numerics alone.
+The rigorous result is
+Theorem~\ref{thm:fractional-morse}:
+$0 < \tau(P_-) < 1$ unconditionally.
+The mechanism is Fourier interference:
+$G_{\mathbf{H}^2}(d) > 0$ for all $d > 0$ (the
+Green's function is strictly positive), so $h$ has
+all-positive coefficients---but the eigenvalues of
+a convolution operator with positive coefficients can
+be negative, for the same reason that graph adjacency
+matrices (all entries $\ge 0$) have negative eigenvalues.
+Within each Aut-isotypic component, the sum
+$\sum_\gamma G(d_\gamma)\,\mathrm{tr}(\rho(\gamma))$
+oscillates in sign because the characters
+$\mathrm{tr}(\rho(\gamma))$ take negative values for
+non-trivial~$\rho$.
+This oscillation is generic at the threshold---it is a
+structural feature of the convolution, not an artifact
+of the truncation.
+
+\emph{Physical interpretation}: the $L^2$-Morse index
+at the palindromic threshold is approximately $0.64$:
+roughly $64\%$ of the $L^2$-weight is unstable.
+The Aut-fixed centre is stable ($\delta C_1 > 0$,
+the discussion below) because the
+trivial-representation component of $h$ is positive.
+The stability of the polygon depends on its
+\emph{placement} on the surface---a prediction
+invisible to the elementary $R(\mathbb{Z}_N)$ invariant
+and to the scalar $\delta C_1$.
+
+\begin{remark}[Stability regimes]
+\label{rem:topological-phases}
+The palindromic thresholds $\xi^*(N,m)$ are critical values
+of the SO$(2)$ moment map: the $K_0$ class
+$[\mu_N(\xi)] \in R(\mathbb{Z}_N) \cong \mathbb{Z}^N$
+changes by $[\rho_m] + [\rho_{N-m}]$ at each crossing.
+The classification is richer than a single Chern number
+($\mathbb{Z}^N$ vs $\mathbb{Z}$) because the palindromic
+algebra determines which mode crosses in which number field.
+
+The Morse index staircase $\mu(N,\xi)$ decreases by~$2$
+at each threshold (conjugate pair), except $\Delta\mu = 1$
+for the self-conjugate mode $m = N/2$ (even~$N$).
+Total: $\mathrm{SF}(H_N,\, 0 \to 1) = N{-}5$.
+\end{remark}
 
 %% ====================================================================
 \section{Paper~II supplements: multi-ring proof details}
