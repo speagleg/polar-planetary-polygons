@@ -217,7 +217,7 @@ Every alternative either duplicates a gauge sector
 (introducing an undetermined relative scale) or includes
 a non-gauge polygon (introducing unconstrained matter).
 
-\paragraph{Exhaustive elimination.}
+\paragraph{Systematic elimination.}
 On a single $S^1$ fiber (Thurston uniqueness,
 Paper~IV, Proposition~\ref*{IV-prop:spacetime}),
 flux additivity gives
@@ -946,7 +946,8 @@ cancels.  The Green's function convolution gives
   \eta_B = (1.8\text{--}2.0) \times 10^{-9}
   \approx 3.0\,\eta_B^{\mathrm{obs}},
 \end{equation}
-a factor of~$3$ above the observed value, stable to
+a factor of~$3$ above $\eta_B^{\mathrm{obs}} = 6.1 \times 10^{-10}$
+\citep{Planck2018}, stable to
 $< 10\%$ across $v_w \in [10^{-3}, 0.5]$.
 The discrepancy is dominated by the lattice QCD parameters
 $\kappa$ and~$\Gamma_y$ (\citealt{DOnofrio2014}), each
@@ -1121,19 +1122,25 @@ results of this paper appear in Paper~VI.
 \section{Conclusion}
 \label{sec:conclusion}
 
-From the polygon number $N = 11 = 4 + 7$ (KK flux additivity)
-and the Seifert manifold of Paper~IV, the Born--Oppenheimer
-tunnelling action determines:
-$H_0 = 67.4$~km/s/Mpc,
-$\Omega_\Lambda = 68.9\%$,
-$\Omega_{\mathrm{DM}} = 26.9\%$,
-$\Omega_b = 5.0\%$,
-$\Delta m^2_{\mathrm{sol}}/\Delta m^2_{\mathrm{atm}} = 1/31.5$,
-and $\eta_B \approx 2 \times 10^{-9}$.
-All predictions assume normal mass hierarchy, $w = -1$ exactly,
-and no $0\nu\beta\beta$ decay.
-The full parameter accounting and status classification appear
-in Paper~VI.
+The $N = 11$ polygon, uniquely selected by KK flux additivity
+(Theorem~\ref{thm:n-selection}), determines the cosmological
+energy budget through the Born--Oppenheimer tunnelling action.
+The strongest results are the $\ell$-independent ratios:
+$\Omega_\Lambda/\Omega_{\mathrm{DM}} = 2.56$
+(Planck: $2.57$, $0.5\%$) and
+$\Delta m^2_{\mathrm{sol}}/\Delta m^2_{\mathrm{atm}} = 1/31.5$
+(observed: $1/32.5$, $3\%$), both free of calibration inputs.
+The absolute scale $H_0 = 67.4$\,km/s/Mpc requires one
+dimensionful input ($M_P$) and matches Planck to $< 0.1\sigma$.
+
+The weakest link is the baryon asymmetry
+($\eta_B \approx 3\,\eta_B^{\mathrm{obs}}$), limited by
+lattice QCD parameters shared with all electroweak
+baryogenesis models.
+Three falsifiable predictions --- normal neutrino hierarchy,
+$w = -1$ exactly, and no $0\nu\beta\beta$ decay --- are
+tested by JUNO, Euclid, and nEXO respectively.
+The full parameter accounting appears in Paper~VI.
 
 \paragraph{Code availability.}
 All numerical verifications and computational proofs are

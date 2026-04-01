@@ -854,40 +854,15 @@ N/2\rfloor)/2$).  On the sphere:
 $C_1(\varphi_0) < N{-}1$ for $\varphi_0 > 0$, giving the
 colatitude-dependent threshold of Section~\ref{sec:curved}.
 
-\begin{remark}[Representation-theoretic content of the stability boundary]
+\begin{remark}[Spectral gap and stability boundary]
 \label{rem:rep-theory}
-The decomposition $\lambda_m = C_1 - f(m,N)$ separates the stability
-condition into a $\mathbb{Z}_N$ representation-theoretic part $f$ and
-a geometric part $C_1$, with three consequences.
-
-\emph{1.\ Spectral gap as a quantum phase transition.}
 Write $H_N = C_1 I - F_N$ where $F_N = \mathrm{diag}(f(0,N),
-\ldots, f(N{-}1,N))$ in the Fourier basis.  Stability is equivalent
-to the positivity condition $H_N \ge 0$.  The spectral gap
+\ldots, f(N{-}1,N))$.  Stability is $H_N \ge 0$.  The spectral gap
 $\Delta(N) = C_1 - f_{\max}(N)$ closes at $N = 7$ on the flat
-plane ($\Delta = 0$), marking a transition from the gapped phase
-($N \le 6$, all eigenvalues positive) to the broken phase
-($N \ge 8$, negative eigenvalue).  Gaussian curvature acts as
-a tuning parameter: $K < 0$ opens the gap, $K > 0$ closes it.
-
-\emph{2.\ Crystallographic restriction analogue.}
-The classical crystallographic restriction constrains the order
-of a rotation compatible with a lattice: $\mathrm{tr}(R) = 2\cos(2\pi/N)
-\in \mathbb{Z}$ forces $N \in \{1,2,3,4,6\}$ in~$\mathbb{R}^2$.
-Our stability restriction constrains the order of a $\mathbb{Z}_N$
-polygon compatible with the geometry: $C_1 \ge f_{\max}(N)$ forces
-$N \le 7$ on $\mathbb{R}^2$.  Both are discrete constraints on
-$N$ arising from the interplay between $\mathbb{Z}_N$ algebra
-(trace / Casimir) and the ambient geometry (lattice / curvature).
-
-\emph{3.\ Spectral statistics and Landau transition.}
-Level spacings $(N{-}2m{-}1)/2$ are arithmetic (maximally rigid).
-The gap closure $\Delta(N) \sim -(N{-}7)$ has mean-field exponents
-($\nu = 1$, $\beta = 1/2$).  The quartic coefficient
-$\alpha_0 = 45/14 > 0$ that resolves the marginal $N = 7$ case
-is established in companion Paper~II, \S\ref*{II-sec:n7-bifurcation}; here we note only that
-its positivity is predicted by the spectral structure (the gap
-closes linearly, requiring a quartic restoring term).
+plane, marking a transition from the gapped phase
+($N \le 6$) to the broken phase ($N \ge 8$).
+Gaussian curvature acts as a tuning parameter:
+$K < 0$ opens the gap, $K > 0$ closes it.
 \end{remark}
 
 The value $C_1 = N{-}1$ on the plane has a geometric origin: for
@@ -2132,11 +2107,6 @@ For non-arithmetic $\Gamma$, the coefficient exists but has no
 known closed form.
 \end{remark}
 
-The coefficient $\gamma$ gives the curvature scale at which the polygon threshold is reached:
-the $7\to 8$ jump occurs at $|K|\,r_E^2 = \xi^* = \gamma^{-1/2}$.
-There is no perturbative formula $N_\mathrm{crit} \approx 7 + c\,|K|\,r_E^2$;
-the threshold~\eqref{eq:xi_star} is a \emph{finite}, non-perturbative
-condition, and $N_\mathrm{crit}$ is an integer that jumps discontinuously.
 
 \begin{proposition}[Curvature-stability dichotomy]
 \label{prop:curvature-dichotomy}
