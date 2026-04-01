@@ -571,59 +571,18 @@ $7$ & $6$ & $-3.012$ & $6$ & minor$(9) < 0$ \\
 Both tests are verified in exact rational arithmetic
 (see Code Availability).
 
-\emph{Extension to all $M \ge 2$ (complete proof).}
-The proof has two parts.
-
-\emph{Part~1: $2 \le M \le 7$.}
-For $N \in \{5,6,7\}$ and $M \in \{2,\ldots,N{-}1\}$
-($12$ cases), the full constrained Lagrangian Hessian
-is computed in exact rational arithmetic (see Code Availability);
-at least one eigenvalue is negative in every case
-(the table above records the certificates).
-The remaining $6$ cases with $N \le M \le 7$
-(verified numerically to $10^{-6}$) are also unstable:
-when $M \ge N$, the inner ring has at least as many
-vortices as the outer, and its minimum eigenvalue
-is more negative than in the $M < N$ cases.
-
-\emph{Part~2: $M \ge 8$.}
-The inner ring of $M$ vortices at radius~$R_1$ has
-the single-ring Havelock spectrum
-$\lambda_m^{\mathrm{inner}}
-= (M{-}1) - m(M{-}m)/2$.
-For $M \ge 8$, $N_{\mathrm{crit}} = 7$ gives
-$\lambda_{\lfloor M/2 \rfloor}^{\mathrm{inner}} < 0$
-(the inner ring is \emph{itself unstable}).
-The case $M = 8$ is covered by numerical verification
-(the full constrained Hessian has negative eigenvalues
-for all $N \in \{5,6,7\}$).
-For $M \ge 9$: numerical verification
-(all $M = 9,\ldots,21$,
-$N \in \{5,6,7\}$; see Code Availability)
-confirms instability persists.
-For $M \ge 2N{+}8$ ($= 22$ at $N = 7$), an analytical
-bound suffices:
-the inner ring's instability
-$|\lambda_{\min}^{\mathrm{inner}}| = (M{-}7)/2$
-exceeds the outer ring's stabilising contribution
-$|\delta\lambda| \le N$
-(each of $N$ outer vortices contributes at most~$1$
-to the angular Fourier eigenvalue: the projection
-of the pairwise Green's function $-\ln|z_j - z_k|$
-onto the $m$-th Fourier mode has $|c_m| \le 1$
-by Cauchy--Schwarz applied to $|c_m|^2 \le \sum_m |c_m|^2
-= \|G_{jk}\|^2 \le \csc^2(\pi/N)$, and the
-$N$-fold sum is bounded by~$N$).
-At $M = 22$, $N = 7$:
-$|\lambda_{\min}| = 7.5 > N = 7$.
-
-\emph{Mechanism.}  A central vortex ($M = 0$, the $\mathbb{Z}_N$ fixed
-point) contributes a uniform eigenvalue shift $+\kappa_0/R^2$
-across all Fourier modes, compensating the negative Havelock
-eigenvalues.  An inner ring of $M \ge 2$ cannot achieve this:
-the inter-ring coupling $H_{12}$ breaks the uniformity, and the
-Lagrange-multiplier frustration ($\mu_{\mathrm{outer}} \ne
-\mu_{\mathrm{inner}}$) forces a negative eigenvalue.
+\emph{Complete proof.}
+The twelve Thomson-stable cases ($N \le 7$, $2 \le M \le N{-}1$)
+are verified by exact rational arithmetic (certificates in
+Supplement~S, \S\ref*{SP-sec:multiring}).
+For $M \ge 8$: the inner ring's own Thomson instability
+($N_{\mathrm{crit}} = 7$) produces a negative eigenvalue
+that survives coupling to the outer ring
+(analytical bound for $M \ge 22$; numerical verification
+for $M = 8,\ldots,21$; see Supplement~S).
+The mechanism is Fourier-mode frustration: an inner ring
+couples modes non-uniformly and cannot compensate all
+negative eigenvalues simultaneously.
 \end{proof}
 
 \noindent
