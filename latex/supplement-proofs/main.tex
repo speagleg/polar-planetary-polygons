@@ -47,7 +47,64 @@ corresponding main paper.
 \section{Paper~III supplements: BTZ spectral statistics}
 \label{sec:btz-lorentzian}
 
-%% Placeholder: Lorentzian continuation + van Hove + GUE from Paper III
+\paragraph{Lorentzian continuation and the BTZ horizon.}
+The Euclidean analysis above determines the thermal phase structure; the Lorentzian continuation identifies the real-time dynamics.
+The Green's function offset $\Phi(\rho) = \log(2\sinh\rho) + b(N)$ admits
+an analytic continuation $\rho \to \rho + i\pi/2$ that interchanges
+the BTZ exterior and interior:
+$\sinh(\rho + i\pi/2) = i\cosh\rho$, so
+$\Phi^{\mathrm{int}} = \log(2\cosh\rho) + b(N) + i\pi/2$.
+The analytically continued kernel interpolates between curvature
+signs:
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+$\mathrm{Im}(\rho)$ & $0$ & $\pi/2$ & $\pi$ \\
+\midrule
+Curvature sign & $K{=}{-}1$ & $K{=}0$ & $K{=}{+}1$ \\
+Continued kernel & $\log(2\sinh\rho)$ & $\log(2\cosh\rho) + i\pi/2$ &
+  $\log(2\sinh\rho) + i\pi$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+(The real parts of the continued kernels reproduce the
+pair interactions on spaces of the corresponding curvature
+sign; the imaginary parts are phases.)
+At each palindromic threshold $\rho^*(N)$: the critical eigenvalue
+$\lambda_{m^*}$ crosses zero (\emph{real} side), while the interior
+resonance has $\mathrm{Im}(\lambda) = \pi/2$ (universal, independent
+of $N$ and~$m$).
+The polygon--BTZ transition is a \emph{time--space exchange}:
+for $\rho > \rho^*$ the mode oscillates in time
+($\omega = \sqrt{\lambda_{m^*}}$); for $\rho < \rho^*$ it grows
+spatially ($\kappa = \sqrt{|\lambda_{m^*}|}$);
+at $\rho = \rho^*$ the Killing vector degenerates.
+
+Under Lorentzian continuation ($\rho \to \rho + i\varepsilon$),
+the partition function acquires a branch cut at the threshold:
+$Z_L \sim A(N)\,({\rho - \rho^* + i\varepsilon})^{-1/2}$
+with spectral function $\mathrm{Im}[Z_L] \propto |\rho - \rho^*|^{-1/2}$
+(a van~Hove singularity).
+The exponent $-1/2$ (divergent density at the edge) is the
+spectral signature of the integrable Havelock system.
+The Dyson circular ensemble (GUE, $\beta = 2$) has the
+opposite exponent: $\rho \propto |\lambda - \lambda_{\mathrm{edge}}|^{+1/2}$
+(vanishing density, the Wigner semicircle edge).
+The sign flip $-1/2 \to +1/2$ is a theorem:
+the Havelock gaps satisfy $\lambda_{m^*+\delta} = \delta^2/2$
+(even~$N$) or $\delta(\delta{-}1)/2$ (odd~$N$)
+(verified numerically for
+$N = 7,\ldots,30$; see Code Availability), giving $\rho(\lambda) = (2\lambda)^{-1/2}$
+(van~Hove, the integrable exponent \citep{BerryTabor1977}).
+The GUE edge exponent $+1/2$ is the Tracy--Widom theorem
+\citep{TracyWidom1994}.
+The BTZ black hole has GUE level statistics
+\citep{AurichSteiner1993}.
+
+
+%% ====================================================================
+\section{The Wheeler--DeWitt equation on the palindromic minisuperspace}
 
 %% ====================================================================
 \section{Paper~V supplements: Pell identity proof}
