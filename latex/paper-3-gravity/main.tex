@@ -57,34 +57,32 @@ $N_{\mathrm{crit}} = 7$ is independent of the deficit angle, a
 simplification that makes the algebraic-number thresholds of
 Paper~I into gravitational phase transitions.
 
-This paper develops the consequences:
-\begin{itemize}
-  \item \S\ref{sec:graviton}: the graviton at $N = 7$ and
-    the Chern--Simons lift.
-  \item \S\ref{sec:lichnerowicz}: the main theorem ---
-    polygon entropy maximisation implies the Einstein equations.
-  \item \S\ref{sec:spectral-bound}--\S\ref{sec:ope-identification}:
-    spectral bound, holographic interpretation, and conformal
-    block identification.
-  \item \S\ref{sec:btz}--\S\ref{sec:wdw}: the polygon--BTZ
-    phase transition and the Wheeler--DeWitt equation.
-  \item \S\ref{sec:three-layer}--\S\ref{sec:triangle}:
-    three-layer decomposition, higher-dimensional extension,
-    and triangle universality.
-  \item \S\ref{sec:gravity-partition}--\S\ref{sec:qm-gr-bridge}:
-    partition function and Onsager--WDW correspondence.
-\end{itemize}
+The argument proceeds as follows.
+The $N = 7$ marginally stable mode carries spin~$2$,
+so the stability threshold is a graviton
+(\S\ref{sec:graviton}); the Chern--Simons formulation
+makes the spin identification exact.
+The central theorem (\S\ref{sec:lichnerowicz}) then shows
+that conditions (H1)--(H3) force the scalar curvature
+to be constant via a Jensen inequality on the polygon
+entropy: this is the vacuum Einstein equation in $2{+}1$D.
+The Wheeler--DeWitt equation on the breathing mode
+(\S\ref{sec:wdw}) fixes the cosmological constant $\Lambda$
+in terms of~$N$, while the polygon--BTZ correspondence
+(\S\ref{sec:btz}) connects the vortex partition function
+to black hole thermodynamics.
+In $3{+}1$D, a Kaluza--Klein decomposition and
+Fefferman--Graham reconstruction determine the full
+Riemann tensor---all $10$ Weyl components---from~$N$
+alone (Theorem~\ref{thm:full-riemann},
+\S\ref{sec:three-layer}).
 
 \paragraph{Main result.}
-The central theorem (Theorem~\ref{thm:polygon-einstein},
-\S\ref{sec:lichnerowicz}) states:
+Theorem~\ref{thm:polygon-einstein}:
 under conditions (H1)--(H3), the polygon entropy functional
 has a unique maximum at uniform curvature $R = \mathrm{const}$,
-implying the vacuum Einstein equations $R_{\mu\nu} = \Lambda g_{\mu\nu}$.
-The proof appears in \S\ref{sec:lichnerowicz}, immediately
-following the graviton identification.
-The remaining sections develop the supporting infrastructure
-and consequences.
+implying the vacuum Einstein equations
+$R_{\mu\nu} = \Lambda g_{\mu\nu}$.
 
 \paragraph{The foundational identification.}
 The series rests on one physical identification:
@@ -105,11 +103,13 @@ The quantity
 is extracted from the Havelock
 eigenvalue data as the unique mode-independent offset
 (Proposition~\ref{prop:equiv-rr}).
-It serves simultaneously as the WDW kinetic coefficient
-(\S\ref{sec:wdw}), the CS level $k = c/6$
-(\S\ref{sec:graviton}), the Brown--Henneaux central charge
-($G := 3\ell/(2c)$), and the orbifold CFT ground-state
-energy (\S\ref{sec:three-layer}).
+It serves four simultaneous roles:
+(i)~the WDW kinetic coefficient (\S\ref{sec:wdw});
+(ii)~the CS level $k = c/6$ (\S\ref{sec:graviton});
+(iii)~the Brown--Henneaux central charge, giving
+$G := 3\ell/(2c)$;
+(iv)~the orbifold CFT ground-state energy
+(\S\ref{sec:three-layer}).
 If any two roles required different values of~$c$, the
 framework would be falsified.
 
@@ -456,11 +456,14 @@ Kirchhoff vortex dynamics: only the phase-space structure
 
 \begin{proposition}[Entropy variation forces constant curvature]
 \label{prop:variation}
+Fix the polygon radius~$\varepsilon$ (a geodesic length,
+held constant as the conformal factor varies).
 In 2D conformal gauge $g = e^{2\varphi}\,g_0$,
 $\delta R/\delta\varphi = -2R$ and
 $\delta(dA)/\delta\varphi = 2\,dA$.
 Using $dS/dC_1 = (1/2)\sum 1/\lambda_m$ and
-$dC_1/dR = -(N{-}1)\varepsilon^2/4$ (the Hadamard expansion),
+$dC_1/dR = -(N{-}1)\varepsilon^2/4$ (from the Hadamard
+expansion at fixed~$\varepsilon$),
 the functional derivative is
 \[
   \frac{\delta S_{\mathrm{total}}}{\delta\varphi(x)}
@@ -534,6 +537,17 @@ equations; the WDW equation determines their
 
 \subsection{Proof of the main theorem}
 
+The proof uses three ingredients stated below:
+the curvature expansion of~$C_1$
+(Lemma~\ref{lem:log-interaction}),
+the Regge discretisation bridge
+(Lemma~\ref{lem:regge-bridge}),
+and the Onsager contraction
+(Corollary~\ref{cor:onsager-contraction}).
+The corollary and lemmas are stated first;
+the proof of Theorem~\ref{thm:polygon-einstein}
+assembles them.
+
 \begin{corollary}[Onsager contraction --- (H2b) as theorem]
 \label{cor:onsager-contraction}
 Define the Onsager iteration $T\colon g \mapsto g'$ on
@@ -561,7 +575,9 @@ Hadamard parametrix $C_1(x) = (N{-}1)[1 - R(x)\varepsilon^2/4 + \cdots]$
 ---a property of the Green's function of~$(S,g)$ at the point~$x$,
 not of any global vortex configuration.
 
-Then the curvature variance contracts:
+Then for all initial metrics with
+$\mathrm{Var}(R(g)) \le 2$,
+the curvature variance contracts:
 \begin{equation}\label{eq:onsager-contraction}
   \mathrm{Var}(R(T(g)))
   \le |\beta_{\mathrm{eff}}|^2 R_0^2\,\mathrm{Var}(R(g)),
@@ -616,23 +632,21 @@ The iteration $T^n(g_0) \to g^*$ converges geometrically;
 by~(H2a), $g^*$ has $R = \mathrm{const}$.
 \end{proof}
 
-\begin{proof}[Proof of Theorem~\ref{thm:polygon-einstein}]
-\emph{Mechanism.}
-The Havelock structure forces the interaction to be logarithmic;
-the Hadamard parametrix then imprints the local curvature $R(x)$
-on the polygon entropy; entropy maximisation (the Onsager principle)
-selects $R = \mathrm{const}$, which is the vacuum Einstein equation.
+\begin{lemma}[Logarithmic interaction and curvature expansion]
+\label{lem:log-interaction}
+Let $(S, g)$ satisfy conditions \textup{(H1)} and~\textup{(H3)}.
+Then the vortex interaction is $V(z,w) = -G_S(z,w)$
+(the scalar Laplacian Green's function), and the
+mode-independent coefficient satisfies
+\begin{equation}\label{eq:C1-expansion-proof}
+  C_1(x, \varepsilon)
+  = (N{-}1)\!\left[1 - \frac{R(x)\,\varepsilon^2}{4}
+    + O(\varepsilon^4)\right],
+\end{equation}
+where $R(x)$ is the scalar curvature at~$x$.
+\end{lemma}
 
-The proof has four steps: (1)~force the interaction to be
-logarithmic, (2)~extract $R(x)$ from the Hadamard parametrix,
-(3)~conclude $R = \mathrm{const}$ from (H2) $+$ Step~2
-(3b: Regge extension to smooth metrics; 3c: partition
-function interpretation),
-(4)~promote to Einstein in any spacetime dimension.
-
-\medskip
-\noindent\emph{Step~1 (Logarithmic interaction from (H1)$+$(H3)).}
-\textbf{Polynomial Casimir forces logarithmic interaction.}
+\begin{proof}
 Condition~(H1) requires the angular Casimir
 to be the exact polynomial $f(m,N) = m(N{-}m)/2$.
 By the $\csc^2$ uniqueness theorem (Paper~I, Lemma~\ref*{I-lem:havelock}),
@@ -642,53 +656,111 @@ of the logarithmic kernel $-\log|z - w|$.
 Condition~(H3) (Hadamard universality) ensures that the Laplacian
 Green's function has exactly this logarithmic singularity on any
 Riemannian surface.
-Together, (H1)$+$(H3) force the interaction potential to be
-$V(z,w) = -G_S(z,w)$, where $G_S$ is the Green's function
-of the scalar Laplacian on~$(S, g)$.
+Together, (H1)$+$(H3) force $V(z,w) = -G_S(z,w)$.
 
-\medskip
-\noindent\emph{Step~2 (Jensen maximisation).}
-\textbf{Small-ring expansion reveals local curvature.}
-The Green's function on any Riemannian surface has the short-distance
-expansion $G_S(z,w) = -(1/2\pi)\log d(z,w) + \gamma_S(z) + O(d^2)$,
-where $d(z,w)$ is the geodesic distance and $\gamma_S$ encodes
-the global geometry.
-Summing over the $N$-ring at radius~$\varepsilon$ centred at~$x$:
-\begin{equation}\label{eq:C1-expansion-proof}
-  C_1(x, \varepsilon)
-  = (N{-}1)\!\left[1 - \frac{R(x)\,\varepsilon^2}{4}
-    + O(\varepsilon^4)\right],
-\end{equation}
-where $R(x)$ is the scalar curvature at~$x$.
+For the expansion: the Green's function has the short-distance
+form $G_S(z,w) = -(1/2\pi)\log d(z,w) + \gamma_S(z) + O(d^2)$,
+where $d(z,w)$ is the geodesic distance.
+Summing over the $N$-ring at radius~$\varepsilon$ gives~\eqref{eq:C1-expansion-proof}.
 The mode-independence of the $O(\varepsilon^2)$ correction is
 \emph{automatic}: $C_1$ is mode-independent by the Riemannian
 Havelock identity (Paper~I, Theorem~\ref*{I-thm:riemannian-havelock}),
-so its small-$\varepsilon$ expansion inherits this property
-at every order.
-The coefficient $1/4$ is proved from the exact $C_1$ formulas
-on the three model surfaces.  On $\mathbf{H}^2$:
-$C_1/(N{-}1) = (1{+}\xi^2)/(1{-}\xi)^2$ with
-$\xi = \tanh^2(\varepsilon/2) \approx \varepsilon^2/4$,
-giving $C_1/(N{-}1) \approx 1 + \varepsilon^2/2
-= 1 - R\varepsilon^2/4$ (since $R = -2$).
-On $\mathbf{S}^2$:
-$C_1/(N{-}1) = (1{-}\xi)/(1{+}\xi)$ with
-$\xi = \tan^2(\varepsilon/2) \approx \varepsilon^2/4$,
-giving $1 - \varepsilon^2/2 = 1 - R\varepsilon^2/4$
-(since $R = +2$).
-On the plane: $C_1 = N{-}1$ (no correction; $R = 0$).
-All three model surfaces give
-$C_1/(N{-}1) = 1 - R\varepsilon^2/4 + O(\varepsilon^4)$
+so its expansion inherits this property at every order.
+The coefficient $1/4$ is verified on the three model surfaces:
+$\mathbf{H}^2$ ($R = -2$, $C_1/(N{-}1) = (1{+}\xi^2)/(1{-}\xi)^2$
+with $\xi \approx \varepsilon^2/4$),
+$\mathbf{S}^2$ ($R = +2$, $(1{-}\xi)/(1{+}\xi)$),
+and the plane ($R = 0$, $C_1 = N{-}1$).
+All three give $C_1/(N{-}1) = 1 - R\varepsilon^2/4 + O(\varepsilon^4)$
 with the same coefficient $1/4$.
-This coefficient is universal: it follows from the
-Hadamard--Minakshisundaram--Pleijel heat kernel expansion,
-whose first Seeley--DeWitt coefficient $a_1 = R/6$ for the
-scalar Laplacian in $2$D gives $R\varepsilon^2/4$ upon
-angular averaging over the $N$-gon ring.
+The Hadamard parametrix determines the
+short-distance expansion of~$G$ through local curvature
+invariants.  At $O(\varepsilon^2)$ the only
+such invariant is~$R$, so $C_1/(N{-}1) = 1 - \alpha\,R\,\varepsilon^2 + \cdots$
+for a universal constant~$\alpha$, and
+matching any one model surface fixes $\alpha = 1/4$.
+The Seeley--DeWitt coefficient $a_1 = R/6$ controls the
+curvature dependence of the diagonal heat kernel
+$K(x,x;t) = (4\pi t)^{-1}(1 + Rt/6 + \cdots)$;
+the angular average over the $N$-gon chord geometry
+converts $1/6$ to $1/4$, with the additional $R\varepsilon^2/12$
+arising from the metric distortion of chord distances on
+the geodesic circle: $d_p^2 = 4\varepsilon^2\sin^2(\pi p/N)
+(1 - R\varepsilon^2/6 + O(\varepsilon^4))$.
+\end{proof}
 
-\medskip
-\noindent\emph{Step~3 (Jensen maximisation $+$ Onsager selection).}
-\textbf{(H2) $+$ Step~2 force $R = \mathrm{const}$.}
+\begin{lemma}[Regge bridge to smooth metrics]
+\label{lem:regge-bridge}
+The entropy-maximising Regge metric converges to the
+entropy-maximising smooth metric as the mesh size $h \to 0$.
+\end{lemma}
+
+\begin{proof}
+Any smooth 2D Riemannian manifold $(S, g)$ is
+approximated by a simplicial complex $(S_h, g_h)$
+in which curvature is concentrated at $V$ vertices,
+each carrying a deficit angle
+$\varepsilon_v \approx R(v)\,A_v$
+(with $A_v$ the dual area).
+The convergence $g_h \to g$ as $h \to 0$ is proved
+\citep{CheegerMullerSchrader1984}; the Green's function
+$G_h \to G$ in the $H^1$-norm (standard finite-element
+convergence).
+Each Regge vertex is a point vortex
+(circulation $\kappa_v = \varepsilon_v/(2\pi)$,
+by the isomorphism), so the Regge system is a
+$V$-vortex configuration.
+The vertex positions are \emph{simultaneously}
+vortex positions and Regge metric degrees of freedom
+(on a fixed triangulation, vertex positions determine
+edge lengths, hence the simplicial metric).
+This identification eliminates the apparent circularity
+of~$H$: the Hamiltonian is a function of vertex positions
+alone, and entropy maximisation is a single finite-dimensional
+optimisation---not an iteration between metric and
+vortex configuration.
+
+The Onsager prerequisites for this Regge system
+are established in Lemma~\ref{lem:onsager-regge}.
+On a \emph{flat} background ($\Lambda = 0$),
+conformal invariance
+(Paper~II, Proposition~\ref{II-prop:conformal-invariance})
+gives $G = -(2\pi)^{-1}\log|z{-}w|$,
+independent of the deficit angles.
+On a \emph{curved} background ($\Lambda \ne 0$),
+the Hadamard expansion (Lemma~\ref{lem:log-interaction}) gives
+$C_1 = (N{-}1)[1 - R(x)\varepsilon^2/4
++ O(\varepsilon^4)]$, affine in~$R(x)$.
+Since $d^2S/dC_1^2 < 0$, the entropy functional
+$S_\varepsilon[g] = \int_S S(C_1)\,dA_g$
+is strictly concave in~$R$.
+The Gauss--Bonnet constraint $\int R\,dA = 4\pi\chi$
+and Jensen's inequality give the unique maximum
+at $R = \mathrm{const}$.
+The strict concavity holds at every~$\varepsilon$
+(eq.~\eqref{eq:concavity-ratio});
+$\Gamma$-convergence \citep{DalMaso1993} provides
+an independent confirmation.
+
+Given Lemma~\ref{lem:onsager-regge}, the Onsager
+principle on the $V$-vertex Regge system selects the
+entropy-maximising vertex configuration, which by~(H2a)
+has $C_1(v)$ uniform---hence $R = \mathrm{const}$.
+In the continuum limit $V \to \infty$:
+$S_{\mathrm{Regge}} \to S_{\mathrm{total}}[g]$
+(by the FEM convergence of the Green's function,
+sharpened to $O(h^\infty)$ by the Szeg\H{o}
+estimates below),
+and the entropy-maximising Regge metric converges to
+the entropy-maximising smooth metric
+(strict concavity ensures convergence of maximisers
+under pointwise convergence; \citealt{DalMaso1993}).
+The Szeg\H{o}--Toeplitz convergence analysis
+(supplementary material) sharpens the rate to $O(h^\infty)$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:polygon-einstein}]
+\textbf{(H2) $+$ Lemma~\ref{lem:log-interaction} force $R = \mathrm{const}$.}
 By the mathematical content of~(H2):
 $S_{\mathrm{total}}[g] = \int S(x)\,dA$ is strictly
 concave in~$C_1(x)$, so Jensen's inequality gives a
@@ -720,87 +792,45 @@ The energy constraint is compatible: $V$ is monotone in~$C_1$,
 so fixing $\bar{V}$ fixes $\bar{C}_1$ and the Lagrange
 multiplier is~$\Lambda$.
 
-The $O(\varepsilon^4)$ Seeley--DeWitt correction ($\alpha = 1/48$)
-is subdominant: the concavity-to-correction ratio
-$(N{-}1)\sigma_2/(32\alpha\sigma_1) \ge 7.5$ for all $N \ge 7$
-(see Code Availability), so strict concavity holds
-throughout the small-ring regime.
+\noindent
+\emph{Strict concavity at all orders.}
+The second functional derivative of $S_\varepsilon[R]$ with respect
+to $R(x)$ has two contributions:
+\[
+  \frac{\delta^2 S_\varepsilon}{\delta R(x)^2}
+  \;=\; \underbrace{S''(C_1)\!\left(\frac{\partial C_1}{\partial R}\right)^{\!2}}_{\text{concavity (negative)}}
+  \;+\; \underbrace{S'(C_1)\,\frac{\partial^2 C_1}{\partial R^2}}_{\text{correction}}.
+\]
+From the Hadamard expansion,
+$\partial C_1/\partial R = -(N{-}1)\varepsilon^2/4 + O(\varepsilon^4)$
+and
+$\partial^2 C_1/\partial R^2 = 2(N{-}1)\alpha\,\varepsilon^4$
+with $\alpha = 1/48$ (the angular-averaged second
+Seeley--DeWitt coefficient).
+The concavity term contributes
+$S'' \times (N{-}1)^2\varepsilon^4/16$;
+the correction contributes
+$S' \times 2(N{-}1)\alpha\,\varepsilon^4$.
+Both are $O(\varepsilon^4)$, so $\varepsilon$ cancels from
+their ratio:
+\begin{equation}\label{eq:concavity-ratio}
+  \frac{|S''|\,(N{-}1)}{32\,\alpha\,S'}
+  \;=\; \frac{(N{-}1)\,\sigma_2}{32\,\alpha\,\sigma_1}
+  \;\ge\; 7.5
+  \quad\text{for all } N \ge 7,
+\end{equation}
+where $\sigma_k = \sum_{m \ne m^*} \lambda_m^{-k}$
+(see Code Availability).
+Since the ratio is $\varepsilon$-independent, the concavity
+term dominates the correction at every~$\varepsilon$
+in the stability range.
+Strict concavity of $S_\varepsilon[R]$ holds exactly.
+
+The extension from conical deficits to smooth metrics
+is established by Lemma~\ref{lem:regge-bridge}.
 
 \medskip
-\noindent\emph{Step~3b (Extension to smooth metrics via Regge calculus).}
-The vortex-gravity isomorphism applies to conical deficits
-(point masses), raising the question: how does (H2) constrain
-a \emph{smooth} metric $R(x)$?
-The bridge is Regge calculus \citep{Regge1961}:
-any smooth 2D Riemannian manifold $(S, g)$ is
-approximated by a simplicial complex $(S_h, g_h)$
-in which curvature is concentrated at $V$ vertices,
-each carrying a deficit angle
-$\varepsilon_v \approx R(v)\,A_v$
-(with $A_v$ the dual area).
-The convergence $g_h \to g$ as $h \to 0$ is proved
-\citep{CheegerMullerSchrader1984}; the Green's function
-$G_h \to G$ in the $H^1$-norm (standard finite-element
-convergence).
-Each Regge vertex is a point vortex
-(circulation $\kappa_v = \varepsilon_v/(2\pi)$,
-by the isomorphism), so the Regge system is a
-$V$-vortex configuration.
-The vertex positions are \emph{simultaneously}
-vortex positions and Regge metric degrees of freedom
-(on a fixed triangulation, vertex positions determine
-edge lengths, hence the simplicial metric).
-This identification eliminates the apparent circularity
-of~$H$: the Hamiltonian is a function of vertex positions
-alone, and entropy maximisation is a single finite-dimensional
-optimisation---not an iteration between metric and
-vortex configuration.
-
-\noindent
-The Onsager prerequisites for this Regge system
-are established in Lemma~\ref{lem:onsager-regge}
-(stated before the theorem).
-
-\noindent
-\emph{Curved-background maximiser.}
-On a \emph{flat} background ($\Lambda = 0$),
-conformal invariance
-(Paper~II, Proposition~\ref{II-prop:conformal-invariance})
-gives $G = -(2\pi)^{-1}\log|z{-}w|$,
-independent of the deficit angles.
-On a \emph{curved} background ($\Lambda \ne 0$),
-the Hadamard expansion (Step~2) gives
-$C_1 = (N{-}1)[1 - R(x)\varepsilon^2/4
-+ O(\varepsilon^4)]$, affine in~$R(x)$.
-Since $d^2S/dC_1^2 < 0$, the entropy functional
-$S_\varepsilon[g] = \int_S S(C_1)\,dA_g$
-is strictly concave in~$R$.
-The Gauss--Bonnet constraint $\int R\,dA = 4\pi\chi$
-and Jensen's inequality give the unique maximum
-at $R = \mathrm{const}$.
-$\Gamma$-convergence as $\varepsilon \to 0$
-preserves this maximiser \citep{DalMaso1993}.
-
-\noindent
-Given Lemma~\ref{lem:onsager-regge}, the Onsager
-principle on the $V$-vertex Regge system selects the
-entropy-maximising vertex configuration, which by~(H2a)
-has $C_1(v)$ uniform---hence $R = \mathrm{const}$.
-In the continuum limit $V \to \infty$:
-$S_{\mathrm{Regge}} \to S_{\mathrm{total}}[g]$
-(by the FEM convergence of the Green's function,
-sharpened to $O(h^\infty)$ by the Szeg\H{o}
-estimates below),
-and the entropy-maximising Regge metric converges to
-the entropy-maximising smooth metric
-(strict concavity ensures convergence of maximisers
-under pointwise convergence; \citealt{DalMaso1993}).
-The Szeg\H{o}--Toeplitz convergence analysis
-(supplementary material) sharpens the rate to $O(h^\infty)$.
-
-
-\medskip
-\noindent\emph{Step~3c (Partition function interpretation).}
+\noindent\emph{Partition function interpretation.}
 The total polygon partition function
 $Z[g] = \sum_N e^{-b(N)}\,Z_{\mathrm{frozen}}(N, g)$
 is a functional of the metric~$g$ through
@@ -834,8 +864,8 @@ The explicit $\delta S/\delta g$ computation
 that $R = \mathrm{const}$, independent of the Jensen argument.
 
 \medskip
-\noindent\emph{Step~4 (Higher dimensions).}
-Steps~1--3 are dimension-independent; the extension to
+\noindent\emph{Higher dimensions.}
+The above arguments are dimension-independent; the extension to
 spacetime dimension $d_{\mathrm{st}} \ge 3$ is detailed in
 Remark~\ref{rmk:higher-d}.
 In $d_{\mathrm{st}} = 3$, $R = \mathrm{const}$ suffices
@@ -907,9 +937,33 @@ The WDW kinetic coefficient is the mode-independent offset
 $b(N)$ from the eigenvalue decomposition
 (Proposition~\ref{prop:equiv-rr}), not the CL friction
 $\gamma \sim O(N)$.
-It is uniquely fixed: $b(N)$ is the mode-independent
-offset in $\lambda_m = b(N) - m(N{-}m)/2$, and any other
-coefficient would make the WDW potential $m$-dependent.
+It is uniquely fixed by the following argument.
+The CMS integrability gives the \emph{exact} one-loop
+effective action
+$S_{\mathrm{eff}}(\rho) = -\tfrac{1}{2}\sum_m\log|\lambda_m(\rho)|$.
+The Feynman--Kac theorem maps the classical partition
+function $Z = \int e^{-\beta S_{\mathrm{eff}}}\,d\rho$ to
+the quantum propagator $\langle\rho|e^{-\beta H}|\rho\rangle$
+with $H = -(1/2c)\,d^2/d\rho^2 + V(\rho)$.
+The kinetic coefficient~$c$ is the inverse diffusion constant
+of the breathing mode in the angular bath.
+For the CMS system, the action variables $I_m$ are exact
+constants of motion, so the BO adiabatic separation is
+\emph{exact}: the Havelock
+eigenvectors are $\rho$-independent
+(Lemma~\ref{lem:bo-exact}), so
+non-adiabatic corrections vanish identically.
+The effective potential decomposes as
+$V(\rho) = -(1/2)\sum_m\log|C_1(\rho) - f(m,N)|$;
+writing $C_1 = b(N) + [C_1(\rho) - b(N)]$, the
+coefficient~$b(N)$ is the \emph{unique} value at which
+the linear response $\partial V/\partial C_1 = -(1/2)\sum 1/\lambda_m$
+is mode-independent (because $b(N)$ is the average of
+$\lambda_m + f(m,N)$ over $m$, and the mode sum has
+a single $C_1$-dependent prefactor).
+Any other kinetic coefficient $c' \ne 12\,b(N)$ would
+give a WDW potential that depends separately on each
+mode~$m$, breaking the BO factorisation.
 In the classical limit $c \to \infty$:
 $V(\rho^*) = 0$, giving $\Phi(\rho^*) = f(m^*,N)$ and hence
 $\Lambda = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
@@ -928,11 +982,11 @@ stability boundary---sits exactly at $\Lambda = 0$.
 \end{corollary}
 
 \begin{remark}[Relation to Schur's lemma]
-In $2{+}1$D, Step~4 of the proof is a special case
+In $2{+}1$D, the higher-dimensional extension of the proof is a special case
 of Schur's lemma (isotropic sectional curvature implies
 constant curvature).
 The \emph{added value} of the Havelock derivation is fourfold:
-(a)~Steps~1--4 are new: polygon stability implies isotropic
+(a)~the full argument is new: polygon stability implies isotropic
 Green's function, which Schur alone cannot provide;
 (b)~the curvature value $\Lambda$ is \emph{quantised}
 by the polygon number~$N$ through the explicit formula
@@ -951,13 +1005,13 @@ the observable stability threshold.
 
 \begin{remark}[Characterisation theorem in $d \ge 3$]
 \label{rmk:higher-d}
-Steps~1--3 are dimension-independent:
+The core argument is dimension-independent:
 the $\csc^2$ uniqueness forces a logarithmic interaction
-in any~$d$ (Step~1); the Hadamard parametrix
+in any~$d$ (Lemma~\ref{lem:log-interaction}); the Hadamard parametrix
 $G(x,y) = U/\sigma^{(d-2)/2} + V\log\sigma + W$ contains
-$R(x)$ at order~$\varepsilon^2$ in every~$d$ (Step~2);
-and (H3) forces $R = \mathrm{const}$ (Step~3).
-Step~4 closes differently by dimension:
+$R(x)$ at order~$\varepsilon^2$ in every~$d$;
+and (H3) forces $R = \mathrm{const}$ (Jensen + Onsager).
+The conclusion closes differently by dimension:
 
 \medskip
 \begin{center}
@@ -1038,11 +1092,23 @@ of~$R^{(4)}_{MNPQ}$ are determined by~$N$.
 A perturbation $h_{MN}$ decomposes under KK
 into $h_{ij}$ (metric), $\delta A_i$ (graviphoton),
 $\delta\sigma$ (radion).
-The Lichnerowicz operator on the multi-cone geometry
-reduces to the Havelock Hessian on the
-$\mathbb{Z}_N$-symmetric sector
-(\S\ref{sec:polygon-btz}),
-whose spectrum $\{\lambda_m\}$ is determined by~$N$.
+The Lichnerowicz operator $\Delta_L$ on the multi-cone
+geometry reduces to the Havelock Hessian by the
+following argument.
+The $\mathbb{Z}_N$ rotation symmetry of the regular
+polygon acts as an isometry of the multi-cone metric.
+Since $\Delta_L$ is a geometric operator, it commutes
+with this $\mathbb{Z}_N$ action.
+By Schur's lemma, $\Delta_L$ decomposes into
+$\mathbb{Z}_N$ irreducible representations:
+each perturbation mode carries a definite
+$\mathbb{Z}_N$ charge $m = 0, \ldots, N{-}1$.
+On the $m$-th sector, the angular part of $\Delta_L$
+is a circulant (determined by the $\mathbb{Z}_N$
+Fourier coefficient of the Green's function Hessian),
+whose eigenvalue is $\lambda_m = C_1 - m(N{-}m)/2$
+--- the Havelock eigenvalue.
+The spectrum $\{\lambda_m\}$ is therefore determined by~$N$.
 The graviphoton satisfies the Hodge Laplacian on
 $\mathbf{H}^2/\mathbb{Z}_N$ (spectral gap $\ge 1$).
 The radion is massive ($m^2 = N^2/4$, no zero mode).
@@ -1111,7 +1177,7 @@ The Gibbons--Hawking temperature at the palindromic threshold is
 \emph{Logical role of the Clausius relation.}
 The vacuum Einstein equations $R = \mathrm{const}$ are derived
 \emph{independently} from entropy maximisation
-(Theorem~\ref{thm:polygon-einstein}, Steps~1--3).
+(Theorem~\ref{thm:polygon-einstein}).
 The Clausius relation at the Gibbons--Hawking horizon
 serves a \emph{different} purpose: it extracts the
 gravitational coupling~$G_{\mathrm{eff}}$ from the
@@ -2337,7 +2403,10 @@ In AdS$_3$/CFT$_2$, the Brown--Henneaux scaling
 $C_1 \propto \log(\xi)$ says that
 the Weyl-like anomaly $\delta_m$ is the topological correction
 that carries the arithmetic of the underlying surface, contributing
-corrections of order $\|\delta\|/C_1 \sim 2\%$ at typical parameter values.
+corrections of order $\|\delta\|/C_1 \sim 4/\Delta_\gamma$,
+where $\Delta_\gamma = \mathrm{tr}(\gamma)^2 - 4$ is the discriminant
+of the shortest closed geodesic ($1.6\%$ for $N = 8$,
+$T = 16$; $4.2\%$ for $N = 9$, $T = 10$).
 
 \subsection{Anomaly structure}
 
@@ -2866,7 +2935,7 @@ ensures corrections are $O(e^{-S_{\mathrm{BO}}})$;
 the coefficient $c = 12\,b(N)$ is classical
 (Proposition~\ref{prop:equiv-rr}).
 The Feynman--Kac transfer matrix gives $H\Psi_0 = 0$
-(the WDW equation, Step~4 above), with Born rule
+(the WDW equation, Proposition~\ref{prop:wdw-lambda}), with Born rule
 $|\Psi_0|^2 = e^{-\beta V}/Z$ as a mathematical consequence:
 \begin{center}
 \small
@@ -2891,7 +2960,7 @@ are derived:
 \begin{enumerate}
 \item[\textup{(Q1)}] \emph{Hilbert space.}
   $\mathcal{H} = L^2(\mathbb{R},\,d\rho)$
-  (Feynman--Kac, Step~4 above).
+  (Feynman--Kac, Proposition~\ref{prop:wdw-lambda}).
 \item[\textup{(Q2)}] \emph{Hamiltonian.}
   $H = -\tfrac{1}{2c}\,d^2/d\rho^2 + V(\rho)$
   with $c = 12\,b(N)$ (CL mechanism $+$ orbifold matching).

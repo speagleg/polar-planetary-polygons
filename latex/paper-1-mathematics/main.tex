@@ -29,7 +29,7 @@ curvature, and show that the five algebraic-integer thresholds
 on the hyperbolic plane are Pell units in quadratic fields,
 terminating at~$\xi^*(23) = \varphi^{-2}$.
 These thresholds correspond to closed geodesics on the modular
-surface with traces $c = 2 + 16/(N{-}7)$.
+surface with traces $T = 2 + 16/(N{-}7)$.
 \end{abstract}
 
 
@@ -45,6 +45,9 @@ a two-dimensional surface admits a decomposition
 that separates a single surface-dependent number $C_1$ from a
 universal function $f(m,N) = m(N{-}m)/2$ determined entirely by the
 representation theory of the cyclic group $\mathbb{Z}_N$.
+In words: the stability of any regular polygon depends on one
+number~$C_1$ encoding the surface geometry, minus a contribution
+$m(N{-}m)/2$ that depends only on the polygon's symmetry.
 Every stability result on every constant-curvature surface (flat
 plane, sphere, hyperbolic plane) follows from this formula with
 one number substituted in.
@@ -1464,7 +1467,7 @@ unit $\varepsilon$ of $\mathbb{Q}(\sqrt{D})$:
 \begin{tabular}{ccllcc}
 \toprule
 $N$ & $D$ & Fundamental unit $\varepsilon$ &
-$\xi^*(N)$ & $c = -B/A$ & Norm$(\varepsilon)$ \\
+$\xi^*(N)$ & $T = -B/A$ & Norm$(\varepsilon)$ \\
 \midrule
 $8$  & $7$ & $8 + 3\sqrt{7}$       & $\varepsilon^{-1}$
   & $16$ & $+1$ \\
@@ -1697,33 +1700,33 @@ inversion on the thresholds in its field component.
 \end{proof}
 
 \paragraph{Stability thresholds as closed geodesics.}
-The monic palindromic polynomial $\xi^2 - c\,\xi + 1 = 0$
-with $c \in \mathbb{Z}$ is simultaneously the characteristic polynomial
+The monic palindromic polynomial $\xi^2 - T\,\xi + 1 = 0$
+with $T \in \mathbb{Z}$ is simultaneously the characteristic polynomial
 of a hyperbolic element $\gamma \in \mathrm{SL}(2,\mathbb{Z})$
-with trace $\mathrm{tr}(\gamma) = c$.  The eigenvalues of $\gamma$
+with trace $T = \mathrm{tr}(\gamma)$.  The eigenvalues of $\gamma$
 are $\varepsilon$ and $\varepsilon^{-1} = \xi^*$---exactly the
 stability threshold and its conformal inverse.
 Each such $\gamma$ defines a primitive conjugacy class of
 $\mathrm{SL}(2,\mathbb{Z})$, hence a primitive closed geodesic
 on the modular surface $\mathrm{SL}(2,\mathbb{Z})\backslash
 \mathbf{H}^2$ of length
-$\ell = 2\,\mathrm{arccosh}(c/2) = 2\ln\varepsilon$.
+$\ell = 2\,\mathrm{arccosh}(T/2) = 2\ln\varepsilon$.
 
 \begin{proposition}[Geodesic structural observation]
 \label{prop:geodesic-correspondence}
 The five algebraic-integer stability thresholds correspond to
 five primitive closed geodesics on the modular surface.
 For odd $N \in \{9, 11, 15, 23\}$ the traces are
-$c = 2 + 16/(N{-}7)$
-(equivalently, $N = 7 + 16/(c{-}2)$);
+$T = 2 + 16/(N{-}7)$
+(equivalently, $N = 7 + 16/(T{-}2)$);
 for $N = 8$ the trace is $c = 16$ (direct computation).
-The full discriminant $\Delta = c^2 - 4$ decomposes as
+The full discriminant $\Delta = T^2 - 4$ decomposes as
 $\Delta = f^2 D$ where $D$ is the squarefree part and $f$ is
 the conductor:
 \begin{center}
 \begin{tabular}{ccccclll}
 \toprule
-$N$ & $c$ & $\Delta$ & $f$ & $D$ &
+$N$ & $T$ & $\Delta$ & $f$ & $D$ &
   Geodesic & $\mathrm{SL}(2,\mathbb{Z})$ \\
 \midrule
 $23$ & $3$  & $5$   & $1$ & $5$ &
@@ -1740,7 +1743,7 @@ $8$  & $16$ & $252$ & $6$ & $7$ &
 \bottomrule
 \end{tabular}
 \end{center}
-The terminal case $N = 23$ ($c = 3$) corresponds to
+The terminal case $N = 23$ ($T = 3$) corresponds to
 $Q^2 = \bigl[\begin{smallmatrix}2&1\\1&1\end{smallmatrix}\bigr]$,
 the square of the standard Fibonacci matrix
 $Q = \bigl[\begin{smallmatrix}1&1\\1&0\end{smallmatrix}\bigr]$;
@@ -1753,29 +1756,29 @@ merely in a suborder.
 \begin{proof}
 The correspondence is a consequence
 of the palindromic structure~\eqref{eq:palindromic}.
-Any monic palindromic quadratic with integer trace~$c$
+Any monic palindromic quadratic with integer trace~$T$
 and constant term~$1$ is \emph{automatically} the
 characteristic polynomial of a matrix in
 $\mathrm{SL}(2,\mathbb{Z})$:
 $M = \bigl[\begin{smallmatrix}a&b\\c'&d\end{smallmatrix}\bigr]$
-with $\det M = ad - bc' = 1$ and $\mathrm{tr}\,M = c$.
+with $\det M = ad - bc' = 1$ and $\mathrm{tr}\,M = T$.
 (Existence: the companion matrix
-$\bigl[\begin{smallmatrix}0&-1\\1&c\end{smallmatrix}\bigr]$
-has trace~$c$, determinant~$1$.)
+$\bigl[\begin{smallmatrix}0&-1\\1&T\end{smallmatrix}\bigr]$
+has trace~$T$, determinant~$1$.)
 Each such matrix defines a primitive hyperbolic conjugacy
 class, hence a primitive closed geodesic of length
-$\ell = 2\,\mathrm{arccosh}(c/2) = 2\ln\varepsilon$.
-For odd~$N$, the trace is $c = 2(N{+}1)/(N{-}7) = 2 + 16/(N{-}7)$
+$\ell = 2\,\mathrm{arccosh}(T/2) = 2\ln\varepsilon$.
+For odd~$N$, the trace is $T = 2(N{+}1)/(N{-}7) = 2 + 16/(N{-}7)$
 (Proposition~\ref{prop:alg-int}).
 For even~$N = 8$ the ratio $B/A = 16$ directly from the palindromic
 polynomial (the odd-$N$ formula does not apply).
-The conductor $f$ satisfies $c^2 - 4 = f^2 D$ where
-$D = \mathrm{sq\_free}(c^2 - 4)$.
-Among the five traces $c \in \{16, 10, 6, 4, 3\}$,
-the discriminants $c^2 - 4 = \{252, 96, 32, 12, 5\}$
+The conductor $f$ satisfies $T^2 - 4 = f^2 D$ where
+$D = \mathrm{sq\_free}(T^2 - 4)$.
+Among the five traces $T \in \{16, 10, 6, 4, 3\}$,
+the discriminants $T^2 - 4 = \{252, 96, 32, 12, 5\}$
 have squarefree parts $\{7, 6, 2, 3, 5\}$ and
 conductors $f = \{6, 4, 4, 2, 1\}$.
-Only $c = 3$ ($N = 23$) gives $f = 1$,
+Only $T = 3$ ($N = 23$) gives $f = 1$,
 since $5$ is the only squarefree discriminant.
 The structural reason for the correspondence is:
 the conformal inversion symmetry of the Havelock

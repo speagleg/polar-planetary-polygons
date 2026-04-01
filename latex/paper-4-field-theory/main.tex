@@ -107,9 +107,17 @@ no geometric input):
   negatively curved base with a \emph{non-trivial}
   compact fiber.
   (The product $\mathbf{H}^2 \times S^1$ also has a
-  negatively curved base, but has Euler class $e = 0$;
-  the $N$ cone points require non-trivial holonomy
-  around the fiber, forcing $e \ne 0$, i.e.\ Seifert.)
+  negatively curved base, but has Euler class $e = 0$.
+  The $\mathbb{Z}_N$ orbifold action $\varphi \to
+  \varphi + 2\pi/N$ on the fiber generates $N$ cone
+  points on the base, each with isotropy
+  $\mathbb{Z}_N$.
+  By the orbifold Euler number formula
+  $\chi_{\mathrm{orb}} = \chi + \sum_i (1 - 1/n_i)$,
+  the non-trivial isotropy requires non-trivial fiber
+  holonomy around each cone point, which gives Euler
+  class $e = N/2 \ne 0$.  The manifold is therefore
+  Seifert, not a product.)
 \end{enumerate}
 No step requires knowing the geometry in advance:
 the logical flow is
@@ -517,12 +525,27 @@ Massive KK modes ($m \ne 0$) are matter fields coupled to this gravity.
 Pure $2{+}1$D gravity with $\Lambda < 0$ is equivalent to
 Chern--Simons theory with gauge group
 $\mathrm{SL}(2,\mathbb{R}) \times \mathrm{SL}(2,\mathbb{R})$
-(Lorentzian) or $\mathrm{SU}(2) \times \mathrm{SU}(2)$ (Euclidean),
-at level $k = \ell/(4G)$.
-With $\ell = 1$ and $G = 3/(2c)$: $k = c/6 = 2\,b(N)$.
-(The non-compact $\mathrm{SL}(2,\mathbb{R})$ admits
-irrational level $k = 2b(N)$; see Paper~III,
-\S\ref*{III-sec:graviton}.)
+in Lorentzian signature.
+The Euclidean continuation replaces
+$\mathrm{SL}(2,\mathbb{R})$ by $\mathrm{SU}(2)$
+(\citealt{Witten1988}, \S2.3): the CS path integral
+converges for the compact group, and the Lorentzian
+observables are recovered by analytic continuation of
+the CS partition function.
+The level is $k = \ell/(4G)$;
+with $\ell = 1$ and $G = 3/(2c)$: $k = c/6 = 2\,b(N)$.
+The gravitational sector uses the non-compact
+$\mathrm{SL}(2,\mathbb{R})$, which admits irrational level
+(Paper~III, \S\ref*{III-sec:graviton});
+the compact gauge sectors ($\mathrm{SU}(2)$,
+$\mathrm{SU}(3)$, $\mathrm{U}(1)$) are quantised
+at $k = 1$ by large gauge invariance.
+The representation theory, coupling constants, and
+conformal weights used below are all computed in the
+Euclidean formulation --- the standard procedure in
+gauge theory (all SM cross-sections use Euclidean
+Feynman rules, analytically continued to
+Minkowski signature).
 The compact gauge sectors have integer levels
 $k = 1$ for $\mathrm{SU}(2)$, $\mathrm{SU}(3)$, and
 $\mathrm{U}(1)$ (large gauge invariance).
@@ -630,10 +653,30 @@ two contributions to the effective CS level:
   parity-odd level shift
   $\Delta k_{\mathrm{grav}} = \eta(M)/2$
   that distinguishes $A^+$ from~$A^-$.
-  The eta invariant is computed \emph{exactly} via Dedekind sums
-  (see Code Availability):
-  using the closed form $s(1,N) = (N{-}1)(N{-}2)/(12N)$
-  for the Dedekind sum, the gravitational contribution is
+
+  \emph{Derivation.}
+  The Seifert manifold~$M$ is a circle bundle over the
+  orbifold $\Sigma = \mathbf{H}^2/\mathbb{Z}_N$, which has
+  one cone point of order~$N$.
+  The adiabatic limit theorem
+  \citep{BismutCheeger1989,Dai1991}
+  decomposes the eta invariant of the Dirac operator
+  on a circle bundle into a base contribution
+  and singular-fiber corrections:
+  $\eta(M) = \eta(\Sigma) + \eta_{\mathrm{sing}}$.
+  The base contribution vanishes:
+  $\eta(\Sigma) = 0$ because the Dirac operator on a
+  $2$D surface has symmetric spectrum
+  ($\lambda \leftrightarrow -\lambda$).
+  The singular-fiber correction is determined by the
+  local lens-space geometry $L(N,1)$ around the cone
+  point:
+  $\eta_{\mathrm{sing}} = -4\,s(1,N) + (N{-}1)/(6N)$,
+  where $s(a,N) = (1/4N)\sum_{k=1}^{N-1}
+  \cot(\pi k/N)\cot(\pi ak/N)$ is the Dedekind sum.
+  For $a = 1$: the identity
+  $\sum_{k=1}^{N-1}\cot^2(\pi k/N) = (N{-}1)(N{-}2)/3$
+  gives $s(1,N) = (N{-}1)(N{-}2)/(12N)$, hence
   \begin{equation}\label{eq:eta-grav}
     \eta_{\mathrm{grav}}(N)
     = -4\,s(1,N) + \frac{N{-}1}{6N}
@@ -642,7 +685,8 @@ two contributions to the effective CS level:
   This is nonzero for all $N \ge 3$ ($\eta_{\mathrm{grav}} = 0$
   only at $N = 5/2$, which is not an integer).
   Explicit values: $\eta(4) = -3/8$, $\eta(7) = -9/7$,
-  $\eta(11) = -85/33$.
+  $\eta(11) = -85/33$
+  (verified numerically; see Code Availability).
 \end{enumerate}
 The combined asymmetry is
 $|k_L^{\mathrm{eff}} - k_R^{\mathrm{eff}}|
@@ -652,8 +696,25 @@ for all $N \ge 3$.
 with the standard fiber orientation, $A^-$ has the larger
 effective level, so the \emph{physical} weak force is
 identified with the sector having the \emph{smaller} effective~$k$.)
-At low energies ($E \ll M_{\mathrm{KK}}$), only the enhanced sector
-has massless gauge bosons; the suppressed sector is gapped.
+The mass gap follows from topologically massive gauge theory
+\citep{DeserJackiwTempleton1982}:
+a $2{+}1$D gauge field with both a YM kinetic term and
+a CS term at level~$k$ acquires a topological mass
+$m_{\mathrm{top}} = |k_{\mathrm{eff}}|\,g^2/(4\pi)$.
+With $g^2 = 4\pi/k_{\mathrm{bare}}$ from KK reduction,
+this gives $m_{\mathrm{top}} = |k_{\mathrm{eff}}/k_{\mathrm{bare}}|/\ell$.
+At $N = 7$ with $k_{\mathrm{bare}} = 1$ and
+$|\eta_{\mathrm{grav}}| = 9/7$:
+$k_R^{\mathrm{eff}} = 1 - 9/14 = 5/14 \approx 0.36$
+and $k_L^{\mathrm{eff}} = 1 + 9/14 = 23/14 \approx 1.64$,
+giving topological masses
+$m_R \approx 0.36/\ell$ and $m_L \approx 1.64/\ell$
+(ratio $m_L/m_R \approx 4.6$).
+At $\ell \sim 1/M_{\mathrm{poly}}$:
+$m_L \sim 490$\,TeV, $m_R \sim 107$\,TeV.
+The sector with the larger effective level has heavier
+gauge bosons; at energies $E \ll m_R$, only the
+lighter sector propagates.
 This is the origin of parity violation in the weak interaction:
 \emph{the Seifert geometry is not parity-invariant, so the
 gauge theory it generates is not either.}
@@ -705,9 +766,24 @@ theorem (1989), which predates AdS/CFT.
 Five algebraic steps.
 
 \emph{1.\ Frobenius orbits.}
-$\sigma\colon m \mapsto 2m \bmod 7$ has order~$3$
-($2^3 \equiv 1$), giving orbits
+The multiplicative group
+$(\mathbb{Z}/7\mathbb{Z})^* \cong \mathbb{Z}/6\mathbb{Z}$
+has a unique subgroup of order~$3$:
+$\langle 2 \rangle = \{1, 2, 4\}$
+(equivalently $\langle 4 \rangle$, since $4 = 2^2$;
+the generator is not a choice --- the \emph{subgroup} is
+unique).
+The Frobenius action $\sigma\colon m \mapsto 2m \bmod 7$
+has order~$3$, giving orbits
 $O_+ = \{1, 2, 4\}$, $O_- = \{3, 5, 6\}$.
+The other subgroups of $(\mathbb{Z}/7\mathbb{Z})^*$
+do not give the needed structure:
+$\mathbb{Z}/2\mathbb{Z} = \{1, 6\}$
+acts by $m \mapsto -m$ (the palindromic involution,
+already identified with conformal inversion in Paper~I);
+$\mathbb{Z}/6\mathbb{Z}$ is the full group,
+giving a single orbit of size~$6$ with no complementary
+decomposition into $\mathbf{3} \oplus \bar{\mathbf{3}}$.
 
 \emph{2.\ Cyclic action.}
 On~$O_+$: $\phi_1 \mapsto \phi_2 \mapsto \phi_4 \mapsto \phi_1$.
@@ -786,19 +862,49 @@ determine the gauge group and the CS level:
   \citep{Witten1988}); the orbifold group is
   $\mathbb{Z}/3\mathbb{Z}$ (a symmetry of the WZW model,
   Step~B4).
-  \emph{Caveat:} The DHVW construction is rigorously
-  established for rational CFTs; at irrational
-  $c = 12\,b(7) \approx 51.6$, the modular properties
-  of the orbifold partition function require the
-  $\mathbb{Z}/3\mathbb{Z}$ action to preserve the
-  holomorphic factorisation, which holds because the
-  action is an \emph{inner automorphism} of the
-  current algebra (not a general outer automorphism).
+  \emph{Modular invariance at irrational~$c$.}
+  The DHVW orbifold partition function
+  $Z_{\mathrm{orb}} = (1/|G|)\sum_{g,h \in G} Z_g^h$
+  is modular invariant at \emph{any} central charge:
+  the transformation rules
+  $Z_g^h(\tau{+}1) = Z_g^{gh}(\tau)$ and
+  $Z_g^h(-1/\tau) = Z_h^{g^{-1}}(\tau)$
+  are geometric (the action of $\mathrm{SL}(2,\mathbb{Z})$
+  on the torus with twisted boundary conditions) and
+  do not require rationality of~$c$
+  \citep{DixonHarveyVafaWitten1985,Vafa1986}.
+  Rationality is needed only to decompose $Z_g^h$ into
+  finitely many characters, which is not required here.
+  The $\mathbb{Z}/3\mathbb{Z}$ action is an
+  \emph{inner automorphism} (the Frobenius lies in the
+  Weyl group of $\mathrm{PSL}(2,\mathbb{F}_7)$,
+  acting by conjugation on the current algebra generators).
+  For inner automorphisms, the twisted sectors are
+  constructed by spectral flow of untwisted operators:
+  the OPE closes, the Hilbert space is well-defined,
+  and the orbifold is a consistent CFT at every~$c$
+  \citep{SchellekensYankielowicz1990}.
+  The Cardy formula for the asymptotic density of states,
+  $\rho(\Delta) \sim \exp(2\pi\sqrt{c\Delta/6})$, is a
+  \emph{theorem} about any modular-invariant partition
+  function with a unique vacuum \citep{Cardy1986}.
+  The orbifold vacuum is unique (the identity operator
+  is $\mathbb{Z}/3$-invariant), and the twist-field
+  dimensions $h_k = 2/9 > 0$ introduce no new ground
+  states below the vacuum.
+  The Cardy constraint is therefore satisfied at
+  every~$c$, with $c_{\mathrm{eff}} = c$.
   The DHVW construction produces $\hat{\mathfrak{g}}_1$ for
   any $\Gamma \subset \mathrm{SU}(2)$: the twist-field
-  conformal dimension $h_k = k(N_\Gamma{-}k)/N_\Gamma^2$
-  fixes the current algebra level to~$1$
-  (determined by the orbifold structure, not by~$c$).
+  conformal dimension is
+  $h_k = k(N_\Gamma{-}k)/N_\Gamma^2$,
+  which is $c$-independent because it is determined by
+  the monodromy of the twist field (the eigenvalue
+  $e^{2\pi ik/N_\Gamma}$ of the orbifold generator acting
+  on the local coordinate, giving $h = k/N_\Gamma - k^2/N_\Gamma^2$
+  by the standard bosonisation formula for a twist
+  with phase $e^{2\pi i k/N}$).
+  This fixes the current algebra level to~$1$.
 \end{itemize}
 The $\mathrm{SU}(3)_1$ Chern--Simons theory is a
 \emph{separate sector} from the gravitational
@@ -849,9 +955,18 @@ has three links, each a theorem:
   and massive KK modes $M_n = n/R_{S^1}$);
 \item $\mathrm{YM}_2$ on $\mathbf{H}^2$ $+$ WDW time direction
   $\to$ $\mathrm{YM}_{3+1}$: the breathing mode~$\rho(t)$
-  provides the time direction (via Feynman--Kac,
-  Paper~III, \S\ref*{III-sec:qm-gr-bridge}), promoting the spatial 2D gauge
-  field to a $(3{+}1)$D gauge theory.
+  (the scale factor of the $\mathbf{H}^2$ slice) satisfies
+  the WDW equation $H\Psi = 0$
+  (Paper~III, Proposition~\ref*{III-prop:wdw-lambda}).
+  The Feynman--Kac theorem identifies the WDW
+  evolution parameter with Euclidean time
+  (Paper~III, \S\ref*{III-sec:qm-gr-bridge}):
+  the WKB solution $\Psi_0 \propto e^{-\int V\,d\rho}$
+  evolves monotonically in~$\rho$, so $\rho$ is a good time
+  coordinate.
+  The gauge field $A^{(0)}$ on the spatial $\mathbf{H}^2$
+  thereby acquires the time direction~$\rho$, giving
+  $\mathrm{YM}_{2+1}$.
   The KK tower $A^{(n)}$ with $n \ge 1$ provides the
   additional spatial dimension (the $S^1$ fiber),
   completing $1 + 2 + 1 = 4$ dimensions.
@@ -1028,56 +1143,33 @@ gives $\hat{\mathfrak{g}}_1$), not a minimality assumption.
 As a cross-check: $k = 2$ would give $\sin^2\theta_W = 1/3$,
 and $k = 3$ gives $5/13$; both are experimentally excluded.
 
-\emph{Step~3 (Mixing angle from conformal weights).}
-In CS/WZW theory, the gauge--matter coupling strength
-is the conformal weight
-\begin{equation}\label{eq:conformal-coupling}
-  h_R \;=\; \frac{C_2(R)}{k + h^\vee},
-\end{equation}
-the quadratic Casimir normalised by the quantum-shifted level.
-This is the fundamental measure of coupling strength in
-CS theory: $h_R$ determines the braiding phase
-($\theta_R = 2\pi h_R$), the anomalous dimension of the
-boundary operator, and the gauge-exchange contribution to
-the matter self-energy \citep{Witten1989Jones}.
-It enters every physical observable of the CS/WZW theory
-and is already used elsewhere in this paper
-(the Higgs quartic calculation below
-uses $h = 2/3$ at the critical mode).
-
-In 4D Yang--Mills, the gauge coupling~$g$ is
-representation-independent, so
-$\sin^2\theta_W = g'^2/(g^2 {+} g'^2)$
-involves gauge couplings alone.
-In the KK-reduced CS theory, the couplings are
-representation-dependent.
+\emph{Step~3 (Mixing angle from KK-reduced Yang--Mills couplings).}
 The KK reduction of $\mathrm{CS}_3$ on $\mathbf{H}^2 \times S^1(R)$
 at level~$k$ gives $\mathrm{YM}_2$ on~$\mathbf{H}^2$
 with bare coupling $g^2 = 2\pi/((k{+}h^\vee)\,R)$
 (\citealt{BlauThompson1993}; the shift $k \to k{+}h^\vee$
 is the standard one-loop CS renormalisation).
-The gauge--matter vertex couples with strength $g \times T^a_R$,
+The gauge--matter vertex couples with strength $g \times T^a_R$
+(the Lie-algebra generator in representation~$R$),
 so the \emph{effective} coupling for matter in representation~$R$ is
-\[
+\begin{equation}\label{eq:conformal-coupling}
   \alpha_{\mathrm{eff}}(R)
-  = g^2 \times C_2(R)
-  = \frac{2\pi}{(k{+}h^\vee)\,R}\,C_2(R)
-  = \frac{2\pi\,h_R}{R},
-\]
-where $h_R = C_2(R)/(k{+}h^\vee)$ is the conformal
-weight~\eqref{eq:conformal-coupling}.
+  \;=\; g^2 \times C_2(R)
+  \;=\; \frac{2\pi\,C_2(R)}{(k{+}h^\vee)\,R}.
+\end{equation}
+The Lie-algebra Casimir $C_2(R) = \sum_a (T^a_R)^2$ is a property
+of the representation, independent of~$k$.
 The fibre radius~$R$ cancels in the mixing angle ratio:
 \begin{equation}\label{eq:weinberg-cs}
   \sin^2\theta_W
   = \frac{g_Y^2\,C_2(Y)}{g_Y^2\,C_2(Y) + g_W^2\,C_2(W)}
   = \frac{Q^2/K}{\;Q^2/K \;+\; j(j{+}1)/(k{+}h^\vee)\;}.
 \end{equation}
-The numerator and denominator are gauge couplings
-($g^2 = 2\pi/((k{+}h^\vee)R)$, from the CS level)
-times Lie-algebra Casimirs ($C_2 = j(j{+}1)$,
-representation-theoretic).
-These are independent inputs: the CS level determines
-the coupling strength; the Casimir determines the charge.
+The numerator and denominator are products of two
+independent factors: the YM coupling $g^2 = 2\pi/((k{+}h^\vee)R)$
+(determined by the CS level via KK reduction) and the
+Lie-algebra Casimir $C_2$ (a property of the representation,
+independent of~$k$).
 Substituting from Steps~1--2
 ($Q^2 = 1/4$, $K = 1$, $j = 1$, $k{+}h^\vee = 3$):
 \[
@@ -1087,21 +1179,50 @@ Substituting from Steps~1--2
 \]
 \end{proof}
 
-\begin{remark}[Integrable bound]
+\begin{remark}[The $j = 1$ representation and the integrable bound]
 \label{rem:j1-bound}
 The integrable bound $j \le k/2 = 1/2$ of
 $\mathrm{SU}(2)_1$ constrains which representations
-appear as \emph{states} in the TQFT Hilbert space
-(quantum dimension, braiding);
-it does not constrain which representations appear
-as \emph{matter} coupled to the gauge field.
-In~\eqref{eq:weinberg-cs}, the denominator
-$(k{+}h^\vee) = 3$ enters through the gauge coupling
-$g^2 = 2\pi/((k{+}h^\vee)R)$ (a property of the
-CS theory at level~$k$, independent of
-any representation), while the numerator $C_2 = j(j{+}1)$
-is the Lie-algebra Casimir (a property of the
-matter representation, independent of~$k$).
+appear as \emph{anyonic quasiparticles} in the TQFT
+Hilbert space (well-defined braiding and fusion).
+The Lie-algebra Casimir entering the gauge coupling
+formula is a separate object, independent of~$k$.
+
+\emph{(i)~Independence of coupling and spectrum.}
+The gauge coupling $g^2 = 4\pi/k$ (from KK reduction)
+is representation-independent --- it depends only on the
+CS level.  The coupling to matter in representation~$R$
+involves $g \cdot T^a_R$, where $T^a_R$ are the
+Lie-algebra generators.  The Casimir
+$C_2(R) = \sum_a (T^a_R)^2$ is a property of
+the \emph{Lie algebra} $\mathfrak{su}(2)$, not of the
+CS level~$k$.  The same Casimir $C_2 = j(j{+}1)$
+appears in 4D YM, 3D CS$+$YM, and 2D WZW --- it is
+level-independent.
+
+\emph{(ii)~Analogy with QCD.}
+In $\mathrm{SU}(3)$ at CS level $k = 1$, the integrable
+representations are only $j = 0$ (trivial) and
+$j = 1$ (fundamental).  Yet gluons transform in the
+adjoint ($j = 1$ of $\mathrm{SU}(3)$, with
+$C_2 = 3$), which is not integrable at $k = 1$.
+The adjoint representation is forbidden as a TQFT
+state but is the correct representation for the
+gauge-field dynamics.
+
+\emph{(iii)~Zero quantum dimension.}
+At $k = 1$, the quantum dimension of $j = 1$
+is $d_1 = \sin(3\pi/3)/\sin(\pi/3) = 0$:
+the representation is invisible to the topological
+sector.
+The matter sector propagates through the YM kinetic
+term (from KK reduction), not through topological braiding.
+The zero quantum dimension means the
+$j = 1$ mode does not appear as an anyon;
+the Casimir $C_2 = 2$ enters the
+gauge coupling formula~\eqref{eq:weinberg-cs}
+through the Lie algebra.
+
 The quantum number $j = 1$ is fixed by the vortex
 Casimir: $f(m^*,4) = 2 = j(j{+}1)$.
 \end{remark}
@@ -1254,7 +1375,7 @@ $t_E \to it_L$ of the Euclidean boundary CFT to Lorentzian
 signature, which is well-defined because the CFT is unitary
 (DHVW orbifold of a unitary WZW model).
 Lorentz invariance follows from the Einstein equations
-(Theorem~\ref*{III-thm:polygon-einstein}, Steps~1--3).
+(Theorem~\ref*{III-thm:polygon-einstein}).
 \end{remark}
 
 
@@ -1367,7 +1488,7 @@ Weinberg angle running; all mass \emph{ratios} are then fixed.
 the orbifold image suppression (\S\ref{sec:ckm-np}) gives
 $|V_{cb}| = 0.044$.
 
-\subsection{The Yukawa texture from KK charge conservation}
+\subsection{The Yukawa texture from KK charge conservation \textnormal{[exact]}}
 \label{sec:yukawa}
 
 The Yukawa coupling $Y_{ij}$ between fermion pairs $i$, $j$ and the
@@ -1384,7 +1505,7 @@ Evaluating for all pairs:
 with four texture zeros at $(1,1)$, $(2,3)$, $(3,2)$, $(3,3)$---determined
 entirely by the arithmetic of $\mathbb{Z}/7\mathbb{Z}$.
 
-\subsection{The 2+1 mass pattern and the exact tree-level ratio}
+\subsection{The 2+1 mass pattern and the exact tree-level ratio \textnormal{[exact]}}
 
 The matrix $YY^\dagger$ is block-diagonal:
 a $2 \times 2$ block (pairs~1,2) and a $1 \times 1$ block (pair~3).
@@ -1400,7 +1521,7 @@ giving the exact tree-level mass ratio
 while the lightest mass $m_3 \propto e^{-\sigma/2}$ is
 exponentially suppressed by the warp factor~$\sigma$.
 
-\subsection{Up--down splitting from the $N = 4$ isospin}
+\subsection{Up--down splitting from the $N = 4$ isospin \textnormal{[exact]}}
 \label{sec:up-down}
 
 The $\mathrm{SU}(2)$ doublet structure from the $N = 4$ sector
@@ -1410,7 +1531,7 @@ The combined bulk mass $c_{k,I} = \sqrt{\mu_{7,k}^2 + \mu_{4,I}^2}$
 separates the two types, with down-type having larger~$c$
 (more UV-localised, hence lighter).
 
-\subsection{The fermion mass hierarchy}
+\subsection{The fermion mass hierarchy \textnormal{[one-parameter: $\sigma$]}}
 \label{sec:mass-hierarchy}
 
 The tree-level texture~\eqref{eq:yukawa-texture} has $Y_{33} = 0$
@@ -1530,7 +1651,7 @@ the sensitivity of light-quark masses to the Higgs profile
 tail and QCD running to~$2$\,GeV; the qualitative prediction
 $m_u < m_d \ll m_s$ is robust and parameter-free.
 
-\subsection{Sector decoupling}
+\subsection{Sector decoupling \textnormal{[exact]}}
 \label{sec:decoupling}
 
 The $N = 7$ and $N = 8$ polygon sectors are decoupled by the
@@ -1541,7 +1662,7 @@ integer solution ($\gcd(8,56) = 8$ does not divide~$28$).
 The texture zeros of the $N = 7$ Yukawa are topologically
 protected.
 
-\subsection{CKM mixing matrix}
+\subsection{CKM mixing matrix \textnormal{[one-parameter: $\sigma$]}}
 \label{sec:ckm-tree}
 
 \emph{Roadmap.}
@@ -1580,7 +1701,7 @@ The Cabibbo angle $\theta_C = 13.7^\circ$ (observed $13.0^\circ$,
 $5\%$ off).
 The hierarchy $|V_{us}| \gg |V_{cb}| \gg |V_{ub}|$ is predicted.
 
-\subsection{The CKM phase}
+\subsection{The CKM phase \textnormal{[exact]}}
 \label{sec:ckm-phase}
 
 \begin{theorem}[CKM phase from the scattering phase on~$\mathbf{H}^2$]
@@ -1726,7 +1847,7 @@ The model's own perturbative CKM matrix gives $J = 3.5 \times 10^{-5}$
 (observed: $3.0 \times 10^{-5}$, $17\%$ match), which \emph{is}
 a genuine prediction since all entries are computed from~$N = 7$.
 
-\subsection{Non-perturbative CKM}
+\subsection{Non-perturbative CKM \textnormal{[non-perturbative]}}
 \label{sec:ckm-np}
 The non-perturbative CKM combines the BF-crossing phase
 $\delta = 70.2^\circ$ (Theorem~\ref{thm:ckm-phase}) with
