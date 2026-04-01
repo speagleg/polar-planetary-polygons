@@ -160,8 +160,9 @@ The other seven fail:
 $\mathbf{E}^3$, Nil, Sol have non-negatively curved bases;
 $\mathbf{S}^3$ and $\mathbf{S}^2 \times \mathbb{R}$ have positive
 curvature;
-$\mathbf{H}^3$ and $\mathbf{H}^2 \times \mathbb{R}$ have no compact
-fiber \citep{Thurston1982}.
+$\mathbf{H}^3$ has no fibration;
+$\mathbf{H}^2 \times \mathbb{R}$ has Euler class $e = 0$
+(trivial fibration, no holonomy) \citep{Thurston1982}.
 \end{proof}
 
 \noindent
@@ -1089,22 +1090,16 @@ Substituting the values from Steps~1--2:
 
 \begin{remark}[Integrable bound]
 \label{rem:j1-bound}
-The spin $j = 1$ exceeds the integrable bound
-$j \le k/2 = 1/2$ of $\mathrm{SU}(2)_1$:
-the $j = 1$ representation has quantum dimension $d_q = 0$
-and no normalizable state in the TQFT Hilbert space.
-The mixing angle $\sin^2\theta_W$~\eqref{eq:weinberg-cs}
-is the ratio of \emph{bare} gauge couplings at the polygon
-scale, where the theory is the KK-reduced Yang--Mills action.
-The Lie-algebra Casimir $C_2(j) = j(j{+}1)$ enters through
-the Yang--Mills vertex $g \times T^a_R$, which is
-$k$-independent.
-The critical Havelock mode at $N = 4$ \emph{is} physical
-in the vortex system ($\lambda_{m^*} = 0$ at threshold);
-the quantum number $j = 1$ is determined by the vortex
-Casimir $f(m^*,4) = 2 = j(j{+}1)$.
-The alternative $j = 1/2$ gives $\sin^2\theta_W = 1/2$,
-excluded by experiment.
+The integrable bound $j \le k/2 = 1/2$ of
+$\mathrm{SU}(2)_1$ constrains the non-perturbative
+TQFT Hilbert space (quantum dimension, braiding),
+not perturbative gauge couplings.
+The mixing angle~\eqref{eq:weinberg-cs}
+uses the Lie-algebra Casimir $C_2(j{=}1) = 2$,
+which enters the Yang--Mills vertex independently
+of~$k$ (Step~3 above).
+The quantum number $j = 1$ is fixed by the vortex
+Casimir: $f(m^*,4) = 2 = j(j{+}1)$.
 \end{remark}
 
 \paragraph{Comparison with unification frameworks.}
@@ -1642,9 +1637,9 @@ The $\mathbf{H}^2$ scattering matrix for the Dirac operator
 at spectral parameter~$s$ is
 $S(s) = \Gamma(\tfrac{1}{2}+is)/\Gamma(\tfrac{1}{2}-is)$,
 with scattering phase $\arg S(s) = 2\arg\Gamma(\tfrac{1}{2}+is)$.
-The CKM phase is half the scattering phase at
-$s = \Delta c = 1$ (amplitude, not probability):
-$\delta = \arg\Gamma(\tfrac{1}{2}+i)$.
+The CKM phase is the scattering phase shift at
+$s = \Delta c = 1$: since $S = e^{2i\delta}$,
+$\delta = \tfrac{1}{2}\arg S(1) = \arg\Gamma(\tfrac{1}{2}+i)$.
 
 The only input is the standard parameterisation
 $s = c - \tfrac{1}{2}$; the value $\Delta s = 1$ follows

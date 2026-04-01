@@ -553,6 +553,9 @@ definiteness is certified by two algebraic tests:
 \toprule
 $N$ & $M$ & $\lambda_{\min}$ & $n_{\mathrm{neg}}$ & Certificate \\
 \midrule
+$3$ & $2$ & $-6.148$ & $2$ & minor$(3) < 0$ \\
+$4$ & $2$ & $-4.131$ & $2$ & minor$(5) < 0$ \\
+$4$ & $3$ & $-7.872$ & $3$ & $\det < 0$ \\
 $5$ & $2$ & $-0.375$ & $3$ & $\det < 0$ \\
 $5$ & $3$ & $-1.410$ & $3$ & $\det < 0$ \\
 $5$ & $4$ & $-3.085$ & $4$ & minor$(7) < 0$ \\
@@ -572,7 +575,7 @@ Both tests are verified in exact rational arithmetic
 (see Code Availability).
 
 \emph{Complete proof.}
-The twelve Thomson-stable cases ($N \le 7$, $2 \le M \le N{-}1$)
+All fifteen Thomson-stable cases ($N \le 7$, $2 \le M \le N{-}1$)
 are verified by exact rational arithmetic (certificates in
 Supplement~S, \S\ref*{SP-sec:multiring}).
 For $M \ge 8$: the inner ring's own Thomson instability

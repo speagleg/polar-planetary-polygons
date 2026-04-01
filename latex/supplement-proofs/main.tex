@@ -540,11 +540,15 @@ $\sum \operatorname{Res}[\hat{h}]$ at the poles $r = in$
   e^{ir\ell}\,\frac{\pi(1/4+r^2)}{2r\sinh(\pi r)}\,dr
   = 2\sinh(\ell/2).
 \]
-The last equality follows from the Mittag-Leffler expansion
-of $1/\sinh(\pi r)$ and the factorisation
-$(1/4 + r^2) = (r + i/2)(r - i/2)$, which shifts the
-poles of $1/(r\sinh(\pi r))$ to give the exponentials
-$e^{\pm\ell/2}$ whose difference is $2\sinh(\ell/2)$.
+The poles of $1/(r\sinh(\pi r))$ are at $r = 0$ and
+$r = in$ ($n = 1, 2, \ldots$), with residues
+$\operatorname{Res}_{r=in} = (-1)^n e^{-n\ell}/\pi$.
+The factor $(1/4 + r^2) = (r+i/2)(r-i/2)$ vanishes at
+$r = \pm i/2$, cancelling the $n = 0$ pole and shifting the
+$n \ge 1$ series to $\sum_{n=1}^\infty (-1)^n(n^2 - 1/4)
+e^{-n\ell} = e^{-\ell/2} - e^{\ell/2} = -2\sinh(\ell/2)$;
+with the overall sign from closing in the upper half-plane:
+$\hat{h}(\ell) = 2\sinh(\ell/2)$.
 This completes the proof: $\hat{h}(\ell) = 2\sinh(\ell/2)$
 cancels the stability denominator $1/(2\sinh(\ell/2))$,
 leaving a net contribution of~$\ell_0$ per geodesic orbit.
