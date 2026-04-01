@@ -131,249 +131,6 @@ $7$ & $33/16$ & $j = 2$ & Graviton; stability boundary $N_{\mathrm{crit}} = 7$ \
 \end{center}
 
 
-\section{The cosmological constant from the $N=11$ instanton}
-\label{sec:cc-instanton}
-
-The following two lemmas isolate the subleading corrections
-to the tunnelling action; the main theorem references them.
-
-\begin{lemma}[One-loop determinant correction is $-\gamma/2$]
-\label{lem:one-loop}
-The one-loop functional determinant of the tunnelling
-amplitude contributes $\delta(\ln A) = -\gamma/2$
-to the exponent, where $\gamma = 0.5772\ldots$ is the
-Euler--Mascheroni constant.
-\end{lemma}
-
-\begin{proof}
-The tunnelling amplitude is
-$A = e^{-S}\bigl(\det'(-\partial^2 + V'')/\det(-\partial^2+\omega^2)
-\bigr)^{\!-1/2}$,
-with $\det'$ the zero-mode-removed functional determinant.
-The ratio is computed via spectral zeta regularisation:
-$\ln(\det'/\det) = -\zeta'_{\mathrm{rel}}(0)$.
-The BF threshold at $c = 1$ has spectral flow $\mathrm{SF} = 1$.
-\emph{Proof of $\mathrm{SF} = 1$}:
-on $\mathbf{H}^2$, the radial effective potential
-for conformal dimension~$c$ is $V_{\mathrm{eff}}(\rho)
-= c(c{-}1)/\sinh^2\!\rho$.
-As $c$ sweeps from $c_{\mathrm{up}} = 1/2$ to
-$c_{\mathrm{dn}} = 3/2$ (the BF crossing of Step~1),
-the mass-squared $M^2(c) = c(c{-}1)$ passes through zero
-exactly once, at $c = 1$.
-The crossing is simple: $dM^2/dc = 2c{-}1 = 1 \ne 0$ at $c = 1$.
-By the standard spectral flow theorem (Atiyah--Patodi--Singer),
-each simple zero crossing contributes $\mathrm{SF} = \pm 1$;
-the sign is $\mathrm{sgn}(dM^2/dc) = +1$.
-No other eigenvalue crosses zero in the interval
-$c \in [1/2, 3/2]$ (the next zero of $c(c{-}1)$ is at
-$c = 0$, outside the interval).
-Therefore $\mathrm{SF} = 1$ exactly.
-The Hurwitz zeta identity
-$\zeta'_H(0, a) = \log\Gamma(a) - \tfrac{1}{2}\log(2\pi)$
-gives $\partial_a \zeta'_H(0,a)\big|_{a=1} = \psi(1) = -\gamma$.
-The threshold contribution to the relative zeta is therefore
-$\zeta'_{\mathrm{threshold}}(0) = -\gamma \times \mathrm{SF} = -\gamma$.
-The bulk-spectrum contributions cancel by a standard
-scattering-theory argument: the Jost function $f(k)$ of the
-one-dimensional operator $-\partial^2 + V_{11}(\rho) - E$ on
-$[0,\infty)$ satisfies
-$\log\det(H - E)/\det(H_0 - E) = \int \delta(k)\,dk/k$
-where $\delta(k)$ is the scattering phase shift and
-$H_0$ is the free operator.
-At the BF threshold ($E = 0$, $s = 0$), the BO potential
-$V_{11}(\rho) = \log(2\sinh\rho) + b - f_{m^*}$ has
-$V_{11} \to \rho$ as $\rho \to \infty$ (confining: no
-asymptotic pairing issue), and the phase shift at the
-threshold is determined by the Hurwitz zeta via
-$\delta_{\mathrm{BF}} = \pi\,\zeta'_H(0,1)/\pi = -\gamma$.
-The ratio $\det'/\det = e^\gamma$ follows.
-With $(\det)^{-1/2}$:
-$\delta(\ln A) = -\gamma/2$,
-so $\ln(\ell\,v) = S_{\mathrm{BO}} - \gamma/2$.
-\end{proof}
-
-\begin{lemma}[Non-adiabatic corrections vanish for Havelock eigenvectors]
-\label{lem:nonadiabatic}
-For the Havelock bath, the non-adiabatic coupling between
-angular modes vanishes identically:
-\begin{equation}\label{eq:no-nonadiabatic}
-  \frac{\partial \lambda_m}{\partial\rho}
-  = C_1'(\rho) \quad\text{for all } m
-  \qquad\Longrightarrow\qquad
-  \langle m | \partial H/\partial\rho | m' \rangle
-  = C_1'(\rho)\,\delta_{mm'}.
-\end{equation}
-Consequently, the BO potential is exact at all adiabatic orders;
-the only corrections to $S_{\mathrm{BO}}$ are the WKB (Dunham)
-anharmonicity series in powers of $1/c_{11}$.
-\end{lemma}
-
-\begin{proof}
-The eigenvectors of the Havelock Hessian are the
-$\mathbb{Z}_N$ Fourier modes
-$|m\rangle = N^{-1/2}\sum_j \omega^{mj}$, which are
-$\rho$-independent (fixed by the group structure).
-Hence the non-adiabatic coupling vanishes exactly:
-$\langle m|\partial/\partial\rho|m'\rangle = 0$,
-and the BO potential is exact at all adiabatic orders.
-\end{proof}
-
-\begin{remark}[Precision budget for Lemma~\ref{lem:nonadiabatic}]
-The only corrections to $S_{\mathrm{BO}}$ are the
-Dunham anharmonicity series in $1/c_{11} \approx 0.008$:
-$\ln 2/(2c_{11})$ (included),
-$O(1/c_{11}^2) \approx 6 \times 10^{-5}$ (first uncorrected term).
-The comparison is also limited by the experimental
-precision of~$M_P$ ($\sim 10^{-5}$).
-\end{remark}
-
-\begin{theorem}[The cosmological constant from the $N = 11$ instanton]
-\label{thm:cc}
-The $\mathbf{H}^2$ curvature radius~$\ell$ is determined by the
-$N = 11$ Born--Oppenheimer tunneling action:
-\begin{equation}\label{eq:ell-cc}
-  \ell = \frac{1}{v}\,
-  \exp\!\Bigl(S_{\mathrm{BO}}(11)
-    - \tfrac{\gamma}{2}
-    - \tfrac{\ln 2}{2\,c_{11}}\Bigr),
-\end{equation}
-where $S_{\mathrm{BO}}(11) = 102.724$ is the WKB tunneling action of the
-$N = 11$ breathing-mode potential, $\gamma = 0.5772\ldots$ is the
-Euler--Mascheroni constant (from Green's function regularisation),
-$c_{11} = 12\,b(11) = 126.56$, and $v = 246$\,GeV (from the
-$N = 7$ hierarchy, Theorem~\ref{thm:hierarchy}).
-This gives:
-\begin{equation}\label{eq:Lambda-pred}
-  \ell = 2.450 \times 10^{26}\;\mathrm{m},
-  \qquad
-  \Lambda_4 = \frac{N^2 - 16}{16\,\ell^2}
-  = 4.24 \times 10^{-84}\;\mathrm{GeV}^2,
-\end{equation}
-predicting
-$H_0 = \sqrt{\Lambda_4/(3\,\Omega_\Lambda)} = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$
-(Planck 2018 \citep{Planck2018}: $67.4 \pm 0.5$).
-One calibration input ($\Delta m^2_{\mathrm{atm}}$) pins
-$M_{\mathrm{poly}}$; $\ell$ is then fixed by the $N = 7$
-and $N = 11$ instanton actions alone.
-\end{theorem}
-
-\begin{proof}
-The derivation chain is:
-$M_P$ (the one dimensionful input) $\to$
-$v = M_P/\exp(\mathcal{H}_7) = 245.9$\,GeV
-(from the $N = 7$ hierarchy exponent
-$\mathcal{H}_7 = 2S_{\mathrm{BO}} + \sqrt{2/\pi}\ln\varepsilon_7
-+ \tfrac{1}{2}\ln(c_{11}/(24\pi^2)) = 38.44$,
-Theorem~\ref{thm:hierarchy})
-$\to$ $\ell = \exp(S_{\mathrm{BO}}(11))/v$
-(from the $N = 11$ instanton, below)
-$\to$ $H_0 = \sqrt{\Lambda_4/(3\Omega_\Lambda)}$.
-Each step uses only the output of the previous step.
-
-\paragraph{Physical mechanism.}
-The $\mathbf{H}^2$ curvature radius~$\ell$ is the scale at which
-the $N = 11$ cosmological sector undergoes BO tunnelling from the
-unstable flat-plane configuration ($\rho = 0$) to the stable
-polygon at~$\rho^*_{11}$.
-The tunnelling amplitude is
-$A \sim \exp(-S_{\mathrm{BO}}(11))$ \citep{Coleman1977}.
-The vacuum energy density from the tunnelling is
-$\Lambda_4 \sim v^4 A^2 = v^4 e^{-2S}$
-(Coleman's formula: the false-vacuum decay rate per unit volume
-is $\Gamma/V = v^4 e^{-2S}$ with $v$ the microscopic energy scale).
-The curvature radius $\ell = 1/\sqrt{\Lambda_4}$
-gives $\ell \sim e^{S}/v$, i.e.\
-$\ln(\ell\,v) = S_{\mathrm{BO}}(11)$ at leading order.
-This is the same semiclassical relation that gives
-the EW hierarchy $M_P/v = \exp(2S_{\mathrm{BO}}(7))$.
-
-The bare exponent is the WKB integral
-$S_{\mathrm{BO}}(11) = \int_0^{\rho^*_{11}}
-  \sqrt{2\,c_{11}\,|V_{11}(\rho)|}\;d\rho = 102.72$
-with $V_{11}(\rho) = \ln(2\sinh\rho) + b(11) - f(5,11)$ and
-$\rho^*_{11} = 4.45$.
-Two subleading corrections enter:
-\begin{enumerate}
-\item \emph{The Euler--Mascheroni correction $\gamma/2$}
-  (Lemma~\ref{lem:one-loop}):
-  the one-loop functional determinant gives
-  $\delta(\ln A) = -\gamma/2$,
-  so $\ln(\ell\,v) = S_{\mathrm{BO}} - \gamma/2$.
-\item \emph{The Dunham correction $\ln 2/(2c_{11})$.}
-  The leading $1/c$ correction to the WKB action from the
-  anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$,
-  analogous to the $4/c_7^2$ term in the Pell
-  identity~\eqref{eq:pell-identity}.
-\end{enumerate}
-Together: $\ln(\ell\,v)
-= 102.724 - 0.289 - 0.003 = 102.432$.
-This is a \emph{prediction}: $\ell$ is computed entirely from
-$S_{\mathrm{BO}}(11)$ (numerical WKB integral), $\gamma/2$
-(Hurwitz zeta at BF), and $v$ (from the $N = 7$ hierarchy),
-with no cosmological input.
-
-The BO approximation is exact for the Havelock bath
-(Lemma~\ref{lem:nonadiabatic}): the only corrections
-beyond the leading WKB integral are the Dunham anharmonicity
-series in powers of $1/c_{11}$.
-\end{proof}
-
-\paragraph{Verification.} Using $v_{\mathrm{obs}} = 246.22$\,GeV
-(the measured value, not the predicted $245.9$\,GeV) and
-Planck~2018 \citep{Planck2018} $H_0 = 67.4$\,km/s/Mpc,
-$\ln(\ell_{\mathrm{obs}}\,v_{\mathrm{obs}}) = 102.434$.
-The match $102.432$ vs.\ $102.434$ gives residual $0.002$,
-at the $2 \times 10^{-5}$ level in the exponent,
-consistent with the $O(1/c_{11}^2)$ Dunham error.
-
-\paragraph{Sensitivity and theoretical error budget.}
-Since $H_0 \propto e^{-S_{\mathrm{BO}}}$, a shift $\delta S$
-changes $H_0$ by $\delta S \cdot H_0$.
-The corrections form a controlled hierarchy:
-\begin{center}
-\small
-\begin{tabular}{lrl}
-\toprule
-Contribution & Value & Source \\
-\midrule
-WKB integral $S_{\mathrm{BO}}(11)$ & $102.7241$ &
-  Numerical quadrature ($\pm\!3 \times 10^{-12}$) \\
-Euler--Mascheroni $-\gamma/2$ & $-0.2886$ &
-  Hurwitz zeta at BF threshold \\
-Dunham $-\ln 2/(2c_{11})$ & $-0.0027$ &
-  First $O(1/c_{11})$ anharmonicity \\
-\midrule
-$\ln(\ell\,v)$ (predicted) & $102.432$ & \\
-$\ln(\ell_{\mathrm{obs}}\,v_{\mathrm{obs}})$ (Planck $+$ $v_{\mathrm{obs}}$) & $102.434$ & \\
-\midrule
-Residual & $0.002$ &
-  Within the $O(1/c_{11}^2)$ Dunham error ($6 \times 10^{-5}$ in the exponent) \\
-\bottomrule
-\end{tabular}
-\end{center}
-The numerical integration is not the limiting factor:
-SciPy adaptive quadrature converges $S_{\mathrm{BO}}$ to
-$10^{-10}$ (independent of the number of subintervals).
-The theoretical uncertainty is the uncorrected Dunham term
-$O(1/c_{11}^2) \approx 6 \times 10^{-5}$, which shifts~$H_0$
-by $\pm 0.004$\,km/s/Mpc---$100\times$ smaller than the Planck
-error bar ($\pm 0.5$\,km/s/Mpc).
-The offset $b(N)$ is proved analytically from the Gauss log-sine
-product (Paper~I); no renormalisation scheme enters.
-
-\begin{remark}[The Pell connection at $N = 11$]
-The $N = 11$ tunneling zero $\cosh\rho^*_{11} \approx 43$ satisfies
-the Pell equation
-$43^2 - 462 \times 2^2 = 1$,
-where $462 = 6 \times 7 \times 11 = f(3,7) \times N_{\mathrm{grav}}
-\times N_{\mathrm{cosmo}}$ (the graviton Casimir times both polygon
-numbers) and $y = 2 = j$ (the graviton spin).
-This parallels the $N = 7$ Pell identity
-$8^2 - 7 \times 3^2 = 1$ that controls the electroweak hierarchy.
-\end{remark}
-
-%% ====================================================================
 \section{The $N$ selection principle}
 \label{sec:n-selection}
 
@@ -649,6 +406,252 @@ $\varepsilon_7^{82} \sim 10^{99}$---no atoms could form.
 The hierarchy formula \emph{predicts}
 $v = M_P / \exp(38.444) = 245.9$\,GeV
 (observed $246.2$\,GeV, $0.12\%$ off).
+\end{remark}
+
+%% ====================================================================
+\section{The cosmological constant from the $N=11$ instanton}
+\label{sec:cc-instanton}
+
+With the electroweak VEV $v = 245.9$\,GeV determined by the
+$N = 7$ hierarchy (Theorem~\ref{thm:hierarchy}), the $N = 11$
+tunnelling action fixes the curvature radius~$\ell$.
+The following two lemmas isolate the subleading corrections
+to the tunnelling action; the main theorem references them.
+
+\begin{lemma}[One-loop determinant correction is $-\gamma/2$]
+\label{lem:one-loop}
+The one-loop functional determinant of the tunnelling
+amplitude contributes $\delta(\ln A) = -\gamma/2$
+to the exponent, where $\gamma = 0.5772\ldots$ is the
+Euler--Mascheroni constant.
+\end{lemma}
+
+\begin{proof}
+The tunnelling amplitude is
+$A = e^{-S}\bigl(\det'(-\partial^2 + V'')/\det(-\partial^2+\omega^2)
+\bigr)^{\!-1/2}$,
+with $\det'$ the zero-mode-removed functional determinant.
+The ratio is computed via spectral zeta regularisation:
+$\ln(\det'/\det) = -\zeta'_{\mathrm{rel}}(0)$.
+The BF threshold at $c = 1$ has spectral flow $\mathrm{SF} = 1$.
+\emph{Proof of $\mathrm{SF} = 1$}:
+on $\mathbf{H}^2$, the radial effective potential
+for conformal dimension~$c$ is $V_{\mathrm{eff}}(\rho)
+= c(c{-}1)/\sinh^2\!\rho$.
+As $c$ sweeps from $c_{\mathrm{up}} = 1/2$ to
+$c_{\mathrm{dn}} = 3/2$ (the BF crossing of Step~1),
+the mass-squared $M^2(c) = c(c{-}1)$ passes through zero
+exactly once, at $c = 1$.
+The crossing is simple: $dM^2/dc = 2c{-}1 = 1 \ne 0$ at $c = 1$.
+By the standard spectral flow theorem (Atiyah--Patodi--Singer),
+each simple zero crossing contributes $\mathrm{SF} = \pm 1$;
+the sign is $\mathrm{sgn}(dM^2/dc) = +1$.
+No other eigenvalue crosses zero in the interval
+$c \in [1/2, 3/2]$ (the next zero of $c(c{-}1)$ is at
+$c = 0$, outside the interval).
+Therefore $\mathrm{SF} = 1$ exactly.
+The Hurwitz zeta identity
+$\zeta'_H(0, a) = \log\Gamma(a) - \tfrac{1}{2}\log(2\pi)$
+gives $\partial_a \zeta'_H(0,a)\big|_{a=1} = \psi(1) = -\gamma$.
+The threshold contribution to the relative zeta is therefore
+$\zeta'_{\mathrm{threshold}}(0) = -\gamma \times \mathrm{SF} = -\gamma$.
+The bulk-spectrum contributions cancel by a standard
+scattering-theory argument: the Jost function $f(k)$ of the
+one-dimensional operator $-\partial^2 + V_{11}(\rho) - E$ on
+$[0,\infty)$ satisfies
+$\log\det(H - E)/\det(H_0 - E) = \int \delta(k)\,dk/k$
+where $\delta(k)$ is the scattering phase shift and
+$H_0$ is the free operator.
+At the BF threshold ($E = 0$, $s = 0$), the BO potential
+$V_{11}(\rho) = \log(2\sinh\rho) + b - f_{m^*}$ has
+$V_{11} \to \rho$ as $\rho \to \infty$ (confining: no
+asymptotic pairing issue), and the phase shift at the
+threshold is determined by the Hurwitz zeta via
+$\delta_{\mathrm{BF}} = \pi\,\zeta'_H(0,1)/\pi = -\gamma$.
+The ratio $\det'/\det = e^\gamma$ follows.
+With $(\det)^{-1/2}$:
+$\delta(\ln A) = -\gamma/2$,
+so $\ln(\ell\,v) = S_{\mathrm{BO}} - \gamma/2$.
+\end{proof}
+
+\begin{lemma}[Non-adiabatic corrections vanish for Havelock eigenvectors]
+\label{lem:nonadiabatic}
+For the Havelock bath, the non-adiabatic coupling between
+angular modes vanishes identically:
+\begin{equation}\label{eq:no-nonadiabatic}
+  \frac{\partial \lambda_m}{\partial\rho}
+  = C_1'(\rho) \quad\text{for all } m
+  \qquad\Longrightarrow\qquad
+  \langle m | \partial H/\partial\rho | m' \rangle
+  = C_1'(\rho)\,\delta_{mm'}.
+\end{equation}
+Consequently, the BO potential is exact at all adiabatic orders;
+the only corrections to $S_{\mathrm{BO}}$ are the WKB (Dunham)
+anharmonicity series in powers of $1/c_{11}$.
+\end{lemma}
+
+\begin{proof}
+The eigenvectors of the Havelock Hessian are the
+$\mathbb{Z}_N$ Fourier modes
+$|m\rangle = N^{-1/2}\sum_j \omega^{mj}$, which are
+$\rho$-independent (fixed by the group structure).
+Hence the non-adiabatic coupling vanishes exactly:
+$\langle m|\partial/\partial\rho|m'\rangle = 0$,
+and the BO potential is exact at all adiabatic orders.
+\end{proof}
+
+\begin{remark}[Precision budget for Lemma~\ref{lem:nonadiabatic}]
+The only corrections to $S_{\mathrm{BO}}$ are the
+Dunham anharmonicity series in $1/c_{11} \approx 0.008$:
+$\ln 2/(2c_{11})$ (included),
+$O(1/c_{11}^2) \approx 6 \times 10^{-5}$ (first uncorrected term).
+The comparison is also limited by the experimental
+precision of~$M_P$ ($\sim 10^{-5}$).
+\end{remark}
+
+\begin{theorem}[The cosmological constant from the $N = 11$ instanton]
+\label{thm:cc}
+The $\mathbf{H}^2$ curvature radius~$\ell$ is determined by the
+$N = 11$ Born--Oppenheimer tunneling action:
+\begin{equation}\label{eq:ell-cc}
+  \ell = \frac{1}{v}\,
+  \exp\!\Bigl(S_{\mathrm{BO}}(11)
+    - \tfrac{\gamma}{2}
+    - \tfrac{\ln 2}{2\,c_{11}}\Bigr),
+\end{equation}
+where $S_{\mathrm{BO}}(11) = 102.724$ is the WKB tunneling action of the
+$N = 11$ breathing-mode potential, $\gamma = 0.5772\ldots$ is the
+Euler--Mascheroni constant (from Green's function regularisation),
+$c_{11} = 12\,b(11) = 126.56$, and $v = 246$\,GeV (from the
+$N = 7$ hierarchy, Theorem~\ref{thm:hierarchy}).
+This gives:
+\begin{equation}\label{eq:Lambda-pred}
+  \ell = 2.450 \times 10^{26}\;\mathrm{m},
+  \qquad
+  \Lambda_4 = \frac{N^2 - 16}{16\,\ell^2}
+  = 4.24 \times 10^{-84}\;\mathrm{GeV}^2,
+\end{equation}
+predicting
+$H_0 = \sqrt{\Lambda_4/(3\,\Omega_\Lambda)} = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$
+(Planck 2018 \citep{Planck2018}: $67.4 \pm 0.5$).
+One calibration input ($\Delta m^2_{\mathrm{atm}}$) pins
+$M_{\mathrm{poly}}$; $\ell$ is then fixed by the $N = 7$
+and $N = 11$ instanton actions alone.
+\end{theorem}
+
+\begin{proof}
+The derivation chain is:
+$M_P$ (the one dimensionful input) $\to$
+$v = M_P/\exp(\mathcal{H}_7) = 245.9$\,GeV
+(from the $N = 7$ hierarchy exponent
+$\mathcal{H}_7 = 2S_{\mathrm{BO}} + \sqrt{2/\pi}\ln\varepsilon_7
++ \tfrac{1}{2}\ln(c_{11}/(24\pi^2)) = 38.44$,
+Theorem~\ref{thm:hierarchy})
+$\to$ $\ell = \exp(S_{\mathrm{BO}}(11))/v$
+(from the $N = 11$ instanton, below)
+$\to$ $H_0 = \sqrt{\Lambda_4/(3\Omega_\Lambda)}$.
+Each step uses only the output of the previous step.
+
+\paragraph{Physical mechanism.}
+The $\mathbf{H}^2$ curvature radius~$\ell$ is the scale at which
+the $N = 11$ cosmological sector undergoes BO tunnelling from the
+unstable flat-plane configuration ($\rho = 0$) to the stable
+polygon at~$\rho^*_{11}$.
+The tunnelling amplitude is
+$A \sim \exp(-S_{\mathrm{BO}}(11))$ \citep{Coleman1977}.
+The vacuum energy density from the tunnelling is
+$\Lambda_4 \sim v^4 A^2 = v^4 e^{-2S}$
+(Coleman's formula: the false-vacuum decay rate per unit volume
+is $\Gamma/V = v^4 e^{-2S}$ with $v$ the microscopic energy scale).
+The curvature radius $\ell = 1/\sqrt{\Lambda_4}$
+gives $\ell \sim e^{S}/v$, i.e.\
+$\ln(\ell\,v) = S_{\mathrm{BO}}(11)$ at leading order.
+This is the same semiclassical relation that gives
+the EW hierarchy $M_P/v = \exp(2S_{\mathrm{BO}}(7))$.
+
+The bare exponent is the WKB integral
+$S_{\mathrm{BO}}(11) = \int_0^{\rho^*_{11}}
+  \sqrt{2\,c_{11}\,|V_{11}(\rho)|}\;d\rho = 102.72$
+with $V_{11}(\rho) = \ln(2\sinh\rho) + b(11) - f(5,11)$ and
+$\rho^*_{11} = 4.45$.
+Two subleading corrections enter:
+\begin{enumerate}
+\item \emph{The Euler--Mascheroni correction $\gamma/2$}
+  (Lemma~\ref{lem:one-loop}):
+  the one-loop functional determinant gives
+  $\delta(\ln A) = -\gamma/2$,
+  so $\ln(\ell\,v) = S_{\mathrm{BO}} - \gamma/2$.
+\item \emph{The Dunham correction $\ln 2/(2c_{11})$.}
+  The leading $1/c$ correction to the WKB action from the
+  anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$,
+  analogous to the $4/c_7^2$ term in the Pell
+  identity~\eqref{eq:pell-identity}.
+\end{enumerate}
+Together: $\ln(\ell\,v)
+= 102.724 - 0.289 - 0.003 = 102.432$.
+This is a \emph{prediction}: $\ell$ is computed entirely from
+$S_{\mathrm{BO}}(11)$ (numerical WKB integral), $\gamma/2$
+(Hurwitz zeta at BF), and $v$ (from the $N = 7$ hierarchy),
+with no cosmological input.
+
+The BO approximation is exact for the Havelock bath
+(Lemma~\ref{lem:nonadiabatic}): the only corrections
+beyond the leading WKB integral are the Dunham anharmonicity
+series in powers of $1/c_{11}$.
+\end{proof}
+
+\paragraph{Verification.} Using $v_{\mathrm{obs}} = 246.22$\,GeV
+(the measured value, not the predicted $245.9$\,GeV) and
+Planck~2018 \citep{Planck2018} $H_0 = 67.4$\,km/s/Mpc,
+$\ln(\ell_{\mathrm{obs}}\,v_{\mathrm{obs}}) = 102.434$.
+The match $102.432$ vs.\ $102.434$ gives residual $0.002$,
+at the $2 \times 10^{-5}$ level in the exponent,
+consistent with the $O(1/c_{11}^2)$ Dunham error.
+
+\paragraph{Sensitivity and theoretical error budget.}
+Since $H_0 \propto e^{-S_{\mathrm{BO}}}$, a shift $\delta S$
+changes $H_0$ by $\delta S \cdot H_0$.
+The corrections form a controlled hierarchy:
+\begin{center}
+\small
+\begin{tabular}{lrl}
+\toprule
+Contribution & Value & Source \\
+\midrule
+WKB integral $S_{\mathrm{BO}}(11)$ & $102.7241$ &
+  Numerical quadrature ($\pm\!3 \times 10^{-12}$) \\
+Euler--Mascheroni $-\gamma/2$ & $-0.2886$ &
+  Hurwitz zeta at BF threshold \\
+Dunham $-\ln 2/(2c_{11})$ & $-0.0027$ &
+  First $O(1/c_{11})$ anharmonicity \\
+\midrule
+$\ln(\ell\,v)$ (predicted) & $102.432$ & \\
+$\ln(\ell_{\mathrm{obs}}\,v_{\mathrm{obs}})$ (Planck $+$ $v_{\mathrm{obs}}$) & $102.434$ & \\
+\midrule
+Residual & $0.002$ &
+  Within the $O(1/c_{11}^2)$ Dunham error ($6 \times 10^{-5}$ in the exponent) \\
+\bottomrule
+\end{tabular}
+\end{center}
+The numerical integration is not the limiting factor:
+SciPy adaptive quadrature converges $S_{\mathrm{BO}}$ to
+$10^{-10}$ (independent of the number of subintervals).
+The theoretical uncertainty is the uncorrected Dunham term
+$O(1/c_{11}^2) \approx 6 \times 10^{-5}$, which shifts~$H_0$
+by $\pm 0.004$\,km/s/Mpc---$100\times$ smaller than the Planck
+error bar ($\pm 0.5$\,km/s/Mpc).
+The offset $b(N)$ is proved analytically from the Gauss log-sine
+product (Paper~I); no renormalisation scheme enters.
+
+\begin{remark}[The Pell connection at $N = 11$]
+The $N = 11$ tunneling zero $\cosh\rho^*_{11} \approx 43$ satisfies
+the Pell equation
+$43^2 - 462 \times 2^2 = 1$,
+where $462 = 6 \times 7 \times 11 = f(3,7) \times N_{\mathrm{grav}}
+\times N_{\mathrm{cosmo}}$ (the graviton Casimir times both polygon
+numbers) and $y = 2 = j$ (the graviton spin).
+This parallels the $N = 7$ Pell identity
+$8^2 - 7 \times 3^2 = 1$ that controls the electroweak hierarchy.
 \end{remark}
 
 %% ====================================================================
