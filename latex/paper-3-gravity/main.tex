@@ -1090,21 +1090,26 @@ A perturbation $h_{MN}$ decomposes under KK
 into $h_{ij}$ (metric), $\delta A_i$ (graviphoton),
 $\delta\sigma$ (radion).
 The Lichnerowicz operator $\Delta_L$ on the multi-cone
-geometry reduces to the Havelock Hessian by the
-following argument.
+geometry reduces to the Havelock Hessian as follows.
 The $\mathbb{Z}_N$ rotation symmetry of the regular
 polygon acts as an isometry of the multi-cone metric.
 Since $\Delta_L$ is a geometric operator, it commutes
-with this $\mathbb{Z}_N$ action.
-By Schur's lemma, $\Delta_L$ decomposes into
-$\mathbb{Z}_N$ irreducible representations:
-each perturbation mode carries a definite
-$\mathbb{Z}_N$ charge $m = 0, \ldots, N{-}1$.
-On the $m$-th sector, the angular part of $\Delta_L$
-is a circulant (determined by the $\mathbb{Z}_N$
-Fourier coefficient of the Green's function Hessian),
-whose eigenvalue is $\lambda_m = C_1 - m(N{-}m)/2$
---- the Havelock eigenvalue.
+with this $\mathbb{Z}_N$ action and decomposes into
+irreducible representations labelled by
+$m = 0, \ldots, N{-}1$ (Schur's lemma).
+At each cone point, the Green's function has the
+angular kernel $-\log|2\sin(\pi p/N)|$
+(the logarithmic singularity of the Hadamard parametrix).
+The second angular derivative of this kernel is
+$\csc^2(\pi p/N)/(4\sin^2(\pi p/N))$,
+so the $m$-th $\mathbb{Z}_N$ Fourier eigenvalue of
+the Hessian is
+$\sum_{p=1}^{N-1}\csc^2(\pi p/N)
+\bigl(1 - \cos(2\pi pm/N)\bigr)/2 = m(N{-}m)/2$
+(Paper~I, Lemma~\ref*{I-lem:havelock}).
+The full eigenvalue is $\lambda_m = C_1 - m(N{-}m)/2$
+(the mode-independent offset $C_1$ absorbs the
+$\csc^2$ diagonal sum and the radial contribution).
 The spectrum $\{\lambda_m\}$ is therefore determined by~$N$.
 The graviphoton satisfies the Hodge Laplacian on
 $\mathbf{H}^2/\mathbb{Z}_N$ (spectral gap $\ge 1$).
