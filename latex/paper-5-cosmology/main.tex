@@ -367,7 +367,7 @@ The unique positive root is $N = 7$.
 \end{proof}
 
 The Pell identity~\eqref{eq:pell-identity} is proved via the
-Klein quartic (Proof in Appendix~\ref{app:pell}).
+Klein quartic (proof in Supplement~S, \S\ref*{SP-sec:pell-proof}).
 
 \noindent
 The \emph{per-vortex} form of the identity is illuminating:
@@ -1146,103 +1146,6 @@ All numerical verifications and computational proofs are
 available in the companion code repository.
 
 %% ====================================================================
-\appendix
-\section{Proof of the Pell identity}
-\label{app:pell}
-
-\begin{proof}[Proof of the Pell identity~\eqref{eq:pell-identity}
-  via the Klein quartic]
-The argument has four steps.
-
-\emph{Step~1 (The Pell geodesic on the modular surface).}
-The Pell equation $8^2 - 7 \times 3^2 = 1$ defines the matrix
-$M = \bigl(\begin{smallmatrix} 8 & 21 \\ 3 & 8 \end{smallmatrix}\bigr)
-\in \mathrm{SL}(2,\mathbb{Z})$
-with $\det M = 1$, $\operatorname{tr} M = 16$.
-This matrix is hyperbolic and defines a closed geodesic on the
-modular surface $\mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$
-of length
-$\ell = 2\operatorname{arccosh}(\operatorname{tr}M/2)
-= 2\operatorname{arccosh}(8) = 2\ln\varepsilon_7$.
-
-\emph{Step~2 (Lift to the Klein quartic).}
-The level-$7$ modular curve
-$X(7) = \Gamma(7)\backslash\mathbf{H}^2$
-is the \emph{Klein quartic}---a genus-$3$ Riemann surface with
-automorphism group $\mathrm{PSL}(2,\mathbb{F}_7)$, order~$168$.
-This group contains $\mathbb{Z}/7\mathbb{Z}$ as a subgroup,
-and $X(7)/(\mathbb{Z}/7\mathbb{Z})
-= \mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$.
-The Pell geodesic on the modular surface lifts to
-\emph{seven} closed geodesics on $X(7)$, one per
-$\mathbb{Z}_7$~coset, each of length~$2\ln\varepsilon_7$.
-
-\emph{Step~3 (Selberg trace formula on $X(7)$).}
-The BO potential $V_7(\rho) = \ln(2\sinh\rho) - u^*$ is the
-radial effective potential of the Laplacian on~$\mathbf{H}^2$
-in the $\mathbb{Z}_7$-equivariant sector.
-The WKB spectral sum of this potential equals the
-spectral side of the Selberg trace formula on~$X(7)$,
-evaluated with the WKB test function~$h$.
-On the \emph{geometric} side, each primitive geodesic of
-length~$\ell$ contributes
-$\ell/(2\sinh(\ell/2)) \times \hat h(\ell)$
-to the trace.
-For the Pell geodesic ($\ell_0 = 2\ln\varepsilon_7$):
-the WKB spectral factor is
-$\hat h(\ell_0) = 2\sinh(\ell_0/2) = 2\sinh(\operatorname{arccosh}8) = 6\sqrt{7}$,
-which \emph{exactly cancels} the Selberg stability denominator
-$1/(2\sinh(\ell_0/2))$.
-We prove this cancellation explicitly.
-The potential $V_7(\rho) = \ln(2\sinh\rho)$ is (up to a constant)
-the radial Green's function of the Laplacian on~$\mathbf{H}^2$.
-Its Legendre spectral coefficient is the resolvent
-\citep[Ch.~IV]{Hejhal1976}:
-\[
-  \int_0^\infty \ln(2\sinh\rho)\,
-  P_{-1/2+ir}(\cosh\rho)\,\sinh\rho\,d\rho
-  = \frac{-\pi}{2r\sinh(\pi r)}.
-\]
-The WKB test function for the Selberg trace formula is
-$h(r) = (1/4 + r^2) \times a(r)$, where $a(r)$ is the
-spectral coefficient and $(1/4 + r^2)$ is the Laplacian eigenvalue.
-The Selberg transform $\hat{h}(\ell)$ is the Abel--Fourier
-transform of~$h$; for $h(r) \propto (1/4 + r^2)/(r\sinh(\pi r))$,
-this evaluates via the residue formula
-$\sum \operatorname{Res}[\hat{h}]$ at the poles $r = in$
-($n = 0, 1, 2, \ldots$) of $1/\sinh(\pi r)$:
-\[
-  \hat{h}(\ell) = \frac{1}{2\pi}\int_{-\infty}^{\infty}
-  e^{ir\ell}\,\frac{\pi(1/4+r^2)}{2r\sinh(\pi r)}\,dr
-  = 2\sinh(\ell/2).
-\]
-The last equality follows from the Mittag-Leffler expansion
-of $1/\sinh(\pi r)$ and the factorisation
-$(1/4 + r^2) = (r + i/2)(r - i/2)$, which shifts the
-poles of $1/(r\sinh(\pi r))$ to give the exponentials
-$e^{\pm\ell/2}$ whose difference is $2\sinh(\ell/2)$.
-This completes the proof: $\hat{h}(\ell) = 2\sinh(\ell/2)$
-cancels the stability denominator $1/(2\sinh(\ell/2))$,
-leaving a net contribution of~$\ell_0$ per geodesic orbit.
-The net contribution per orbit is therefore simply
-the \emph{geodesic length}~$\ell_0 = 2\ln\varepsilon_7$.
-Summing the seven lifts:
-\[
-  2S_{\mathrm{BO}}(7)
-  = 7 \times \ell_0 - \text{quantum corrections}
-  = 14\,\ln\varepsilon_7 - \text{corrections}.
-\]
-
-\emph{Step~4 (Quantum corrections from the Dunham series).}
-The Maslov index of the bounce orbit gives the correction
-$-\sqrt{2/\pi}$ (the WDW zero-point energy).
-The anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$
-gives the Dunham correction $-4/c_7^2$ (verified to $0.26\%$
-at $50$-digit precision).
-Together: $2S/\ln\varepsilon_7
-= 14 - \sqrt{2/\pi} - 4/c_7^2 + O(1/c_7^3)$.
-\end{proof}
-
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}
 
