@@ -831,10 +831,23 @@ $\mathrm{diag}(\omega, \omega^{-1}) \in \mathrm{SU}(2)$.
 The CS/WZW theorem \citep{Witten1988} provides the nonlinear
 result: the boundary values of the full CS gauge
 field~$A$ parametrise the WZW target manifold~$G$.
-At the linearised level, the dreibein chain
-(developing map $\to$ first-order formalism $\to$ CS connection
-$\to$ vortex displacement $\to$ Fourier projection;
-see Code Availability) verifies this identification explicitly.
+At the linearised level, the identification is verified
+by the dreibein chain.
+A polygon vertex displacement $\delta z_j$ perturbs the
+metric at the $j$-th cone point:
+$\delta g_{ab} = (\varepsilon_j/\pi)\,
+\partial_a\partial_b\,G(x, z_j)\,\delta z_j$.
+In the first-order formalism $g = e \otimes e$, this gives
+$\delta e^a = (1/2)\,e^b\,\delta g_{ab}$, and the
+CS perturbation is
+$\delta A^\pm = \delta\omega \pm \delta e/\ell$.
+The $\mathbb{Z}_N$ Fourier projection
+$\delta A_m = (1/N)\sum_j e^{-2\pi ijm/N}\,\delta A(z_j)$
+decomposes into the mode-$m$ CS perturbation,
+whose quadratic action is
+$|\delta A_m|^2\,\lambda_m$---the Havelock eigenvalue.
+The charged modes $\eta_1, \eta_2$ (Step~3)
+are the $m \in O_+$ Fourier projections of $\delta A$.
 The $\mathbb{Z}/3\mathbb{Z}$ invariance is exact at all orders
 because it is a property of the Casimir spectrum, not of the
 coupling strength: the Frobenius $\sigma\colon m \mapsto 2m \bmod 7$
@@ -898,12 +911,17 @@ determine the gauge group and the CS level:
   any $\Gamma \subset \mathrm{SU}(2)$: the twist-field
   conformal dimension is
   $h_k = k(N_\Gamma{-}k)/N_\Gamma^2$,
-  which is $c$-independent because it is determined by
-  the monodromy of the twist field (the eigenvalue
-  $e^{2\pi ik/N_\Gamma}$ of the orbifold generator acting
-  on the local coordinate, giving $h = k/N_\Gamma - k^2/N_\Gamma^2$
-  by the standard bosonisation formula for a twist
-  with phase $e^{2\pi i k/N}$).
+  which depends only on the monodromy eigenvalue
+  $e^{2\pi ik/N_\Gamma}$: the mode expansion around the
+  twist point has fractional indices $n + k/N_\Gamma$,
+  and the zeta-regularised zero-point energy gives
+  $h = k/N_\Gamma - k^2/N_\Gamma^2$ exactly
+  (a one-loop computation with no higher-order corrections).
+  On the curved $\mathbf{H}^2$ background, the Liouville
+  dressing shifts $h_k$ by $O(h_k^2/c) = O(1/(N_\Gamma^4 c))$.
+  At $N_\Gamma = 3$ and $c = 12\,b(7) \approx 52$:
+  $\delta h = (2/9)^2/52 \approx 10^{-3}$, a $0.4\%$ correction
+  that does not affect the level identification.
   This fixes the current algebra level to~$1$.
 \end{itemize}
 The $\mathrm{SU}(3)_1$ Chern--Simons theory is a
@@ -1134,12 +1152,20 @@ construction at \emph{both} gauge groups---not by minimality:
 \item $\mathrm{U}(1)$: $K = 1$ is the unique level consistent with
   single-valued holonomy on~$S^1$.
 \end{itemize}
-In all three cases, $k = 1$ is a \emph{theorem}
-(the orbifold of $\mathrm{SU}(2)_1$ produces level~$1$
-for any $\Gamma \subset \mathrm{SU}(2)$;
-equivalently, the DHVW construction
-\citep{DixonHarveyVafaWitten1985}
-gives $\hat{\mathfrak{g}}_1$), not a minimality assumption.
+In all three cases, $k = 1$ follows from the
+DHVW orbifold construction, independently of the
+parent theory's level.
+The mechanism: adjacent twist fields
+$\sigma_k \times \sigma_{k+1}$ produce Kac--Moody
+currents $J^a(z)$ at conformal weight $h = 1$.
+The current--current OPE
+$J^a(z)\,J^b(w) \sim k\,\delta^{ab}/(z{-}w)^2 + \ldots$
+has level $k$ determined by the twist-field normalisation,
+which for the standard DHVW construction gives $k = 1$
+for any $\Gamma \subset \mathrm{SU}(2)$
+\citep{DixonHarveyVafaWitten1985}.
+The parent central charge $c = 12\,b(N)$ enters the
+gravitational sector but does not affect the gauge level.
 As a cross-check: $k = 2$ would give $\sin^2\theta_W = 1/3$,
 and $k = 3$ gives $5/13$; both are experimentally excluded.
 
@@ -1762,9 +1788,15 @@ The $\mathbf{H}^2$ scattering matrix for the Dirac operator
 at spectral parameter~$s$ is
 $S(s) = \Gamma(\tfrac{1}{2}+is)/\Gamma(\tfrac{1}{2}-is)$,
 with scattering phase $\arg S(s) = 2\arg\Gamma(\tfrac{1}{2}+is)$.
-The CKM phase is the scattering phase shift at
-$s = \Delta c = 1$: since $S = e^{2i\delta}$,
-$\delta = \tfrac{1}{2}\arg S(1) = \arg\Gamma(\tfrac{1}{2}+i)$.
+At $s = 0$: $S(0) = 1$ (zero phase; $\Gamma(1/2)$ is real).
+At $s = 1$: $S(1) = \Gamma(1/2+i)/\Gamma(1/2-i)$, which
+is well-defined ($\Gamma$ has no poles on the line
+$\mathrm{Re}(z) = 1/2$).
+The accumulated phase from $s = 0$ to $s = 1$ is
+$\delta = \int_0^1 \tfrac{d}{ds}\arg\Gamma(\tfrac{1}{2}+is)\,ds
+= \int_0^1 \mathrm{Im}\,\psi(\tfrac{1}{2}+is)\,ds$,
+where $\mathrm{Im}\,\psi(1/2+is) = (\pi/2)\tanh(\pi s)$
+is smooth on $[0,1]$ (no singularity at $s = 0$).
 
 The only input is the standard parameterisation
 $s = c - \tfrac{1}{2}$; the value $\Delta s = 1$ follows
