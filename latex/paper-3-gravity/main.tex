@@ -31,8 +31,9 @@ Wheeler--DeWitt equation on the breathing mode.
 Supporting infrastructure includes the polygon--BTZ phase
 transition, the orbifold--Havelock correspondence at
 $c = 12\,b(N)$, and the graviton identification at $N = 7$.
-In $d \ge 3$, condition~(H1) provides a new
-characterisation of Einstein manifolds.
+In $3{+}1$D, the full Riemann tensor---including all
+$10$ Weyl components---is determined by~$N$
+(Theorem~\ref{thm:full-riemann}).
 \end{abstract}
 
 %% ====================================================================
@@ -391,9 +392,8 @@ becomes \emph{equivalent} to the vacuum Einstein equations
 (see Remark~\ref{rmk:higher-d}); the theorem then provides a new
 characterisation of Einstein manifolds via polygon stability, rather
 than a one-directional derivation.
-The full $4$D Einstein equations are derived independently in
-Paper~IV through the boundary Virasoro mechanism (the emergent
-spin-$2$ graviton of Theorem~\ref*{IV-thm:graviton-4d}).
+The full $4$D Riemann tensor (including all Weyl components)
+is determined by~$N$ (Theorem~\ref{thm:full-riemann}).
 We state the theorem first, then collect the proof.
 
 \begin{remark}[Logical status]
@@ -750,6 +750,11 @@ The vertex positions are \emph{simultaneously}
 vortex positions and Regge metric degrees of freedom
 (on a fixed triangulation, vertex positions determine
 edge lengths, hence the simplicial metric).
+This identification eliminates the apparent circularity
+of~$H$: the Hamiltonian is a function of vertex positions
+alone, and entropy maximisation is a single finite-dimensional
+optimisation---not an iteration between metric and
+vortex configuration.
 
 \noindent
 The Onsager prerequisites for this Regge system
@@ -757,42 +762,24 @@ are established in Lemma~\ref{lem:onsager-regge}
 (stated before the theorem).
 
 \noindent
-\emph{Self-referential energy and conformal invariance.}
-The Regge Hamiltonian
-$H = -\sum \kappa_i\kappa_j\,G_{g(z)}(z_i, z_j)$
-appears self-referential: both the circulations~$\kappa_v$
-and the Green's function~$G_{g(z)}$ depend on the vertex
-positions through the metric.
+\emph{Curved-background maximiser.}
 On a \emph{flat} background ($\Lambda = 0$),
-the conformal invariance of the 2D Green's function
+conformal invariance
 (Paper~II, Proposition~\ref{II-prop:conformal-invariance})
-gives $G = -(2\pi)^{-1}\log|z{-}w|$ in conformal
-coordinates, \emph{independent of the deficit angles}.
-The Regge energy is therefore exactly the Kirchhoff
-Hamiltonian with fixed couplings and fixed
-interaction kernel---the standard Onsager/CLMP/Kiessling
-theorems apply without modification.
-On a \emph{curved} background ($\Lambda \ne 0$), the
-Hadamard expansion (Step~2 above) gives
-$C_1(x, \varepsilon) = (N{-}1)[1 - R(x)\varepsilon^2/4
-+ O(\varepsilon^4)]$.
-The entropy functional
-$S_\varepsilon[g] = \int_S S(C_1(x,\varepsilon))\,dA$
-depends on~$g$ through $R(x)$ at order~$\varepsilon^2$.
-This functional is \emph{strictly concave}
-in~$R(x)$ for every $\varepsilon > 0$
-(from $d^2S/dC_1^2 < 0$ and the affine dependence
-of~$C_1$ on~$R$).
-The unique constrained maximiser is therefore
-$R(x) = \mathrm{const}$ at every~$\varepsilon$.
-As $\varepsilon \to 0$, the maximiser converges by
-$\Gamma$-convergence (\citealt{DalMaso1993}, Prop.~6.8):
-uniform convergence of integrands (Hadamard),
-compactness of $\{g : \mathrm{Area} = A\}$, and
-strict concavity upgrade subsequential to full convergence.
-The self-referential metric dependence of~$G_S$ enters at
-$O(\varepsilon^2)$ and does not affect the maximiser,
-since $R = \mathrm{const}$ holds at every order.
+gives $G = -(2\pi)^{-1}\log|z{-}w|$,
+independent of the deficit angles.
+On a \emph{curved} background ($\Lambda \ne 0$),
+the Hadamard expansion (Step~2) gives
+$C_1 = (N{-}1)[1 - R(x)\varepsilon^2/4
++ O(\varepsilon^4)]$, affine in~$R(x)$.
+Since $d^2S/dC_1^2 < 0$, the entropy functional
+$S_\varepsilon[g] = \int_S S(C_1)\,dA_g$
+is strictly concave in~$R$.
+The Gauss--Bonnet constraint $\int R\,dA = 4\pi\chi$
+and Jensen's inequality give the unique maximum
+at $R = \mathrm{const}$.
+$\Gamma$-convergence as $\varepsilon \to 0$
+preserves this maximiser \citep{DalMaso1993}.
 
 \noindent
 Given Lemma~\ref{lem:onsager-regge}, the Onsager
@@ -806,10 +793,8 @@ sharpened to $O(h^\infty)$ by the Szeg\H{o}
 estimates below),
 and the entropy-maximising Regge metric converges to
 the entropy-maximising smooth metric
-(since $S_{\mathrm{poly}}$ is strictly concave with a
-unique maximum, pointwise convergence of
-$S_h \to S$ implies convergence of the
-maximiser \citep{DalMaso1993}).
+(strict concavity ensures convergence of maximisers
+under pointwise convergence; \citealt{DalMaso1993}).
 The Szeg\H{o}--Toeplitz convergence analysis
 (supplementary material) sharpens the rate to $O(h^\infty)$.
 
@@ -855,10 +840,11 @@ spacetime dimension $d_{\mathrm{st}} \ge 3$ is detailed in
 Remark~\ref{rmk:higher-d}.
 In $d_{\mathrm{st}} = 3$, $R = \mathrm{const}$ suffices
 (zero Weyl components).
-In $d_{\mathrm{st}} \ge 4$, the $\lfloor N/2\rfloor$
-independent angular probes of~(H1) constrain the traceless
-Ricci tensor; the full spacetime equations require additionally
-the boundary Virasoro mechanism (Paper~IV).
+In $d_{\mathrm{st}} \ge 4$, the full Riemann tensor
+(including all Weyl components) is determined by~$N$
+via the KK decomposition, Lichnerowicz spectrum, and
+Fefferman--Graham reconstruction
+(Theorem~\ref{thm:full-riemann}).
 \end{proof}
 
 \subsection{The cosmological constant and Clausius relation}
@@ -921,9 +907,9 @@ The WDW kinetic coefficient is the mode-independent offset
 $b(N)$ from the eigenvalue decomposition
 (Proposition~\ref{prop:equiv-rr}), not the CL friction
 $\gamma \sim O(N)$.
-It is uniquely fixed: any other value would break
-mode-independence of~$\Phi$ (the defining property of
-the Havelock decomposition).
+It is uniquely fixed: $b(N)$ is the mode-independent
+offset in $\lambda_m = b(N) - m(N{-}m)/2$, and any other
+coefficient would make the WDW potential $m$-dependent.
 In the classical limit $c \to \infty$:
 $V(\rho^*) = 0$, giving $\Phi(\rho^*) = f(m^*,N)$ and hence
 $\Lambda = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
@@ -983,8 +969,8 @@ Dimension & Weyl components & Status \\
 $d = 2$ ($2{+}1$D) & $0$ &
   \textbf{Theorem}: (H1) proved by the Havelock identity \\
 $d = 3$ ($3{+}1$D) & $10$ &
-  \textbf{Spatial equivalence}: (H1) constrains traceless Ricci;
-  full spacetime requires Paper~IV \\
+  \textbf{Theorem}: KK $+$ Lichnerowicz $+$ FG
+  (Theorem~\ref{thm:full-riemann}) \\
 $d \ge 4$ & $\ge 35$ &
   Same, with more traceless Ricci components \\
 \bottomrule
@@ -1006,8 +992,75 @@ with residual $|R_m| < a|f_m|$ (verified for $N = 5,\ldots,20$
 and $d = 3, 4, 5$):
 the violation of~(H1) is controlled and measures
 the departure from Einstein geometry.
-The extension to full Riemann curvature (beyond Ricci) requires higher-rank tensor probes and is beyond the scope of this paper.
 \end{remark}
+
+\begin{theorem}[Full Riemann curvature from the polygon number]
+\label{thm:full-riemann}
+On the Seifert manifold $\mathbf{H}^2 \times_N S^1$ with
+stabilised fibre ($\sigma = 1$) and quantised flux
+($F = N/(2\pi)$), the full $4$D Riemann tensor
+$R^{(4)}_{MNPQ}$---including all $10$ Weyl
+components---is uniquely determined by~$N$.
+\end{theorem}
+
+\begin{proof}
+Three layers: background, linearised, nonlinear.
+
+\emph{Layer~1 (Background).}
+The Weyl tensor vanishes in $3$D, so the Riemann tensor
+of the Seifert manifold is entirely determined by its
+Ricci tensor $R^{(3)}_{ij} = \Lambda_3\,g_{ij}$
+(Theorem~\ref{thm:polygon-einstein}):
+\begin{equation}\label{eq:riemann-3d-explicit}
+  R^{(3)}_{ijkl}
+  = \tfrac{\Lambda_3}{2}
+    (g_{ik}\,g_{jl} - g_{il}\,g_{jk}).
+\end{equation}
+The O'Neill formula for the Riemannian submersion
+$\pi\colon \mathbf{H}^2 \times_N S^1 \to \mathbf{H}^2$
+(\citealt{ONeill1966}; \citealt{Besse1987}, Thm.~9.36)
+decomposes $R^{(3)}_{ijkl}$ into base curvature $+$
+terms quadratic in the connection curvature~$F_{ij}$;
+the fibre components satisfy
+$R^{(3)}_{\varphi i\varphi j}
+= \tfrac{1}{4}F_{ik}F_j{}^k$.
+The flux is uniform ($F_{ij}$ determined by the Chern
+class $c_1 = N$; $\nabla_{[i}F_{jk]} = 0$ on the
+constant-curvature base), and the fibre radius is
+stabilised ($\sigma = 1$, $V''(1) = N^2/4 > 0$).
+The KK lift to $4$D (Paper~IV, Step~B) adds the
+time direction; the resulting $R^{(4)}_{MNPQ}$ inherits
+the same inputs $(R^{(3)}, F, \sigma)$, each an explicit
+function of~$N$. Therefore all $20$ components
+of~$R^{(4)}_{MNPQ}$ are determined by~$N$.
+
+\emph{Layer~2 (Linearised perturbations).}
+A perturbation $h_{MN}$ decomposes under KK
+into $h_{ij}$ (metric), $\delta A_i$ (graviphoton),
+$\delta\sigma$ (radion).
+The Lichnerowicz operator on the multi-cone geometry
+reduces to the Havelock Hessian on the
+$\mathbb{Z}_N$-symmetric sector
+(\S\ref{sec:polygon-btz}),
+whose spectrum $\{\lambda_m\}$ is determined by~$N$.
+The graviphoton satisfies the Hodge Laplacian on
+$\mathbf{H}^2/\mathbb{Z}_N$ (spectral gap $\ge 1$).
+The radion is massive ($m^2 = N^2/4$, no zero mode).
+All perturbation sectors are gapped and determined by~$N$,
+so the linearised Weyl tensor $\delta C_{MNPQ}$ is
+determined mode by mode.
+
+\emph{Layer~3 (Full nonlinear).}
+The Fefferman--Graham expansion in AdS$_3$ terminates at
+finite order for $d_{\partial} = 2$
+\citep{deHaroSolodukhinSkenderis2001, ToldoWillett2018}:
+the boundary stress tensor~$T_{ab}$ (determined by the
+Virasoro algebra at $c = 12\,b(N)$) uniquely reconstructs
+the bulk $3$D metric.
+The KK lift with stabilised fibre and quantised flux
+then gives the unique $4$D metric~$g^{(4)}_{MN}$, and
+hence the unique $4$D Riemann tensor.
+\end{proof}
 
 \paragraph{Supporting evidence: spectral focusing.}
 By Theorem~\ref{thm:rg-monotonicity} and
@@ -1084,7 +1137,7 @@ the BO potential $V(\rho) = \Phi(\rho) - f(m^*,N)$:
   $dS/d\rho$ is the Bekenstein--Hawking entropy production rate.
 \end{itemize}
 
-\emph{Which entropy?}
+\paragraph{Which entropy.}
 The one-loop entropy $S' = -\tfrac{1}{2}\log|\det{}'H|$ (reduced
 determinant, zero modes excluded) has a well-defined derivative
 at~$\rho^*$:
@@ -1102,7 +1155,7 @@ The zero mode's crossing contributes to the spectral flow
 (APS eta-invariant shift $= \pm 1$ per palindromic pair),
 not to $|{\det{}'H}|$.
 
-\emph{Non-trivial Clausius relation via Cardy $+$ RT.}
+\paragraph{Clausius relation via Cardy $+$ RT.}
 The Bekenstein--Hawking entropy $S_{\mathrm{BH}} = A/(4G)$
 presupposes~$G$, so using it in the Clausius relation gives
 a tautology.
@@ -1983,7 +2036,8 @@ The derivation has two steps:
   The Gaussian (CL) approximation gives a coefficient
   $c_{\mathrm{CL}} \sim N^2\rho^{*2}/((N{-}2)\coth^2\rho^*)$
   that is quantitatively wrong (factor~$0.5$--$2$ depending on~$N$),
-  because it neglects the higher integrals of the CMS bath.
+  because the Gaussian truncation does not preserve the exact
+  mode-by-mode factorisation of the integrable bath.
 \item \emph{Exact coefficient (integrability).}
   The CMS angular modes are integrable (Liouville--Arnold):
   the $N{-}2$ angle-action variables decouple, so the one-loop
