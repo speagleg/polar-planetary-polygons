@@ -1066,21 +1066,20 @@ so the \emph{effective} coupling for matter in representation~$R$ is
 \]
 where $h_R = C_2(R)/(k{+}h^\vee)$ is the conformal
 weight~\eqref{eq:conformal-coupling}.
-The fiber radius~$R$ cancels in the mixing angle ratio
-(verified numerically
-for $R \in \{0.5, 1, 2, 5\}$; see Code Availability):
+The fibre radius~$R$ cancels in the mixing angle ratio:
 \begin{equation}\label{eq:weinberg-cs}
   \sin^2\theta_W
-  = \frac{h_Y}{h_Y + h_W}
-  = \frac{Q^2/K}{\;Q^2/K \;+\; j(j{+}1)/(k{+}h^\vee)\;}
-  = \frac{Q^2(k{+}h^\vee)}{Q^2(k{+}h^\vee) + K\,j(j{+}1)}.
+  = \frac{g_Y^2\,C_2(Y)}{g_Y^2\,C_2(Y) + g_W^2\,C_2(W)}
+  = \frac{Q^2/K}{\;Q^2/K \;+\; j(j{+}1)/(k{+}h^\vee)\;}.
 \end{equation}
-Substituting the values from Steps~1--2:
-\[
-  h_Y = \frac{Q^2}{K} = \frac{1/4}{1} = \frac{1}{4},
-  \qquad
-  h_W = \frac{j(j{+}1)}{k{+}h^\vee} = \frac{2}{3},
-\]
+The numerator and denominator are gauge couplings
+($g^2 = 2\pi/((k{+}h^\vee)R)$, from the CS level)
+times Lie-algebra Casimirs ($C_2 = j(j{+}1)$,
+representation-theoretic).
+These are independent inputs: the CS level determines
+the coupling strength; the Casimir determines the charge.
+Substituting from Steps~1--2
+($Q^2 = 1/4$, $K = 1$, $j = 1$, $k{+}h^\vee = 3$):
 \[
   \sin^2\theta_W
   = \frac{1/4}{1/4 + 2/3}
@@ -1091,13 +1090,18 @@ Substituting the values from Steps~1--2:
 \begin{remark}[Integrable bound]
 \label{rem:j1-bound}
 The integrable bound $j \le k/2 = 1/2$ of
-$\mathrm{SU}(2)_1$ constrains the non-perturbative
-TQFT Hilbert space (quantum dimension, braiding),
-not perturbative gauge couplings.
-The mixing angle~\eqref{eq:weinberg-cs}
-uses the Lie-algebra Casimir $C_2(j{=}1) = 2$,
-which enters the Yang--Mills vertex independently
-of~$k$ (Step~3 above).
+$\mathrm{SU}(2)_1$ constrains which representations
+appear as \emph{states} in the TQFT Hilbert space
+(quantum dimension, braiding);
+it does not constrain which representations appear
+as \emph{matter} coupled to the gauge field.
+In~\eqref{eq:weinberg-cs}, the denominator
+$(k{+}h^\vee) = 3$ enters through the gauge coupling
+$g^2 = 2\pi/((k{+}h^\vee)R)$ (a property of the
+CS theory at level~$k$, independent of
+any representation), while the numerator $C_2 = j(j{+}1)$
+is the Lie-algebra Casimir (a property of the
+matter representation, independent of~$k$).
 The quantum number $j = 1$ is fixed by the vortex
 Casimir: $f(m^*,4) = 2 = j(j{+}1)$.
 \end{remark}
