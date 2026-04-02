@@ -155,9 +155,10 @@ $7$ & $33/16$ & $j = 2$ & Graviton; stability boundary $N_{\mathrm{crit}} = 7$ \
 \section{The $N$ selection principle}
 \label{sec:n-selection}
 
-\begin{theorem}[$N$ selection from angular momentum quantization]
+\begin{derivation}[$N$ selection from angular momentum quantization]
 \label{thm:n-selection}
-The three polygon numbers are uniquely determined:
+The three polygon numbers are determined by three structural
+requirements (integer spin, stability, flux additivity):
 \begin{enumerate}
 \item[(a)] $N_{\mathrm{EW}} = 4$: the unique even polygon with
   integer critical spin ($j = 1$ from $f(2,4) = 2 = j(j{+}1)$).
@@ -174,7 +175,7 @@ The three polygon numbers are uniquely determined:
   No geometric input enters---only the linearity of
   $\oint A$ on the fiber (exhaustive elimination below).
 \end{enumerate}
-\end{theorem}
+\end{derivation}
 
 \begin{proof}
 \emph{Part (a).}
@@ -247,18 +248,18 @@ All alternatives violate either the Pell equation
 (non-integer $j$: mathematical) or the single-sector
 requirement (each gauge factor once: structural):
 \begin{center}\small
-\begin{tabular}{lcl}
+\begin{tabular}{lclc}
 \toprule
-$N$ & Decomposition & Reason excluded \\
+$N$ & Decomposition & Reason excluded & Type \\
 \midrule
-$4$  & $4$ alone      & $\Lambda_3 = 0$ (gauge threshold) \\
-$7$  & $7$ alone      & Gives $M_P/v$, not $\Lambda_4$ \\
-$8$  & $4+4$          & No graviton ($j=2$ only at $N=7$); doubled EW \\
-$9$  & $4+5$          & $N=5$: $j \approx 1.79$ (non-integer) \\
-$10$ & $3+7$          & $N=3$: $j=0$ (no gauge content) \\
-$12$ & $5+7$          & $N=5$: non-integer $j$ \\
-$14$ & $7+7$          & Two BO potentials $\to$ extra parameter \\
-$28$ & $4 \times 7$   & Doubled gauge sectors \\
+$4$  & $4$ alone      & $\Lambda_3 = 0$ (gauge threshold) & math \\
+$7$  & $7$ alone      & Gives $M_P/v$, not $\Lambda_4$ & structural \\
+$8$  & $4+4$          & No graviton ($j{=}2$ only at $N{=}7$) & math \\
+$9$  & $4+5$          & $N=5$: $j \approx 1.79$ (non-integer) & math \\
+$10$ & $3+7$          & $N=3$: $j=0$ (no gauge content) & math \\
+$12$ & $5+7$          & $N=5$: non-integer $j$ & math \\
+$14$ & $7+7$          & Two BO potentials $\to$ extra parameter & structural \\
+$28$ & $4 \times 7$   & Doubled gauge sectors & structural \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -295,7 +296,7 @@ from $\mathbb{Z}_7$ charge conservation
 \section{The electroweak hierarchy}
 \label{sec:hierarchy}
 
-\begin{theorem}[Electroweak hierarchy from the hybrid instanton]
+\begin{derivation}[Electroweak hierarchy from the hybrid instanton]
 \label{thm:hierarchy}
 The Planck/electroweak hierarchy decomposes into three
 independently computable contributions:
@@ -312,7 +313,7 @@ of~$\mathbb{Z}[\sqrt{7}]$.
 Numerically: $36.548 + 2.222 + (-0.313) = 38.457$,
 versus the observed $\ln(M_P/v) = 38.442$
 ($0.04\%$ match in the log; $1.5\%$ in the ratio).
-\end{theorem}
+\end{derivation}
 
 \begin{proof}
 Each component is computed independently.
@@ -342,6 +343,10 @@ and positive for $\rho > \rho^*$.
 The WKB tunneling action:
 $S = \int_0^{\rho^*} \sqrt{2c_7\,|V_7(\rho)|}\;d\rho = 18.274$
 (numerical integration, $c_7 = 12\,b(7) = 51.57$).
+The value $b(7)$ enters both $V_7$ (through the potential offset)
+and $c_7$ (through the kinetic coefficient); these are the
+\emph{same} quantity with \emph{different} roles, not
+two independent inputs.
 The bounce action is $2S = 36.548$.
 
 \paragraph{Component~2 (Mass gap).}
@@ -540,7 +545,7 @@ The comparison is also limited by the experimental
 precision of~$M_P$ ($\sim 10^{-5}$).
 \end{remark}
 
-\begin{theorem}[The cosmological constant from the $N = 11$ instanton]
+\begin{derivation}[The cosmological constant from the $N = 11$ instanton]
 \label{thm:cc}
 The $\mathbf{H}^2$ curvature radius~$\ell$ is determined by the
 $N = 11$ Born--Oppenheimer tunneling action:
@@ -563,12 +568,13 @@ This gives:
   = 4.24 \times 10^{-84}\;\mathrm{GeV}^2,
 \end{equation}
 predicting
-$H_0 = \sqrt{\Lambda_4/(3\,\Omega_\Lambda)} = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$
-(Planck 2018 \citep{Planck2018}: $67.4 \pm 0.5$).
+$H_0 = \sqrt{\Lambda_4/(3\,\Omega_\Lambda)} = 67.4\;\mathrm{km\,s^{-1}\,Mpc^{-1}}$,
+matching Planck 2018 \citep{Planck2018} ($67.4 \pm 0.5$)
+to $< 0.1\%$.
 One calibration input ($\Delta m^2_{\mathrm{atm}}$) pins
 $M_{\mathrm{poly}}$; $\ell$ is then fixed by the $N = 7$
 and $N = 11$ instanton actions alone.
-\end{theorem}
+\end{derivation}
 
 \begin{proof}
 The derivation chain is:
