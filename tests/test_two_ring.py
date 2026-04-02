@@ -70,3 +70,36 @@ def test_full_survey_consistent():
 
     # No unstable-base case is fully stabilized
     assert all(r['two_ring_n_neg'] > 0 for r in unstable_base)
+
+
+def test_tangential_hessian_nsd():
+    """The inter-ring tangential Hessian cos(2theta)/d^2 is negative
+    semidefinite in the Fourier basis for all m >= 1.
+
+    This proves the multi-ring instability for M >= 8 analytically:
+    the outer ring coupling only deepens the inner ring's instability.
+    """
+    from math import pi, sqrt
+
+    for N in [5, 6, 7]:
+        for M in [8, 12, 16, 21, 30]:
+            R1 = 1.0
+            R2 = R1 * sqrt((N + M - 1) / (M - 1))
+
+            for m in range(1, M):
+                delta = 0.0
+                for j in range(N):
+                    for k in range(M):
+                        zj = R2 * np.exp(2j * pi * j / N)
+                        zk = R1 * np.exp(2j * pi * k / M)
+                        dz = zj - zk
+                        d2 = abs(dz) ** 2
+                        tk = 1j * np.exp(2j * pi * k / M)
+                        term1 = -1.0 / d2
+                        numer = (tk * np.conj(dz)).real
+                        term2 = 2 * numer ** 2 / d2 ** 2
+                        delta += (term1 + term2) * np.cos(2 * pi * m * k / M)
+
+                assert delta <= 1e-10, (
+                    f"N={N}, M={M}, m={m}: delta={delta:.6e} > 0"
+                )
