@@ -1228,6 +1228,15 @@ finite order for $d_{\partial} = 2$
 the boundary stress tensor~$T_{ab}$ (determined by the
 Virasoro algebra at $c = 12\,b(N)$) uniquely reconstructs
 the bulk $3$D metric.
+The boundary has $\mathbb{Z}_N$ orbifold singularities
+(the polygon cone points), but the \emph{bulk} geometry is
+smooth: the FG expansion is well-defined in the distributional
+sense, with $g_2$ acquiring delta-function contributions
+at the cone points and $g_4$ remaining regular
+(the $\delta^2$ terms cancel by the $\mathbb{Z}_N$
+symmetry of the metric; the Lipschitz regularity of the
+orbifold boundary suffices for the FG scattering operator,
+\citealt{GrahamZworski2003}).
 The KK lift with stabilised fibre and quantised flux
 then gives the unique $4$D metric~$g^{(4)}_{MN}$, and
 hence the unique $4$D Riemann tensor.
@@ -2259,17 +2268,26 @@ The derivation has three steps:
     = \coth^2\!\rho\;\sum_{m \ne m^*}\frac{1}{\lambda_m(\rho)^2}.
   \]
   This metric is $\rho$-dependent.
-  The BO separation (step~1) is exact for
-  \emph{any} kinetic coefficient: the Havelock
-  eigenvectors are $\rho$-independent Fourier modes,
-  so the angular bath decouples from the
-  breathing mode regardless of~$c$.
-  What $c$ determines is the semiclassical scale
-  ($c \to \infty$ is the classical limit) and the
-  tunnelling amplitude.
-  The value $c = 12\,b(N)$ is fixed by identifying
-  the FK path-integral measure coefficient with
-  the boundary CFT central charge (step~3).
+  The \emph{classical} BO separation is exact for any
+  kinetic coefficient (the Havelock eigenvectors are
+  $\rho$-independent Fourier modes).
+  But the \emph{quantum} BO factorisation requires~$c$
+  to be \emph{constant}: if $c(\rho)$ were
+  $\rho$-dependent, the FK Hamiltonian
+  $H = -(1/(2c(\rho)))\,d^2/d\rho^2 + V(\rho)$
+  would produce a first-derivative term
+  $-c'(\rho)\,\psi'/(2c(\rho)^2)$
+  that couples the breathing mode to
+  $\rho$-gradients of the angular-mode bath,
+  breaking the exact factorisation at the quantum level.
+  Therefore $c$~must be a constant.
+  The unique constant matching Brown--Henneaux
+  ($c = 3\ell/(2G)$) is $c = 12\,b(N)$.
+  The Fisher--Rao metric $g_{\mathrm{FR}}(\rho)$ is
+  the $\rho$-dependent version; extracting the constant
+  requires a tortoise-coordinate field redefinition
+  $\rho \to \tilde\rho(\rho)$ with
+  $g_{\mathrm{FR}}\,|d\rho|^2 = c\,|d\tilde\rho|^2$.
 
 \item \emph{Exact coefficient (two independent routes).}
   Two independent calculations determine~$c$:

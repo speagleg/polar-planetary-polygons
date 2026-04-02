@@ -894,10 +894,19 @@ $Z_{\mathrm{frozen}} = \prod_{m \ne m^*}|\lambda_m|^{-1/2}$
 evaluated at the tunnelling threshold gives the
 number density of each species:
 $n_k \propto |\lambda_k|^{-1/2}$.
-The energy density is
-$\rho_k = M_k\,n_k \propto \sqrt{\lambda_k} \times
-|\lambda_k|^{-1/2} = 1$,
-so all four species have \emph{equal energy density},
+The equal energy density follows from \emph{equipartition}:
+each frozen angular mode~$m$ is a harmonic oscillator
+with Hamiltonian $H_m = \tfrac{1}{2}\lambda_m|\varepsilon_m|^2$
+at the FK temperature $T = 1$.
+By the equipartition theorem:
+$\langle H_m\rangle
+= \tfrac{1}{2}\lambda_m \times 1/\lambda_m = \tfrac{1}{2}$,
+\emph{independent of~$\lambda_m$}.
+Therefore $\rho_k = M_k\,n_k
+= (\text{modes per species}) \times \tfrac{1}{2} = 1$
+for all four species---not a numerical coincidence but a
+consequence of classical statistical mechanics.
+All four species have \emph{equal energy density},
 giving
 $\Omega_{\mathrm{DM}} = F_{\mathrm{DM}} / F_{\mathrm{total}}$
 (eq.~\ref{eq:F-DM}).
