@@ -817,95 +817,129 @@ and the modular parameters (gravity) are fibers of
 different bundles over the moduli space of~$T^2$.
 \end{remark}
 
-\begin{proposition}[Confinement from center symmetry]
+\begin{proposition}[Confinement]
 \label{prop:confinement}
 In the polygon phase ($T < T_{\mathrm{HP}}$, selected by the
 Onsager principle~(H2b)), the $\mathrm{SU}(3)$ gauge theory
-is confining: the Polyakov loop $\langle P\rangle = 0$.
+is confining: the Wilson loop in the fundamental representation
+vanishes exactly, $\langle W_{\mathrm{fund}}\rangle = 0$.
 \end{proposition}
 
 \begin{proof}
-The Polyakov loop $P = \mathrm{Tr}\,\mathcal{P}\exp(\oint A_\tau\,d\tau)$
-transforms as $P \to \omega\,P$ under the $\mathbb{Z}_3$ center of
-$\mathrm{SU}(3)$ ($\omega = e^{2\pi i/3}$).
-The polygon phase has $\mathbb{Z}_N = \mathbb{Z}_7$ symmetry (the
-rotational symmetry of the regular $N$-gon).
-Since $\gcd(7, 3) = 1$, the group $\mathbb{Z}_7$ does \emph{not}
-contain $\mathbb{Z}_3$ as a subgroup.
-Therefore the $\mathbb{Z}_3$ center symmetry is unbroken in the
-polygon phase, forcing $\langle P\rangle = 0$ by symmetry.
+Two independent arguments:
+
+\emph{(a)~Verlinde formula (exact in the TQFT sector).}
+The $\mathrm{SU}(3)_1$ S-matrix has
+$S_{0\lambda} = 1/\sqrt{3}$ for all three integrable
+representations $\lambda$.
+The Wilson loop in the fundamental:
+$S_{\mathrm{fund},\lambda}/S_{0,\lambda}
+= \omega^{\lambda_1}$ where $\omega = e^{2\pi i/3}$.
+On any genus-$g$ surface:
+$\langle W_{\mathrm{fund}}\rangle
+= (1/Z)\sum_\lambda (S_{\mathrm{fund},\lambda}/S_{0,\lambda})
+\,(S_{0,\lambda})^{2-2g}
+\propto 1 + \omega + \omega^2 = 0$.
+This is the $\mathbb{Z}_3$ character sum: the fundamental
+has non-trivial center charge, so its expectation value
+vanishes identically. No approximation is involved.
+
+\emph{(b)~Center symmetry (conditional on H2b).}
+The Polyakov loop transforms as $P \to \omega\,P$ under
+$\mathbb{Z}_3$.
+The polygon phase has $\mathbb{Z}_7$ symmetry.
+Since $\gcd(7, 3) = 1$, the $\mathbb{Z}_3$ center is
+unbroken, forcing $\langle P\rangle = 0$.
+This argument requires the Onsager principle~(H2b) to
+select the polygon saddle---the same conditionality as the
+Einstein equation derivation
+(Theorem~\ref{III-thm:polygon-einstein}).
+
 In the BTZ phase ($T > T_{\mathrm{HP}}$): the black hole
-breaks all discrete spatial symmetries, and
+breaks all discrete symmetries, and
 $\langle P\rangle \ne 0$ (deconfined).
 The deconfinement transition is the polygon--BTZ
 Hawking--Page transition (\S\ref{sec:btz-transition}).
-The proof is conditional on~(H2b): the Onsager principle
-selects the polygon saddle, which has $\mathbb{Z}_7$ symmetry;
-the center-symmetry argument then follows from group theory.
-This is the same conditionality as the Einstein equation
-derivation (Theorem~\ref{III-thm:polygon-einstein}).
 \end{proof}
 
-\begin{derivation}[QCD string tension]
+\begin{derivation}[QCD string tension from the CS path integral]
 \label{der:string-tension}
-The ratio $\sigma/\Lambda^2$ is determined by four
-independently computed quantities:
+The Wilson loop in the fundamental of $\mathrm{SU}(3)_1$
+on any genus-$g$ surface vanishes \emph{exactly}
+by the Verlinde formula:
+\begin{equation}\label{eq:verlinde-wilson}
+  \langle W_{\mathrm{fund}}\rangle_{\mathrm{TQFT}}
+  = \frac{1}{Z}\sum_\lambda
+    \frac{S_{\mathrm{fund},\lambda}}{S_{0,\lambda}}
+    \,(S_{0,\lambda})^{2-2g}
+  = \frac{1+\omega+\omega^2}{Z} \times (\cdots) = 0,
+\end{equation}
+where $\omega = e^{2\pi i/3}$ and $1+\omega+\omega^2 = 0$
+is the $\mathbb{Z}_3$ character sum.
+This is \emph{exact topological confinement}: the TQFT
+sector has infinite string tension.
+
+The \emph{finite} physical string tension arises from
+the Yang--Mills sector (the KK kinetic term).
+The CS partition function on $\Sigma_g \times S^1$
+decomposes as
+$Z(\Sigma_g \times S^1) = Z_{\mathrm{free}} \times
+Z_{\mathrm{non\text{-}pert}}$,
+where $Z_{\mathrm{free}} = Z(S^3)^2$
+(the perturbative/reference partition function)
+and $Z_{\mathrm{non\text{-}pert}} = \dim\mathcal{H}$
+(the Verlinde dimension, from the sum over flat connections).
+The physical string tension is the \emph{bare} YM string
+tension times the non-perturbative CS enhancement:
 \begin{equation}\label{eq:string-tension}
   \frac{\sigma}{\Lambda^2}
-  = \bigl[\sigma_{\mathrm{polygon}}
-    + \mathrm{rank}(G)\;\sigma_{\mathrm{Polyakov}}\bigr]
+  = \sigma_{\mathrm{YM}}
+    \times \frac{Z(\Sigma_g \times S^1)}{Z(S^3)^2}
+  = \sigma_{\mathrm{YM}}
     \times \frac{\dim\mathcal{H}}{Z(S^3)^2}.
 \end{equation}
+The ratio $\dim\mathcal{H}/Z^2$ converts from the
+CS-regulated bare coupling to the physical normalisation:
+it counts the number of confining vacua weighted by the
+CS measure.
 
-\emph{(i)~Geometric contribution.}
-The Havelock eigenvalue $\lambda_{m^*}$ at the WDW
-ground state gives
+\emph{(i)~The bare YM string tension $\sigma_{\mathrm{YM}}$.}
+This has two components on $\mathbf{H}^2$:
+
+\emph{Geometric:}
 $\sigma_{\mathrm{polygon}}
 = \langle\lambda_{m^*}\rangle_{\mathrm{Airy}}
-= \coth(\rho^*) \times \langle z\rangle_{\mathrm{Ai}} / a
 = 0.1015/\ell^2$
-(Paper~III, Remark~\ref{III-rmk:entropy-bridge}),
-where $\langle z\rangle_{\mathrm{Ai}} = 0.457$ is
-the mean of the Airy ground state in the exterior region
-and $a = (2c\,\coth\rho^*)^{1/3} = 4.79$.
+(the Havelock eigenvalue at the WDW ground state,
+with $\langle z\rangle_{\mathrm{Ai}} = 0.457$
+and Airy scale $a = (2c\,\coth\rho^*)^{1/3} = 4.79$).
 
-\emph{(ii)~Monopole contribution (Polyakov mechanism).}
-On $\mathbf{H}^2$ with $K = -1$, the CS instanton
-(magnetic monopole) has curvature-corrected action
+\emph{Monopole (Polyakov mechanism,
+\citealt{Polyakov1977}; \citealt{AHW1982}):}
+On $\mathbf{H}^2$ ($K = -1$), the CS instanton
+has curvature-corrected action
 $S_{\mathrm{mon}} = 2\pi k \times 5/6 = 5\pi/3$
-(the factor $5/6 = 1 - 1/6$ from the Seeley--DeWitt
-$a_1$ coefficient at $K = -1$).
-The one-loop determinant prefactor is
-$(S/(2\pi))^{3/2} = (5/6)^{3/2} = 0.761$
-(three translational zero modes of the monopole).
-The Polyakov string tension
-(\citealt{Polyakov1977}; \citealt{AHW1982})
-is $\sigma_{\mathrm{Polyakov}}
-= [N^2/(8\pi^2)]\,g^4\,m\,\sqrt{y} = 0.612/\ell^2$,
-where $g^2 = 4\pi/k = 4\pi$,
-$m = 1/(2\ell)$ (the $\mathbf{H}^2$ spectral gap),
-and $y = 0.761 \times e^{-5\pi/3} = 0.00405$
-is the dressed monopole fugacity.
-$\mathrm{SU}(3)$ has $\mathrm{rank} = 2$
-(two simple roots, each carrying an independent
-monopole species): total monopole contribution
-$2 \times 0.612 = 1.224/\ell^2$.
+(from the Seeley--DeWitt $a_1$ at $K = -1$),
+determinant prefactor $(5/6)^{3/2} = 0.761$,
+and dressed fugacity $y = 0.00405$.
+The Polyakov string tension:
+$\sigma_{\mathrm{Polyakov}}
+= [N^2/(8\pi^2)]\,g^4\,m\,\sqrt{y} = 0.612/\ell^2$.
+With $\mathrm{rank}(\mathrm{SU}(3)) = 2$ independent
+monopole species (one per simple root):
+$\sigma_{\mathrm{YM}}
+= 0.1015 + 2 \times 0.612 = 1.326/\ell^2$.
 
-\emph{(iii)~Topological factors.}
-The Verlinde dimension on the genus-$2$ Bolza surface
+\emph{(ii)~The CS non-perturbative enhancement.}
 $\dim\mathcal{H}(\Sigma_2, \mathrm{SU}(3)_1) = 9$
-(three integrable representations,
-$\sum_\lambda (S_{0\lambda})^{2-2g}
-= 3 \times 3 = 9$).
-The CS partition function
-$Z(S^3, \mathrm{SU}(3)_1)^2 = 2$
-normalises the monopole gas.
+(Verlinde: three integrable representations,
+$\sum_\lambda (S_{0\lambda})^{2-2g} = 3 \times 3 = 9$).
+$Z(S^3, \mathrm{SU}(3)_1)^2 = 2$.
 
-\emph{(iv)~Result.}
+\emph{(iii)~Result.}
 \[
   \frac{\sigma}{\Lambda^2}
-  = (0.102 + 2 \times 0.612) \times \frac{9}{2}
-  = 1.326 \times 4.5
+  = 1.326 \times \frac{9}{2}
   = 5.97.
 \]
 The lattice value (\citealt{Bali2001}, pure-gauge $\mathrm{SU}(3)$):
