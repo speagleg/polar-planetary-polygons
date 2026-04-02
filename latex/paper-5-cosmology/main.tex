@@ -1085,14 +1085,17 @@ parameter status):
   = 31.5$ (observed: $32.5$, $3\%$) is a genuine prediction:
   it is $M_{\mathrm{KK}}$-independent and determined entirely by the Yukawa texture.
   The improvement from $2.3\times$ (diagonal $M_{\mathrm{KK}}$) to $3\%$
-  comes from the $\mathbb{Z}/3\mathbb{Z}$ Galois twist,
-  which generates off-diagonal $M_{\mathrm{KK}}$ entries suppressed by
-  $e^{-\sqrt{|\Delta f|}\,\rho^*/N}$
-  ($\Delta f = |f_i {-} f_j|$ the Casimir mismatch,
-  $1/N$ the natural centrifugal barrier scale
-  of the $\mathbb{Z}_N$ orbifold).
-  The Frobenius $\sigma$ maps pairs with \emph{unit} angular overlap;
-  the suppression is purely radial.
+  comes from the $\mathbb{Z}/3\mathbb{Z}$ Galois twist.
+  The Frobenius $\sigma\colon m \mapsto 2m \bmod 7$
+  maps generation~$i$ to generation~$j$ with unit angular overlap
+  (the Fourier modes are related by the Galois action).
+  The off-diagonal $M_{\mathrm{KK}}$ entry between generations~$i$
+  and~$j$ is the WKB tunneling amplitude through the Casimir barrier:
+  $(M_{\mathrm{KK}})_{ij} = M_{\mathrm{KK}} \times
+  e^{-\sqrt{|\Delta f|}\,\rho^*/N}$,
+  where $\Delta f = |f(m_i) - f(m_j)|$ is the Casimir gap
+  between the two modes and $\rho^*/N$ is the WKB path length
+  (the geodesic radius divided by the orbifold order).
 \item $\Sigma m_\nu = 0.059$\,eV
   $< 0.12$\,eV (Planck bound \citep{Planck2018}).\quad\checkmark
 \end{itemize}
