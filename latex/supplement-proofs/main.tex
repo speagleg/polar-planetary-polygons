@@ -28,7 +28,14 @@ corresponding main paper.
 \subsection{The Kasparov product}
 \label{sec:kasparov-construction}
 
-The representation-ring invariant $[\mu_N(\xi)]$ of Section~\ref{sec:k-theory} classifies stability phases but cannot detect fractional Morse indices at thresholds where the gap condition fails. The Kasparov product provides this finer information, extending the classification to arithmetic surfaces.
+The representation-ring invariant $[\mu_N(\xi)]$
+(Paper~I, Appendix~\ref*{I-sec:k-theory})
+classifies stability phases but cannot detect fractional
+Morse indices at thresholds where the gap condition fails.
+The Kasparov product provides this finer information,
+extending the classification to arithmetic surfaces.
+The theorem statement is reproduced from Paper~I for
+self-containment; the detailed proof is given here.
 
 Theorem~\ref{thm:spectral-flow} uses the \emph{trace}
 $|\delta C_1| = |\tau_{z_0}(h_\xi^\Gamma)|$ to control
@@ -144,6 +151,12 @@ $\mu\colon K_0^\Gamma(\underline{E}\Gamma)
 \to K_0(C^*_r(\Gamma))$
 is an isomorphism
 \citep{Kasparov1988}.
+(For orbifold surfaces with $\mathbb{Z}_N$ fixed points,
+the torsion-free hypothesis fails and the Kasparov
+product is replaced by the equivariant $KK^{\mathbb{Z}_N}$
+theory; the stability classification then reduces to
+the elementary representation-ring analysis of
+\S\ref*{I-sec:index-pairing}.)
 
 Under the gap condition
 $\|h\|_{C^*_r} < \min_m |c_m|$,
@@ -272,8 +285,10 @@ $\|\tau(P_-(h)) - \tau(P_-(h_4))\| \le
 \|h - h_4\|_{\mathrm{op}} / \mathrm{gap}$,
 but since $\mathrm{gap} \to 0$ at the threshold,
 the empirical convergence rate ($0.012 \to 0.007$,
-geometric ratio $\approx 0.6$) gives the
-more reliable bound:
+geometric ratio $\approx 0.6$; a rigorous rate would
+require a spectral gap lower bound for~$h$, which is
+not available at the palindromic threshold)
+gives the more reliable bound:
 $\tau(P_-) = 0.644 \pm 0.004$
 (geometric tail extrapolation:
 $0.007 \times 0.6/(1 - 0.6) \approx 0.010$,
