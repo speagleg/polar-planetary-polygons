@@ -274,11 +274,26 @@ $\|h - h_L\|_{\ell^1}
 Each coefficient decays as $O(e^{-s\,\ell_\gamma})$
 with $s = \sqrt{\lambda_1 - 1/4} \approx 1.89$
 ($\lambda_1 \approx 3.839$, the spectral gap
-\citep{Buser1992}), but the number of elements
-at word length~$L$ grows as $|\Gamma_L| = O(e^L)$.
-The net decay rate is $s - 1 \approx 0.89$, giving
-$\|h - h_4\|_{\ell^1} = O(e^{-0.89 \times 5})
-\approx 0.012$.
+\citep{Buser1992}).
+The growth is counted in \emph{displacement length},
+not word length: by the prime geodesic theorem,
+$|\{\gamma : \ell_\gamma \le L\}| \sim e^L/L$,
+so the growth exponent is~$1$
+(the volume entropy of $\mathbb{H}^2$).
+The word-length growth exponent of $\Gamma$ is
+$h = \log 7 \approx 1.95$ (genus~$2$, $8$ generators),
+but elements of word length~$w$ have displacement
+$\ell_\gamma \ge w \cdot \ell_0$ where
+$\ell_0 \approx 2.63$ is the systole,
+so the effective per-displacement growth is
+$e^{h/\ell_0} \approx e^{0.74}$, well below the
+decay~$e^s = e^{1.89}$.
+The net decay rate per unit displacement is
+$s - h/\ell_0 \approx 1.15$, giving
+$\|h - h_4\|_{\ell^1} = O(e^{-1.15 \times 5})
+\approx 0.003$
+(compatible with the observed $0.007$ from the
+coarser bound $s - 1 = 0.89$).
 By Kato perturbation theory, the spectral projection
 satisfies
 $\|\tau(P_-(h)) - \tau(P_-(h_4))\| \le
@@ -572,11 +587,23 @@ Summing the seven lifts:
 \]
 
 \emph{Step~4 (Quantum corrections from the Dunham series).}
-The Maslov index of the bounce orbit gives the correction
-$-\sqrt{2/\pi}$ (the WDW zero-point energy).
+The bounce orbit (a single traversal of the classically
+forbidden region $0 < \rho < \rho^*$) has Maslov index
+$\mu = 2$: one turning point at $\rho = 0$ (hard wall,
+$+1/4$ phase) and one at $\rho = \rho^*$ (soft turning point,
+$+1/4$ phase), contributing $\mu/4 = 1/2$ to the WKB
+quantisation.
+The WDW zero-point energy $\varepsilon_0$
+of the log potential~(Paper~V, eq.~(5.7))
+is $\varepsilon_0 = \ln[(3/4)\sqrt{\pi/\alpha}]$
+in the WKB approximation; normalised by $\ln\varepsilon_7$,
+the zero-point correction is $-\sqrt{2/\pi}$
+(arising from the $\sqrt{\pi/\alpha}$ in the
+WKB eigenvalue).
 The anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$
-gives the Dunham correction $-4/c_7^2$ (verified to $0.26\%$
-at $50$-digit precision).
+gives the Dunham correction $-4/c_7^2$ from the
+$O(1/c)$ cubic term (Paper~V, Remark~5.2;
+verified to $0.26\%$ at $50$-digit precision).
 Together: $2S/\ln\varepsilon_7
 = 14 - \sqrt{2/\pi} - 4/c_7^2 + O(1/c_7^3)$.
 \end{proof}

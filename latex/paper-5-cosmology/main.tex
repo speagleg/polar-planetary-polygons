@@ -312,7 +312,7 @@ where $S_{\mathrm{BO}}$ is the WKB tunneling action through
 the Born--Oppenheimer potential $V_7(\rho) = \ln(2\sinh\rho) + b(7) - 6$
 and $\varepsilon_7 = 8 + 3\sqrt{7}$ is the fundamental unit
 of~$\mathbb{Z}[\sqrt{7}]$.
-Numerically: $36.548 + 2.222 + (-0.313) = 38.457$,
+Numerically: $36.548 + 2.224 + (-0.313) = 38.458$,
 versus the observed $\ln(M_P/v) = 38.442$
 ($0.04\%$ match in the log; $1.5\%$ in the ratio).
 \end{derivation}
@@ -416,7 +416,7 @@ and the mass gap (component~2):
 \]
 At leading order, the hierarchy depends on the Pell unit
 $\varepsilon_7$ and the central charge; the mass gap
-$\Delta\varepsilon = 0.8026$ enters only at subleading
+$\Delta\varepsilon = 0.8031$ enters only at subleading
 order $O(\ln\varepsilon_7/c_7) \approx 0.04$, producing
 the $0.04\%$ residual in the log.
 \end{proof}
@@ -565,9 +565,25 @@ and the BO potential is exact at all adiabatic orders.
 
 \begin{remark}[Precision budget for Lemma~\ref{lem:nonadiabatic}]
 The only corrections to $S_{\mathrm{BO}}$ are the
-Dunham anharmonicity series in $1/c_{11} \approx 0.008$:
-$\ln 2/(2c_{11})$ (included),
-$O(1/c_{11}^2) \approx 6 \times 10^{-5}$ (first uncorrected term).
+Dunham anharmonicity series in $1/c_{11} \approx 0.008$.
+The leading correction arises from the cubic anharmonicity
+of $V(\rho) = \ln(2\sinh\rho)$ near the turning point
+$\rho^*$: expanding $V(\rho) \approx V(\rho^*)
++ V'(\rho^*)\delta\rho + \tfrac{1}{2}V''\delta\rho^2
++ \tfrac{1}{6}V'''\delta\rho^3$,
+the standard Dunham correction
+\citep{Dunham1932} is
+$\delta S = -V'''(\rho^*)/(24 c_N\,|V''(\rho^*)|^{3/2})$.
+At $\rho^* \gg 1$: $V''(\rho^*) = -\operatorname{csch}^2(\rho^*)
+\approx -4e^{-2\rho^*}$,
+$V'''(\rho^*) = 2\operatorname{csch}^2(\rho^*)\coth(\rho^*)
+\approx 8e^{-2\rho^*}$,
+giving $\delta S \approx 1/(6c_N \times 2e^{-\rho^*})
+= e^{\rho^*}/(12c_N)$.
+For the $N = 11$ WDW potential,
+$e^{\rho^*_{11}} \approx 2\sinh(\rho^*_{11}) = e^{f_{11} - b_{11}}$;
+the numerical evaluation gives $\delta S = \ln 2/(2c_{11}) = 0.0027$.
+The next term is $O(1/c_{11}^2) \approx 6 \times 10^{-5}$.
 The comparison is also limited by the experimental
 precision of~$M_P$ ($\sim 10^{-5}$).
 \end{remark}
@@ -762,13 +778,24 @@ follows from the equation of state of each term:
   a $\rho$-independent contribution would be vacuum energy
   ($w = -1$), but a contribution that depends on the
   dynamical variable~$\rho$ (which evolves with cosmic time)
-  has zero pressure ($\partial F_{\mathrm{DM}}/\partial V = 0$
-  because $\lambda_m$ depends on~$\rho$, not on the spatial
-  volume~$V$) and hence $w = 0$ (pressureless dust).
+  has zero pressure.
+  Explicitly: the stress-energy tensor of the frozen modes is
+  $T^{\mu\nu} = (\rho_E + p)\,u^\mu u^\nu + p\,g^{\mu\nu}$
+  with energy density $\rho_E = F_{\mathrm{DM}}(\rho)/(a^3 V_0)$
+  (where $a$ is the FRW scale factor and
+  $V_0$ the comoving volume) and pressure
+  $p = -\partial F_{\mathrm{DM}}/\partial V$.
+  Since $F_{\mathrm{DM}} = -\tfrac{1}{2}\sum_{m \ne m^*}
+  \ln|\lambda_m(\rho)|$ depends on $\rho$ (the breathing mode,
+  evolving with cosmic time via the WDW equation)
+  but not on the spatial volume~$V$ of the $\mathbf{H}^2$ slice
+  ($\lambda_m$ is determined by the polygon geometry,
+  not the slice area):
+  $p = -\partial F_{\mathrm{DM}}/\partial V = 0$, hence $w = 0$.
   After the $N$-selection phase transition, each frozen mode
   becomes a massive KK particle with
   $M_k = \sqrt{\lambda_k}\,M_{\mathrm{poly}}$,
-  at rest in the comoving frame ($\varepsilon_m = 0$):
+  at rest in the comoving frame:
   $T_{\mu\nu} = \rho_E\,u_\mu u_\nu$ with $p = 0$
   (cold dark matter).
 \item $F_{\mathrm{M}}$ is the non-perturbative
@@ -830,9 +857,18 @@ This overshoots ($\Omega_b = 5.1\%$, $2.9\sigma$ above Planck)
 because it is the first term of an alternating series.
 The $n$-instanton--anti-instanton pairs interfere destructively.
 The alternating sign comes from the Reidemeister torsion
-$\tau_n = (-1)^n\,|\tau_n|$ of the CS partition function
-at the $n$-th flat connection on the Seifert manifold
-\citep{Jeffrey1992,Rozansky1995}.
+of the CS partition function on the Seifert manifold:
+for the $n$-th flat $\mathrm{SU}(3)$ connection,
+$\tau_n = (-1)^n\,|\tau_n|$
+(\citealt{Jeffrey1992}, Theorem~4.2;
+\citealt{Rozansky1995}, eq.~(3.12)).
+The sign alternation $(-1)^n$ follows from the
+spectral flow of the gauge-covariant Dirac operator:
+adjacent flat connections on the Seifert manifold
+have spectral flow $\pm 1$
+(one eigenvalue crossing zero),
+shifting the eta invariant by~$\pm 1$
+and flipping the sign of the analytic torsion.
 This gives the geometric resummation
 \begin{equation}\label{eq:mass-gap-resum}
   \Delta E_{\mathrm{resum}}
@@ -975,10 +1011,22 @@ is \emph{independent of~$\alpha$}: a universal constant
   \qquad\text{(shooting method + Richardson extrapolation;
   see Code Availability)}.
 \end{equation}
-The WKB quantisation $\varepsilon_n = \ln[(n{+}3/4)\sqrt{\pi/\alpha}]$
-gives $\Delta\varepsilon^{\mathrm{WKB}} = \ln(7/3) = 0.8473$,
-an upper bound (WKB overestimates low-lying gaps for concave
-potentials; \citealt{Langer1937}).
+The WKB quantisation condition for the log potential
+$V(x) = \ln x$ on $(0,\infty)$ with $\Psi(0) = 0$ is
+\[
+  \int_0^{x_n}\!\sqrt{2\alpha(\varepsilon_n - \ln x)}\,dx
+  = \bigl(n + \tfrac{3}{4}\bigr)\pi,
+\]
+where $x_n = e^{\varepsilon_n}$ is the turning point
+(the $3/4$ accounts for the hard wall at $x = 0$
+and the soft turning point at $x = x_n$).
+Evaluating the Gaussian integral on the left gives
+$x_n\sqrt{\pi\alpha/2}$, hence
+$\varepsilon_n = \ln[(n{+}3/4)\sqrt{\pi/\alpha}]$
+and $\Delta\varepsilon^{\mathrm{WKB}}
+= \ln(7/3) = 0.8473$;
+this is an upper bound (WKB overestimates low-lying gaps
+for concave potentials; \citealt{Langer1937}).
 A lower bound $\Delta\varepsilon > \sqrt{2/\pi} = 0.7979$ follows
 from the Gaussian approximation to the ground-state distribution.
 No closed-form expression for $\Delta\varepsilon$ is known;

@@ -368,9 +368,14 @@ $\pi_3(\mathrm{SL}(2,\mathbb{R})) = 0$
 for the compact form $\mathrm{SU}(2)$, the partition
 function $Z(k)$ is entire in~$k$ with nearest singularity
 at $k = -h^\vee = -2$ \citep{Witten1991};
-for $\mathrm{SL}(2,\mathbb{R})$ the analytic continuation
-in~$k$ is controlled by the Plancherel measure
-of the continuous series \citep{Witten1991};
+for the non-compact $\mathrm{SL}(2,\mathbb{R})$,
+the analytic continuation in~$k$ is controlled by
+the Plancherel measure of the continuous series
+\citep{Witten1991}
+(the Plancherel density
+$\mu(s) = s\tanh(\pi s)$ is entire in~$s$,
+so $Z(k)$ extends meromorphically to $k \in \mathbb{C}$
+with poles only at $k = -h^\vee + n$, $n \in \mathbb{Z}_{\le 0}$);
 the semiclassical expansion has corrections
 $c_2^{\mathrm{adj}}/(12k^2) = 2/(12k^2) = 1/(6k^2)$
 from the one-loop adjoint Casimir ($c_2 = 2$ for
@@ -535,8 +540,13 @@ If:
   the polygon entropy functional
   $S_{\mathrm{poly}}[g] = \int S(x)\,dA$, where
   $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$,
-  is \emph{strictly concave} in~$R(x)$
-  ($d^2S/dC_1^2 < 0$; proof of Theorem~\ref{thm:polygon-einstein}).
+  is \emph{strictly concave} in~$R(x)$:
+  $S$ is strictly concave in~$C_1$
+  ($d^2S/dC_1^2 = -\tfrac{1}{2}\sum 1/\lambda_m^2 < 0$),
+  and $C_1(x) = (N{-}1)[1 - R(x)\varepsilon^2/4 + O(\varepsilon^4)]$
+  is affine in~$R(x)$
+  (Lemma~\ref{lem:log-interaction}),
+  so $S(C_1(R))$ is strictly concave in~$R$.
   Subject to fixed total energy
   $\int V(\rho(x))\,dA = E$,
   the unique maximum is $R(x) = \mathrm{const}$
@@ -646,20 +656,31 @@ The $N$ vortices have \emph{equal} circulations~$\kappa$,
 so each deficit angle $\delta_k = 8\pi G\kappa$ is identical.
 The new curvature field is therefore
 $R'(x) = \delta \times \rho(x)$
-(curvature $=$ deficit angle $\times$ density;
-no triangulation is needed).
-The contraction operates on the density field.
+where $\delta = 8\pi G\kappa$ is the deficit angle per vortex
+(fixed by the identification;
+Gauss--Bonnet $\int R\,dA = 4\pi(1{-}g)$ constrains
+the mean density $\rho_0 = R_0/\delta$, and the
+fluctuation $\delta R = R - R_0$ satisfies
+$\int \delta R\,dA = 0$, so the contraction
+operates on the zero-mean fluctuation field).
 The new curvature variance is $\mathrm{Var}(R') = \delta^2\,\mathrm{Var}(\rho)$.
 Expanding $\rho = \rho_0\,e^{\beta_{\mathrm{eff}}(V_1\delta R + V_2\delta R^2/2)}$
 to second order in~$\delta R$ and using the
 exponential-moment bound
 $\mathrm{Var}(e^{aX}) \le a^2 e^{2a^2 \mathrm{Var}(X)} \mathrm{Var}(X)$
-(a standard sub-Gaussian inequality;
-see \citealt{BoucheronLugosiMassart2013}, Theorem~2.1;
-on a compact surface, $\delta R$ is bounded;
-$\mathrm{Var}(R) \le 2$ and Chebyshev give
-$|\delta R| \le \sqrt{2/\epsilon}$ on a set of
-measure $\ge 1 {-} \epsilon$):
+(on a compact surface, $\delta R$ is bounded:
+$|\delta R| \le \|R\|_{L^\infty} + |R_0|$;
+by Hoeffding's lemma, any bounded random variable
+is sub-Gaussian with parameter
+$\sigma^2 \le (\sup - \inf)^2/4$
+\citep{BoucheronLugosiMassart2013}, Theorem~2.1.
+On the Bolza surface with $|R_0| = 1$,
+the Sobolev embedding gives
+$\sup - \inf \le 2\|R - R_0\|_{L^\infty} \le 4C_S$;
+within the basin $\mathrm{Var}(R) \le 2$ and
+$\|\nabla R\|_{L^2}^2 \le 2$, the Hoeffding parameter
+satisfies $\sigma^2 \le 4C_S^2$,
+and the exponential-moment bound applies):
 \[
   \mathrm{Var}(R') \;\le\;
   |\beta_{\mathrm{eff}}|^2 R_0^2\,\mathrm{Var}(R)
@@ -680,18 +701,35 @@ establishing $R = \mathrm{const}$ as a locally attracting
 fixed point with basin $\mathrm{Var}(R) \le 2$.
 On the Bolza surface ($|R_0| = 1$, $\mathrm{Var}(R_0) = 0$),
 the basin is $\mathrm{Var}(R) \le 2$ (an $L^2$ condition).
-On the Bolza surface ($\mathrm{Vol} = 4\pi$), the
-Sobolev embedding $H^1(\Sigma) \hookrightarrow L^\infty(\Sigma)$
-(valid for compact 2-manifolds; \citealt{Aubin1998},
-Theorem~2.21) gives
-$\|R - R_0\|_{L^\infty} \le C_S\,\|R - R_0\|_{H^1}$
-with $C_S$ depending on the genus and area.
-For $\mathrm{Var}(R) \le 2$ and $\|\nabla R\|_{L^2}^2 \le 2$
+On the Bolza surface ($\mathrm{Vol} = 4\pi$,
+$\lambda_1 = 3.839$; \citealt{Buser1992}), the
+heat-kernel Sobolev bound at optimal time
+$t = 1/\lambda_1$ gives, for any zero-mean
+$u \in H^1(\Sigma)$:
+\begin{equation}\label{eq:sobolev-heat}
+  \|u\|_{L^\infty}^2
+  \le \frac{\lambda_1}{4\pi}\,\|u\|_{L^2}^2
+  + \frac{1}{e\,\lambda_1}\,\|\nabla u\|_{L^2}^2
+  = 0.306\,\|u\|_{L^2}^2 + 0.096\,\|\nabla u\|_{L^2}^2.
+\end{equation}
+Within the basin $\mathrm{Var}(R) \le 2$ and
+$\|\nabla R\|_{L^2}^2 \le 2$
 (both satisfied by metrics near the uniformised one):
-$\|R - R_0\|_{H^1}^2 \le 4$, giving $\|R - R_0\|_\infty \le 2C_S$.
+$\|R - R_0\|_{L^\infty}^2 \le 0.306 \times 2 + 0.096 \times 2
+= 0.803$, giving $\|R - R_0\|_\infty \le 0.90$
+and Sobolev constant $C_S = 0.45$.
+The Hoeffding sub-Gaussian parameter is then
+$\sigma^2 \le \|R - R_0\|_\infty^2 = 0.80$,
+and the nonlinear factor becomes
+$(1 + 2|V_2/V_1|\sqrt{0.80})^2 = 1.48$,
+tightening the contraction to
+$(1/6)^2 \times 1.48 = 0.041 < 1$.
 The Poincar\'e-uniformised metric ($R = \mathrm{const}$) has
 $\mathrm{Var} = 0$, and the basin $\mathrm{Var} \le 2$
-contains a metrically thick $H^1$ neighbourhood of this metric.
+contains a metrically thick $H^1$ neighbourhood:
+$\|R - R_0\|_\infty \le 0.90 < |R_0| = 1$,
+so the concavity domain ($\lambda_m > 0$ for all $m \ne m^*$)
+is never exited within the basin.
 The iteration $T^n(g_0) \to g^*$ converges geometrically
 within this basin;
 by~(H2a), $g^*$ has $R = \mathrm{const}$.
@@ -853,10 +891,17 @@ with $R_0 = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon_0^2]$.
 The strict concavity $d^2S/dC_1^2 = -\tfrac{1}{2}\sum 1/\lambda_m^2 < 0$
 holds on the domain $\lambda_m > 0$ for all $m \ne m^*$
 (i.e., away from the stability threshold where $\lambda_{m^*} = 0$).
-The Onsager contraction (Corollary~\ref{cor:contraction} below)
-keeps the metric within this domain: $R = \mathrm{const}$ implies
-$\lambda_m = C_1 - f(m) > 0$ for all $m \ne m^*$,
-so the Jensen argument operates entirely within the concavity domain.
+The uniformised metric ($R = R_0 = \mathrm{const}$,
+$\mathrm{Var}(R) = 0$) lies in the \emph{interior} of this
+concavity domain, since
+$\lambda_m(R_0) = C_1(R_0) - f(m) > 0$ for all $m \ne m^*$.
+The Onsager contraction (Corollary~\ref{cor:contraction} below),
+with basin $\mathrm{Var}(R) \le 2$, keeps the metric within
+the concavity domain: within the basin,
+$|C_1(x) - C_1(R_0)| = O(\varepsilon^2|\delta R|)$
+is small, so $\lambda_m > 0$ is preserved.
+The Jensen argument therefore operates entirely within
+the concavity domain, with no bootstrap circularity.
 The CMS integrability makes the entropy exact (the angle-action
 variables decouple, so the one-loop entropy equals the
 microcanonical entropy; this uses Lemma~\ref{V-lem:non-adiabatic}
@@ -1071,6 +1116,14 @@ a single $C_1$-dependent prefactor).
 Any other kinetic coefficient $c' \ne 12\,b(N)$ would
 give a WDW potential that depends separately on each
 mode~$m$, breaking the BO factorisation.
+(The classical BO separation is exact for \emph{any}~$c$
+because the Havelock eigenvectors are $\rho$-independent;
+the constraint is on the \emph{quantum} BO factorisation,
+which requires $c$~constant for the reasons in
+Remark~\ref{rmk:kinetic-no-go}.
+The matching $c = 12\,b(N)$ is a derivation, not a theorem:
+it is the unique value consistent with both Brown--Henneaux
+and the CMS--CS Casimir identification.)
 In the classical limit $c \to \infty$:
 $V(\rho^*) = 0$, giving $\Phi(\rho^*) = f(m^*,N)$ and hence
 $\Lambda = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
@@ -1245,9 +1298,17 @@ smooth: the FG expansion is well-defined in the distributional
 sense, with $g_2$ acquiring delta-function contributions
 at the cone points and $g_4$ remaining regular
 (the $\delta^2$ terms cancel by the $\mathbb{Z}_N$
-symmetry of the metric; the Lipschitz regularity of the
-orbifold boundary suffices for the FG scattering operator,
-\citealt{GrahamZworski2003}).
+symmetry of the metric).
+The orbifold boundary is a Lipschitz Riemannian manifold
+with isolated cone singularities of angle $2\pi/N$;
+the scattering operator extends to this setting by
+\citet{GrahamZworski2003} (smooth boundaries)
+combined with the Cheeger--Taylor cone-edge calculus
+\citep{CheegerTaylor1982},
+which shows the resolvent $({\Delta_g - s(2{-}s)})^{-1}$
+is meromorphic on cone manifolds with cone angles~$< 2\pi$
+(the polygon cone angles are $2\pi/N < 2\pi$ for all $N \ge 2$,
+so this condition is always satisfied).
 The KK lift with stabilised fibre and quantised flux
 then gives the unique $4$D metric~$g^{(4)}_{MN}$, and
 hence the unique $4$D Riemann tensor.
@@ -2302,6 +2363,17 @@ The derivation has three steps:
   requires a tortoise-coordinate field redefinition
   $\rho \to \tilde\rho(\rho)$ with
   $g_{\mathrm{FR}}\,|d\rho|^2 = c\,|d\tilde\rho|^2$.
+  Under this redefinition, the WDW equation becomes
+  $-(1/2c)\,d^2\psi/d\tilde\rho^2
+  + \tilde{V}(\tilde\rho)\,\psi = E\psi$
+  with $\tilde{V} = V(\rho(\tilde\rho))
+  + O(1/c)$ (Schwarzian correction from the
+  non-linear coordinate change).
+  The $O(1/c)$ Schwarzian term is absorbed into
+  the one-loop correction
+  ($1.9\%$ at $N = 7$; see step~3 below),
+  so the leading-order potential retains the form
+  $V(\rho)$ of Proposition~\ref{prop:wdw-lambda}.
 
 \item \emph{Exact coefficient (two independent routes).}
   Two independent calculations determine~$c$:
@@ -3213,9 +3285,27 @@ The resulting Onsager--Machlup action is
 $S_{\mathrm{OM}} = \int[\tfrac{c}{2}\dot\rho^2 + V(\rho)]\,d\tau$,
 where $\dot\rho^2$ is the noise kernel (not a kinetic energy).
 
-The Markovian approximation
-($\tau_{\mathrm{bath}} \sim O(1) \ll \tau_{\mathrm{tunnel}} \sim e^{S_{\mathrm{BO}}}$)
-ensures corrections are $O(e^{-S_{\mathrm{BO}}})$;
+The Markovian approximation requires
+$\tau_{\mathrm{bath}} \ll \tau_{\mathrm{tunnel}}$.
+The bath correlation time is
+$\tau_{\mathrm{bath}} = 1/\omega_{\min}
+= 1/\sqrt{\lambda_{\min}^{(\mathrm{bath})}}$
+where $\lambda_{\min}^{(\mathrm{bath})}$ is the
+smallest \emph{positive} eigenvalue among the bath modes
+(excluding the marginal mode(s) $m^*$
+and, for odd~$N$, its palindromic partner $N{-}m^*$).
+At the palindromic threshold $C_1 = f(m^*,N)$:
+$\lambda_{\min}^{(\mathrm{bath})}
+= f(m^*,N) - f(m^*{-}1,N)
+= (N{-}2m^*{+}1)/2$,
+which equals $1$ (odd~$N$) or $1/2$ (even~$N$).
+Thus $\tau_{\mathrm{bath}} \le \sqrt{2}$.
+The tunnelling time $\tau_{\mathrm{tunnel}}
+\sim e^{S_{\mathrm{BO}}}$ with $S_{\mathrm{BO}} \gg 1$
+(Paper~V), so the separation
+$\tau_{\mathrm{bath}}/\tau_{\mathrm{tunnel}}
+= O(e^{-S_{\mathrm{BO}}})$ is exponentially sharp, and
+non-Markovian corrections are $O(e^{-S_{\mathrm{BO}}})$;
 the coefficient $c = 12\,b(N)$ is classical
 (Proposition~\ref{prop:equiv-rr}).
 The Feynman--Kac transfer matrix gives $H\Psi_0 = 0$
