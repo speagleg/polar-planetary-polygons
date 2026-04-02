@@ -1,0 +1,29 @@
+# Voice Reference: Gordon's Introduction (verbatim)
+
+This is Gordon's own writing. Use it as the ground-truth voice reference when drafting the companion.
+
+---
+
+This project truly began years ago when I first encountered the Voyager photos of the Saturnarian polar hexagonal storm. Why a polygonal ring? Why the persistence? I researched a bit, read the relevant evidence and arguments, and while informative, the underlying framework and explanations did not adequately satiate my desire for a clear answer. I chalked this up to "Nature Gonna Geometry" and cataloged it in my mind as one of those interesting intersections between the physical world and its disparate convergences to geometric forms: crystals to viruses to snowflakes to coral reefs to beehives to nautilus ad infinitum. Many of these phenomena have been adequately explained and rigorously defined, yet the explanatory framework for polygonal formation in the atmospheres of the two largest planets in our Solar System remained disconnected and incomplete.
+
+My educational background is primarily Philosophy with a mathematical timbre. Formally, I am more familiar with Peano, Frege, Russell and Goedel than the applied disciplines. A hobbyist's obsession with Number Theory is an apt description for my post educational years. Professionally, I am a full stack developer working in healthcare.
+
+Fast forwarding, I was watching an astronomy video with my kids and the polar polygons on Jupiter and Saturn immediately astonished my children and once again piqued my curiosity. I dove back into the most current research on the topic. The Cassini/Juno images and data hinted at a deeper mathematical connection between the multiple Ngons on the gas giants. The hook was set. I ordered a copy of Geophysical Fluid Dynamics by Joseph Pedlosky and started writing some code.
+
+Observationally, the storms show central vortices and logarithmic spirals eventually mutating into the polygonal rings. From my wanderings and ponderings in the literature of mathematics; I knew there was a formal connection between the first two via Mobius transformations. This was my mathematical starting point and eventual foundation for the resulting paper.
+
+I became determined to pull the connecting string until the knot unraveled. This project has crossed many mathematical, physical, and astrophysical academic domains as a result. I am by no means a subject matter expert in all of these fields; my research directions were motivated by the singular goal of finding an answer to the original question, wherever that lead. Institutional research correctly forces disciplinary depth; the cost is that cross domain connections can go unnoticed. I am unaffiliated, which meant I could follow the mathematics wherever it led, without the professional incentive to stay within a single field. Whether that freedom produced something worth the lack of expert supervision is for the audience to assess.
+
+My process is as follows: At each step I identify a potential connecting point, honestly assess what I do and don't understand about the underlying structures I want to connect. Then research the applicable domain under which the structures fall under. I study that very specific subset of the domain until I have apprehended an intuitive understanding of the meaning in the context of my project. Next, develop and test software that confirms my understanding and verifies against existing mathematics, physics, or astrophysics. At this point I architect code that will support, prove or disprove my connective hypotheses. Rinse and Repeat.
+
+My background has given me a solid logical foundation of what constitutes a "proof" in the strictest sense. This mapped well onto the sections of the paper that required such reasoning. The software allowed me to quickly assess feasibility, routes to proving, potential logical errors or contradictions, and blind spots.
+
+Full transparency disclosure: the review process of the resulting paper drew on AI-assisted critique. With Claude Code, I built structured review agents, a professional mathematician, a physicist, and a technical writer. I needed my subjective understanding, writing and results to be in a language conversant with the modern research community. Once I had my ideas fully fleshed out in in writing, I used the agents to scrutinize, review, and find any logical errors. The philosophical ideas, logic, proof scaffolding, development and insights from the paper are my own. This process repeated until I was confident that the paper accurately reflected the quality, tone, and accuracy of a published article in prestigious academic journals.
+
+I have made a serious attempt to both assiduously cite/attribute as well as honestly assess any weakness in argumentation or shortcomings. Acknowledging the potential vulnerabilities, although in a sense "knee capping" portions of the paper, is intellectually honest, and as my goal of this entire project was to answer Why? I do not think the acknowledged shortcomings detract from the overall goal I was aiming for.
+
+The paper is admittedly dense in places and broad in scope. No part of the paper requires fluency in all parts. The mathematician will be less inclined to devote attention to planetary atmospheric dynamics. The planetary scientists might find the algebraic number field portions less interesting than the mechanisms at play in polar storms. Experimentalists in QED circuits will be more interested in the BEC predictions. I have attempted to build the paper logically, starting with the mathematics first and progressing to the applied planetary physics. The table of contents will give some direction as to where you will find the areas that most apply to your interests.
+
+Feedback, comments, and suggestions are welcome.
+
+Gordon

@@ -19,16 +19,32 @@ Three layers, served simultaneously:
 
 First person. Gordon explaining his own work. Discovery narrative.
 
-**Voice rules (non-negotiable):**
-- Short declarative sentences. "The series is six papers." Not "The series comprises six papers."
-- State what IS, not what isn't. "The polygon sits at the bottom of an energy valley" not "The polygon is not at the top of an energy hill."
-- No hedging filler: no "it turns out that," "interestingly," "remarkably," "it is worth noting that," "delve," "tapestry," "landscape" (as metaphor), "elegant," "beautiful," "shed light on," "paving the way."
-- Dashes for asides — like this — not parenthetical hedges.
-- Active voice throughout. "I proved X" not "X was shown to hold."
-- Technical precision even in plain language. Don't say "tiny" when you mean "10⁻¹⁶."
-- Analogies must be physically accurate, not just evocative. If the analogy breaks, say where.
-- No AI shibboleths: no "crucial," "utilize," "facilitate," "leverage," "robust," "comprehensive," "cutting-edge," "novel approach," "paradigm shift," "groundbreaking."
-- Match the cadence of the technical papers: short paragraphs, clear topic sentences, no throat-clearing.
+**Gordon's voice profile (from his own introduction):**
+- Conversational but precise. "I chalked this up to 'Nature Gonna Geometry'" in the same breath as "the explanatory framework for polygonal formation remained disconnected and incomplete."
+- Self-deprecating honesty without false modesty. "A hobbyist's obsession with Number Theory is an apt description." "Whether that freedom produced something worth the lack of expert supervision is for the audience to assess."
+- Concrete and specific. "I ordered a copy of Geophysical Fluid Dynamics by Joseph Pedlosky and started writing some code." Not vague gestures at research — name the book, name the action.
+- Personal narrative anchored in real life. Watching astronomy videos with his kids. The Voyager photos. The hook that got set.
+- Philosophical framing of practical choices. "Institutional research correctly forces disciplinary depth; the cost is that cross domain connections can go unnoticed."
+- Semicolons and colons as primary connective tissue; dashes for parenthetical asides.
+- Occasional colloquialisms mixed with educated vocabulary. "The hook was set." "Rinse and Repeat." Alongside "assiduously," "apprehended," "timbre."
+- Transparent about limitations and process. No apology for being an outsider; no pretension to be an insider. States what he did and lets the reader judge.
+- Varied sentence length — short punches followed by longer explanatory sentences. Not monotone.
+
+**Anti-patterns (AI shibboleths to avoid):**
+- No "delve," "tapestry," "landscape" (as metaphor), "elegant," "beautiful," "shed light on," "paving the way," "at its core," "in essence"
+- No "crucial," "utilize," "facilitate," "leverage," "robust," "comprehensive," "cutting-edge," "novel approach," "paradigm shift," "groundbreaking"
+- No "it turns out that," "interestingly," "remarkably," "it is worth noting that," "importantly"
+- No "this raises the question" or "one might wonder" — Gordon just asks the question directly
+- No "we can see that" or "it becomes clear" — just state the fact
+- No "rich structure" or "deep connection" — describe the structure, let the reader decide if it's deep
+- No "journey" or "exploration" as metaphors for intellectual work — Gordon says "I dove back in," "I became determined to pull the connecting string"
+
+**Voice rules:**
+- State what IS, not what isn't
+- Active voice. "I proved X" not "X was shown to hold"
+- Technical precision even in plain language. Don't say "tiny" when you mean "10⁻¹⁶"
+- Analogies must be physically accurate, not just evocative. If the analogy breaks, say where
+- The reader is an adult. Don't over-explain common knowledge. Don't patronize with "simply put" or "in other words"
 
 ## Format
 
