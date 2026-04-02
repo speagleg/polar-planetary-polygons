@@ -1249,7 +1249,8 @@ $\xi^*(8) < \xi^*(9) < \xi^*(10) < \cdots$.
 The $N$-gon is stable at $\xi$ iff
 $C_1(N,\xi) = (N{-}1)\,g(\xi) \ge f_{\max}(N)$,
 where $g(\xi) = (1{+}\xi^2)/(1{-}\xi)^2$ is strictly
-increasing.
+increasing ($g'(\xi) = 2(1{+}\xi)/(1{-}\xi)^3 > 0$
+for $\xi \in [0,1)$).
 The threshold is $\xi_N = g^{-1}(h(N))$ with
 $h(N) = f_{\max}(N)/(N{-}1)$.
 Since $g$ is increasing,
@@ -1334,7 +1335,19 @@ algebraic number theory.
 \section{Algebraic structure of the stability boundary}
 \label{sec:algebraic-structure}
 
+This section develops four algebraic results about the
+stability thresholds~$\xi^*(N)$: the palindromic quadratic
+and field extension pattern (\S\ref{sec:palindromic-quad}),
+the classification of algebraic-integer thresholds
+via the divisor condition $(N{-}7)\mid 16$
+(Proposition~\ref{prop:alg-int}),
+the continued fraction structure
+(Proposition~\ref{prop:cf-palindromic}),
+and the geodesic correspondence
+(Proposition~\ref{prop:geodesic-correspondence}).
+
 \subsection{The palindromic quadratic and field extensions}
+\label{sec:palindromic-quad}
 
 The palindromic structure observed for $N = 8$
 (Section~\ref{sec:hyperbolic}) holds at every
@@ -2207,7 +2220,9 @@ The spectral flow is $N{-}5$
 (Proposition~\ref{prop:morse-index}).
 The $K_0$ class $[\mu_N(0)] =
 \sum_{\lambda_m(0) < 0} [\rho_m]$ has $\dim = N{-}5$
-(the Morse index at $\xi = 0$).
+(the Morse index at $\xi = 0$; at $N = 7$ the kernel
+modes $\lambda_3 = \lambda_4 = 0$ contribute zero to
+the sum, giving $\dim = 2$).
 Since $C^*(\mathbb{Z}_N) \cong \mathbb{C}^N$:
 $HC^0 = \mathbb{C}^N$ (the trace on each summand) and
 $HC^1 = 0$, so the only index pairing is
@@ -2327,7 +2342,13 @@ Parameter accounting and predictions appear in Paper~VI.
 \label{sec:k-theory}
 %% ====================================================================
 
-This section classifies stability phases in three stages:
+The palindromic thresholds of Section~\ref{sec:algebraic-structure}
+classify stability on the universal cover~$\mathbf{H}^2$.
+On quotient surfaces $\Gamma\backslash\mathbf{H}^2$, the threshold
+pattern persists but the Morse index acquires a fractional correction
+from the surface topology.
+This appendix develops the $K$-theoretic machinery for the
+quotient problem in three stages:
 (i)~the elementary $K_0$-class
 $[\mu_N(\xi)] \in R(\mathbb{Z}_N)$ records eigenvalue signs
 and changes at palindromic thresholds (\S\ref{sec:index-pairing});
@@ -2535,9 +2556,8 @@ Set $F = 2P_- - 1$ (the sign of $c_m + h_\xi^\Gamma$).
   = [\mathrm{sgn}(c_m + h),\, u_\gamma]$ is compact:
   the sign function of a trace-class perturbation of a
   scalar differs from the unperturbed sign by a compact
-  operator (\citealt{Kato1995}, Ch.~X,
-  stability of the spectral projection under
-  trace-class perturbations).
+  operator (Birman--Solomyak trace-class scattering theory;
+  see \citealt{Kato1995}, Theorem~X.4.4).
 \item \emph{$\Gamma$-equivariance}: $G(z, w)$ is
   $\Gamma$-invariant, so $h_\xi^\Gamma$ commutes with the
   $\Gamma$-action and $F$ is $\Gamma$-equivariant.
