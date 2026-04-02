@@ -2189,24 +2189,44 @@ The derivation has three steps:
   giving a $\rho$-independent kinetic coefficient
   (step~3).
 
-\item \emph{Exact coefficient (four-fold consistency).}
+\item \emph{Exact coefficient (overdetermined consistency).}
+  Three independent calculations determine~$c$:
+  \begin{itemize}
+  \item[\emph{(a)}] \emph{Eigenvalue arithmetic.}
+    $b(N)$ is the unique mode-independent offset in
+    $\lambda_m = C_1(\rho) - f(m,N)$
+    (Proposition~\ref{prop:equiv-rr}).
+    Setting $c_1 = 12\,b(N)$ is a definition.
+  \item[\emph{(b)}] \emph{Chern--Simons topology.}
+    The CS level $k = \ell/(4G)$ gives
+    $c_2 = 6k = 3\ell/(2G)$
+    (Brown--Henneaux, 1986).
+    The CMS--CS Casimir identification
+    (Proposition~\ref{prop:casimir-cms-cs})
+    matches the Havelock spectrum to the CS
+    Wilson-line spectrum, forcing $k = 2\,b(N)$
+    and hence $c_2 = 12\,b(N) = c_1$.
+  \item[\emph{(c)}] \emph{Boundary Virasoro.}
+    The orbifold ground-state energy
+    $E_0(m) = -N/2 + m(N{-}m)/2$
+    at $c_{\mathrm{orb}} = 12N^2$ (UV) flows to
+    $c_3 = 12\,b(N)$ (IR) via the $c$-theorem
+    (Theorem~\ref{thm:rg-monotonicity}).
+  \end{itemize}
+  The WDW kinetic coefficient $c_4$ is then
+  \emph{forced}: if $c_4 \ne c_1 = c_2 = c_3$,
+  the FK ground state would disagree with the
+  boundary CFT vacuum, contradicting the CS/WZW
+  correspondence (\citealt{Witten1988}).
+  The system is overdetermined---three independent
+  equations for one unknown, each yielding
+  $c = 12\,b(N)$~\eqref{eq:central-charge}.
   The CMS integrability makes the one-loop partition function
   $Z_{\mathrm{bath}}(\rho) = \prod_{m \ne m^*}|\lambda_m(\rho)|^{-1/2}$
   exact at $O(c^0)$,
   with anharmonic corrections of order~$1/c$
   ($1.9\%$ at $N = 7$, $0.8\%$ at $N = 11$, decreasing as~$N^{-2}$;
   see Code Availability).
-  The effective action
-  $S_{\mathrm{eff}}(\rho) = \tfrac{1}{2}\sum_{m \ne m^*}
-  \ln|\lambda_m(\rho)| + O(1/c)$
-  and the Feynman--Kac theorem map this to the WDW Hamiltonian
-  $H = -(1/2c)\,d^2/d\rho^2 + V(\rho)$.
-  The value $c = 12\,b(N)$~\eqref{eq:central-charge}
-  is the unique constant matching all four roles simultaneously:
-  WDW kinetic coefficient, Chern--Simons level $k = c/6$,
-  Brown--Henneaux central charge, and Todd class offset
-  (Proposition~\ref{prop:equiv-rr}).
-  No other value of~$c$ preserves this consistency.
 \end{enumerate}
 The no-go result (step~1) shows the kinetic term is genuinely
 geometric---it encodes the information-theoretic
