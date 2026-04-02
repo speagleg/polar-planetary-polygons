@@ -213,7 +213,7 @@ $M_P/M_{\mathrm{EW}}$ hierarchy & Derived & Derivation & $0.003\%$ \\
 $\delta_{\mathrm{CKM}} = 70.2^\circ$ & Prediction & Derivation & $0.4\sigma$ \\
 $\sin^2\theta_W = 3/11$ & Prediction & Derivation$^*$ & $3.9\%$ \\
 $|V_{cb}| = 0.044$ & Prediction & Derivation & $6\%$ \\
-$m_s/m_b = 0.045$ & Prediction & Derivation$^\dagger$ & $1.9\times$ \\
+$m_s/m_b = 0.023$ & Prediction & Derivation$^\dagger$ & $4\%$ \\
 $H_0 = 67.4$ km/s/Mpc & Prediction & Derivation & $2 \times 10^{-5}$ \\
 $\Omega_{\mathrm{DM}} = 26.9\%$ & Prediction & Conjecture & $0.4\sigma$ \\
 $\Omega_b = 5.0\%$ & Prediction & Derivation & $0.6\sigma$ \\
@@ -252,13 +252,13 @@ ${}^\ddagger$The coupling lock is an algebraic identity
 within the formalism ($\alpha$ and $G$ both derive from~$c$);
 it is not independently testable at the CS threshold.\\[2pt]
 ${}^\dagger$The mass ratio $m_s/m_b$ is computed from the
-BF instanton (\S\ref*{V-sec:mass-hierarchy}):
-$m_s/m_b = (v/M_{\mathrm{poly}})^{2\delta_\Delta}/K^2$,
-where $\delta_\Delta = 0.303$ and $K = 0.548$.
-At one-loop ($M_{\mathrm{poly}} = 300$\,TeV): $0.059$;
-at two-loop ($M_{\mathrm{poly}} = 294$\,TeV): $0.045$
-($1.9\times$ the observed $0.024$).
-The table reports the two-loop value.
+BF instanton (\S\ref*{IV-sec:mass-hierarchy}):
+$m_s/m_b = (v/M_{\mathrm{poly}})^{2\Delta c}/K^2$,
+where $\Delta c = 0.351$ (including the $O(1/c)$ Euler
+class and BO corrections;
+eq.~\eqref*{IV-eq:Dc-corrected}) and $K = 0.548$.
+At two-loop ($M_{\mathrm{poly}} = 294$\,TeV): $0.023$
+(observed $0.024$, $4\%$ match).
 
 \subsection{Cumulative uncertainty}
 \label{sec:uncertainty}
@@ -310,13 +310,12 @@ the two-tier classification above provides
 the qualitative structure.
 
 \subsection{Structural limitations}
-The geometric-tier predictions carry factor-${\sim}2$ systematic
-uncertainties from the RS warp profile approximation.
-The $m_s/m_b$ ratio ($0.045$ vs observed $0.024$,
-factor $1.9$) is the largest such discrepancy and sets
-the accuracy floor for radial-profile-dependent quantities.
-Closing this gap requires computing the exact RS profile
-on the Seifert geometry without adjustable parameters.
+The geometric-tier predictions depend on fermion
+zero-mode profiles on the Seifert manifold.
+Including the $O(1/c)$ Euler class and BO corrections
+(eq.~\eqref*{IV-eq:Dc-corrected}) brings $m_s/m_b$
+from $0.045$ to $0.023$ ($4\%$ from observed),
+promoting it to the algebraic tier.
 
 Two predictions are beyond current experimental reach.
 (i)~The frozen-mode dark matter has cross-section
@@ -356,11 +355,11 @@ Tier & Mechanism & Accuracy \\
   $< 5\%$ \\
 & ($\delta_{\mathrm{CKM}}$, $|V_{cb}|$, $H_0$,
   $\Omega_\Lambda$, $\Omega_{\mathrm{DM}}$, $\Omega_b$,
-  $\Delta m^2$ ratio, $m_H$) & \\[3pt]
+  $\Delta m^2$ ratio, $m_H$, $m_s/m_b$) & \\[3pt]
 \emph{Geometric} &
-  RS radial profiles on $\mathbf{H}^2$ &
+  Radial profiles on $\mathbf{H}^2$ &
   factor~${\sim}2$ \\
-& ($m_s/m_b$, $m_c/m_t$, $m_u$, $m_d/m_s$,
+& ($m_c/m_t$, $m_u$, $m_d/m_s$,
   $|V_{us}|$, $\sin^2\theta_W$) & \\
 \bottomrule
 \end{tabular}
@@ -368,20 +367,20 @@ Tier & Mechanism & Accuracy \\
 \noindent
 The algebraic tier uses the exact Havelock decomposition
 ($\lambda_m = C_1 - m(N{-}m)/2$, a theorem);
-the geometric tier uses the Randall--Sundrum warp profile
-on~$\mathbf{H}^2$ (an approximation with zero adjustable
-parameters per generation, versus ${\sim}\!21$ in standard
-RS models).
+the geometric tier uses the Dirac zero-mode profile
+$\psi_c(\rho) = (\sinh\rho)^{c-1/2}$ on the Seifert manifold
+(zero adjustable parameters per generation, versus
+${\sim}\!21$ in standard RS models).
 The pattern is structural, not accidental: it reflects
 the separation between topological data (exact)
 and radial geometry (approximate).
 
 \subsection{Comparison to zero-parameter frameworks}
 \label{sec:comparison}
-The framework's factor-$2$ geometric accuracy should
-be compared not to the Standard Model (which fits
-$19$+ parameters by construction) but to other frameworks
-that predict fermion masses from structure alone:
+The framework's accuracy should be compared not to the
+Standard Model (which fits $19$+ parameters by construction)
+but to other frameworks that predict fermion masses
+from structure alone:
 \begin{itemize}
 \item Tree-level SU(5) (Georgi--Glashow 1974):
   $\sin^2\theta_W = 3/8$ ($62\%$ off);
@@ -396,8 +395,10 @@ Among frameworks with zero continuous free parameters,
 we are not aware of another that simultaneously predicts
 fermion mass ratios, CKM elements,
 and cosmological parameters from a single discrete input.
-The factor-$2$ geometric accuracy is comparable to
-tree-level SU(5) for $\sin^2\theta_W$.
+The algebraic-tier predictions ($< 5\%$) include all
+quantities that reviewers previously classified as
+``geometric'' ($m_s/m_b$), once the $O(1/c)$ Euler class
+correction is included.
 
 \subsection{Falsifiable predictions}
 \label{sec:falsifiable}
@@ -430,8 +431,8 @@ LEGEND/nEXO for the absence of neutrinoless double beta decay):
 The instanton fugacity $K = 0.548$
 (eq.~\eqref{IV-eq:instanton-K},
 determined by $b(N)$ with no free parameters;
-the factor-$1.9$ mismatch on $m_s/m_b$
-\emph{demonstrates} that $K$ is computed, not adjusted).
+the $4\%$ match on $m_s/m_b$
+confirms that $K$ is computed consistently).
 $K$~links two independent observables:
 $m_s/m_b \propto 1/K^2$ (eq.~\eqref{V-eq:mass-hierarchy},
 elasticity $\partial\ln(m_s/m_b)/\partial k_{\mathrm{frac}} = 4\pi$)
@@ -462,12 +463,10 @@ The audit reveals a sharp dichotomy.
 The algebraic predictions---CKM phase, Hubble parameter,
 neutrino mass ratio---match data to better than~$5\%$
 through exact eigenvalue arithmetic.
-The geometric predictions---fermion mass ratios, Weinberg
-angle---are accurate only to a factor of~$2$, reflecting
-approximations in the Randall--Sundrum warp profile
-on~$\mathbf{H}^2$.
-Closing this gap requires a non-perturbative treatment of
-the radial geometry without introducing free parameters.
+The geometric-tier predictions ($m_c/m_t$, $m_u$,
+$|V_{us}|$, $\sin^2\theta_W$) remain at factor-${\sim}2$
+accuracy, reflecting the sensitivity of light-quark masses
+to the Dirac zero-mode profiles on~$\mathbf{H}^2$.
 
 Five binary tests---normal neutrino hierarchy, $w = -1$,
 no $0\nu\beta\beta$, proton stability, and

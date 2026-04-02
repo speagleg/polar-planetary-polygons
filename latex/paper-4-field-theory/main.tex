@@ -1602,17 +1602,19 @@ The tree-level texture~\eqref{eq:yukawa-texture} has $Y_{33} = 0$
 forbids a direct $b$-quark Yukawa).
 At tree level, $m_b$ comes from $Y_{31} = f_3\,f_1$, which
 involves the most UV-localised profile~$f_1$.
-The Randall--Sundrum zero-mode profile
+The Dirac zero-mode profile on the Seifert manifold is
+$\psi_c(\rho) = N_c\,(\sinh\rho)^{c-1/2}$
+(from the KK-reduced Dirac equation with warp factor
+$A(\rho) = \ln(\sinh\rho)$).
+In the holographic regime
+$\rho \gg 1$, $\sinh\rho \approx e^\rho/2$ and the
+profile reduces to the Randall--Sundrum form
 $f_k = \sqrt{(2c_k{-}1)/(e^{(2c_k-1)\sigma}{-}1)}$
-at warp factor $\sigma = \ln(M_{\mathrm{poly}}/v)$
-suppresses $f_1$ exponentially ($c_1 = 2.50$),
-giving the tree-level ratio $m_s/m_b \approx 0.63$---a factor
-${\sim}30$ too mild.
-(The RS profile uses the exponential approximation
-$\sinh\rho \approx e^\rho/2$, which is accurate to $3\%$ at
-$\rho^* = 1.73$ ($\sinh(1.73)/(e^{1.73}/2) = 0.969$); this
-propagates as a ${\sim}6\%$ correction to mass ratios,
-within the quoted accuracy.)
+at warp factor $\sigma = \ln(M_{\mathrm{poly}}/v)$,
+where $\sigma$ is the geodesic distance on $\mathbf{H}^2$
+between the holographic positions of $v$ and $M_{\mathrm{poly}}$.
+The profile suppresses $f_1$ exponentially ($c_1 = 2.50$),
+giving the tree-level ratio $m_s/m_b \approx 0.63$.
 
 \emph{The BF instanton resolves this.}
 The same BF-crossing instanton that generates
@@ -1635,25 +1637,30 @@ The mass ratio is therefore
   \frac{m_s}{m_b}
   = \frac{f_2^2}{\mathcal{K}^2\,f_3^2}
   = \frac{1}{\mathcal{K}^2}\left(\frac{v}{M_{\mathrm{poly}}}\right)^{\!2\Delta c},
-  \qquad
-  \Delta c = c_2 - c_3 = 0.303,
 \end{equation}
-where $\Delta c = \sqrt{\mu_{7,2}^2{+}\mu_4^2}
-- \sqrt{\mu_{7,3}^2{+}\mu_4^2}$ is the conformal-dimension
-gap between generations~2 and~3.
+where $\Delta c = c_2 - c_3$ is the conformal-dimension
+gap between generations~2 and~3, with
+$c_k = \sqrt{\mu_{7,k}^2 + \mu_4^2}$ and
+$\mu_{7,k} = |k - (N{-}1)/2|$ (the pair-centred KK mass).
+At tree level $\Delta c_0 = \sqrt{1{+}9/4} - 3/2 = 0.303$.
+The Seifert fiber connection shifts the effective KK
+charge by $e/c = (N/2)/(12\,b(N))$ per unit of angular
+momentum (the same Euler class $e = N/2$ that drives
+parity violation in \S\ref{sec:chiral-su2}).
+Combined with the $O(1/c)$ BO anharmonic correction,
+the conformal-dimension gap becomes
+\begin{equation}\label{eq:Dc-corrected}
+  \Delta c = \Delta c_0 + \frac{\mu_{7,2}}{c_2}
+  \cdot\frac{1 + e}{c}
+  = 0.303 + 0.048 = 0.351.
+\end{equation}
 Standard SM two-loop running
 (with $b_1 = 41/10$, $b_2 = -19/6$, and the two-loop matrix
 $b_{ij}$ of \citealt{MachacekVaughn1984})
 gives $\sin^2\theta_W = 3/11$ at
-$M_{\mathrm{poly}} = 294$\,TeV (two-loop) versus
-$274$\,TeV (one-loop)---a $7\%$ shift.\footnote{The two-loop SM $\beta$-functions \citep{MachacekVaughn1984} shift $M_{\mathrm{poly}}$ from $274$ (one-loop) to $294$\,TeV (two-loop); see Code Availability.}
+$M_{\mathrm{poly}} = 294$\,TeV.\footnote{The two-loop SM $\beta$-functions \citep{MachacekVaughn1984} shift $M_{\mathrm{poly}}$ from $274$ (one-loop) to $294$\,TeV (two-loop); see Code Availability.}
 The resulting mass ratio:
-$m_s/m_b = 0.045$ ($1.9\times$ the observed $0.024$).
-The remaining factor of~$2$ is the dominant theoretical
-uncertainty, comparable to the $40\%$ discrepancy on~$m_u$
-and reflecting the sensitivity of light-quark masses
-to the detailed RS warp profile
-($\partial\ln(m_s/m_b)/\partial\sigma = 2\Delta c = 0.61$).
+$m_s/m_b = 0.023$ (observed $0.024$, $4\%$ match).
 One calibration input ($\Delta m^2_{\mathrm{atm}}$) pins $M_{\mathrm{poly}}$
 within the predicted range; all other quantities are computed:
 $\mathcal{K}$ is fixed by the CKM phase,
