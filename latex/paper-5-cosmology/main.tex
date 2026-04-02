@@ -753,16 +753,24 @@ follows from the equation of state of each term:
   a constant energy density has $\rho + p = 0$ ($w = -1$),
   which is the equation of state of the cosmological constant
   (dark energy).
-\item $F_{\mathrm{DM}}$ is the one-loop determinant of the
-  frozen angular modes.
+\item $F_{\mathrm{DM}} = \tfrac{1}{2}\sum\ln|\lambda_m(\rho)|$
+  is the one-loop determinant of the frozen angular modes.
+  Unlike $F_{\mathrm{DE}}$ (which is $\rho$-independent),
+  $F_{\mathrm{DM}}$ depends on the breathing mode~$\rho$
+  through $\lambda_m = C_1(\rho) - f(m)$.
+  This $\rho$-dependence is the key:
+  a $\rho$-independent contribution would be vacuum energy
+  ($w = -1$), but a contribution that depends on the
+  dynamical variable~$\rho$ (which evolves with cosmic time)
+  has zero pressure ($\partial F_{\mathrm{DM}}/\partial V = 0$
+  because $\lambda_m$ depends on~$\rho$, not on the spatial
+  volume~$V$) and hence $w = 0$ (pressureless dust).
   After the $N$-selection phase transition, each frozen mode
   becomes a massive KK particle with
-  $M_k = \sqrt{\lambda_k}\,M_{\mathrm{poly}}$.
-  The modes are at rest in the comoving frame
-  (frozen at the saddle: $\varepsilon_m = 0$, no kinetic energy),
-  so their stress-energy is
-  $T_{\mu\nu} = \rho\,u_\mu u_\nu$ with $p = 0$ ($w = 0$):
-  pressureless dust (cold dark matter).
+  $M_k = \sqrt{\lambda_k}\,M_{\mathrm{poly}}$,
+  at rest in the comoving frame ($\varepsilon_m = 0$):
+  $T_{\mu\nu} = \rho_E\,u_\mu u_\nu$ with $p = 0$
+  (cold dark matter).
 \item $F_{\mathrm{M}}$ is the non-perturbative
   WDW mass gap (the tunnelling amplitude), localised and
   thermalised below $T_{\mathrm{EW}}$: baryonic matter ($w = 0$).
@@ -1245,7 +1253,8 @@ The radion $\sigma$ (the $S^1$ modulus) has effective potential
 \begin{equation}\label{eq:V-radion}
   V(\sigma) = \frac{N^2}{8\sigma^2} - \frac{c_{11}}{12\sigma} + \Lambda\,\sigma,
 \end{equation}
-where $N^2/(8\sigma^2)$ is the flux energy,
+where $\sigma$ is the $S^1$ radius (not the inverse),
+$N^2/(8\sigma^2)$ is the flux energy,
 $c_{11}/(12\sigma)$ is the Casimir energy,
 and $\Lambda\,\sigma$ is the cosmological term.
 The potential is stabilised at $\sigma_{\min} \approx 1.35$
