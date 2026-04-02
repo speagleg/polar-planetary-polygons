@@ -291,7 +291,518 @@ the baryon asymmetry factor, and the light quark masses.
 
 
 \part{The Mathematics of Polygons}
-% [Mirrors Paper I --- to be written]
+
+
+\section{Why logarithms are special}
+\noindent\textit{[Technical reference: Paper~I, \S1--2]}
+
+\medskip
+
+\noindent\textit{Bottom line: The logarithmic interaction is the only
+law in two dimensions for which polygon stability does not depend on
+size.}
+
+\medskip
+
+In three dimensions, gravity falls off as $1/r^2$. Drop to two
+dimensions and the natural law becomes the logarithm: the force
+between spinning objects falls off as $1/r$.
+
+This is not a modeling choice. It is forced by the mathematics of
+the two-dimensional Laplacian---the same equation that governs heat
+diffusion, electrostatics, and fluid flow on a flat surface. The
+Green's function (the fundamental solution) of that equation is the
+logarithm. Period.
+
+What makes the logarithm special among all possible force laws is a
+specific kind of rigidity. If you take a polygon governed by
+logarithmic forces and zoom in or zoom out---rescale the entire
+configuration by a factor $b$---the stability does not change. The
+energy shifts by a constant that depends on $b$ but not on the
+positions. The equations of motion are identical before and after
+rescaling.
+
+Try any other force law. The power law $1/r^2$ (gravity in 3D,
+projected onto a plane): zooming out makes the polygon \emph{less}
+stable. The interaction weakens faster than the geometry spreads, and
+eventually the ring flies apart. A steeper law like $1/r^3$: same
+problem, worse. A shallower law like $1/\sqrt{r}$: zooming out makes
+the polygon \emph{more} stable, but zooming in destabilizes it. The
+logarithm sits exactly at the boundary. It is the unique fixed point.
+
+The technical language for this classification borrows vocabulary from
+the renormalization group---a tool from statistical mechanics that
+sorts interactions by their behavior under rescaling. An interaction
+steeper than the logarithm is ``relevant'': it grows under
+coarse-graining and destabilizes at large scales. An interaction
+shallower than the logarithm is ``irrelevant'': it shrinks under
+coarse-graining and destabilizes at small scales. The logarithm itself
+is ``marginal''---scale-invariant. Paper~I proves that this
+classification is exhaustive: every two-dimensional pairwise
+interaction falls into one of these three categories, and the
+logarithm is the unique boundary between them.
+
+One practical consequence: real vortices are not mathematical points.
+They have finite cores---a smeared-out region of rotation rather than
+an infinitely concentrated singularity. The interaction between two
+finite-core vortices at large separation looks like
+$-\kappa^2 \ln d + O(\varepsilon^2/d^2)$, where $d$ is the distance,
+$\kappa$ is the circulation, and $\varepsilon$ is the core size. The
+correction term $O(\varepsilon^2/d^2)$ falls in the ``irrelevant''
+category ($1/r^2$, shrinking under rescaling). So at large
+separations, any compact vortex distribution flows toward the
+logarithmic interaction. The finite-core details wash out.
+
+This is why the stability threshold $N = 7$ (which I have not derived
+yet---that comes in Section~4) is not an artifact of an idealized
+model. It is the fixed point that real vortex systems approach as
+they separate.
+
+\textbf{Status: (Proved)}---this is a mathematical theorem about the
+two-dimensional Laplacian and the Cauchy functional equation. The
+proof is in Paper~I, \S2.
+
+
+%% ====================================================================
+\section{The sign rule: bowls, not hilltops}
+\noindent\textit{[Technical reference: Paper~I, \S3]}
+
+\medskip
+
+\noindent\textit{Bottom line: The regular polygon sits at the bottom
+of an energy valley, not balanced on a hilltop.}
+
+\medskip
+
+Before this series, the standard treatment of polygon stability
+described the regular $N$-gon as an energy saddle---stable in some
+directions of perturbation, unstable in others. Think of sitting on a
+horse saddle: rock forward and you slide down; rock sideways and
+you're pushed back. A saddle is stable along one axis and unstable
+along the other. Most of the point-vortex literature characterized the
+polygon this way.
+
+The sign rule (Theorem~3 in Paper~I) corrects this picture. The
+regular polygon is a \emph{constrained energy minimum}: a bowl, not a
+hilltop, not a saddle.
+
+The analogy: a marble in a bowl. Displace the marble; it rolls back
+to the center. A marble on a dome: displace it; it rolls away. The
+polygon is the bowl.
+
+There is a subtlety, and I want to be honest about it. The polygon is
+a saddle of the \emph{unconstrained} energy---the energy considered as
+a function of all possible configurations. If you could grab the
+vortices and rearrange them arbitrarily, you would find directions
+where the energy decreases. But vortices cannot be rearranged
+arbitrarily. They are constrained by a conserved quantity called the
+angular impulse (a measure of how much total spin the system carries).
+The constraint removes the unstable directions. On the
+angular-impulse surface---the set of all configurations with the same
+total spin---the polygon sits at a minimum.
+
+The sign rule itself is more general than the logarithm. It applies to
+any pairwise interaction $h(r)$ satisfying two conditions: the force
+is attractive ($h'(r) < 0$, meaning the interaction pulls objects
+toward each other) and the quantity $(r \cdot h'(r))'$ is
+non-positive (a concavity condition on the force law). Any interaction
+satisfying both conditions produces a polygon that is a constrained
+minimum.
+
+The logarithmic interaction $h(r) = -\ln r$ is the borderline case.
+It satisfies $h' < 0$ (attractive: $h' = -1/r$) and
+$(rh')' = 0$ (the concavity condition is satisfied with
+equality, not strict inequality). In the bowl analogy: for most
+interactions satisfying the sign rule, the bowl has a standard curved
+bottom---displace the marble and it accelerates back. For the
+logarithm, the bowl is flat at the very bottom. The restoring force is
+not quadratic (proportional to displacement) but quartic
+(proportional to displacement cubed). The marble still returns to
+center; it just takes longer. It sits in a flat-bottomed bowl.
+
+This flatness at $N = 7$ is not a defect. It is the mathematical
+signature of the critical threshold. The flat bottom of the bowl is
+precisely where the quartic analysis of Section~4 becomes necessary.
+
+Nature finds energy minima. That is the second law of thermodynamics
+in one sentence. The sign rule tells us that the regular polygon
+\emph{is} the energy minimum for the constrained system. This is why
+polygons form, why they persist, and why they are regular rather than
+irregular.
+
+\textbf{Status: (Proved)}---the sign rule is Theorem~3 of Paper~I.
+The proof is self-contained and uses only calculus and the properties
+of trigonometric sums.
+
+
+%% ====================================================================
+\section{The Havelock formula: one equation, two parts}
+\noindent\textit{[Technical reference: Paper~I, \S4]}
+
+\medskip
+
+\noindent\textit{Bottom line: The stability of any polygon on any
+surface splits into one number from the surface and one number from
+pure counting.}
+
+\medskip
+
+This is the only equation in this companion that I will ask you to
+look at:
+\begin{equation}\label{eq:havelock-companion}
+  \lambda_m \;=\; C_1 \;-\; \frac{m(N-m)}{2}\,.
+\end{equation}
+Every symbol earns its keep, so let me translate each one.
+
+\begin{itemize}
+\item $\lambda_m$ (``lambda-sub-$m$''): the stability of the $m$-th
+  wobble mode. If $\lambda_m$ is positive, that mode is stable---the
+  polygon resists that particular distortion. If negative, the polygon
+  is unstable against it. If zero, the polygon is on the edge: the
+  linear restoring force has vanished, and you need to look at
+  higher-order terms.
+
+\item $m$: which wobble pattern. $m = 1$ is the gentlest perturbation,
+  where the whole ring shifts slightly off-center. $m = 2$ is an
+  elliptical distortion. $m = 3$ is a triangular distortion. The index
+  $m$ runs from $1$ to $N - 1$, covering all independent ways the
+  polygon can deform.
+
+\item $N$: how many objects are in the ring.
+
+\item $C_1$: one single number that encodes everything about the
+  surface---flat plane, sphere, hyperbolic plane, whatever. On a flat
+  surface, $C_1 = N - 1$. On a sphere, $C_1$ depends on the latitude.
+  On a hyperbolic surface, $C_1$ depends on the curvature radius. This
+  is the only part of the formula that changes from surface to surface.
+
+\item $m(N-m)/2$: a counting pattern that depends only on $N$ and $m$.
+  It is the same on every surface. It comes from the representation
+  theory of the cyclic group $\mathbb{Z}_N$---a precise way of saying
+  ``the symmetry of the ring.'' If you place $N$ identical objects
+  equally spaced around a circle, the symmetry group of the
+  configuration is $\mathbb{Z}_N$ (the group of rotations by multiples
+  of $360^\circ/N$). The number $m(N-m)/2$ is the Casimir invariant of the
+  $m$-th representation of that group. The name does not matter. What
+  matters is that this term is universal.
+\end{itemize}
+
+In words: the stability of any polygon on any surface splits cleanly
+into a piece from the surface ($C_1$) and a piece from pure counting
+($m(N-m)/2$). The counting piece is the same whether the polygon sits
+on a flat table, a sphere, or a saddle.
+
+T.~H.~Havelock published this formula in 1931, for the specific case
+of a flat surface. What is new in this series is the proof that the
+counting part $m(N-m)/2$ is \emph{metric-independent}---it does not
+change when you curve the surface. The proof (Paper~I, \S4) proceeds
+by showing that the tangential Hessian of the energy is a circulant
+matrix with a $\csc^2$ kernel, and the Fourier eigenvalue of that
+kernel is exactly $m(N-m)/2$ by an identity in the representation
+theory of $\mathbb{Z}_N$. The surface enters only through the radial
+part of the Hessian, which collapses into the single number $C_1$.
+
+The separation is clean because the Laplacian on any
+constant-curvature surface gives a Green's function that depends only
+on geodesic distance. The off-diagonal structure (how vortices
+interact) is determined by $\mathbb{Z}_N$; the diagonal structure (how
+each vortex sits in its potential well) is determined by the surface.
+They do not mix.
+
+This is the architectural fact on which everything else rests. If the
+formula did not split, each surface would require a separate stability
+analysis. Because it does split, every stability question on every
+constant-curvature surface reduces to computing one number: $C_1$.
+
+\textbf{Status: (Proved)}---Theorem~4 in Paper~I. The proof
+uses $\mathbb{Z}_N$ Fourier analysis and the Laplacian Green's function.
+
+
+%% ====================================================================
+\section{Why seven is the magic number}
+\noindent\textit{[Technical reference: Paper~I, \S4--5]}
+
+\medskip
+
+\noindent\textit{Bottom line: On a flat surface, a ring of seven is
+the largest stable polygon. This is a theorem, not a guess.}
+
+\medskip
+
+On a flat surface, $C_1 = N - 1$. Substitute that into the Havelock
+formula and the stability question becomes: is
+$(N - 1) - m(N - m)/2 \ge 0$ for every mode $m$?
+
+The most dangerous mode---the one closest to going negative---is the
+one that maximizes $m(N - m)/2$. That maximum occurs at
+$m = \lfloor N/2 \rfloor$: the halfway mode, the perturbation that
+splits the polygon into two interleaved groups as far apart as
+possible.
+
+Work through the arithmetic for specific values of $N$.
+
+At $N = 6$ (hexagon), the most dangerous mode is $m = 3$:
+$\lambda_3 = 5 - 3 \times 3/2 = 5 - 4.5 = 0.5$. Positive. Stable.
+
+At $N = 7$ (heptagon), the most dangerous mode is $m = 3$:
+$\lambda_3 = 6 - 3 \times 4/2 = 6 - 6 = 0$. Exactly zero. On the
+edge.
+
+At $N = 8$ (octagon), the most dangerous mode is $m = 4$:
+$\lambda_4 = 7 - 4 \times 4/2 = 7 - 8 = -1$. Negative. Unstable.
+
+The transition is sharp. There is no $N = 7.5$. Seven is the last
+integer where the formula stays non-negative.
+
+Why does $N = 7$ produce zero? Paper~I, Theorem~10 gives the algebraic
+answer: setting $\lambda_m = 0$ with $C_1 = N - 1$ and solving gives
+$(N - 1)(N - 7) = 0$. The roots are $N = 1$ (below the polygon range)
+and $N = 7$. The number seven is not chosen; it is the unique
+nontrivial root of a quadratic that arises from the intersection of
+the linear function $C_1 = N - 1$ (from dilation invariance) and the
+quadratic Casimir $m(N-m)/2$ (from $\mathbb{Z}_N$ representation
+theory). The coefficient $8$ in $N^2 - 8N + 7 = 0$ comes from two
+factors of the representation theory: the $1/2$ in the Havelock
+normalization and the critical-mode evaluation at $m = (N-1)/2$.
+
+There is a loose end at $N = 7$. The eigenvalue $\lambda_3 = 0$ means
+the linear restoring force vanishes. The marble in the bowl sits on a
+flat bottom. Does it stay put, or does it eventually slide away? To
+answer this, you need to check the next term in the expansion: the
+quartic (fourth-order) term.
+
+Paper~II computes this quartic coefficient:
+$\alpha_0 = 45/14 \approx 3.21 > 0$. Positive. The flat-bottomed
+bowl curves back up at fourth order. The marble returns to center; it
+just accelerates more slowly than a standard quadratic bowl (quartic
+restoring force $\propto x^3$ rather than linear $\propto x$).
+
+The seven-sided polygon is stable, but marginally so. It is the last
+polygon that holds together on a flat surface, and it holds together
+by the quartic correction rather than the standard linear restoring
+force.
+
+\textbf{Status: (Proved)}---$N_{\mathrm{crit}} = 7$ is Theorem~10 of
+Paper~I. The quartic resolution $\alpha_0 = 45/14 > 0$ is proved in
+Paper~II.
+
+
+%% ====================================================================
+\section{Curved surfaces and algebraic number theory}
+\noindent\textit{[Technical reference: Paper~I, \S5--6]}
+
+\medskip
+
+\noindent\textit{Bottom line: On curved surfaces, the stability
+threshold shifts---and the shift values live in algebraic number
+fields tied to $\sqrt{7}$.}
+
+\medskip
+
+On a flat surface, $C_1 = N - 1$ and the threshold is $N = 7$. On a
+curved surface, $C_1$ changes and the threshold moves.
+
+The sphere and the hyperbolic plane push in opposite directions.
+
+\subsection*{The sphere: curvature destabilizes}
+
+On a sphere of radius $a$, with the polygon sitting at colatitude
+$\varphi_0$ (the angle from the north pole), the curvature coefficient
+is $C_1 = (N-1)\cos\varphi_0$. At the pole ($\varphi_0 = 0$),
+$\cos\varphi_0 = 1$ and you recover the flat result $C_1 = N - 1$.
+As the polygon moves toward the equator, $\cos\varphi_0$ decreases,
+$C_1$ drops, and the polygon destabilizes at smaller $N$.
+
+The thresholds are all rational numbers. For a triangle ($N = 3$):
+the critical colatitude is $60^\circ$, corresponding to
+$\xi_{\mathrm{crit}} = 1/3$. For a square ($N = 4$): $48.2^\circ$,
+$\xi_{\mathrm{crit}} = 1/5$. For a pentagon ($N = 5$): $41.4^\circ$,
+$\xi_{\mathrm{crit}} = 1/7$. For a hexagon ($N = 6$): $25.8^\circ$,
+$\xi_{\mathrm{crit}} = 1/19$. For a heptagon ($N = 7$): $0^\circ$---the
+exact pole, and only marginally stable there. For $N \ge 8$: no
+stable latitude exists on the sphere, at all.
+
+The rationality of these thresholds is not obvious. The Green's
+function on the sphere involves transcendental functions (logarithms
+of sines). But $C_1$ on the sphere depends linearly on
+$\cos\varphi_0$, and the marginal condition $C_1 = m(N-m)/2$ produces
+a rational equation. Transcendental interaction, rational threshold.
+
+\subsection*{The hyperbolic plane: curvature stabilizes}
+
+On the hyperbolic plane (constant negative curvature, like a saddle
+that extends in all directions), the opposite happens. The curvature
+coefficient is
+$C_1 = (N-1)(1 + \xi^2)/(1-\xi)^2$,
+where $\xi = r_E^2/a^2$ measures how far the polygon sits from the
+center of the Poincar\'e disk (the standard model of the hyperbolic
+plane). Since $(1 + \xi^2)/(1-\xi)^2 > 1$ for any $\xi > 0$, we have
+$C_1 > N - 1$: negative curvature \emph{boosts} $C_1$ above its flat
+value. Polygons that would fly apart on a flat surface can be held
+together by sufficient negative curvature.
+
+The threshold for the $7 \to 8$ transition---the curvature at which an
+octagon first becomes stable---is
+$\xi^* = 8 - 3\sqrt{7} \approx 0.063$.
+This number comes from solving the equation
+$\xi^2 - 16\xi + 1 = 0$.
+
+I want to draw attention to this equation. It reads the same forwards
+and backwards: the coefficient of $\xi^2$ (which is $1$) equals the
+constant term (also $1$). This palindromic structure forces the two
+roots to be reciprocals of each other: if $\xi^*$ is a root, then
+$1/\xi^*$ is the other root. The smaller root is the stability
+threshold; the larger root is its conformal inverse.
+
+The verification: $(8 - 3\sqrt{7})(8 + 3\sqrt{7}) = 64 - 63 = 1$.
+The product of the two roots is exactly $1$, confirming the
+palindromic structure.
+
+The number $8 - 3\sqrt{7}$ is the inverse of the fundamental unit
+of $\mathbb{Z}[\sqrt{7}]$---the ring of integers in the number field
+$\mathbb{Q}(\sqrt{7})$. The fundamental unit is
+$\varepsilon = 8 + 3\sqrt{7}$; its inverse is
+$\varepsilon^{-1} = 8 - 3\sqrt{7}$. These are standard objects in
+algebraic number theory: every quadratic number field has a
+fundamental unit, and the Pell equation $x^2 - 7y^2 = 1$ (solved by
+$x = 8$, $y = 3$) is how you find it.
+
+The palindromic structure is not a coincidence. It encodes the
+conformal inversion symmetry $\xi \leftrightarrow 1/\xi$ of the
+Poincar\'e disk model---the same M\"obius covariance that makes the
+logarithmic energy special (Section~1). The stability threshold is an
+algebraic unit \emph{because} the hyperbolic energy is conformally
+covariant.
+
+\subsection*{The field extension pattern}
+
+The pattern generalizes. For each $N \ge 8$, there is a threshold
+$\xi^*(N)$ at which the $N$-gon first becomes stable on the hyperbolic
+plane. Each threshold lives in a quadratic number field determined by
+a simple rule:
+\begin{itemize}
+\item For even $N$: the field is
+  $\mathbb{Q}(\sqrt{\mathrm{squarefree}(N-1)})$.
+\item For odd $N$: the field is
+  $\mathbb{Q}(\sqrt{\mathrm{squarefree}(N-3)})$.
+\end{itemize}
+Here ``squarefree'' means: divide out all perfect-square factors. So
+$\mathrm{squarefree}(9) = 1$ (since $9 = 3^2$), and
+$\mathrm{squarefree}(12) = 3$ (since $12 = 4 \times 3$).
+
+The special case $N = 10$: $\mathrm{squarefree}(9) = 1$, so the
+threshold lives in $\mathbb{Q}(\sqrt{1}) = \mathbb{Q}$. It is a plain
+rational number: $\xi^*(10) = 1/7$. The number~$7$ appearing here is
+the flat-plane threshold making a cameo in the hyperbolic setting.
+
+\subsection*{The five algebraic integers}
+
+Among all the thresholds, exactly five are algebraic integers---numbers
+that satisfy a monic polynomial equation with integer coefficients:
+$N = 8$, $9$, $11$, $15$, and $23$. The sequence of gaps between them
+is $1$, $2$, $4$, $8$---powers of two. This is not numerology; it
+follows from the divisibility condition $(N - 7) \mid 16$, which comes
+directly from the structure of the palindromic equation.
+
+The last algebraic-integer threshold is at $N = 23$:
+$\xi^*(23) = \varphi^{-2} = (3 - \sqrt{5})/2 \approx 0.382$,
+where $\varphi = (1 + \sqrt{5})/2$ is the golden ratio. Its
+palindromic equation is $\xi^2 - 3\xi + 1 = 0$, with trace $c = 3$.
+The trace $c = 2$ would give a degenerate equation ($(\xi - 1)^2 = 0$),
+so $c = 3$ is the smallest trace compatible with two distinct positive
+roots. The golden ratio is the algebraically simplest non-trivial
+palindromic unit. The sequence terminates here; no further
+algebraic-integer thresholds exist beyond $N = 23$.
+
+\textbf{Status: (Proved)}---the field extension pattern, the
+algebraic-integer classification, and the golden ratio terminal case
+are all proved in Paper~I, \S6.
+
+
+%% ====================================================================
+\section{The stability phase diagram}
+\noindent\textit{[Technical reference: Paper~I, \S7]}
+
+\medskip
+
+\noindent\textit{Bottom line: The stability boundaries form a
+topological phase diagram with sharp, undeformable transitions.}
+
+\medskip
+
+Combine everything above. Each surface has its own $C_1$. Each $N$
+has its own critical mode. Together they carve the $(N, C_1)$ plane
+into stability zones. Inside a zone, the polygon is stable. Cross a
+boundary, it is not.
+
+These boundaries are not fuzzy. They are not approximate or subject
+to perturbative corrections. They are sharp---a mathematical fact. The
+Morse index (the count of unstable modes) is an integer, and it jumps
+by exactly one at each boundary. At $N = 7$ on a flat surface, the
+Morse index is zero (no unstable modes). At $N = 8$, it jumps to
+three: three independent wobble patterns ($m = 3$, $4$, and $5$) are
+simultaneously unstable. For general $N \ge 8$, the Morse index is
+$N - 5$.
+
+As the curvature parameter $\xi$ increases from $0$ (flat) toward $1$
+(infinite negative curvature), each unstable mode crosses zero
+\emph{exactly once}---it goes from negative (unstable) to positive
+(stable). The crossings happen at the palindromic thresholds:
+$\xi^*(8) = 8 - 3\sqrt{7}$, then $\xi^*(9) = 5 - 2\sqrt{6}$, then
+$\xi^*(10) = 1/7$, and so on, each value sitting in its own algebraic
+number field. The total number of crossings (the spectral flow) equals
+the flat-plane Morse index $N - 5$.
+
+Paper~I, Appendix~A shows that these stability phases have a
+topological character. The technical tool is $K$-theory---a branch of
+algebra that classifies objects by properties that cannot be smoothly
+deformed away. In the same way that a sphere and a torus are
+topologically distinct (you cannot deform one into the other without
+tearing), the stability zones on either side of a palindromic
+threshold are $K$-theoretically distinct. The Morse index
+$[\mu_N(\xi)]$ defines a class in $K_0(C^*(\mathbb{Z}_N))$, the
+$K$-theory group of the symmetry algebra. That class is locally
+constant: it does not change under small perturbations. It changes
+only when an eigenvalue crosses zero---at a palindromic threshold.
+
+The practical consequence: the boundaries cannot be smoothed away. If
+you perturb the system---change the interaction slightly, add a small
+asymmetry, introduce a bounded coupling between Fourier modes---the
+boundaries shift, but they do not disappear. The Morse index is
+topologically protected. Standard Fredholm theory guarantees that any
+bounded perturbation with $V(0) = 0$ preserves the spectral flow.
+
+On quotient surfaces (the hyperbolic plane modded out by a discrete
+group, producing a compact surface with higher genus), the thresholds
+acquire a correction from the surface topology. The correction is
+computed by the Selberg trace formula---the same tool that counts
+prime geodesics. Each non-trivial geodesic on the surface contributes
+a term to $C_1$ whose strength is proportional to
+$\operatorname{csch}^2(\ell/2)$, where $\ell$ is the geodesic
+length. Short geodesics contribute more; long geodesics are
+exponentially suppressed.
+
+On the Bolza surface---a particular compact hyperbolic surface of
+genus $2$ with the largest automorphism group ($48$ elements) of any
+genus-$2$ surface---the correction is small: $|\delta C_1| < 0.011$.
+The fractional Morse index at the palindromic threshold is
+$\tau(P_-) = 0.644$, meaning roughly $64\%$ of the stability weight
+is in the unstable direction. This number is computed from the
+Fuchsian group of the surface, bounded rigorously by the Selberg
+trace formula, and verified numerically.
+
+The stability phase diagram, taken as a whole, is a map of the
+$(N, \xi)$ plane divided into regions by algebraic curves. The curves
+are palindromic polynomials. The regions are labeled by Morse indices.
+The labels are topological invariants. And the algebra connecting
+surface to surface---the field extensions, the Pell units, the
+geodesic correspondence---is not decorative. It is the scaffolding
+that holds the later papers together.
+
+\textbf{Status: (Proved)}---the spectral flow, the $K_0$ index
+pairing, and the Bolza bound are proved in Paper~I, Appendix~A.
+The higher-genus palindromic hierarchy (Conjecture~1 in Paper~I)
+remains a conjecture.
 
 
 \part{The Physics of Vortex Rings}
