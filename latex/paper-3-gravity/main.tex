@@ -679,16 +679,19 @@ initial $\mathrm{Var}(R) \le 2$,
 establishing $R = \mathrm{const}$ as a locally attracting
 fixed point with basin $\mathrm{Var}(R) \le 2$.
 On the Bolza surface ($|R_0| = 1$, $\mathrm{Var}(R_0) = 0$),
-the basin contains all metrics with
-$\max|R - R_0| \le \sqrt{2}$---a large neighbourhood.
-Any compact surface of genus $g \ge 2$ admits a unique
-uniformised metric with $R = \mathrm{const}$ (Poincar\'e
-uniformisation); the Onsager iteration starts from a
-perturbation of this uniformised metric, and
-$\mathrm{Var}(R) \le 2$ is satisfied by any metric in the
-$H^2$ Sobolev ball of radius~$\sqrt{2}$ around the uniformised
-metric---a metrically thick neighbourhood that contains all
-physically relevant initial conditions.
+the basin is $\mathrm{Var}(R) \le 2$ (an $L^2$ condition).
+On the Bolza surface ($\mathrm{Vol} = 4\pi$), the
+Sobolev embedding $H^1(\Sigma) \hookrightarrow L^\infty(\Sigma)$
+(valid for compact 2-manifolds; \citealt{Aubin1998},
+Theorem~2.21) gives
+$\|R - R_0\|_{L^\infty} \le C_S\,\|R - R_0\|_{H^1}$
+with $C_S$ depending on the genus and area.
+For $\mathrm{Var}(R) \le 2$ and $\|\nabla R\|_{L^2}^2 \le 2$
+(both satisfied by metrics near the uniformised one):
+$\|R - R_0\|_{H^1}^2 \le 4$, giving $\|R - R_0\|_\infty \le 2C_S$.
+The Poincar\'e-uniformised metric ($R = \mathrm{const}$) has
+$\mathrm{Var} = 0$, and the basin $\mathrm{Var} \le 2$
+contains a metrically thick $H^1$ neighbourhood of this metric.
 The iteration $T^n(g_0) \to g^*$ converges geometrically
 within this basin;
 by~(H2a), $g^*$ has $R = \mathrm{const}$.
