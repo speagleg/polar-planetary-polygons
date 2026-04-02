@@ -776,8 +776,10 @@ on the plane: $0$)
 \emph{and} the cross image sum.
 The cross image terms
 $\sum_{p=1}^{N-1}\ln|a^2 - \bar{z}_0\,z_p|$
-at the $N$-gon ring telescope via the product formula
+at the $N$-gon ring telescope via the cyclotomic product
 $\prod_{p=1}^{N-1}(1 - \xi\,e^{2\pi ip/N}) = 1 - \xi^N$
+(the minimal polynomial of the $N$-th root of unity;
+see e.g.\ \citealt{Lang2002}, \S IV.1)
 (with $\xi = \rho^2/a^2$), giving
 $\ln|1 - \xi^N|$---a function of~$\rho$ alone.
 For tangential modes $m \ge 1$, the perturbation phases $a_k$ satisfy $\sum_k a_k = 0$ ($\mathbb{Z}_N$ orthogonality), preserving the product identity at all perturbation orders.
@@ -824,7 +826,22 @@ tangential Hessian, the identity holds on
 \end{proof}
 
 \begin{remark}[Compact quotients]
-On compact quotients $\Gamma\backslash M$, the automorphic Green's function has an additional image sum. This sum contributes a mode-independent correction $\delta C_1$, preserving the eigenvalue decomposition. The reason is that the automorphic image sum $\sum_\gamma G(z, \gamma w)$ is $\mathbb{Z}_N$-invariant (the automorphic action commutes with the $\mathbb{Z}_N$ rotation), so its contribution to $C_1$ is mode-independent.
+On compact quotients $\Gamma\backslash M$, the Green's function
+$G_\Gamma(z,w) = \sum_{\gamma \in \Gamma} G_M(z, \gamma w)$
+includes automorphic image sums.  The image contribution
+to the tangential Hessian at the $N$-gon ring is
+$\delta H_{tt}^{(m)} = \sum_{\gamma \ne \mathrm{id}}
+\sum_p (\partial^2_\theta G_M)(z_0, \gamma z_p)\,
+e^{2\pi ipm/N}$.
+Since $\gamma$ commutes with the $\mathbb{Z}_N$ rotation
+($\gamma$ acts by isometries, preserving the ring),
+the inner sum factorises as
+$(\sum_p e^{2\pi ipm/N}) \times f(\gamma)$,
+and $\sum_p e^{2\pi ipm/N} = 0$ for $m \ge 1$.
+The automorphic images therefore contribute a
+mode-independent shift $\delta C_1 = \sum_{\gamma \ne \mathrm{id}}
+G_M(z_0, \gamma z_0)$, preserving $f(m,N) = m(N{-}m)/2$
+exactly.
 \end{remark}
 
 The stability threshold $N_{\mathrm{crit}}$ is therefore determined by
@@ -877,8 +894,12 @@ is $4\!\sum_p\cos(2\pi pm/N) = -4$ (constant in~$m$), confirming
 degree~$2$.
 For $\alpha \ne 2$: the factor $|\!\sin|^{2-\alpha}$ is
 non-constant in~$p$, so $\Delta^2$ is a non-trivial Fourier
-coefficient of $|\!\sin|^{2-\alpha}$---a function with no
-finite Fourier support unless $2{-}\alpha = 0$.
+coefficient of $|\!\sin|^{2-\alpha}$.
+This function has infinite Fourier support for non-integer
+$2{-}\alpha$ (its Fourier coefficients decay as
+$O(n^{\alpha-3})$ by the Paley--Wiener theorem for
+piecewise-smooth functions; see
+\citealt{Katznelson2004}, Theorem~VI.2.4).
 Numerically: $\Delta^2 S_2 = -4.0$ to~$10^{-14}$ for all~$m$
 and~$N$; for $\alpha = 3$, $\Delta^2$ varies by a factor
 of~$3$ across~$m$ (see Code Availability).

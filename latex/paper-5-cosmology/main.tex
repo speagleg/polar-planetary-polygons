@@ -100,19 +100,17 @@ The KK reduction of $\int R^{(4)}\sqrt{g^{(4)}}$
 with metric $ds^2 = g_{ij}dx^idx^j + (d\varphi{+}A)^2$
 gives $\int[R^{(3)} - \tfrac{1}{4}F_{ij}F^{ij}]\sqrt{g^{(3)}}$
 (the $1/4$ is the standard Maxwell normalisation from KK).
-The KK scalar curvature satisfies
-$R^{(4)} = R^{(3)} - (1/4)|F|^2$
-(the gauge field energy enters with a minus sign in
-the curvature decomposition).
-On the base, $R^{(3)} = 2K$ and
-$\Lambda_3 = R^{(3)}/2 = K$.
-Including the flux contribution from the
-Einstein equations:
-$\Lambda_3 = K + (1/4)|F|^2$,
-where $K$ is the Gaussian curvature
-and $|F|^2 = N^2/4$ is the flux energy
-(positive: the fiber flux acts as a positive
-cosmological contribution).
+The 3D Einstein equations on the base
+$G_{\mu\nu}^{(3)} + \Lambda_3\,g_{\mu\nu}^{(3)}
+= 8\pi G_3\,T_{\mu\nu}^{(\mathrm{flux})}$
+have $T_{\mu\nu}^{(\mathrm{flux})}
+= (1/4)|F|^2\,g_{\mu\nu}^{(3)}$ (Maxwell stress from the
+KK gauge field).
+On a constant-curvature base with $K = -1$
+(so $G^{(3)} = -K\,g = g$):
+$\Lambda_3 = K + (1/4)|F|^2 = -1 + N^2/16$,
+where $|F|^2 = (\pi N/(2\pi))^2 = N^2/4$ from the
+quantised flux $\oint\!dA = \pi N$.
 On $\mathbf{H}^2$ with $K = -1$:
 $\Lambda_3 = -1 + N^2/16 = (N^2 - 16)/16$
 (in units of $1/\ell^2$).
@@ -169,9 +167,12 @@ requirements (integer spin, stability, flux additivity):
 \item[(c)] $N_{\mathrm{cosmo}} = 11 = N_{\mathrm{EW}} + N_{\mathrm{grav}}$:
   the two gauge sectors share a single $S^1$ fiber
   with KK fluxes $N_{\mathrm{EW}}/2 = 2$ and
-  $N_{\mathrm{grav}}/2 = 7/2$; flux additivity gives
-  $N_{\mathrm{total}}/2
-  = 2 + 7/2 = 11/2$, giving $N = 11$.
+  $N_{\mathrm{grav}}/2 = 7/2$.
+  The total flux is the first Chern class of the
+  Whitney sum of the two determinant line bundles:
+  $c_1(L_{\mathrm{EW}} \oplus L_{\mathrm{grav}})
+  = c_1(L_{\mathrm{EW}}) + c_1(L_{\mathrm{grav}})
+  = 4 + 7 = 11$, giving $N = 11$.
   No geometric input enters---only the linearity of
   $\oint A$ on the fiber (exhaustive elimination below).
 \end{enumerate}
@@ -511,13 +512,18 @@ The Seeley--DeWitt coefficients are:
 $a_0' = (2c)^{1/2}/(4\pi)^{1/2}$
 (volume, identical for $H$ and $H_0$ since both
 act on the same half-line),
-and $a_1' = -(2c)^{1/2}\int V\,d\rho/(4\pi)^{1/2}$
-(potential integral; $V$ and $V_0$ differ only in
-the neighbourhood of $\rho^*$ where $V$ crosses zero,
-and $V_0$ does not;
-however $\int V\,d\rho = \int V_0\,d\rho$
-because the confining potential at $\rho \gg \rho^*$
-is $V \sim \rho + \mathrm{const}$ for both).
+and $a_1'$ is determined by the \emph{regularised}
+potential integral
+$\int_0^\infty [V(\rho) - V_{\mathrm{asymp}}(\rho)]\,d\rho$,
+where $V_{\mathrm{asymp}} = \rho + \ln 2 + b - f$
+is the large-$\rho$ asymptote.
+Since $V - V_{\mathrm{asymp}}
+= \log(2\sinh\rho) - \rho - \ln 2
+= \log(1 - e^{-2\rho})$---independent of $f$---the
+regularised integral is $\int_0^\infty\!\log(1{-}e^{-2\rho})\,
+d\rho = -\pi^2/12$
+(a standard Bose--Einstein integral)
+for \emph{both} $H$ and $H_0$.
 Equality $a_0' = a_0^{0\prime}$ and
 $a_1' = a_1^{0\prime}$ ensures that
 $\zeta_{\mathrm{rel}}(s)$ has no pole at $s = 0$
@@ -826,8 +832,11 @@ This gives the geometric resummation
   = 0.81 \times 1.141 = 0.924,
 \end{equation}
 where the factor $1/(1{+}K^2) = 0.77$ is the standard
-resummation of $\sum_{n=0}^\infty (-K^2)^n$;
-no new parameter enters.
+resummation of $\sum_{n=0}^\infty (-K^2)^n$.
+The series converges ($|K^2| = 0.300 < 1$);
+truncating at $n = 2$ gives remainder
+$|R_2| \le K^6/(1{+}K^2) = 0.021$ ($2.1\%$).
+No new parameter enters.
 The one-loop corrections (\S\ref*{IV-sec:loops})
 add $+0.30$ pp to $\Omega_b$, giving
 $\Omega_b = 4.97\%$ ($0.6\sigma$ from Planck).
@@ -1021,8 +1030,20 @@ $e^{2\pi i k_{\mathrm{phys}}}$, giving a CP-violating observable
 \end{equation}
 At $N = 7$: $k_{\mathrm{phys}} = 5.096$,
 $\delta_{\mathrm{CP}} = \sin(2\pi \times 0.096) = 0.566$.
-This is four orders of magnitude larger than the SM Jarlskog
-invariant $J \approx 3 \times 10^{-5}$.
+This CP-violating phase $\delta_{\mathrm{CP}}$ is the
+\emph{baryogenesis source}: it enters the sphaleron
+transport equation as $S_{\mathrm{CP}} \propto
+\delta_{\mathrm{CP}}$.
+It is distinct from the CKM phase
+$\delta_{\mathrm{CKM}} = 70.2^\circ$
+(Paper~IV, Theorem~\ref*{IV-thm:ckm-phase}), which
+arises from the BF-crossing scattering phase on~$\mathbf{H}^2$.
+Both originate from the CS level structure but through
+different mechanisms: $\delta_{\mathrm{CP}}$ from the
+fractional part of $k_{\mathrm{phys}}$,
+$\delta_{\mathrm{CKM}}$ from $\arg\Gamma(1/2{+}i)$.
+The baryogenesis source is four orders of magnitude larger
+than the SM Jarlskog invariant $J \approx 3 \times 10^{-5}$.
 
 \paragraph{First-order electroweak phase transition.}
 The Born--Oppenheimer potential $V_7(\rho)$ has a barrier
@@ -1032,10 +1053,13 @@ tunnelling action to the central charge:
 \begin{equation}\label{eq:v-over-Tc}
   \frac{v(T_c)}{T_c}
   = \sqrt{\frac{2\,S_{\mathrm{BO}}}{c}}
-  = \sqrt{\frac{36.5}{51.6}} = 0.84,
+  = \sqrt{\frac{36.5}{51.6}} = 0.84.
 \end{equation}
-a strong first-order transition (the SM gives a crossover
-for $m_H = 125$\,GeV).
+This uses the zero-temperature BO potential; finite-temperature
+corrections shift $v/T_c$ by $O(T_{\mathrm{EW}}^2/M_{\mathrm{poly}}^2)
+\approx 4 \times 10^{-6}$, negligible.
+The result is a strong first-order transition (the SM gives
+a crossover for $m_H = 125$\,GeV).
 In the broken phase, sphaleron processes are suppressed by
 $e^{-3v/T_c} = e^{-2.52} = 0.08$: $92\%$ of the baryon asymmetry
 survives the transition.
@@ -1140,9 +1164,9 @@ is a Dirac KK mode at scale~$M_{\mathrm{KK}}$, not a Majorana state.
   M_{\mathrm{KK}} = M_{\mathrm{poly}} \times \varepsilon_7^{N_{\mathrm{grav}}}
   \times f(m^*, N_{\mathrm{grav}})
   = M_{\mathrm{poly}} \times \varepsilon_7^7 \times 6
-  \sim 10^{13}\text{--}10^{14}\;\mathrm{GeV}.
+  \sim 10^{13}\text{--}10^{14}\;\mathrm{GeV},
 \end{equation}
-The three factors have distinct physical origins:
+a structural ansatz determined by three physical inputs:
 (i)~$\varepsilon_7^7 = \exp(N\ln\varepsilon_7)
 = \exp(S_{\mathrm{BO}} + \sqrt{2/\pi}\,\ln\varepsilon_7/2)$,
 using the Pell identity~\eqref{eq:pell-identity}: the BO instanton
@@ -1371,13 +1395,28 @@ gravitational entropy is not fine-tuned but follows
 from the tunnelling occurring at the
 negative-to-positive temperature boundary.
 The Weyl curvature hypothesis \citep{Penrose1979} is
-automatic: at~$\rho^*$ the polygon is regular (all
-vortices equally spaced), so the energy distribution
-is uniform and the Weyl tensor vanishes; as $\rho$
-increases, perturbation amplitudes grow
-($\langle|\varepsilon_m|^2\rangle = 1/(2\lambda_m)$,
-equipartition) and $|W|^2 \propto \sum_{m \ge 2}
-m^2(m^2{-}1)\,\lambda_m$ increases monotonically
+automatic.
+At~$\rho^*$ the polygon is regular: all perturbation
+amplitudes $\varepsilon_m = 0$, so the
+energy-momentum tensor is isotropic
+($T_{\mu\nu} \propto g_{\mu\nu}$),
+the Einstein equations give
+$R_{\mu\nu} \propto g_{\mu\nu}$
+(maximally symmetric), and the Weyl tensor
+$W_{\mu\nu\rho\sigma} = 0$.
+As~$\rho$ increases past~$\rho^*$, the thermal
+perturbation amplitudes
+$\langle|\varepsilon_m|^2\rangle = 1/(2\lambda_m)$
+(equipartition) break the isotropy: the $m$-th
+Fourier mode of~$T_{\mu\nu}$ contributes to the
+$2^m$-pole component of the Weyl tensor with weight
+$m^2(m^2{-}1)$ (the angular Laplacian eigenvalue
+of the traceless-transverse part).
+The Weyl invariant
+$|W|^2 = \sum_{m \ge 2} m^2(m^2{-}1)\,
+\lambda_m\,\langle|\varepsilon_m|^2\rangle
+= \tfrac{1}{2}\sum_{m \ge 2} m^2(m^2{-}1)\,\lambda_m$
+increases monotonically with~$\rho$
 (verified for $N = 7$, $9$, $11$; Code Availability).
 Four arrows align in the direction of
 increasing~$\rho$: expansion, gravitational entropy,

@@ -724,10 +724,15 @@ giving topological masses
 $m_R \approx 0.36/\ell$ and $m_L \approx 1.64/\ell$
 (ratio $m_L/m_R \approx 4.6$).
 At $\ell \sim 1/M_{\mathrm{poly}}$:
-$m_L \sim 490$\,TeV, $m_R \sim 107$\,TeV
-(both exceed $M_{\mathrm{poly}} \approx 300$\,TeV by
-$O(|\eta|/k) \approx 30$--$60\%$, so the gapping is
-above the polygon scale).
+$m_L \sim 490$\,TeV, $m_R \sim 107$\,TeV.
+The heavier sector ($m_L$) exceeds
+$M_{\mathrm{poly}} \approx 300$\,TeV;
+the lighter ($m_R$) is below $M_{\mathrm{poly}}$ but
+above the electroweak scale by a factor of~$440$,
+unobservable at the LHC.
+Both topological masses scale as $|\eta|/(k\ell)$
+and exceed $M_{\mathrm{EW}}$ for all $N \ge 4$
+(since $|\eta(N)| \ge 1/N > 0$).
 The sector with the larger effective level has heavier
 gauge bosons; at energies $E \ll m_R$, only the
 lighter sector propagates.
@@ -1074,11 +1079,18 @@ exactly, by the following three-step argument.
   $\theta = 2\pi k_{\mathrm{frac}} = 0$
   (integer level, no fractional part).
 \item \emph{Fermion shifts preserve integrality.}
-  Each massive Dirac fermion shifts the CS level by
-  $\Delta k = \mathrm{sign}(m)/2$ (parity anomaly).
-  For $6$ quarks (3~generations $\times$ 2~chiralities
-  summing constructively):
-  $\Delta k = 6 \times 1/2 = 3 \in \mathbb{Z}$,
+  Each massive Dirac fermion in representation~$R$
+  shifts the CS level by
+  $\Delta k = T(R)\,\mathrm{sign}(m)$
+  (parity anomaly; \citealt{Redlich1984}),
+  where $T(R)$ is the Dynkin index
+  ($T(\mathrm{fund}) = 1/2$ for $\mathrm{SU}(3)$).
+  For $6$ quark flavors in the fundamental:
+  $\Delta k = 6 \times T(\mathrm{fund})
+  \times \mathrm{sign}(m) = 6 \times 1/2 = 3 \in \mathbb{Z}$
+  (the three colours enter through~$T$, not as independent
+  fermions).
+  All masses have the same sign (from a single Higgs VEV),
   giving $k_{\mathrm{eff}} = 1 + 3 = 4$ (integer).
 \item \emph{Gravitational sector decouples.}
   The gravitational CS level

@@ -223,7 +223,7 @@ Result & Role & Status & Match \\
 \midrule
 \multicolumn{4}{l}{\emph{Structural (forced by $N = 7$ and $M_P$)}} \\
 $\mathrm{SU}(3)$ representation & Derived & Theorem & --- \\
-$\mathrm{SU}(3)$ gauge dynamics & Derived & Derivation & --- \\
+$\mathrm{SU}(3)$ gauge dynamics & Derived & Derivation$^\dagger$ & --- \\
 $\mathrm{SU}(2) \times \mathrm{U}(1)$ & Derived & Derivation & --- \\
 $3$ generations $= (N{-}1)/2$ & Derived & Derivation & --- \\
 $4$D graviton (spin $2$) & Derived & Derivation & --- \\
@@ -262,6 +262,8 @@ $\sigma$ = standard deviations;
 $\times$ = multiplicative factor;
 named experiment = future test;
 --- = no empirical target.
+$\dagger$ = conditional on the DHVW orbifold construction
+at irrational central charge (Paper~IV, \S\ref*{IV-sec:su3-mckay}).
 \normalsize
 \end{center}
 \noindent
@@ -329,8 +331,8 @@ across predictions, depending on the derivation chain:
 Prediction & Dominant source & Propagated & Match \\
 \midrule
 $\delta_{\mathrm{CKM}}$
-  & exact ($\Gamma$ function)
-  & $0\%$ & $0.4\sigma$ \\
+  & HC normalisation$^*$
+  & $0\%^*$ & $0.4\sigma$ \\
 $\ln(M_P/v)$
   & Dunham $O(1/c_7^2)$
   & $0.04\%$ & $0.04\%$ \\
@@ -355,6 +357,14 @@ $\eta_B$
 \bottomrule
 \end{tabular}
 \end{center}
+\noindent{\footnotesize $^*$The $\Gamma$-function
+evaluation is exact; the systematic from the
+Harish-Chandra normalisation assumption
+(Paper~IV, Theorem~\ref*{IV-thm:ckm-phase}, Step~4)
+is unquantified but structural (binary: the normalisation
+is either correct or it is not).}
+
+\medskip
 The first four predictions are in the \emph{algebraic tier}:
 their uncertainties ($\le 0.8\%$) come from
 $O(1/c^2)$ Dunham and Euler class corrections,
@@ -447,6 +457,12 @@ from structure alone:
   $K \to \pi\pi$ amplitudes at $20$--$30\%$.
 \item Standard RS (anarchic Yukawas, $21$+ parameters):
   $< 1\%$ accuracy, but every mass is fitted, not predicted.
+\item String landscape (Denef--Douglas 2004):
+  $\sim\!10^{500}$ vacua; SM parameters are environmental,
+  not computed. No single vacuum is identified.
+\item Asymptotic safety (Eichhorn--Held 2018):
+  $\sin^2\theta_W$ from UV fixed-point constraints;
+  fermion mass predictions are at the one-loop level only.
 \end{itemize}
 Among frameworks with zero continuous free parameters,
 no other simultaneously predicts
@@ -598,6 +614,11 @@ freedom after the CMS angular modes are frozen.
 The count $2\,(\text{log kernel}) + 1\,(S^1\text{ fibre})
 + 1\,(\text{WKB clock}) = 3{+}1$ is forced by
 the Havelock eigenvalue structure.
+The WKB time coordinate is valid in the semiclassical
+regime ($\rho > \rho^*$, $c \gg 1$); at the turning
+point $\rho = \rho^*$ the Airy regime replaces it,
+and for $\rho < \rho^*$ there is no classical time
+(\S\ref{V-sec:geometry-initial}).
 
 \paragraph{Structure formation and the high-redshift universe.}
 The radion inflection-point potential
@@ -646,12 +667,23 @@ $|V_{us}|$, $\sin^2\theta_W$) remain at factor-${\sim}2$
 accuracy, reflecting the sensitivity of light-quark masses
 to the Dirac zero-mode profiles on~$\mathbf{H}^2$.
 
-Seven binary tests---normal neutrino hierarchy, $w = -1$,
-no $0\nu\beta\beta$, proton stability,
-$\theta_{\mathrm{QCD}} = 0$, the EWPT gravitational
-wave signal, and $\Omega_k = 0$---are experimentally
+Seven binary tests are experimentally
 accessible within two decades.
-A single failure falsifies the theory.
+Of these, the EWPT gravitational wave signal
+($f \approx 4 \times 10^{-5}$\,Hz,
+$\Omega_{\mathrm{GW}} h^2 \approx 10^{-9}$),
+the $K$-correlation between $m_s/m_b$ and $\Omega_b$,
+and $\Omega_k = 0$ exactly are \emph{diagnostic}:
+they distinguish this theory from other BSM approaches.
+The remaining four (normal hierarchy, $w = -1$, proton
+stability, $\theta_{\mathrm{QCD}} = 0$) are shared
+with the SM or $\Lambda$CDM.
+A single failure of a binary test (normal hierarchy,
+$w = -1$, proton stability, $\theta_{\mathrm{QCD}} = 0$)
+falsifies the theory;
+failure of a quantitative prediction ($\sin^2\theta_W$,
+$|V_{cb}|$, $\eta_B$) constrains the derivation chain
+at the failed step.
 A companion supplement develops an arithmetic interpretation:
 the Havelock eigenvalues satisfy the Ramanujan--Petersson
 bound for all stable polygons, linking vortex stability

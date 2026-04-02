@@ -168,10 +168,20 @@ $\Delta_\theta = (1/\sinh^2\!\rho)\,\partial^2/\partial\theta^2$.
 At the $N$-gon ring of radius~$\rho_0$, the tangential Hessian
 of $-\sum_{p<q}\log d_{\mathrm{hyp}}(z_p, z_q)$ is a
 $\mathbb{Z}_N$-circulant with entries
-$h_p = (4\sinh^2\!\rho_0\,\sin^2(\pi p/N))^{-1}$
-(verified numerically to $10^{-15}$ for $N = 3,\ldots,12$
-at five values of~$\rho_0$;
-see Code Availability\footnote{All numerical
+$h_p = (4\sinh^2\!\rho_0\,\sin^2(\pi p/N))^{-1}$.
+\emph{Derivation.}
+On the Poincar\'e disk, $z_0 = \tanh(\rho_0/2)$ and
+$z_p = z_0\,e^{2\pi ip/N}$.
+The angular perturbation $z_0 \mapsto z_0\,e^{i\varepsilon}$
+gives $|z_0({\varepsilon}){-}z_p|^2
+= 2|z_0|^2[1{-}\cos(\varepsilon{-}2\pi p/N)]$;
+the second $\varepsilon$-derivative of
+$-\!\log|z_0{-}z_p|$ at $\varepsilon = 0$ reduces
+(using $\cos(2x){-}2\cos^2\!(x) = -1$) to
+$\csc^2(\pi p/N)/4$.
+The Poincar\'e metric factor $1/\sinh^2\!\rho_0$
+converts from coordinate to geodesic units
+(verified to~$10^{-15}$; see Code Availability\footnote{All numerical
 verifications cited as ``see Code Availability'' throughout
 this paper are available in the companion code repository.}).
 
@@ -361,8 +371,11 @@ at $k = -h^\vee = -2$ \citep{Witten1991};
 for $\mathrm{SL}(2,\mathbb{R})$ the analytic continuation
 in~$k$ is controlled by the Plancherel measure
 of the continuous series \citep{Witten1991};
-the semiclassical expansion has $O(1/k^2) \approx 1.4\%$
-corrections for $N \ge 7$ ($k > 8.6$).
+the semiclassical expansion has corrections
+$c_2^{\mathrm{adj}}/(12k^2) = 2/(12k^2) = 1/(6k^2)$
+from the one-loop adjoint Casimir ($c_2 = 2$ for
+$\mathfrak{sl}(2,\mathbb{R})$),
+giving $0.23\%$ at $N = 7$ ($k = 2\,b(7) = 8.6$).
 The compact gauge sectors ($\mathrm{SU}(2)_1$,
 $\mathrm{SU}(3)_1$) have integer levels;
 only the gravitational $\mathrm{SL}(2,\mathbb{R})$ sector
@@ -498,7 +511,8 @@ and elliptic regularity forces
 $R(x) = \mathrm{const}$.
 \end{proposition}
 
-\begin{theorem}[Polygon entropy maximisation implies constant curvature]
+\begin{theorem}[Polygon entropy maximisation implies constant curvature
+(conditional on the Onsager hypothesis H2b)]
 \label{thm:polygon-einstein}
 Let $(S, g)$ be a two-dimensional Riemannian manifold.
 Place $N$ equal point vortices in a regular polygon ring
@@ -640,7 +654,9 @@ Expanding $\rho = \rho_0\,e^{\beta_{\mathrm{eff}}(V_1\delta R + V_2\delta R^2/2)
 to second order in~$\delta R$ and using the
 exponential-moment bound
 $\mathrm{Var}(e^{aX}) \le a^2 e^{2a^2 \mathrm{Var}(X)} \mathrm{Var}(X)$
-(on a compact surface, $\delta R$ is bounded;
+(a standard sub-Gaussian inequality;
+see \citealt{BoucheronLugosiMassart2013}, Theorem~2.1;
+on a compact surface, $\delta R$ is bounded;
 $\mathrm{Var}(R) \le 2$ and Chebyshev give
 $|\delta R| \le \sqrt{2/\epsilon}$ on a set of
 measure $\ge 1 {-} \epsilon$):
@@ -1370,9 +1386,15 @@ implies Einstein with matter.
 The identification of palindromic thresholds as Rindler
 horizons uses the modular Hamiltonian of the angular bath,
 which equals the Rindler energy by the
-Bisognano--Wichmann theorem
-(the boundary CFT is unitary and has a
-unique vacuum---see Paper~IV,
+Bisognano--Wichmann theorem.
+The prerequisites are satisfied: the boundary CFT
+is (i)~unitary (DHVW orbifold of a unitary WZW model,
+Proposition~\ref*{IV-prop:j1-bound}),
+(ii)~has a unique vacuum (the identity operator is
+$\mathbb{Z}_N$-invariant), and
+(iii)~the modular flow is geometric (the boundary
+$T^2$ is conformally flat).
+See Paper~IV,
 Theorem~\ref*{IV-thm:nonlinear-einstein}).
 
 \begin{proposition}[Partition function verification via the Gauss product]
@@ -2008,10 +2030,16 @@ $T_{\mathrm{HP}} = 1/(2\pi\ell)$ for $E = 0$.
 For $T < T_c$: the polygon has lower action
 ($\Delta I < 0$, polygon preferred).
 For $T > T_c$: the BTZ has lower action.
-The total polygon energy $E_{\mathrm{polygon}}$
-lowers $T_c$ below $T_{\mathrm{HP}}$: more mass in the
-polygon makes the BTZ transition harder, because the
-binding energy deepens the polygon potential well.
+The total polygon energy
+$E_{\mathrm{polygon}} = Nm_{\mathrm{vert}}
++ V_{\mathrm{int}}$, where the interaction energy
+on the unit circle is
+$V_{\mathrm{int}} = -\!\sum_{p<q}\!\log|z_p{-}z_q|
+= -(N/2)\ln N$
+(from $\prod_{p=1}^{N-1}2\sin(\pi p/N) = N$),
+lowers $T_c$ below $T_{\mathrm{HP}}$: the binding
+energy $V_{\mathrm{int}} < 0$ deepens the polygon
+potential well.
 
 \paragraph{The negative mode.}
 For $N > N_{\mathrm{crit}}(\xi)$: the polygon has a negative
