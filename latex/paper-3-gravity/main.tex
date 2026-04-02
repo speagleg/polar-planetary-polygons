@@ -355,10 +355,13 @@ The CS level $k = c/6$ is not integer for most~$N$.
 This is consistent:
 $\pi_3(\mathrm{SL}(2,\mathbb{R})) = 0$
 \citep[\S3]{Witten1988}, so no level quantisation applies;
-the partition function $Z(k)$ is entire in~$k$ with nearest
-singularity at $k = -2$ \citep{Witten1991}, well away from
-$k = 2b(N) > 0$;
-and the semiclassical expansion has $1/k < 2\%$ corrections
+for the compact form $\mathrm{SU}(2)$, the partition
+function $Z(k)$ is entire in~$k$ with nearest singularity
+at $k = -h^\vee = -2$ \citep{Witten1991};
+for $\mathrm{SL}(2,\mathbb{R})$ the analytic continuation
+in~$k$ is controlled by the Plancherel measure
+of the continuous series \citep{Witten1991};
+the semiclassical expansion has $1/k < 2\%$ corrections
 for $N \ge 7$ ($k > 8.6$).
 The compact gauge sectors ($\mathrm{SU}(2)_1$,
 $\mathrm{SU}(3)_1$) have integer levels;
@@ -484,7 +487,9 @@ the functional derivative is
 \]
 On a closed surface the Laplacian term integrates to
 zero: $\int\Delta_g(\cdot)\,dA = 0$.
-At the entropy maximum
+At a critical point of $S_{\mathrm{total}}$
+(which is the unique maximum by strict concavity,
+$d^2S/dC_1^2 < 0$),
 $\delta S_{\mathrm{total}}/\delta\varphi = \Lambda_\varphi$
 (constant) for all~$x$; the pointwise equation
 $F(R(x)) + (\text{Laplacian term}) = \Lambda_\varphi$
@@ -633,8 +638,12 @@ The contraction operates on the density field.
 The new curvature variance is $\mathrm{Var}(R') = \delta^2\,\mathrm{Var}(\rho)$.
 Expanding $\rho = \rho_0\,e^{\beta_{\mathrm{eff}}(V_1\delta R + V_2\delta R^2/2)}$
 to second order in~$\delta R$ and using the
-Hoeffding bound $\mathrm{Var}(e^{aX}) \le a^2 e^{2a^2 \mathrm{Var}(X)} \mathrm{Var}(X)$
-(valid for bounded~$X$ on a compact surface, $|X| \le \sqrt{2}$):
+exponential-moment bound
+$\mathrm{Var}(e^{aX}) \le a^2 e^{2a^2 \mathrm{Var}(X)} \mathrm{Var}(X)$
+(on a compact surface, $\delta R$ is bounded;
+$\mathrm{Var}(R) \le 2$ and Chebyshev give
+$|\delta R| \le \sqrt{2/\epsilon}$ on a set of
+measure $\ge 1 {-} \epsilon$):
 \[
   \mathrm{Var}(R') \;\le\;
   |\beta_{\mathrm{eff}}|^2 R_0^2\,\mathrm{Var}(R)
