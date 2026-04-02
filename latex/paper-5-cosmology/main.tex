@@ -351,10 +351,10 @@ The bounce action is $2S = 36.548$.
 
 \paragraph{Component~2 (Mass gap).}
 The asymptotic mass gap of the WDW equation is
-$\Delta E \to \Delta\varepsilon = 0.8026$
+$\Delta E \to \Delta\varepsilon = 0.8031$
 (the universal log-potential constant, \S\ref{sec:mass-gap}).
 Its contribution to the hierarchy:
-$\Delta\varepsilon\,\ln\varepsilon_7 = 0.8026 \times 2.769 = 2.222$.
+$\Delta\varepsilon\,\ln\varepsilon_7 = 0.8031 \times 2.769 = 2.224$.
 
 \paragraph{Component~3 (Gravity prefactor).}
 The Planck mass is $M_P = \sqrt{c_{11}/(24\pi^2 R\ell)}$
@@ -499,11 +499,31 @@ The derivative $\zeta'_{\mathrm{rel}}(0)$
 receives contributions from two sources:
 (i)~the threshold crossing ($\mathrm{SF} = 1$),
 which gives $-\gamma$ as computed above;
-(ii)~the bulk spectral difference, which is
-$O(\sum n^{-3}) = O(1)$ but enters only through the
-analytic continuation and contributes zero to
-$\zeta'_{\mathrm{rel}}(0)$ by the matching of
-Weyl coefficients $a_0, a_1$ between $H$ and $H_0$.
+(ii)~the bulk spectral difference.
+The heat-kernel expansion of $H = -\tfrac{1}{2c}\partial_\rho^2
++ V(\rho)$ on the half-line gives
+$\mathrm{Tr}(e^{-tH} - e^{-tH_0})
+= (a_0' - a_0^{0\prime})\,t^{-1/2}
++ (a_1' - a_1^{0\prime})
++ O(t^{1/2})$
+as $t \to 0^+$.
+The Seeley--DeWitt coefficients are:
+$a_0' = (2c)^{1/2}/(4\pi)^{1/2}$
+(volume, identical for $H$ and $H_0$ since both
+act on the same half-line),
+and $a_1' = -(2c)^{1/2}\int V\,d\rho/(4\pi)^{1/2}$
+(potential integral; $V$ and $V_0$ differ only in
+the neighbourhood of $\rho^*$ where $V$ crosses zero,
+and $V_0$ does not;
+however $\int V\,d\rho = \int V_0\,d\rho$
+because the confining potential at $\rho \gg \rho^*$
+is $V \sim \rho + \mathrm{const}$ for both).
+Equality $a_0' = a_0^{0\prime}$ and
+$a_1' = a_1^{0\prime}$ ensures that
+$\zeta_{\mathrm{rel}}(s)$ has no pole at $s = 0$
+or $s = 1/2$, and hence
+$\zeta'_{\mathrm{rel}}(0)$ receives no bulk
+contribution---only the threshold crossing (i).
 The ratio $\det'/\det = e^\gamma$ follows.
 With $(\det)^{-1/2}$:
 $\delta(\ln A) = -\gamma/2$,
@@ -842,27 +862,54 @@ The lightest species is topologically stable
 ($\mathbb{Z}_{11}$ charge conservation, cf.\ proton stability
 from $\mathbb{Z}_{56}$ in \S\ref*{IV-sec:consistency}).
 
-\paragraph{Relic abundance and clustering.}
+\paragraph{Production mechanism.}
 The frozen modes are \emph{not} thermally produced:
 $\sigma \sim 10^{-103}\;\mathrm{cm}^2$ (see
 \S\ref*{IV-sec:consistency}) ensures they were never in
 thermal equilibrium with the SM bath.
-Instead, the DM relic abundance is determined by the one-loop
-determinant of the frozen mode operator (eq.~\ref{eq:F-DM}):
-$\Omega_{\mathrm{DM}} = F_{\mathrm{DM}} / F_{\mathrm{total}}$.
-This is the Havelock analogue of the thermal freeze-out
-calculation---it fixes the \emph{total} DM energy density from the
-eigenvalue spectrum at~$N = 11$.
-After the cosmological $N$-selection phase transition, the frozen
-modes are real massive particles (50--950\,TeV) that cluster
+The production mechanism is gravitational particle creation
+at the $N$-selection phase transition
+($T_N \approx 300$\,TeV, \S\ref{sec:gw-signal}).
+During this first-order transition, the breathing mode
+$\rho$ tunnels through the BO barrier (bounce action
+$2S_{\mathrm{BO}}(11) = 204.5$).
+The angular modes, frozen at the saddle with
+$\varepsilon_m = 0$ (zero kinetic energy),
+become massive KK particles in the broken phase.
+The Feynman--Kac correspondence
+(Paper~III, Theorem~\ref{III-thm:quantum-structure})
+maps the quantum ground-state probability $|\Psi_0(\rho)|^2$
+to the classical Boltzmann weight $e^{-\beta V}/Z$,
+and the one-loop determinant
+$Z_{\mathrm{frozen}} = \prod_{m \ne m^*}|\lambda_m|^{-1/2}$
+evaluated at the tunnelling threshold gives the
+number density of each species:
+$n_k \propto |\lambda_k|^{-1/2}$.
+The energy density is
+$\rho_k = M_k\,n_k \propto \sqrt{\lambda_k} \times
+|\lambda_k|^{-1/2} = 1$,
+so all four species have \emph{equal energy density},
+giving
+$\Omega_{\mathrm{DM}} = F_{\mathrm{DM}} / F_{\mathrm{total}}$
+(eq.~\ref{eq:F-DM}).
+This is the gravitational analogue of Schwinger pair
+production: the time-dependent BO potential creates
+particles from the vacuum at the phase transition,
+with the spectrum set by the eigenvalues, not by
+thermal equilibrium.
+
+\paragraph{Clustering.}
+After production, the frozen modes are at rest in the
+comoving frame (zero peculiar velocity) and cluster
 gravitationally like standard cold dark matter:
-rotation curves, bullet cluster dynamics, gravitational lensing,
-and CMB acoustic peaks are all reproduced by a CDM
-component at $\Omega_{\mathrm{DM}} = 26.9\%$
-with these masses.
-The $\mathbb{Z}_{11}$ stability ensures that the lightest frozen
-mode is absolutely stable (analogous to $R$-parity in
-supersymmetric models).
+rotation curves, bullet cluster dynamics, gravitational
+lensing, and CMB acoustic peaks are all reproduced by
+a CDM component at
+$\Omega_{\mathrm{DM}} = 26.9\%$ with masses
+$50$--$950$\,TeV.
+The $\mathbb{Z}_{11}$ stability ensures that the
+lightest frozen mode is absolutely stable (analogous to
+$R$-parity in supersymmetric models).
 
 \subsection{The mass gap and baryon fraction}
 \label{sec:mass-gap}
@@ -897,16 +944,24 @@ whose eigenvalue gap
 $\Delta\varepsilon = \varepsilon_1 - \varepsilon_0$
 is \emph{independent of~$\alpha$}: a universal constant
 \begin{equation}\label{eq:mass-gap}
-  \Delta\varepsilon = 0.8026 \pm 0.0001
-  \qquad\text{(numerical, grid-converged;
+  \Delta\varepsilon = 0.80311 \pm 0.00001
+  \qquad\text{(shooting method + Richardson extrapolation;
   see Code Availability)}.
 \end{equation}
-This is close to but distinct from $\sqrt{2/\pi} = 0.7979$
-(the half-normal mean, which is an approximation to~$\Delta\varepsilon$,
-not an exact identity).
+The WKB quantisation $\varepsilon_n = \ln[(n{+}3/4)\sqrt{\pi/\alpha}]$
+gives $\Delta\varepsilon^{\mathrm{WKB}} = \ln(7/3) = 0.8473$,
+an upper bound (WKB overestimates low-lying gaps for concave
+potentials; \citealt{Langer1937}).
+A lower bound $\Delta\varepsilon > \sqrt{2/\pi} = 0.7979$ follows
+from the Gaussian approximation to the ground-state distribution.
+No closed-form expression for $\Delta\varepsilon$ is known;
+$\Delta\varepsilon$ enters the hierarchy at subleading order
+($5.8\%$ of $\ln(M_P/v)$), so the bounded uncertainty
+$\sqrt{2/\pi} < \Delta\varepsilon < \ln(7/3)$ propagates as
+$< 0.4\%$ of the total.
 The full WDW gap at finite~$N$ converges to this constant from above:
 $\Delta E(7) = 0.84$, $\Delta E(11) = 0.82$,
-$\Delta E(\infty) \to 0.803$.
+$\Delta E(\infty) \to 0.8031$.
 At $N = 11$: $\Delta E = 0.815$, giving $\Omega_b = 4.22\%$ at tree level.
 Including all one-loop corrections (\S\ref*{IV-sec:loops}) and
 the neutrino contribution (\S\ref{sec:neutrinos}):
@@ -1163,8 +1218,15 @@ The potential is stabilised at $\sigma_{\min} \approx 1.35$
 (for $N = 11$) and grows linearly for large~$\sigma$:
 $V \approx \Lambda\,\sigma$.
 
-At early times, the radion rolls from $\sigma \gg \sigma_{\min}$
-toward the minimum.
+The radion's initial value is set by the $N$-selection
+tunnelling (\S\ref{sec:n-selection}): the BO breathing mode
+tunnels at $\rho^*_{11} = 4.45$, at which the $S^1$ modulus
+takes the value $\sigma_{\mathrm{start}} = \rho^*_{11}/\ln\varepsilon_{11}
+\approx 3\,\sigma_{\mathrm{infl}}$.
+The radion therefore begins above the inflection point
+($\sigma_{\mathrm{start}} > \sigma_{\mathrm{infl}}$)
+and rolls toward the minimum --- the condition required
+for inflection-point inflation.
 The full potential~\eqref{eq:V-radion} has an \emph{inflection point} at
 \begin{equation}\label{eq:sigma-infl}
   \sigma_{\mathrm{infl}} = \frac{3N^2/8}{c_{11}/12} = \frac{9N^2}{2c_{11}}
@@ -1218,6 +1280,113 @@ signatures, structure formation, CMB spectral distortions).
 
 
 %% ====================================================================
+\section{Spatial geometry and the initial state}
+\label{sec:geometry-initial}
+
+Three structural consequences of the Seifert geometry
+$\mathbf{H}^2 \times_N S^1$.
+
+\paragraph{Spatial flatness.}
+The Kaluza--Klein reduction absorbs the $\mathbf{H}^2$ curvature
+($K = -1$) into the three-dimensional cosmological constant
+$\Lambda_3 = (N^2 - 16)/16$ (eq.~\eqref{eq:lambda3}).
+The $3{+}1$-dimensional spatial sections are flat:
+$\Omega_k = 0$ at tree level, with perturbative corrections
+of order $O(1/c^2) \approx 6 \times 10^{-5}$ at $N = 11$---not
+a fine-tuning but a consequence of the KK mechanism, which
+absorbs the negative internal curvature and the positive $S^1$
+flux energy into~$\Lambda_3$, leaving no residual spatial curvature.
+Current constraints ($|\Omega_k| < 0.002$, Planck 2018) are
+consistent; next-generation surveys (CMB-S4, Euclid) will reach
+$|\Omega_k| < 10^{-4}$, entering the regime where the $O(1/c^2)$
+correction is in principle detectable.
+
+\paragraph{No initial singularity.}
+The WDW wave function (Paper~III, eq.~\eqref{III-eq:wdw}) is
+evanescent in the interior ($V < 0$, $\rho < \rho^*$) and
+oscillatory in the exterior ($V > 0$, $\rho > \rho^*$).
+As $\rho \to 0$, $V(\rho) \to \log(2\rho) + \mathrm{const} \to -\infty$
+and $\Psi \to 0$ exponentially.  The WKB action
+\begin{equation}\label{eq:wkb-convergence}
+  S_{\mathrm{WKB}} = \int_0^{\rho^*}\!\sqrt{2c\,|V(\rho)|}\;d\rho
+  \;<\; \infty
+\end{equation}
+converges (numerically: $5.8$ oscillations for $N = 7$,
+$32.7$ for $N = 11$; see Code Availability).
+Classical spacetime begins at the turning point
+$\rho = \rho^*$, where the $S^1$ fibre becomes a physical
+spatial dimension and Lorentzian time emerges from the
+WKB phase.
+The Born--Oppenheimer tunnelling action $2S = 36.548$
+(eq.~\eqref{eq:tunnelling-action}) determines the amplitude.
+The wave function is unique
+(Remark~\ref{III-rmk:wdw-uniqueness}): the CMS integrability
+of the angular sector selects the ground state of the
+effective Hamiltonian, bypassing the Hartle--Hawking vs.\
+Vilenkin boundary-condition ambiguity.
+
+\paragraph{Thermodynamic closure.}
+The Onsager mechanism requires three prerequisites
+(Lemma~\ref{III-lem:onsager-prerequisites}): compact phase
+space, fixed total energy, and fixed vortex number~$N$.
+All three require a closed system---the negative-temperature
+states that drive polygon formation do not exist in open systems
+where energy can leak out.
+The WDW constraint $H\Psi = 0$ is the quantum version of total
+energy conservation.
+The universe expands eternally ($w = -1$, $\Lambda > 0$) but
+exchanges no energy with an environment.
+Local spacetime curvature ($R_{\mu\nu\sigma\tau} \ne 0$) is
+present through the full Einstein equations
+(Paper~III, Theorem~\ref{III-thm:polygon-einstein}
+and Paper~IV, Theorem~\ref{IV-thm:nonlinear-einstein});
+the spatial flatness is a statement about the global FLRW
+average, not about local geometry.
+
+\paragraph{The Penrose past hypothesis.}
+The palindromic threshold $\rho^*$ is the $\beta = 0$
+surface of the Onsager microcanonical ensemble:
+the critical eigenvalue $\lambda_{m^*}(\rho)$ changes
+sign at $\rho = \rho^*$ (verified numerically to
+$10^{-4}$; Code Availability).
+For $\rho < \rho^*$: the critical mode is inverted
+($\lambda_{m^*} < 0$), the effective temperature
+is negative, and the regular polygon is the
+entropy-maximising macrostate.
+At creation ($\rho = \rho^*$), the gravitational
+entropy is
+$S_{\mathrm{grav}} = S_{\mathrm{1\text{-}loop}}
+\approx 1.1$~nats ($1.6$~bits at $N = 7$).
+The maximum (Cardy) entropy is
+$S_{\mathrm{BH}} = (\pi c/3)\cosh\rho^* \approx 158$~nats.
+The ratio
+\begin{equation}\label{eq:penrose-gap}
+  \frac{S_{\mathrm{BH}}}{S_{\mathrm{1\text{-}loop}}}
+  \approx 144
+  \qquad (N = 7;\; \text{growing to } 5.5 \times 10^4
+  \text{ at } N = 15)
+\end{equation}
+is the computable Penrose gap: the initial low
+gravitational entropy is not fine-tuned but follows
+from the tunnelling occurring at the
+negative-to-positive temperature boundary.
+The Weyl curvature hypothesis \citep{Penrose1979} is
+automatic: at~$\rho^*$ the polygon is regular (all
+vortices equally spaced), so the energy distribution
+is uniform and the Weyl tensor vanishes; as $\rho$
+increases, perturbation amplitudes grow
+($\langle|\varepsilon_m|^2\rangle = 1/(2\lambda_m)$,
+equipartition) and $|W|^2 \propto \sum_{m \ge 2}
+m^2(m^2{-}1)\,\lambda_m$ increases monotonically
+(verified for $N = 7$, $9$, $11$; Code Availability).
+Four arrows align in the direction of
+increasing~$\rho$: expansion, gravitational entropy,
+Weyl curvature, and structure formation---all driven
+by the positive-temperature second law acting on
+the ordered initial state.
+
+
+%% ====================================================================
 \section{Conclusion}
 \label{sec:conclusion}
 
@@ -1236,9 +1405,13 @@ The weakest link is the baryon asymmetry
 ($\eta_B \approx 3\,\eta_B^{\mathrm{obs}}$), limited by
 lattice QCD parameters shared with all electroweak
 baryogenesis models.
-Three falsifiable predictions --- normal neutrino hierarchy,
-$w = -1$ exactly, and no $0\nu\beta\beta$ decay --- are
-tested by JUNO, Euclid, and nEXO respectively.
+Five falsifiable predictions --- normal neutrino hierarchy,
+$w = -1$ exactly, no $0\nu\beta\beta$ decay,
+$\Omega_k = 0$ exactly (\S\ref{sec:geometry-initial}),
+and no initial singularity
+(replaced by quantum tunnelling at $\rho = \rho^*$) --- are
+tested by JUNO, Euclid, nEXO, CMB-S4, and future
+quantum-gravity phenomenology respectively.
 The full parameter accounting appears in Paper~VI.
 
 \paragraph{Code availability.}

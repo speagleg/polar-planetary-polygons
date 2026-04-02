@@ -703,6 +703,10 @@ Substituting into~\eqref{eq:trace-formula}:
 using $\sum_{p=1}^{N-1}\cos(2\pi pm/N) = -1$ for $m \ge 1$.
 The trace $\delta$ is independent of~$m$: it enters $C_1$ as an
 additive shift but leaves $f(m,N) = m(N{-}m)/2$ unchanged.
+(The $\csc^2$ kernel factor $1/(4\sin^2)$ in the tangential
+eigenvalue is \emph{derived} in Step~3 below---it is the angular
+Hessian of the logarithmic chord distance, not a heat-kernel
+coefficient.)
 
 On the plane: $c = 0$, $\delta = 0$ (exact tracelessness).
 On $\mathbf{S}^2$ of radius $a$:
@@ -856,6 +860,50 @@ $d$-dependence of the chord geometry, making each pair's contribution
 independent of the separation.  This cancellation characterizes the
 logarithm uniquely (Remark~\ref{rem:rg-fixed-point}).
 
+\begin{remark}[Polynomial eigenvalues are unique to $d = 2$]
+\label{rmk:polynomial-uniqueness}
+The Havelock identity (Lemma~\ref{lem:havelock}) states
+$T_m = m(N{-}m)/2$, a polynomial of degree~$2$ in~$m$.
+Define $S_\alpha(m,N) = \sum_{p=1}^{N-1}[1{-}\cos(2\pi pm/N)]
+/|\!\sin(\pi p/N)|^\alpha$.
+Then $S_\alpha$ is polynomial in~$m$ if and only if $\alpha = 2$.
+
+\emph{Proof.}
+The second finite difference
+$\Delta^2 S_\alpha(m) = S_\alpha(m{+}1) - 2S_\alpha(m) + S_\alpha(m{-}1)$
+equals $4\!\sum_p\cos(2\pi pm/N)\,|\!\sin(\pi p/N)|^{2-\alpha}$.
+For $\alpha = 2$: the $\sin$ factor is $\sin^0 = 1$, so the sum
+is $4\!\sum_p\cos(2\pi pm/N) = -4$ (constant in~$m$), confirming
+degree~$2$.
+For $\alpha \ne 2$: the factor $|\!\sin|^{2-\alpha}$ is
+non-constant in~$p$, so $\Delta^2$ is a non-trivial Fourier
+coefficient of $|\!\sin|^{2-\alpha}$---a function with no
+finite Fourier support unless $2{-}\alpha = 0$.
+Numerically: $\Delta^2 S_2 = -4.0$ to~$10^{-14}$ for all~$m$
+and~$N$; for $\alpha = 3$, $\Delta^2$ varies by a factor
+of~$3$ across~$m$ (see Code Availability).
+
+The polynomial structure for $\alpha = 2$ follows from
+the holomorphic factorisation
+\begin{equation}\label{eq:holomorphic-factorisation}
+  \frac{1 - \cos(2\pi pm/N)}{\sin^2(\pi p/N)}
+  = 2\,\Bigl|\sum_{k=0}^{m-1}\omega^{pk}\Bigr|^2,
+  \qquad \omega = e^{2\pi i/N},
+\end{equation}
+using $1 - \cos\theta = 2\sin^2(\theta/2)$ and the
+geometric sum $\sum\omega^{pk} = (1{-}\omega^{pm})/(1{-}\omega^p)$.
+This factorisation uses the holomorphic function
+$z \mapsto z^k$ (a polynomial in $z = \omega^p$),
+which exists only on two-dimensional (complex) domains.
+In $d \ge 3$ dimensions, the angular Hessian kernel is
+$K_d(x) \propto \sin^{-d}(x)$ (from $G_d \propto r^{2-d}$),
+and $\alpha = d \ne 2$: the factorisation fails and
+the eigenvalue structure is non-polynomial.
+The polynomial eigenvalue structure---and with it CMS
+integrability, exact Born--Oppenheimer separation, and
+palindromic thresholds---is unique to $d = 2$,
+i.e.\ to the logarithmic interaction.
+\end{remark}
 
 %% ====================================================================
 \section{Stability thresholds on constant-curvature surfaces}

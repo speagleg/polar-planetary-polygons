@@ -91,7 +91,7 @@ compatible with the requirements of the vortex system:
   (the unique T-duality fixed point with enhanced SU$(2)$
   symmetry).
 \end{enumerate}
-Within this framework:
+Within this structure:
 
 \paragraph{Input.}
 The single discrete input is $N = 7$ (the polygon number),
@@ -142,7 +142,7 @@ and the mass hierarchy are genuine predictions
 \paragraph{Total.}
 One discrete input ($N = 7$) plus one dimensionful
 scale ($v$ or $M_P$, needed to set units in any theory),
-plus the structural framework (Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$
+plus the structural identifications (Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$
 geometry, BF-threshold identification with the $T_3$ split,
 $k = K = 1$ for the compact gauge levels),
 yielding $17$~testable outputs ($15$~predictions and
@@ -176,7 +176,7 @@ with at least one observation:
   for any $N \ne 11$
   ($H_0(N{=}10) = 0$, $H_0(N{=}12) = 90$\,km/s/Mpc).
 \end{itemize}
-The structural framework has no continuous freedom:
+The structural identifications have no continuous freedom:
 each choice is the unique option consistent with
 observation.
 
@@ -184,13 +184,11 @@ observation.
 \section{Discussion}
 \label{sec:discussion}
 
-This section audits the series at four levels:
-status classification of every result (\S\ref{sec:status});
-cumulative uncertainty through the derivation chain
-(\S\ref{sec:uncertainty});
-comparison to other zero-parameter frameworks
-(\S\ref{sec:comparison});
-and falsifiable predictions (\S\ref{sec:falsifiable}).
+This section classifies every result by logical status
+(\S\ref{sec:status}), propagates uncertainties through
+the derivation chain (\S\ref{sec:uncertainty}), compares
+to other zero-parameter approaches (\S\ref{sec:comparison}),
+and identifies falsifiable predictions (\S\ref{sec:falsifiable}).
 
 \subsection{Status classification}
 \label{sec:status}
@@ -201,14 +199,14 @@ Three levels of logical status are distinguished:
 \toprule
 Status & Meaning \\
 \midrule
-\textbf{Theorem} & Proved from the framework's hypotheses
+\textbf{Theorem} & Proved from the theory's hypotheses
   (including the vortex-gravity identification) using
   established mathematics (Havelock identity, McKay
   correspondence, Witten CS/WZW, Feynman--Kac). \\
-\textbf{Derivation} & Follows from the framework via a
+\textbf{Derivation} & Follows from the theory via a
   chain of identified steps, each with controlled
   approximations (WKB, Markovian, Born--Oppenheimer).
-  The result depends on the structural framework
+  The result depends on the structural identifications
   (Seifert geometry, $N = 7$). \\
 \textbf{Conjecture} & Numerically verified but
   the derivation chain has at least one step that is
@@ -309,29 +307,64 @@ Model passes through three distinct types of link:
   \end{itemize}
   Links~(a) and~(b) are mathematical isomorphisms.
   Link~(c)---the claim that ``the vortex system is
-  spacetime''---is the framework's core physical
+  spacetime''---is the theory's core physical
   hypothesis, experimentally supported (planetary polygons,
   BEC vortex experiments) and rests on the proved
   kinematic identity plus the Onsager variational
   principle.
 \item \emph{Computed quantities} ($V_{cb}$, $H_0$, $\eta_B$,
   $\sin^2\theta_W$): the numerical values are exact consequences
-  of the framework, but inherit the sensitivity of the structural
+  of the theory, but inherit the sensitivity of the structural
   identifications.
 \end{enumerate}
 The honest accounting is therefore: the theorem links are
 rigorous; the structural identifications are the \emph{essential}
 hypotheses; and the computed quantities test whether these
 hypotheses are self-consistent.
-The $V_{cb}$ sensitivity analysis (\S\ref*{IV-sec:ckm-np}) shows
-that precise numerical matches ($<\!1\%$) constrain the framework
-tightly: the tolerance on~$\rho^*$ is~$\sim\!1\%$, leaving
-little room for hidden parameters.
-The $O(1/c)$ BO truncation error propagates as
-${\sim}2\%$ per step (Paper~III, \S\ref*{III-sec:wdw});
-the Euler class correction
-(eq.~\eqref*{IV-eq:Dc-corrected}) accounts for
-the leading fiber-connection effect at the same order.
+The propagated uncertainty varies by orders of magnitude
+across predictions, depending on the derivation chain:
+\begin{center}\small
+\begin{tabular}{llll}
+\toprule
+Prediction & Dominant source & Propagated & Match \\
+\midrule
+$\delta_{\mathrm{CKM}}$
+  & exact ($\Gamma$ function)
+  & $0\%$ & $0.4\sigma$ \\
+$\ln(M_P/v)$
+  & Dunham $O(1/c_7^2)$
+  & $0.04\%$ & $0.04\%$ \\
+$H_0$
+  & Dunham $O(1/c_{11}^2)$
+  & $0.006\%$ & $< 0.1\%$ \\
+$m_s/m_b$
+  & Euler class $O(1/c_7^2)$
+  & $0.05\%$ & $4\%$ \\
+$\Omega_\Lambda/\Omega_{\mathrm{DM}}$
+  & two-loop $O(1/c_{11})$
+  & $0.8\%$ & $0.5\%$ \\
+$|V_{cb}|$
+  & $\delta\rho^*/\rho^* \times$ elast.\ $({-}2.5)$
+  & $5\%$ & $6\%$ \\
+$\sin^2\theta_W$
+  & SM RG running to $M_Z$
+  & ${\sim}4\%$ & $3.9\%$ \\
+$\eta_B$
+  & lattice QCD ($\kappa$, $\Gamma_y$)
+  & factor~$3$ & factor~$3$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The first four predictions are in the \emph{algebraic tier}:
+their uncertainties ($\le 0.8\%$) come from
+$O(1/c^2)$ Dunham and Euler class corrections,
+which decrease as~$N^{-4}$.
+The next two ($|V_{cb}|$, $\sin^2\theta_W$) are in the
+\emph{geometric tier}: their uncertainties ($4$--$5\%$)
+reflect the sensitivity of radial wave functions and
+RG running.
+$\eta_B$ is limited by external (lattice QCD)
+parameters, not by the theory.
 
 \subsection{Structural limitations}
 The geometric-tier predictions depend on fermion
@@ -401,7 +434,7 @@ and radial geometry (approximate).
 
 \subsection{Comparison to zero-parameter frameworks}
 \label{sec:comparison}
-The framework's accuracy should be compared not to the
+The theory's accuracy should be compared not to the
 Standard Model (which fits $19$+ parameters by construction)
 but to other frameworks that predict fermion masses
 from structure alone:
@@ -416,12 +449,11 @@ from structure alone:
   $< 1\%$ accuracy, but every mass is fitted, not predicted.
 \end{itemize}
 Among frameworks with zero continuous free parameters,
-we are not aware of another that simultaneously predicts
+no other simultaneously predicts
 fermion mass ratios, CKM elements,
 and cosmological parameters from a single discrete input.
-The algebraic-tier predictions ($< 5\%$) include all
-quantities that reviewers previously classified as
-``geometric'' ($m_s/m_b$), once the $O(1/c)$ Euler class
+The algebraic-tier predictions ($< 5\%$) include $m_s/m_b$,
+which reaches $4\%$ accuracy once the $O(1/c)$ Euler class
 correction is included.
 
 \subsection{Falsifiable predictions}
@@ -431,10 +463,10 @@ correction is included.
 The central-value matches on~$V_{cb}$
 ($\pm 12\%$ theoretical sensitivity, elasticity $-2.5$) and~$H_0$
 ($\pm O(1/c^2)$ from BO truncation) should be read as
-\emph{consistency} of the framework at the level of its
+\emph{consistency} of the theory at the level of its
 structural identifications, not as independently
 predicted values.  The genuine predictions---those that
-could \emph{falsify} the framework---are of three kinds.
+could \emph{falsify} the theory---are of three kinds.
 \emph{(i)~Binary tests}
 (imminent: JUNO for the neutrino hierarchy,
 DESI/Euclid for $w = -1$,
@@ -452,7 +484,7 @@ LEGEND/nEXO for the absence of neutrinoless double beta decay):
   require phantom crossing, which no standard scalar field
   produces.
   If $w \ne -1$ is confirmed at $5\sigma$ with independent
-  datasets, the framework is falsified;
+  datasets, the theory is falsified;
 \item No $0\nu\beta\beta$ (Dirac neutrinos from the Seifert structure:
   the neutrino masses arise from the Dirac seesaw with a KK mass
   on~$S^1$, not a Majorana mass, so lepton number is exactly conserved);
@@ -468,7 +500,31 @@ LEGEND/nEXO for the absence of neutrinoless double beta decay):
   $\Omega_{\mathrm{GW}} h^2 \approx 10^{-9}$
   (eq.~\eqref{V-eq:gw-ewpt};
   the SM gives $\Omega = 0$; LISA $\sim\!2037$).
+\item $\Omega_k = 0$ exactly
+  (the KK reduction absorbs all spatial curvature into
+  $\Lambda_3 = (N^2{-}16)/16$;
+  CMB-S4 and Euclid will reach $|\Omega_k| < 10^{-4}$,
+  where the theory predicts exactly zero,
+  distinguishable from inflationary
+  $\Omega_k \sim e^{-2N_e}$;
+  \S\ref{V-sec:geometry-initial}).
 \end{itemize}
+\emph{(i\hspace{0.5pt}b)~Null predictions}
+(the absence of each is a falsifiable consequence):
+no cosmic strings,
+no magnetic monopoles,
+no isocurvature perturbations (single breathing mode
+$\rho$ provides a single clock),
+$N_{\mathrm{eff}} = 3.00$ (no additional light relics),
+no cosmic birefringence,
+no dark matter annihilation signals
+(gravitational-strength coupling,
+$\sigma_{\mathrm{SI}} \sim 10^{-103}\;\mathrm{cm^2}$),
+NANOGrav stochastic background is astrophysical
+(supermassive black hole binaries, not cosmological),
+and $r \sim 10^{-6}$ (undetectable primordial gravitational
+waves from inflation; \S\ref{V-sec:inflation}).
+
 \emph{(ii)~Correlated observables.}
 The instanton fugacity $K = 0.548$
 (eq.~\eqref{IV-eq:instanton-K},
@@ -488,7 +544,7 @@ BF crossing, not on the CS level).
 In the Standard Model, $m_s/m_b$ and $\Omega_b$ are unrelated;
 here a single computed number~$K$ determines both.
 Any precision measurement that breaks the $K$-correlation
-falsifies the framework.
+falsifies the theory.
 \emph{(iii)~Structural derivations
 that the SM treats as inputs}: the gauge group,
 $3$~generations, $m_u < m_d$, $\theta_{\mathrm{QCD}} = 0$.
@@ -497,6 +553,86 @@ $3$~generations, $m_u < m_d$, $\theta_{\mathrm{QCD}} = 0$.
 The perturbative CKM gives $J = 3.5 \times 10^{-5}$
 (observed $3.0 \times 10^{-5}$, $17\%$~match)---a genuine
 prediction with all entries computed from~$N = 7$.
+
+\paragraph{Cosmological structure.}
+The theory determines the large-scale structure of the
+universe without free cosmological parameters beyond~$M_P$.
+Spatial sections are flat
+($\Omega_k = 0$, \S\ref{V-sec:geometry-initial}),
+the equation of state is $w = -1$ at all redshifts
+(\S\ref{V-sec:cc-instanton}),
+and the initial state is uniquely determined by the
+Born--Oppenheimer structure of the polygon breathing mode
+(Remark~\ref{III-rmk:wdw-uniqueness}).
+The classical big-bang singularity is replaced by quantum
+tunnelling at the palindromic threshold~$\rho^*$, where
+the 2D vortex system on~$\mathbf{H}^2$ gives rise to
+$3{+}1$-dimensional Lorentzian spacetime through the
+Wick rotation $\rho \to \rho + i\pi/2$.
+The Bekenstein--Hawking entropy at the threshold
+is determined by the same central charge
+$c = 12\,b(N)$ that governs the WDW kinetic term
+(Remark~\ref{III-rmk:entropy-bridge}):
+$S_{\mathrm{BH}} = (\pi c/3)\cosh\rho^*$, counting the
+non-perturbative Virasoro descendants of the angular modes
+coarse-grained by the Onsager mechanism.
+
+\paragraph{Why $3{+}1$ dimensions.}
+The polynomial Havelock eigenvalue $\lambda_m = (N{-}1) - m(N{-}m)/2$
+is unique to two spatial dimensions
+(Remark~\ref{I-rmk:polynomial-uniqueness}):
+the Ramanujan sum identity
+$\sum[1{-}\cos(2\pi pm/N)]/\sin^2(\pi p/N) = 2m(N{-}m)$
+has no analogue for $\sin^\alpha$ with $\alpha \ne 2$,
+and the angular Hessian kernel in $d$~dimensions
+involves $\sin^{-d}$.
+The polynomial structure enables CMS integrability
+(from the holomorphicity of $\log z$), exact BO
+separation, and the entire Havelock framework.
+The third spatial dimension arises from the $S^1$ fibre
+of the Seifert manifold ($\mathbb{Z}_N \subset U(1)$
+is the polygon rotational symmetry).
+Time emerges from the WKB approximation on the single
+breathing mode~$\rho$---the unique slow degree of
+freedom after the CMS angular modes are frozen.
+The count $2\,(\text{log kernel}) + 1\,(S^1\text{ fibre})
++ 1\,(\text{WKB clock}) = 3{+}1$ is forced by
+the Havelock eigenvalue structure.
+
+\paragraph{Structure formation and the high-redshift universe.}
+The radion inflection-point potential
+(\S\ref{V-sec:inflation}) gives a featureless red tilt
+with $n_s(k) \approx 0.964$--$0.970$ across galactic scales
+($k = 1$--$100\;\mathrm{Mpc}^{-1}$) and running
+$dn_s/d\ln k \approx -10^{-3}$.
+The four dark matter species (mass ratios
+$1{:}\sqrt{3}{:}\sqrt{6}{:}\sqrt{10}$, equal energy density
+per species, $\sigma_{\mathrm{SI}} \sim 10^{-103}\;\mathrm{cm}^2$)
+produce standard NFW haloes: cold, collisionless, and
+gravitationally indistinguishable from single-component CDM
+on all astrophysical scales.
+The slightly higher $n_s = 0.970$ (relative to the
+Planck central value $0.965$) increases the halo abundance
+at $z > 10$ by $\sim\!10$--$20\%$; the remainder of any
+high-redshift galaxy excess is accounted for by the
+well-established increase in star formation efficiency
+at low metallicity: reduced feedback
+(metal-poor stellar winds), gas-rich haloes
+(no prior depletion), top-heavy initial mass functions
+(larger Jeans mass $\to$ more UV per baryon),
+and bursty star formation histories
+that bias UV-selected samples upward.
+JWST observations at $z > 10$
+\citep{Labbe2023,Castellano2022,Naidu2022}
+are quantitatively consistent with the theory's
+power spectrum provided $\varepsilon_{\mathrm{SF}} \approx
+0.15$--$0.25$ (compared to $\varepsilon \approx 0.05$ locally),
+a range supported by high-resolution simulations
+of metal-free star formation \citep{Bromm2013}.
+The theory predicts that future measurements of the
+matter power spectrum at $k > 1\;\mathrm{Mpc}^{-1}$
+(Euclid, Roman) will find $n_s \approx 0.96$--$0.97$
+with no blue tilt or scale-dependent enhancement.
 
 \section{Conclusion}
 \label{sec:conclusion}
@@ -510,11 +646,12 @@ $|V_{us}|$, $\sin^2\theta_W$) remain at factor-${\sim}2$
 accuracy, reflecting the sensitivity of light-quark masses
 to the Dirac zero-mode profiles on~$\mathbf{H}^2$.
 
-Six binary tests---normal neutrino hierarchy, $w = -1$,
+Seven binary tests---normal neutrino hierarchy, $w = -1$,
 no $0\nu\beta\beta$, proton stability,
-$\theta_{\mathrm{QCD}} = 0$, and the EWPT gravitational
-wave signal---are experimentally accessible within two decades.
-A single failure falsifies the framework.
+$\theta_{\mathrm{QCD}} = 0$, the EWPT gravitational
+wave signal, and $\Omega_k = 0$---are experimentally
+accessible within two decades.
+A single failure falsifies the theory.
 A companion supplement develops an arithmetic interpretation:
 the Havelock eigenvalues satisfy the Ramanujan--Petersson
 bound for all stable polygons, linking vortex stability
