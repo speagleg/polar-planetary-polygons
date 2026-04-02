@@ -848,8 +848,16 @@ with $R_0 = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon_0^2]$.
 
 \noindent
 The strict concavity $d^2S/dC_1^2 = -\tfrac{1}{2}\sum 1/\lambda_m^2 < 0$
-is exact (CMS integrability: the angle-action variables decouple,
-so the one-loop entropy equals the microcanonical entropy).
+holds on the domain $\lambda_m > 0$ for all $m \ne m^*$
+(i.e., away from the stability threshold where $\lambda_{m^*} = 0$).
+The Onsager contraction (Corollary~\ref{cor:contraction} below)
+keeps the metric within this domain: $R = \mathrm{const}$ implies
+$\lambda_m = C_1 - f(m) > 0$ for all $m \ne m^*$,
+so the Jensen argument operates entirely within the concavity domain.
+The CMS integrability makes the entropy exact (the angle-action
+variables decouple, so the one-loop entropy equals the
+microcanonical entropy; this uses Lemma~\ref{V-lem:non-adiabatic}
+from Paper~V).
 The energy constraint is compatible: $V$ is monotone in~$C_1$,
 so fixing $\bar{V}$ fixes $\bar{C}_1$ and the Lagrange
 multiplier is~$\Lambda$.

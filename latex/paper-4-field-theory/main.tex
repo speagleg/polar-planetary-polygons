@@ -478,17 +478,24 @@ The ratio~\eqref{eq:coupling-lock}: $\alpha/(8\pi G)
 = [6/(\pi c)] / [8\pi \cdot 3/(2c)] = 6/(12\pi^2) = 1/(2\pi^2)$.
 The $N$-dependence cancels algebraically.
 
-The strong coupling: the non-abelian gauge field on the
-Seifert manifold couples to the Bolza surface area
-$A = 4\pi(g{-}1)$ ($g = 2$, $K = -1$, Gauss--Bonnet)
-and the CS partition function
-$Z(S^3, \mathrm{SU}(3)_1) = \sqrt{2}$
-(\citealt{Witten1989}).
-The effective area seen by the gauge field is
-$A_{\mathrm{eff}} = k \times A \times Z$: the CS
-non-perturbative structure distributes the flux over
-$Z = \sqrt{2}$ copies of the base area.
-Therefore:
+The strong coupling: the $3$D CS coupling for $\mathrm{SU}(3)$
+at level~$k = 1$ is $\alpha_s^{3\mathrm{D}} = 1/(k + h^\vee)
+= 1/4$ (\citealt{Witten1989}), where $h^\vee = 3$
+is the dual Coxeter number (the standard one-loop level shift).
+The KK reduction on $\Sigma_g \times S^1$ promotes the
+$3$D coupling to a $4$D coupling by dividing by the
+effective volume $V_{\mathrm{eff}}$ of the internal space:
+$\alpha_s^{4\mathrm{D}}
+= \alpha_s^{3\mathrm{D}} \times (k{+}h^\vee) / V_{\mathrm{eff}}$.
+The effective volume uses the \emph{bare} CS level~$k$
+(the topological charge, not the renormalized coupling)
+times the Bolza surface area
+$4\pi(g{-}1) = 4\pi$ ($g = 2$, $K = -1$)
+times the CS partition function $Z(S^3) = \sqrt{2}$
+(from the non-perturbative measure normalisation of
+\citealt{Witten1989}).
+The $(k{+}h^\vee)$ from the $3$D coupling and the
+$(k{+}h^\vee)^{-1}$ cancel:
 \begin{equation}\label{eq:alpha-s}
   \alpha_s(M_{\mathrm{poly}})
   = \frac{1}{k \times 4\pi(g{-}1) \times Z(S^3)}
@@ -812,8 +819,9 @@ different bundles over the moduli space of~$T^2$.
 
 \begin{proposition}[Confinement from center symmetry]
 \label{prop:confinement}
-In the polygon phase ($T < T_{\mathrm{HP}}$), the $\mathrm{SU}(3)$
-gauge theory is confining: the Polyakov loop $\langle P\rangle = 0$.
+In the polygon phase ($T < T_{\mathrm{HP}}$, selected by the
+Onsager principle~(H2b)), the $\mathrm{SU}(3)$ gauge theory
+is confining: the Polyakov loop $\langle P\rangle = 0$.
 \end{proposition}
 
 \begin{proof}
@@ -831,6 +839,11 @@ breaks all discrete spatial symmetries, and
 $\langle P\rangle \ne 0$ (deconfined).
 The deconfinement transition is the polygon--BTZ
 Hawking--Page transition (\S\ref{sec:btz-transition}).
+The proof is conditional on~(H2b): the Onsager principle
+selects the polygon saddle, which has $\mathbb{Z}_7$ symmetry;
+the center-symmetry argument then follows from group theory.
+This is the same conditionality as the Einstein equation
+derivation (Theorem~\ref{III-thm:polygon-einstein}).
 \end{proof}
 
 \begin{derivation}[QCD string tension]
