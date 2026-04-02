@@ -829,11 +829,31 @@ $\int_M S(C_1(x))\,dA \le A\cdot S(\bar C_1)$
 with equality if and only if $C_1(x) = \mathrm{const}$.
 The Jensen step requires no $\varepsilon$-expansion.
 The translation from $C_1 = \mathrm{const}$ to
-$R = \mathrm{const}$ uses the Hadamard expansion
-$C_1 = (N{-}1)(1 - R\varepsilon^2/4 + O(\varepsilon^4))$
-(Lemma~\ref{lem:log-interaction}): if $C_1$ is spatially
-uniform then $R$ is spatially uniform at each order
-in~$\varepsilon$.
+$R = \mathrm{const}$ is exact.
+By the Riemannian Havelock identity
+(Paper~I, Theorem~\ref*{I-thm:riemannian-havelock}),
+$C_1(x) = \gamma_\varepsilon(x) + b(N)$
+where $\gamma_\varepsilon$ is the regularised Robin
+function of the Laplacian at scale~$\varepsilon$.
+The Robin function satisfies the identity
+$\Delta\gamma = K - \bar{K}$
+(\citealt{Aubin1998}, Theorem~4.13),
+where $K$ is the Gaussian curvature and
+$\bar{K} = 2\pi\chi/A$.
+If $C_1 = \mathrm{const}$ then
+$\gamma_\varepsilon = \mathrm{const}$, so
+$\Delta\gamma_\varepsilon = 0$, giving
+$K(x) = \bar{K}$ everywhere,
+hence $R = \mathrm{const}$.
+For the regularised Robin function
+($\gamma_\varepsilon = \int_{\varepsilon^2}^\infty
+[K(x,x;t) - 1/A]\,dt$),
+the identity acquires an $O(\varepsilon^2\,\Delta K)$
+correction; elliptic bootstrapping
+($K = \bar{K} + O(\varepsilon^2) \Rightarrow
+\Delta K = O(\varepsilon^2) \Rightarrow
+K = \bar{K} + O(\varepsilon^4) \Rightarrow \cdots$)
+closes the iteration at $K = \bar{K}$ exactly.
 As a quantitative check on the second variation,
 the ratio
 \begin{equation}\label{eq:concavity-ratio}
