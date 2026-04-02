@@ -1,0 +1,321 @@
+\input{../shared/preamble}
+
+\title{Why Rotating Fluids Make Polygons:\\[6pt]
+\large A Companion for the Curious Reader}
+\author{Gordon Speagle}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Prologue: The Polygon Number}
+
+\subsection*{The hexagon that started this}
+
+Saturn has a hexagon at its north pole. Not a rough hexagonal shape, not
+a six-sided approximation---a persistent, symmetric, six-sided polygon
+of clouds, each side longer than the diameter of Earth. The Voyager
+spacecraft photographed it in 1981. The Cassini orbiter confirmed it
+was still there thirty years later, rotating in lockstep with the
+planet's interior. Jupiter has an octagon at its south pole: eight
+cyclones arranged in a regular ring, each the size of the continental
+United States, mapped by the Juno mission starting in 2017.
+
+These are not weather in the way we think of weather. A hurricane on
+Earth forms, wanders, and dies. These polygons persist for decades,
+possibly centuries. They do not drift. They do not deform. They sit at
+the poles and spin.
+
+Why polygons? Why \emph{these} polygons---six for Saturn, eight for
+Jupiter? I first encountered the Voyager photos years ago and did what
+most people do: marveled, read a few explanations, and filed it under
+``Nature Gonna Geometry.'' Crystals, snowflakes, beehives, the
+nautilus shell---the physical world converges on geometric forms for
+all sorts of reasons. I assumed the hexagon was another entry on that
+list.
+
+Years later I was watching an astronomy video with my kids and the
+polar polygons came up again. My children were astonished. I was
+curious. I dove back into the literature, ordered a copy of
+\emph{Geophysical Fluid Dynamics} by Joseph Pedlosky, and started
+writing code.
+
+What I found was a formula---published in 1931 by a mathematician
+named T.~H.~Havelock---that counts how many spinning objects can
+sit in a stable ring. The formula is not complicated. It has two
+parts: one from geometry, one from the surface the objects sit on.
+The geometry part is universal; it does not care whether the objects
+are storms on a gas giant, quantum vortices in superfluid helium, or
+anything else that spins logarithmically. The surface part changes
+from problem to problem.
+
+On a flat surface, the formula says the largest stable ring has seven
+members. Seven. Not six, not eight---seven. Saturn's hexagon has six
+sides; Jupiter's octagon has eight. Both are one step away from seven,
+on opposite sides.
+
+I became determined to pull the connecting string until the knot
+unraveled. The string led from fluid dynamics to algebraic number
+theory to general relativity to particle physics to cosmology. I
+followed it for years. The result is a six-paper technical series.
+This companion document is my attempt to explain what that series
+says, and why, without requiring any of the mathematics that makes
+it work.
+
+
+\subsection*{The one idea}
+
+Here is the central claim, stated as plainly as I can manage.
+
+When identical spinning objects arrange themselves in a ring on a
+surface, there is a number---call it $N$---that counts how many
+objects are in the ring. The ring's stability depends on a single
+quantity that splits into two parts. The first part comes from the
+surface: flat, curved like a sphere, curved like a saddle. The
+second part comes from pure geometry: how many objects there are and
+how they interact pairwise.
+
+On a flat surface, the two parts balance exactly at $N = 7$. A ring
+of seven is marginally stable---it neither grows nor shrinks when
+disturbed. Below seven, the ring snaps back. Above seven, the ring
+flies apart.
+
+This number seven is not adjustable. It is not a parameter I chose or
+a threshold I fit to data. It falls out of the formula the way four
+falls out of the corners of a square. It is a property of the
+two-dimensional logarithmic interaction---the mathematical law that
+governs how point-like spinning objects push each other around on a
+surface.
+
+The technical papers argue that this same threshold determines far
+more than atmospheric polygons. The number seven, and the algebraic
+structure surrounding it, fixes the spin of the graviton (the
+hypothetical particle that carries gravity); forces the gauge group
+of particle physics to be $\mathrm{SU}(3) \times \mathrm{SU}(2)
+\times \mathrm{U}(1)$ (the symmetry behind the strong, weak, and
+electromagnetic forces); and constrains the cosmological constant
+(the energy density of empty space). These are not separate
+coincidences bolted together. They are consequences of one formula
+applied to one threshold.
+
+Whether the argument is correct is for the scientific community to
+assess. My goal here is to make it accessible enough that you can
+follow the logic, identify where the assumptions are, and form your
+own judgment.
+
+
+\subsection*{The scorecard}
+
+The theory takes in one integer ($N = 7$), one scale (the Planck
+mass, which sets the units of gravity), and three identifications
+that connect the mathematical formalism to physics. From these
+inputs it produces numerical predictions. The table below summarizes
+the main ones.
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{p{5.2cm} p{3.5cm} p{2cm} l}
+\toprule
+\textbf{What the theory predicts} & \textbf{What we measure} & \textbf{How close} & \textbf{Status} \\
+\midrule
+The gauge group of particle physics is $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
+  & Confirmed experimentally & Exact match & Theorem \\[4pt]
+Three generations of matter particles
+  & Three observed & Exact match & Derived \\[4pt]
+The CKM phase (a parameter governing matter--antimatter asymmetry) is $70.2^\circ$
+  & $73.5^\circ \pm 5.1^\circ$ & $0.4$ standard deviations & Derived \\[4pt]
+The Weinberg angle (which sets the ratio of electromagnetic to weak force strength) gives $\sin^2\theta_W = 3/11$
+  & Measured value differs by $3.9\%$ after quantum corrections & $3.9\%$ & Derived \\[4pt]
+A quark mixing parameter $|V_{cb}| = 0.044$
+  & Measured $\approx 0.042$ & $6\%$ & Derived \\[4pt]
+The strange-to-bottom quark mass ratio is $0.023$
+  & Measured $\approx 0.024$ & $4\%$ & Derived \\[4pt]
+The Hubble constant (expansion rate of the universe) is $67.4$ km/s/Mpc
+  & $67.4 \pm 0.5$ km/s/Mpc & $0.002\%$ & Derived \\[4pt]
+Dark matter makes up $26.9\%$ of the cosmic energy budget
+  & $26.8\% \pm 0.5\%$ & $0.4$ standard deviations & Conjectured \\[4pt]
+Ordinary matter makes up $5.0\%$
+  & $4.9\% \pm 0.1\%$ & $0.6$ standard deviations & Derived \\[4pt]
+The Higgs boson mass is $125 \pm 3$ GeV
+  & $125.25 \pm 0.17$ GeV & $2\%$ & Derived \\[4pt]
+The strong coupling constant $\alpha_s = 0.115$--$0.122$
+  & $0.1180 \pm 0.0009$ & Within range & Derived \\[4pt]
+The string tension ratio $\sigma/\Lambda^2 = 5.97$
+  & Lattice QCD: $6.25 \pm 0.5$ & $5\%$ & Derived \\[4pt]
+The proton is exactly stable (never decays)
+  & No decay observed & Consistent & Derived \\[4pt]
+The QCD vacuum angle $\theta_{\mathrm{QCD}} = 0$
+  & $< 10^{-10}$ & Consistent & Derived \\[4pt]
+Neutrinos follow the normal mass hierarchy
+  & Pending (JUNO experiment) & Future test & Derived \\[4pt]
+Dark energy equation of state $w = -1$
+  & $-1.0 \pm 0.1$ (DESI) & Consistent & Derived \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+A few things to notice. First, the ``How close'' column. Most
+predictions match observations within a few percent or better. Second,
+the ``Status'' column distinguishes between results that are
+mathematically proved, results that are derived through a chain of
+identifications, and results that remain conjectured. Third, several
+predictions are not yet testable---they await experiments currently
+under construction. Those are genuine predictions in the scientific
+sense: stated before the measurement, falsifiable by the outcome.
+
+
+\subsection*{The honest disclaimer}
+
+I am not a physicist by training. My background is philosophy with a
+mathematical bent; professionally, I am a software developer working
+in healthcare. A hobbyist's obsession with number theory is an apt
+description of my post-educational years. I am unaffiliated with any
+university or research institution.
+
+This matters because the claims in the technical series are
+extraordinary, and extraordinary claims face a higher bar. I want to
+be transparent about both the strengths and the limitations.
+
+The results fall into three tiers of confidence:
+
+\textbf{Proved.} A small number of results are mathematical theorems.
+If you accept the starting identification---that a point vortex on a
+two-dimensional surface and a gravitational source share the same
+Green's function---then these results follow by logical necessity. The
+gauge group of particle physics being
+$\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$ is in
+this category. The proof uses finite group theory (specifically, the
+symmetry group PSL(2,7) acting on the Klein quartic surface), and the
+steps are checkable by anyone with an undergraduate algebra textbook.
+
+\textbf{Derived.} Most results are in this tier. They follow from a
+chain of identifications---each step uses standard physics or
+standard mathematics---with controlled approximations whose errors
+are estimated. The Weinberg angle, the Hubble constant, the quark
+mixing parameters, and the Higgs mass are all derived. These results
+could be wrong if one of the identifications in the chain fails, but
+the chain is explicit: every link is written down, and each can be
+tested independently.
+
+\textbf{Conjectured.} A handful of results are numerically verified
+but rely on at least one step that is physically motivated rather than
+mathematically proved. The dark matter fraction is in this category.
+The number matches, but the derivation has a gap that I have flagged
+honestly.
+
+Institutional research correctly forces disciplinary depth; the cost
+is that cross-domain connections can go unnoticed. I am unaffiliated,
+which meant I could follow the mathematics wherever it led, without
+the professional incentive to stay within a single field. Whether that
+freedom produced something worth the lack of expert supervision is for
+the reader to assess.
+
+
+\subsection*{The map}
+
+The technical series has six papers. Here is what each one does.
+
+\textbf{Paper I: The Mathematics.} This paper establishes the
+foundation. The logarithmic interaction---the same law that governs
+how spinning fluid parcels push each other---is the unique
+two-dimensional interaction for which polygon stability is
+scale-independent. The Havelock formula (1931) gives the stability
+eigenvalues. On a flat surface the critical threshold is $N = 7$.
+On curved surfaces the threshold shifts, and the shift values live
+in algebraic number fields: the threshold for the transition from
+seven to eight stable vortices is $8 - 3\sqrt{7}$, a unit in the
+ring of integers of $\mathbb{Q}(\sqrt{7})$. This is where the
+algebraic number theory enters, and it is not decoration---these
+algebraic structures determine the physical predictions downstream.
+
+\textbf{Paper II: The Physics.} This paper connects the mathematics
+to actual fluid dynamics. Point vortices have no inertia; they are
+pushed sideways by their neighbors. A central vortex can stabilize
+rings that would otherwise be unstable. The paper derives the
+critical central-vortex strength for each $N$, resolves the $N = 7$
+marginal case with a quartic (fourth-order) calculation, and shows
+that the stability results survive two realistic corrections: the
+finite size of real vortices (the ``blob'' correction, which is
+independent of the vortex profile shape) and the Rossby-wave
+stationarity constraint that pins Saturn's hexagon at $N = 6$. The
+final sections identify a structural isomorphism between point
+vortices and gravitational sources: both produce conical
+singularities with the same Green's function.
+
+\textbf{Paper III: Gravity.} The marginal mode at $N = 7$ carries
+spin 2---the same spin as the graviton, the hypothetical quantum of
+gravity. This paper derives Einstein's equation (the field equation
+of general relativity) from the statistical mechanics of vortex
+configurations, using Jensen's inequality and the Onsager
+large-energy limit. It constructs the Wheeler--DeWitt equation (the
+quantum gravity wave equation) from the breathing mode of the
+polygon, with the central charge $c = 12\,b(N)$ determined by the
+Fisher--Rao metric on the space of vortex configurations. Black hole
+thermodynamics, holography, and the emergence of quantum mechanics
+from statistical mechanics are all addressed.
+
+\textbf{Paper IV: Particle Physics.} The polygon hierarchy forces
+the internal geometry to be an eleven-dimensional manifold (four
+spacetime dimensions plus a seven-dimensional compact space). The
+compact space is rigid: Thurston's geometrization theorem eliminates
+all possibilities except one. From that geometry, the Standard Model
+gauge group $\mathrm{SU}(3) \times \mathrm{SU}(2) \times
+\mathrm{U}(1)$ is derived, not assumed. The Weinberg angle comes
+out as $\sin^2\theta_W = 3/11$, a ratio of Casimir invariants. The
+CKM phase, quark mass ratios, the Higgs mass, the strong coupling
+constant, and the string tension of quark confinement are all
+computed from the same central charge.
+
+\textbf{Paper V: Cosmology.} The cosmological constant---the energy
+density of empty space---is determined by the instanton action of the
+$N = 11$ Born--Oppenheimer tunneling amplitude. The hierarchy between
+the Planck scale and the electroweak scale (a factor of $10^{16}$)
+is not put in by hand; it emerges from the tunneling exponent. The
+cosmic energy budget (dark energy, dark matter, ordinary matter)
+decomposes into tree-level, one-loop, and tunneling contributions.
+The Hubble constant, the neutrino mass hierarchy, and the initial
+conditions of inflation are derived.
+
+\textbf{Paper VI: The Scorecard.} This paper collects every
+prediction, classifies each by confidence tier, quantifies the
+cumulative uncertainty, and lists six binary pass/fail experimental
+tests---results from JUNO, LEGEND, Hyper-Kamiokande, LISA, and
+DESI---that can confirm or falsify specific claims. It also
+catalogues what remains open: the dark matter production mechanism,
+the baryon asymmetry factor, and the light quark masses.
+
+
+\newpage
+
+
+\part{The Mathematics of Polygons}
+% [Mirrors Paper I --- to be written]
+
+
+\part{The Physics of Vortex Rings}
+% [Mirrors Paper II --- to be written]
+
+
+\part{How Gravity Emerges}
+% [Mirrors Paper III --- to be written]
+
+
+\part{The Particles Inside the Polygon}
+% [Mirrors Paper IV --- to be written]
+
+
+\part{The Numbers of the Universe}
+% [Mirrors Paper V --- to be written]
+
+
+\part{The Scorecard}
+% [Mirrors Paper VI --- to be written]
+
+
+\section*{Epilogue: One Formula}
+% [To be written]
+
+
+\end{document}
