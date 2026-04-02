@@ -326,9 +326,14 @@ By the CS/WZW theorem \citep{Witten1988}, the boundary
 modes of the CS gauge field are the WZW currents---which
 are the polygon modes (Paper~IV, Theorem~\ref*{IV-thm:su3}, Step~6).
 In $2{+}1$D, the boundary theory of CS gravity and the
-Kirchhoff/Havelock vortex system are mathematically
-identical: the CMS/CS operator coincidence is a
-spectral isomorphism (eigenvalue matching on each mode).
+Kirchhoff/Havelock vortex system have the same spectrum:
+the CMS/CS operator coincidence is a spectral
+isomorphism (eigenvalue matching on each
+one-dimensional $\mathbb{Z}_N$ irreducible).
+The dynamical identification (that both systems evolve
+under the same Hamiltonian flow) is the physical
+content of the vortex-gravity hypothesis, not a
+consequence of the spectral match alone.
 \end{remark}
 
 \paragraph{The Chern--Simons lift.}
@@ -403,7 +408,11 @@ We state the theorem first, then collect the proof.
 (H2a) is a theorem (strict concavity $+$ Jensen).
 (H2b) is the Onsager variational principle
 \citep{Onsager1949,CagliotiFLMP1992,Kiessling1993}
-applied via the vortex-gravity isomorphism.
+applied via the vortex-gravity isomorphism
+($\kappa = 8\pi Gm$, valid for $Gm < 1/(2N)$ by
+Gauss--Bonnet; exact by conformal invariance of
+the flat-plane stability,
+Paper~II, Proposition~\ref*{II-prop:conformal-invariance}).
 The saddle-point approximation at finite~$N$ is
 controlled by $c = 12\,b(N)$ (Laplace method,
 $O(1/c) \approx 2\%$ at $N = 7$;
@@ -623,7 +632,9 @@ no triangulation is needed).
 The contraction operates on the density field.
 The new curvature variance is $\mathrm{Var}(R') = \delta^2\,\mathrm{Var}(\rho)$.
 Expanding $\rho = \rho_0\,e^{\beta_{\mathrm{eff}}(V_1\delta R + V_2\delta R^2/2)}$
-to second order in~$\delta R$ and using $\mathrm{Var}(e^{aX}) \le a^2e^{2a^2\mathrm{Var}(X)}\mathrm{Var}(X)$:
+to second order in~$\delta R$ and using the
+Hoeffding bound $\mathrm{Var}(e^{aX}) \le a^2 e^{2a^2 \mathrm{Var}(X)} \mathrm{Var}(X)$
+(valid for bounded~$X$ on a compact surface, $|X| \le \sqrt{2}$):
 \[
   \mathrm{Var}(R') \;\le\;
   |\beta_{\mathrm{eff}}|^2 R_0^2\,\mathrm{Var}(R)
@@ -1101,7 +1112,11 @@ A perturbation $h_{MN}$ decomposes under KK
 into $h_{ij}$ (metric), $\delta A_i$ (graviphoton),
 $\delta\sigma$ (radion).
 The Lichnerowicz operator $\Delta_L$ on the multi-cone
-geometry reduces to the Havelock Hessian as follows.
+geometry (with distributional curvature $R = R_0
++ \sum_k \delta_k\,\delta_{z_k}$ regularised by
+the Cauchy blob at scale~$\varepsilon$; Paper~II,
+Proposition~\ref*{II-prop:blob})
+reduces to the Havelock Hessian as follows.
 The $\mathbb{Z}_N$ rotation symmetry of the regular
 polygon acts as an isometry of the multi-cone metric.
 Since $\Delta_L$ is a geometric operator, it commutes
@@ -1283,8 +1298,10 @@ implies Einstein with matter.
 The identification of palindromic thresholds as Rindler
 horizons uses the modular Hamiltonian of the angular bath,
 which equals the Rindler energy by the
-Bisognano--Wichmann theorem for the boundary CFT
-(Paper~IV, Theorem~\ref*{IV-thm:nonlinear-einstein}).
+Bisognano--Wichmann theorem
+(the boundary CFT is unitary and has a
+unique vacuum---see Paper~IV,
+Theorem~\ref*{IV-thm:nonlinear-einstein}).
 
 \begin{proposition}[Partition function verification via the Gauss product]
 \label{prop:partition-verification}
