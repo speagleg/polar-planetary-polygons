@@ -17,7 +17,7 @@
 \begin{abstract}
 From a single integer $N = 7$ (selected by the Pell equation)
 and the Planck mass~$M_P$, the Havelock eigenvalue structure
-on the Seifert manifold $\mathbf{H}^2 \times_N S^1$ determines:
+on the Seifert manifold $\mathbf{H}^2 \times_N S^1$ yields:
 the Standard Model gauge group
 $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$;
 the Weinberg angle $\sin^2\theta_W = 3/11$
@@ -30,7 +30,8 @@ and the Higgs mass $m_H = 122$--$128$\,GeV
 One calibration scale ($M_{\mathrm{poly}} \approx 300$\,TeV,
 from the Weinberg angle running) pins the mass ratios;
 all other quantities follow from $N$ and $M_P$ alone.
-The proton is predicted to be exactly stable.
+Baryon number is conserved ($\mathbb{Z}_{56}$ symmetry),
+so the proton is stable within this framework.
 The cosmological sector ($N = 11$) is developed in Paper~V;
 the full parameter accounting in Paper~VI.
 \end{abstract}
@@ -112,12 +113,14 @@ no geometric input):
   \varphi + 2\pi/N$ on the fiber generates $N$ cone
   points on the base, each with isotropy
   $\mathbb{Z}_N$.
-  By the orbifold Euler number formula
-  $\chi_{\mathrm{orb}} = \chi + \sum_i (1 - 1/n_i)$,
-  the non-trivial isotropy requires non-trivial fiber
-  holonomy around each cone point, which gives Euler
-  class $e = N/2 \ne 0$.  The manifold is therefore
-  Seifert, not a product.)
+  Each of the $N$ cone points has isotropy order~$N$
+  and holonomy $e^{2\pi i/N}$ around the fiber.
+  The Seifert Euler class is
+  $e = \sum_{k=1}^N \beta_k/\alpha_k = N \cdot (1/N) = 1$
+  in the standard normalisation, or $e = N/2$ in the
+  Chern class convention ($c_1 = N$, $e = c_1/2$).
+  Since $e \ne 0$, the manifold is
+  Seifert (non-product).)
 \end{enumerate}
 No step requires knowing the geometry in advance:
 the logical flow is
@@ -252,7 +255,7 @@ In $2{+}1$D, pure gravity is topological
 The $4$D spin-$2$ graviton emerges from the boundary
 Virasoro algebra of the Chern--Simons theory.
 
-\begin{theorem}[Emergent spin-$2$ graviton]
+\begin{derivation}[Emergent spin-$2$ graviton]
 \label{thm:graviton-4d}
 The $\mathrm{SL}(2,\mathbb{R}) \times \mathrm{SL}(2,\mathbb{R})$
 Chern--Simons gauge theory on
@@ -261,7 +264,7 @@ produces a $4$D spin-$2$ graviton with $2$ tensor polarisations
 ($+$~and~$\times$).
 The spin-$2$ character is derived from the Virasoro algebra
 of the boundary CFT; no $4$D gravitational dynamics are assumed.
-\end{theorem}
+\end{derivation}
 
 \begin{proof}
 Four steps, each using an established result.
@@ -503,14 +506,14 @@ through three mechanisms, each grounded in established mathematics.
 \subsection{$\mathrm{SU}(2)$ from the Chern--Simons formulation of
 $2{+}1$D gravity}
 
-\begin{theorem}[$\mathrm{SU}(2)$ gauge symmetry]
+\begin{derivation}[$\mathrm{SU}(2)$ gauge symmetry]
 \label{thm:su2}
 The gravitational zero-mode sector of the Kaluza--Klein reduced theory
 carries $\mathrm{SU}(2) \times \mathrm{SU}(2)$ gauge symmetry at
 Chern--Simons level $k = c/6$.
 At $N = 4$, the critical Havelock mode is the KK zero mode
 and transforms in the $j = 1$ (adjoint) representation of $\mathrm{SU}(2)$.
-\end{theorem}
+\end{derivation}
 
 \begin{proof}
 The proof has four steps.
@@ -554,7 +557,10 @@ $\mathrm{Tr}(T_a^{G_i} T_b^{G_j}) = 0$ for $i \ne j$, so
 $S_{\mathrm{total}} = \sum_i S_i$ and $Z = \prod_i Z_i$.
 The boundary CFT is
 $\mathrm{WZW}_{\mathrm{grav}} \otimes \mathrm{WZW}_{\mathrm{gauge}}$
-with $c_{\mathrm{total}} = (12b(N){-}4) + 2 + 1 + 1 = 12b(N)$
+with $c_{\mathrm{total}} = \underbrace{(12b(N){-}4)}_{c_{\mathrm{grav}}}
++ \underbrace{2}_{c_{\mathrm{SU}(3)}}
++ \underbrace{1}_{c_{\mathrm{SU}(2)}}
++ \underbrace{1}_{c_{\mathrm{U}(1)}} = 12b(N)$
 (verified numerically; see Code Availability).
 
 \emph{Step~3 (Zero mode at $N = 4$).}
@@ -712,7 +718,10 @@ giving topological masses
 $m_R \approx 0.36/\ell$ and $m_L \approx 1.64/\ell$
 (ratio $m_L/m_R \approx 4.6$).
 At $\ell \sim 1/M_{\mathrm{poly}}$:
-$m_L \sim 490$\,TeV, $m_R \sim 107$\,TeV.
+$m_L \sim 490$\,TeV, $m_R \sim 107$\,TeV
+(both exceed $M_{\mathrm{poly}} \approx 300$\,TeV by
+$O(|\eta|/k) \approx 30$--$60\%$, so the gapping is
+above the polygon scale).
 The sector with the larger effective level has heavier
 gauge bosons; at energies $E \ll m_R$, only the
 lighter sector propagates.
@@ -737,7 +746,7 @@ different bundles over the moduli space of~$T^2$.
 \subsection{$\mathrm{SU}(3)$ from the McKay correspondence at $N = 7$}
 \label{sec:su3-mckay}
 
-\begin{theorem}[$\mathrm{SU}(3)$ gauge symmetry
+\begin{derivation}[$\mathrm{SU}(3)$ gauge symmetry
   from the Klein quartic]
 \label{thm:su3}
 The $N = 7$ vortex system determines the $\mathrm{SU}(3)$
@@ -761,7 +770,7 @@ $X(7) = \Gamma(7)\backslash\mathbf{H}^2$:
 No holographic dictionary (GKPW) is used: part~(a) is
 representation theory; part~(b) is the Witten CS/WZW
 theorem (1989), which predates AdS/CFT.
-\end{theorem}
+\end{derivation}
 
 \begin{proof}[Proof of part~(a): representation structure]
 Five algebraic steps.
@@ -1093,7 +1102,7 @@ hypercharge of the Higgs doublet.
 \section{The Weinberg angle}
 \label{sec:weinberg}
 
-\begin{theorem}[Weinberg angle from conformal weights]
+\begin{derivation}[Weinberg angle from conformal weights]
 \label{thm:weinberg}
 At the CS threshold, the electroweak mixing angle is the ratio
 of WZW conformal weights:
@@ -1104,7 +1113,7 @@ of WZW conformal weights:
   = \frac{3}{11} \approx 0.2727,
 \end{equation}
 where $h_Y = Q^2/K$ and $h_W = j(j{+}1)/(k{+}h^\vee)$.
-\end{theorem}
+\end{derivation}
 
 \begin{proof}
 Three steps: identify the quantum numbers, write the
@@ -1740,7 +1749,7 @@ The hierarchy $|V_{us}| \gg |V_{cb}| \gg |V_{ub}|$ is predicted.
 \subsection{The CKM phase \textnormal{[exact]}}
 \label{sec:ckm-phase}
 
-\begin{theorem}[CKM phase from the scattering phase on~$\mathbf{H}^2$]
+\begin{derivation}[CKM phase from the scattering phase on~$\mathbf{H}^2$]
 \label{thm:ckm-phase}
 The CKM CP-violating phase is
 \begin{equation}
@@ -1751,7 +1760,7 @@ The CKM CP-violating phase is
 \end{equation}
 The observed value is $\delta = 69^\circ \pm 3^\circ$ (PDG~2024);
 the discrepancy is~$1.2^\circ$ ($40\%$ of~$1\sigma$).
-\end{theorem}
+\end{derivation}
 
 \begin{proof}
 Four steps: identify which mode contributes, determine the
@@ -2214,7 +2223,7 @@ term, which contributes a non-local logarithmic potential suppressed by
 $G_3/G_4 = 2\pi R \approx 6 \times 10^{-21}$\,m.
 \end{proof}
 
-\begin{theorem}[Full nonlinear $4$D Einstein equations]
+\begin{derivation}[Full nonlinear $4$D Einstein equations]
 \label{thm:nonlinear-einstein}
 \leavevmode
 \begin{enumerate}
@@ -2231,7 +2240,7 @@ the Lashkari entanglement argument (Step~C below),
 using the Ryu--Takayanagi formula (derived in $2{+}1$D
 from Cardy--Calabrese $+$ Brown--Henneaux, Step~C).
 \end{enumerate}
-\end{theorem}
+\end{derivation}
 
 \begin{proof}
 All three steps are self-contained in $2{+}1$D.
