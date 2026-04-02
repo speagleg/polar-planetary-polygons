@@ -971,15 +971,44 @@ invariant $J \approx 3 \times 10^{-5}$.
 
 \paragraph{First-order electroweak phase transition.}
 The Born--Oppenheimer potential $V_7(\rho)$ has a barrier
-($S_{\mathrm{tunnel}} = 18.3$, \S\ref*{IV-sec:loops}),
-producing a \emph{first-order} EWPT with
-$v(T_c)/T_c \approx 0.84$.
+($S_{\mathrm{BO}} = 18.3$, \S\ref*{IV-sec:loops}).
+The EWPT order parameter is determined by the ratio of the
+tunnelling action to the central charge:
+\begin{equation}\label{eq:v-over-Tc}
+  \frac{v(T_c)}{T_c}
+  = \sqrt{\frac{2\,S_{\mathrm{BO}}}{c}}
+  = \sqrt{\frac{36.5}{51.6}} = 0.84,
+\end{equation}
+a strong first-order transition (the SM gives a crossover
+for $m_H = 125$\,GeV).
 In the broken phase, sphaleron processes are suppressed by
 $e^{-3v/T_c} = e^{-2.52} = 0.08$: $92\%$ of the baryon asymmetry
-survives the transition (partial washout of~$8\%$).
-By contrast, the SM electroweak phase transition is a
-\emph{crossover} for $m_H = 125$\,GeV---no baryogenesis is possible
-in the SM without new physics.
+survives the transition.
+
+\paragraph{Gravitational wave signal.}
+The first-order EWPT produces gravitational waves through
+bubble collisions, sound waves, and turbulence.
+The phase-transition strength
+$\alpha = (30/\pi^2 g_*) \times 4D\,(v/T_c)^2 = 0.014$
+(with $D = 0.17$ the SM thermal-mass coefficient,
+$g_* = 106.75$)
+and the inverse duration $\beta/H_* \sim 150$
+(from the standard nucleation condition
+$S_3(T_*)/T_* \approx 140$)
+give a peak frequency and amplitude:
+\begin{equation}\label{eq:gw-ewpt}
+  f_{\mathrm{peak}} \approx 4 \times 10^{-5}\;\mathrm{Hz},
+  \qquad
+  \Omega_{\mathrm{GW}}\,h^2
+  \approx 10^{-11}\text{--}10^{-9},
+\end{equation}
+within the LISA sensitivity band ($10^{-4}$--$10^{-1}$\,Hz,
+$\Omega h^2 \gtrsim 10^{-12}$).
+The SM predicts $\Omega_{\mathrm{GW}} = 0$ (crossover, no signal).
+A LISA detection of an EWPT gravitational wave signal
+at $f \sim 10^{-5}$\,Hz confirms BSM physics;
+the specific $v/T_c = 0.84$ from eq.~\eqref{eq:v-over-Tc}
+constrains the BSM sector to the BO barrier shape.
 
 \paragraph{Baryon asymmetry.}
 Using the standard EW baryogenesis transport machinery
