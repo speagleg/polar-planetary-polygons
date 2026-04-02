@@ -885,28 +885,47 @@ determine the gauge group and the CS level:
   \citep{Witten1988}); the orbifold group is
   $\mathbb{Z}/3\mathbb{Z}$ (a symmetry of the WZW model,
   Step~B4).
-  \emph{Modular invariance at irrational~$c$.}
-  The DHVW orbifold partition function
-  $Z_{\mathrm{orb}} = (1/|G|)\sum_{g,h \in G} Z_g^h$
-  is modular invariant at \emph{any} central charge:
-  the transformation rules
-  $Z_g^h(\tau{+}1) = Z_g^{gh}(\tau)$ and
-  $Z_g^h(-1/\tau) = Z_h^{g^{-1}}(\tau)$
-  are geometric (the action of $\mathrm{SL}(2,\mathbb{Z})$
-  on the torus with twisted boundary conditions) and
-  do not require rationality of~$c$
-  \citep{DixonHarveyVafaWitten1985,Vafa1986}.
-  Rationality is needed only to decompose $Z_g^h$ into
-  finitely many characters, which is not required here.
-  The $\mathbb{Z}/3\mathbb{Z}$ action is an
-  \emph{inner automorphism} (the Frobenius lies in the
-  Weyl group of $\mathrm{PSL}(2,\mathbb{F}_7)$,
-  acting by conjugation on the current algebra generators).
-  For inner automorphisms, the twisted sectors are
-  constructed by spectral flow of untwisted operators:
-  the OPE closes, the Hilbert space is well-defined,
-  and the orbifold is a consistent CFT at every~$c$
+  \emph{Consistency of the orbifold at irrational~$c$.}
+  The $\mathbb{Z}/3$ orbifold is a consistent
+  (non-rational) CFT at $c = 12\,b(N)$ in the
+  following precise sense:
+  %
+  \emph{(i)~Unitarity.}
+  The parent WZW boundary theory is unitary at $c > 0$.
+  The invariant subspace
+  $\mathcal{H}^{\mathbb{Z}_3} \subset \mathcal{H}$
+  inherits positivity.
+  The twisted sectors are constructed by spectral flow
+  of untwisted operators (the $\mathbb{Z}/3$ action is
+  an \emph{inner automorphism}: the Frobenius lies in the
+  Weyl group of $\mathrm{PSL}(2,\mathbb{F}_7)$).
+  Spectral flow preserves positivity
   \citep{SchellekensYankielowicz1990}.
+  %
+  \emph{(ii)~Modular invariance.}
+  The DHVW partition function
+  $Z_{\mathrm{orb}} = (1/|G|)\sum_{g,h} Z_g^h$
+  transforms by the geometric rules
+  $Z_g^h(\tau{+}1) = Z_g^{gh}$,
+  $Z_g^h(-1/\tau) = Z_h^{g^{-1}}$
+  \citep{DixonHarveyVafaWitten1985,Vafa1986},
+  which hold at every~$c$.
+  %
+  \emph{(iii)~OPE closure.}
+  For inner automorphisms, twist fields are spectral-flow
+  images of untwisted operators; the OPE closes by the
+  automorphism property.
+  %
+  \emph{(iv)~No tachyons.}
+  The twist-field dimensions
+  $h_k = k(3{-}k)/9 = 2/9 > 0$
+  (all $k = 1, 2$); the untwisted sector has $h \ge 0$.
+  %
+  Rationality of~$c$ would give a modular tensor category
+  (finitely many characters, braiding); at irrational~$c$
+  this structure is absent, but the theory is a well-defined
+  unitary CFT---analogous to the free boson at irrational
+  compactification radius.
   The Cardy formula for the asymptotic density of states,
   $\rho(\Delta) \sim \exp(2\pi\sqrt{c\Delta/6})$, is a
   \emph{theorem} about any modular-invariant partition
