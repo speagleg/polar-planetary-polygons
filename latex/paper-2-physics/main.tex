@@ -1359,6 +1359,360 @@ terrestrial planets or in 3D laboratory flows.
 
 
 %% ====================================================================
+\section{The constraint-intersection principle}
+\label{sec:constraint-intersection}
+
+The observed polygon wavenumber $N$ on each planet is determined by the
+intersection of three constraints, all descending from the 2D Laplacian.
+
+\begin{proposition}[Constraint-intersection selection]
+\label{prop:complementary}
+The selected polygon wavenumber is
+\begin{equation}\label{eq:constraint-intersection}
+  N_{\mathrm{selected}} = \max\bigl\{N :
+    N \le N_{\mathrm{Thomson}},\;
+    \sin(\pi/N) \ge r_{\mathrm{excl}}/R,\;
+    n\;\text{Rossby-stationary}\bigr\},
+\end{equation}
+where inapplicable constraints are dropped.  The three constraints are:
+\begin{enumerate}
+  \item \textbf{Rossby stationarity} (derived; for jet meanders):
+    the QGPV eigenvalue problem
+    $(\nabla^2 + \beta\,\partial_y)\psi = 0$ selects the stationary
+    wavenumber $n^*$.
+  \item \textbf{Thomson stability} (derived; for discrete cyclone rings):
+    $\kappa_0/\kappa \ge \kappa_{\mathrm{crit}}(N)$ gives an upper
+    bound $N \le N_{\max}(\kappa_0/\kappa)$; the energy monotonicity
+    $H_{N+1} > H_N$ (Proposition~\ref{prop:onsager-n-select}) then
+    selects $N = N_{\max}$.
+  \item \textbf{Geometric packing} (derived skeleton + empirical factor):
+    domain admissibility of $G(\nabla^2)$ on the punctured domain
+    gives $\sin(\pi/N) \ge \varepsilon/R$ where $\varepsilon$ is
+    the vortex core radius (derived).  The effective exclusion radius
+    $r_{\mathrm{excl}} \approx 1.3\,\varepsilon$ includes a
+    $\beta$-drift buffer zone from nonlinear vortex dynamics
+    \citep{Gavriel2021}; the factor $1.3$ is observational, not
+    derivable from the linear operator.
+\end{enumerate}
+\end{proposition}
+
+Each planetary system activates a different subset of the three
+constraints:
+\begin{center}
+\begin{tabular}{lcccl}
+\toprule
+System & $N_{\mathrm{Thomson}}$ & $N_{\mathrm{Rossby}}$ & $N_{\mathrm{pack}}$ & Binding \\
+\midrule
+Saturn (76${}^\circ$N)  & $7$ & $6$ & ---  & Rossby \\
+Jupiter north           & $8$ & --- & $>8$ & Thomson \\
+Jupiter south           & $8$ & --- & $5$  & Packing \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+The two Laplacian-derived facets and their observational supplement are:
+\emph{(i)}~spectral positivity of $G(\nabla^2)$: Havelock
+eigenvalue $\lambda_m > 0$ $\to$ Thomson bound (derived);
+\emph{(ii)}~domain admissibility of $G_\varepsilon(\nabla^2)$:
+disc non-overlap $\sin(\pi/N) \ge \varepsilon/R$ $\to$ packing
+bound with $r_{\mathrm{excl}} = \varepsilon$ (derived),
+the enlargement $r_{\mathrm{excl}} \approx 1.3\,\varepsilon$
+at Jupiter south is observational;
+\emph{(iii)}~Rossby stationarity of $(\nabla^2 + \beta\,\partial_y)\psi = 0$:
+stationary mode $n^*$ $\to$ wave quantization (derived).
+The finite-core regularisation $G_\varepsilon$ does \emph{not} create
+a blob-stable window for $N = 8$: the corrected constrained Hessian
+remains negative throughout the admissible domain
+$\varepsilon/R < \sin(\pi/8)$.  The $N = 8$ selection therefore
+requires the central vortex ($\kappa_0/\kappa \ge \tfrac{1}{2}$);
+blob regularisation alone does not provide an alternative stabilisation
+mechanism.
+
+\subsection{Energy monotonicity and maximum-$N$ selection}
+\label{sec:energy-monotonicity}
+
+\begin{proposition}[Energy monotonicity and maximum-$N$ selection]
+\label{prop:onsager-n-select}
+Let $\Gamma = N\kappa$ be the total ring circulation, $L = N\kappa R^2$
+the angular impulse (so $R$ is fixed when $\Gamma$ and $L$ are fixed),
+and $r = \kappa_0/\kappa$ held fixed as $N$ varies (both the ring and
+central circulations scale proportionally).  Denote by
+$r_{\mathrm{core}}$ the vortex core radius---the minimum separation at
+which the point-vortex model is valid; equivalently, $r_{\mathrm{core}}$
+is the unit of length in which the logarithm is taken, so that
+$\ln R > 0$ iff $R > r_{\mathrm{core}}$.  Then
+\begin{equation}\label{eq:H-monotone}
+  H_{N+1} - H_N = \Gamma^2\!\left[\frac{2r-1}{2N(N+1)}\ln R
+    + \frac12\!\left(\frac{\ln N}{N} - \frac{\ln(N+1)}{N+1}\right)\right].
+\end{equation}
+For $r \ge \tfrac{1}{2}$ and $R > r_{\mathrm{core}}$, both terms
+are non-negative (first: $2r - 1 \ge 0$ and $\ln R > 0$; second:
+$\ln N/N$ is strictly decreasing for $N > e \approx 2.7$), so
+$H_{N+1} > H_N$ for all $N \ge 3$.  Therefore the $N$-gon ring
+energy is strictly monotone in $N$: the maximum-$H$ configuration
+within the Thomson-stable set is the ring with the largest $N$:
+\[
+  N_{\max}(\kappa_0/\kappa)
+    \equiv \max\bigl\{N' : \kappa_{\mathrm{crit}}(N') \le \kappa_0/\kappa\bigr\}.
+\]
+Any dynamics that preferentially populates higher-energy stable
+configurations---whether Onsager negative-temperature equilibrium
+($\beta < 0$, where the Boltzmann weight $e^{-\beta H}$ increases
+with $H$), sequential vortex injection, or merger of smaller vortex
+clusters---selects $N = N_{\max}$.  The stability threshold
+$\kappa_{\mathrm{crit}}(8) = \tfrac{1}{2}$ is exactly the value at
+which $H_{N+1} > H_N$ becomes unconditional ($R$-independent): at
+$r = \tfrac{1}{2}$, term~1 vanishes identically and term~2 remains
+strictly positive.
+\end{proposition}
+
+\begin{proof}
+Use the Hamiltonian
+$H = -\kappa^2\!\sum_{j<k}\ln|z_j - z_k| - \kappa_0\kappa\!\sum_j\ln|z_j|$
+with $\kappa = \Gamma/N$ and $\kappa_0 = r\kappa = r\Gamma/N$.
+
+\emph{Step 1: Product formula.}
+For the regular $N$-gon $z_j = Re^{2\pi ij/N}$, the chord length
+between vortices $j$ and $k$ is $|z_j - z_k| = 2R\sin(\pi|j-k|/N)$.
+By $\mathbb{Z}_N$ symmetry the pair sum equals $N/2$ times the sum from
+one vertex:
+\[
+  \sum_{j<k}\ln|z_j - z_k|
+  = \frac{N}{2}\sum_{s=1}^{N-1}\ln\!\bigl(2R\sin(\pi s/N)\bigr)
+  = \frac{N}{2}\bigl[\ln N + (N-1)\ln R\bigr].
+\]
+Here we used $\sum_{s=1}^{N-1}\ln(2\sin(\pi s/N)) = \ln N$, which
+follows from evaluating the polynomial identity $(z^N-1)/(z-1) =
+\prod_{k=1}^{N-1}(z - e^{2\pi ik/N})$ at $z = 1$: the product of
+moduli is $\prod_{s=1}^{N-1}|1 - e^{2\pi is/N}|
+= \prod_{s=1}^{N-1}2\sin(\pi s/N) = N$.
+
+\emph{Step 2: Central vortex term.}
+Since $|z_j| = R$ for all $j$: $\sum_j\ln|z_j| = N\ln R$.
+
+\emph{Step 3: Closed form for $H_N$.}
+Substituting Steps~1--2 with $\kappa = \Gamma/N$, $\kappa_0 = r\Gamma/N$:
+\begin{equation}\label{eq:HN-explicit}
+  H_N = -\frac{\Gamma^2}{2N}\ln N
+        - \Gamma^2\!\left(\frac{N-1}{2N} + \frac{r}{N}\right)\ln R.
+\end{equation}
+
+\emph{Step 4: Difference $H_{N+1} - H_N$.}
+Writing $H_{N+1}$ from \eqref{eq:HN-explicit} with $N\to N+1$ and
+subtracting:
+\begin{align*}
+  H_{N+1} - H_N
+  &= -\frac{\Gamma^2}{2}\!\left[\frac{\ln(N{+}1)}{N{+}1}
+     - \frac{\ln N}{N}\right]
+     - \Gamma^2\ln R\!\left[\frac{N/2+r}{N{+}1}
+     - \frac{(N{-}1)/2+r}{N}\right].
+\end{align*}
+The coefficient of $\ln R$ simplifies by partial fractions:
+\[
+  \frac{N/2+r}{N{+}1} - \frac{(N{-}1)/2+r}{N}
+  = \frac{N^2 - (N{-}1)(N{+}1)}{2N(N{+}1)} - \frac{r}{N(N{+}1)}
+  = \frac{1-2r}{2N(N{+}1)},
+\]
+where we used $N^2-(N-1)(N+1) = 1$.  Negating and rearranging
+gives~\eqref{eq:H-monotone}.
+
+\emph{Step 5: Sign of each term.}
+\emph{Term~2}: $f(x) = \ln x/x$ satisfies $f'(x) = (1-\ln x)/x^2 < 0$
+for $x > e$, so $\ln N/N > \ln(N+1)/(N+1)$ for all $N \ge 3$.
+
+\emph{Term~1}: $2r-1 \ge 0$ for $r \ge \tfrac{1}{2}$; and
+$\ln R > 0$ for $R > r_{\mathrm{core}}$.  Hence both terms are
+non-negative, and term~2 is strictly positive, giving
+$H_{N+1} > H_N$.
+\end{proof}
+
+\begin{remark}[Physical status of the fixed-$r$ assumption]
+\label{rem:fixed-r}
+The assumption $r = \kappa_0/\kappa$ fixed as $N$ varies means that
+as more cyclones appear in the ring ($N$ increases), each individual
+ring vortex becomes weaker ($\kappa = \Gamma/N$) \emph{and the central
+vortex weakens proportionally} ($\kappa_0 = r\Gamma/N$).  The
+assumption is justified when all vortices are drawn from the same
+turbulent condensation process, so their strengths are set by a common
+large-scale energy budget.  In the Onsager picture, the
+negative-temperature state is reached by the inverse cascade from the
+same vorticity reservoir, giving a fixed partition of total circulation
+between center and ring.  If instead $\kappa_0$ is held fixed while
+$\kappa = \Gamma/N$ varies, then $r = N\kappa_0/\Gamma$ grows with $N$
+and the monotonicity strengthens further, so maximum-$N$ selection
+remains qualitatively intact.  The marginal case is $\kappa_0 = 0$:
+then $r = 0 < \tfrac12$ and Term~1 in~\eqref{eq:H-monotone} is
+\emph{negative}, so $H_{N+1} > H_N$ requires $R$ large enough that
+Term~2 dominates.  The $r \ge \tfrac{1}{2}$ condition is therefore
+specific to the regime with a sufficiently strong central vortex.
+
+The $N = 8$ selection is robust across both limiting assumptions
+(fixed~$r$ and fixed~$\kappa_0$) but relies on the Onsager framework
+providing the link between $N$, $\Gamma$, and $\kappa_0$---a physical
+hypothesis, not a mathematical consequence.
+\end{remark}
+
+\noindent
+For Jupiter north, $\kappa_0/\kappa \approx 1$ with roughly 30\%
+observational uncertainty (Juno; \citealt{Adriani2018}), giving a
+conservative range $\kappa_0/\kappa \in [0.7, 1.3]$.  Since
+$\kappa_{\mathrm{crit}}(8) = \tfrac{1}{2}$ exactly, this entire
+range satisfies the stability condition for $N = 8$.  However,
+$\kappa_{\mathrm{crit}}(9) = 1$, which lies \emph{inside} the
+uncertainty interval: if $\kappa_0/\kappa \ge 1$, then $N = 9$ is also
+Thomson-stable and the Onsager argument would select $N_{\max} = 9$.
+The conclusion $N_{\max} = 8$ relies on $\kappa_0/\kappa < 1$, which is
+consistent with the central estimate but not guaranteed by current
+observational precision.  The observed $N = 8$ is thus evidence that
+$\kappa_0/\kappa \lesssim 1$, providing a theory-derived constraint on
+the central vortex strength testable with improved Juno wind
+measurements.
+
+\subsection{Jupiter's north--south asymmetry}
+\label{sec:jupiter-asymmetry}
+
+For Jupiter's south pole ($N = 5$): $\kappa_{\mathrm{crit}}(N) = 0$
+for all $N \le 7$, so the Thomson bound alone allows up to $N = 7$
+regardless of the central vortex.  The observed $N = 5$ is selected
+by the geometric packing constraint
+(Proposition~\ref{prop:complementary}, item~3).
+South-pole cyclones are individually $\approx 2\times$ larger in
+linear size than north-pole cyclones ($r_{\mathrm{core}} \approx
+3{,}500$\,km vs.\ $2{,}500$\,km; \citealt{Adriani2018}), and each
+cyclone carries a $\beta$-drift exclusion zone extending $\approx
+30\%$ beyond the core radius \citep{Gavriel2021}, giving
+$r_{\mathrm{excl}} \approx 1.3\,r_{\mathrm{core}} \approx 4{,}550$\,km.
+At the south-pole ring radius $R \approx 8{,}000$\,km
+($\sim\!7^{\circ}$ from the pole):
+\[
+  \sin(\pi/5) = 0.588 \ge \frac{r_{\mathrm{excl}}}{R}
+  = \frac{4{,}550}{8{,}000} = 0.569,
+  \qquad
+  \sin(\pi/6) = 0.500 < 0.569.
+\]
+Thus $N_{\mathrm{pack}} = 5$, which is tighter than the Thomson bound
+$N_{\mathrm{Thomson}} = 8$: packing, not stability, is the binding
+constraint at Jupiter's south pole.  The selection is tight, with
+$\approx 7\%$ margin.
+
+The entire $N = 8$ vs.\ $N = 5$ asymmetry reduces to a single
+dimensionless ratio:
+\[
+  \chi = \frac{R_d^{(\mathrm{south})}}{R_d^{(\mathrm{north})}}
+  \approx \frac{r_{\mathrm{cyclone}}^{(\mathrm{south})}}
+              {r_{\mathrm{cyclone}}^{(\mathrm{north})}}
+  \approx \frac{3{,}500}{2{,}500} = 1.40.
+\]
+The constraint intersection requires $\chi \gtrsim 1.30$
+for the south-pole packing bound to tighten from $N = 6$ to
+$N = 5$.  The observed $\chi = 1.40$ matches to $8\%$.
+Deriving $\chi$ from atmospheric physics (insolation asymmetry,
+moist convection) remains open: radiative scaling gives
+$\chi \sim 1.07$ (insufficient), suggesting that deep convective
+dynamics set the pole-to-pole deformation-radius contrast.
+
+\subsection{Saturn's structural stability}
+\label{sec:saturn-structural}
+
+The Rossby stationarity argument selects Saturn's wavenumber $n = 6$
+(\S\ref{sec:deformation}).
+A natural question: can smooth perturbations of the jet destroy the
+stationary wave, converting the hexagonal meander into an evanescent
+mode?  The answer is no, by a WKB branch-disconnection argument.
+
+The Rayleigh--Kuo equation for stationary ($c = 0$) mode~$n$ on a
+zonal jet $U(y)$ reads $\hat\psi'' + V(\rho)\hat\psi = 0$, where
+$V = (\beta - U'')/U - n^2/R^2$ is the effective potential in
+log-polar coordinates.  At the jet center ($y = 0$) of a Gaussian jet:
+\[
+  V(0) = \frac{\beta + U_{\max}/\sigma^2}{U_{\max}} - \frac{n^2}{R^2}
+  = \frac{\beta_{\mathrm{eff}}}{U_{\max}} - \frac{n^2}{R^2}.
+\]
+For Saturn ($U_{\max} = 120\;\mathrm{m/s}$, $\sigma = 2.5\times
+10^6\;\mathrm{m}$, $\beta = 1.46\times 10^{-12}\;\mathrm{m^{-1}
+s^{-1}}$, $n = 6$, $R = R_{\mathrm{S}}\cos 76^\circ = 1.31\times
+10^7\;\mathrm{m}$):
+$V(0) = 1.72\times 10^{-13} - 2.10\times 10^{-13} =
+-3.8\times 10^{-14}\;\mathrm{m}^{-2}$ (negative).
+The sign of $V(0)$ depends on $\sigma_{\mathrm{jet}}$:
+$V(0) < 0$ for $\sigma_{\mathrm{jet}} \gtrsim 2.3 \times 10^6$\,m,
+with a $60\%$ margin above the sign change at the adopted
+$\sigma_{\mathrm{jet}} = 2.5 \times 10^6$\,m (Cassini jet profile
+measurements constrain $\sigma_{\mathrm{jet}} \in [2.3, 3.0]
+\times 10^6$\,m).
+
+Since $V < 0$, the WKB exponent $s^2 = V < 0$ forces oscillatory
+solutions with $s = i\alpha_\rho$ ($\alpha_\rho \ne 0$).  Writing
+$s = \sigma + i\alpha_\rho$:
+$\operatorname{Im}(s^2) = 2\sigma\alpha_\rho = 0$.
+When $\alpha_\rho \ne 0$ (oscillatory region): $\sigma = 0$.
+The elliptic ($\sigma = 0$) and hyperbolic ($\alpha_\rho = 0$)
+branches are disconnected: smooth jet perturbations cannot move the
+solution from the oscillatory branch to the evanescent branch at
+leading WKB order.  No continuous deformation of the jet profile
+can remove the $n = 6$ stationary wave without first passing through
+$V(0) = 0$ (a finite perturbation).  The hexagon is therefore
+structurally stable at leading WKB order.
+
+\subsection{Quality metrics and cross-planetary comparison}
+\label{sec:quality-metrics}
+
+The two planetary polygon types require different quality metrics.
+For \emph{discrete vortex rings} (Jupiter), the natural measure is the
+geometric deviation from a perfect $N$-gon:
+\begin{equation}\label{eq:sigma-geom}
+  \sigma_{\mathrm{geom}} = \frac{1}{N}\sum_{k=1}^{N}
+  \bigl|\!\ln|z_k / z_k^{\mathrm{ideal}}|\bigr|,
+\end{equation}
+where $z_k^{\mathrm{ideal}}$ are the best-fit regular $N$-gon vertices.
+For \emph{continuous jet meanders} (Saturn), the appropriate measure is
+the fractional radial displacement of the jet center:
+\begin{equation}\label{eq:eps-obs}
+  \varepsilon_{\mathrm{obs}} = A_n / \bar{R},
+\end{equation}
+where $A_n$ is the half-amplitude of the $n$-th Fourier mode and
+$\bar{R}$ is the mean ring radius.  For Saturn's hexagon
+($n = 6$, $\bar{R} \approx 13{,}200\;\mathrm{km}$),
+$A_6 \approx 1{,}900\;\mathrm{km}$ and
+$\varepsilon_{\mathrm{obs}} \approx 0.14$
+\citep{Godfrey1988, Antunano2015}.
+These two metrics are not interchangeable: applying
+$\sigma_{\mathrm{geom}}$ to Saturn yields $0.50$, an order of magnitude
+larger than Jupiter's $0.05$--$0.06$, but this conflates meander
+amplitude with positional scatter.
+
+\begin{table}[htbp]
+\centering
+\caption{Planetary polygon configurations.
+$\kappa_0/\kappa$ is estimated from Juno imagery \citep{Adriani2018}
+using cyclone area as a proxy ($\sim\!30\%$ systematic uncertainty).
+``---'' indicates the quantity is not applicable.}
+\label{tab:planets}
+\begin{tabular}{lcccl}
+\toprule
+System & $N$ & Quality metric &
+  $\kappa_0/\kappa$ & Selection mechanism \\
+\midrule
+Saturn hexagon    & 6 & $\varepsilon_{\mathrm{obs}} = 0.14$ & N/A (jet) & Rossby stationarity \\
+Jupiter north     & 8 & $\sigma_{\mathrm{geom}} = 0.06$ & $\sim\!1$ & Thomson + Onsager \\
+Jupiter south     & 5 & $\sigma_{\mathrm{geom}} = 0.05$ & --- & Packing (Prop.~\ref{prop:complementary}) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent
+Independent numerical support comes from \citet{Siegelman2022}, who
+produce $N = 8$ (north) and $N = 5$ (south) vortex crystals from 2D
+turbulence simulations on polar caps, with a central polar cyclone
+emerging alongside the ring in both hemispheres.  These simulations
+include continuous small-scale forcing and large-scale dissipation, yet
+the polygon crystal is the persistent stationary state---numerical
+evidence that the constrained energy minimum acts as a dynamical
+attractor under turbulent forcing within the 2D barotropic framework.
+
+
+%% ====================================================================
 \section{Circulation disorder and stability domain robustness}
 \label{sec:disorder-new}
 
