@@ -1244,6 +1244,25 @@ higher-order terms in~$f$ and~$\xi$.
 This reverses the sign from $-0.12$ to $+0.01$.
 \end{proposition}
 
+\begin{proof}[Proof sketch]
+The Gaussian curvature at the pole of an oblate spheroid
+is $K_{\mathrm{pole}} = a^2/b^4
+= K_{\mathrm{mean}}/(1{-}f)^4$.
+The sphere threshold formula
+$C_1^{S^2}(\xi) = (N{-}1)(1{-}\xi)/(1{+}\xi)$
+evaluated at $\xi_{\mathrm{pole}} = K_{\mathrm{pole}} R^2$
+gives, relative to $\xi_{\mathrm{mean}}$:
+$\delta C_1 = -(N{-}1) \times 2\,\delta\xi/(1{+}\xi)^2
++ O(\delta\xi^2)$,
+where $\delta\xi = \xi_{\mathrm{pole}} - \xi_{\mathrm{mean}}
+\approx -4f\,\xi_{\mathrm{mean}}$.
+Since the pole is flatter ($\delta\xi < 0$),
+$\delta C_1 > 0$: the eigenvalue increases.
+Substituting and simplifying the $f$-dependence via
+$(1{-}f)^{-4} \approx 1 + 4f + O(f^2)$ gives the
+$f(2{-}f)$ factor in~\eqref{eq:oblateness-shift}.
+\end{proof}
+
 \noindent
 The critical latitude $\varphi_{\mathrm{crit}}$ where $\lambda_3 = 0$
 is $\approx 72^\circ$N for Saturn.
@@ -1330,6 +1349,14 @@ $42$-year polar night, and the pole receives
 \emph{more} cumulative insolation than the equator
 over an orbit.
 The prediction is $N = 0$---no polar polygon.
+This argument is qualitative: there is no sharp
+tilt threshold in the framework at which
+the Onsager mechanism switches off.
+The $98^\circ$ tilt is invoked as an extreme case
+where the persistent differential heating needed for
+a polar jet is absent; a quantitative criterion
+(e.g.\ minimum jet persistence time as a function
+of obliquity) remains to be derived.
 
 Current observations are consistent:
 \citet{Akins2023} detect a single polar cyclone at
@@ -1361,6 +1388,11 @@ $4$ & $1$ & $5$ & $-1.08$ & Unstable \\
 \bottomrule
 \end{tabular}
 \end{center}
+\noindent
+(The $d \ge 3$ eigenvalues use the $\csc^d$ interaction
+kernel normalised to match the $d = 2$ self-energy
+at the polygon radius; see Code Availability.)
+
 Saturn's hexagon requires the logarithmic interaction
 ($d = 2$, $\Delta = 0$), the Green's function of
 the 2D Laplacian.
@@ -1720,9 +1752,9 @@ Jupiter south     & 5 & $\sigma_{\mathrm{geom}} = 0.05$ & --- & Packing (Prop.~\
 
 \noindent
 Independent numerical support comes from \citet{Siegelman2022}, who
-produce $N = 8$ (north) and $N = 5$ (south) vortex crystals from 2D
-turbulence simulations on polar caps, with a central polar cyclone
-emerging alongside the ring in both hemispheres.  These simulations
+produce $N = 8$ vortex crystals from 2D turbulence simulations
+on polar caps, with a central polar cyclone emerging naturally
+alongside the ring.  These simulations
 include continuous small-scale forcing and large-scale dissipation, yet
 the polygon crystal is the persistent stationary state---numerical
 evidence that the constrained energy minimum acts as a dynamical
