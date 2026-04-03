@@ -528,9 +528,25 @@ for \emph{both} $H$ and $H_0$.
 Equality $a_0' = a_0^{0\prime}$ and
 $a_1' = a_1^{0\prime}$ ensures that
 $\zeta_{\mathrm{rel}}(s)$ has no pole at $s = 0$
-or $s = 1/2$, and hence
-$\zeta'_{\mathrm{rel}}(0)$ receives no bulk
-contribution---only the threshold crossing (i).
+or $s = 1/2$.
+Explicitly: the heat-kernel remainder
+$r(t) = \mathrm{Tr}(e^{-tH} - e^{-tH_0})
+- (a_0' - a_0^{0\prime})t^{-1/2}
+- (a_1' - a_1^{0\prime})$
+satisfies $r(t) = O(t^{1/2})$ as $t \to 0^+$
+(from the next Seeley--DeWitt coefficient)
+and $r(t) = O(e^{-\delta t})$ as $t \to \infty$
+(from the spectral gap $\delta > 0$ of both operators
+on the confining half-line).
+The Mellin transform
+$\zeta_{\mathrm{rel}}(s) = \tfrac{1}{\Gamma(s)}
+\int_0^\infty t^{s-1}\mathrm{Tr}(e^{-tH}-e^{-tH_0})\,dt$
+therefore converges absolutely for $\mathrm{Re}(s) > 1/2$
+and, after subtracting the two (vanishing) Seeley--DeWitt
+terms, continues analytically to $\mathrm{Re}(s) > -1/2$
+with no poles.
+In particular, $\zeta'_{\mathrm{rel}}(0)$ receives no bulk
+contribution---only the threshold crossing~(i).
 The ratio $\det'/\det = e^\gamma$ follows.
 With $(\det)^{-1/2}$:
 $\delta(\ln A) = -\gamma/2$,
@@ -869,6 +885,26 @@ have spectral flow $\pm 1$
 (one eigenvalue crossing zero),
 shifting the eta invariant by~$\pm 1$
 and flipping the sign of the analytic torsion.
+The $n$-instanton amplitude scales as $K^{2n}$ (not
+$K^{2n}$ times an $n$-dependent prefactor) because
+the CS action on the Seifert manifold is additive
+across flat connections: the $n$-th flat connection
+has Chern--Simons invariant $\mathrm{CS}_n = n \times
+\mathrm{CS}_1$ (mod~$\mathbb{Z}$), so the tunnelling
+exponent is $e^{-2\pi n \,k_{\mathrm{frac}}} = K^n$.
+The instanton--anti-instanton pair has amplitude $K^n
+\times K^n = K^{2n}$.
+The determinantal prefactors (one-loop around each
+saddle) contribute the Reidemeister torsion $|\tau_n|$,
+which for the Seifert manifold $\mathbf{H}^2 \times_N
+S^1$ is $|\tau_n| = |\tau_1|^n$ by the multiplicative
+property of analytic torsion on product connections
+\citep{Rozansky1995}.
+Combined with the alternating sign: the $n$-th term
+is $(-1)^n |\tau_1|^n K^{2n} = (-1)^n (|\tau_1| K^2)^n$.
+Since $|\tau_1| \approx 1$ (the torsion of the trivial
+connection is normalised) and $K = 0.548$:
+the effective expansion parameter is $K^2 = 0.300$.
 This gives the geometric resummation
 \begin{equation}\label{eq:mass-gap-resum}
   \Delta E_{\mathrm{resum}}
