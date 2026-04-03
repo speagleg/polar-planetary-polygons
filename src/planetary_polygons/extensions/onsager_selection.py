@@ -70,3 +70,128 @@ def verify_monotonicity(r_min=0.5, r_max=1.5, N_max=12, R_min=1.01, R_max=1000):
                 if H_diff(N, R, r) <= 0:
                     return False
     return True
+
+
+# ── Onsager contraction and Sobolev bounds (Paper III) ──────────────
+
+
+# Bolza surface constants
+BOLZA_LAMBDA1 = 3.839      # First nonzero Laplacian eigenvalue (Buser 1992)
+BOLZA_VOL = 4 * math.pi    # Area of genus-2 surface with K=-1
+BOLZA_SYSTOLE = 2 * math.acosh(2)  # ≈ 2.634
+
+
+def bolza_sobolev_bound(var_R=2.0, grad_R_sq=2.0):
+    """
+    Heat-kernel Sobolev bound on the Bolza surface.
+
+    ||u||_inf^2 <= (lambda_1/(4*pi)) * ||u||_2^2
+                 + (1/(e*lambda_1)) * ||nabla u||_2^2
+
+    Parameters
+    ----------
+    var_R : float
+        Var(R) = ||u||_2^2 for zero-mean u (basin condition).
+    grad_R_sq : float
+        ||nabla R||_2^2 (gradient energy condition).
+
+    Returns
+    -------
+    sup_bound : float
+        ||R - R_0||_inf
+    C_S : float
+        Sobolev constant (half of sup_bound at basin boundary).
+    sigma_sq : float
+        Hoeffding sub-Gaussian parameter.
+    """
+    coeff1 = BOLZA_LAMBDA1 / (4 * math.pi)       # 0.3055
+    coeff2 = 1.0 / (math.e * BOLZA_LAMBDA1)      # 0.0958
+    sup_sq = coeff1 * var_R + coeff2 * grad_R_sq
+    sup_bound = math.sqrt(sup_sq)
+    C_S = sup_bound / math.sqrt(var_R + grad_R_sq)
+    sigma_sq = sup_sq  # Hoeffding: sigma^2 <= (sup-inf)^2/4 = sup^2
+    return sup_bound, C_S, sigma_sq
+
+
+def onsager_contraction(N, rho_star=None):
+    """
+    Onsager contraction factor at polygon number N.
+
+    contraction = |beta_eff|^2 * R_0^2 * (1 + 2|V_2/V_1|*sqrt(sigma^2))^2
+
+    Parameters
+    ----------
+    N : int
+        Polygon number (>= 7).
+    rho_star : float or None
+        Palindromic threshold radius. If None, uses 1.734 for N=7.
+
+    Returns
+    -------
+    float
+        Contraction factor (must be < 1 for convergence).
+    """
+    if rho_star is None:
+        # Default rho_star values at palindromic threshold
+        _rho_stars = {7: 1.734, 8: 2.40, 9: 2.80, 10: 3.10, 11: 3.35}
+        rho_star = _rho_stars.get(N, 1.734)
+
+    m_star = N // 2
+    f_mstar = m_star * (N - m_star) / 2
+    beta_eff = 1.0 / f_mstar
+    R_0 = 1.0  # |R_0| = 1 on Bolza surface
+
+    V1 = 1.0 / math.tanh(rho_star)   # coth(rho*)
+    V2 = -1.0 / math.sinh(rho_star)**2  # -csch^2(rho*)
+    V2_over_V1 = abs(V2 / V1)
+
+    _, _, sigma_sq = bolza_sobolev_bound()
+    nonlinear = (1 + 2 * V2_over_V1 * math.sqrt(sigma_sq))**2
+    contraction = beta_eff**2 * R_0**2 * nonlinear
+    return contraction
+
+
+def non_crossing_bound(N):
+    """
+    Non-crossing bound R_max = (N^2 - 2) / (4*N^2).
+
+    This is strictly less than 1/4 for all N >= 2.
+
+    Parameters
+    ----------
+    N : int
+        Polygon number.
+
+    Returns
+    -------
+    float
+        R_max value.
+    """
+    return (N**2 - 2) / (4 * N**2)
+
+
+def bath_correlation_time(N):
+    """
+    Bath correlation time for the CL decoherence of the breathing mode.
+
+    The smallest positive eigenvalue among bath modes (excluding marginal)
+    is lambda_min = (N - 2*m_star + 1) / 2.
+
+    tau_bath = 1 / sqrt(lambda_min) <= sqrt(2).
+
+    Parameters
+    ----------
+    N : int
+        Polygon number (>= 7).
+
+    Returns
+    -------
+    lambda_min : float
+        Smallest positive bath eigenvalue.
+    tau_bath : float
+        Bath correlation time.
+    """
+    m_star = N // 2
+    lambda_min = (N - 2 * m_star + 1) / 2
+    tau_bath = 1.0 / math.sqrt(lambda_min)
+    return lambda_min, tau_bath
