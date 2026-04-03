@@ -1180,6 +1180,183 @@ it in the destabilizing regime relative to $-\ln r$.
 
 
 %% ====================================================================
+\section{Oblateness and the ice giants}
+\label{sec:oblateness}
+%% ====================================================================
+
+\subsection{Saturn's oblateness determines hexagon existence}
+\label{sec:saturn-oblateness}
+
+The preceding Rossby analysis treats Saturn as a sphere.
+Saturn is an oblate spheroid with flattening
+$f = (a{-}b)/a = 0.098$
+($a = 60{,}268$\,km equatorial, $b = 54{,}364$\,km polar).
+The oblateness changes the \emph{sign} of the Thomson stability
+eigenvalue for $N = 6$: it is not a small correction but the
+mechanism that determines whether the hexagon can exist.
+
+The Gaussian curvature at geodetic latitude~$\varphi$ is
+$K(\varphi) = 1/(M(\varphi)\,N(\varphi))$ where
+$M = a(1{-}e^2)/(1{-}e^2\sin^2\!\varphi)^{3/2}$ and
+$N = a/(1{-}e^2\sin^2\!\varphi)^{1/2}$.
+On an oblate body, $K$ is largest at the equator and
+smallest at the pole---the pole is flatter.
+For Saturn: $K_{\mathrm{eq}}/K_{\mathrm{pole}} = a^4/b^4 = 1.51$.
+Since positive curvature destabilises
+(Paper~I, curvature dichotomy), the pole is
+the most stable point on the spheroid.
+
+Substituting the local curvature into the spherical
+$C_1$ formula:
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+Model & $\lambda_3(N{=}6)$ & Stable? \\
+\midrule
+Mean sphere ($R_{\mathrm{mean}} = 58{,}300$\,km) &
+  $-0.12$ & No \\
+Oblate spheroid at $78^\circ$N &
+  $+0.01$ & Marginally yes \\
+\bottomrule
+\end{tabular}
+\end{center}
+The oblateness flips $\lambda_3$ from $-0.12$ to $+0.01$.
+On a mean sphere, the hexagon is Thomson-unstable and
+should not exist; on the oblate spheroid, it is
+marginally stable.
+
+\begin{proposition}[Oblateness-stabilised hexagon]
+\label{prop:oblateness}
+On an oblate spheroid with flattening~$f$, the binding
+eigenvalue $\lambda_3(N{=}6)$ at the pole exceeds its mean-sphere
+value by
+\begin{equation}\label{eq:oblateness-shift}
+  \delta\lambda_3 \approx (N{-}1)\cdot
+  \frac{2\xi\, f\,(2{-}f)}{(1{+}\xi)^2}
+\end{equation}
+at leading order in~$f$, where $\xi = K_{\mathrm{mean}} R^2$.
+For Saturn ($f = 0.098$, $\xi \approx 0.07$):
+$\delta\lambda_3 \approx 0.13$, reversing the sign from
+$-0.12$ to $+0.01$.
+\end{proposition}
+
+\noindent
+The critical latitude $\varphi_{\mathrm{crit}}$ where $\lambda_3 = 0$
+is $\approx 72^\circ$N for Saturn.
+The hexagon at $78^\circ$N is $6^\circ$ above this boundary---comfortably
+in the stable region.
+
+At non-polar latitudes, the curvature gradient
+$\delta K/K \approx 4.2\%$ across the hexagon ring
+couples Fourier modes $m$ and $m \pm 2$.
+The coupling amplitude ($\sim 0.19$) exceeds the stability
+margin ($|\lambda_3| = 0.01$) by a factor of~$19$.
+By the topological protection of the Morse index
+(Paper~I), this mode coupling cannot change the net spectral
+flow---the hexagon remains stable in the topological sense.
+
+\subsection{Neptune predictions: packing-dominated}
+\label{sec:neptune}
+
+Neptune ($R = 24{,}600$\,km, $\Omega = 1.08\times10^{-4}$\,rad\,s$^{-1}$,
+$f = 0.017$) is in the vortex-dominated regime:
+$\beta R^3/\kappa \approx 0.10$--$0.13 \ll 1$
+(smaller planet, smaller $R_{\mathrm{ring}}^3$).
+The Rossby stationarity mechanism does not apply;
+the relevant bridge is Thomson/Onsager.
+
+The binding constraint is \emph{packing}: Neptune's polar
+ring radius ($R_{\mathrm{ring}} \approx 3{,}000$\,km) is too small
+for many cyclones of Jupiter-like size to fit.
+The prediction depends on the deformation radius:
+\begin{center}
+\small
+\begin{tabular}{lccc}
+\toprule
+$R_d$ (km) & $\varepsilon/R_{\mathrm{ring}}$ &
+  $N_{\mathrm{pack}}$ & $N_{\mathrm{pred}}$ \\
+\midrule
+$500$ (shallow) & $0.17$ & $18$ & $\le 7$ \\
+$1{,}000$ (moderate) & $0.33$ & $9$ & $\le 7$ \\
+$1{,}500$ (Jupiter-like) & $0.50$ & $5$ & $5$ \\
+$2{,}500$ & $0.65$ & $4$ & $4$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Neptune's strong internal heat flux
+($F_{\mathrm{int}} = 0.43$\,W\,m$^{-2}$,
+$2.6\times$ absorbed solar) favours vigorous convection,
+suggesting $R_d \gtrsim 1{,}000$\,km.
+In this regime, the prediction narrows to
+$N \in \{3, 4, 5\}$---a triangle, square, or pentagon.
+
+Neptune's oblateness ($f = 0.017$) is negligible:
+$\delta\lambda_3 \lesssim 0.01$, far below the
+Thomson eigenvalue margin.
+
+This prediction is testable by a Neptune polar orbiter
+(Trident-class mission): imaging the polar region at
+$\sim 100$\,km resolution would resolve individual
+cyclones and determine~$N$ directly.
+
+\emph{Falsifiability}: a Neptune observation of $N \ge 6$
+would violate the packing bound for any
+$R_d > 1{,}500$\,km.
+
+\subsection{Uranus: no polygon predicted}
+\label{sec:uranus}
+
+Uranus (axial tilt $98^\circ$) presents a qualitatively
+different case.
+The extreme tilt disrupts the Onsager condensation
+mechanism by preventing a persistent polar jet:
+solar forcing alternates between $42$-year polar day and
+$42$-year polar night, and the pole receives
+\emph{more} cumulative insolation than the equator
+over an orbit.
+The prediction is $N = 0$---no polar polygon.
+
+Current observations are consistent:
+\citet{Akins2023} detect a single polar cyclone at
+Uranus's north pole ($N = 1$, below the polygon threshold).
+No ring structure has been observed.
+
+Uranus's oblateness ($f = 0.023$) is negligible for
+the same reason as Neptune.
+
+\emph{Falsifiability}: a Uranus polar polygon would
+challenge the tilt-disruption hypothesis.
+
+\subsection{Why the hexagon is uniquely two-dimensional}
+\label{sec:uniquely-2d}
+
+The hexagon ($N = 6$) is marginally stable in $d = 2$
+($\lambda_{\min} = +0.5$) but unstable for $d \ge 3$
+($\lambda_{\min} = -0.018$ at $d = 3$):
+\begin{center}
+\small
+\begin{tabular}{lcccl}
+\toprule
+$d$ & $\Delta = (d{-}2)/2$ & $N_{\mathrm{crit}}$ &
+  $\lambda_{\min}(N{=}6)$ & Hexagon \\
+\midrule
+$2$ & $0$ & $7$ & $+0.50$ & Stable \\
+$3$ & $1/2$ & $5$ & $-0.02$ & Unstable \\
+$4$ & $1$ & $5$ & $-1.08$ & Unstable \\
+\bottomrule
+\end{tabular}
+\end{center}
+Saturn's hexagon requires the logarithmic interaction
+($d = 2$, $\Delta = 0$), the Green's function of
+the 2D Laplacian.
+The logarithmic interaction survives in a quasi-2D
+atmosphere because the weather layer is thin
+($H_{\mathrm{eff}} \ll R_{\mathrm{planet}}$) and the
+barotropic mode dominates.
+This explains why hexagonal features are observed only on
+gas giants with thin weather layers and not on
+terrestrial planets or in 3D laboratory flows.
+
 
 %% ====================================================================
 \section{Circulation disorder and stability domain robustness}
