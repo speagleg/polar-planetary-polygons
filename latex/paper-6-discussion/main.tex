@@ -742,6 +742,129 @@ matter power spectrum at $k > 1\;\mathrm{Mpc}^{-1}$
 (Euclid, Roman) will find $n_s \approx 0.96$--$0.97$
 with no blue tilt or scale-dependent enhancement.
 
+\subsection{Dynamical maintenance of polar polygons}
+\label{sec:dynamical-maintenance}
+
+The constrained energy minimum is a static result.
+Whether it translates into a dynamical attractor under
+convective forcing depends on the timescale ratio
+$\mathcal{R} = \tau_{\mathrm{inject}}/\tau_{\mathrm{restore}}$.
+
+For Jupiter's $N = 8$ ring (Juno parameters:
+$R_{\mathrm{ring}} \approx 7{,}500$\,km,
+$\kappa_0/\kappa \approx 1$):
+\begin{itemize}
+\item \emph{Restoring:}
+  The ring orbital period is
+  $T_{\mathrm{orb}} = 8\pi^2 R^2/[\kappa(N{-}1)]
+  \approx 4.6$\,days.
+  The most marginal mode ($m = 4$) has
+  $\lambda_{\mathrm{eff}} \approx 3$
+  (bare eigenvalue $-1$, raised to $+3$ by the
+  central cyclone).
+  $\tau_{\mathrm{restore}}
+  = (\sqrt{\lambda_{\mathrm{eff}}}\,\Omega)^{-1}
+  \approx 0.4$\,days.
+\item \emph{Injection:}
+  Convective power per cyclone footprint:
+  $P = F_{\mathrm{int}}\,\pi r_c^2
+  \approx 1.15 \times 10^{13}$\,W.
+  Tropospheric kinetic energy per cyclone:
+  $E_K \approx 4 \times 10^{19}$\,J.
+  $\tau_{\mathrm{inject}} = E_K/P \approx 40$\,days.
+\end{itemize}
+The ratio $\mathcal{R} \approx 100$: the restoring force
+operates ${\sim}100\times$ faster than convective injection.
+Including the inverse-cascade efficiency
+($\lesssim 1\%$) raises~$\mathcal{R}$ to order~$10^4$.
+
+\emph{Two-timescale resolution.}
+The Onsager selection (ergodic exploration) and
+Arnold stability (bounded perturbations) operate
+\emph{sequentially}:
+\begin{itemize}
+\item \textbf{Formation phase}
+  ($\tau_{\mathrm{form}} \sim$\,weeks--months):
+  the inverse cascade concentrates same-sign vorticity
+  into $N$ clusters.
+  The system is turbulent and ergodic;
+  the Onsager argument determines \emph{which}~$N$
+  is selected.
+\item \textbf{Persistence phase}
+  ($\tau_{\mathrm{persist}} \sim$\,years--decades):
+  Arnold stability takes over;
+  the polygon is a constrained energy minimum with
+  $\mathcal{R} \approx 100$.
+  The system is no longer ergodic---it is trapped
+  in the stability basin.
+\end{itemize}
+The Onsager argument selects~$N$ \emph{before} the polygon
+forms; the Arnold argument maintains it \emph{after}.
+
+\subsection{Planetary falsifiability}
+\label{sec:planetary-falsifiability}
+
+Five testable predictions whose violation would require
+fundamental revision:
+\begin{enumerate}
+\item A \emph{stable $N \ge 9$ polar polygon} on any
+  gas giant would violate the Thomson bound
+  ($\kappa_{\mathrm{crit}}(9) = 1$).
+\item \emph{Saturn's hexagon below $72^\circ$N}
+  would violate the oblateness sign-flip
+  ($\lambda_3 < 0$ below $\varphi_{\mathrm{crit}}$;
+  Paper~II, Proposition~\ref*{II-prop:oblateness}).
+\item A \emph{hexagonal feature in a 3D-dominated regime}
+  would violate the dimensional uniqueness
+  ($N_{\mathrm{crit}}$ drops from~$7$ to~$5$ at $d = 3$).
+\item \emph{Neptune $N \ge 6$} would violate the packing
+  bound for any $R_d > 1{,}500$\,km
+  (Paper~II, \S\ref*{II-sec:neptune}).
+\item \emph{Jupiter $N = 8$ in shallow-layer models}
+  ($R/R_d > 1.5$) would violate the $K_0$ suppression
+  that requires a deep weather layer.
+\end{enumerate}
+
+\subsection{Astrophysical extensions}
+\label{sec:stellar-applications}
+
+The polygon stability framework extends to any system
+with 2D vortex dynamics and a logarithmic interaction.
+
+\paragraph{Neutron star superfluid vortices.}
+Quantised vortices in the neutron superfluid have
+$\kappa = h/(2m_n) \approx 2.0 \times 10^{-7}$\,m$^2$\,s$^{-1}$
+and interact via the 2D logarithmic kernel.
+Three predictions:
+(1)~triangular vortex lattice (triangle universality);
+(2)~ring instability at $N = 7$ (any ring of $N > 7$
+co-rotating vortices fragments);
+(3)~quantised pulsar glitch sizes
+$\Delta\Omega_N = N\kappa/(2\pi R_{\mathrm{pin}}^2)$
+in units of $N = 3, \ldots, 7$, with maximum at $N = 7$.
+\citet{Howitt2020} already use the Havelock framework
+for superfluid vortex stability in glitch models.
+
+\paragraph{Rapidly rotating stars.}
+Stars with extreme oblateness ($\varepsilon > 0.5$:
+Vega, Altair, Achernar) have curvature gradients
+analogous to Saturn's.
+The oblateness correction may increase $N_{\mathrm{crit}}$
+by $1$--$2$ relative to a sphere,
+potentially stabilising polar vortex polygons.
+Testable by direct imaging with
+extreme-adaptive-optics instruments.
+
+\paragraph{Magnetic white dwarfs.}
+Quantised magnetic flux tubes
+($\Phi_0 = h/(2e)$) in white dwarfs
+($B \sim 10^6$--$10^9$\,G) interact via the
+2D logarithmic kernel when the London penetration depth
+exceeds the inter-tube spacing.
+Ring configurations are limited to $N \le 7$;
+the lattice is triangular.
+
+
 \section{Conclusion}
 \label{sec:conclusion}
 
