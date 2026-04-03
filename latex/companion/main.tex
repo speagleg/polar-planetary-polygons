@@ -806,7 +806,521 @@ remains a conjecture.
 
 
 \part{The Physics of Vortex Rings}
-% [Mirrors Paper II --- to be written]
+
+
+\section{How vortices actually move}
+\noindent\textit{[Technical reference: Paper~II, \S1--3]}
+
+\medskip
+
+\noindent\textit{Bottom line: Point vortices have no inertia---they go
+wherever the other vortices push them.}
+
+\medskip
+
+A vortex is not a particle. It is a localized patch of spinning fluid:
+a whirlpool, a cyclone, a tornado. It has no mass. It does not
+accelerate. Drop a ball and gravity pulls it; the ball gains speed,
+picks up momentum, resists being stopped. A vortex does none of this.
+It moves at whatever velocity the surrounding flow dictates, instantly,
+with no lag.
+
+This is the single most important fact about vortex dynamics, and it is
+the fact that makes vortex systems fundamentally different from the
+particle systems physicists usually study. Newton's second law says
+$F = ma$: force equals mass times acceleration. For a vortex, $m = 0$.
+There is no second derivative. The equation of motion is first-order:
+velocity, not acceleration. The vortex goes where the flow tells it to
+go, right now, with no memory of where it was heading a moment ago.
+
+The equations governing $N$ point vortices on a surface are Hamiltonian
+---they conserve energy---but the Hamiltonian plays a dual role. In
+ordinary mechanics, the Hamiltonian generates the time evolution of
+both positions \emph{and} momenta. For vortices, there are no momenta.
+The positions are the entire state. The Hamiltonian (the energy) is a
+function of the positions alone, and it directly prescribes the
+velocities.
+
+What is that energy? The interaction between two point vortices on a
+flat surface is the logarithm of their separation:
+$H = -\sum_{j<k}\ln|z_j - z_k|$. Each pair contributes. If you have
+six vortices, there are fifteen pairs; each pair pulls logarithmically.
+The total energy is the sum. On a curved surface---a sphere, a
+hyperbolic plane---the logarithm is replaced by the Green's function
+of the Laplacian on that surface, but the structure is the same: a sum
+of pairwise interactions, each determined by the surface geometry.
+
+Three quantities are conserved. The energy $H$ itself. The angular
+impulse $L = \sum|z_k|^2$, which measures the total spin-weighted
+spread of the vortices around the origin---think of it as a rotational
+moment of inertia. And the linear impulse $\mathbf{P} = \sum z_k$, the
+center of vorticity. These conservation laws constrain the motion.
+The vortices cannot wander freely through configuration space; they are
+confined to the surface defined by $\{L = \text{constant},\;
+\mathbf{P} = 0\}$. That surface has $2N - 3$ dimensions (start with
+$2N$ coordinates, subtract three constraints).
+
+The regular $N$-gon---$N$ identical vortices equally spaced around a
+circle---is a critical point of the energy on this constraint surface.
+Paper~I proved it is a \emph{minimum}, not a maximum or saddle. Paper~II
+makes this into physics: the polygon is the equilibrium configuration
+that a vortex system naturally settles into. It is the bottom of the
+bowl.
+
+There is a specific deformation path through configuration space that
+Paper~II analyzes in detail: the centered logarithmic spiral. Start
+with the regular $N$-gon. Deform it so the vortices spiral inward,
+each one shifted slightly toward or away from the center in a pattern
+that respects the $\mathbb{Z}_N$ symmetry. This spiral is the unique
+$\mathbb{Z}_N$-equivariant perturbation tangent to a M\"obius orbit
+---a mouthful, but the idea is straightforward: it is the most
+symmetric way to deform the polygon while keeping the overall rotational
+pattern intact.
+
+Along this spiral, the energy curvature $H''(0)$ is strictly negative.
+The polygon sits at a maximum of the unconstrained energy along the
+spiral direction. But the spiral does not stay on the constraint
+surface---it violates the angular-impulse conservation at second order.
+Once you project back onto the constraint surface (the physically
+accessible configurations), the maximum becomes a minimum. The
+Lagrange multiplier from the angular-impulse constraint flips the sign.
+This is the core of the constrained-minimum result: the polygon is
+simultaneously an unconstrained saddle and a constrained minimum. Both
+statements are true; they describe different slices through the energy
+landscape.
+
+The Onsager statistical-mechanics picture operates on the unconstrained
+landscape, where negative temperatures drive vortices to cluster into
+the highest-energy configurations accessible at given conserved
+quantities. The constrained-minimum picture operates on the physical
+surface. The two viewpoints are complementary: Onsager explains
+\emph{why} vortices end up at the polygon (it is the energetically
+favored state at negative temperature); the constrained Hessian
+explains \emph{why} the polygon is stable once they get there.
+
+\textbf{Status: (Proved)}---the constrained-minimum result is
+Theorem~1 of Paper~II, using the Havelock eigenvalue identity from
+Paper~I.
+
+
+%% ====================================================================
+\section{Stabilizing the unstable: central vortices and the
+\texorpdfstring{$N=7$}{N=7} bifurcation}
+\noindent\textit{[Technical reference: Paper~II, \S4--5]}
+
+\medskip
+
+\noindent\textit{Bottom line: For eight or more vortices, a strong
+central vortex can rescue an otherwise unstable polygon.}
+
+\medskip
+
+At $N = 8$, the ring polygon on a flat surface is unstable. The most
+dangerous wobble mode ($m = 4$, the one that splits the octagon into
+two interleaved squares) has eigenvalue $\lambda_4 = 7 - 8 = -1$.
+Negative. The polygon flies apart.
+
+But suppose there is a central vortex---a strong spinning core sitting
+at the exact center of the ring. Every planet with a polar polygon has
+one: Jupiter has a massive central cyclone at each pole, surrounded by
+the ring of smaller cyclones. The central vortex adds a positive shift
+to every eigenvalue. If it is strong enough, it pushes every eigenvalue
+back above zero.
+
+Two effects contribute to this shift. First, the Lagrange multiplier
+changes: the central vortex alters the constraint surface, and the
+angular-impulse condition shifts in a way that adds $+\kappa_0$ to each
+eigenvalue, where $\kappa_0$ is the circulation of the central vortex.
+Second, the central vortex itself exerts a radial force on each ring
+vortex; the Hessian of this interaction projected onto the critical
+eigenvector adds another $+\kappa_0$. Total shift: $+2\kappa_0$.
+
+Setting the shifted eigenvalue to zero and solving gives the critical
+central-vortex strength. The formulas are clean:
+\begin{itemize}
+\item For even $N$: $\kappa_{\mathrm{crit}} = (N^2 - 8N + 8)/16$.
+\item For odd $N$: $\kappa_{\mathrm{crit}} = (N-1)(N-7)/16$.
+\end{itemize}
+The first few values: for $N \le 7$, the critical strength is zero---no
+central vortex needed. For $N = 8$: $\kappa_{\mathrm{crit}} = 1/2$.
+For $N = 9$: $\kappa_{\mathrm{crit}} = 1$. For $N = 10$: $7/4$.
+Each step demands a stronger central vortex.
+
+Paper~II also proves that multi-ring configurations---two or more
+concentric polygons---cannot achieve what a single central vortex can.
+If the outer ring is stable ($N \le 7$), adding an inner ring of
+vortices \emph{destabilizes} it. If the outer ring is already unstable
+($N \ge 8$), an inner ring reduces but never eliminates the
+instability. Only a single vortex at the $\mathbb{Z}_N$ fixed point
+(the dead center) provides the uniform eigenvalue shift needed for full
+stabilization. This is the center-ring dichotomy, and it matches
+observation: Jupiter's south pole has eight cyclones in a ring with one
+central cyclone, not two nested rings.
+
+\subsection*{The BEC prediction}
+
+In a Bose--Einstein condensate---an ultracold quantum gas where atoms
+occupy the same quantum state---vortices carry quantized circulation.
+The circulation is an integer multiple of $h/m_{\mathrm{atom}}$
+(Planck's constant divided by the atomic mass). You cannot have half a
+quantum of circulation.
+
+This quantization turns the continuous threshold
+$\kappa_{\mathrm{crit}} = 1/2$ into a sharp, integer-valued prediction.
+A ring of eight unit-winding vortices in a BEC has
+$\kappa_{\mathrm{crit}} = 1/2$. The smallest possible central vortex
+has winding number $q_0 = 1$, which exceeds $1/2$. So: a ring of eight
+vortices should be unstable alone and stable upon adding a single central
+vortex. No free parameters. No fitting. The healing length of the
+condensate (the ``blob width'' of the vortex core) is so small compared
+to the ring radius that the correction from finite core size is less
+than one part in ten thousand.
+
+For $N = 9$: $\kappa_{\mathrm{crit}} = 1$, so a single central vortex
+with $q_0 = 1$ is marginally stable; solid stability requires $q_0 \ge 2$.
+For $N = 10$: $\kappa_{\mathrm{crit}} = 7/4$, so $q_0 = 1$ fails and
+$q_0 \ge 2$ is needed. Each step up in $N$ demands a stronger
+central vortex, and the quantization of circulation makes the
+predictions binary: stable or not, with no wiggle room.
+
+\subsection*{The $N = 7$ quartic resolution}
+
+The case $N = 7$ sits at the boundary. The minimum eigenvalue is
+$\lambda_3 = 0$: the linear restoring force has vanished. To determine
+stability, Paper~II computes the next term in the Taylor expansion---the
+quartic (fourth-order) coefficient. If this coefficient is positive,
+the marble sits in a flat-bottomed bowl that curves back up; if
+negative, the flat bottom tilts away and the marble slides off.
+
+The computation is exact. No numerical approximation, no floating-point
+rounding---exact rational arithmetic throughout. The positions of the
+seven vortices are seventh roots of unity (complex numbers on the unit
+circle), the interaction is the logarithm, and every intermediate
+quantity is an algebraic number. The Galois group $\mathbb{Z}_7$ acts on
+these algebraic numbers and forces the final answer to be rational (a
+$\mathbb{Z}_7$-invariant sum of elements in $\mathbb{Q}(\zeta_7)$
+must lie in the fixed field $\mathbb{Q}$).
+
+The unconstrained quartic coefficient is $153/7$. The constraint-surface
+correction comes from a log-scaling identity: projecting back onto the
+angular-impulse surface produces an additive correction of $-18/7$. The
+constrained quartic is therefore $153/7 - 18/7 = 135/7$, and the
+normal-form coefficient is $\alpha_0 = (135/7)/6 = 45/14 \approx 3.21$.
+
+Positive. The flat-bottomed bowl curves back up. The heptagon is stable.
+
+The physical consequence: the $N = 7$ polygon has a quartic restoring
+force ($\propto x^3$) instead of the standard linear restoring force
+($\propto x$). Perturb the hexagon, and it snaps back quickly---linear
+spring. Perturb the heptagon, and it drifts back slowly---the
+amplitude-dependent oscillation frequency vanishes as the displacement
+goes to zero. In a BEC experiment, this would show up as an oscillation
+period that grows without bound as the perturbation amplitude shrinks, a
+signature distinct from the constant-period oscillation of the hexagon.
+The predicted frequency for $^{87}$Rb in a $50\;\mu\text{m}$ trap:
+$\omega \approx 24\,\varepsilon^2$ per second, where $\varepsilon$ is
+the fractional radial displacement. At $5\%$ displacement, the period
+is about $100$ seconds---measurable with current BEC imaging.
+
+\textbf{Status: (Proved)}---the central-vortex threshold is
+Proposition~4 of Paper~II. The quartic coefficient
+$\alpha_0 = 45/14 > 0$ is proved in exact rational arithmetic.
+The BEC predictions are \textbf{(Derived)}---they follow from the
+quantization of circulation in a condensate.
+
+
+%% ====================================================================
+\section{From perfect to realistic}
+\noindent\textit{[Technical reference: Paper~II, \S6--9]}
+
+\medskip
+
+\noindent\textit{Bottom line: The idealized results survive every
+realistic correction---finite cores, planetary rotation, and random
+circulation variations.}
+
+\medskip
+
+Everything so far treats vortices as mathematical points: zero size,
+infinite vorticity concentration, a singularity at the center. Real
+vortices---storms on Jupiter, quantum vortices in a condensate---have
+finite cores. Saturn's hexagonal jet is not a ring of point vortices;
+it is a continuous undulation of a zonal wind. The circulations of
+Jupiter's eight polar cyclones are not identical; Juno imagery shows
+peak wind speeds ranging from $60$ to $100\;\text{m/s}$ and diameters
+from $4{,}000$ to $7{,}000\;\text{km}$.
+
+Paper~II addresses each of these objections with a separate bridge
+between the idealized theory and the physical system.
+
+\subsection*{The blob bridge: finite vortex cores}
+
+Replace each point vortex with a smooth ``blob''---a Gaussian bump, a
+Cauchy profile, any smooth distribution of vorticity with a finite core
+radius $\varepsilon$. The interaction between two blobs at distance $d$
+is not exactly $-\ln d$; it picks up a correction of order
+$\varepsilon^2/d^2$. The question is whether this correction changes
+the stability.
+
+Paper~II proves that it does not, at leading order. The constrained
+eigenvalues shift by $O(\varepsilon^2)$, and the shift has two pieces:
+a universal Lagrange-multiplier shift $-(N^2 - 1)/12$ (the same for
+every Fourier mode, coming from the fact that the equilibrium itself
+shifts when the blobs have finite size) and a mode-dependent Hessian
+projection $P_m$ (from the modified pairwise interaction). Both pieces
+are exact rational numbers, computed in closed form.
+
+The Cauchy blob is the slowest-converging profile---it has algebraic
+tails ($\sim r^{-2}$) and infinite second moment, so its Fourier
+transform decays at rate $\varepsilon$ rather than $\varepsilon^2$.
+Any profile with a finite second moment (Gaussian, compact support,
+anything smoother than Cauchy) converges \emph{faster}. So the Cauchy
+blob is the worst case, and the stability conclusions proved for
+Cauchy carry over \emph{a fortiori} to all smoother profiles. This
+profile independence is not a lucky accident; it follows from the
+structure of the Fourier transform at low wavenumber.
+
+Three specific consequences. For $N \le 5$: the eigenvalue correction
+is $c_m = -1$ (the Lagrange shift dominates), so the eigenvalues
+decrease by $\varepsilon^2$, but since the point-vortex eigenvalue is
+at least $1$, stability holds for any $\varepsilon < 1$. For $N = 6$:
+$c_m > 0$, so the blob correction actually \emph{enhances} stability---
+the hexagon is more stable with finite cores than with point vortices.
+For $N = 7$: $c_m = +4$, so the marginal eigenvalue
+$\lambda_3 = 0 + 4\varepsilon^2 = 4\varepsilon^2 > 0$ for any nonzero
+core size. The marginal stability of the point-vortex heptagon is an
+artifact of the zero-size limit; any finite core stabilizes it.
+
+The full infinite-dimensional analysis (Appendix~A of Paper~II) goes
+further: it shows that the blob \emph{shape} deformations---internal
+wobbles of the vortex core---are unconditionally stable. The self-energy
+of a mean-zero shape perturbation scales as $1/\varepsilon^2$ (by a
+Poincar\'e inequality), so shape modes are stiff; the coupling between
+shape and center-of-mass degrees of freedom is quadrupole-order
+($O(\varepsilon^2/d^3)$) and vanishes in the point-vortex limit. No
+eigenvalue is lost, no sign is changed, no new instability arises from
+the infinite-dimensional shape freedom. The point-vortex stability
+eigenvalues control the full problem.
+
+\subsection*{The Rossby bridge: Saturn's hexagon}
+
+Saturn's hexagon is not a ring of discrete cyclones. It is a standing
+wave on a zonal jet---a continuous ribbon of wind that undulates into
+six lobes. The mechanism connecting this wave to the point-vortex
+picture is the Rossby bridge.
+
+On a rotating planet, the vorticity gradient $\beta$ (from the
+variation of the Coriolis force with latitude) supports Rossby waves
+---large-scale meanders of the jet stream. A stationary Rossby wave
+has azimuthal wavenumber
+$n^* = R\cos\varphi\,\sqrt{\beta_{\mathrm{eff}}/U_{\max}}$,
+where $R\cos\varphi$ is the ring radius at latitude $\varphi$,
+$U_{\max}$ is the peak jet speed, and $\beta_{\mathrm{eff}}$ includes
+both the planetary vorticity gradient and the jet curvature. For Saturn
+at $76^\circ$N, the jet curvature dominates $\beta$ by a factor of
+about thirteen. Plugging in Cassini-measured values:
+$n^* \approx 5.4$ from the leading-order dispersion relation. The
+nearest integer is $6$---the wave must fit an integer number of
+wavelengths around the planet. (The discrepancy between $5.4$ and $6$
+is within the measurement uncertainty of the jet width; a $15\%$
+narrower jet gives $n^* = 6.0$ exactly.)
+
+The connection to the point-vortex energy landscape proceeds through
+the critical layer of the saturated wave. At finite amplitude, the
+stationary Rossby wave develops a cat's-eye structure: vorticity is
+trapped into $N$ lobes, each a spinning patch of fluid near a vertex
+of the polygon. As the jet sharpens, these lobes concentrate into $N$
+isolated patches. In the Prandtl--Batchelor limit (the physically
+relevant model for Saturn), the vorticity is constant inside each lobe
+and constant outside; the separatrix between lobes carries zero
+circulation. The lobes \emph{are} the vortices, and the blob bridge
+proves that their finite size does not change the stability
+eigenvalues.
+
+Both planets arrive at the same energy landscape through different
+limiting procedures. Jupiter concentrates $N$ discrete cyclones into
+point vortices (blob radius $\varepsilon \to 0$). Saturn concentrates a
+continuous jet meander into $N$ patches (jet width $\sigma \to 0$).
+Both limits converge to the Havelock spectrum.
+
+The dimensionless number $\beta R^3/\kappa$ separates the two regimes.
+When $\beta R^3/\kappa \ll 1$, vortex interactions dominate Rossby-wave
+propagation: this is Jupiter ($\beta R^3/\kappa \approx 0.6$). When
+$\beta R^3/\kappa \gg 1$, the wave mechanism dominates: this is Saturn
+($\beta R^3/\kappa \approx 7.6$).
+
+\subsection*{The deformation radius: stratification effects}
+
+On a rotating planet with density stratification, the vortex
+interaction is modified by the Rossby deformation radius $L_R$. The
+Green's function transitions from $-\ln r$ (at separations much less
+than $L_R$) to exponential decay $K_0(r/L_R)$ (at separations much
+greater than $L_R$). The exponential tail destroys long-range
+correlations between non-adjacent vortices, which are what hold the
+polygon together.
+
+The polygon-suppression transition: for $N \le 5$, the polygon is
+stable at any ratio $R/L_R$. For $N = 6$, the polygon is stable only
+if $R/L_R < 1.29$---the ring radius must be less than about $1.3$
+deformation radii. For $N = 7$, any finite $R/L_R$ destabilizes the
+marginally stable heptagon. For $N \ge 8$, the polygon is already
+unstable in the barotropic limit.
+
+Saturn's hexagon persists because Saturn's barotropic column runs deep.
+Cassini Grand Finale gravity measurements constrain the differential
+rotation to a depth of $8{,}000$--$9{,}000\;\text{km}$, implying a
+coherent column of order $10^4\;\text{km}$---far exceeding the
+hexagon's vertical scale. The effective deformation radius is large
+enough that $R/L_R$ stays below the critical ratio.
+
+Jupiter's situation is less clean. Juno gravity measurements constrain
+the differential rotation to about $3{,}000\;\text{km}$ depth ($4\%$ of
+Jupiter's radius), far shallower than Saturn's. Whether Jupiter's polar
+cyclones sit on deep barotropic Taylor columns or in a shallow weather
+layer is not yet settled. The $N = 8$ prediction requires the deep
+limit ($R/L_R \lesssim 0.8$, i.e.\ $L_R > 9{,}700\;\text{km}$). A
+direct measurement of the depth of the polar cyclone roots would
+resolve this; the computation sets a quantitative target.
+
+\subsection*{Circulation disorder: imperfect vortices}
+
+Jupiter's eight polar cyclones are not identical. Their peak wind speeds
+vary by a factor of nearly two; their diameters range by $75\%$. The
+coefficient of variation in circulation is roughly $15$--$25\%$.
+Saturn's hexagonal jet is more uniform (about $5\%$ variation).
+
+Paper~II models this as random perturbations:
+$\kappa_k = \kappa(1 + \eta_k)$, where $\eta_k$ is drawn from a
+Gaussian with standard deviation $\sigma_\eta$. Monte Carlo
+simulations over $1{,}000$ realizations compute the probability that
+the minimum eigenvalue drops below zero.
+
+The result: the stability domain is a domain, not a knife-edge.
+For $N = 6$ at physically relevant disorder ($\sigma_\eta \le 0.2$),
+the probability of instability stays below $10\%$. For $N = 8$ on the
+hyperbolic plane (curvature-stabilized), the probability stays below
+$15\%$ at Jupiter's estimated disorder level. The $N = 7$ marginal ring
+is more sensitive---the marginal mode is the first to be destabilized---
+but even there, at Jupiter's estimated $\sigma_\eta \approx 0.2$, a
+hypothetical $N = 7$ ring would have essentially zero probability of
+instability. The sensitivity appears only at unphysically large
+disorder ($\sigma_\eta \ge 0.5$).
+
+Configurations comfortably inside the stable region remain stable under
+the circulation fluctuations observed at Jupiter and Saturn. The
+$N_{\mathrm{crit}}$ boundary holds up.
+
+\textbf{Status: (Proved)}---the blob bridge and profile independence are
+mathematical theorems (Proposition~5 of Paper~II). The Rossby bridge
+Saturn prediction is \textbf{(Derived)}---it depends on Saturn's
+measured jet parameters. The circulation disorder results are
+\textbf{(Derived)}---Monte Carlo with controlled statistical errors.
+
+
+%% ====================================================================
+\section{Vortices meet gravity}
+\noindent\textit{[Technical reference: Paper~II, \S10--12]}
+
+\medskip
+
+\noindent\textit{Bottom line: In $2{+}1$ dimensional gravity, a point
+mass and a point vortex are the same mathematical object.}
+
+\medskip
+
+This section is the bridge to everything that follows in Papers~III
+through VI. The claim is precise, so I want to state it carefully.
+
+In $2+1$ dimensional general relativity---gravity in a universe with
+two spatial dimensions plus time---a point mass does something
+peculiar. It does not create a gravitational well in the Newtonian
+sense; there is no $1/r$ force, no gravitational waves, no propagating
+degrees of freedom. What it creates is a \emph{conical deficit angle}.
+Take a flat sheet of paper. Cut out a wedge. Tape the edges together.
+The result is a cone: flat everywhere except at the tip, where the
+angular range is less than $360^\circ$. The missing angle is the
+deficit. For a point mass $m$ in $2+1$D gravity, the deficit angle is
+$\varepsilon = 8\pi G m$, proportional to the mass.
+
+A point vortex on a two-dimensional surface creates the same kind of
+singularity in the stream function. The circulation $\kappa$ plays
+the same role as the deficit angle. Both objects satisfy the same
+equation: the Poisson equation for the two-dimensional Laplacian,
+$\nabla^2\Phi = (\text{source strength})\cdot\delta(z - z_0)$.
+Both have the logarithm as their Green's function.
+
+The identification is: deficit angle $= 2\pi\kappa$, or equivalently,
+$\kappa = 8\pi Gm/(2\pi) = 4Gm$. Once you make this substitution, the
+vortex Hamiltonian $H = -\sum_{j<k}\ln|z_j - z_k|$ and the
+gravitational interaction energy
+$E_{\mathrm{grav}} = -(8\pi G)^2\sum_{j<k}m^2 G_S(z_j, z_k)$ are
+the same function up to a positive multiplicative constant. The
+equations of motion are the same differential equations. The Havelock
+eigenvalues are the same numbers. The stability thresholds---$N = 7$
+on a flat surface, the palindromic hierarchy on curved surfaces---are
+the same thresholds.
+
+I want to be precise about what this identification is and is not. It
+is not an analogy. It is not a metaphor. It is not a qualitative
+resemblance. The two systems share the same Green's function, the same
+Poisson equation, and therefore the same energy landscape up to overall
+scale. The Hessian matrices are proportional; the eigenvalues are
+proportional; the stability boundaries are identical. Anything proved
+about the vortex system transfers verbatim to the gravitational system,
+and vice versa.
+
+There is a difference in dynamics. Vortex equations of motion are
+first-order: the Hamiltonian directly prescribes velocity. Gravitational
+equations of motion are second-order: there is kinetic energy, there is
+potential energy, and the Hamiltonian generates acceleration. But the
+stability criterion---whether the polygon is an energy extremum---depends
+only on the \emph{potential energy landscape}, not on the kinetic term.
+A positive eigenvalue means stable oscillation in the gravitational case
+and stable circulation in the vortex case. A negative eigenvalue means
+exponential growth in both. The criterion $N \le N_{\mathrm{crit}}$ is
+identical.
+
+Paper~II also addresses the backreaction question. Each point mass
+creates a conical deficit; does the accumulation of deficit angles
+distort the geometry enough to invalidate the flat-plane calculation?
+The answer involves the \emph{developing map}---a conformal isometry
+from the cone surface to the Euclidean plane, constructed using a
+hypergeometric function. The key result: the developing map preserves
+$\mathbb{Z}_N$ symmetry (the image of the $N$-gon is still a regular
+$N$-gon), and the two-dimensional Green's function is conformally
+invariant ($G(z,w) = -(2\pi)^{-1}\log|z - w|$ in conformal coordinates,
+regardless of the cone angles). Consequently, the Havelock eigenvalues
+are $(N-1) - m(N-m)/2$ for all deficit angles in the allowed range
+$Gm \in [0, 1/(2N))$. The stability threshold $N = 7$ does not shift.
+The deficit angles do not backreact on the stability.
+
+At the endpoint $Gm = 1/(2N)$, the total deficit exhausts the curvature
+budget and the spatial slice compactifies to a sphere. On the sphere,
+$C_1 = (N-1)\cos\varphi < N - 1$, and $N_{\mathrm{crit}}$ drops to $6$
+or below. The transition from $N_{\mathrm{crit}} = 7$ (flat) to
+$N_{\mathrm{crit}} \le 6$ (sphere) is discontinuous---it happens at the
+topology change, not through a gradual weakening. The cosmological
+constant $\Lambda$ (positive for the sphere, negative for the hyperbolic
+plane) controls the stability threshold through $C_1$; the deficit
+angles do not.
+
+The convergence proof in Appendix~A closes the last gap: it shows that
+the infinite-dimensional fluid system (continuous vorticity fields)
+converges to the finite-dimensional point-vortex system in the
+appropriate limit. The Hessian of the full Euler energy, including
+blob shape deformations and center-shape coupling, has the same
+inertia (same count of positive, zero, and negative eigenvalues) as
+the point-vortex Havelock spectrum. No information is lost in the
+idealization. The point-vortex model is not a cartoon; it is the
+correct leading-order description.
+
+\textbf{Status: (Proved)}---the vortex-gravity identification
+(Proposition~8 of Paper~II), conformal invariance of flat-plane
+stability (Proposition~9), and the convergence theorem
+(Proposition~10, Appendix~A) are all mathematical results. The
+planetary predictions---Saturn's hexagon from the Rossby bridge,
+Jupiter's octagon from the central-vortex threshold---are
+\textbf{(Derived)}, depending on measured planetary parameters.
 
 
 \part{How Gravity Emerges}
