@@ -2614,7 +2614,530 @@ correct ordering but not the correct magnitudes.
 
 
 \part{The Numbers of the Universe}
-% [Mirrors Paper V --- to be written]
+
+
+\section{Why $N = 11$, and the cosmological constant}
+\noindent\textit{[Technical reference: Paper~V, \S1--4]}
+
+\medskip
+
+\noindent\textit{Bottom line: The total polygon number is forced to be
+eleven---and this single integer determines the curvature of the
+universe.}
+
+\medskip
+
+Paper~IV established two polygons: $N = 7$ for gravity (the
+graviton, spin~$2$, selected by the Pell equation) and $N = 4$ for
+the electroweak force (the vector boson, spin~$1$, the unique
+even polygon with integer critical spin below $N = 24$). Both
+sectors live on the same circle fiber of the Seifert manifold. Their
+fluxes add---this is Chern class additivity, a theorem in algebraic
+topology, not a modeling choice. The total flux through the fiber is
+$4/2 + 7/2 = 11/2$, giving the total polygon number $N = 11$.
+
+This is not one option among several. I want to show the
+elimination table, because the constraint is sharp.
+
+\begin{center}
+\small
+\begin{tabular}{lcll}
+\toprule
+$N$ & Decomposition & Why it fails & Failure type \\
+\midrule
+$4$  & $4$ alone      & Cosmological constant $= 0$ (gauge threshold only) & mathematical \\
+$7$  & $7$ alone      & Gives $M_P/v$, not the cosmological constant & structural \\
+$8$  & $4 + 4$        & No graviton ($j = 2$ requires $N = 7$) & mathematical \\
+$9$  & $4 + 5$        & $N = 5$: $j \approx 1.79$ (non-integer spin) & mathematical \\
+$10$ & $3 + 7$        & $N = 3$: $j = 0$ (no gauge content) & mathematical \\
+$12$ & $5 + 7$        & $N = 5$: non-integer spin & mathematical \\
+$14$ & $7 + 7$        & Two graviton sectors $\to$ extra free parameter & structural \\
+$28$ & $4 \times 7$   & Doubled gauge sectors $\to$ undetermined scale & structural \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Every candidate either fails the Pell equation (non-integer spin at
+the critical mode---a mathematical impossibility) or duplicates a
+gauge sector (introducing an undetermined relative scale---a
+structural flaw). $N = 11$ is the unique combination that includes
+each gauge sector exactly once.
+
+With $N = 11$ fixed, the cosmological constant follows from one
+equation:
+\begin{equation}\label{eq:lambda-companion}
+  \Lambda_3 \;=\; \frac{N^2 - 16}{16}\,.
+\end{equation}
+In words: take the polygon number, square it, subtract sixteen,
+divide by sixteen.
+
+At $N = 4$ (the electroweak threshold): $(16 - 16)/16 = 0$. Zero
+cosmological constant. The universe at this threshold is exactly flat.
+
+At $N = 11$ (the full cosmological sector):
+$(121 - 16)/16 = 105/16 = 6.5625$. Positive. The universe has
+positive curvature energy---it expands.
+
+The formula comes from a competition between two contributions on the
+Seifert manifold. The negative curvature of the hyperbolic base
+$\mathbf{H}^2$ wants $\Lambda_3 < 0$ (collapsing). The positive flux
+energy from the quantized gauge field on the $S^1$ fiber wants
+$\Lambda_3 > 0$ (expanding). The flux energy scales as $N^2/16$; the
+base curvature contributes $-1$. They cancel at $N = 4$. For
+$N = 11$, the flux wins.
+
+This formula gives $\Lambda_3$ in units of $1/\ell^2$, where $\ell$
+is the curvature radius of the hyperbolic base. The physical
+four-dimensional cosmological constant is
+$\Lambda_4 = \Lambda_3/\ell^2$. The value of $\ell$ comes from the
+$N = 11$ tunneling calculation in the next section. The ratio
+$\Lambda_3$ is fixed by arithmetic; $\ell$ is fixed by a tunneling
+integral. Between them, they determine the expansion rate of the
+universe.
+
+The Frobenius automorphism of $\mathbb{Z}_{11}$ (the map
+$m \mapsto 3m \bmod 11$, which has order~$5$) provides a consistency
+check: it generates $\mathrm{SU}(5)
+\supset \mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$,
+reproducing the Georgi--Glashow grand-unified embedding. The polygon
+framework does not use grand unification as an input---it arrives at
+the same group-theoretic structure from the bottom up.
+
+Three fermion generations follow immediately:
+$n_{\mathrm{gen}} = (N_{\mathrm{grav}} - 1)/2 = (7 - 1)/2 = 3$.
+Each palindromic mode pair $(m, 7 - m)$ for $m = 1, 2, 3$ constitutes
+one generation, ordered by Kaluza--Klein mass. No permutation freedom
+exists---the hierarchy is fixed by the mode number.
+
+\textbf{Status: (Derived)}---the flux additivity is a topological
+theorem. The elimination table is exhaustive below $N = 41$. The
+$\Lambda_3$ formula follows from the Kaluza--Klein reduction.
+
+
+%% ====================================================================
+\section{The hierarchy problem solved by tunneling}
+\noindent\textit{[Technical reference: Paper~V, \S5--6]}
+
+\medskip
+
+\noindent\textit{Bottom line: The $10^{16}$ ratio between the Planck
+mass and the electroweak scale---the most extreme hierarchy in
+physics---emerges from a single tunneling calculation.}
+
+\medskip
+
+Gravity is weak. Absurdly, inexplicably weak. Hold a refrigerator
+magnet to a nail: the electromagnetic force of that magnet overcomes
+the gravitational pull of the entire Earth. The ratio between the
+Planck mass (where gravity becomes strong) and the electroweak scale
+(where the other forces operate) is approximately $10^{16}$---a one
+followed by sixteen zeros. Why?
+
+This is the hierarchy problem, and it has been the central puzzle of
+particle physics for forty years. The Standard Model has no answer.
+Supersymmetry was proposed as a solution but has not been found at
+the Large Hadron Collider. Extra dimensions (Randall--Sundrum models)
+address it but introduce free parameters. The polygon framework
+derives the ratio from three computable pieces.
+
+The polygon's breathing mode---the collective expansion and
+contraction of the ring---tunnels through a potential barrier in the
+Born--Oppenheimer potential $V_7(\rho)$. The tunneling action
+$S_{\mathrm{BO}}(7)$ is a definite integral:
+\[
+  S_{\mathrm{BO}}(7) = \int_0^{\rho^*}\!\sqrt{2\,c_7\,|V_7(\rho)|}
+  \;d\rho = 18.274,
+\]
+computed numerically to ten decimal places. The potential $V_7$ and
+the kinetic coefficient $c_7 = 12\,b(7) = 51.57$ are both determined
+by $N = 7$; no parameter is adjusted.
+
+The hierarchy decomposes into three independently computable
+contributions:
+\begin{equation}\label{eq:hierarchy-companion}
+  \ln\!\frac{M_P}{M_{\mathrm{EW}}}
+  = \underbrace{2\,S_{\mathrm{BO}}(7)}_{\text{tunneling}}
+  + \underbrace{\Delta\varepsilon\,\ln\varepsilon_7}_{\text{mass gap}}
+  + \underbrace{\tfrac{1}{2}\ln\!\bigl(c_{11}/(24\pi^2)\bigr)}_{\text{gravity prefactor}}.
+\end{equation}
+Each piece has a physical meaning. Let me walk through them.
+
+\textbf{Component~1: The instanton.} The breathing mode tunnels
+through the barrier and back---a ``bounce.'' The bounce action is
+$2 \times 18.274 = 36.548$. This single number accounts for $94.3\%$
+of the hierarchy. It sets the exponential suppression
+$e^{-36.548} \approx 10^{-16}$ that makes gravity so much weaker than
+the other forces.
+
+\textbf{Component~2: The mass gap.} The Wheeler--DeWitt equation on
+the breathing mode has a ground state and a first excited state
+separated by an energy gap $\Delta\varepsilon = 0.8031$---a universal
+constant of the logarithmic Schr\"odinger equation, independent of
+all parameters. Multiplied by the logarithm of the Pell unit
+$\varepsilon_7 = 8 + 3\sqrt{7}$ (the fundamental unit of the ring of
+integers $\mathbb{Z}[\sqrt{7}]$): $0.8031 \times 2.769 = 2.224$.
+This contributes $5.7\%$ of the total. It is the quantum zero-point
+energy of the breathing mode, a correction that shifts the tunneling
+exponent above its semiclassical value.
+
+\textbf{Component~3: The gravity prefactor.} The Planck mass is
+determined by the full $N = 11$ spacetime geometry (not just the
+$N = 7$ graviton sector). The central charge $c_{11} = 12\,b(11) =
+126.56$ enters through the Brown--Henneaux relation:
+$(1/2)\ln(c_{11}/(24\pi^2)) = -0.313$. A small negative correction.
+
+The arithmetic: $36.548 + 2.224 + (-0.313) = 38.458$.
+
+The observed value, from the measured Planck mass and electroweak
+vacuum expectation value: $\ln(M_P/v) = 38.442$.
+
+The match: $38.458$ versus $38.442$. A discrepancy of $0.016$ in the
+logarithm, or $0.04\%$. In the ratio itself: a $1.5\%$ discrepancy
+for a number that spans sixteen orders of magnitude.
+
+Now the Pell connection, which I flagged in Part~I and which closes a
+loop through the entire series. The ratio $M_P/M_{\mathrm{EW}}$ is,
+at leading order, a power of $8 + 3\sqrt{7}$---the fundamental unit
+of $\mathbb{Z}[\sqrt{7}]$. The same algebraic number that governs
+the $7 \to 8$ stability threshold on the hyperbolic plane (the
+palindromic equation $\xi^2 - 16\xi + 1 = 0$, whose smaller root
+is $8 - 3\sqrt{7}$). The Pell identity
+$8^2 - 7 \times 3^2 = 1$ that generates the stability threshold also
+generates the hierarchy exponent. The connection is forced by the
+Selberg trace formula on the Klein quartic: the instanton action
+$S_{\mathrm{BO}}(7)$ satisfies
+$2S/({\ln\varepsilon_7}) = 2N - \sqrt{2/\pi} - 4/c_7^2 + O(1/c_7^3)$,
+verified to $0.00005\%$. Each of the seven vortices contributes
+one Pell regulator $\ln\varepsilon_7$ to the tunneling exponent.
+
+\subsection*{Prediction of the Higgs vacuum expectation value}
+
+The hierarchy formula runs in both directions. Given the Planck mass
+as input: $v = M_P/\exp(38.458) = 245.9$ GeV. The measured value:
+$246.2$ GeV. Match: $0.12\%$.
+
+\textbf{Status: (Derived)}---the tunneling action is computed
+numerically from the Born--Oppenheimer potential. The mass gap is a
+universal constant of the log-Schr\"odinger equation. The gravity
+prefactor uses the Brown--Henneaux relation. All three components are
+determined by $N = 7$ and $N = 11$.
+
+
+%% ====================================================================
+\section{The cosmic energy budget}
+\noindent\textit{[Technical reference: Paper~V, \S7--9]}
+
+\medskip
+
+\noindent\textit{Bottom line: The $69/27/5$ split of dark energy, dark
+matter, and ordinary matter comes from three orders of approximation
+in the same calculation.}
+
+\medskip
+
+The universe is made of three things. About $69\%$ is dark energy: a
+constant energy density that fills empty space and drives the
+accelerating expansion. About $27\%$ is dark matter: invisible mass
+that holds galaxies together but does not emit or absorb light. About
+$5\%$ is ordinary matter: atoms, stars, planets, people.
+
+The Standard Model of cosmology describes this $69/27/5$ split but
+does not explain it. The numbers are measured from the cosmic
+microwave background (by the Planck satellite) and from galaxy
+surveys (by DESI, among others), then inserted into the equations by
+hand. Nobody knows why the split takes these values and not others.
+
+In the polygon framework, the free energy of the $N = 11$ breathing
+mode has three contributions, arising at three successive orders of
+the saddle-point expansion. Each order maps to one component of the
+cosmic energy budget.
+
+\subsection*{Tree level: dark energy}
+
+The lowest-order contribution is the classical minimum of the
+Born--Oppenheimer potential: $F_{\mathrm{DE}} = b(N) + N/4$. This
+term is independent of the breathing coordinate $\rho$---it is a
+constant, the vacuum energy of the polygon configuration. A constant
+energy density has the equation of state $w = -1$: pressure equals
+negative energy density. That is the equation of state of the
+cosmological constant.
+
+The polygon does not predict $w \approx -1$. It predicts $w = -1$
+exactly. The DESI DR2 measurement $w = -1.0 \pm 0.1$ is consistent;
+any confirmed deviation from $w = -1$ would falsify this piece of the
+framework.
+
+\subsection*{One-loop: dark matter}
+
+The next-order contribution comes from the quantum fluctuations of the
+frozen angular modes---the $N - 2$ Havelock modes with $m \ne m^*$
+that sit at positive eigenvalues and do not participate in the
+breathing-mode tunneling. Their one-loop determinant is
+$F_{\mathrm{DM}} = (1/2)\sum_{m \ne m^*}\ln|\lambda_m|$.
+
+This term depends on the breathing mode $\rho$ (through the
+$\rho$-dependence of each $\lambda_m$) but not on the spatial volume
+of the $\mathbf{H}^2$ slice. A contribution that depends on a
+dynamical variable evolving with cosmic time but not on spatial
+volume has zero pressure: $p = -\partial F/\partial V = 0$, which
+gives $w = 0$. Cold matter.
+
+After the cosmological phase transition, each frozen mode becomes a
+massive Kaluza--Klein particle with mass
+$M_k = \sqrt{\lambda_k} \times M_{\mathrm{poly}}$. At $N = 11$,
+the eigenvalue gaps are the triangular numbers $\lambda_m = 1, 3, 6,
+10$, giving four species with mass ratios
+$1 : \sqrt{3} : \sqrt{6} : \sqrt{10}$ and absolute masses between
+$50$ and $950$ TeV (depending on the polygon scale).
+
+These particles are absolutely stable---protected by
+$\mathbb{Z}_{11}$ charge conservation, the same topological mechanism
+that protects the proton from decay in the $\mathbb{Z}_{56}$ sector.
+They interact with ordinary matter only through gravity: the
+spin-independent cross section on a nucleon is approximately
+$10^{-103}$ cm$^2$, which is $55$ orders of magnitude below the
+current LZ experimental bound. They will never be detected in any
+direct detection experiment. Ever. They cluster gravitationally like
+standard cold dark matter, reproducing rotation curves, the bullet
+cluster, gravitational lensing, and CMB acoustic peaks.
+
+\subsection*{Non-perturbative: ordinary matter}
+
+The third contribution is the tunneling amplitude itself: the mass gap
+$F_{\mathrm{M}} = \Delta E$ of the Wheeler--DeWitt equation. This is
+the non-perturbative piece---it cannot be seen at any finite order of
+the saddle-point expansion. The tunneling event localizes the
+breathing mode, the amplitude thermalizes below the electroweak
+temperature, and the result is baryonic matter.
+
+\subsection*{The numbers}
+
+At $N = 11$, with instanton resummation:
+\begin{center}
+\small
+\begin{tabular}{lccc}
+\toprule
+Component & Prediction & Planck 2018 & Tension \\
+\midrule
+Dark energy $\Omega_\Lambda$ & $68.9\%$ & $68.5 \pm 0.7\%$ & $0.6\sigma$ \\
+Dark matter $\Omega_{\mathrm{DM}}$ & $26.9\%$ & $26.6 \pm 0.7\%$ & $0.4\sigma$ \\
+$\Omega_\Lambda / \Omega_{\mathrm{DM}}$ & $2.56$ & $2.57$ & $0.5\%$ \\
+Baryonic matter $\Omega_b$ & $5.0\%$ & $4.9 \pm 0.1\%$ & $0.6\sigma$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Every entry is within one standard deviation of the measured value.
+The ratio $\Omega_\Lambda/\Omega_{\mathrm{DM}} = 2.56$ (measured:
+$2.57 \pm 0.05$) is independent of the curvature radius $\ell$---it
+is a pure number determined by the eigenvalue spectrum at $N = 11$.
+
+\subsection*{The baryon asymmetry: an honest factor of three}
+
+The baryon-to-photon ratio $\eta_B$ measures how much ordinary matter
+the universe contains per photon. The observed value:
+$6.1 \times 10^{-10}$.
+
+The polygon prediction: $\eta_B \approx 2 \times 10^{-9}$. Off by a
+factor of three.
+
+I want to be transparent about this. The factor of three is the
+largest discrepancy in the cosmological sector. Its origin is
+identified: the calculation depends on lattice QCD parameters (the
+weak sphaleron rate $\kappa$ and the Yukawa equilibration rate
+$\Gamma_y$), each of which carries factor-of-two uncertainties that
+are shared by every electroweak baryogenesis model, not specific to
+this framework. At the favorable end of the lattice ranges
+($\kappa = 10$, $\Gamma_y = 0.3$ instead of the central values
+$\kappa = 20$, $\Gamma_y = 0.2$), the prediction matches to $10\%$.
+
+The instanton resummation that brings $\Omega_b$ into line uses the
+Reidemeister torsion of the Chern--Simons partition function. Adjacent
+flat $\mathrm{SU}(3)$ connections on the Seifert manifold have
+spectral flow $\pm 1$, flipping the sign of the analytic torsion.
+This produces an alternating geometric series
+$\sum(-K^2)^n = 1/(1 + K^2)$, where $K = 0.548$ is the instanton
+fugacity. The series converges ($K^2 = 0.300 < 1$); truncating at
+$n = 2$ gives a remainder of $2.1\%$. No new parameter enters. The
+resummation shifts $\Omega_b$ from a $12\sigma$ discrepancy at tree
+level to $0.6\sigma$ after all corrections.
+
+The structural predictions---first-order electroweak phase transition
+with $v(T_c)/T_c = 0.84$, CP violation four orders of magnitude above
+the Standard Model Jarlskog invariant, and $v_w$-independent
+$\eta_B$---carry no lattice uncertainty and are the falsifiable
+content of this section.
+
+\textbf{Status: (Derived)} for dark energy and baryonic matter.
+\textbf{(Conjectured)} for the dark matter fraction---the eigenvalue
+spectrum is computed, but the production mechanism (gravitational
+particle creation at the $N$-selection phase transition) has not been
+proved from first principles.
+
+
+%% ====================================================================
+\section{Neutrinos, inflation, and the beginning}
+\noindent\textit{[Technical reference: Paper~V, \S10--12]}
+
+\medskip
+
+\noindent\textit{Bottom line: The neutrino mass hierarchy, the
+mechanism that inflated the early universe, and the arrow of time all
+follow from the polygon structure.}
+
+\medskip
+
+\subsection*{Neutrino masses}
+
+Neutrinos are the lightest known matter particles. They barely
+interact with anything; trillions pass through your body every second
+without touching a single atom. They come in three flavors (electron,
+muon, tau), and they have mass---established by the discovery of
+neutrino oscillations, which won the 2015 Nobel Prize.
+
+Two mass-squared differences are measured: $\Delta m^2_{\mathrm{atm}}
+= 2.45 \times 10^{-3}$ eV$^2$ (from atmospheric neutrinos) and
+$\Delta m^2_{\mathrm{sol}} = 7.5 \times 10^{-5}$ eV$^2$ (from solar
+neutrinos). Their ratio is $32.5$. One calibration input
+($\Delta m^2_{\mathrm{atm}}$) pins the overall mass scale. The ratio
+is a genuine zero-parameter prediction.
+
+The polygon mechanism is a Dirac seesaw. Each neutrino generation
+($m = 1, 2, 3$ at $N = 7$) has a light state and a heavy
+Kaluza--Klein partner. The heavy partner's mass is set by the Pell
+unit: $M_{\mathrm{KK}} = M_{\mathrm{poly}} \times \varepsilon_7^7
+\times 6 \sim 10^{13}$--$10^{14}$ GeV. The light neutrino mass is
+$m_\nu = m_D^2/M_{\mathrm{KK}}$, where $m_D$ is the Dirac mass
+(determined by the radial profile on $\mathbf{H}^2$ at the
+Born--Oppenheimer turning point $\rho^* = 1.734$).
+
+The predicted mass-squared ratio:
+$\Delta m^2_{\mathrm{atm}}/\Delta m^2_{\mathrm{sol}} = 31.5$.
+Measured: $32.5 \pm 1.0$. Match: $3\%$.
+
+The predicted ordering: normal hierarchy ($m_3 \gg m_2 \gg m_1$).
+The JUNO experiment, currently operating in southern China, will
+determine the neutrino mass ordering within the next few years. If
+JUNO finds an inverted hierarchy ($m_2 > m_1 \gg m_3$), the polygon
+prediction is falsified. This is a live, binary experimental test.
+
+The framework also predicts that neutrinos are Dirac particles, not
+Majorana. No Majorana mass term exists in the Seifert geometry; lepton
+number is exactly conserved. The experimental consequence: no
+neutrinoless double beta decay ($0\nu\beta\beta$). The nEXO and
+LEGEND experiments are searching for this process. A confirmed
+detection would falsify the framework.
+
+The total neutrino mass: $\Sigma m_\nu = 0.059$ eV, comfortably
+below the Planck upper bound of $0.12$ eV.
+
+\subsection*{Inflation}
+
+The early universe underwent a brief period of exponential
+expansion---inflation---that stretched quantum fluctuations into the
+seeds of all cosmic structure. The Standard Model of cosmology
+assumes an ``inflaton'' field to drive this expansion, but the
+inflaton is ad hoc: its potential is chosen to fit the data, not
+derived from anything.
+
+In the polygon framework, the inflaton is the radion $\sigma$---the
+size of the compact circle $S^1$. Its potential is determined by the
+Seifert geometry:
+\[
+  V(\sigma) = \frac{N^2}{8\sigma^2} - \frac{c_{11}}{12\sigma}
+  + \Lambda\,\sigma.
+\]
+Three terms: the flux energy (repulsive, $\propto 1/\sigma^2$), the
+Casimir energy (attractive, $\propto 1/\sigma$), and the cosmological
+constant (linear growth at large $\sigma$). The potential is stabilized
+at $\sigma_{\min} \approx 1.35$ and has an inflection point at
+$\sigma_{\mathrm{infl}} \approx 4.3$.
+
+The radion starts above the inflection point---this initial condition
+is set by the $N$-selection tunneling, not chosen by hand---and rolls
+slowly toward the minimum. Near the inflection point, $V'' \approx 0$:
+the potential is nearly flat, the second slow-roll parameter $\eta$ is
+small, and the universe inflates.
+
+The predicted spectral index: $n_s = 1 - 8/(3\sqrt{3}\,N_e)$, where
+$N_e$ is the number of $e$-folds. For $N_e = 50$: $n_s = 0.969$.
+The Planck measurement: $n_s = 0.965 \pm 0.004$. Consistent.
+
+The predicted tensor-to-scalar ratio: $r \sim 10^{-6}$. The BICEP/Keck
+bound: $r < 0.036$. The LiteBIRD satellite will reach
+$\sigma_r \approx 0.001$. Even at that sensitivity, the predicted
+signal is a thousand times too small to detect. Inflection-point
+inflation predicts undetectable primordial gravitational waves from the
+inflationary epoch.
+
+\subsection*{The Penrose past hypothesis: resolved}
+
+Roger Penrose asked one of the sharpest questions in physics: why was
+the early universe in such a special, low-entropy state? The second
+law of thermodynamics says entropy increases. If entropy is higher now
+than it was at the Big Bang, then the initial state had extraordinarily
+low entropy. How low? Penrose estimated the probability of the initial
+state at $1/10^{10^{123}}$---a number so small that writing it out
+would require more digits than there are atoms in the observable
+universe.
+
+The standard answer is: we do not know. The low-entropy initial state
+is assumed, not explained. Penrose called this the ``past hypothesis''
+---a postulate tacked onto the laws of physics.
+
+The polygon answer is different. At the tunneling threshold
+$\rho = \rho^*$, the polygon is regular: all perturbation amplitudes
+are zero. The energy-momentum tensor is isotropic
+($T_{\mu\nu} \propto g_{\mu\nu}$), the Einstein equations give a
+maximally symmetric spacetime
+($R_{\mu\nu} \propto g_{\mu\nu}$), and the Weyl curvature tensor
+$W_{\mu\nu\rho\sigma} = 0$. The Weyl tensor measures
+gravitational inhomogeneity---tidal forces, gravitational waves,
+clumping of matter. At the tunneling threshold, it vanishes.
+Gravitational entropy is at its minimum.
+
+Not because someone chose special initial conditions. Because the
+mathematics forces it. The tunneling event that created spacetime
+starts from the unique state---the regular polygon---that minimizes
+gravitational entropy. The past hypothesis is a consequence of the
+tunneling, not a separate postulate.
+
+I can be quantitative. The one-loop entropy at creation is
+$S_{\mathrm{1\text{-}loop}} \approx 1.1$ nats ($1.6$ bits at
+$N = 7$). The maximum available entropy---the Bekenstein--Hawking
+entropy of the final black-hole state, computed from the Cardy
+formula at central charge $c = 12\,b(7)$---is
+$S_{\mathrm{BH}} = (\pi c/3)\cosh\rho^* \approx 158$ nats. The
+ratio:
+\[
+  \frac{S_{\mathrm{BH}}}{S_{\mathrm{1\text{-}loop}}} \approx 144
+  \qquad (N = 7).
+\]
+This is the Penrose gap: the quantitative measure of how ``special''
+the initial state is. It is $144$---computed, not assumed. For larger
+$N$ the gap grows: $5.5 \times 10^4$ at $N = 15$.
+
+As $\rho$ increases past $\rho^*$, thermal perturbation amplitudes
+grow: $\langle|\varepsilon_m|^2\rangle = 1/(2\lambda_m)$ by
+equipartition. These amplitudes break the isotropy, generate nonzero
+Weyl curvature, and drive structure formation. Four arrows point in
+the same direction---expansion, gravitational entropy, Weyl curvature,
+and structure formation---all increasing with $\rho$. The second law of
+thermodynamics, applied to the ordered initial state, does the rest.
+
+The arrow of time is not a mystery in this framework. Time runs in
+the direction of increasing $\rho$---the direction away from the
+tunneling threshold, the direction in which the polygon dissolves from
+perfect regularity into thermal disorder.
+
+\textbf{Status: (Derived)}---the neutrino mass ratio is computed from
+the Dirac seesaw with Galois-twisted $M_{\mathrm{KK}}$; the mass
+ordering is a binary prediction. Inflation is derived from the radion
+potential with initial conditions set by tunneling. The Penrose gap
+$S_{\mathrm{BH}}/S_{\mathrm{1\text{-}loop}} = 144$ is computed from
+the Cardy entropy and the one-loop determinant at $\rho^*$.
 
 
 \part{The Scorecard}
