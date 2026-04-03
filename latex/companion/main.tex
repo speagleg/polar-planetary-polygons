@@ -3141,11 +3141,430 @@ the Cardy entropy and the one-loop determinant at $\rho^*$.
 
 
 \part{The Scorecard}
-% [Mirrors Paper VI --- to be written]
+
+
+\section{What goes in, what comes out}
+\noindent\textit{[Technical reference: Paper~VI, \S1]}
+
+\medskip
+
+\noindent\textit{Bottom line: One integer, one scale, three
+identifications. Seventeen outputs.}
+
+\medskip
+
+I want to lay out the full accounting, because the claim is specific
+and the specificity is the point.
+
+\subsection*{The inputs}
+
+\textbf{One integer: $N = 7$.} This is the polygon number---the
+maximum number of identical vortices that can sit in a stable ring on a
+flat surface. It is not a parameter I chose. It falls out of the
+Havelock formula (Part~I, Section~4): the quadratic term $m(N-m)/2$
+overtakes the linear term $N - 1$ at $N = 8$, so the largest stable
+polygon has seven vertices. The Pell equation (Part~III, Section~1)
+selects $N = 7$ uniquely as the polygon number whose marginal mode
+carries spin~$2$. The cosmological polygon number $N = 11$ follows from
+Chern class additivity: $(4 + 7)/2 = 11/2 \to N = 11$. Once $N = 7$ is
+fixed, $N = 11$ is forced.
+
+\textbf{One scale: the Planck mass $M_P$.} Every physical theory needs a
+unit of mass. In the Standard Model it enters through Newton's constant
+$G$. In this framework it enters the same way: the central charge
+$c = 12\,b(N)$ determines the ratio $\alpha/(8\pi G) = 1/(2\pi^2)$, and
+one measurement of $G$ (or equivalently $M_P$) sets the unit. This is
+not a free parameter in any meaningful sense---it is the ruler.
+
+\textbf{Three identifications.} These connect the mathematical formalism
+to physics. Each is argued to be the unique consistent option, but they
+are identifications, not theorems. The distinction matters.
+
+\begin{enumerate}
+\item \emph{The Seifert geometry.} The eleven-dimensional internal
+  manifold is $\mathbf{H}^2 \times_N S^1$---a hyperbolic surface
+  fibered over a circle with a $\mathbb{Z}_N$ twist. Thurston's
+  geometrization theorem eliminates every other possibility
+  (Part~IV, Section~1). A product manifold (no twist) gives equal
+  left- and right-handed couplings---contradicting the observed
+  maximal parity violation in weak decays. The Seifert structure
+  is the only survivor.
+
+\item \emph{The BF threshold.} The Breitenlohner--Freedman bound on
+  $\mathbf{H}^2$ gives the scalar spectrum $M^2 \ge -1/4$. The first
+  Kaluza--Klein mode above this threshold has a bulk mass parameter
+  $\mu_4 = 1$. The weak isospin splitting $T_3 = \pm 1/2$ gives two
+  branches: $\mu_4 = 1/2$ (the heaviest generation, conformal profile)
+  and $\mu_4 = 3/2$ (the lighter generations, exponentially
+  suppressed). The value $\mu_4 = 1$ is determined by the
+  $\mathbf{H}^2$ spectrum, not selected by hand. At $\mu_4 = 0$, all
+  generations would be degenerate. At $\mu_4 = 2$, the bottom-to-top
+  mass ratio drops to $10^{-4}$---two orders of magnitude too small.
+
+\item \emph{The Chern--Simons levels $k = K = 1$.} For a compact gauge
+  group, the level must be a positive integer (from the topology of the
+  group: $\pi_3(G) = \mathbb{Z}$). At $k = 1$, the $\mathrm{SU}(2)$
+  theory has exactly two integrable representations: spin $0$ and spin
+  $1/2$. That is the Higgs doublet---the maximal allowed representation.
+  At $k \ge 2$, additional states appear that are not in the Standard
+  Model spectrum. At $K = 1$, the compact boson sits at the self-dual
+  radius---the unique T-duality fixed point. Higher levels produce extra
+  states; lower levels do not exist.
+\end{enumerate}
+
+\subsection*{The outputs}
+
+From these inputs: seventeen testable numerical predictions, listed in
+the Prologue's scorecard table. Not one of the seventeen was obtained by
+fitting a parameter to data. Each is computed from the formula and
+compared to a measurement made by someone else using different methods.
+
+The comparison to the Standard Model is worth stating. The Standard
+Model has nineteen free parameters for roughly the same set of
+observables: three gauge couplings, nine fermion masses, three mixing
+angles, one CP phase, the Higgs mass, the Higgs vacuum expectation
+value, and the QCD vacuum angle. Every one of those numbers is measured
+and inserted. This framework replaces all nineteen with one integer, one
+scale, and three structural identifications---each of which is argued
+(not proved) to be uniquely determined.
+
+Zero continuous free parameters. The integer $N = 7$ is not adjustable.
+The scale $M_P$ is measured. The three identifications each have a
+unique consistent value. If any one of them were different, the framework
+would contradict observation in a specific, identifiable way (Part~IV
+details the contradictions: wrong parity structure, wrong mass
+hierarchy, extra particles).
+
+
+%% ====================================================================
+\section{How confident should you be?}
+\noindent\textit{[Technical reference: Paper~VI, \S2--3]}
+
+\medskip
+
+\noindent\textit{Bottom line: Some predictions are mathematically exact.
+Others carry $5\%$ uncertainty from approximations. The paper is honest
+about which is which.}
+
+\medskip
+
+The seventeen predictions are not all created equal. They fall into two
+precision tiers, distinguished by mechanism---not by cherry-picking the
+ones that work best.
+
+\subsection*{The algebraic tier: $\le 0.8\%$ theoretical uncertainty}
+
+These predictions follow from discrete mathematics---group theory,
+number theory, topology. The derivation chain passes through exact
+identities (the Havelock eigenvalue formula, the McKay correspondence,
+Chern--Simons level quantization) without any approximation step.
+
+The gauge group $\mathrm{SU}(3) \times \mathrm{SU}(2) \times
+\mathrm{U}(1)$. The number of generations: three. The QCD vacuum angle
+$\theta = 0$. Proton stability: exact, not approximate. The neutrino
+mass hierarchy: normal. These are discrete predictions. Either the
+structural identifications hold and the results follow by logical
+necessity, or the identifications fail and the whole structure
+collapses. There is no middle ground---no adjustment, no fudge factor,
+no ``close enough.''
+
+The numerical predictions in this tier---the CKM phase ($70.2^\circ$,
+matching $73.5^\circ \pm 5.1^\circ$), the Hubble constant
+($67.4$~km/s/Mpc, matching $67.4 \pm 0.5$), the neutrino mass-squared
+ratio ($31.5$, matching $30.5 \pm 1.0$)---have theoretical uncertainties
+bounded by Dunham corrections at $O(1/c^2)$, where $c \approx 52$ at
+$N = 7$ and $c \approx 130$ at $N = 11$. The dominant correction is
+$6 \times 10^{-5}$. These predictions are as close to exact as a
+physical theory gets.
+
+\subsection*{The geometric tier: $4$--$5\%$ theoretical uncertainty}
+
+These predictions involve the radial wave functions of fermions on the
+Seifert manifold---the shapes of the probability distributions in the
+extra dimensions. The wave functions are computed by WKB tunneling
+integrals, one-loop determinants, and the Dunham anharmonicity
+correction. Each of these approximation steps has a bounded error.
+
+The Weinberg angle ($3/11 = 0.2727$ at the polygon scale, running to
+$0.231$ at the $Z$ mass---$3.9\%$ from the measured value). The quark
+mixing parameter $|V_{cb}| = 0.044$ ($6\%$ off). The mass ratio
+$m_s/m_b = 0.023$ ($4\%$ off). The Higgs mass $125 \pm 3$~GeV ($2\%$
+window). These are good---better than other zero-parameter frameworks
+achieve---but they are not exact.
+
+The uncertainty budget: $|V_{cb}|$ is the most sensitive, with an
+elasticity of $-2.5$ (meaning a $1\%$ change in the turning-point
+density produces a $2.5\%$ change in $|V_{cb}|$). The Weinberg angle
+picks up $\sim 4\%$ from the renormalization group running between the
+polygon scale and the $Z$ mass. These are controlled approximations with
+estimated errors, not guesses.
+
+\subsection*{Cumulative uncertainty}
+
+Even if every approximation is off by its maximum amount in the same
+direction---which would be a statistical improbability---the algebraic
+tier predictions still match observations. The error budget is dominated
+by the geometric tier; the algebraic tier contributes effectively
+nothing.
+
+The baryon asymmetry $\eta_B$ stands apart. Its factor-of-$3$
+discrepancy from the Planck measurement is limited by external lattice
+QCD parameters (the sphaleron rate, the CP-violating phase transport
+coefficient), not by anything internal to the theory. It is a real
+discrepancy, honestly acknowledged, and I discuss it further in
+Section~4.
+
+
+%% ====================================================================
+\section{How to prove this wrong}
+\noindent\textit{[Technical reference: Paper~VI, \S3]}
+
+\medskip
+
+\noindent\textit{Bottom line: Six experiments currently running or under
+construction can each independently falsify the theory.}
+
+\medskip
+
+A theory that cannot be wrong is not a scientific theory. Here are six
+binary tests---results that are either right or wrong, with no wiggle
+room. Each experiment is currently running or under construction. I am
+writing down the predictions before the measurements come in. That is
+what ``falsifiable'' means.
+
+\subsection*{1. JUNO: neutrino mass hierarchy}
+
+The Jiangmen Underground Neutrino Observatory, under construction in
+China, will determine whether neutrinos follow the ``normal'' mass
+hierarchy (lightest neutrino is the one most associated with the electron
+flavor) or the ``inverted'' hierarchy. The polygon framework predicts
+normal hierarchy---from the Dirac seesaw with Galois-twisted
+Kaluza--Klein masses on the $S^1$ fiber.
+
+If JUNO measures the inverted hierarchy, the theory is wrong.
+
+\textbf{Status: (Derived)}
+
+\subsection*{2. LEGEND/nEXO: neutrinoless double beta decay}
+
+LEGEND and nEXO are searching for a hypothetical nuclear process in
+which two neutrons simultaneously convert to protons, emitting two
+electrons and no neutrinos. If this process occurs, neutrinos are their
+own antiparticles (Majorana particles). The polygon framework predicts
+that neutrinos are \emph{not} their own antiparticles---they are Dirac
+particles, with distinct neutrinos and antineutrinos. The masses arise
+from a Dirac seesaw on the Seifert manifold, and lepton number is
+exactly conserved.
+
+If neutrinoless double beta decay is observed at any rate, the theory is
+wrong.
+
+\textbf{Status: (Derived)}
+
+\subsection*{3. Hyper-Kamiokande: proton decay}
+
+The Hyper-Kamiokande detector in Japan will push the proton lifetime
+bound above $10^{35}$ years. Grand unified theories predict the proton
+eventually decays. The polygon framework predicts the proton is
+\emph{exactly} stable---not just long-lived, but absolutely forbidden
+from decaying by a topological selection rule ($\mathbb{Z}_{56}$ charge
+conservation, Part~IV, Section~5).
+
+If proton decay is seen at any rate, in any channel, the theory is
+wrong.
+
+\textbf{Status: (Derived)}
+
+\subsection*{4. LISA: gravitational waves from the electroweak phase transition}
+
+The Laser Interferometer Space Antenna, scheduled for the late 2030s,
+will detect gravitational waves at millihertz frequencies. The polygon
+framework predicts a first-order electroweak phase transition---a
+violent event in the early universe, about a trillionth of a second
+after the Big Bang---that produces gravitational waves at a frequency
+of $f \approx 4 \times 10^{-5}$~Hz with energy density
+$\Omega_{\mathrm{GW}} h^2 \approx 10^{-9}$. The Standard Model alone
+predicts a smooth crossover transition that produces no detectable
+gravitational waves.
+
+If LISA sees nothing in this frequency band and energy range, the theory
+has a problem. (The null prediction of the Standard Model is a smooth
+crossover; the polygon prediction is a first-order transition. The two
+are distinguishable.)
+
+\textbf{Status: (Derived)}
+
+\subsection*{5. DESI: dark energy equation of state}
+
+The Dark Energy Spectroscopic Instrument is mapping the three-dimensional
+structure of the universe to measure the dark energy equation of state
+parameter $w$. The polygon framework predicts $w = -1$ exactly---a pure
+cosmological constant, with no dynamical component, no variation with
+redshift. The correction is $O(1/c_{11}^2) \approx 6 \times 10^{-5}$,
+far below any foreseeable measurement precision.
+
+The DESI DR2 data (2025) show a $2.8$--$4.2\sigma$ preference for
+time-varying $w$, but the best-fit values require phantom crossing
+($w$ passing through $-1$), which no standard scalar field can produce.
+If $w \ne -1$ is confirmed at $5\sigma$ with independent datasets,
+the theory is falsified.
+
+\textbf{Status: (Derived)}
+
+\subsection*{6. LHC/FCC: a fourth generation}
+
+The polygon framework predicts exactly three generations of matter
+particles: $(N - 1)/2 = (7 - 1)/2 = 3$. The number is arithmetic, not
+adjustable. The Large Hadron Collider has already excluded a
+fourth-generation quark below about $700$~GeV. A future circular
+collider would extend the search to higher masses.
+
+If a fourth generation of matter particles is discovered at any mass,
+the theory is wrong.
+
+\textbf{Status: (Derived)}
+
+\bigskip
+
+\noindent
+These are commitments, not hedges. I am writing them down before the
+measurements. Some of the predictions (normal hierarchy, $w = -1$,
+proton stability) are shared with the Standard Model or $\Lambda$CDM.
+Others (the LISA gravitational wave signal, three generations from an
+arithmetic formula, the Dirac nature of neutrinos with a specific mass
+sum $\Sigma m_\nu = 0.059$~eV) are distinctive. A single failure of any
+binary test falsifies the theory.
+
+
+%% ====================================================================
+\section{What remains open}
+\noindent\textit{[Technical reference: Paper~VI, \S4]}
+
+\medskip
+
+\noindent\textit{Bottom line: Three gaps remain. They are acknowledged,
+not hidden.}
+
+\medskip
+
+\subsection*{Dark matter production}
+
+The frozen Kaluza--Klein modes have the right mass spectrum and the right
+equation of state to be dark matter. Their fractional contribution to
+the cosmic energy budget ($26.9\%$) matches the observed value. Their
+interaction cross-section ($\sigma \sim 10^{-103}$~cm$^2$) is so small
+that no direct-detection experiment will ever see them---which is
+consistent with every null result to date.
+
+What is missing: the production mechanism. The proposal is gravitational
+particle creation during the $N$-selection transition---the tunneling
+event that created spacetime. This is described qualitatively in
+Paper~V, not derived from first principles. The mass spectrum is
+computed; the abundance is not, beyond dimensional analysis. This is why
+the dark matter fraction is classified as \textbf{Conjectured} rather
+than Derived.
+
+\subsection*{Baryon asymmetry: a factor of three}
+
+The baryon-to-photon ratio $\eta_B$---the number that determines how
+much ordinary matter exists relative to radiation---is predicted to be
+$2 \times 10^{-9}$. The Planck satellite measures
+$6.1 \times 10^{-10}$. The discrepancy is a factor of about $3$.
+
+This factor traces to lattice QCD parameters: the sphaleron rate
+(which determines how efficiently the electroweak phase transition
+converts CP violation into a matter--antimatter asymmetry) and the
+CP-violating phase transport coefficient (which determines how far the
+CP violation propagates ahead of the expanding bubbles). Both are
+computed on a lattice with finite spacing and finite volume, and their
+systematic uncertainties are at the factor-of-$2$ level. The
+factor-of-$3$ discrepancy is within the known lattice uncertainties, but
+it is a limitation. It will improve as lattice QCD improves, and if it
+does not shrink, the theory will need a better calculation or a
+different mechanism.
+
+\subsection*{Light quark masses}
+
+The up quark mass: predicted $1.3$~MeV, measured $2.2$~MeV ($40\%$
+off). The down quark mass: predicted $7.6$~MeV, measured $4.7$~MeV
+($60\%$ off). These are not matches. The qualitative prediction---$m_u <
+m_d \ll m_s$, the correct ordering---is parameter-free and correct. The
+quantitative values are not close enough.
+
+The diagnosis: the lightest quarks are sensitive to the tail of the Higgs
+profile near $\rho = 0$, where the Born--Oppenheimer potential is least
+constrained. The Higgs wave function is broad---its width exceeds the
+equilibrium radius of the polygon---and the overlap integral samples a
+region where the Randall--Sundrum exponential suppression breaks down.
+Closing this gap requires a controlled calculation of the orbifold
+geometry near $\rho = 0$, which is an open problem.
+
+\bigskip
+
+\noindent
+That is the full inventory. No defensive hedging: here is what works,
+here is what does not, here is what would close each gap. The algebraic
+tier is solid. The geometric tier is good. The three open problems are
+identified and bounded. Whether the framework is correct is an empirical
+question, and the six experiments listed in the previous section are the
+ones that will answer it.
 
 
 \section*{Epilogue: One Formula}
-% [To be written]
+
+\bigskip
+
+Saturn's hexagon. Six storms in a ring, each side longer than the
+diameter of Earth, persistent for decades. Jupiter's octagon. Eight
+cyclones, same story. Two gas giants, two polygons, one question: why?
+
+One formula answers it:
+\[
+  \lambda_m = C_1(\text{surface}) - \frac{m(N - m)}{2}.
+\]
+One threshold: $N = 7$. One identification: the vortex is the
+gravitational source.
+
+From there, the papers built a chain.
+
+Paper~I established the mathematics: the Havelock decomposition, the
+sign rule, the algebraic-integer thresholds, the proof that the regular
+polygon is a constrained energy minimum for $N \le 7$.
+
+Paper~II connected the mathematics to fluid dynamics: the quartic
+analysis at $N = 7$, the blob and Rossby bridges, the structural
+isomorphism between point vortices and gravitational sources.
+
+Paper~III derived gravity: the marginal mode at $N = 7$ carries spin~$2$;
+Jensen's inequality and the Onsager principle produce Einstein's vacuum
+equation; the breathing mode satisfies the Wheeler--DeWitt equation with
+central charge $c = 12\,b(N)$.
+
+Paper~IV derived particle physics: the Seifert manifold forced by
+Thurston's theorem; $\mathrm{SU}(3) \times \mathrm{SU}(2) \times
+\mathrm{U}(1)$ from the Klein quartic; $\sin^2\theta_W = 3/11$;
+$\delta_{\mathrm{CKM}} = 70.2^\circ$; the fermion mass hierarchy;
+confinement.
+
+Paper~V derived cosmology: $N = 11$ from Chern class additivity;
+$H_0 = 67.4$~km/s/Mpc from the instanton action; the cosmic energy
+budget $69/26/5$ from tree-level, one-loop, and tunneling contributions.
+
+Paper~VI collected the scorecard: one integer, one scale, three
+identifications, seventeen outputs, six falsifiable tests.
+
+\bigskip
+
+Whether this theory is correct is not for me to decide. I followed the
+mathematics as honestly as I could, I wrote down every assumption, I
+flagged every gap, and I stated predictions before comparing them to
+data. The experiments listed above will decide the rest.
+
+Feedback, comments, and suggestions are welcome.
+
+\bigskip
+
+\hfill Gordon Speagle
 
 
 \end{document}
