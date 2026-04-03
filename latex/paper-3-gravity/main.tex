@@ -582,16 +582,22 @@ equations; the WDW equation determines their
 
 \subsection{Proof of the main theorem}
 
-The proof uses three ingredients stated below:
-the curvature expansion of~$C_1$
-(Lemma~\ref{lem:log-interaction}),
-the Regge discretisation bridge
-(Lemma~\ref{lem:regge-bridge}),
-and the Onsager contraction
-(Corollary~\ref{cor:onsager-contraction}).
-The corollary and lemmas are stated first;
-the proof of Theorem~\ref{thm:polygon-einstein}
-assembles them.
+\paragraph{Proof architecture.}
+The proof assembles three ingredients:
+(1)~Lemma~\ref{lem:log-interaction} shows $C_1$ is
+affine in~$R(x)$ via the Hadamard expansion;
+(2)~Lemma~\ref{lem:regge-bridge} bridges discrete
+Regge vertices to smooth metrics;
+(3)~Corollary~\ref{cor:onsager-contraction} shows the
+Onsager iteration contracts curvature variance
+(factor~$0.041$ at $N = 7$).
+The main proof (Theorem~\ref{thm:polygon-einstein},
+page~\pageref{thm:polygon-einstein}) combines them via
+Jensen's inequality and the Robin-function identity
+$\Delta\gamma = K - \bar{K}$.
+The reader may proceed directly to the main proof
+and consult the lemmas as needed.
+The ingredients are stated first:
 
 \begin{corollary}[Onsager contraction --- (H2b) as theorem]
 \label{cor:onsager-contraction}

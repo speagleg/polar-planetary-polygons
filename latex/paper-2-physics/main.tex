@@ -24,10 +24,17 @@ The $N = 7$ marginal case is resolved by an exact quartic
 normal form ($\alpha_0 = 45/14$), and the result extends to
 continuous vorticity via a profile-independent blob bridge
 at $O(\varepsilon^2)$.
-Applications include central-vortex stabilisation for $N \ge 8$,
-finite deformation radius ($K_0$) corrections, circulation
-disorder resilience, and predictions for BEC vortex clusters
-on hyperbolic lattices.
+Saturn's oblateness ($f = 0.098$) reverses the hexagonal
+eigenvalue from $-0.12$ to $+0.01$, determining whether
+the hexagon exists.
+A constraint-intersection principle unifies the Rossby,
+Thomson, and packing bounds: energy monotonicity
+$H_{N+1} > H_N$ selects the maximum stable polygon,
+explaining Saturn ($N = 6$, Rossby-limited),
+Jupiter north ($N = 8$, Thomson-limited), and
+Jupiter south ($N = 5$, packing-limited).
+Predictions for Neptune ($N \in \{3, 4, 5\}$) and
+Uranus ($N = 0$) are stated.
 \end{abstract}
 
 \section{Introduction}
@@ -59,6 +66,11 @@ energy landscape.
 The multi-ring dichotomy (\S\ref{sec:multiring}) and
 deformation-radius corrections (\S\ref{sec:deformation})
 complete the robustness analysis.
+Planetary oblateness (\S\ref{sec:oblateness}) determines
+whether Saturn's hexagon can exist, and the
+constraint-intersection principle (\S\ref{sec:constraint-intersection})
+unifies the three selection mechanisms into a single
+framework covering all four giant planets.
 The gravitational analogue is treated briefly in
 \S\ref{sec:gravity}; the full gravitational theory
 is in Paper~III.
@@ -1187,7 +1199,14 @@ it in the destabilizing regime relative to $-\ln r$.
 \subsection{Saturn's oblateness determines hexagon existence}
 \label{sec:saturn-oblateness}
 
-The preceding Rossby analysis treats Saturn as a sphere.
+The preceding sections analysed stability on
+constant-curvature surfaces and with finite deformation
+radius.  A third physical correction---planetary
+oblateness---has a qualitatively different effect: it can
+reverse the sign of an eigenvalue.
+
+The Rossby analysis of \S\ref{sec:rossby-bridge} treats
+Saturn as a sphere.
 Saturn is an oblate spheroid with flattening
 $f = (a{-}b)/a = 0.098$
 ($a = 60{,}268$\,km equatorial, $b = 54{,}364$\,km polar).
