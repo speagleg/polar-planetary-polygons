@@ -1246,8 +1246,112 @@ measured jet parameters. The circulation disorder results are
 
 
 %% ====================================================================
+\section{How three constraints select one number}
+\noindent\textit{[Technical reference: Paper~II, \S10--11]}
+
+\medskip
+
+\noindent\textit{Bottom line: Saturn's hexagon, Jupiter's octagon, and
+Jupiter's south-pole pentagon each arise from a different constraint
+winning the same competition.}
+
+\medskip
+
+Three mechanisms compete to set the polygon number on a given planet.
+The Rossby bridge selects a maximum wavenumber from the jet
+speed and planetary rotation.
+The Thomson bound selects a maximum ring size from
+eigenvalue stability.
+The packing bound selects a maximum $N$ from the physical
+size of the cyclones relative to the ring.
+The observed $N$ is whichever constraint is tightest.
+
+Saturn: the Rossby bridge gives $n^* = 6$; Thomson would allow
+up to~$7$.  Rossby wins.  The hexagon is a jet meander, not a
+ring of discrete cyclones.
+
+Jupiter north: there is no Rossby jet; the cyclones are
+discrete vortices.  Thomson stability with a central vortex
+allows up to $N = 8$ (since $\kappa_0/\kappa \approx 1 > 1/2
+= \kappa_{\mathrm{crit}}(8)$).  Thomson wins.
+
+Jupiter south: Thomson would allow up to~$7$ (no central vortex
+needed for $N \le 7$), but the cyclones are $40\%$
+larger at the south pole than the north ($r_{\mathrm{core}}
+\approx 3{,}500$\,km vs.\ $2{,}500$\,km).
+They do not fit: $\sin(\pi/6) = 0.500 < 0.569
+= r_{\mathrm{excl}}/R$, so six will not pack; but
+$\sin(\pi/5) = 0.588 \ge 0.569$, so five will.
+Packing wins, with a $3.3\%$ margin.
+
+The entire north-south asymmetry on Jupiter---the most
+striking feature of the Juno polar images---reduces to a
+single number: $\chi = r_{\mathrm{south}}/r_{\mathrm{north}}
+\approx 1.40$.  If $\chi$ were below~$1.23$, packing would not
+bind and both poles would have $N = 8$.  Above~$1.23$, the
+south pole is packing-limited.  Why the south-pole cyclones are
+$40\%$ larger than the north-pole ones is an open atmospheric
+physics question---radiative scaling gives only $\chi \approx
+1.07$, far too small.  The polygon framework identifies
+\emph{what} determines the asymmetry; the \emph{why} remains.
+
+\subsection*{Saturn's shape determines hexagon existence}
+
+This was the result I almost missed, and it changes the
+entire Saturn story.
+
+On a perfect sphere of Saturn's mean radius, the hexagon
+eigenvalue is $\lambda_3(N{=}6) = -0.12$.  Negative.
+The hexagon should not exist.
+
+Saturn is not a sphere.  It is an oblate spheroid with
+$10\%$ flattening ($f = 0.098$).  The pole is flatter than
+the equator; Gaussian curvature is smallest at the pole.
+Since positive curvature destabilises (Paper~I),
+the pole is the most stable point on the planet.
+
+On the oblate spheroid at $78^\circ$N (the hexagon's latitude):
+$\lambda_3 = +0.01$.  Positive---barely.  The oblateness flips
+the sign.  The formula:
+$\delta\lambda_3 \approx (N{-}1) \times 2\xi f(2{-}f)/(1{+}\xi)^2
+\approx 0.13$, reversing $-0.12$ to $+0.01$.
+
+The critical latitude is $72^\circ$N.  Below that, the hexagon
+cannot exist on Saturn.  The hexagon at $78^\circ$N is $6^\circ$
+above the boundary---comfortably in the stable zone.
+Saturn's oblateness is not a minor correction; it is the
+mechanism that determines whether the hexagon exists at all.
+
+\subsection*{The ice giants: Neptune and Uranus}
+
+Neptune is vortex-dominated ($\beta R^3/\kappa \approx 0.1$,
+far below~$1$).  Its polar ring radius is small
+($R_{\mathrm{ring}} \approx 5{,}000$\,km), so the packing
+constraint binds.  The prediction: $N \in \{3, 4, 5\}$---a
+triangle, square, or pentagon---depending on the deformation
+radius, which is poorly constrained ($1{,}500$--$2{,}500$\,km).
+A Neptune polar orbiter imaging at $100$\,km resolution
+would determine $N$ directly.  If $N \ge 6$ is observed,
+the packing bound is violated.
+
+Uranus ($98^\circ$ axial tilt) is a different case entirely.
+The extreme tilt disrupts the Onsager condensation mechanism
+by preventing a persistent polar jet.  The prediction: $N = 0$,
+no polar polygon.  Current data is consistent---a single
+polar cyclone has been detected (Akins~2023), below the
+polygon threshold.
+
+\textbf{Status:} Saturn oblateness \textbf{(Proved)}---the
+sign flip is a consequence of the Gaussian curvature formula
+on an oblate spheroid.  The constraint-intersection framework
+is \textbf{(Proved)} for the Havelock stability part
+and \textbf{(Derived)} for the Rossby and packing parts.
+Neptune and Uranus predictions are \textbf{(Derived)}.
+
+
+%% ====================================================================
 \section{Vortices meet gravity}
-\noindent\textit{[Technical reference: Paper~II, \S10--12]}
+\noindent\textit{[Technical reference: Paper~II, \S12--13]}
 
 \medskip
 
