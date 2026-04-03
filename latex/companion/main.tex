@@ -1922,7 +1922,695 @@ explicit error bounds.
 
 
 \part{The Particles Inside the Polygon}
-% [Mirrors Paper IV --- to be written]
+
+
+\section{The shape of spacetime is forced}
+\noindent\textit{[Technical reference: Paper~IV, \S1--2]}
+
+\medskip
+
+\noindent\textit{Bottom line: The polygon hierarchy forces the spacetime
+geometry to be an eleven-dimensional Seifert manifold---the only option
+consistent with both gravity and the electroweak force.}
+
+\medskip
+
+Paper~III established that the graviton requires $N = 7$. It is the
+marginal mode of the heptagon, carrying spin~$2$, selected by the
+Pell equation. That much is settled.
+
+But the graviton is not the only force carrier in nature. The weak
+nuclear force---responsible for radioactive decay, for the fusion
+reactions that power the Sun---is carried by vector bosons with
+spin~$1$. Those bosons need their own polygon.
+
+The condition for the critical mode of an $N$-gon to carry integer
+spin $j$ is $j(j+1) = m^*(N - m^*)/2$, where $m^*$ is the most
+dangerous wobble mode. At $N = 4$, $m^* = 2$, and
+$f(2, 4) = 2 \times 2/2 = 2$. Since $j(j+1) = 2$ gives $j = 1$:
+the square carries spin~$1$. The first even polygon with integer
+spin at the critical mode.
+
+Two polygons now need to coexist on one spacetime. $N = 7$ for
+gravity. $N = 4$ for the electroweak force. Both live on the same
+compact fiber---a circle---and their fluxes add. This is Chern class
+additivity, a theorem in algebraic topology: the total flux through a
+circle fiber is the sum of the fluxes from each sector. So the total
+polygon number on the fiber is $N_{\text{total}} = 4 + 7 = 11$.
+
+Eleven is not adjustable. It is the sum of the only two polygons that
+produce integer-spin particles at their critical modes (below $N = 41$,
+which lies far beyond any stability range). The number $11$ is forced
+by the Pell equation acting on two sectors.
+
+Now: what kind of spacetime admits an $11$-gon? On a flat surface, the
+largest stable polygon is $N = 7$. The $11$-gon on a flat surface has
+critical Casimir $f(5, 11) = 15$, which exceeds $C_1 = N - 1 = 10$.
+The eigenvalue $\lambda_5 = 10 - 15 = -5$. Unstable. A sphere makes
+it worse---positive curvature pushes $C_1$ down. Only negative
+curvature pushes $C_1$ up. The base surface must be the hyperbolic
+plane $\mathbf{H}^2$.
+
+The fiber must be a circle $S^1$. The Havelock decomposition is a
+Fourier analysis on a ring---one-dimensional by construction. A
+higher-dimensional fiber ($S^2$, a torus) would introduce additional
+symmetries not present in the polygon hierarchy.
+
+With a hyperbolic base and a circle fiber, Thurston's geometrization
+theorem eliminates the competition. William Thurston classified all
+possible geometries for three-dimensional manifolds in the 1980s; there
+are exactly eight. Of these eight:
+\begin{itemize}
+\item Three ($\mathbf{E}^3$, Nil, Sol) have non-negatively curved
+  bases. Ruled out.
+\item Two ($\mathbf{S}^3$, $\mathbf{S}^2 \times \mathbb{R}$) have
+  positive curvature. Ruled out.
+\item One ($\mathbf{H}^3$) has no fibration---no circle fiber at all.
+  Ruled out.
+\item One ($\mathbf{H}^2 \times \mathbb{R}$) has the right base and
+  fiber, but it is a trivial product: the fiber has zero twist. Its
+  Euler class is $e = 0$. A trivial fiber carries no holonomy---no
+  rotational phase when you go around it---and without holonomy there
+  is no gauge field. No electroweak force. Ruled out.
+\item One ($\widetilde{\mathrm{SL}(2,\mathbb{R})}$) has a negatively
+  curved base, a circle fiber, and a nonzero Euler class $e = 1$. The
+  fiber twists. The twist generates a gauge field. This is the Seifert
+  manifold $\mathbf{H}^2 \times_N S^1$.
+\end{itemize}
+
+Seven of eight geometries fail. The Seifert manifold is the unique
+survivor. Including the time direction: the full spacetime is
+$\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$, which has
+$1 + 2 + 1 = 4$ macroscopic dimensions.
+
+\subsection*{The four-dimensional graviton}
+
+In $2+1$ dimensions, pure gravity is topological: it has no propagating
+degrees of freedom, no gravitational waves. A flat table cannot carry
+gravitons across it; the geometry is locally determined by the sources.
+The graviton appears at the boundary.
+
+The Chern--Simons gauge theory on $\mathbf{H}^2$ induces a conformal
+field theory on its boundary. This boundary theory has a Virasoro
+algebra---the symmetry algebra of conformal transformations---at
+central charge $c = 12\,b(N)$. The stress tensor $T(z)$ of this
+boundary theory has conformal weight $(2, 0)$: it transforms as a
+spin-$2$ field. That is the graviton.
+
+The count: a massless spin-$2$ particle in four dimensions has
+$d(d-3)/2 = 2$ polarizations. The boundary stress tensor has two
+independent components: $T(z)$ and $\bar{T}(\bar{z})$, corresponding
+to the $+$ and $\times$ tensor polarizations. Two matches two. The
+graviton has the right spin and the right number of physical degrees
+of freedom; both are derived from the boundary algebra, not assumed.
+
+At laboratory scales, the Seifert manifold is indistinguishable from
+ordinary $3+1$ dimensional Minkowski space. The hyperbolic base has
+curvature radius $\ell \sim 10^{26}$ meters---cosmological. At human
+scales the curvature correction is $r^2/\ell^2 < 10^{-44}$. The circle
+fiber has radius $R \sim 10^{-21}$ meters---far below the reach of any
+collider. Below that scale, the extra dimension opens up; above it,
+ordinary four-dimensional physics applies.
+
+\textbf{Status: (Derived)}---the Thurston elimination is a mathematical
+theorem. The emergent graviton is derived from the Virasoro algebra of
+the boundary CFT. The only physical input is the identification of
+$N = 4$ and $N = 7$ polygon sectors with the electroweak and
+gravitational forces.
+
+
+%% ====================================================================
+\section{One number sets every coupling}
+\noindent\textit{[Technical reference: Paper~IV, \S3--5]}
+
+\medskip
+
+\noindent\textit{Bottom line: The central charge $c = 12\,b(N)$
+determines every force constant in physics.}
+
+\medskip
+
+In the Standard Model of particle physics, the coupling constants---the
+numbers that set the strength of each force---are free parameters.
+Nobody knows why the strong force is strong or the electromagnetic
+force is weak; the numbers are measured in experiments and inserted
+into the theory by hand.
+
+In the polygon framework, there are no free coupling constants. Every
+force strength descends from a single number: the central charge
+$c = 12\,b(N)$.
+
+\subsection*{Newton's constant}
+
+The Brown--Henneaux formula (1986) relates the central charge of the
+boundary theory to Newton's gravitational constant:
+$c = 3\ell/(2G)$, where $\ell$ is the curvature radius. Setting
+$\ell = 1$ in natural units: $G = 3/(2c)$. The gravitational constant
+is the inverse of the central charge, up to a factor of $3/2$.
+
+\subsection*{The strong coupling constant}
+
+The strong force holds quarks together inside protons and neutrons.
+Its strength is measured by $\alpha_s$, and the measured value at the
+$Z$ boson mass is $0.1180 \pm 0.0009$.
+
+The derivation runs through three numbers. The $\mathrm{SU}(3)$
+Chern--Simons theory has level $k = 1$ (forced by the orbifold
+construction---I will explain this in the next section). The dual
+Coxeter number of $\mathrm{SU}(3)$ is $h^\vee = 3$. The $3$D coupling
+is $1/(k + h^\vee) = 1/4$.
+
+To get the $4$D coupling, divide by the effective volume of the
+internal space: $V_{\text{eff}} = k \times 4\pi \times Z(S^3)$. The
+factor $4\pi$ is the area of the Bolza surface (the genus-$2$
+hyperbolic surface with the largest symmetry group). The factor
+$Z(S^3) = \sqrt{2}$ is the Chern--Simons partition function on the
+three-sphere---a standard result in topological field theory. The
+product: $V_{\text{eff}} = 1 \times 4\pi \times \sqrt{2} = 4\pi\sqrt{2}$.
+
+The result:
+\[
+  \alpha_s(M_{\text{poly}}) = \frac{1}{4\pi\sqrt{2}} \approx 0.056.
+\]
+This is the coupling at the polygon scale ($\sim 300$ TeV). Quantum
+field theory tells us how couplings change with energy---they ``run.''
+The strong coupling runs upward as the energy decreases. One-loop
+running from $300$ TeV down to the $Z$ boson mass gives
+$\alpha_s(M_Z) = 0.115$. Two-loop running gives $0.122$. The measured
+value $0.1180$ sits between the one-loop and two-loop predictions.
+
+\subsection*{The Weinberg angle}
+
+The Weinberg angle $\theta_W$ sets the ratio of electromagnetic to
+weak force strength. It determines, among other things, the mass ratio
+of the $W$ and $Z$ bosons. The measured value is
+$\sin^2\theta_W = 0.2312$ at the $Z$ mass.
+
+The polygon prediction at the Chern--Simons threshold is an arithmetic
+exercise. I will write it out fully.
+
+Two quantum numbers enter. From the $N = 4$ polygon: the
+$\mathrm{SU}(2)$ spin $j = 1$ (giving a Casimir $j(j+1) = 2$) and the
+$\mathrm{U}(1)$ charge $Q = m^*/N = 2/4 = 1/2$. Three gauge-theory
+numbers enter: the $\mathrm{SU}(2)$ level $k = 1$ and dual Coxeter
+number $h^\vee = 2$ (so $k + h^\vee = 3$), and the $\mathrm{U}(1)$
+level $K = 1$.
+
+The mixing angle in Chern--Simons theory is:
+\[
+  \sin^2\theta_W = \frac{Q^2/K}{Q^2/K + j(j+1)/(k + h^\vee)}.
+\]
+Substitute:
+\[
+  \sin^2\theta_W = \frac{(1/2)^2 / 1}{(1/2)^2/1 + 1 \cdot 2/3}
+  = \frac{1/4}{1/4 + 2/3}
+  = \frac{1/4}{11/12}
+  = \frac{3}{11}
+  = 0.2727.
+\]
+Every number in that calculation---$Q$, $K$, $j$, $k$, $h^\vee$---is
+determined by the polygon. $Q$ and $j$ come from the Havelock Casimir
+at $N = 4$. The levels $k = K = 1$ are forced by the orbifold
+construction. The dual Coxeter number $h^\vee = 2$ is a property of
+$\mathrm{SU}(2)$. Nothing is adjusted.
+
+The prediction $3/11 = 0.2727$ is at the polygon scale, not at the
+$Z$ mass. Standard Model renormalization group running brings it from
+$0.2727$ down to $0.231$ at $M_Z$. The measured value: $0.2312$. The
+discrepancy after running: $0.1\%$.
+
+(For comparison: the $\mathrm{SU}(5)$ grand unification prediction is
+$\sin^2\theta_W = 3/8 = 0.375$ at the GUT scale, which is $62\%$ above
+the measured value at tree level. The polygon prediction $3/11$ starts
+closer and arrives closer.)
+
+\subsection*{The coupling lock}
+
+There is one more relation worth mentioning, because it serves as an
+internal consistency check rather than a prediction.
+
+The ratio of the electromagnetic coupling $\alpha$ to Newton's constant
+$G$ is:
+\[
+  \frac{\alpha}{8\pi G} = \frac{1}{2\pi^2}.
+\]
+Both $\alpha$ and $G$ are proportional to $1/c$. The central charge
+cancels in the ratio. The result $1/(2\pi^2)$ is an algebraic
+identity---it does not depend on $N$, on the polygon scale, on any
+parameter at all. If the framework is internally consistent, this
+ratio must hold. It does.
+
+\textbf{Status: (Derived)}---the coupling relations follow from the
+Brown--Henneaux formula and the Chern--Simons/Kaluza--Klein reduction.
+The Weinberg angle prediction $3/11$ is arithmetic; the running to
+$M_Z$ uses standard one-loop $\beta$-functions.
+
+
+%% ====================================================================
+\section{Where the Standard Model gauge group comes from}
+\noindent\textit{[Technical reference: Paper~IV, \S6--8]}
+
+\medskip
+
+\noindent\textit{Bottom line: $\mathrm{SU}(3) \times \mathrm{SU}(2)
+\times \mathrm{U}(1)$---the symmetry group of all known
+particles---is forced by the Klein quartic at $N = 7$.}
+
+\medskip
+
+The Standard Model of particle physics rests on a symmetry group:
+$\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$.
+$\mathrm{SU}(3)$ governs the strong force (quarks and gluons).
+$\mathrm{SU}(2)$ governs the weak force (radioactive decay).
+$\mathrm{U}(1)$ governs electromagnetism (photons, electric charge).
+Why this group and not some other? Within the Standard Model, the
+group is an empirical input. Nobody derives it.
+
+The polygon framework derives it. Each factor comes from a different
+mechanism, but all three trace back to the polygon hierarchy.
+
+\subsection*{$\mathrm{U}(1)$: the fiber rotation}
+
+The simplest factor first. The Seifert manifold has a circle fiber.
+A circle has a rotational symmetry: $\mathrm{U}(1)$, the group of
+rotations by any angle. The Kaluza--Klein reduction on this circle
+produces a gauge field---the KK photon---with coupling
+$\alpha = 6/(\pi c)$. This is standard Kaluza--Klein theory, the
+oldest unification idea in physics (1921). The $\mathrm{U}(1)$ factor
+requires no new mathematics; it is the rotation symmetry of the
+compact dimension.
+
+\subsection*{$\mathrm{SU}(2)$: the electroweak polygon}
+
+The $N = 4$ polygon carries the electroweak force. The Chern--Simons
+formulation of $2+1$D gravity produces an $\mathrm{SU}(2) \times
+\mathrm{SU}(2)$ gauge symmetry---one copy for left-handed particles,
+one for right-handed.
+
+The Seifert manifold breaks this symmetry. The twist of the circle
+fiber (the Euler class $e = N/2$) distinguishes left from right: it is
+a pseudoscalar, changing sign under orientation reversal. This is
+the same Euler class that makes the Seifert manifold non-trivial---the
+reason the trivial product $\mathbf{H}^2 \times \mathbb{R}$ was
+eliminated in Section~16. The parity anomaly (a one-loop quantum
+effect) gaps the right-handed $\mathrm{SU}(2)_R$, leaving only the
+left-handed $\mathrm{SU}(2)_L$ as the unbroken gauge factor.
+
+This is the origin of parity violation in the weak interaction.
+Experiments since 1957 have confirmed that the weak force treats left-
+and right-handed particles differently. The polygon framework says
+this asymmetry is geometric: the Seifert manifold is not
+parity-invariant, so the gauge theory it generates is not either.
+
+\subsection*{$\mathrm{SU}(3)$: the Klein quartic}
+
+The strong force requires the most intricate derivation. It proceeds
+through five algebraic steps.
+
+\textbf{Step 1: The Frobenius action.} The multiplicative group of
+integers modulo $7$ (the nonzero elements $\{1, 2, 3, 4, 5, 6\}$
+under multiplication mod~$7$) has a unique subgroup of order~$3$:
+$\{1, 2, 4\}$. The map $m \mapsto 2m \bmod 7$ generates this subgroup,
+and it partitions the six Havelock modes into two orbits:
+$O_+ = \{1, 2, 4\}$ and $O_- = \{3, 5, 6\}$. The Havelock Casimirs
+of each orbit are $\{3, 5, 6\}$ and $\{6, 5, 3\}$---the same set,
+just reordered. This is not a coincidence; it is forced by the
+Frobenius symmetry.
+
+\textbf{Step 2: The McKay correspondence.} The Frobenius map acts as a
+cyclic permutation of order~$3$ on each orbit: $\phi_1 \mapsto \phi_2
+\mapsto \phi_4 \mapsto \phi_1$. Diagonalizing this action produces
+eigenvalues $1$, $\omega$, $\omega^2$, where
+$\omega = e^{2\pi i/3}$. These eigenvalues define an embedding of the
+cyclic group $\mathbb{Z}/3\mathbb{Z}$ into $\mathrm{SU}(2)$:
+$\sigma = \text{diag}(\omega, \omega^{-1})$.
+
+The McKay correspondence (John McKay, 1980) is a theorem in algebra
+that associates a Dynkin diagram to each finite subgroup of
+$\mathrm{SU}(2)$. The diagram determines a Lie group. For
+$\mathbb{Z}/3\mathbb{Z}$, the diagram is $A_2$. And $A_2$ IS
+$\mathrm{SU}(3)$.
+
+I want to be precise about what is happening here. The polygon has
+$N = 7$ modes. The Frobenius action on those modes has order~$3$,
+producing a $\mathbb{Z}/3\mathbb{Z}$ subgroup of $\mathrm{SU}(2)$.
+McKay's theorem converts that subgroup into the Dynkin diagram $A_2$.
+The Lie group corresponding to $A_2$ is $\mathrm{SU}(3)$. This is NOT
+direct McKay on $\mathbb{Z}/7\mathbb{Z}$ (which would give
+$\mathrm{SU}(7)$, a group that does not match experiment). The
+$\text{PSL}(2, \mathbb{F}_7)$ Frobenius reduces the full affine $A_6$
+diagram to $A_2$. The reduction from $7$ to $3$ is algebraic, not a
+choice.
+
+\textbf{Step 3: The Klein quartic.} The surface
+$X(7) = \Gamma(7) \backslash \mathbf{H}^2$ is the Klein quartic: a
+genus-$3$ surface with $168$ symmetries, the maximum for its genus.
+Its automorphism group is $\text{PSL}(2, \mathbb{F}_7)$---the same
+group that governs the $N = 7$ polygon. The holomorphic differentials
+on this surface carry a three-dimensional representation $\chi_3$ of
+this group.
+
+\textbf{Step 4: The Eightfold Way.} The representation
+$\chi_3 \otimes \bar{\chi}_3 = \chi_1 \oplus \chi_8$. The
+three-dimensional representation tensored with its conjugate
+decomposes into a one-dimensional trivial representation and an
+eight-dimensional irreducible representation. This is the SU(3)
+Eightfold Way: the adjoint representation has dimension~$8$. The
+representation theory of $\text{PSL}(2, \mathbb{F}_7)$ reproduces the
+representation theory of $\mathrm{SU}(3)$ exactly.
+
+\textbf{Step 5: Three generations.} The six Havelock modes at $N = 7$
+fall into three palindromic pairs: $(m, N-m)$ for $m = 1, 2, 3$. Each
+pair corresponds to one generation of matter particles.
+$(N-1)/2 = 3$. The number of particle generations is not a free
+parameter; it is $(N-1)/2$ evaluated at $N = 7$.
+
+\subsection*{Confinement: why quarks are never found alone}
+
+No experiment has ever detected a free quark. Quarks are always bound
+into composite particles---protons, neutrons, pions. This phenomenon
+is called confinement, and explaining it from first principles is one
+of the outstanding problems in theoretical physics (it is one of the
+Clay Millennium Prize problems).
+
+In the polygon framework, confinement follows from two lines of
+algebra.
+
+First: the Verlinde formula. The $\mathrm{SU}(3)_1$ Chern--Simons
+theory has three integrable representations, and the expectation value
+of a Wilson loop (a gauge-theory observable that measures whether a
+quark can propagate freely) in the fundamental representation is
+proportional to $1 + \omega + \omega^2$, where $\omega = e^{2\pi i/3}$.
+This sum is exactly zero. Not approximately zero, not small---zero.
+The quark cannot propagate. This is topological confinement.
+
+Second: center symmetry. The Polyakov loop (a thermal version of the
+Wilson loop) transforms under $\mathbb{Z}_3$, the center of
+$\mathrm{SU}(3)$. In the polygon phase, the discrete symmetry is
+$\mathbb{Z}_7$. Since $\gcd(7, 3) = 1$---seven and three share no
+common factor---the $\mathbb{Z}_3$ center is unbroken. An unbroken
+center forces the Polyakov loop expectation value to zero:
+$\langle P \rangle = 0$. Confinement.
+
+\subsection*{The QCD string tension}
+
+How tightly are quarks confined? The answer is the string tension
+$\sigma$---the energy per unit length of the flux tube connecting a
+quark-antiquark pair. Lattice QCD simulations (brute-force numerical
+calculations on a spacetime grid) measure
+$\sigma/\Lambda^2 = 6.25 \pm 0.5$.
+
+The polygon prediction: $\sigma/\Lambda^2 = 1.326 \times 9/2 = 5.97$.
+The factor $1.326$ is the bare Yang--Mills string tension on
+$\mathbf{H}^2$, computed from the Havelock eigenvalue and the Polyakov
+monopole mechanism (with two monopole species, one per simple root of
+$\mathrm{SU}(3)$). The factor $9/2$ is the non-perturbative
+enhancement from the Verlinde dimension
+($\dim \mathcal{H} = 9$ for $\mathrm{SU}(3)_1$ on a genus-$2$ surface)
+divided by the $S^3$ partition function ($Z(S^3)^2 = 2$).
+
+The match: $5.97$ predicted, $6.25 \pm 0.5$ measured. Five percent
+discrepancy, zero free parameters.
+
+\textbf{Status:} The $\mathrm{SU}(3)$ representation structure
+(Frobenius $\to$ McKay $\to$ Eightfold Way) is \textbf{(Proved)}---each
+step is a theorem in finite group theory or representation theory.
+The gauge dynamics (confinement, string tension) are
+\textbf{(Derived)}---they follow from Chern--Simons theory at $k = 1$
+and the Verlinde formula.
+
+
+%% ====================================================================
+\section{The Weinberg angle and the CKM phase}
+\noindent\textit{[Technical reference: Paper~IV, \S9--10]}
+
+\medskip
+
+\noindent\textit{Bottom line: The mixing angle between
+electromagnetism and the weak force, and the parameter governing
+matter--antimatter asymmetry, both come from the polygon with no free
+parameters.}
+
+\medskip
+
+\subsection*{The Weinberg angle (reprise)}
+
+I derived $\sin^2\theta_W = 3/11$ in Section~17. Here I want to add
+context.
+
+The Standard Model has $19$ free parameters. The Weinberg angle is
+one of them. In grand unified theories ($\mathrm{SU}(5)$, for
+instance), the Weinberg angle is predicted---but only at the GUT
+scale, around $10^{14}$ GeV, and the tree-level prediction $3/8$ is
+$62\%$ above experiment. The polygon prediction $3/11$ is $18\%$
+above experiment at tree level, and after standard running lands at
+$0.231$---matching the measured $0.2312$ to $0.1\%$.
+
+The running determines the polygon scale: $M_{\text{poly}} \approx 300$
+TeV. This is not an input; it is a consistency output. If the running
+had landed outside the $50$--$500$ TeV window, the framework would
+have a problem. It does not.
+
+\subsection*{The CKM phase}
+
+The Cabibbo--Kobayashi--Maskawa matrix encodes how quarks of different
+generations mix when they interact via the weak force. It has four
+independent parameters: three mixing angles and one phase. The phase
+$\delta$ controls CP violation---the slight asymmetry between matter
+and antimatter that allows the universe to contain more matter than
+antimatter.
+
+The measured value: $\delta = 69^\circ \pm 3^\circ$ (Particle Data
+Group, 2024). The polygon prediction: $\delta = 70.2^\circ$.
+
+The derivation proceeds through the Harish-Chandra $c$-function on the
+hyperbolic plane. I will walk through it.
+
+At $N = 7$, the third generation of quarks has a mode ($m = 3$) whose
+conformal dimension sweeps from $c = 1/2$ (up-type) to $c = 3/2$
+(down-type), crossing the Breitenlohner--Freedman bound at $c = 1$.
+The BF bound is the stability threshold for fields on the hyperbolic
+plane---below it, the field profile oscillates rather than decaying.
+This crossing generates a scattering phase.
+
+The scattering matrix of the Dirac operator on $\mathbf{H}^2$ at
+spectral parameter $s$ is
+$S(s) = \Gamma(1/2 + is)/\Gamma(1/2 - is)$,
+where $\Gamma$ is the gamma function. The accumulated phase as $s$
+runs from $0$ to $1$ (the range determined by the BF crossing) is:
+\[
+  \delta = \int_0^1 \operatorname{Im}\psi\!\left(\frac{1}{2} + it\right) dt,
+\]
+where $\psi$ is the digamma function---the logarithmic derivative of
+the gamma function. The imaginary part
+$\operatorname{Im}\psi(1/2 + it) = (\pi/2)\tanh(\pi t)$. This is a
+standard identity (NIST Digital Library of Mathematical Functions,
+\S5.4.20). Integrating:
+\[
+  \delta = \int_0^1 \frac{\pi}{2}\tanh(\pi t)\,dt
+  = \frac{1}{2}\log\cosh(\pi).
+\]
+Numerically: $\cosh(\pi) = 11.592$. So $\delta = \log(11.592)/2 =
+1.225$ radians $= 70.2^\circ$.
+
+Every quantity in this calculation is determined by the polygon:
+the spectral parameter range $\Delta s = 1$ comes from the BF
+crossing of the third-generation mode at $N = 7$; the scattering
+matrix is the standard Harish-Chandra function on $\mathbf{H}^2$.
+No parameter is adjusted. No integral is approximated. The result is
+a closed-form expression involving $\pi$ and $\cosh(\pi)$.
+
+\subsection*{The quark mixing parameter $|V_{cb}|$}
+
+The CKM matrix element $|V_{cb}|$ measures the probability amplitude
+for a charm quark to transform into a bottom quark via the weak force.
+The measured value is approximately $0.042$.
+
+The polygon prediction involves two factors. The tree-level Yukawa
+diagonalization gives a perturbative value
+$|V_{cb}|_{\text{pert}} = 0.092$---too large by a factor of two.
+The correction comes from the orbifold structure: on the quotient
+surface $\mathbf{H}^2/\mathbb{Z}_7$, the transition from charm to
+bottom requires propagation to the nearest $\mathbb{Z}_7$ image point.
+The Dirac Green's function at that distance provides a suppression
+factor $T_2 = Q_1(\cosh d) = 0.021$, where $Q_1$ is the Legendre
+function of the second kind and $d = 2.02$ is the geodesic distance
+to the nearest image.
+
+The result: $|V_{cb}| = \sqrt{0.092 \times 0.021} = 0.044$. The
+measured value: $0.041 \pm 0.001$. Match: $6\%$.
+
+\textbf{Status: (Derived)}---the CKM phase is computed from the
+Harish-Chandra $c$-function via a standard integral. The mixing
+parameter $|V_{cb}|$ combines the tree-level Yukawa texture with the
+orbifold image suppression. Both calculations use only the polygon
+number $N = 7$ and the Born--Oppenheimer potential.
+
+
+%% ====================================================================
+\section{Fermion masses, the Higgs, and consistency}
+\noindent\textit{[Technical reference: Paper~IV, \S11--13]}
+
+\medskip
+
+\noindent\textit{Bottom line: The mass hierarchy (top quark
+$340{,}000\times$ heavier than the electron), the Higgs boson mass,
+and the QCD string tension all come from the same tunneling
+calculation.}
+
+\medskip
+
+\subsection*{Why particles have different masses}
+
+The Standard Model has three generations of matter particles. The top
+quark is the heaviest: $173$ GeV. The up quark is among the lightest:
+$2.2$ MeV. The ratio is about $80{,}000$ to $1$. Including the
+electron ($0.511$ MeV), the full range spans a factor of $340{,}000$.
+The Standard Model describes this hierarchy by assigning a separate
+Yukawa coupling to each particle---$13$ free parameters in all---and
+offers no explanation for their values.
+
+The polygon framework generates this hierarchy from the geometry of
+$\mathbf{H}^2$.
+
+Each fermion generation corresponds to a palindromic mode pair
+$(m, 7 - m)$ at $N = 7$. The mode number $m$ determines a Kaluza--Klein
+mass $\mu_m = |m - (N-1)/2|$, which in turn determines a conformal
+dimension $c_m = \sqrt{\mu_m^2 + \mu_4^2}$, where $\mu_4$ comes from
+the $N = 4$ electroweak sector (different for up-type and down-type
+quarks).
+
+The conformal dimension controls how the fermion's wave function is
+distributed along the radial direction of $\mathbf{H}^2$. A large
+conformal dimension pushes the wave function toward the ultraviolet
+boundary (small radius); a small conformal dimension lets it spread
+into the infrared (large radius). The Higgs field lives at a specific
+radial position determined by the Born--Oppenheimer potential (the
+same potential that governs the breathing mode). The Yukawa coupling
+---the number that sets the fermion mass---is the overlap integral
+between the fermion wave function and the Higgs profile.
+
+Large conformal dimension $\to$ small overlap $\to$ small Yukawa
+$\to$ light particle. Small conformal dimension $\to$ large
+overlap $\to$ large Yukawa $\to$ heavy particle. The hierarchy is
+exponential in the conformal dimension, which is why the mass ratios
+span so many orders of magnitude.
+
+\subsection*{The strange-to-bottom mass ratio}
+
+The cleanest quantitative test of this mechanism is the ratio
+$m_s/m_b$: the strange quark mass divided by the bottom quark mass.
+The measured value is approximately $0.024$.
+
+The prediction involves one additional ingredient beyond the tree-level
+Yukawa texture. The bottom quark mass receives a contribution from
+the BF-crossing instanton---the same instanton that generates the CKM
+phase. This instanton carries two units of $\mathbb{Z}_7$ charge and
+generates an effective Yukawa coupling
+$Y_{33}^{\text{inst}} = \mathcal{K}^2 f_3^2$, where
+$\mathcal{K} = 0.548$ is the instanton fugacity (determined by the
+fractional part of the Chern--Simons level) and $f_3$ is the
+third-generation radial profile. The strange quark mass comes from the
+tree-level Yukawa $Y_{22} = f_2^2$.
+
+The ratio:
+$m_s/m_b = f_2^2/(\mathcal{K}^2 f_3^2) = 0.023$.
+Measured: $0.024$. Match: $4\%$.
+
+\subsection*{The Higgs mass}
+
+The Higgs boson was discovered at the Large Hadron Collider in 2012,
+with a mass of $125.25 \pm 0.17$ GeV. The Standard Model does not
+predict this number.
+
+The polygon prediction starts from the Higgs quartic coupling at the
+polygon scale. Standard Model renormalization group running from
+$M_{\text{poly}}$ to $M_Z$ gives a tree-level coupling
+$\lambda_H \approx 0.10$, corresponding to a Higgs mass of about
+$110$ GeV---too low.
+
+Two corrections, both determined by the orbifold structure, raise it.
+The $\mathbb{Z}_7$ twisted sectors contribute
+$\delta\lambda = \lambda/N = 0.014$. The instanton quartic (from pairs
+of instanton--anti-instanton tunnelings) contributes
+$\delta\lambda = 0.008$. At leading order:
+$\lambda_H = 0.10 + 0.014 + 0.008 = 0.122$, giving
+$m_H = \sqrt{2\lambda_H} \times 246\text{ GeV} = 122\text{ GeV}$.
+Next-to-leading corrections (two-loop running, top-quark threshold
+matching) raise the upper end to $128$ GeV.
+
+The observed $125.25$ GeV lies between $122$ and $128$. The theoretical
+uncertainty from higher-order corrections is $\pm 3$ GeV.
+
+\subsection*{Proton stability}
+
+In grand unified theories, the proton eventually decays---just very
+slowly (predicted lifetime $\sim 10^{34}$ years). Experiments have
+searched for proton decay and found nothing, pushing the lower bound
+above $1.6 \times 10^{34}$ years.
+
+The polygon framework predicts that the proton is exactly stable.
+Not long-lived---absolutely stable. The $\mathrm{SU}(3)$ and
+$\mathrm{SU}(2)$ sectors live in different polygon numbers ($N = 7$
+and $N = 4$). Cross-sector couplings would require
+$8(m_1 + m_2) \equiv 28 \pmod{56}$, and this congruence has no
+integer solution because $\gcd(8, 56) = 8$ does not divide $28$.
+The baryon-number-violating operators that would cause proton decay
+are forbidden by exact $\mathbb{Z}_{56}$ charge conservation---a
+topological selection rule, not an approximate symmetry.
+
+This is a distinguishing prediction. If Hyper-Kamiokande or any future
+experiment detects proton decay, the polygon framework is falsified.
+
+\subsection*{The strong CP problem}
+
+The QCD vacuum has a parameter $\theta$ that, if nonzero, would
+produce a measurable electric dipole moment for the neutron. The
+experimental bound is $\theta < 10^{-10}$. Why $\theta$ is so small
+is the strong CP problem; the conventional solution posits a new
+particle called the axion.
+
+The polygon framework solves it without an axion. The Chern--Simons
+level for $\mathrm{SU}(3)$ is $k = 1$---an integer. Level
+quantization (from $\pi_3(\mathrm{SU}(3)) = \mathbb{Z}$) forces the
+vacuum angle to be $\theta = 2\pi k_{\text{frac}} = 0$. The fermion
+shifts preserve integrality: six quark flavors shift the level by
+$\Delta k = 3$ (an integer). The effective level is $k_{\text{eff}} =
+4$, still an integer, still giving $\theta = 0$.
+
+The gravitational sector has an irrational level, but it does not
+contaminate the gauge sector because the gauge and gravitational traces
+are orthogonal:
+$\text{Tr}(T^{\mathrm{SU}(3)}_a T^{\mathrm{SL}(2,\mathbb{R})}_b) = 0$.
+
+The prediction: no axion. Null results at ADMX and ABRACADABRA
+(axion dark matter searches) are consistent; a positive detection
+would falsify this aspect of the framework.
+
+\subsection*{Light quark masses: an honest limitation}
+
+The up and down quark masses are the weakest point in the fermion
+sector. The predicted $m_u \approx 1.3$ MeV (measured: $2.2$ MeV,
+$40\%$ off) and $m_d \approx 7.6$ MeV (measured: $4.7$ MeV,
+$60\%$ off). These are not close enough to claim a match.
+
+The reason is identified: the lightest quarks are sensitive to the
+tail of the Higgs boson wave function near $\rho = 0$, where the
+Born--Oppenheimer potential is least constrained. The Higgs profile
+is broad---its width exceeds the equilibrium radius of the polygon---so
+the overlap integral samples a region where the Randall--Sundrum
+approximation (exponential profile suppression) breaks down. The
+qualitative prediction $m_u < m_d \ll m_s$ is correct and
+parameter-free. The quantitative discrepancy is a geometric-tier
+limitation, flagged honestly.
+
+\textbf{Status:} The mass hierarchy and $m_s/m_b$ are
+\textbf{(Derived)}, depending on the Born--Oppenheimer potential and
+the instanton fugacity $\mathcal{K}$. The Higgs mass range $122$--$128$
+GeV is \textbf{(Derived)}. Proton stability and $\theta = 0$ are
+\textbf{(Derived)} from topological selection rules. Light quark
+masses are acknowledged limitations: the framework produces the
+correct ordering but not the correct magnitudes.
 
 
 \part{The Numbers of the Universe}
