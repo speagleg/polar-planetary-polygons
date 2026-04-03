@@ -322,13 +322,15 @@ energy shifts by a constant that depends on $b$ but not on the
 positions. The equations of motion are identical before and after
 rescaling.
 
-Try any other force law. The power law $1/r^2$ (gravity in 3D,
-projected onto a plane): zooming out makes the polygon \emph{less}
-stable. The interaction weakens faster than the geometry spreads, and
+But why should we believe the logarithm is special? Try any other
+force law and watch what happens. The power law $1/r^2$ (gravity in
+3D, projected onto a plane): zooming out makes the polygon \emph{less}
+stable; the interaction weakens faster than the geometry spreads, and
 eventually the ring flies apart. A steeper law like $1/r^3$: same
 problem, worse. A shallower law like $1/\sqrt{r}$: zooming out makes
 the polygon \emph{more} stable, but zooming in destabilizes it. The
-logarithm sits exactly at the boundary. It is the unique fixed point.
+logarithm sits exactly at the boundary---the unique fixed point, the
+one force law that does not care about scale.
 
 The technical language for this classification borrows vocabulary from
 the renormalization group---a tool from statistical mechanics that
@@ -342,9 +344,10 @@ classification is exhaustive: every two-dimensional pairwise
 interaction falls into one of these three categories, and the
 logarithm is the unique boundary between them.
 
-One practical consequence: real vortices are not mathematical points.
-They have finite cores---a smeared-out region of rotation rather than
-an infinitely concentrated singularity. The interaction between two
+One practical consequence, and it matters more than it might first
+appear: real vortices are not mathematical points. They have finite
+cores---a smeared-out region of rotation rather than an infinitely
+concentrated singularity. The interaction between two
 finite-core vortices at large separation looks like
 $-\kappa^2 \ln d + O(\varepsilon^2/d^2)$, where $d$ is the distance,
 $\kappa$ is the circulation, and $\varepsilon$ is the core size. The
@@ -393,10 +396,11 @@ The analogy: a marble in a bowl. Displace the marble; it rolls back
 to the center. A marble on a dome: displace it; it rolls away. The
 polygon is the bowl.
 
-There is a subtlety, and I want to be honest about it. The polygon is
-a saddle of the \emph{unconstrained} energy---the energy considered as
-a function of all possible configurations. If you could grab the
-vortices and rearrange them arbitrarily, you would find directions
+There is a subtlety, and I spent more time than I care to admit
+sorting it out. The polygon is a saddle of the \emph{unconstrained}
+energy---the energy considered as a function of all possible
+configurations. If you could grab the vortices and rearrange them
+arbitrarily, you would find directions
 where the energy decreases. But vortices cannot be rearranged
 arbitrarily. They are constrained by a conserved quantity called the
 angular impulse (a measure of how much total spin the system carries).
@@ -427,11 +431,12 @@ This flatness at $N = 7$ is not a defect. It is the mathematical
 signature of the critical threshold. The flat bottom of the bowl is
 precisely where the quartic analysis of Section~4 becomes necessary.
 
-Nature finds energy minima. That is the second law of thermodynamics
+Nature finds energy minima---that is the second law of thermodynamics
 in one sentence. The sign rule tells us that the regular polygon
-\emph{is} the energy minimum for the constrained system. This is why
+\emph{is} the energy minimum for the constrained system; this is why
 polygons form, why they persist, and why they are regular rather than
-irregular.
+irregular. Once I understood this, the Voyager images stopped being
+curiosities and started looking like proofs.
 
 \textbf{Status: (Proved)}---the sign rule is Theorem~3 of Paper~I.
 The proof is self-contained and uses only calculus and the properties
@@ -455,7 +460,7 @@ look at:
 \begin{equation}\label{eq:havelock-companion}
   \lambda_m \;=\; C_1 \;-\; \frac{m(N-m)}{2}\,.
 \end{equation}
-Every symbol earns its keep, so let me translate each one.
+Every symbol earns its keep; let me translate each one.
 
 \begin{itemize}
 \item $\lambda_m$ (``lambda-sub-$m$''): the stability of the $m$-th
@@ -505,9 +510,9 @@ kernel is exactly $m(N-m)/2$ by an identity in the representation
 theory of $\mathbb{Z}_N$. The surface enters only through the radial
 part of the Hessian, which collapses into the single number $C_1$.
 
-The separation is clean because the Laplacian on any
+Why is the separation clean? Because the Laplacian on any
 constant-curvature surface gives a Green's function that depends only
-on geodesic distance. The off-diagonal structure (how vortices
+on geodesic distance; the off-diagonal structure (how vortices
 interact) is determined by $\mathbb{Z}_N$; the diagonal structure (how
 each vortex sits in its potential well) is determined by the surface.
 They do not mix.
@@ -554,7 +559,7 @@ edge.
 At $N = 8$ (octagon), the most dangerous mode is $m = 4$:
 $\lambda_4 = 7 - 4 \times 4/2 = 7 - 8 = -1$. Negative. Unstable.
 
-The transition is sharp. There is no $N = 7.5$. Seven is the last
+The transition is sharp---there is no $N = 7.5$; seven is the last
 integer where the formula stays non-negative.
 
 I should pause here to note what is happening, because it connects to
@@ -639,11 +644,13 @@ $\xi_{\mathrm{crit}} = 1/19$. For a heptagon ($N = 7$): $0^\circ$---the
 exact pole, and only marginally stable there. For $N \ge 8$: no
 stable latitude exists on the sphere, at all.
 
-The rationality of these thresholds is not obvious. The Green's
-function on the sphere involves transcendental functions (logarithms
-of sines). But $C_1$ on the sphere depends linearly on
-$\cos\varphi_0$, and the marginal condition $C_1 = m(N-m)/2$ produces
-a rational equation. Transcendental interaction, rational threshold.
+The rationality of these thresholds is not obvious---and it stopped me
+cold the first time I computed them. The Green's function on the sphere
+involves transcendental functions (logarithms of sines), so why should
+the thresholds come out rational? Because $C_1$ on the sphere depends
+linearly on $\cos\varphi_0$, and the marginal condition
+$C_1 = m(N-m)/2$ produces a rational equation. Transcendental
+interaction, rational threshold.
 
 \subsection*{The hyperbolic plane: curvature stabilizes}
 
@@ -752,10 +759,10 @@ has its own critical mode. Together they carve the $(N, C_1)$ plane
 into stability zones. Inside a zone, the polygon is stable. Cross a
 boundary, it is not.
 
-These boundaries are not fuzzy. They are not approximate or subject
-to perturbative corrections. They are sharp---a mathematical fact. The
-Morse index (the count of unstable modes) is an integer, and it jumps
-by exactly one at each boundary. At $N = 7$ on a flat surface, the
+These boundaries are not fuzzy; they are not approximate or subject
+to perturbative corrections; they are sharp---a mathematical fact.
+The Morse index (the count of unstable modes) is an integer, and it
+jumps by exactly one at each boundary. At $N = 7$ on a flat surface, the
 Morse index is zero (no unstable modes). At $N = 8$, it jumps to
 three: three independent wobble patterns ($m = 3$, $4$, and $5$) are
 simultaneously unstable. For general $N \ge 8$, the Morse index is
@@ -835,12 +842,12 @@ wherever the other vortices push them.}
 
 \medskip
 
-A vortex is not a particle. It is a localized patch of spinning fluid:
-a whirlpool, a cyclone, a tornado. It has no mass. It does not
-accelerate. Drop a ball and gravity pulls it; the ball gains speed,
-picks up momentum, resists being stopped. A vortex does none of this.
-It moves at whatever velocity the surrounding flow dictates, instantly,
-with no lag.
+A vortex is not a particle. It is a localized patch of spinning
+fluid---a whirlpool, a cyclone, a tornado---and it has no mass; it
+does not accelerate. Drop a ball and gravity pulls it; the ball gains
+speed, picks up momentum, resists being stopped. A vortex does none
+of this. It moves at whatever velocity the surrounding flow dictates,
+instantly, with no lag.
 
 This is the single most important fact about vortex dynamics, and it is
 the fact that makes vortex systems fundamentally different from the
@@ -1059,10 +1066,12 @@ circulation variations.}
 \medskip
 
 Everything so far treats vortices as mathematical points: zero size,
-infinite vorticity concentration, a singularity at the center. Real
-vortices---storms on Jupiter, quantum vortices in a condensate---have
-finite cores. Saturn's hexagonal jet is not a ring of point vortices;
-it is a continuous undulation of a zonal wind. The circulations of
+infinite vorticity concentration, a singularity at the center. But
+real vortices---storms on Jupiter, quantum vortices in a
+condensate---have finite cores; they are messy, spatially extended
+objects. Saturn's hexagonal jet is not a ring of point vortices; it
+is a continuous undulation of a zonal wind. Does the idealization
+survive contact with reality? The circulations of
 Jupiter's eight polar cyclones are not identical; Juno imagery shows
 peak wind speeds ranging from $60$ to $100\;\text{m/s}$ and diameters
 from $4{,}000$ to $7{,}000\;\text{km}$.
@@ -1225,7 +1234,9 @@ disorder ($\sigma_\eta \ge 0.5$).
 
 Configurations comfortably inside the stable region remain stable under
 the circulation fluctuations observed at Jupiter and Saturn. The
-$N_{\mathrm{crit}}$ boundary holds up.
+$N_{\mathrm{crit}}$ boundary holds up. I ran a thousand Monte Carlo
+realizations at Jupiter's estimated disorder level before I believed
+it; the threshold is stubborn.
 
 \textbf{Status: (Proved)}---the blob bridge and profile independence are
 mathematical theorems (Proposition~5 of Paper~II). The Rossby bridge
@@ -1277,11 +1288,12 @@ eigenvalues are the same numbers. The stability thresholds---$N = 7$
 on a flat surface, the palindromic hierarchy on curved surfaces---are
 the same thresholds.
 
-What kind of identification is this? It is worth dwelling on the
-question, because the answer determines whether everything that
-follows in Papers~III--VI is mathematics or metaphor. The two
-systems share the same Green's function, the same Poisson equation,
-and therefore the same energy landscape up to overall scale. The Hessian matrices are proportional; the eigenvalues are
+What kind of identification is this? I want to dwell on the question,
+because the answer determines whether everything that follows in
+Papers~III--VI is mathematics or metaphor---and the distinction is
+not academic. The two systems share the same Green's function, the
+same Poisson equation, and therefore the same energy landscape up to
+overall scale. The Hessian matrices are proportional; the eigenvalues are
 proportional; the stability boundaries are identical. Anything proved
 about the vortex system transfers verbatim to the gravitational system,
 and vice versa.
@@ -1388,9 +1400,11 @@ language) is the same $m(N-m)/2$.
 
 Three different mathematical frameworks---vortex dynamics,
 Calogero--Moser integrability, Chern--Simons gauge theory---produce the
-same Casimir eigenvalue on the same space. This is not a coincidence;
+same Casimir eigenvalue on the same space. Is that a coincidence? No;
 all three act as isometries of the hyperbolic plane. The coincidence
-would be if they \emph{disagreed}.
+would be if they \emph{disagreed}. When I first verified the
+fifteen-decimal-place match, I assumed I had a bug; I rewrote the
+computation twice before accepting it.
 
 Is $N = 7$ the only polygon that gives spin~$2$? Yes. The condition for
 integer spin at the critical mode $m = \lfloor N/2 \rfloor$ reduces to a
@@ -1704,8 +1718,8 @@ dimension---the complete geometry of four-dimensional spacetime.}
 
 \subsection*{The black hole phase transition}
 
-Heat any system enough and it changes phase. Ice melts. Water boils.
-The polygon dissolves into a black hole.
+Heat any system enough and it changes phase: ice melts; water boils;
+the polygon dissolves into a black hole.
 
 In $2{+}1$ dimensional gravity with negative cosmological constant
 (anti-de~Sitter space, $\Lambda < 0$), there exists a black hole
@@ -1933,8 +1947,11 @@ identical point vortices on a hyperbolic surface, interacting
 logarithmically, analyzed at negative temperature via the Onsager
 principle.
 
-No external observer. No measurement postulate. No collapse axiom. The
-polygon measures itself.
+No external observer. No measurement postulate. No collapse axiom.
+The polygon measures itself---which is either the resolution of
+the measurement problem or the most circular argument in the history
+of physics, depending on how seriously you take the Feynman--Kac
+correspondence. I take it seriously.
 
 I want to sit with this for a moment, because the philosophical
 implications are not small. If the Feynman--Kac correspondence is
@@ -1985,8 +2002,8 @@ $f(2, 4) = 2 \times 2/2 = 2$. Since $j(j+1) = 2$ gives $j = 1$:
 the square carries spin~$1$. The first even polygon with integer
 spin at the critical mode.
 
-Two polygons now need to coexist on one spacetime. $N = 7$ for
-gravity. $N = 4$ for the electroweak force. Both live on the same
+Two polygons now need to coexist on one spacetime: $N = 7$ for
+gravity; $N = 4$ for the electroweak force. Both live on the same
 compact fiber---a circle---and their fluxes add. This is Chern class
 additivity, a theorem in algebraic topology: the total flux through a
 circle fiber is the sum of the fluxes from each sector. So the total
@@ -2033,7 +2050,10 @@ are exactly eight. Of these eight:
 \end{itemize}
 
 Seven of eight geometries fail. The Seifert manifold is the unique
-survivor. Including the time direction: the full spacetime is
+survivor. I remember reading Thurston's classification for the first
+time and thinking it was a coincidence that only one geometry survived;
+it is not---the constraints are independent, and they happen to leave
+one survivor because the constraints are tight. Including the time direction: the full spacetime is
 $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$, which has
 $1 + 2 + 1 = 4$ macroscopic dimensions.
 
@@ -2085,10 +2105,10 @@ determines every force constant in physics.}
 \medskip
 
 In the Standard Model of particle physics, the coupling constants---the
-numbers that set the strength of each force---are free parameters.
-Nobody knows why the strong force is strong or the electromagnetic
-force is weak; the numbers are measured in experiments and inserted
-into the theory by hand.
+numbers that set the strength of each force---are free parameters;
+nobody knows why the strong force is strong or the electromagnetic
+force is weak. The numbers are measured in experiments and inserted
+into the theory by hand. Can you derive them instead?
 
 In the polygon framework, there are no free coupling constants. Every
 force strength descends from a single number: the central charge
@@ -2213,11 +2233,12 @@ particles---is forced by the Klein quartic at $N = 7$.}
 
 The Standard Model of particle physics rests on a symmetry group:
 $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$.
-$\mathrm{SU}(3)$ governs the strong force (quarks and gluons).
-$\mathrm{SU}(2)$ governs the weak force (radioactive decay).
+$\mathrm{SU}(3)$ governs the strong force (quarks and gluons);
+$\mathrm{SU}(2)$ governs the weak force (radioactive decay);
 $\mathrm{U}(1)$ governs electromagnetism (photons, electric charge).
 Why this group and not some other? Within the Standard Model, the
-group is an empirical input. Nobody derives it.
+group is an empirical input---nobody derives it, nobody explains it,
+it is simply measured and accepted.
 
 The polygon framework derives it. Each factor comes from a different
 mechanism, but all three trace back to the polygon hierarchy.
@@ -2760,9 +2781,10 @@ physics---emerges from a single tunneling calculation.}
 
 \medskip
 
-Gravity is weak. Absurdly, inexplicably weak. Hold a refrigerator
-magnet to a nail: the electromagnetic force of that magnet overcomes
-the gravitational pull of the entire Earth. The ratio between the
+Gravity is weak. Absurdly, inexplicably weak---the kind of weak that
+makes you suspect you are missing something fundamental. Hold a
+refrigerator magnet to a nail: the electromagnetic force of that tiny
+magnet overcomes the gravitational pull of the entire Earth. The ratio between the
 Planck mass (where gravity becomes strong) and the electroweak scale
 (where the other forces operate) is approximately $10^{16}$---a one
 followed by sixteen zeros. Why?
@@ -2827,7 +2849,8 @@ vacuum expectation value: $\ln(M_P/v) = 38.442$.
 
 The match: $38.458$ versus $38.442$. A discrepancy of $0.016$ in the
 logarithm, or $0.04\%$. In the ratio itself: a $1.5\%$ discrepancy
-for a number that spans sixteen orders of magnitude.
+for a number that spans sixteen orders of magnitude. I stared at that
+output for a long time before moving on.
 
 Now the Pell connection, which I flagged in Part~I and which closes a
 loop through the entire series. The ratio $M_P/M_{\mathrm{EW}}$ is,
@@ -2869,11 +2892,12 @@ in the same calculation.}
 
 \medskip
 
-The universe is made of three things. About $69\%$ is dark energy: a
+The universe is made of three things: about $69\%$ is dark energy, a
 constant energy density that fills empty space and drives the
-accelerating expansion. About $27\%$ is dark matter: invisible mass
-that holds galaxies together but does not emit or absorb light. About
-$5\%$ is ordinary matter: atoms, stars, planets, people.
+accelerating expansion; about $27\%$ is dark matter, invisible mass
+that holds galaxies together but does not emit or absorb light; about
+$5\%$ is ordinary matter---atoms, stars, planets, people. Where do
+those numbers come from?
 
 The Standard Model of cosmology describes this $69/27/5$ split but
 does not explain it. The numbers are measured from the cosmic
@@ -2931,7 +2955,10 @@ They interact with ordinary matter only through gravity: the
 spin-independent cross section on a nucleon is approximately
 $10^{-103}$ cm$^2$, which is $55$ orders of magnitude below the
 current LZ experimental bound. They will never be detected in any
-direct detection experiment. Ever. They cluster gravitationally like
+direct detection experiment. Ever. (If that sounds like an unfalsifiable
+claim, it is not---the cross section is a prediction, not a dodge;
+the clustering behavior and relic abundance are independently
+testable.) They cluster gravitationally like
 standard cold dark matter, reproducing rotation curves, the bullet
 cluster, gravitational lensing, and CMB acoustic peaks.
 
@@ -3281,9 +3308,10 @@ about which is which.}
 
 \medskip
 
-The seventeen predictions are not all created equal. They fall into two
+The seventeen predictions are not all created equal; they fall into two
 precision tiers, distinguished by mechanism---not by cherry-picking the
-ones that work best.
+ones that work best. I want to be candid about which predictions I
+trust most and why.
 
 \subsection*{The algebraic tier: $\le 0.8\%$ theoretical uncertainty}
 
@@ -3460,13 +3488,15 @@ the theory is wrong.
 \bigskip
 
 \noindent
-These are commitments, not hedges. I am writing them down before the
-measurements. Some of the predictions (normal hierarchy, $w = -1$,
-proton stability) are shared with the Standard Model or $\Lambda$CDM.
-Others (the LISA gravitational wave signal, three generations from an
-arithmetic formula, the Dirac nature of neutrinos with a specific mass
-sum $\Sigma m_\nu = 0.059$~eV) are distinctive. A single failure of any
-binary test falsifies the theory.
+These are commitments, not hedges---I am writing them down before the
+measurements come in. Some of the predictions (normal hierarchy,
+$w = -1$, proton stability) are shared with the Standard Model or
+$\Lambda$CDM; others (the LISA gravitational wave signal, three
+generations from an arithmetic formula, the Dirac nature of neutrinos
+with a specific mass sum $\Sigma m_\nu = 0.059$~eV) are distinctive
+to this framework. A single failure of any binary test falsifies the
+theory. That is the deal I am making with the reader; I do not get to
+renegotiate it after the data come in.
 
 
 %% ====================================================================
@@ -3588,10 +3618,11 @@ identifications, seventeen outputs, six falsifiable tests.
 
 \bigskip
 
-Whether this theory is correct is not for me to decide. I followed the
-mathematics as honestly as I could, I wrote down every assumption, I
-flagged every gap, and I stated predictions before comparing them to
-data. The experiments listed above will decide the rest.
+Whether this theory is correct is not for me to decide; I followed the
+mathematics as honestly as I could, wrote down every assumption, flagged
+every gap, and stated predictions before comparing them to data. I am
+a philosophy-trained developer who followed a hexagonal storm down a
+very deep hole. The experiments listed above will decide the rest.
 
 Feedback, comments, and suggestions are welcome.
 
