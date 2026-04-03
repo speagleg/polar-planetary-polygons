@@ -25,7 +25,7 @@ References:
   - Dunne, "Aspects of Chern-Simons Theory" (Les Houches lectures)
 """
 
-from math import pi, sqrt, log, log2, gamma, factorial
+from math import pi, sqrt, log, log2, factorial
 from fractions import Fraction
 
 

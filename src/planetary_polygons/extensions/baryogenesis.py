@@ -25,7 +25,7 @@ Key advantages over the SM:
   - The Havelock theory has first-order EWPT AND large CP violation.
 """
 
-from math import sqrt, log, exp, pi, sin, cos
+from math import sqrt, log, pi, sin
 
 
 def b_exact(N):

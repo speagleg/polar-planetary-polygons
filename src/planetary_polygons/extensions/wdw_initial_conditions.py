@@ -72,7 +72,7 @@ def weyl_classification_at_zero(N, epsilon=0.5, n_points=10000):
     rho_min = 1e-10
     rho_values = np.linspace(rho_min, epsilon, n_points)
     integrand = np.array([weyl_integrand_at_zero(r, N, c) for r in rho_values])
-    integral = np.trapz(integrand, rho_values)
+    integral = np.trapezoid(integrand, rho_values)
     classification = "limit-circle" if np.isfinite(integral) else "limit-point"
     return integral, classification
 
@@ -91,7 +91,7 @@ def weyl_classification_at_infinity(N, rho_start=None, rho_end=100.0,
         rho_start = find_threshold(N) + 1.0
     rho_values = np.linspace(rho_start, rho_end, n_points)
     integrand = np.array([weyl_integrand_at_zero(r, N, c) for r in rho_values])
-    integral = np.trapz(integrand, rho_values)
+    integral = np.trapezoid(integrand, rho_values)
     # At ∞, the integral diverges; we just check it's growing
     classification = "limit-point"  # proven analytically: V~ρ at ∞
     return integral, classification
@@ -141,8 +141,8 @@ def weyl_L2_test(N, rho_min=1e-6, rho_max=None, n_points=5000):
         dpsi2[i + 1] = dpsi2[i] + 0.5 * h * (q * psi2[i] + q_next * psi2[i + 1])
 
     # L² norms
-    norm1_sq = np.trapz(psi1**2, rho_vals)
-    norm2_sq = np.trapz(psi2**2, rho_vals)
+    norm1_sq = np.trapezoid(psi1**2, rho_vals)
+    norm2_sq = np.trapezoid(psi2**2, rho_vals)
 
     both_L2 = np.isfinite(norm1_sq) and np.isfinite(norm2_sq)
     classification = "limit-circle" if both_L2 else "limit-point"
@@ -177,7 +177,7 @@ def wkb_action_near_zero(N, rho_min=1e-8, rho_max=None, n_points=10000):
     integrand = np.array([
         sqrt(2 * c * abs(wdw_potential(r, N))) for r in rho_vals
     ])
-    action = np.trapz(integrand, rho_vals)
+    action = np.trapezoid(integrand, rho_vals)
     n_oscillations = action / pi  # WKB: each π of phase = one oscillation
 
     return {

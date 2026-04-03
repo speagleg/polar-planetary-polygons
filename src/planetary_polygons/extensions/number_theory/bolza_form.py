@@ -9,7 +9,7 @@ Two independent methods to compute Fourier coefficients:
 """
 
 from .arithmetic import hecke_eigenvalue_ap
-from .sieve import primes_up_to
+from .arithmetic import primes_up_to
 
 
 def _kronecker_minus2(n: int) -> int:

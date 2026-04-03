@@ -130,7 +130,7 @@ def logarithmic_specialness() -> dict:
 
     Returns the three properties that make -ln r unique and their implications.
     """
-    from sign_rule_proof import H_double_prime_analytic
+    from planetary_polygons.core.sign_rule import H_double_prime_analytic
 
     # Property (a): h'(r) < 0
     # Property (b): (r*h'(r))' = 0 (borderline)

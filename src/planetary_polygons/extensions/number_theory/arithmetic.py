@@ -1,7 +1,7 @@
 """Modular arithmetic primitives for number-theoretic computations.
 
 Implements Legendre symbol, Tonelli-Shanks, Fibonacci entry point,
-and Hecke eigenvalue computation for the Bolza form.
+Hecke eigenvalue computation for the Bolza form, and prime sieve.
 """
 
 
@@ -166,3 +166,16 @@ def hecke_eigenvalue_ap(p: int) -> int:
         return 0
     s = sqrt2_mod_p(p)
     return 2 * legendre_symbol((1 + s) % p, p)
+
+
+def primes_up_to(n):
+    """Sieve of Eratosthenes: all primes up to n."""
+    if n < 2:
+        return []
+    sieve = [True] * (n + 1)
+    sieve[0] = sieve[1] = False
+    for i in range(2, int(n**0.5) + 1):
+        if sieve[i]:
+            for j in range(i*i, n + 1, i):
+                sieve[j] = False
+    return [i for i in range(2, n + 1) if sieve[i]]

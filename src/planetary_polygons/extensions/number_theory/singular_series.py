@@ -6,7 +6,7 @@ S_{40,17} for primes p with p, p+2 both prime and p = 17 mod 40.
 
 import mpmath
 
-from .sieve import primes_up_to
+from .arithmetic import primes_up_to
 
 mpmath.mp.dps = 50
 

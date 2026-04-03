@@ -202,9 +202,6 @@ def kk_momentum_transfer():
     - Therefore m = 1
 
     The conformal dimensions:
-    - c = μ₄ + 1/2 where μ₄ is the fiber mass
-    - Up-type: μ₄ = 1/2 → c_up = 1
-    Wait, that's not right. Let me use the paper's values:
     - Up-type: c_up = μ₄ - T₃ = 1 - 1/2 = 1/2
     - Down-type: c_dn = μ₄ + T₃ = 1 + 1/2 = 3/2
     - Δc = c_dn - c_up = 1

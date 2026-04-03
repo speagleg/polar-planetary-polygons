@@ -35,7 +35,3 @@ def hexagon_amplitude_analytic(delta_U: float, U_star: float,
     return C * (delta_U / U_star) * np.exp(-n * abs(rho_star))
 
 
-class MatchedAsymptoticSolver:
-    """Composite asymptotic solution. Stub."""
-    def __init__(self, *args, **kwargs):
-        raise NotImplementedError("MatchedAsymptoticSolver not yet implemented")

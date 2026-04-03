@@ -50,7 +50,7 @@ class TestWallProfile:
         v_T = 0.84
         z = np.linspace(-20, 20, 100000)
         dh = higgs_vev_derivative(z, L_w, v_T)
-        integral = np.trapz(dh, z)
+        integral = np.trapezoid(dh, z)
         assert abs(integral + v_T) < 1e-4
 
 
@@ -90,7 +90,7 @@ class TestCPPhase:
         delta = 0.566
         z = np.linspace(-20, 20, 100000)
         S = cp_source(z, L_w, v_T, delta, v_w)
-        integral = np.trapz(S, z)
+        integral = np.trapezoid(S, z)
         # Expected: (N_c y_t⁴ v_w sin(δ))/(8π²) × (-v_T²/2)
         y_t = sqrt(2) * 173 / 246
         expected = 3 * y_t**4 * v_w * sin(delta) / (8 * pi**2) * (-v_T**2 / 2)
