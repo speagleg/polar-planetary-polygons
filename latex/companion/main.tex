@@ -304,15 +304,15 @@ size.}
 
 \medskip
 
-In three dimensions, gravity falls off as $1/r^2$. Drop to two
-dimensions and the natural law becomes the logarithm: the force
-between spinning objects falls off as $1/r$.
-
-This is not a modeling choice. It is forced by the mathematics of
-the two-dimensional Laplacian---the same equation that governs heat
-diffusion, electrostatics, and fluid flow on a flat surface. The
-Green's function (the fundamental solution) of that equation is the
-logarithm. Period.
+In three dimensions, gravity falls off as $1/r^2$; drop to two
+dimensions and the natural law becomes the logarithm, the force
+between spinning objects falling off as $1/r$. Why the logarithm
+and not some other function? This is not a modeling choice---it
+is forced by the mathematics of the two-dimensional Laplacian,
+the same equation that governs heat diffusion, electrostatics,
+and fluid flow on a flat surface. The Green's function (the
+fundamental solution) of that equation is the logarithm; there
+is no freedom in the selection.
 
 What makes the logarithm special among all possible force laws is a
 specific kind of rigidity. If you take a polygon governed by
@@ -374,17 +374,20 @@ of an energy valley, not balanced on a hilltop.}
 
 \medskip
 
-Before this series, the standard treatment of polygon stability
-described the regular $N$-gon as an energy saddle---stable in some
-directions of perturbation, unstable in others. Think of sitting on a
-horse saddle: rock forward and you slide down; rock sideways and
-you're pushed back. A saddle is stable along one axis and unstable
-along the other. Most of the point-vortex literature characterized the
-polygon this way.
+Before this series, the standard treatment in the vortex dynamics
+literature described the regular $N$-gon as an energy saddle---stable
+in some directions, unstable in others, like sitting on horseback
+where rocking forward slides you off but rocking sideways pushes you
+back. This characterization goes back to Thomson in 1883 and persists
+through Boatto and Cabral's work in 2003; it is not wrong, but it is
+incomplete, and the incompleteness matters.
 
-The sign rule (Theorem~3 in Paper~I) corrects this picture. The
-regular polygon is a \emph{constrained energy minimum}: a bowl, not a
-hilltop, not a saddle.
+The sign rule (Theorem~3 in Paper~I) corrects the picture. The
+regular polygon is a \emph{constrained energy minimum}---a bowl, not a
+hilltop, not a saddle. Why does the distinction matter? Because nature
+finds energy minima; if the polygon is a minimum on the physically
+accessible surface, that is the configuration the system will reach and
+remain at.
 
 The analogy: a marble in a bowl. Displace the marble; it rolls back
 to the center. A marble on a dome: displace it; it rolls away. The
@@ -553,6 +556,20 @@ $\lambda_4 = 7 - 4 \times 4/2 = 7 - 8 = -1$. Negative. Unstable.
 
 The transition is sharp. There is no $N = 7.5$. Seven is the last
 integer where the formula stays non-negative.
+
+I should pause here to note what is happening, because it connects to
+a question that has occupied me since my undergraduate studies in
+philosophy: do numbers \emph{do} anything, or are they merely labels?
+The periodic table is differentiated by integer atomic numbers;
+quantum mechanics was born from Planck's insistence that energy comes
+in integer packets; and here, the stability of a polygon breaks at
+an integer threshold that no continuous parameter can shift. The
+number seven is not chosen, not fit, not approximate. It is the
+answer to a well-posed mathematical question, and it determines
+physical behavior. Whether this constitutes evidence for a realist
+ontology of mathematical objects---numbers and shapes as things that
+exist independently of the physical world---is a question I cannot
+answer here, but I cannot pretend I have not thought about it.
 
 Why does $N = 7$ produce zero? Paper~I, Theorem~10 gives the algebraic
 answer: setting $\lambda_m = 0$ with $C_1 = N - 1$ and solving gives
@@ -1260,11 +1277,11 @@ eigenvalues are the same numbers. The stability thresholds---$N = 7$
 on a flat surface, the palindromic hierarchy on curved surfaces---are
 the same thresholds.
 
-Let me be precise about what this identification is and is not. It
-is not an analogy. It is not a metaphor. It is not a qualitative
-resemblance. The two systems share the same Green's function, the same
-Poisson equation, and therefore the same energy landscape up to overall
-scale. The Hessian matrices are proportional; the eigenvalues are
+What kind of identification is this? It is worth dwelling on the
+question, because the answer determines whether everything that
+follows in Papers~III--VI is mathematics or metaphor. The two
+systems share the same Green's function, the same Poisson equation,
+and therefore the same energy landscape up to overall scale. The Hessian matrices are proportional; the eigenvalues are
 proportional; the stability boundaries are identical. Anything proved
 about the vortex system transfers verbatim to the gravitational system,
 and vice versa.
@@ -1465,13 +1482,18 @@ $d^2S/dC_1^2 = -(1/2)\sum 1/\lambda_m^2 < 0$
 (from the Hadamard expansion of the Green's function), so $S$ is
 concave in $R$.
 
-The Onsager selection principle then says: at sufficiently high energy
-(negative temperature), the system's macroscopic state is dominated by
-the entropy-maximizing configuration. Onsager published this principle
-in 1949 to explain why two-dimensional vortex systems spontaneously
-form large-scale structures. It is the physical content of condition
-(H2)---the one assumption in the argument that is not a mathematical
-theorem.
+The Onsager selection principle then says: at sufficiently high
+energy (negative temperature), the system's macroscopic state is
+dominated by the entropy-maximizing configuration. Lars Onsager
+published this principle in 1949; it was later made rigorous by
+Caglioti, Lions, Marchioro, and Pulvirenti in 1992 and by Kiessling
+in 1993. The physical intuition is that two-dimensional vortex
+systems at negative temperature spontaneously form large-scale
+structures---they cluster rather than disperse, precisely because
+the entropy of the clustered state exceeds that of the dispersed
+one when the energy is high enough. It is the physical content of
+condition~(H2), and it is the one assumption in the argument that
+is not a mathematical theorem.
 
 \textbf{(H3) The Hadamard parametrix.} The Green's function on
 \emph{any} Riemannian surface has the universal short-distance form
@@ -1913,6 +1935,18 @@ principle.
 
 No external observer. No measurement postulate. No collapse axiom. The
 polygon measures itself.
+
+I want to sit with this for a moment, because the philosophical
+implications are not small. If the Feynman--Kac correspondence is
+taken at face value---and it is a theorem, not a conjecture---then
+the boundary between classical statistical mechanics and quantum
+mechanics is not a boundary at all. It is a change of description, the
+way Cartesian and polar coordinates describe the same plane. The
+``mystery'' of quantum mechanics, insofar as it is a mystery, may be
+an artifact of treating two descriptions of the same mathematical
+structure as though they describe different physical realities. My
+background in philosophy inclines me to take this seriously; whether
+the physics community will agree is another matter.
 
 \textbf{Status: (Derived)}---the Feynman--Kac correspondence is a
 mathematical theorem. The Caldeira--Leggett conditions are verified
