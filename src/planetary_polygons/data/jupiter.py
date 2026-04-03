@@ -134,8 +134,8 @@ def thomson_critical_ratio_jupiter(N: int) -> float:
 
     Uses the numerical stability matrix (same as Saturn computation).
     """
-    from thomson import critical_center_strength
-    return critical_center_strength(N)
+    from planetary_polygons.core.universal_selection import kappa_crit
+    return float(kappa_crit(N))
 
 
 def jupiter_convergence_test(params: JupiterParameters = None) -> dict:
@@ -204,7 +204,7 @@ def jupiter_sigma_test(pole: str = 'north') -> dict:
 
     THE KEY TEST: Is sigma_geom near 0 (polygon-like)?
     """
-    from sigma_geometric import sigma_from_positions
+    from planetary_polygons.verification.sigma_geometric import sigma_from_positions
 
     pos = juno_cyclone_positions(pole)
     jupiter = JupiterParameters()
@@ -219,7 +219,11 @@ def jupiter_full_convergence() -> dict:
     """
     Complete convergence test: sigma_geom + Thomson for both poles.
     """
-    from thomson import critical_center_strength, is_stable
+    from planetary_polygons.core.hessian import critical_central_vortex_strength
+    from planetary_polygons.core.universal_selection import kappa_crit
+    def is_stable(N, kappa_center=0.0):
+        return kappa_center >= float(kappa_crit(N))
+    critical_center_strength = lambda N: float(kappa_crit(N))
 
     results = {}
     for pole in ['north', 'south']:
