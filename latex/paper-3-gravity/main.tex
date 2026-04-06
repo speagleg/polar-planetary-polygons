@@ -760,6 +760,29 @@ hyperbolic surface with $\lambda_1 > 1/4$,
 not just the Bolza surface.
 \end{proof}
 
+\begin{remark}[Lax conservation alternative]
+\label{rmk:lax-conservation}
+The contraction can also be proved without the mean-field
+(ergodic) step, using the CMS integrability of the
+vortex system.
+The Havelock Hessian is the CMS Hamiltonian
+(Gaudin--Calogero--Moser identification); the
+trigonometric CMS Lax matrix at the $N$-gon has
+eigenvalues $\nu_m = g(2m{-}N{+}1)$ (equally spaced,
+gap~$2g$), and these are conserved under the
+CMS flow (isospectral evolution).
+The BTZ phase requires vortex coalescence, which
+forces $\|L\| \to \infty$ (the $\csc$ kernel diverges).
+Since conserved Lax eigenvalues cannot diverge,
+the polygon phase is dynamically isolated from the
+BTZ phase.
+This replaces the Onsager variational principle with
+an algebraic obstruction: the CMS invariant torus
+containing the $N$-gon equilibrium is disjoint from
+the BTZ basin, and the Lax isospectral flow preserves
+the torus.
+\end{remark}
+
 \begin{lemma}[Logarithmic interaction and curvature expansion]
 \label{lem:log-interaction}
 Let $(S, g)$ satisfy conditions \textup{(H1)} and~\textup{(H3)}.
@@ -920,7 +943,7 @@ The uniformised metric ($R = R_0 = \mathrm{const}$,
 $\mathrm{Var}(R) = 0$) lies in the \emph{interior} of this
 concavity domain, since
 $\lambda_m(R_0) = C_1(R_0) - f(m) > 0$ for all $m \ne m^*$.
-The Onsager contraction (Corollary~\ref{cor:contraction} below),
+The Onsager contraction (Corollary~\ref{cor:onsager-contraction}),
 with basin $\mathrm{Var}(R) \le 2$, keeps the metric within
 the concavity domain: within the basin,
 $|C_1(x) - C_1(R_0)| = O(\varepsilon^2|\delta R|)$
@@ -929,7 +952,7 @@ The Jensen argument therefore operates entirely within
 the concavity domain, with no bootstrap circularity.
 The CMS integrability makes the entropy exact (the angle-action
 variables decouple, so the one-loop entropy equals the
-microcanonical entropy; this uses Lemma~\ref{V-lem:non-adiabatic}
+microcanonical entropy; this uses Lemma~\ref{V-lem:nonadiabatic}
 from Paper~V).
 The energy constraint is compatible: $V$ is monotone in~$C_1$,
 so fixing $\bar{V}$ fixes $\bar{C}_1$ and the Lagrange
@@ -1145,7 +1168,7 @@ mode~$m$, breaking the BO factorisation.
 because the Havelock eigenvectors are $\rho$-independent;
 the constraint is on the \emph{quantum} BO factorisation,
 which requires $c$~constant for the reasons in
-Remark~\ref{rmk:kinetic-no-go}.
+\S\ref{sec:wdw}, step~1.
 The matching $c = 12\,b(N)$ is a derivation, not a theorem:
 it is the unique value consistent with both Brown--Henneaux
 and the CMS--CS Casimir identification.)
@@ -2423,7 +2446,7 @@ The derivation has three steps:
     $c_2 = 6k = 3\ell/(2G)$
     (Brown--Henneaux, 1986).
     The CMS--CS Casimir identification
-    (Proposition~\ref{prop:casimir-cms-cs})
+    (Proposition~\ref{prop:casimir-havelock})
     matches the Havelock spectrum to the CS
     Wilson-line spectrum, forcing $k = 2\,b(N)$
     and hence $c_2 = 12\,b(N) = c_1$.
@@ -3517,7 +3540,7 @@ the Cardy formula completes~$c$ to the full entropy.
 
 \paragraph{Code availability.}
 All numerical verifications are in the companion repository
-(\texttt{github.com/gspea/planetary-polygons-unified}).
+(\url{https://github.com/gspea/planetary-polygons-unified}).
 Parameter accounting and predictions appear in Paper~VI.
 
 \bibliographystyle{plainnat}

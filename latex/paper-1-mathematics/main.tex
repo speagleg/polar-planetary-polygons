@@ -77,7 +77,7 @@ consequences.
     (Proposition~\ref{prop:curvature-dichotomy}),
     the Morse index formula $\mu(N) = N - 5$ for $N \ge 8$
     (Proposition~\ref{prop:morse-index}), the closed-form derivation
-    of $N_{\mathrm{crit}} = 7$ (Corollary~\ref{cor:why-7}),
+    of $N_{\mathrm{crit}} = 7$ (Theorem~\ref{thm:why-7-algebraic}),
     the monotone spectral flow from flat to hyperbolic geometry,
     and the robustness of $\mu(N)$ under mode-coupling
     perturbations (Remark~\ref{rmk:topological-protection}).
@@ -2225,6 +2225,52 @@ upper boundary is $m_{\max} = N - 3$.
 Hence $\mu(N) = (N{-}3) - 3 + 1 = N - 5$.
 \end{proof}
 
+\begin{theorem}[Morse--Bott classification of the $N$-gon]
+\label{thm:morse-bott}
+Let $\bar{M} = \{z \in \mathbb{C}^N : P{=}0,\; L{=}R^2\}/\mathrm{SO}(2)$
+be the reduced constraint surface and $H = -\sum_{j<k}\ln|z_j - z_k|$
+the Thomson energy.
+The regular $N$-gon is a Morse--Bott critical point of $H|_{\bar{M}}$
+for all $N \ne 7$:
+\begin{enumerate}
+\item $N \le 6$: non-degenerate minimum (index~$0$).
+\item $N = 7$: \emph{not} Morse--Bott (the normal Hessian
+  has a $4$-real-dimensional kernel from modes $m = 3, 4$;
+  resolved by the quartic $\alpha_0 = 45/14$,
+  Paper~II, \S5).
+\item $N \ge 8$: Morse--Bott saddle of complex index $N{-}5$
+  (real index $2(N{-}5)$).
+\end{enumerate}
+Moreover, $N = 7$ is the \emph{unique} value at which the
+normal Hessian degenerates.
+\end{theorem}
+
+\begin{proof}
+The normal space to the $\mathrm{SO}(2)$-orbit of the $N$-gon
+in $\bar{M}$ is spanned by the Fourier modes
+$m = 2, \ldots, N{-}1$: mode $m = 0$ is removed by the
+centre-of-mass constraint $P = 0$, and mode $m = 1$ is split
+between the angular-impulse constraint ($\mathrm{Re}(c_1) = 0$)
+and the orbit tangent ($\mathrm{Im}(c_1)$).
+The normal dimension is $2(N{-}2) = \dim\bar{M}$.
+Each normal mode has Havelock eigenvalue
+$\lambda_m = (N{-}1) - m(N{-}m)/2$
+(Lemma~\ref{lem:havelock}).
+
+The $N$-gon is Morse--Bott iff $\lambda_m \ne 0$ for all
+$m \in \{2, \ldots, N{-}1\}$.
+Setting $\lambda_m = 0$ gives $m^2 - Nm + 2(N{-}1) = 0$
+with discriminant $\Delta = (N{-}4)^2 - 8$.
+For integer solutions we need $\Delta = k^2$, i.e.\
+$(N{-}4{-}k)(N{-}4{+}k) = 8$.
+The only factorisation with matching parity is $(2,4)$,
+giving $N = 7$, $k = 1$, $m \in \{3,4\}$.
+Therefore $N = 7$ is the unique degenerate case.
+
+The Morse index for $N \ge 8$ is $N{-}5$ by
+Proposition~\ref{prop:morse-index}.
+\end{proof}
+
 The closed-form $N_{\mathrm{crit}} = 7$ follows from
 Theorem~\ref{thm:why-7-algebraic} below.
 
@@ -2409,7 +2455,7 @@ coincidence reflects a deeper connection remains open.
 
 \paragraph{Code availability.}
 All numerical verifications are in the companion repository
-(\texttt{github.com/gspea/planetary-polygons-unified}).
+(\url{https://github.com/gspea/planetary-polygons-unified}).
 The K-theoretic classification of stability phases is developed
 in Appendix~\ref{sec:k-theory}.
 Parameter accounting and predictions appear in Paper~VI.
@@ -2470,6 +2516,172 @@ The curvature-stability dichotomy
 $K < 0 \Rightarrow N_{\mathrm{crit}} \ge 7$)
 is the $\mathbb{Z}_2$-reduction via
 $\dim \colon R(\mathbb{Z}_N) \to \mathbb{Z}/2$.
+
+\begin{corollary}[Equivariant Euler class sign change at $N = 7$]
+\label{cor:euler-class}
+The negative normal bundle $\nu^- = \bigoplus_{\lambda_m < 0} L_m$
+has $\mathbb{Z}_N$-equivariant Euler class
+\[
+  e(\nu^-) =
+  \prod_{\substack{m = 2 \\ \lambda_m < 0}}^{N-1}
+  (t - \omega^m)
+  \;\in\; R(\mathbb{Z}_N) \cong \mathbb{Z}[t]/(t^N{-}1),
+  \quad \omega = e^{2\pi i/N}.
+\]
+The transition at $N = 7$:
+$e(\nu^-) = 1$ (trivial) for $N \le 6$;
+undefined for $N = 7$ (kernel);
+non-trivial for $N \ge 8$.
+The negative modes come in palindromic pairs
+$\{m,\, N{-}m\}$ (since $\lambda_m = \lambda_{N-m}$),
+so the real Euler class factors into quadratic terms
+$(t - \omega^m)(t - \omega^{N-m})
+= t^2 - 2\cos(2\pi m/N)\,t + 1$.
+\end{corollary}
+
+\begin{proof}
+The decomposition into line bundles $L_m$ follows from
+Theorem~\ref{thm:morse-bott}.
+The Euler class is the product of first Chern classes by the
+Whitney sum formula in equivariant cohomology.
+The triviality for $N \le 6$ and non-triviality for $N \ge 8$
+follow from Proposition~\ref{prop:morse-index}: the product
+is empty (hence~$1$) when no negative modes exist, and
+non-trivial once $\nu^- \ne 0$.
+The palindromic factorisation follows from the symmetry
+$\lambda_m = \lambda_{N-m}$, which pairs $L_m$ with $L_{N-m}$.
+\end{proof}
+
+\begin{theorem}[CS-Havelock identity]
+\label{thm:cs-havelock}
+On the symmetric space $\mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)
+= \mathbf{H}^2$, the quadratic Casimir of
+$\mathrm{sl}(2,\mathbb{R})$ restricted to the $m$-th
+$\mathbb{Z}_N$ tangential mode of the regular $N$-gon equals
+the Havelock Casimir:
+\begin{equation}\label{eq:cs-havelock}
+  C_2^{\mathrm{sl}(2,\mathbb{R})}(m)
+  = f(m,N) = \frac{m(N{-}m)}{2}.
+\end{equation}
+The quantity $f(m,N)$ is simultaneously:
+\begin{enumerate}
+\item the Havelock eigenvalue (vortex dynamics,
+  Lemma~\ref{lem:havelock});
+\item the $\mathrm{sl}(2,\mathbb{R})$ Casimir on the
+  symmetric space (Helgason, representation theory);
+\item the Chern--Simons Wilson line Casimir
+  (gauge theory, Witten 1988);
+\item the Knizhnik--Zamolodchikov connection eigenvalue
+  at the $\mathbb{Z}_N$ point
+  (Etingof--Frenkel--Kirillov 1998).
+\end{enumerate}
+These four quantities are equal because they are the
+\emph{same operator} (the Laplace--Beltrami operator
+on~$\mathbf{H}^2$) restricted to the \emph{same subspace}
+(the $m$-th $\mathbb{Z}_N$ Fourier mode of the tangential
+perturbation at the $N$-gon ring).
+\end{theorem}
+
+\begin{proof}
+The angular part of the $\mathbf{H}^2$ Laplacian at the
+$N$-gon ring at geodesic radius~$\rho_0$ is the
+$\csc^2$ circulant with $\mathbb{Z}_N$ Fourier eigenvalue
+$T_m/\sinh^2\rho_0$, where
+$T_m = \sum_{p=1}^{N-1}(1 - \cos(2\pi pm/N))
+/(4\sin^2(\pi p/N)) = m(N{-}m)/2$
+(Havelock identity, Lemma~\ref{lem:havelock}).
+The conformal normalisation (multiplication by
+$\sinh^2\rho_0$) gives the $\rho_0$-independent value
+$C_2(m) = m(N{-}m)/2$.
+On the symmetric space $G/K = \mathrm{SL}(2,\mathbb{R})
+/\mathrm{SO}(2)$, the $G$-Casimir acts as the Laplacian
+(Helgason, \emph{Groups and Geometric Analysis},
+Theorem~II.2.3).
+The EFK theorem (1998, Theorem~7.1.2) identifies the
+CMS Hamiltonian at the $\mathbb{Z}_N$ locus with the
+KZ connection, and the KZ connection equals the CS
+Wilson line (Witten 1988).
+\end{proof}
+
+\begin{corollary}[Index from characteristic classes]
+\label{cor:index-from-char}
+The equivariant index of the negative normal bundle~$\nu^-$
+is $N{-}5$ for $N \ge 8$, computed without constructing
+the Dirac operator~$D_N$ explicitly:
+\[
+  \mathrm{ind}(\nu^-)
+  = \hat{A}(\mathrm{pt}) \cdot \mathrm{rank}(\nu^-)
+  = 1 \cdot (N{-}5) = N{-}5.
+\]
+The Chern character $\mathrm{ch}(\nu^-) = \sum_{m \in S^-}[\rho_m]$
+has rank $|S^-| = N{-}5$
+(Corollary~\ref{cor:euler-class}), and
+$\hat{A}(\mathrm{pt}) = 1$ because the base is a point
+in the equivariant sense.
+Three-way cross-check: the index theorem, the Morse
+formula (Proposition~\ref{prop:morse-index}), and direct
+eigenvalue counting all give~$N{-}5$.
+\end{corollary}
+
+\begin{corollary}[Equivariant signature]
+\label{cor:equiv-sig}
+The $\mathbb{Z}_N$ equivariant signature of the
+Havelock Hessian is
+\[
+  \sigma_N =
+  \begin{cases}
+    N{-}2 & N \le 6, \\
+    3 & N = 7 \;\text{(kernel excluded)}, \\
+    8{-}N & N \ge 8.
+  \end{cases}
+\]
+This equals the spectral eta invariant
+$\eta_{\mathrm{Hav}}(N, 0)$ of the finite-dimensional
+Havelock operator (the finite spectrum makes the
+eta function entire, requiring no regularisation).
+The APS spectral flow at the $N = 7$ transition is
+$-4 = -2\dim\ker$, confirming the
+Atiyah--Patodi--Singer theorem.
+\end{corollary}
+
+\begin{proof}
+The signature counts positive minus negative modes
+among $m = 2, \ldots, N{-}1$.
+For $N \le 6$: all $\lambda_m > 0$, giving $\sigma = N{-}2$.
+For $N = 7$: modes $3, 4$ have $\lambda = 0$;
+the remaining $3$ modes ($2, 5, 6$) are positive: $\sigma = 3$.
+For $N \ge 8$: positive modes are $\{2, N{-}2\}$ (count~$2$),
+negative modes are $\{3, \ldots, N{-}3\}$ (count~$N{-}5$);
+$\sigma = 2 - (N{-}5) = 7 - N$.
+Mode $N{-}1$ has $\lambda_{N-1} = (N{-}1)/2 > 0$
+(always positive), adding one to the positive count:
+$\sigma = 3 - (N{-}5) = 8 - N$.
+The spectral flow from $N = 6$ ($\sigma = 4$) to $N = 8$
+($\sigma = 0$) is $-4$; since $\dim\ker(N{=}7) = 2$
+(complex, i.e., $4$ real), this is $-2\dim_{\mathbb{C}}\ker$,
+as required by the APS theorem.
+\end{proof}
+
+\begin{remark}[Explicit Dirac operator $D_N$]
+\label{rmk:dirac-explicit}
+The Dirac operator $D_N$ can be constructed explicitly as
+the Callias-type Higgs field on the Clifford module
+$S = \mathbb{C}^{2^{N-2}}$:
+\begin{equation}\label{eq:dirac-explicit}
+  D_N = \Phi = \sum_{m=2}^{N-1} \lambda_m\,J_m,
+  \qquad
+  J_m = \tfrac{i}{2}\gamma^{2(m-2)+1}\gamma^{2(m-2)+2},
+\end{equation}
+where $\gamma^a$ ($a = 1,\ldots,2(N{-}2)$) are the
+generators of $\mathrm{Cliff}(\mathbb{R}^{2(N-2)})$.
+The operator $\Phi$ is diagonal in the binary-string basis
+$|s_2,\ldots,s_{N-1}\rangle$ ($s_m = \pm\tfrac{1}{2}$)
+with eigenvalue $\sum_m \lambda_m\,s_m$.
+The chirality grading $\Gamma = \prod_m (2J_m)$ splits
+$S = S^+ \oplus S^-$, and
+$\mathrm{ind}(D_N) = N{-}5$ by the Callias index theorem
+(the negative-mode count of the Havelock spectrum).
+\end{remark}
 
 \subsection{The index pairing on arithmetic surfaces}
 \label{sec:index-pairing}

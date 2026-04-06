@@ -44,7 +44,7 @@ The regular $N$-gon of point vortices is simultaneously
 an unconstrained energy saddle and a constrained energy
 minimum (Corollary~\ref{cor:min-not-max}).
 This paper proves the latter for $N \le 7$
-(Theorem~\ref{thm:constrained-min}), resolving the
+(Theorem~\ref*{I-thm:constrained-min}), resolving the
 tension between Thomson--Havelock linear stability
 and Onsager's negative-temperature prediction of
 large-scale clustering.
@@ -263,7 +263,7 @@ For $N \ge 8$, the critical eigenvector
 (mode $m = \lfloor N/2\rfloor$)
 is purely radial, since $H_{rt}^{(m)} = 0$ for all~$m$
 (the Hessian is block-diagonal in radial/tangential coordinates
-by $\mathbb{Z}_N$ equivariance; Theorem~\ref{thm:constrained-min}).  Therefore
+by $\mathbb{Z}_N$ equivariance; Theorem~\ref*{I-thm:constrained-min}).  Therefore
 $\langle v_{\mathrm{crit}} | \nabla^2\!H_{\mathrm{center}} |
 v_{\mathrm{crit}} \rangle = +\kappa_0$.
 
@@ -285,7 +285,7 @@ where
 \end{proposition}
 
 \begin{proof}
-By Theorem~\ref{thm:constrained-min}, the minimum constrained
+By Theorem~\ref*{I-thm:constrained-min}, the minimum constrained
 Lagrangian eigenvalue at $\kappa_0 = 0$ is
 $\lambda_{\min} = (N{-}1) - \lfloor N/2\rfloor(N - \lfloor N/2\rfloor)/2$.
 The central vortex shifts this eigenvalue by $+2\kappa_0$:
@@ -435,7 +435,7 @@ is expressed in the physical (un-normalized) radial-mode
 coordinates on the constraint surface; both values confirm
 $\alpha_0 > 0$ but measure different quantities.
 The present derivation proceeds via the constrained energy-minimum
-framework (Theorem~\ref{thm:constrained-min}): the log-scaling
+framework (Theorem~\ref*{I-thm:constrained-min}): the log-scaling
 identity~\eqref{eq:log-scaling-identity} yields the exact
 correction $-3(N{-}1)/N$, and the unconstrained value $153/7$ is
 established by the rationality argument of~\S\ref{sec:n7} combined with direct
@@ -600,7 +600,7 @@ The constrained Lagrangian eigenvalues for $h_\varepsilon$ satisfy
   + O(\varepsilon^4),
 \end{equation}
 where $\lambda_m(0)$ is the Havelock eigenvalue
-(Theorem~\ref{thm:constrained-min}).
+(Theorem~\ref*{I-thm:constrained-min}).
 \end{proposition}
 
 \begin{proof}
@@ -2091,21 +2091,45 @@ been experimentally validated
 \citep{Gauthier2019}, are the natural setting for testing
 these predictions.
 
-\emph{The harmonic trap: an approximation.}
+\emph{The harmonic trap: exact result.}
 For a harmonic trap $V(r) = \tfrac{1}{2}m\omega^2 r^2$
-with Thomas--Fermi radius $R_{\mathrm{TF}}$:
-the identification $\xi = r^2/R_{\mathrm{TF}}^2$ holds to
-leading order, but the soft boundary introduces corrections
-at $O(\xi^2)$ relative to the hard-wall case (the image
-vortex positions shift by terms proportional to the trap
-anharmonicity).
-The prediction table above applies for $\xi \ll 1$
-($r \ll R_{\mathrm{TF}}$), where the hard-wall and harmonic
-cases coincide.
-For vortex rings near the condensate edge ($\xi \to 1$),
-the harmonic trap softens the effective $C_1$, and the
-point vortex model itself requires corrections
-from the inhomogeneous density profile.
+with Thomas--Fermi density $\rho = \rho_0(1 - \xi)$
+($\xi = r^2/R_{\mathrm{TF}}^2$), the Fetter precession
+analysis \citep{Fetter2001} gives the exact Havelock coefficient
+\begin{equation}\label{eq:C1-harmonic}
+  C_1^{\mathrm{harm}}(N, \xi)
+  = \frac{N-1}{1-\xi},
+\end{equation}
+a M\"obius function, in contrast to the hard-wall
+$C_1^{\mathrm{hard}} = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$.
+The correction is $O(\xi)$, not $O(\xi^2)$:
+$\Delta C_1 = -(N{-}1)\xi(1{+}\xi)/(1{-}\xi)^2$,
+a structural change reflecting the soft boundary.
+The harmonic-trap threshold solves
+$(N{-}1)/(1{-}\xi) = m(N{-}m)/2$, giving the exact
+rational values
+\begin{equation}\label{eq:xi-harm}
+  \xi^*_{\mathrm{harm}} = 1 - \frac{2(N-1)}{m(N-m)},
+  \qquad m = \lfloor N/2 \rfloor.
+\end{equation}
+\begin{center}\small
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & $\xi^*_{\mathrm{hard}}$ & $\xi^*_{\mathrm{harm}}$
+ & $r/R_{\mathrm{TF}}$ (harm) \\
+\midrule
+$N = 8$  & $8{-}3\sqrt{7} \approx 0.063$ & $1/8 = 0.125$  & $0.354$ \\
+$N = 11$ & $0.166$ & $1/3 = 0.333$  & $0.577$ \\
+$N = 23$ & $0.385$ & $2/3 = 0.667$  & $0.816$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The harmonic thresholds are all rational---the palindromic
+structure and algebraic number fields of the hard-wall case
+(\S\ref*{I-sec:palindromic-quad}) do not appear.
+The distinction is experimentally accessible: an $N = 8$
+ring at $r/R_{\mathrm{TF}} = 0.30$ is predicted stable in
+a hard-wall trap but unstable in a harmonic trap.
 
 \emph{Healing-length and quantum corrections.}
 The BEC healing length $\xi_{\mathrm{heal}}$ sets the
@@ -2522,7 +2546,7 @@ of $O(1)$.
 
 \paragraph{Code availability.}
 All numerical verifications are in the companion repository
-(\texttt{github.com/gspea/planetary-polygons-unified}).
+(\url{https://github.com/gspea/planetary-polygons-unified}).
 Parameter accounting and predictions appear in Paper~VI.
 
 \appendix
@@ -2569,7 +2593,7 @@ the full Hessian of
 $E[\omega_\varepsilon] + \mu_L\,L[\omega_\varepsilon]$ on the space of
 $\mathbb{Z}_N$-symmetric vorticity perturbations has the same inertia
 as the point vortex Lagrangian Hessian of
-Theorem~\ref{thm:constrained-min}.
+Theorem~\ref*{I-thm:constrained-min}.
 \end{proposition}
 
 \begin{proof}

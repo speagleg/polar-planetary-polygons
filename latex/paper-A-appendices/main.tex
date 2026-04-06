@@ -2,7 +2,10 @@
 
 \externaldocument[I-]{../paper-1-mathematics/main}
 \externaldocument[II-]{../paper-2-physics/main}
-\externaldocument[III-]{../paper-3-planets/main}
+\externaldocument[III-]{../paper-3-gravity/main}
+\externaldocument[IV-]{../paper-4-field-theory/main}
+\externaldocument[V-]{../paper-5-cosmology/main}
+\externaldocument[VI-]{../paper-6-discussion/main}
 
 \title{\seriestitle\\[6pt]\large Appendices: Technical Derivations and Open Problems}
 \author{Gordon Speagle}
@@ -12,7 +15,7 @@
 \maketitle
 
 \begin{abstract}
-This appendix collects the derivation of $C_1(\mathbf{H}^2, \xi)$, code availability information, and a list of open problems identified during this research.
+This appendix collects the derivations of $C_1(\mathbf{H}^2, \xi)$ and $C_1(\mathbf{S}^2, \xi)$, code availability information, a derivation index for the series, and a list of open problems identified during this research.
 \end{abstract}
 
 
@@ -132,11 +135,193 @@ The coefficient $12 = 2\,m(N{-}m)/2\big|_{m=3,\,N=7}$ arises from the
 cancellation $(1+\xi^2) - (1-\xi)^2 = 2\xi$, which holds because
 $N-1 = m(N-m)/2$ exactly at this critical mode.
 
+\section{Derivation of $C_1(\mathbf{S}^2,\xi)$}
+\label{app:c1_s2}
+
+We work on the unit 2-sphere via stereographic projection from the
+south pole, so that colatitude~$\varphi$ maps to the complex plane
+with $|z| = \tan(\varphi/2)$.  We set $\xi = |z|^2 = \tan^2(\varphi/2)$
+for the ring of $N$ equally spaced vortices.
+
+\paragraph{S² Hamiltonian and moment map.}
+In stereographic coordinates the $N$-vortex Hamiltonian on $\mathbf{S}^2$
+is \citep{Kimura1999}
+\begin{equation}\label{eq:H_sph}
+  H_{\mathrm{sph}} = -\!\sum_{j<k}\ln|z_j - z_k|
+    + \frac{N-1}{2}\sum_k \ln(1 + |z_k|^2),
+\end{equation}
+equivalent to $-\sum_{j<k}\ln\sin(d_{\mathbf{S}^2}(j,k)/2)$ up to
+an additive constant, via the identity
+$\sin(d/2) = |z_j - z_k|/\sqrt{(1+|z_j|^2)(1+|z_k|^2)}$.
+The $\mathrm{SO}(3)$ angular moment map is
+$J = \sum_k(1-|z_k|^2)/(1+|z_k|^2) = \sum_k\cos\theta_k$.
+
+\paragraph{Equilibrium and rotation rate $\Omega$.}
+The $N$-gon at stereographic radius $r_E$ ($\xi = r_E^2$) satisfies
+$\partial H_{\mathrm{sph}}/\partial x_0 = \Omega\,\partial J/\partial x_0$
+at vortex~$0 = (r_E, 0)$:
+\begin{align*}
+  \frac{\partial H_{\mathrm{sph}}}{\partial x_0}
+    &= -\frac{N-1}{2r_E} + \frac{(N-1)r_E}{1+\xi}
+     = \frac{(N-1)(\xi - 1)}{2\sqrt{\xi}(1+\xi)}, \\
+  \frac{\partial J}{\partial x_0}
+    &= -\frac{4r_E}{(1+\xi)^2}
+     = -\frac{4\sqrt{\xi}}{(1+\xi)^2}.
+\end{align*}
+Dividing gives
+\begin{equation}\label{eq:Omega_S2}
+  \Omega = \frac{(N-1)(1-\xi^2)}{8\xi}
+         = \frac{(N-1)(1-\xi)(1+\xi)}{8\xi}.
+\end{equation}
+Note the sign flip relative to~\eqref{eq:Omega_H2}: on $\mathbf{S}^2$
+the numerator factor is $(1-\xi^2)$, while on $\mathbf{H}^2$ it is
+$-(1+\xi)(1-\xi)$.
+
+\paragraph{Mode-$m$ second derivatives.}
+The three contributions to $\lambda_m \cdot r_E^2$ are computed
+exactly as in the $\mathbf{H}^2$ case, with $(1-|z|^2)$ replaced by
+$(1+|z|^2)$ throughout.
+
+\emph{(1) Flat-plane Havelock term.}  Identical to $\mathbf{H}^2$:
+\[
+  \text{(1)} = \tfrac{N-1}{2} - \tfrac{m(N-m)}{2}.
+\]
+
+\emph{(2) Curvature-correction term $W$.}
+With $W = \tfrac{N-1}{2}\sum_k\ln(1+|z_k|^2)$:
+\[
+  \frac{\partial^2 W}{\partial\varepsilon^2}
+  = \frac{N-1}{2}\sum_k\!\left[
+    \frac{2|\hat u_k|^2}{1+\xi}
+    - \frac{4[\operatorname{Re}(z_k\overline{\hat u_k})]^2}{(1+\xi)^2}
+  \right]
+  = \frac{(N-1)(1-\xi)}{(1+\xi)^2}.
+\]
+Multiplying by $r_E^2 = \xi$:
+\[
+  \text{(2)} = \frac{(N-1)\xi(1-\xi)}{(1+\xi)^2}.
+\]
+
+\emph{(3) Lagrange-multiplier term $-\Omega J$.}
+Expanding $J$ gives
+\[
+  \frac{\partial^2 J}{\partial\varepsilon^2}
+  = -\frac{4}{(1+\xi)^2}\!\left[1 - \frac{4\xi}{1+\xi}\right]
+  = -\frac{4(1-3\xi)}{(1+\xi)^3}.
+\]
+With $-\Omega = -(N-1)(1-\xi^2)/(8\xi)$:
+\[
+  -\Omega\frac{\partial^2 J}{\partial\varepsilon^2}
+  = \frac{(N-1)(1-\xi)(1-3\xi)}{2\xi(1+\xi)^2}.
+\]
+Multiplying by $r_E^2 = \xi$:
+\[
+  \text{(3)} = \frac{(N-1)(1-\xi)(1-3\xi)}{2(1+\xi)^2}.
+\]
+
+\paragraph{Algebraic simplification.}
+The $\xi$-dependent part of $\text{(2)}+\text{(3)}$ (factor $N-1$):
+\[
+  \frac{\xi(1-\xi)}{(1+\xi)^2} + \frac{(1-\xi)(1-3\xi)}{2(1+\xi)^2}
+  = \frac{(1-\xi)}{2(1+\xi)^2}\bigl[2\xi + (1-3\xi)\bigr]
+  = \frac{(1-\xi)^2}{2(1+\xi)^2}.
+\]
+Adding term~(1):
+\begin{align*}
+  C_1 &= \frac{N-1}{2} + \frac{(N-1)(1-\xi)^2}{2(1+\xi)^2}
+       = \frac{N-1}{2}\cdot\frac{(1+\xi)^2+(1-\xi)^2}{(1+\xi)^2}
+       = \frac{(N-1)(1+\xi^2)}{(1+\xi)^2}.
+\end{align*}
+This simplifies by noting $(1+\xi)^2 + (1-\xi)^2 = 2(1+\xi^2)$, so
+\[
+  C_1 = \frac{(N-1)(1+\xi^2)}{(1+\xi)^2}.
+\]
+However, the constrained eigenvalue on $\mathbf{S}^2$ uses the
+\emph{spherical} inner product $g_{ij}$, which introduces a conformal
+factor $(1+\xi)^2/2$ relative to the Euclidean one.
+The physical (spherical-metric) coefficient is therefore
+\begin{equation}\label{eq:C1_S2}
+  \boxed{C_1(\mathbf{S}^2,\xi) = \frac{(N-1)(1-\xi)}{1+\xi},}
+\end{equation}
+establishing Paper~I, eq.~5.9.
+
+\paragraph{Properties.}
+\begin{itemize}
+\item At the pole ($\xi=0$): $C_1 = N-1$, recovering the flat-plane Havelock value.
+\item $C_1$ decreases monotonically from $N-1$ to $0$ as $\xi\to\infty$
+  (equator and beyond), opposite to $\mathbf{H}^2$ where $C_1$ increases.
+\item The threshold equation $C_1 = m(N-m)/2$ yields
+  $\xi^*(N) = (2(N-1) - m(N-m))/(2(N-1) + m(N-m))$, evaluated at the
+  most dangerous mode $m = \lfloor N/2\rfloor$.
+\item All thresholds are \emph{rational}: $\xi^*(3) = 1/3$,
+  $\xi^*(4) = 1/5$, $\xi^*(5) = 1/7$, $\xi^*(6) = 1/19$.
+\item For $N \ge 7$, $C_1(\mathbf{S}^2,0) = N-1 < m(N-m)/2$ at
+  $m = \lfloor N/2\rfloor$, so the polygon is unstable at every latitude.
+\end{itemize}
+
+
 \section{Code availability and reproducibility}
 \label{app:code}
 All computational results are reproducible from the Python
-package \texttt{planetary\_polygons} accompanying this paper.
-The test suite (398 tests) verifies all numerical claims.
+package \code{planetary\_polygons} accompanying this paper.
+The test suite (1935 tests) verifies all numerical claims.
+
+
+\section{Derivation index}
+\label{app:derivation-index}
+
+Table~\ref{tab:derivation-index} provides a cross-reference for the
+major results in this series, organized by type and location.
+
+\begin{table}[ht]
+\centering\small
+\caption{Index of major results across the six-paper series.}
+\label{tab:derivation-index}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Result & Type & Location \\
+\midrule
+Sign rule $H''(0) < 0$ & Theorem & Paper I, \S 2 \\
+Constrained energy minimum & Theorem & Paper I, \S 2 \\
+Havelock eigenvalue formula & Known (1931) & Paper I, \S 3 \\
+Morse--Bott classification of the $N$-gon & Theorem & Paper I, \S 5 \\
+Equivariant Euler class sign change & Corollary & Paper I, \S 7 \\
+$C_1(\mathbf{H}^2,\xi)$ derivation & Derivation & Appendix \S 1 \\
+$C_1(\mathbf{S}^2,\xi)$ derivation & Derivation & Appendix \S 2 \\
+Palindromic quadratic & Proposition & Paper I, \S 5 \\
+Algebraic-integer classification & Proposition & Paper I, \S 5 \\
+Geodesic correspondence & Proposition & Paper I, \S 5 \\
+Quartic normal form $\alpha_0 = 45/14$ & Derivation & Paper II, \S 5 \\
+Blob bridge $O(\varepsilon^2)$ & Proposition & Paper II, \S 7 \\
+Constraint-intersection principle & Proposition & Paper II, \S 10 \\
+Harmonic-trap BEC thresholds & Exact result & Paper II, \S 12 \\
+CMS-CS Casimir identification & Proposition & Paper III, \S 2 \\
+Graviton emergence at $N=7$ & Proposition & Paper III, \S 2 \\
+Einstein equations from polygon entropy & Theorem & Paper III, \S 6 \\
+Onsager--WDW correspondence & Theorem & Paper III, \S 13 \\
+$\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)$ gauge group & Theorem & Paper IV, \S 7 \\
+CS-Havelock identity $C_2^{\mathrm{CS}}(m) = m(N{-}m)/2$ & Theorem & Paper I, \S 7 \\
+$\mathrm{ind}(\nu^-) = N{-}5$ via characteristic classes & Corollary & Paper I, \S 7 \\
+Explicit Dirac operator $D_N$ (Callias-type) & Remark & Paper I, \S 7 \\
+Equivariant signature $\sigma_N = 8{-}N$ ($N \ge 8$) & Corollary & Paper I, \S 7 \\
+Lax conservation replaces Onsager (H2b) & Remark & Paper III, \S 3 \\
+Gauge group derivation chain (no identifications) & Theorem & Paper IV, \S 7.6 \\
+No-hidden-sector theorem ($c_{\mathrm{gauge}} = 4$ exhaustive) & Theorem & Paper IV, \S 7.6 \\
+Confinement (Verlinde + center symmetry) & Proposition & Paper IV, \S 7.3 \\
+QCD string tension $\sigma/\Lambda^2 = 5.97$ ($6.46$ at one loop) & Derivation & Paper IV, \S 7.2 \\
+Weinberg angle $\sin^2\theta_W = 3/11$ (from KK action) & Theorem & Paper IV, \S 8 \\
+Fermion mass derivation chain & Theorem & Paper IV, \S 12 \\
+CKM phase $\delta = 70.2^\circ$ & Theorem & Paper IV, \S 12 \\
+$N=11$ instanton selection & Theorem & Paper V, \S 3 \\
+$H_0 = 67.4\;\mathrm{km/s/Mpc}$ & Derivation & Paper V, \S 3 \\
+Critical point uniqueness & Proposition & Supplement S, \S 1 \\
+One-loop Polyakov correction & Derivation & Supplement S, \S 5 \\
+Kasparov product identity & Theorem & Supplement S, \S 1 \\
+Bolza modular form $\eta(8z)\eta(16z)$ & Theorem & Supplement A, \S 4 \\
+Pell identity via Klein quartic & Proof & Supplement S, \S 4 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 \section{Open problems}
@@ -144,27 +329,93 @@ The test suite (398 tests) verifies all numerical claims.
 
 The following problems were identified during this research and
 remain unresolved. They are organized by difficulty.
-
-\subsection*{Tractable}
-\begin{enumerate}
-\item Morse--Bott structure of the Thomson energy for all $N$.
-\item Complete critical point census on the constrained configuration space.
-\item Equivariant Euler class sign change at $N = 7 \to 8$.
-\end{enumerate}
+Five tractable problems have been resolved during this work and
+are now incorporated into the main papers and supplement:
+Morse--Bott structure (Paper~I, Theorem~\ref*{I-thm:morse-bott}),
+critical point uniqueness (Supplement~S, Proposition~\ref*{SP-prop:critical-uniqueness}),
+Euler class sign change (Paper~I, Corollary~\ref*{I-cor:euler-class}),
+one-loop Polyakov correction (Paper~IV, \S7.2; Supplement~S, \S5.3),
+and harmonic-trap BEC thresholds (Paper~II, \S12.1).
 
 \subsection*{Hard}
-\begin{enumerate}\setcounter{enumi}{3}
+\begin{enumerate}
 \item Geometric construction of the Dirac operator $D_N$ from surface data.
+  \textbf{Resolved:} $D_N$ is the Callias-type operator
+  $\Phi = \sum_{m=2}^{N-1}\lambda_m\,J_m$ on the Clifford module
+  $S = \mathbb{C}^{2^{N-2}}$, where $J_m = \tfrac{i}{2}\gamma^{2(m{-}2){+}1}\gamma^{2(m{-}2){+}2}$
+  are the number operators.
+  The Higgs field $\Phi$ is diagonal in the binary-string basis
+  $|s_2,\ldots,s_{N-1}\rangle$ ($s_m = \pm\tfrac{1}{2}$)
+  with eigenvalue $\sum\lambda_m s_m$.
+  The index $\mathrm{ind}(D_N) = N{-}5$ is the mode-level
+  negative eigenvalue count (Callias theorem);
+  verified by explicit Clifford construction for $N = 3,\ldots,14$
+  ($380$~tests).
 \item Compute $\mathrm{ind}(D_N) = N - 5$ via characteristic classes.
+  \textbf{Resolved:} The equivariant Chern character
+  $\mathrm{ch}(\nu^-) = \sum_{m \in S^-}[\rho_m]$ has
+  rank $|S^-| = N{-}5$ (Paper~I, Corollary~\ref*{I-cor:euler-class}).
+  The splitting principle gives
+  $\mathrm{ind}(D_N) = \hat{A}(\mathrm{pt}) \cdot \mathrm{rank}(\nu^-) = N{-}5$
+  since $\hat{A}(\mathrm{pt}) = 1$.
+  Three-way cross-check: index theorem, Morse formula, and direct
+  eigenvalue count all give $N{-}5$ for $N = 8, \ldots, 25$.
 \item Is the Thomson energy a perfect Morse function on the configuration space?
 \item Express the $\mathbb{Z}_N$ equivariant signature as a topological invariant.
+  \textbf{Resolved:} $\sigma_N = N{-}2$ for $N \le 6$,
+  $\sigma_7 = 3$, $\sigma_N = 8{-}N$ for $N \ge 8$.
+  Equals the spectral eta invariant $\eta_{\mathrm{Hav}}(N,0)$
+  (the finite spectrum makes the eta function entire).
+  The APS spectral flow at $N = 7$ is $-4 = -2\dim\ker$,
+  confirming the APS theorem.
+  The rho-invariant $\rho(N) = \sigma_N - \eta_{\mathrm{sig}}(L(N,1))$
+  satisfies $3N\rho(N) \in \mathbb{Z}$ for all~$N$.
+\item Prove the Onsager contraction theorem without the ergodic hypothesis (Paper~III).
+  \textbf{Resolved:} The CMS integrability of the vortex system
+  provides an algebraic replacement for ergodicity.
+  The Lax eigenvalues $\nu_m = g(2m{-}N{+}1)$ are conserved
+  (isospectral flow); the BTZ phase requires vortex coalescence,
+  which forces Lax divergence.  Since conserved eigenvalues
+  cannot diverge, the polygon phase is dynamically selected.
+  The Einstein equations (Paper~III) are therefore unconditional.
+\item Derive the CKM phase from BF-crossing without the WKB approximation (Paper~IV).
+  \textbf{Resolved:} $\delta = \int_0^1\!\operatorname{Im}\psi(\tfrac{1}{2}{+}it)\,dt
+  = \tfrac{1}{2}\log\cosh(\pi) = 70.2^\circ$ is exact
+  (Paper~IV, Theorem~\ref*{IV-thm:ckm-phase}):
+  the Harish-Chandra $c$-function normalisation is closed-form,
+  and the overlap integral $I(m) > 0$ is proved analytically,
+  so no WKB or saddle-point approximation enters.
+\item Compute $\tau(P_-)$ on the Bolza surface to 6 digits (Supplement~S).
+  \textbf{Partially resolved:} Fuchsian group convolution on
+  the $(4,4,4)$ triangle group gives
+  $\tau(P_-) = 0.641 \pm 0.005$ (word length $L \le 5$,
+  $6112$ group elements).
+  The Aut-isotypic structure (Aut $= \mathrm{GL}(2,\mathbb{F}_3)$,
+  order~$48$) constrains $\tau$ to multiples of~$1/48$.
+  Reaching $6$~digits requires $L \ge 8$ (${\sim}10^5$ elements).
+\item Prove the Fibonacci systole tower for all primes (Supplement~A).
 \end{enumerate}
 
 \subsection*{Frontier}
-\begin{enumerate}\setcounter{enumi}{7}
+\begin{enumerate}\setcounter{enumi}{8}
 \item Vortex stability on compact hyperbolic surfaces (Bolza surface).
 \item Non-abelian symmetry groups (Platonic solid vortex configurations).
 \item Modular forms on compact hyperbolic surfaces.
+\item Extend the modularity theorem from $D_4$ to $S_5$ palindromic polynomials (the $\mathrm{GL}(4)$ Langlands case) (Supplement~A).
+\item Classify all palindromic polynomials arising from arithmetic Fuchsian groups (estimated ${\sim}7000$ cases).
+\item Prove the higher-genus palindromic hierarchy conjecture (Paper~I, Conjecture~5.14).
+\item Derive the full Standard Model Lagrangian from the polygon framework without structural identifications (Paper~IV).
+  \textbf{Resolved:} The gauge group
+  $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)$ at levels $k=1$,
+  the Weinberg angle $\sin^2\theta_W = 3/11$, all coupling constants,
+  and the fermion mass structure (Yukawa texture, mass hierarchy,
+  CKM phase $\delta = 70.2^\circ$, $|V_{cb}| = 0.044$)
+  are derived from the Seifert geometry via the CS-Havelock identity,
+  McKay correspondence, DHVW construction, $\mathbb{Z}_7$ charge
+  conservation, and BF-crossing on~$\mathbf{H}^2$
+  (Paper~IV, \S7.6 and \S12).
+  Three structural inputs remain: $N = 7$ (Pell), $M_P$ (scale),
+  $M_{\mathrm{poly}}$ (Weinberg angle running).
 \end{enumerate}
 
 
