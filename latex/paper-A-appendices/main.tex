@@ -327,95 +327,27 @@ Pell identity via Klein quartic & Proof & Supplement S, \S 4 \\
 \section{Open problems}
 \label{app:open-problems}
 
-The following problems were identified during this research and
-remain unresolved. They are organized by difficulty.
-Five tractable problems have been resolved during this work and
-are now incorporated into the main papers and supplement:
-Morse--Bott structure (Paper~I, Theorem~\ref*{I-thm:morse-bott}),
-critical point uniqueness (Supplement~S, Proposition~\ref*{SP-prop:critical-uniqueness}),
-Euler class sign change (Paper~I, Corollary~\ref*{I-cor:euler-class}),
-one-loop Polyakov correction (Paper~IV, \S7.2; Supplement~S, \S5.3),
-and harmonic-trap BEC thresholds (Paper~II, \S12.1).
+The following problems remain open.
 
 \subsection*{Hard}
 \begin{enumerate}
-\item Geometric construction of the Dirac operator $D_N$ from surface data.
-  \textbf{Resolved:} $D_N$ is the Callias-type operator
-  $\Phi = \sum_{m=2}^{N-1}\lambda_m\,J_m$ on the Clifford module
-  $S = \mathbb{C}^{2^{N-2}}$, where $J_m = \tfrac{i}{2}\gamma^{2(m{-}2){+}1}\gamma^{2(m{-}2){+}2}$
-  are the number operators.
-  The Higgs field $\Phi$ is diagonal in the binary-string basis
-  $|s_2,\ldots,s_{N-1}\rangle$ ($s_m = \pm\tfrac{1}{2}$)
-  with eigenvalue $\sum\lambda_m s_m$.
-  The index $\mathrm{ind}(D_N) = N{-}5$ is the mode-level
-  negative eigenvalue count (Callias theorem);
-  verified by explicit Clifford construction for $N = 3,\ldots,14$
-  ($380$~tests).
-\item Compute $\mathrm{ind}(D_N) = N - 5$ via characteristic classes.
-  \textbf{Resolved:} The equivariant Chern character
-  $\mathrm{ch}(\nu^-) = \sum_{m \in S^-}[\rho_m]$ has
-  rank $|S^-| = N{-}5$ (Paper~I, Corollary~\ref*{I-cor:euler-class}).
-  The splitting principle gives
-  $\mathrm{ind}(D_N) = \hat{A}(\mathrm{pt}) \cdot \mathrm{rank}(\nu^-) = N{-}5$
-  since $\hat{A}(\mathrm{pt}) = 1$.
-  Three-way cross-check: index theorem, Morse formula, and direct
-  eigenvalue count all give $N{-}5$ for $N = 8, \ldots, 25$.
-\item Is the Thomson energy a perfect Morse function on the configuration space?
-\item Express the $\mathbb{Z}_N$ equivariant signature as a topological invariant.
-  \textbf{Resolved:} $\sigma_N = N{-}2$ for $N \le 6$,
-  $\sigma_7 = 3$, $\sigma_N = 8{-}N$ for $N \ge 8$.
-  Equals the spectral eta invariant $\eta_{\mathrm{Hav}}(N,0)$
-  (the finite spectrum makes the eta function entire).
-  The APS spectral flow at $N = 7$ is $-4 = -2\dim\ker$,
-  confirming the APS theorem.
-  The rho-invariant $\rho(N) = \sigma_N - \eta_{\mathrm{sig}}(L(N,1))$
-  satisfies $3N\rho(N) \in \mathbb{Z}$ for all~$N$.
-\item Prove the Onsager contraction theorem without the ergodic hypothesis (Paper~III).
-  \textbf{Resolved:} The CMS integrability of the vortex system
-  provides an algebraic replacement for ergodicity.
-  The Lax eigenvalues $\nu_m = g(2m{-}N{+}1)$ are conserved
-  (isospectral flow); the BTZ phase requires vortex coalescence,
-  which forces Lax divergence.  Since conserved eigenvalues
-  cannot diverge, the polygon phase is dynamically selected.
-  The Einstein equations (Paper~III) are therefore unconditional.
-\item Derive the CKM phase from BF-crossing without the WKB approximation (Paper~IV).
-  \textbf{Resolved:} $\delta = \int_0^1\!\operatorname{Im}\psi(\tfrac{1}{2}{+}it)\,dt
-  = \tfrac{1}{2}\log\cosh(\pi) = 70.2^\circ$ is exact
-  (Paper~IV, Theorem~\ref*{IV-thm:ckm-phase}):
-  the Harish-Chandra $c$-function normalisation is closed-form,
-  and the overlap integral $I(m) > 0$ is proved analytically,
-  so no WKB or saddle-point approximation enters.
-\item Compute $\tau(P_-)$ on the Bolza surface to 6 digits (Supplement~S).
-  \textbf{Partially resolved:} Fuchsian group convolution on
-  the $(4,4,4)$ triangle group gives
-  $\tau(P_-) = 0.641 \pm 0.005$ (word length $L \le 5$,
-  $6112$ group elements).
-  The Aut-isotypic structure (Aut $= \mathrm{GL}(2,\mathbb{F}_3)$,
-  order~$48$) constrains $\tau$ to multiples of~$1/48$.
-  Reaching $6$~digits requires $L \ge 8$ (${\sim}10^5$ elements).
+\item Is the Thomson energy a perfect Morse function on the
+  constrained configuration space?
+\item Compute $\tau(P_-)$ on the Bolza surface to $6$~digits.
+  Current result: $\tau = 0.641 \pm 0.005$ (word length $L \le 5$,
+  $6112$~group elements; the $\mathrm{GL}(2,\mathbb{F}_3)$
+  automorphism constrains $\tau$ to multiples of~$1/48$).
 \item Prove the Fibonacci systole tower for all primes (Supplement~A).
 \end{enumerate}
 
 \subsection*{Frontier}
-\begin{enumerate}\setcounter{enumi}{8}
+\begin{enumerate}\setcounter{enumi}{3}
 \item Vortex stability on compact hyperbolic surfaces (Bolza surface).
 \item Non-abelian symmetry groups (Platonic solid vortex configurations).
 \item Modular forms on compact hyperbolic surfaces.
 \item Extend the modularity theorem from $D_4$ to $S_5$ palindromic polynomials (the $\mathrm{GL}(4)$ Langlands case) (Supplement~A).
 \item Classify all palindromic polynomials arising from arithmetic Fuchsian groups (estimated ${\sim}7000$ cases).
 \item Prove the higher-genus palindromic hierarchy conjecture (Paper~I, Conjecture~5.14).
-\item Derive the full Standard Model Lagrangian from the polygon framework without structural identifications (Paper~IV).
-  \textbf{Resolved:} The gauge group
-  $\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm{U}(1)$ at levels $k=1$,
-  the Weinberg angle $\sin^2\theta_W = 3/11$, all coupling constants,
-  and the fermion mass structure (Yukawa texture, mass hierarchy,
-  CKM phase $\delta = 70.2^\circ$, $|V_{cb}| = 0.044$)
-  are derived from the Seifert geometry via the CS-Havelock identity,
-  McKay correspondence, DHVW construction, $\mathbb{Z}_7$ charge
-  conservation, and BF-crossing on~$\mathbf{H}^2$
-  (Paper~IV, \S7.6 and \S12).
-  Three structural inputs remain: $N = 7$ (Pell), $M_P$ (scale),
-  $M_{\mathrm{poly}}$ (Weinberg angle running).
 \end{enumerate}
 
 
