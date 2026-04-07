@@ -113,3 +113,49 @@ The moments of the I* marks encode data about E₇ and E₈:
 - k₄ = 450 = h(E₈)²/2
 
 This suggests the mark distribution encodes the ENTIRE exceptional hierarchy, not just E₈. The mechanism connecting the moment structure to the Lie algebraic data is unknown.
+
+## The Dynkin Inclusion Mechanism (deepest layer)
+
+### How E₈ "knows about" E₇
+
+Removing node 1 (mark 2) from the affine Ẽ₈ diagram gives **A₁ + E₇**. This is the Dynkin inclusion E₇ ⊂ E₈, corresponding to the branching E₈ ⊃ E₇ × SU(2): 248 = (133,1) + (1,3) + (56,2).
+
+The mechanism: the McKay correspondence converts this DIAGRAM operation into a MOMENT relationship. The k₂ pivot of the E₈ marks (= 18 = h(E₇)) is the Dynkin inclusion E₇ ⊂ E₈ expressed in the moment language.
+
+### The Asymmetry: Terminal vs Non-Terminal
+
+- k₂(Ẽ₇) = 8 = rank(E₈) — looks UP to E₈
+- k₂(Ẽ₈) = 18 = h(E₇) — looks DOWN to E₇ (E₈ is terminal, no E₉)
+
+E₈ is the largest exceptional algebra. Its k₂ moment cannot reference a higher algebra, so it references the Coxeter number of the next-lower algebra. The moment sequence encodes the hierarchy in both directions.
+
+### Node Removal and Subalgebras
+
+Removing different nodes from Ẽ₈ gives different maximal subalgebras:
+
+| Removed node | Mark | Remaining diagram | Subalgebra |
+|---|---|---|---|
+| 0 (affine) | 1 | E₈ | (the finite algebra itself) |
+| 1 | 2 | A₁ + E₇ | E₈ ⊃ SU(2) × E₇ |
+| 7 (far end) | 2 | D₈ | E₈ ⊃ SO(16): 248 = 120 + 128 |
+| 8 (branch) | 3 | A₈ | E₈ ⊃ SU(9): 248 = 80 + 84 + 84̄ |
+
+The 120/128 split (from GAP D) corresponds to removing node 7 (the D₈/SO(16) branching).
+
+### The Holographic Encoding
+
+The McKay marks of E₈ form a 9-element distribution whose moments encode:
+- Order 1: h(E₈) = 30 (first moment = Coxeter number)
+- Order 2: |I*| = 120, with k₁ = 4 = rank(E₈)/2 (the mark-balance identity)
+- Order 3: k₂ = 18 = h(E₇) (Dynkin inclusion downward)
+- Order 5: k₄ = 450 = h(E₈)²/2 (self-reference squared)
+
+The I* dimension distribution is a generating function for the exceptional hierarchy.
+
+### E₈/E₆ Exponential Relation
+
+For the T* ⊂ I* subgroup inclusion (A₄ ⊂ A₅):
+
+Σd^n(E₈) / Σd^n(E₆) = (h₈/h₆) × 2^{n-1} = (5/2) × 2^{n-1}
+
+Exact for n = 1, 2, 3. Breaks at n = 4 (ratio 219/11 ≈ 19.91 vs predicted 20).
