@@ -87,5 +87,5 @@ def e8_to_sm_coupling_reduction():
 
         # The bridge
         'level_preserved': True,
-        'coupling_split': '31 → (4, 3, K_Y=1/2)',
+        'coupling_split': '31 → (4, 3, k_Y=1)',
     }

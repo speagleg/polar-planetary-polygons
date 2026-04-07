@@ -197,11 +197,10 @@ $d_\rho$.  The $S^3$ framework \emph{completes} the $S^2$ picture.
 At negative temperature (the Onsager regime, microcanonical
 ensemble at fixed angular impulse~$L$), the equilibrium maximises
 the energy~$H = -\sum_{j<k} G(\chi_{jk})$.  Among $I^*$-symmetric
-configurations on~$S^3$, the 600-cell maximises~$H$ because
-its high symmetry (all 7140~pairs at $I^*$-determined distances)
-produces the maximum energy per vertex.  Computationally:
-$H_{600} = -67.9$ vs.\ $H_{24} = -1.2$ for the 24-cell
-(the next largest $I^*$-symmetric polytope).
+configurations on~$S^3$, the 600-cell has the largest interaction magnitude
+among $I^*$-symmetric configurations ($|H_{600}| = 67.9$ vs.\
+$|H_{24}| = 1.2$ for the 24-cell), reflecting its 7140~pairwise
+interactions at $I^*$-determined distances.
 
 \subsection{Schur conservation theorem}
 
@@ -319,13 +318,13 @@ $66\ln(1/\sqrt{K})$ to $21\ln(1/\sqrt{K})$), the transition is
 first-order in the Ehrenfest classification.
 
 \emph{Icosahedron dominance (over all configurations).}\enspace
-The icosahedron is the unique Thomson minimum on~$S^2$ for $N = 12$
-(\citealt{Andreev1996}; \citealt{CohnKumar2007}).
-The log-sine interaction $H = -\sum \ln\sin(d_{jk}/2)$ is a
-monotone transform of the Coulomb energy
-($-\ln\sin(d/2)$ is strictly decreasing in~$d$),
-so the Thomson minimum \emph{is} the log-energy maximum
-$=$ the Onsager ground state at negative temperature.
+The icosahedron is universally optimal on~$S^2$ for $N = 12$:
+it simultaneously minimises every completely monotone potential
+energy, including both the Coulomb kernel $1/\sin(d/2)$ and the
+log-sine kernel $-\ln\sin(d/2)$
+(\citealt{CohnKumar2007}, Theorem~1.2).
+The log-energy maximum is therefore the icosahedron,
+which is the Onsager ground state at negative temperature.
 Among stable configurations of \emph{any} $N$ on~$S^2$,
 $N = 12$ (icosahedron) is selected by the Onsager
 maximum-$N$ principle (Paper~II, \S11): the icosahedron is
@@ -335,8 +334,9 @@ stable while the dodecahedron ($N = 20$) is not.
 On $S^2(R)$ for any $R > 0$, the icosahedron has higher energy
 than the heptagon:
 $\Delta E(R) = \Delta E_{\mathrm{unit}} + 45\ln R \to \infty$.
-Polygon rings are unstable on~$S^2$ for all
-$N \ge 4$ (the out-of-plane modes are destabilising),
+Polygon rings placed at the equator of~$S^2$ are unstable for all
+$N \ge 4$ (the tangential Hessian has negative eigenvalues from
+out-of-plane perturbations; verified computationally for $N = 4$--$8$),
 while the icosahedron is stable (zero Morse index).
 At $K = 0$, the topology changes: $S^2 \to \mathbb{R}^2$, and
 Platonic configurations cease to exist as finite-energy objects.
@@ -413,7 +413,7 @@ through a chain of established theorems:
   $\alpha_Y/(\alpha_Y + \alpha_W)$ where
   $\alpha_W = g_W^2 C_2(j) = j(j{+}1)/(k{+}h^\vee) = 2/3$
   and $\alpha_Y = g_Y^2 Q^2 = Q^2/k_Y = 1/4$
-  (Paper~IV, eq.~IV-8.x).
+  (Paper~IV, eq.~IV-\ref{IV-eq:weinberg}).
   No WZW integrability bound applies: $g^2 = 1/(k{+}h^\vee)$
   is the CS coupling (defined for all~$k$) and
   $C_2(j) = j(j{+}1)$ is the Lie-algebra Casimir
