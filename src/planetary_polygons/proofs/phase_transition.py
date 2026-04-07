@@ -9,6 +9,12 @@ THEOREM (First-order phase transition at K=0):
     to Z₇ (abelian, |G|=7). This is a TOPOLOGICAL phase transition:
     the change of Thurston geometry S² → R² destroys the Platonic configurations.
 
+THERMODYNAMIC FRAMEWORK:
+    Ensemble: microcanonical at fixed angular impulse L = Γ·R².
+    Temperature: negative (β < 0), so equilibrium MAXIMIZES energy H.
+    Order parameter: σ(K) = symmetry group of the dominant saddle.
+    First-order by Ehrenfest: σ is discontinuous at K = 0.
+
 PROOF:
     Step 1: On S²(R) for ANY R > 0, the icosahedron is the Onsager ground state.
         - Energy ordering is R-independent (proved in ade_partition_function.py)

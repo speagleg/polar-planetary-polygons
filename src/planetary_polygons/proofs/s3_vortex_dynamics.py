@@ -330,15 +330,18 @@ def build_24cell_vertices():
     return elements
 
 
-def s3_stability_analysis(quats):
-    """Stability analysis of a vortex configuration on S³.
+def s3_energy_decomposition(quats):
+    """Energy decomposition of a configuration on S³ by irrep sectors.
 
-    Returns dict with eigenvalue counts, energy, and I* irrep structure.
+    The K-matrix (energy weight matrix, NOT the stability Hessian)
+    decomposes by I* irreps with eigenvalues giving the energy content
+    in each harmonic sector. Positive T means the mode contributes
+    to the total energy; the sign does NOT indicate stability.
 
-    For vortex equilibria on S³, the interaction matrix K has:
-    - Positive eigenvalues: stable modes (energy increases under perturbation)
-    - Zero eigenvalues: symmetry modes (SO(4) rotations)
-    - Negative eigenvalues: unstable modes
+    NOTE: For STABILITY analysis, the full 3N×3N tangent-space Hessian
+    is needed (second variation of H projected onto T_{v_k}S³).
+    The S³ Laplacian identity Δ(-G) = -1/(2π²) (constant) gives
+    the per-vertex trace, analogous to the S² Hessian pairing theorem.
 
     THEOREM (Schur conservation):
         For any G-equivariant perturbation (G = symmetry group),
@@ -347,10 +350,6 @@ def s3_stability_analysis(quats):
         vary continuously within each block, but the block sizes
         (= d² for the regular rep, d for the permutation rep)
         cannot change without breaking symmetry.
-
-        This is the S³ analog of the Lax conservation on R²/H²:
-        the Lax spectrum prevents polygon↔BTZ transitions;
-        the Schur block structure prevents 600-cell↔lower symmetry transitions.
     """
     N = len(quats)
     K = s3_interaction_matrix(quats)
@@ -368,8 +367,6 @@ def s3_stability_analysis(quats):
         'n_zero': n_zero,
         'n_positive': n_pos,
         'eigenvalues': evals,
-        'stable': n_neg == 0,
-        'morse_index': n_neg,
     }
 
 

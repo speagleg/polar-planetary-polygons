@@ -199,21 +199,21 @@ class Test600Cell:
         from planetary_polygons.proofs.s3_vortex_dynamics import build_24cell_vertices
         assert len(build_24cell_vertices()) == 24
 
-    def test_600cell_stability(self):
-        """600-cell has exactly 4 unstable modes (ρ₁ sector, d²=4)."""
+    def test_600cell_rho1_energy(self):
+        """600-cell ρ₁ sector has 4 negative K-eigenvalues (energy weight, not instability)."""
         from planetary_polygons.proofs.s3_vortex_dynamics import (
-            build_600cell_vertices, s3_stability_analysis,
+            build_600cell_vertices, s3_energy_decomposition,
         )
-        result = s3_stability_analysis(build_600cell_vertices())
-        assert result['morse_index'] == 4  # ρ₁ has d²=4
+        result = s3_energy_decomposition(build_600cell_vertices())
+        assert result['n_negative'] == 4  # ρ₁ has d²=4, negative K-eigenvalue
 
-    def test_24cell_same_morse_index(self):
-        """24-cell has same Morse index 4 as 600-cell (same ρ₁ instability)."""
+    def test_24cell_same_pattern(self):
+        """24-cell has same ρ₁ energy sector pattern as 600-cell."""
         from planetary_polygons.proofs.s3_vortex_dynamics import (
-            build_24cell_vertices, s3_stability_analysis,
+            build_24cell_vertices, s3_energy_decomposition,
         )
-        result = s3_stability_analysis(build_24cell_vertices())
-        assert result['morse_index'] == 4
+        result = s3_energy_decomposition(build_24cell_vertices())
+        assert result['n_negative'] == 4
 
     def test_600cell_higher_energy_magnitude(self):
         """600-cell has larger |energy| than 24-cell (more pairwise interactions)."""

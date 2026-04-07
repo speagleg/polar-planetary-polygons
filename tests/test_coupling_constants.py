@@ -29,10 +29,15 @@ class TestCSCouplings:
         assert abs(c - 8.0) < 1e-10
 
     def test_weinberg_angle(self):
-        """sin²θ_W = 3/11 from CS thresholds."""
+        """sin²θ_W = 1/4 from CS at k=1 (no ad hoc choices).
+
+        Derived: 1/g₂² = k+h∨(SU(2)) = 3, 1/g_Y² = k+h∨(U(1)) = 1.
+        sin²θ = α₂/(α₂+α_Y) = (1/3)/(1/3+1) = 1/4.
+        Experiment: 0.231 at M_Z (8% discrepancy from RG running).
+        """
         from planetary_polygons.proofs.coupling_constants import weinberg_angle_cs
         sin2 = weinberg_angle_cs()
-        assert abs(sin2 - 3.0/11.0) < 1e-10
+        assert abs(sin2 - 1.0/4.0) < 1e-10
 
 
 class TestE8ToSMReduction:
