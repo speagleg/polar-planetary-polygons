@@ -128,6 +128,85 @@ The S³ framework completes the Vortex Universe. Papers I-IV work on 2D surfaces
 
 ---
 
+## Paper 0 Updates (latex/paper-0-overview/main.tex)
+
+### Abstract (lines 18-40)
+Add to the physical chain after "cosmology": "On the three-sphere S³, the 600-cell (120 vertices of the binary icosahedral group I*) provides the UV completion via the McKay correspondence I*→E₈. The topological phase transition at zero curvature, where the Thurston geometry changes from S³ to R³, produces the E₈→SM symmetry breaking with no Higgs mechanism."
+
+Update "six papers" references throughout.
+
+### Series guide (lines 48-95)
+Add new Paper V entry between current Paper IV and V:
+```
+\item[Paper~V: The S³ Framework and the ADE Phase Transition.]
+  S³ Green's function from first principles, the 600-cell as I* on S³,
+  energy spectral decomposition (regular representation, all 9 I* irreps),
+  Onsager selection and Schur conservation theorem, Hopf projection
+  S³→S² recovering the icosahedron, the topological phase transition
+  at K=0 (Thurston geometry change, A₅→Z₇), and the 120/128
+  classical/quantum split (SO(16) adjoint ⊕ spinor).
+```
+Renumber V→VI, VI→VII. Update externaldocument references.
+
+### Derivation chain table (lines 102-129)
+Insert new row:
+```
+V (S³ Framework) | Papers I, IV + Hopf fibration | S³ spectral theory, 600-cell, \\
+                 |                                | ADE phase transition, E₈→SM, \\
+                 |                                | Schur conservation, 120/128 split \\
+```
+Renumber V→VI, VI→VII.
+
+### Principal results — new subsection after "The Standard Model"
+
+New subsection: "The S³ framework and E₈"
+```
+\subsection{The S³ framework and E₈}
+
+\begin{enumerate}\setcounter{enumi}{11}  % renumber from current 11
+\item \textbf{I* character table = extended E₈ Dynkin diagram}
+  (McKay correspondence, Theorem I-5.x). The 9 irreps of the binary
+  icosahedral group I* map bijectively to nodes of the affine E₈
+  Dynkin diagram via the tensor product with the fundamental.
+
+\item \textbf{Coxeter decomposition}: $248 = 2\mathrm{reg}(I^*) +
+  2(\rho_1 + \rho_7)$ (Theorem I-6.x). The integer/half-integer split
+  120+128 matches E₈ ⊃ SO(16): adjoint ⊕ spinor.
+
+\item \textbf{Bridge identity}: $\lambda_j = 5K_1 P_j(1/\sqrt{5})
+  + 5K_2 P_j(-1/\sqrt{5}) + \tfrac{1}{4}(-1)^j$ (Theorem I-4.x).
+  The icosahedral analog of $\lambda_m = (N-1) - m(N-m)/2$.
+  Golden ratio enters through $K_1-K_2 = \sqrt{5}/4$.
+
+\item \textbf{Tangent Hessian pairing}: $\lambda_+ + \lambda_- =
+  (N-1)/2$ for all Platonic solids (Theorem I-4.x). Proved via the
+  Laplacian identity $\Delta_{S^2}[-\ln\sin(d/2)] = 1/2$.
+
+\item \textbf{S³ Green's function}: $G(\chi) = (1/4\pi^2)(\pi-\chi)
+  \cot\chi$, derived from eigenfunction expansion (Theorem V-2.1).
+
+\item \textbf{600-cell regular representation}: K-matrix eigenvalue
+  degeneracies equal $d_\rho^2$ for all 9 I* irreps (Theorem V-3.1).
+  All irreps visible including the half-integer spinor sector.
+
+\item \textbf{ADE phase transition at K=0}: the dominant configuration
+  changes discontinuously from icosahedron (A₅, E₈) to heptagon (Z₇, SM)
+  (Theorem V-7.1). Topological: Thurston geometry change S²→R².
+\end{enumerate}
+```
+
+Renumber subsequent items (cosmology starts at current 12, shift to 19).
+
+### Principal results — update "The Standard Model" subsection
+
+Add to item 9 (Weinberg angle): note the derivation from conformal weights h_Y/(h_Y+h_W) with K_Y = e/2 = 1/2 from the Euler class.
+
+### \externaldocument lines (lines 3-9)
+Add: `\externaldocument[V-]{../paper-5-s3-framework/main}`
+Rename existing V to VI, VI to VII.
+
+---
+
 ## Readers Guide Updates (latex/readers-guide/main.tex)
 
 ### Series description (§1, line 30)
