@@ -214,13 +214,18 @@ def s3_vortex_energy(quats):
 def s3_interaction_matrix(quats):
     """Zero-sum interaction matrix on S³.
 
-    K_{jk} = -G'(χ_{jk}) / sin²(χ_{jk}) ... actually for the Havelock
-    decomposition we need the ANGULAR Hessian of G at the equilibrium.
+    This is the ENERGY decomposition matrix (not the stability Hessian).
+    It uses w(χ) = -G(χ) as the pair interaction weight, giving the
+    decomposition of the vortex energy by I* irreps.
 
-    For the S³ analog, define:
-        w(χ) = -G(χ) = (1/4π²)(π-χ)/sin(χ)  (the interaction weight)
-        K_{jk} = w(χ_{jk}) for j ≠ k
-        K_{jj} = -Σ_{k≠j} K_{jk}
+    For STABILITY analysis, the full 3N×3N tangent Hessian is needed
+    (second variation of H projected onto T_{v_k}S³). The S³ Laplacian
+    identity Δ_{S³}(-G) = -1/(2π²) (constant) would give an S³ analog
+    of the Hessian pairing theorem.
+
+    Definition:
+        K_{jk} = w(χ_{jk}) = -G(χ_{jk}) for j ≠ k
+        K_{jj} = -Σ_{k≠j} K_{jk}  (zero-sum rows)
     """
     N = len(quats)
     K = np.zeros((N, N))
