@@ -128,6 +128,93 @@ The S³ framework completes the Vortex Universe. Papers I-IV work on 2D surfaces
 
 ---
 
+## Readers Guide Updates (latex/readers-guide/main.tex)
+
+### Series description (§1, line 30)
+Change "six papers" to "seven papers." Add: "Paper V derives the S³ framework and the E₈→SM phase transition. Paper VI derives cosmology from N=11. Paper VII collects predictions."
+
+### Derivation chain table (§4, line 287)
+Insert new row between Paper IV and current Paper V:
+```
+V (S³ Framework) | Paper I + Paper IV + Hopf | S³ Green's function, 600-cell, \\
+                 |                           | ADE phase transition, E₈→SM, \\
+                 |                           | Schur conservation, 120/128 split \\
+```
+Renumber V→VI and VI→VII.
+
+### "What is new — New mathematics" table (§2)
+Add rows:
+- Generalized Havelock formula for Platonic solids (Thm I-4.x, Paper I)
+- Tangent Hessian pairing: λ₊+λ₋=(N-1)/2 via Δ[-ln sin(d/2)]=1/2 (Thm I-4.x, Paper I)
+- Bridge identity: λ_j = 5K₁P_j(c)+... (Thm I-4.x, Paper I)
+- I* character table = extended E₈ Dynkin (Thm I-5.x, Paper I)
+- Coxeter decomposition 248=2reg+2(ρ₁+ρ₇) (Thm I-6.x, Paper I)
+- S³ Green's function G=(1/4π²)(π-χ)cot(χ) (Thm V-2.1, Paper V)
+- 600-cell regular representation: deg=d² (Thm V-3.1, Paper V)
+- Schur conservation theorem (Thm V-4.1, Paper V)
+
+### "What is new — New physics" table
+Add rows:
+- K=0 phase transition: A₅→Z₇, topological (Thm V-7.1, Paper V)
+- 120/128 split = classical/quantum boundary (§V-8, Paper V)
+
+### "What is new — New connections" table
+Add rows:
+- McKay adjacency eigenvalues = golden ratio: {±2,±φ,±1,±1/φ,0} (§I-5.x, Paper I)
+- Hopf fibration S³→S² recovers icosahedron from 600-cell (§V-6, Paper V)
+- Thurston geometry classification determines gauge group (§V-7, Paper V)
+
+### Reader pathways (§3)
+- "Particle physicist": add "Paper V, §7 for the E₈→SM phase transition mechanism"
+- "Cosmologist": change "Paper V" to "Paper VI" throughout; add "Paper V provides the UV completion"
+- "Mathematical physicist": add "Paper V, §2-4 for S³ spectral theory and the regular representation"
+- Add new pathway: "Group theorist": "Paper I §5-6 for I* and McKay correspondence; Paper V for the 600-cell and Schur conservation"
+
+### "What is known" table
+Add rows:
+- McKay correspondence for I* ⊂ SU(2) → E₈ (McKay 1980)
+- Hopf fibration S¹→S³→S² (Hopf 1931)
+- Gegenbauer polynomials as zonal spherical functions on S³ (Vilenkin 1968)
+
+---
+
+## Companion Document Updates (latex/companion/main.tex)
+
+### New subsection after the field theory material (~line 2500)
+
+Title: "The icosahedron, the golden ratio, and E₈"
+
+Non-technical explanation of:
+1. Why the icosahedron is special on a sphere (12 vertices, most that are stable, Onsager selects it)
+2. The golden ratio φ = (1+√5)/2 appears in the icosahedron's geometry AND in the E₈ mathematical structure
+3. The McKay correspondence: the symmetry group of the icosahedron (I*) maps to E₈ through a remarkable coincidence of mathematics
+4. The 248-dimensional E₈ algebra decomposes into I* pieces: 248 = 2×120 + 8 (two copies of the group itself, plus 8 extra)
+
+### New subsection: "The three-sphere and the 600-cell"
+
+Non-technical explanation of:
+1. S³ is to the sphere what the sphere is to the circle — one dimension up
+2. The 120 symmetries of the icosahedron, viewed as quaternion rotations, form the vertices of a 4D polytope called the 600-cell
+3. On S³, ALL the mathematical structure of E₈ becomes visible (on S² only half was visible — the "classical" half)
+4. The other half (the "quantum" half, 128 dimensions) is the spinor — the mathematical origin of fermions
+
+### New subsection: "The phase transition"
+
+Non-technical explanation of:
+1. As the universe expands, the spatial geometry changes from S³ (curved) to R³ (flat)
+2. At the transition point (curvature K=0), the dominant vortex pattern changes from icosahedron (12 vortices, E₈) to heptagon (7 vortices, Standard Model)
+3. This is like water freezing: the symmetry changes discontinuously
+4. The 236 "extra" E₈ generators become infinitely massive — they cease to exist in the flat world
+
+### Updates to existing sections
+
+- "The scorecard" (line 107): add row for E₈→SM transition
+- "The map" (line 216): update to mention 7 papers, add Paper V in the logical chain
+- "The honest disclaimer" (line 169): no changes needed (the caveats still apply)
+- Epilogue: consider adding a sentence about how the polygon number 7 and the icosahedron number 12 are connected through the golden ratio
+
+---
+
 ## Implementation Notes
 
 - Paper I extensions: ~8 pages of new material (3 theorems + character table + Coxeter decomposition)
