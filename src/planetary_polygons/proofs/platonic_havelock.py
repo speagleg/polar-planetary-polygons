@@ -461,6 +461,10 @@ def _generate_group(generators, max_order=200):
 def build_rotation_group(name):
     """Enumerate all rotation matrices for the Platonic rotation group G.
 
+    Built by finding ALL rotations that permute the actual vertex set,
+    ensuring the group is aligned with the specific vertex coordinates
+    used by the vertex functions in platonic_vortices.py.
+
     Parameters
     ----------
     name : str
@@ -470,59 +474,102 @@ def build_rotation_group(name):
     Returns
     -------
     list of 3x3 numpy arrays
-        All rotation matrices in G, generated from standard generators.
-
-    GENERATORS:
-    - A_4: 120 deg about (1,1,1) and 180 deg about z-axis
-    - S_4: 90 deg about z-axis and 120 deg about (1,1,1)
-    - A_5: 72 deg about icosahedral 5-fold axis and 120 deg about 3-fold axis
+        All rotation matrices in G that permute the vertex set.
     """
-    phi = (1 + sqrt(5)) / 2
+    from planetary_polygons.explorations.platonic_vortices import (
+        tetrahedron_vertices, octahedron_vertices, cube_vertices,
+        icosahedron_vertices, dodecahedron_vertices,
+    )
+    vfn = {
+        'tetrahedron': tetrahedron_vertices,
+        'octahedron': octahedron_vertices,
+        'cube': cube_vertices,
+        'icosahedron': icosahedron_vertices,
+        'dodecahedron': dodecahedron_vertices,
+    }[name]
+    verts = vfn()
+    expected = {'tetrahedron': 12, 'octahedron': 24, 'cube': 24,
+                'icosahedron': 60, 'dodecahedron': 60}[name]
 
-    if name in ('tetrahedron',):
-        # A_4: generators are 120-deg rotation about (1,1,1)/sqrt(3)
-        # and 180-deg rotation about z-axis
-        axis_3fold = np.array([1, 1, 1]) / sqrt(3)
-        gen1 = rotation_matrix(axis_3fold, 2 * pi / 3)
-        gen2 = rotation_matrix([0, 0, 1], pi)
-        group = _generate_group([gen1, gen2])
-        assert len(group) == 12, f"A_4 should have order 12, got {len(group)}"
-        return group
+    group = _find_rotation_group_from_vertices(verts, tol=1e-6)
+    assert len(group) == expected, \
+        f"{name}: expected {expected} rotations, found {len(group)}"
+    return group
 
-    elif name in ('octahedron', 'cube'):
-        # S_4: generators are 90-deg rotation about z-axis
-        # and 120-deg rotation about (1,1,1)/sqrt(3)
-        gen1 = rotation_matrix([0, 0, 1], pi / 2)
-        gen2 = rotation_matrix(np.array([1, 1, 1]) / sqrt(3), 2 * pi / 3)
-        group = _generate_group([gen1, gen2])
-        assert len(group) == 24, f"S_4 should have order 24, got {len(group)}"
-        return group
 
-    elif name in ('icosahedron', 'dodecahedron'):
-        # A_5: generators are 72-deg rotation about icosahedral 5-fold axis
-        # and 120-deg rotation about 3-fold axis
-        # The 5-fold axis passes through opposite vertices of icosahedron.
-        # Using the standard icosahedron with vertices at (0, ±1, ±φ)/r etc.,
-        # a 5-fold axis is along (0, 1, φ) (normalized).
-        axis_5fold = np.array([0, 1, phi])
-        axis_5fold = axis_5fold / np.linalg.norm(axis_5fold)
-        # A 3-fold axis passes through face centers. For the icosahedron,
-        # the face center of three adjacent vertices. Using the face with
-        # vertices (0,1,φ), (1,φ,0), (φ,0,1) (all normalized):
-        r = sqrt(1 + phi**2)
-        v1 = np.array([0, 1, phi]) / r
-        v2 = np.array([1, phi, 0]) / r
-        v3 = np.array([phi, 0, 1]) / r
-        axis_3fold = v1 + v2 + v3
-        axis_3fold = axis_3fold / np.linalg.norm(axis_3fold)
-        gen1 = rotation_matrix(axis_5fold, 2 * pi / 5)
-        gen2 = rotation_matrix(axis_3fold, 2 * pi / 3)
-        group = _generate_group([gen1, gen2])
-        assert len(group) == 60, f"A_5 should have order 60, got {len(group)}"
-        return group
+def _find_rotation_group_from_vertices(verts, tol=1e-6):
+    """Find all proper rotations that permute a vertex set on S².
 
-    else:
-        raise ValueError(f"Unknown Platonic solid: {name}")
+    Strategy: a rotation is determined by where it sends two
+    non-parallel vertices. For each candidate mapping of v_0→v_i
+    and v_1→v_j (with matching angles), construct the rotation
+    and check if it permutes ALL vertices.
+    """
+    N = len(verts)
+    group = []
+
+    # Pick two reference vertices that are not antipodal
+    ref0, ref1 = 0, 1
+    if abs(np.dot(verts[0], verts[1]) + 1.0) < 0.01:  # nearly antipodal
+        ref1 = 2  # use v_2 instead
+
+    for i in range(N):
+        for j in range(N):
+            if i == j:
+                continue
+            # Check angle compatibility
+            d01 = np.dot(verts[ref0], verts[ref1])
+            dij = np.dot(verts[i], verts[j])
+            if abs(d01 - dij) > tol:
+                continue
+
+            # Build rotation from two point correspondences
+            e1s = verts[ref0].copy()
+            e2s = verts[ref1] - np.dot(verts[ref1], e1s) * e1s
+            n2s = np.linalg.norm(e2s)
+            if n2s < 1e-10:
+                continue
+            e2s /= n2s
+            e3s = np.cross(e1s, e2s)
+
+            e1t = verts[i].copy()
+            e2t = verts[j] - np.dot(verts[j], e1t) * e1t
+            n2t = np.linalg.norm(e2t)
+            if n2t < 1e-10:
+                continue
+            e2t /= n2t
+            e3t = np.cross(e1t, e2t)
+
+            S = np.column_stack([e1s, e2s, e3s])
+            T = np.column_stack([e1t, e2t, e3t])
+            R = T @ S.T
+
+            # Check proper rotation
+            if abs(np.linalg.det(R) - 1.0) > tol:
+                continue
+
+            # Check all vertices permuted
+            valid = True
+            for k in range(N):
+                Rvk = R @ verts[k]
+                dists = [np.linalg.norm(Rvk - verts[l]) for l in range(N)]
+                if min(dists) > tol:
+                    valid = False
+                    break
+
+            if not valid:
+                continue
+
+            # Check if new
+            is_new = True
+            for Rg in group:
+                if np.allclose(R, Rg, atol=tol):
+                    is_new = False
+                    break
+            if is_new:
+                group.append(R)
+
+    return group
 
 
 def rotation_angle(R):
