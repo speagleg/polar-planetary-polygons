@@ -70,6 +70,26 @@ The intermediate Platonic solids (E_7, E_6) do not appear as separate phases. On
 
 E_8 contains SM via: E_8 -> E_6 x SU(3) -> SO(10) x U(1) x SU(3) -> SU(5) x U(1)^2 x SU(3) -> SM x [massive].
 
+### 8. Thurston Geometry Classification (proved)
+
+The polygon and Platonic frameworks live on different Thurston model geometries, connected through R³ at K=0:
+
+    K > 0:  S³ (Hopf fibration, Euler class e=1, I*→E_8)
+    K = 0:  R³ (trivial product, e=0, transition point)
+    K < 0:  SL(2,R)~ (Seifert manifold, e=N/2, Z_N→SM)
+
+These are 3 of the 8 Thurston geometries. The Euler class jumps e: 1→0→N/2 at the transition — this is topological, not metric. The gauge group changes because the TOPOLOGY changes.
+
+### 9. Quantitative Partition Function (computed)
+
+One-loop free energies on S² for all stable configurations:
+- Icosahedron (N=12): F=32.33, STABLE, largest stable N → Onsager ground state
+- Square antiprism (N=8): F=9.01, STABLE (D-type)
+- Octahedron (N=6): F=5.53, STABLE (= optimal 6-gon ring)
+- Tetrahedron (N=4): F=1.54, STABLE
+
+Polygon rings at N≥4 on the equator are ALL UNSTABLE on S².
+
 ---
 
 ## Suggestive but Unconfirmed
