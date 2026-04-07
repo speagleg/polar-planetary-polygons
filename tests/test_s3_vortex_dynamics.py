@@ -12,7 +12,7 @@ from math import pi, sqrt
 
 
 class TestGreenFunction:
-    """S³ Green's function G(χ) = -(1/4π²)(π-χ)/sin(χ)."""
+    """S³ Green's function G(χ) = (1/4π²)(π-χ)cot(χ)."""
 
     def test_symmetry(self):
         """G(χ) = G(2π - χ)... wait, χ ∈ [0, π] on S³. G is defined on [0, π]."""

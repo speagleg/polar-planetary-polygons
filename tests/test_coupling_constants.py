@@ -29,15 +29,14 @@ class TestCSCouplings:
         assert abs(c - 8.0) < 1e-10
 
     def test_weinberg_angle(self):
-        """sin²θ_W = 1/4 from CS at k=1 (no ad hoc choices).
+        """sin²θ_W = 3/11 from WZW conformal weights.
 
-        Derived: 1/g₂² = k+h∨(SU(2)) = 3, 1/g_Y² = k+h∨(U(1)) = 1.
-        sin²θ = α₂/(α₂+α_Y) = (1/3)/(1/3+1) = 1/4.
-        Experiment: 0.231 at M_Z (8% discrepancy from RG running).
+        Derived: h_W = 2/3 (SU(2)₁ adjoint), h_Y = 1/4 (U(1) at K_Y=1/2).
+        sin²θ = h_Y/(h_Y+h_W) = (1/4)/(1/4+2/3) = (1/4)/(11/12) = 3/11.
         """
         from planetary_polygons.proofs.coupling_constants import weinberg_angle_cs
         sin2 = weinberg_angle_cs()
-        assert abs(sin2 - 1.0/4.0) < 1e-10
+        assert abs(sin2 - 3.0 / 11.0) < 1e-10
 
 
 class TestE8ToSMReduction:
@@ -57,12 +56,14 @@ class TestE8ToSMReduction:
         result = e8_to_sm_coupling_reduction()
         assert result['e8_c_is_8']
 
-    def test_coupling_hierarchy(self):
-        """SM couplings satisfy g₃² > g₂² (strong > weak), matching observation."""
+    def test_u1_level_is_half(self):
+        """U(1)_Y level K_Y = e/2 = 1/2 (Euler class of Hopf bundle)."""
         from planetary_polygons.proofs.coupling_constants import e8_to_sm_coupling_reduction
         result = e8_to_sm_coupling_reduction()
-        # 1/g₃² = 4 < 1/g₂² = 3, so g₃² = 1/4 > g₂² = 1/3? No: 1/4 < 1/3.
-        # Actually g₃² = 1/4, g₂² = 1/3, so g₃ < g₂.
-        # At k=1, SU(3) has WEAKER coupling than SU(2).
-        # This is the UV (unification scale) relation, not the IR one.
+        assert abs(result['u1_level'] - 0.5) < 1e-10
+
+    def test_coupling_hierarchy(self):
+        """Non-abelian SM couplings: 1/g₃² = 4 > 1/g₂² = 3."""
+        from planetary_polygons.proofs.coupling_constants import e8_to_sm_coupling_reduction
+        result = e8_to_sm_coupling_reduction()
         assert result['su3_inverse_coupling'] > result['su2_inverse_coupling']

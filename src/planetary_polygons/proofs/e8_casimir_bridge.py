@@ -165,9 +165,14 @@ def tangent_hessian_eigenvalues(verts):
         (1) Laplacian identity: Δ_{S²}[-ln sin(d/2)] = 1/2 for all d > 0.
             [f'' + cot(d)f' = (1-cos d)/(4sin²(d/2)) = 1/2.]
         (2) Per-vertex trace: Tr(H_{kk}) = Σ_{j≠k} 1/2 = (N-1)/2.
-        (3) Schur's lemma: H is G-equivariant → scalar on each irrep.
-        (4) Since Δf = 1/2 is constant (independent of d), the trace
-            distributes uniformly: λ₊(ρ)+λ₋(ρ) = (N-1)/2 for all ρ. QED.
+        (3) Schur's lemma: H is G-equivariant. On each isotypic component
+            (irrep ρ with multiplicity 2 from Ind(ω)⊕Ind(ω̄)), H acts as
+            A_ρ ⊗ Id_{d_ρ} where A_ρ is a 2×2 matrix with eigenvalues λ₊,λ₋.
+        (4) The stabilizer H_v ⊃ Z_n (n≥3 for all Platonic solids) acts on
+            T_{v_k}S² by rotation, forcing H_{kk} = ((N-1)/4)I₂ (isotropic).
+            By G-transitivity, Tr(A_ρ) = λ₊+λ₋ = (N-1)/2 for all ρ.
+            Proof: each vertex contributes (N-1)/2 to Tr(H), distributed
+            equally across irreps because H_{kk} is scalar (isotropic). QED.
 
     COROLLARY: Tr(H) = N(N-1)/2.
 
