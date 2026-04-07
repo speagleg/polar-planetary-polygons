@@ -1,23 +1,9 @@
 r"""
-THEOREM (S³ vortex dynamics — GAP A):
-    Particles on S³ interact via the Green's function of the scalar
-    Laplacian on S³. The 600-cell (120 I* quaternion vertices) is
-    the natural I*-symmetric configuration on S³.
+S³ Coulomb interaction and 600-cell spectral decomposition.
 
-    NOTE: Point vortices are intrinsically a 2D phenomenon. On S³,
-    this system is a Coulomb-type particle interaction, not vortex
-    dynamics in the fluid-mechanical sense. The connection to 2D
-    vortex dynamics comes through the Hopf fibration S³ → S².
-
-DERIVATION (from first principles):
-    Step 1: S³ Laplacian eigenvalues -Δf = l(l+2)f, degeneracy (l+1)²
-    Step 2: Zonal eigenfunctions = Gegenbauer C_l^1(cos χ)
-    Step 3: Green's function from eigenfunction expansion → closed form
-    Step 4: Vortex Hamiltonian H = -Σ κ_j κ_k G(χ_{jk})
-    Step 5: S³ Havelock decomposition via Gegenbauer polynomials
-
-The S³ framework sits at the top of the Vortex Universe hierarchy:
-    S³ (Hopf, I*→E₈) → S² (Platonic, A₅→E₈) → R² (polygon, Z₇→SM)
+G(χ) = (1/4π²)(π-χ)cot(χ). The 600-cell (I* quaternions on S³) gives
+the regular representation with eigenvalue degeneracies d².
+Hopf fibration S³→S² connects to 2D vortex dynamics (Papers I-IV).
 """
 
 import numpy as np

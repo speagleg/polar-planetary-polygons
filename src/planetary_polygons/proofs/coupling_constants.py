@@ -1,53 +1,8 @@
 r"""
-THEOREM (Coupling constants from S³ — GAP E):
-    The gauge coupling constants are determined by the Chern-Simons level
-    k and the dual Coxeter number h∨ of the gauge group:
+CS coupling constants and Weinberg angle.
 
-        1/g²(G) = k + h∨(G)    (non-abelian, one-loop exact in CS)
-
-    The CS level k=1 is fixed by the Euler class of the Hopf fibration
-    (e=1) and the DHVW orbifold construction.
-
-    E₈ on S³ (K>0):   1/g² = 1 + 30 = 31, c = 248/31 = 8 (exactly)
-    SM on R² (K=0):    1/g₃² = 1 + 3 = 4  (SU(3)₁)
-                        1/g₂² = 1 + 2 = 3  (SU(2)₁)
-
-    The Weinberg angle sin²θ_W = 3/11 is derived from conformal weights
-    in the WZW framework (not from bare coupling ratios).
-
-PROOF:
-    Step 1: CS level k=1 from Hopf fibration
-        The Hopf fibration S¹→S³→S² has Euler class e=1 (first Chern class
-        of the tautological bundle O(1) on CP¹ = S²). The DHVW orbifold
-        construction fixes the base level = 1. Therefore k = e × 1 = 1.
-
-    Step 2: E₈ coupling
-        h∨(E₈) = 30. At k=1: 1/g² = 31, c = 248/31 = 8 (exactly).
-
-    Step 3: SM non-abelian couplings
-        1/g₃² = k + h∨(SU(3)) = 1 + 3 = 4
-        1/g₂² = k + h∨(SU(2)) = 1 + 2 = 3
-
-    Step 4: U(1) coupling and Weinberg angle
-        The U(1)_Y compact boson level: k_Y = 1 (from single-valued
-        holonomy on S¹, matching the non-abelian level k=1).
-        The hypercharge: Q = m*/N = 2/4 = 1/2 (from the Havelock Casimir
-        at N=4, derived via the Helgason symmetric space theorem, Prop III-2.1).
-
-        The Weinberg angle from WZW conformal weights (Paper IV, eq. IV-8.x):
-            h_W = j(j+1)/(k₂+h∨₂) = 2/(1+2) = 2/3  (SU(2)₁, j=1 adjoint)
-            h_Y = Q²/k_Y = (1/2)²/1 = 1/4             (U(1) at level k_Y=1)
-
-            sin²θ_W = h_Y / (h_Y + h_W) = (1/4) / (1/4 + 2/3)
-                     = (1/4) / (11/12) = 3/11 ≈ 0.2727
-
-        No normalization ambiguity: j=1 from f(m*,N)=2 (Helgason),
-        Q=1/2 from m*/N (geometric), k_Y=1 from holonomy.
-
-    Step 5: Coupling split at K=0
-        E₈ (1/g²=31) → SU(3)₁ (1/g₃²=4) × SU(2)₁ (1/g₂²=3) × U(1)_{1/2}
-        Level k=1 preserved for non-abelian factors.
-        U(1) level K_Y = e/2 determined by Euler class.
+    1/g²(G) = k + h∨(G),  k=1 (Hopf Euler class).
+    sin²θ_W = h_Y/(h_Y+h_W) = 3/11 (WZW conformal weights, Paper IV §8).
 """
 
 from math import pi, sqrt
@@ -84,24 +39,10 @@ def wzw_central_charge(group, k=1):
 
 
 def weinberg_angle_cs():
-    """Weinberg angle from WZW conformal weights at the orbifold point.
+    """sin²θ_W = h_Y/(h_Y+h_W) = (1/4)/(11/12) = 3/11.
 
-    DERIVATION (from first principles, no ad hoc choices):
-
-        SU(2)₁ conformal weight (adjoint, j=1):
-            h_W = j(j+1) / (k₂ + h∨₂) = 2 / (1+2) = 2/3
-
-        U(1)_Y conformal weight (fundamental charge Q=1/2):
-            k_Y = 1  (compact boson level, single-valued holonomy)
-            h_Y = Q² / k_Y = (1/2)² / 1 = 1/4
-
-        Weinberg angle:
-            sin²θ_W = h_Y / (h_Y + h_W) = (1/4) / (1/4 + 2/3)
-                     = (1/4) / (11/12) = 3/11 ≈ 0.2727
-
-    The conformal-weight formula correctly incorporates the hypercharge
-    normalization through the DHVW twist-field charge Q=1/2 and the
-    U(1) level K_Y = e/2. No separate normalization constant is needed.
+    h_W = j(j+1)/(k+h∨) = 2/3 (SU(2)₁, j=1), h_Y = Q²/k_Y = 1/4 (Q=1/2, k_Y=1).
+    See Paper IV §8 for the full derivation.
     """
     h_W = Fraction(2, 3)    # j(j+1)/(k+h∨) = 2/3 for SU(2)₁ adjoint
     h_Y = Fraction(1, 4)    # Q²/k_Y = (1/2)²/1 = 1/4 for k_Y=1

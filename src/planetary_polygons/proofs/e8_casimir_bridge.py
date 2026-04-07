@@ -1,24 +1,9 @@
 r"""
-THEOREM (E₈ Casimir = Platonic Havelock Casimir):
-    For each irrep ρ of I* (binary icosahedral group, order 120),
-    the Platonic Havelock Casimir T_ρ computed from icosahedral vortex
-    interactions on S² equals the SU(2) Casimir j(j+1) times a
-    universal geometric constant C₁_norm of the icosahedron:
+I* character table, icosahedral bridge identity, and E₈ Coxeter decomposition.
 
-        T_ρ = j_ρ(j_ρ + 1) × C₁_norm
-
-    where j_ρ is the SU(2) spin label of ρ.
-
-    This is the bridge identity between the polygon (A-type, Z_N, K≤0)
-    and Platonic (E-type, I*, K>0) frameworks.
-
-PROOF STRUCTURE:
-    Step 1: I* character table (McKay = affine E₈ Dynkin diagram)
-    Step 2: Platonic Havelock T_ρ for all I* irreps
-    Step 3: SU(2) Casimir j(j+1) for each irrep
-    Step 4: Bridge identity T_ρ = j(j+1) × C₁_norm
-    Step 5: E₈ adjoint decomposition under I* (supporting infrastructure)
-    Step 6: Symmetric space proof (S² = SU(2)/U(1), Casimir = Laplacian)
+Bridge: λ_j = 5K₁P_j(1/√5) + 5K₂P_j(-1/√5) + ¼(-1)^j (Paper I §6).
+Coxeter: 248 = 2reg(I*) + 2(ρ₁+ρ₇), split 120+128 = SO(16) adj⊕spinor.
+Hessian pairing: λ₊+λ₋ = (N-1)/2 via Δ[-ln sin(d/2)] = 1/2 (Paper I §6).
 """
 
 import numpy as np
