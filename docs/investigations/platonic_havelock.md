@@ -99,7 +99,7 @@ The Coxeter number formula tau = 1 - (h-1)/|O*| does NOT hold. The E_7 connectio
 
 2. **Converged Bolza tau**: Push Fuchsian group enumeration to L>=8 to determine whether tau = 31/48 or some other rational value. Need ~10^5 group elements.
 
-3. **Bring surface tau**: Implement the Bring surface (g=4, |Aut|=S_5) Fuchsian group and compute tau to test the E_8 prediction 91/120.
+3. **Bring surface tau**: Initial implementation (bring_surface.py) built with 16-gon fundamental domain, but the side-pairing generators don't produce the correct Fuchsian group — spectral radius is too large and BFS growth stalls at L=3 (113 elements vs expected ~10^3). The genus-4 generator construction needs the full side-pairing Möbius transformations with both translation and rotation components. Deferred pending correct generator implementation.
 
 4. **Platonic Havelock on compact quotients**: Compute the generalized Havelock eigenvalues for vortex configurations on the Bolza surface using the O* irrep decomposition.
 
