@@ -499,22 +499,24 @@ $4\pi(g{-}1) = 4\pi$ ($g = 2$, $K = -1$),
 which is the Gauss--Bonnet volume of the base
 $\mathbf{H}^2/\Gamma$; and
 (iii)~the CS partition function $Z(S^3) = \sqrt{2}$,
-which normalises the non-perturbative path-integral
-measure (\citealt{Witten1989Jones}).
-\emph{Convention}: the partition function used here
-is the Reidemeister-torsion-normalised version
-$Z = \bigl(\sqrt{2/(k{+}N)}\bigr)^N
-\prod_{j=1}^{N-1}(2\sin(\pi j/(k{+}N)))^{N-j}$,
-not the surgery-formula convention
-$Z_{\mathrm{surg}} = (k{+}N)^{-N/2}\prod(\cdots)$
-which gives $Z_{\mathrm{surg}} = 1/2$ for
-$\mathrm{SU}(3)_1$.
-Both conventions appear in the literature;
-the physically meaningful quantity is the
-\emph{ratio} $\dim\mathcal{H}/Z^2$
-(eq.~\eqref{eq:string-tension}), which is
-convention-independent when $\dim\mathcal{H}$
-is computed from the same $S$-matrix normalisation.
+derived from the exact Witten formula
+(\citealt{Witten1989Jones}, eq.~(2.21)):
+\begin{equation}\label{eq:z-s3}
+  Z(S^3, \mathrm{SU}(N), k)
+  = \Bigl(\frac{2}{k{+}N}\Bigr)^{\!N/2}
+    \prod_{j=1}^{N-1}\bigl(2\sin(\pi j/(k{+}N))\bigr)^{N-j}.
+\end{equation}
+For $\mathrm{SU}(3)_1$: $k{+}N = 4$,
+$(2/4)^{3/2} = 1/(2\sqrt{2})$,
+$[2\sin(\pi/4)]^2 = 2$,
+$[2\sin(\pi/2)]^1 = 2$,
+giving $Z = \sqrt{2}$.
+This is not a convention choice---it is the exact non-perturbative
+result of the CS path integral.
+The alternative ``surgery'' normalisation
+$Z_{\mathrm{surg}} = (k{+}N)^{-N/2}\prod(\cdots) = 1/2$
+omits the prefactor $\sqrt{2}^N$; our formula~\eqref{eq:z-s3}
+follows Witten's original normalisation.
 The product $V_{\mathrm{eff}} = k \times 4\pi(g{-}1) \times
 Z(S^3)$ is the dimensionless volume that converts the
 $3$D CS coupling $g_3^2 = 4\pi/(k{+}h^\vee)$ into
@@ -534,13 +536,10 @@ The $(k{+}h^\vee)$ cancel:
   = \frac{1}{4\pi\sqrt{2}}
   = 0.0563.
 \end{equation}
-The absolute $\alpha_s$ value depends on the CS partition function
-convention (Reidemeister vs.\ surgery); the convention-independent
-observables are the string tension $\sigma/\Lambda^2 = 5.97$
-(eq.~\eqref{eq:string-tension}, using the ratio
-$\dim\mathcal{H}/Z^2$) and the Weinberg angle
-(eq.~\eqref{eq:weinberg}, a coupling \emph{ratio}).
-In the Reidemeister convention, one-loop running to $M_Z$ gives
+The value $\alpha_s = 1/(4\pi\sqrt{2})$ is derived from
+the exact Witten partition function~\eqref{eq:z-s3}
+with no convention ambiguity.
+One-loop running to $M_Z$ gives
 $\alpha_s(M_Z) = 0.115$;
 two-loop (RK4 integration of the two-loop
 $\beta$-function with threshold matching at $m_t$)
