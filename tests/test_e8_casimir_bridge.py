@@ -258,3 +258,105 @@ class TestE8AdjointDecomposition:
         char = e8_adjoint_character_su2_e7()
         mults = decompose_under_i_star(char)
         assert mults == [133, 56, 1, 0, 0, 0, 0, 0, 0]
+
+
+class TestTangentHessianPairing:
+    """Tangent-space Hessian eigenvalue pairing theorem."""
+
+    def test_icosahedron_trace(self):
+        """Tr(H) = N(N-1)/2 = 66 for icosahedron."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            tangent_hessian_eigenvalues,
+        )
+        from planetary_polygons.explorations.platonic_vortices import (
+            icosahedron_vertices,
+        )
+        evals = tangent_hessian_eigenvalues(icosahedron_vertices())
+        N = 12
+        assert abs(sum(evals) - N * (N - 1) / 2) < 0.01
+
+    def test_icosahedron_eigenvalue_pairs_sum(self):
+        """All eigenvalue pairs sum to (N-1)/2 = 11/2 for icosahedron.
+
+        THEOREM: The tangent Hessian eigenvalues come in pairs
+        (lambda_-, lambda_+) with lambda_- + lambda_+ = (N-1)/2.
+
+        Icosahedron pairs:
+          3-dim: (0, 11/2)
+          4-dim: (5/4, 17/4)
+          5-dim: (1/2, 5)
+        """
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            tangent_hessian_eigenvalues, cluster_eigenvalues,
+        )
+        from planetary_polygons.explorations.platonic_vortices import (
+            icosahedron_vertices,
+        )
+        evals = tangent_hessian_eigenvalues(icosahedron_vertices())
+        clusters = cluster_eigenvalues(evals)
+        N = 12
+        target = (N - 1) / 2.0
+
+        # Match pairs by degeneracy
+        by_deg = {}
+        for val, deg in clusters:
+            by_deg.setdefault(deg, []).append(val)
+
+        for deg, vals in by_deg.items():
+            if len(vals) == 2:
+                pair_sum = vals[0] + vals[1]
+                assert abs(pair_sum - target) < 0.01, (
+                    f"deg-{deg} pair ({vals[0]:.4f}, {vals[1]:.4f}) "
+                    f"sums to {pair_sum:.4f}, expected {target}"
+                )
+
+    def test_icosahedron_exact_eigenvalues(self):
+        """Exact eigenvalues: 0(x3), 1/2(x5), 5/4(x4), 17/4(x4), 5(x5), 11/2(x3)."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            tangent_hessian_eigenvalues, cluster_eigenvalues,
+        )
+        from planetary_polygons.explorations.platonic_vortices import (
+            icosahedron_vertices,
+        )
+        evals = tangent_hessian_eigenvalues(icosahedron_vertices())
+        clusters = cluster_eigenvalues(evals)
+        expected = [(0, 3), (0.5, 5), (1.25, 4), (4.25, 4), (5.0, 5), (5.5, 3)]
+        assert len(clusters) == len(expected)
+        for (val, deg), (exp_val, exp_deg) in zip(clusters, expected):
+            assert deg == exp_deg, f"deg {deg} != {exp_deg}"
+            assert abs(val - exp_val) < 0.01, f"{val} != {exp_val}"
+
+    def test_tetrahedron_pairing(self):
+        """Tetrahedron: pairs (0, 3/2) and (3/4, 3/4) sum to 3/2."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            tangent_hessian_eigenvalues, cluster_eigenvalues,
+        )
+        from planetary_polygons.explorations.platonic_vortices import (
+            tetrahedron_vertices,
+        )
+        evals = tangent_hessian_eigenvalues(tetrahedron_vertices())
+        N = 4
+        assert abs(sum(evals) - N * (N - 1) / 2) < 0.01
+        clusters = cluster_eigenvalues(evals)
+        # (0, 3), (0.75, 2), (1.5, 3) — pairs: (0,1.5) and (0.75,0.75)
+        target = (N - 1) / 2.0  # 1.5
+        vals = [v for v, d in clusters]
+        assert abs(vals[0] + vals[2] - target) < 0.01  # 0 + 1.5
+        assert abs(2 * vals[1] - target) < 0.01  # 0.75 + 0.75
+
+    def test_octahedron_pairing(self):
+        """Octahedron: pairs (0, 5/2) and (1/2, 2) sum to 5/2."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            tangent_hessian_eigenvalues, cluster_eigenvalues,
+        )
+        from planetary_polygons.explorations.platonic_vortices import (
+            octahedron_vertices,
+        )
+        evals = tangent_hessian_eigenvalues(octahedron_vertices())
+        N = 6
+        assert abs(sum(evals) - N * (N - 1) / 2) < 0.01
+        clusters = cluster_eigenvalues(evals)
+        target = (N - 1) / 2.0  # 2.5
+        vals = [v for v, d in clusters]
+        assert abs(vals[0] + vals[3] - target) < 0.01  # 0 + 2.5
+        assert abs(vals[1] + vals[2] - target) < 0.01  # 0.5 + 2

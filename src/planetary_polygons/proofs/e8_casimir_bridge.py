@@ -146,6 +146,101 @@ def icosahedron_havelock_casimirs_integer_spin():
 
 
 # =====================================================================
+# Step 2b: Tangent-space Hessian eigenvalue pairing theorem
+# =====================================================================
+
+def tangent_hessian_eigenvalues(verts):
+    """Eigenvalues of the tangent-space Hessian of H = -Σ ln sin(d/2) on S².
+
+    The Hessian is a 2N×2N matrix (2 tangent DOFs per vertex).
+    For Platonic configurations, eigenvalues cluster by symmetry group irreps.
+
+    THEOREM (Eigenvalue Pairing):
+        For a Platonic solid with N vertices on S², the tangent Hessian
+        eigenvalues come in pairs (λ₋, λ₊) summing to (N-1)/2:
+
+            λ₋(ρ) + λ₊(ρ) = (N-1)/2  for all irreps ρ
+
+        where the two copies of ρ arise from Ind(ω) ⊕ Ind(ω̄).
+
+    COROLLARY: Tr(H) = N(N-1)/2.
+
+    Returns sorted eigenvalue array.
+    """
+    N = len(verts)
+
+    # Build tangent bases at each vertex (Gram-Schmidt against radial)
+    bases = []
+    for k in range(N):
+        p = verts[k]
+        v = np.array([1, 0, 0.]) if abs(p[0]) < 0.9 else np.array([0, 1, 0.])
+        e1 = v - np.dot(v, p) * p
+        e1 /= np.linalg.norm(e1)
+        e2 = np.cross(p, e1)
+        e2 /= np.linalg.norm(e2)
+        bases.append((e1, e2))
+
+    def perturb(v, k, a, delta):
+        vp = v.copy()
+        vp[k] = vp[k] + delta * bases[k][a]
+        vp[k] /= np.linalg.norm(vp[k])
+        return vp
+
+    def energy(v):
+        n = len(v)
+        H = 0.0
+        for j in range(n):
+            for k_idx in range(j + 1, n):
+                dot = np.clip(np.dot(v[j], v[k_idx]), -1, 1)
+                d = acos(dot)
+                s = sin(d / 2)
+                if s > 1e-15:
+                    H -= log(s)
+        return H
+
+    eps = 1e-5
+    dim = 2 * N
+    H = np.zeros((dim, dim))
+    for i in range(dim):
+        ki, ai = i // 2, i % 2
+        for j in range(i, dim):
+            kj, aj = j // 2, j % 2
+            vpp = perturb(perturb(verts, ki, ai, eps), kj, aj, eps)
+            vpm = perturb(perturb(verts, ki, ai, eps), kj, aj, -eps)
+            vmp = perturb(perturb(verts, ki, ai, -eps), kj, aj, eps)
+            vmm = perturb(perturb(verts, ki, ai, -eps), kj, aj, -eps)
+            H[i, j] = (energy(vpp) - energy(vpm)
+                        - energy(vmp) + energy(vmm)) / (4 * eps**2)
+            H[j, i] = H[i, j]
+
+    return np.sort(np.linalg.eigvalsh(H))
+
+
+def cluster_eigenvalues(evals, tol=0.01):
+    """Group eigenvalues into degenerate clusters.
+
+    Returns list of (mean_value, degeneracy).
+    """
+    used = set()
+    clusters = []
+    for i in range(len(evals)):
+        if i in used:
+            continue
+        val = evals[i]
+        group = [i]
+        for j in range(i + 1, len(evals)):
+            if j not in used and abs(evals[j] - val) < tol:
+                group.append(j)
+        for j in group:
+            used.add(j)
+        clusters.append((float(np.mean(evals[list(group)])), len(group)))
+    return clusters
+
+
+from math import log
+
+
+# =====================================================================
 # Step 3: E₈ adjoint decomposition under I*
 # =====================================================================
 
