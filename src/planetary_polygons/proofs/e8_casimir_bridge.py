@@ -241,6 +241,55 @@ from math import log
 
 
 # =====================================================================
+# Step 4: The Bridge Identity (closed form)
+# =====================================================================
+
+def icosahedron_havelock_eigenvalue(j):
+    r"""Havelock eigenvalue λ_j for the icosahedron at SO(3) spin j.
+
+    THEOREM (Bridge Identity):
+        λ_j = 5K₁ P_j(c) + 5K₂ P_j(-c) + (1/4)(-1)^j
+
+    where:
+        c = 1/√5         (cosine of icosahedron edge angle)
+        K₁ = (5+√5)/8    (csc² kernel at nearest-neighbor distance)
+        K₂ = (5-√5)/8    (csc² kernel at far-neighbor distance)
+        P_j = Legendre polynomial
+
+    Equivalently: λ_j = Σ_{k≠0} K(d_{0k}) P_j(cos d_{0k})
+    = the spectral projection of P_j onto the icosahedron orbit.
+
+    This is the closed-form icosahedral analog of the polygon identity
+    λ_m = (N-1) - m(N-m)/2 for the Havelock eigenvalue.
+
+    The three terms correspond to the three distance classes:
+        5 nearest at d₁ = cos⁻¹(1/√5):  coefficient 5K₁
+        5 far at d₂ = cos⁻¹(-1/√5):     coefficient 5K₂
+        1 antipodal at d₃ = π:           coefficient 1/4
+
+    The golden ratio enters through:
+        K₁ - K₂ = √5/4     (determines odd-j splitting)
+        K₁ + K₂ = 5/4       (determines even-j level)
+        c = 1/(2φ-1)        (the icosahedral golden angle)
+
+    For j=0,1,2,3: λ = 13/2, 1, -1, -3/2 (exact half-integers).
+
+    CONNECTION TO E₈ (McKay bridge):
+        For j ≤ 5/2: V_{2j+1}|_{I*} = ρ_j (unsplit), so λ_j = λ(ρ_j)
+        For j ≥ 3: V_{2j+1} splits into I* irreps, and λ_j is the
+        weighted average over the split pieces.
+    """
+    from planetary_polygons.proofs.platonic_havelock import legendre_p
+
+    c = 1.0 / sqrt(5)
+    K1 = (5 + sqrt(5)) / 8
+    K2 = (5 - sqrt(5)) / 8
+    Pj_c = legendre_p(j, c)
+    Pj_mc = legendre_p(j, -c)
+    return 5 * K1 * Pj_c + 5 * K2 * Pj_mc + 0.25 * ((-1) ** j)
+
+
+# =====================================================================
 # Step 3: E₈ adjoint decomposition under I*
 # =====================================================================
 

@@ -301,6 +301,73 @@ class TestE8AdjointDecomposition:
         assert all(m > 0 for m in mults)
 
 
+class TestBridgeIdentity:
+    """The closed-form bridge identity: λ_j = 5K₁P_j(c) + 5K₂P_j(-c) + ¼(-1)^j."""
+
+    def test_lambda_j0(self):
+        """j=0: λ = C₁ = 13/2."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            icosahedron_havelock_eigenvalue,
+        )
+        assert abs(icosahedron_havelock_eigenvalue(0) - 6.5) < 1e-10
+
+    def test_lambda_j1(self):
+        """j=1: λ = 1."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            icosahedron_havelock_eigenvalue,
+        )
+        assert abs(icosahedron_havelock_eigenvalue(1) - 1.0) < 1e-10
+
+    def test_lambda_j2(self):
+        """j=2: λ = -1."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            icosahedron_havelock_eigenvalue,
+        )
+        assert abs(icosahedron_havelock_eigenvalue(2) - (-1.0)) < 1e-10
+
+    def test_lambda_j3(self):
+        """j=3: λ = -3/2."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            icosahedron_havelock_eigenvalue,
+        )
+        assert abs(icosahedron_havelock_eigenvalue(3) - (-1.5)) < 1e-10
+
+    def test_matches_k_matrix(self):
+        """Bridge formula matches K-matrix eigenvalues for j=0,1,2,3."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            icosahedron_havelock_eigenvalue,
+            icosahedron_havelock_casimirs_integer_spin,
+        )
+        from planetary_polygons.proofs.platonic_havelock import per_vertex_sum
+        from planetary_polygons.explorations.platonic_vortices import (
+            icosahedron_vertices,
+        )
+        T_vals = icosahedron_havelock_casimirs_integer_spin()
+        C1 = per_vertex_sum(icosahedron_vertices())
+        for j in range(4):
+            lam_formula = icosahedron_havelock_eigenvalue(j)
+            lam_kmatrix = C1 - T_vals[j]
+            assert abs(lam_formula - lam_kmatrix) < 1e-8, (
+                f"j={j}: formula={lam_formula}, K-matrix={lam_kmatrix}"
+            )
+
+    def test_golden_ratio_structure(self):
+        """The formula coefficients encode the golden ratio.
+
+        K_near - K_far = sqrt(5)/4 (golden ratio controls odd-j splitting)
+        K_near + K_far = 5/4 (rational: controls even-j level)
+        c = 1/sqrt(5) = 1/(2*phi-1) (golden angle of icosahedron)
+        """
+        from math import sqrt
+        phi = (1 + sqrt(5)) / 2
+        K1 = (5 + sqrt(5)) / 8
+        K2 = (5 - sqrt(5)) / 8
+        assert abs(K1 - K2 - sqrt(5) / 4) < 1e-12
+        assert abs(K1 + K2 - 5 / 4) < 1e-12
+        c = 1 / sqrt(5)
+        assert abs(c - 1 / (2 * phi - 1)) < 1e-12
+
+
 class TestTangentHessianPairing:
     """Tangent-space Hessian eigenvalue pairing theorem."""
 
@@ -384,6 +451,22 @@ class TestTangentHessianPairing:
         vals = [v for v, d in clusters]
         assert abs(vals[0] + vals[2] - target) < 0.01  # 0 + 1.5
         assert abs(2 * vals[1] - target) < 0.01  # 0.75 + 0.75
+
+    def test_icosahedron_4dim_eigenvalues(self):
+        """The 4-dim A₅ irrep (invisible in K-matrix) has eigenvalues 5/4, 17/4."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            tangent_hessian_eigenvalues, cluster_eigenvalues,
+        )
+        from planetary_polygons.explorations.platonic_vortices import (
+            icosahedron_vertices,
+        )
+        evals = tangent_hessian_eigenvalues(icosahedron_vertices())
+        clusters = cluster_eigenvalues(evals)
+        # The two 4-fold degenerate clusters are the 4-dim irrep
+        fours = [(v, d) for v, d in clusters if d == 4]
+        assert len(fours) == 2
+        assert abs(fours[0][0] - 1.25) < 0.01
+        assert abs(fours[1][0] - 4.25) < 0.01
 
     def test_octahedron_pairing(self):
         """Octahedron: pairs (0, 5/2) and (1/2, 2) sum to 5/2."""
