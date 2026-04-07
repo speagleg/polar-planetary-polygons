@@ -351,6 +351,20 @@ class TestBridgeIdentity:
                 f"j={j}: formula={lam_formula}, K-matrix={lam_kmatrix}"
             )
 
+    def test_bridge_extends_to_higher_j(self):
+        """Bridge formula works for integer j > 3."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            icosahedron_havelock_eigenvalue,
+        )
+        # j=4 should give same as j=2 (P_4(c) = P_2(c) = -1/5)
+        assert abs(icosahedron_havelock_eigenvalue(4)
+                    - icosahedron_havelock_eigenvalue(2)) < 1e-10
+        # j=5, 6 should give finite values
+        lam5 = icosahedron_havelock_eigenvalue(5)
+        lam6 = icosahedron_havelock_eigenvalue(6)
+        assert abs(lam5) < 7  # bounded by C1
+        assert abs(lam6) < 7
+
     def test_golden_ratio_structure(self):
         """The formula coefficients encode the golden ratio.
 

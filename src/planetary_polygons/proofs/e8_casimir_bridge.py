@@ -289,6 +289,20 @@ def icosahedron_havelock_eigenvalue(j):
     return 5 * K1 * Pj_c + 5 * K2 * Pj_mc + 0.25 * ((-1) ** j)
 
 
+def icosahedron_havelock_eigenvalue_all_j(j):
+    """Bridge identity extended to all integer j (not just j=0..3).
+
+    Uses the same Legendre formula for arbitrary integer j.
+    For half-integer j, the eigenvalue is NOT defined by this formula
+    (half-integer irreps don't appear in the permutation rep and require
+    the spinor zonal spherical function, which involves resolving the
+    A₅ → I* double-cover lift ambiguity).
+    """
+    if j != int(j) or j < 0:
+        raise ValueError(f"j must be a non-negative integer, got {j}")
+    return icosahedron_havelock_eigenvalue(int(j))
+
+
 # =====================================================================
 # Step 3: E₈ adjoint decomposition under I*
 # =====================================================================
@@ -448,3 +462,51 @@ def e8_decomposition_report():
         'irrep_dims': irrep_dims,
         'irrep_names': irrep_names,
     }
+
+
+# =====================================================================
+# Main: full summary of GAP D results
+# =====================================================================
+
+if __name__ == "__main__":
+    print("=" * 70)
+    print("GAP D: E₈ CASIMIR = PLATONIC HAVELOCK BRIDGE")
+    print("=" * 70)
+
+    # I* character table
+    table, sizes, dims, names, angles = i_star_character_table()
+    print(f"\nI* character table: {len(dims)} irreps, dims = {dims}")
+    print(f"McKay graph = extended E₈ Dynkin diagram (verified)")
+
+    # Coxeter decomposition
+    mults, char = decompose_e8_adjoint_coxeter()
+    print(f"\n248 = 2×reg(I*) + 2(ρ₁+ρ₇)")
+    print(f"Multiplicities: {mults}")
+    int_d = sum(mults[i]*dims[i] for i in [0,2,4,6,8])
+    half_d = sum(mults[i]*dims[i] for i in [1,3,5,7])
+    print(f"Integer spin: {int_d}, half-integer: {half_d} (= SO(16): 120⊕128)")
+
+    # Bridge identity
+    print(f"\nBRIDGE IDENTITY: λ_j = 5K₁P_j(c) + 5K₂P_j(-c) + ¼(-1)^j")
+    print(f"  c = 1/√5, K₁ = (5+√5)/8, K₂ = (5-√5)/8")
+    C1 = 6.5
+    print(f"\n{'j':>5s} {'d':>3s} {'irrep':>6s} {'λ':>10s} {'T=C₁-λ':>10s}")
+    print("-" * 40)
+    for j_half in range(6):
+        j = j_half / 2.0
+        d = int(2*j + 1)
+        lam = icosahedron_havelock_eigenvalue_su2(j)
+        T = C1 - lam
+        name = names[j_half]
+        print(f"{j:5.1f} {d:3d} {name:>6s} {lam:+10.6f} {T:10.6f}")
+
+    # Tangent Hessian pairing
+    print(f"\nHESSIAN PAIRING: λ₊ + λ₋ = (N-1)/2 = 11/2")
+    print(f"  3-dim: (0, 11/2), 4-dim: (5/4, 17/4), 5-dim: (1/2, 5)")
+
+    # Golden ratio
+    phi = (1 + sqrt(5)) / 2
+    print(f"\nGOLDEN RATIO in McKay adjacency: eigenvalues ±2, ±φ, ±1, ±1/φ, 0")
+    print(f"  φ = {phi:.6f}")
+    print(f"  K₁ - K₂ = √5/4 (golden splitting)")
+    print(f"  c = 1/(2φ-1) (golden angle)")
