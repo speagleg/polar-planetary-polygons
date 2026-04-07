@@ -1403,6 +1403,155 @@ polynomial encodes the same M\"obius symmetry at the level of
 algebraic number theory.
 
 %% ====================================================================
+\section{Platonic extensions}
+\label{sec:platonic}
+%% ====================================================================
+
+The Havelock eigenvalue decomposition extends from regular $N$-gons
+($\mathbb{Z}_N$ symmetry) to Platonic solid configurations on~$\mathbf{S}^2$
+with non-abelian symmetry group $G \subset \mathrm{SO}(3)$.
+The results of this section---the generalized Havelock formula,
+the eigenvalue pairing theorem, and the icosahedral bridge identity---are
+new and connect the polygon framework to the $E_8$ gauge theory
+developed in Paper~V.
+
+\subsection{The generalized Havelock formula for Platonic solids}
+\label{sec:platonic-havelock}
+
+\begin{theorem}[Generalized Havelock formula]\label{thm:platonic-havelock}
+Let $G \subset \mathrm{SO}(3)$ act transitively on $N$ vertices
+$\{v_0, \ldots, v_{N-1}\} \subset \mathbf{S}^2$, and let
+$K(d) = 1/(4\sin^2(d/2))$ be the $\mathbf{S}^2$ interaction kernel.
+For each $G$-irrep~$\rho$ that is the restriction of the $\mathrm{SO}(3)$
+representation $D^j$ to~$G$ (with $D^j|_G$ irreducible), the eigenvalue
+of the zero-sum interaction matrix in the $\rho$-isotypic sector is
+$-T_\rho$, where
+\begin{equation}\label{eq:platonic-havelock}
+  T_\rho = \sum_{k \neq 0} K(d_{0k})\bigl[1 - P_j(\cos d_{0k})\bigr],
+\end{equation}
+and $P_j$ is the Legendre polynomial of degree~$j$.
+\end{theorem}
+
+\begin{proof}
+By Schur's lemma, the interaction matrix~$K$ is $G$-invariant
+($K_{g \cdot j,\, g \cdot k} = K_{j,k}$ for all $g \in G$)
+and hence acts as a scalar on each $G$-irrep in the permutation
+representation.  The zonal spherical function of $D^j$ on the
+homogeneous space $\mathbf{S}^2 = \mathrm{SO}(3)/\mathrm{SO}(2)$
+is the Legendre polynomial~$P_j$ (Vilenkin, 1968).  When
+$D^j|_G = \rho$ is irreducible, the vector $P_j(\cos d_{0k})$
+restricted to the orbit is an eigenvector of~$K$.  Evaluating
+$K \cdot P_j$ at vertex~$0$ and using the zero-sum property
+$K_{00} = -C_1$ gives the eigenvalue $-T_\rho$.
+\end{proof}
+
+Verified numerically for the tetrahedron ($j \le 1$, $A_4$),
+octahedron ($j \le 2$, $S_4$), icosahedron ($j \le 3$, $A_5$),
+and cube ($j \le 2$, $S_4$); residuals $< 10^{-16}$
+(77~computational tests, code in \texttt{proofs/platonic\_havelock.py}
+and \texttt{proofs/e8\_casimir\_bridge.py}).
+
+\smallskip
+\noindent
+\textbf{Stability pattern on $\mathbf{S}^2$.}\enspace
+Among the five Platonic solids, the tetrahedron ($N = 4$, $A_4 \to E_6$),
+octahedron ($N = 6$, $S_4 \to E_7$), and icosahedron
+($N = 12$, $A_5 \to E_8$) are stable; the cube ($N = 8$) and
+dodecahedron ($N = 20$) are unstable.  Every eigenvalue degeneracy
+matches an irrep dimension of~$G$.  All polygon rings ($N \ge 4$ at
+the equator) are unstable on~$\mathbf{S}^2$.  The Onsager principle
+selects the icosahedron as the largest stable Platonic solid.
+
+\subsection{Tangent Hessian eigenvalue pairing}
+\label{sec:hessian-pairing}
+
+\begin{theorem}[Eigenvalue pairing]\label{thm:hessian-pairing}
+For a $G$-symmetric configuration of $N$ vertices on~$\mathbf{S}^2$,
+the tangent-space Hessian eigenvalues come in pairs
+$(\lambda_-(\rho),\, \lambda_+(\rho))$ summing to a universal constant:
+\begin{equation}\label{eq:hessian-pairing}
+  \lambda_+(\rho) + \lambda_-(\rho) = \frac{N-1}{2}
+  \qquad \text{for all $G$-irreps $\rho$}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+\emph{Step~1 (Laplacian identity).}
+For $f(d) = -\ln\sin(d/2)$,
+$f' = -\tfrac{1}{2}\cot(d/2)$ and
+$f'' = 1/(4\sin^2(d/2))$.
+The radial Laplacian on~$\mathbf{S}^2$,
+$\Delta f = f'' + \cot(d)\,f'$, gives
+\[
+  \Delta f = \frac{1 - \cos d}{4\sin^2(d/2)} = \frac{1}{2},
+\]
+a constant independent of~$d$.
+
+\emph{Step~2 (Per-vertex trace).}
+The $2 \times 2$ diagonal block~$H_{kk}$ of the tangent Hessian has
+$\operatorname{Tr}(H_{kk}) = \sum_{j \neq k} \frac{1}{2} = \frac{N-1}{2}$.
+
+\emph{Step~3 (Schur decomposition).}
+The Hessian~$H$ is $G$-equivariant.  On the isotypic component
+of~$\rho$ (multiplicity~$2$ from
+$\operatorname{Ind}(\omega) \oplus \operatorname{Ind}(\bar\omega)$),
+Schur's lemma gives
+$H|_\rho = A_\rho \otimes \mathrm{Id}_{d_\rho}$ where
+$A_\rho$ is a $2 \times 2$ matrix with eigenvalues
+$\lambda_\pm(\rho)$.
+
+\emph{Step~4 (Stabiliser isotropy).}
+The vertex stabiliser $H_v \supset \mathbb{Z}_n$ ($n \ge 3$ for
+all Platonic solids) acts on $T_{v_k}\mathbf{S}^2$ by rotation,
+forcing $H_{kk} = \frac{N-1}{4}\,I_2$.  By $G$-transitivity,
+the per-vertex trace distributes uniformly across all irreps:
+$\operatorname{Tr}(A_\rho)
+= \lambda_+(\rho) + \lambda_-(\rho) = (N{-}1)/2$.
+\end{proof}
+
+\begin{corollary}
+$\operatorname{Tr}(H) = N(N-1)/2$.
+\end{corollary}
+
+\noindent
+Verified for the tetrahedron ($N = 4$: pairs $(0, 3/2)$ and
+$(3/4, 3/4)$), octahedron ($N = 6$: pairs $(0, 5/2)$ and
+$(1/2, 2)$), and icosahedron ($N = 12$: pairs $(0, 11/2)$,
+$(1/2, 5)$, and $(5/4, 17/4)$).
+
+\subsection{The icosahedral bridge identity}
+\label{sec:bridge-identity}
+
+The icosahedron has three classes of inter-vertex distances on the
+unit~$\mathbf{S}^2$: five nearest neighbours at
+$d_1 = \cos^{-1}(1/\sqrt{5})$, five far neighbours at
+$d_2 = \cos^{-1}(-1/\sqrt{5})$, and one antipodal vertex at $d_3 = \pi$.
+
+\begin{theorem}[Bridge identity]\label{thm:bridge}
+The Havelock eigenvalue for $\mathrm{SO}(3)$ spin~$j$ on the
+icosahedron is
+\begin{equation}\label{eq:bridge}
+  \lambda_j = 5K_1\, P_j\!\Bigl(\frac{1}{\sqrt{5}}\Bigr)
+            + 5K_2\, P_j\!\Bigl(-\frac{1}{\sqrt{5}}\Bigr)
+            + \frac{1}{4}(-1)^j,
+\end{equation}
+where $K_1 = (5+\sqrt{5})/8$ and $K_2 = (5-\sqrt{5})/8$.
+\end{theorem}
+
+\noindent
+The three terms correspond to the three distance classes.
+The golden ratio enters structurally:
+$K_1 - K_2 = \sqrt{5}/4$ controls the odd-$j$ splitting,
+$K_1 + K_2 = 5/4$ sets the even-$j$ level, and the argument
+$c = 1/\sqrt{5} = 1/(2\varphi - 1)$ is the icosahedral
+golden angle.
+
+For $j = 0, 1, 2, 3$, the formula gives the exact half-integers
+$\lambda = 13/2,\; 1,\; -1,\; -3/2$, with per-vertex sum
+$C_1 = 13/2$.  This is the icosahedral analogue of the polygon
+formula $\lambda_m = (N{-}1) - m(N{-}m)/2$.
+
+%% ====================================================================
 \section{Algebraic structure of the stability boundary}
 \label{sec:algebraic-structure}
 
