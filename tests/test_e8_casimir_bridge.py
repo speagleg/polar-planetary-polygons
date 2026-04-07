@@ -259,6 +259,47 @@ class TestE8AdjointDecomposition:
         mults = decompose_under_i_star(char)
         assert mults == [133, 56, 1, 0, 0, 0, 0, 0, 0]
 
+    def test_coxeter_decomposition(self):
+        """Coxeter embedding: 248 = 2*reg(I*) + 2*rho_1 + 2*rho_7.
+
+        All 9 I* irreps appear. Multiplicities = 2*dim except rho_1, rho_7
+        which get 2 extra each (the Cartan excess).
+        """
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            decompose_e8_adjoint_coxeter, i_star_character_table,
+        )
+        mults, char = decompose_e8_adjoint_coxeter()
+        _, _, dims, _, _ = i_star_character_table()
+        assert mults == [2, 6, 6, 8, 10, 12, 8, 6, 6]
+        assert sum(m * d for m, d in zip(mults, dims)) == 248
+        # Verify: mult = 2*dim for all except rho_1, rho_7
+        for i in range(9):
+            if i in (1, 7):  # the two dim-2 irreps
+                assert mults[i] == 2 * dims[i] + 2
+            else:
+                assert mults[i] == 2 * dims[i]
+
+    def test_coxeter_integer_half_integer_split(self):
+        """Integer spin: 120, half-integer: 128. Matches E₈ ⊃ SO(16): 120 ⊕ 128_s."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            decompose_e8_adjoint_coxeter, i_star_character_table,
+        )
+        mults, _ = decompose_e8_adjoint_coxeter()
+        _, _, dims, _, _ = i_star_character_table()
+        int_dims = sum(mults[i] * dims[i] for i in [0, 2, 4, 6, 8])
+        half_dims = sum(mults[i] * dims[i] for i in [1, 3, 5, 7])
+        assert int_dims == 120
+        assert half_dims == 128
+        assert int_dims - half_dims == -8  # = χ(-I)
+
+    def test_coxeter_all_irreps_present(self):
+        """All 9 I* irreps appear with positive multiplicity."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            decompose_e8_adjoint_coxeter,
+        )
+        mults, _ = decompose_e8_adjoint_coxeter()
+        assert all(m > 0 for m in mults)
+
 
 class TestTangentHessianPairing:
     """Tangent-space Hessian eigenvalue pairing theorem."""
