@@ -194,6 +194,36 @@ class Test600Cell:
         expected_degs = sorted([d**2 for d in [1, 2, 3, 4, 5, 6, 4, 2, 3]])
         assert sorted(degs) == expected_degs, f"degs={sorted(degs)}, expected={expected_degs}"
 
+    def test_24cell_vertex_count(self):
+        """24-cell has 24 vertices."""
+        from planetary_polygons.proofs.s3_vortex_dynamics import build_24cell_vertices
+        assert len(build_24cell_vertices()) == 24
+
+    def test_600cell_stability(self):
+        """600-cell has exactly 4 unstable modes (ρ₁ sector, d²=4)."""
+        from planetary_polygons.proofs.s3_vortex_dynamics import (
+            build_600cell_vertices, s3_stability_analysis,
+        )
+        result = s3_stability_analysis(build_600cell_vertices())
+        assert result['morse_index'] == 4  # ρ₁ has d²=4
+
+    def test_24cell_same_morse_index(self):
+        """24-cell has same Morse index 4 as 600-cell (same ρ₁ instability)."""
+        from planetary_polygons.proofs.s3_vortex_dynamics import (
+            build_24cell_vertices, s3_stability_analysis,
+        )
+        result = s3_stability_analysis(build_24cell_vertices())
+        assert result['morse_index'] == 4
+
+    def test_600cell_higher_energy_magnitude(self):
+        """600-cell has larger |energy| than 24-cell (more pairwise interactions)."""
+        from planetary_polygons.proofs.s3_vortex_dynamics import (
+            build_600cell_vertices, build_24cell_vertices, s3_vortex_energy,
+        )
+        E_600 = s3_vortex_energy(build_600cell_vertices())
+        E_24 = s3_vortex_energy(build_24cell_vertices())
+        assert abs(E_600) > abs(E_24)
+
     def test_bridge_formula_matches_havelock(self):
         """S³ bridge formula gives same λ as C₁ - T."""
         from planetary_polygons.proofs.s3_vortex_dynamics import (
