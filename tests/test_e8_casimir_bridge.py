@@ -195,3 +195,66 @@ class TestIntegerSpinCasimirs:
         casimirs = icosahedron_havelock_casimirs_integer_spin()
         N = 12  # icosahedron vertices
         assert abs(casimirs[1] - (N - 1) / 2) < 1e-10
+
+
+class TestE8AdjointDecomposition:
+    """E₈ adjoint (248-dim) decomposition under I*."""
+
+    def test_principal_su2_identity_char(self):
+        """Character at identity = 248."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            e8_adjoint_character_principal_su2,
+        )
+        char = e8_adjoint_character_principal_su2()
+        assert abs(char[0] - 248) < 1e-10
+
+    def test_principal_su2_dim_sum(self):
+        """Decomposition sums to 248."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            e8_adjoint_character_principal_su2, decompose_under_i_star,
+            i_star_character_table,
+        )
+        char = e8_adjoint_character_principal_su2()
+        mults = decompose_under_i_star(char)
+        _, _, dims, _, _ = i_star_character_table()
+        assert sum(m * d for m, d in zip(mults, dims)) == 248
+
+    def test_principal_su2_integer_spin_only(self):
+        """Principal SU(2) uses only integer-spin irreps (all E₈ exponents are integer)."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            e8_adjoint_character_principal_su2, decompose_under_i_star,
+        )
+        char = e8_adjoint_character_principal_su2()
+        mults = decompose_under_i_star(char)
+        # Half-integer indices: 1(ρ₁), 3(ρ₃), 5(ρ₅), 7(ρ₇)
+        for i in [1, 3, 5, 7]:
+            assert mults[i] == 0, f"ρ_{i} has mult {mults[i]}, expected 0"
+
+    def test_principal_su2_known_mults(self):
+        """Principal SU(2) gives mults [0,0,14,0,20,0,16,0,14]."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            e8_adjoint_character_principal_su2, decompose_under_i_star,
+        )
+        char = e8_adjoint_character_principal_su2()
+        mults = decompose_under_i_star(char)
+        assert mults == [0, 0, 14, 0, 20, 0, 16, 0, 14]
+
+    def test_su2_e7_dim_sum(self):
+        """SU(2)×E₇ decomposition sums to 248."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            e8_adjoint_character_su2_e7, decompose_under_i_star,
+            i_star_character_table,
+        )
+        char = e8_adjoint_character_su2_e7()
+        mults = decompose_under_i_star(char)
+        _, _, dims, _, _ = i_star_character_table()
+        assert sum(m * d for m, d in zip(mults, dims)) == 248
+
+    def test_su2_e7_known_mults(self):
+        """SU(2)×E₇ gives mults [133, 56, 1, 0, 0, 0, 0, 0, 0]."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            e8_adjoint_character_su2_e7, decompose_under_i_star,
+        )
+        char = e8_adjoint_character_su2_e7()
+        mults = decompose_under_i_star(char)
+        assert mults == [133, 56, 1, 0, 0, 0, 0, 0, 0]

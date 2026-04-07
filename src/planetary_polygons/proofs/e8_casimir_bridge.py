@@ -143,3 +143,99 @@ def icosahedron_havelock_casimirs_integer_spin():
     )
     verts = icosahedron_vertices()
     return [generalized_casimir(verts, j) for j in range(4)]
+
+
+# =====================================================================
+# Step 3: E₈ adjoint decomposition under I*
+# =====================================================================
+
+# E₈ exponents (= spins under principal SU(2) embedding)
+E8_EXPONENTS = [1, 7, 11, 13, 17, 19, 23, 29]
+
+
+def e8_adjoint_character_principal_su2():
+    """E₈ adjoint character on I* via the principal SU(2) embedding.
+
+    Under principal SU(2): 248 = ⊕ V_{2m+1} for m ∈ E₈ exponents.
+    All spins are INTEGER, so χ(-I) = +248 (no half-integer reps).
+
+    Returns 9-element array of character values at I* class angles.
+    """
+    _, class_sizes, _, _, class_angles = i_star_character_table()
+    char = np.zeros(9)
+    for c_idx, alpha in enumerate(class_angles):
+        total = 0.0
+        for m in E8_EXPONENTS:
+            total += _su2_character(m, alpha)
+        char[c_idx] = total
+    return char
+
+
+def decompose_under_i_star(character_values):
+    """Decompose a representation into I* irreps given its character on I* classes.
+
+    mult(ρ_i) = (1/120) Σ_C |C| × χ(C) × conj(χ_ρᵢ(C))
+
+    Returns list of 9 multiplicities.
+    """
+    table, class_sizes, irrep_dims, _, _ = i_star_character_table()
+    sizes = np.array(class_sizes, dtype=complex)
+    char = np.array(character_values, dtype=complex)
+    mults = []
+    for rho in range(9):
+        inner = np.sum(sizes * char * np.conj(table[rho])) / 120.0
+        mults.append(int(round(inner.real)))
+    return mults
+
+
+def e8_adjoint_character_su2_e7():
+    """E₈ adjoint character on I* via SU(2) × E₇ maximal subgroup.
+
+    Under E₈ ⊃ SU(2) × E₇:  248 = (3,1) ⊕ (1,133) ⊕ (2,56)
+
+    χ₂₄₈(α) = 133 + 56 × 2cos(α) + sin(3α)/sin(α)
+
+    Returns 9-element array.
+    """
+    _, _, _, _, class_angles = i_star_character_table()
+    char = np.zeros(9)
+    for c_idx, alpha in enumerate(class_angles):
+        char[c_idx] = (133 * 1.0
+                       + 56 * _su2_character(0.5, alpha)
+                       + 1 * _su2_character(1, alpha))
+    return char
+
+
+def e8_decomposition_report():
+    """Compute and compare both E₈ → I* decompositions.
+
+    Returns dict with full results for analysis.
+    """
+    table, class_sizes, irrep_dims, irrep_names, class_angles = (
+        i_star_character_table()
+    )
+
+    # Principal SU(2)
+    char_p = e8_adjoint_character_principal_su2()
+    mults_p = decompose_under_i_star(char_p)
+    dim_check_p = sum(m * d for m, d in zip(mults_p, irrep_dims))
+
+    # SU(2) × E₇
+    char_e = e8_adjoint_character_su2_e7()
+    mults_e = decompose_under_i_star(char_e)
+    dim_check_e = sum(m * d for m, d in zip(mults_e, irrep_dims))
+
+    return {
+        'principal': {
+            'character': char_p.tolist(),
+            'multiplicities': mults_p,
+            'dim_sum': dim_check_p,
+        },
+        'su2_e7': {
+            'character': char_e.tolist(),
+            'multiplicities': mults_e,
+            'dim_sum': dim_check_e,
+        },
+        'irrep_dims': irrep_dims,
+        'irrep_names': irrep_names,
+    }
