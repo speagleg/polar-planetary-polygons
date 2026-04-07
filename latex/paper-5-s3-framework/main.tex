@@ -52,17 +52,21 @@ is the three-sphere~$S^3$, which fibers over~$S^2$ via the Hopf
 fibration $S^1 \to S^3 \to S^2$.  The three Thurston model geometries
 relevant to the vortex universe are:
 \begin{center}
-\begin{tabular}{lcll}
+\begin{tabular}{lclll}
 \toprule
-Curvature & Geometry & Vortex ground state & Gauge group \\
+Curvature & 3-manifold & 2D base & Ground state & Gauge group \\
 \midrule
-$K > 0$ & $S^3$ (Hopf) & Icosahedron ($N = 12$, $A_5$) & $E_8$ \\
-$K = 0$ & $\mathbb{R}^3$ (trivial) & Heptagon ($N = 7$, $\mathbb{Z}_7$) & SM \\
-$K < 0$ & $\widetilde{\mathrm{SL}}(2,\mathbb{R})$ (Seifert) &
-  Heptagon ($N = 7$, $\mathbb{Z}_7$) & SM \\
+$K > 0$ & $S^3$ (Hopf) & $S^2$ &
+  600-cell ($I^*$, 120 verts) $\to$ icosahedron (12) & $E_8$ \\
+$K = 0$ & $\mathbb{R}^3$ & $\mathbb{R}^2$ &
+  Heptagon ($\mathbb{Z}_7$, 7 verts) & SM \\
+$K < 0$ & $\widetilde{\mathrm{SL}}(2,\mathbb{R})$ & $\mathbf{H}^2$ &
+  Heptagon ($\mathbb{Z}_7$, 7 verts) & SM \\
 \bottomrule
 \end{tabular}
 \end{center}
+The $K > 0$ column shows both the $S^3$ configuration (600-cell,
+this paper) and its Hopf projection to~$S^2$ (icosahedron, Paper~I).
 The Euler class jumps: $e = 1$ (Hopf) $\to$ $e = 0$ (trivial) $\to$
 $e = N/2$ (Seifert).  The transition is topological, not metric.
 
@@ -310,8 +314,11 @@ But polygon rings are \emph{all unstable} on~$S^2$
 (Morse index $N - 5$ for $N \ge 8$), while the icosahedron is stable.
 At $K = 0$, the topology changes: $S^2 \to \mathbb{R}^2$, and
 Platonic configurations cease to exist as finite-energy objects.
-The 236~coset generators ($E_8 \to \mathrm{SM}$, dimension $248 - 12$)
-become massive at the transition.
+The 236~coset generators ($E_8 \to \mathrm{SM}$,
+$\dim(E_8) - \dim(\mathrm{SU}(3){\times}\mathrm{SU}(2){\times}\mathrm{U}(1))
+= 248 - 12$; the embedding chain
+$E_8 \supset E_6 {\times} \mathrm{SU}(3) \supset \cdots \supset \mathrm{SM}$
+is standard in the GUT literature) become massive at the transition.
 
 %% ====================================================================
 \section{The $120/128$ split: classical and quantum sectors}
@@ -355,6 +362,42 @@ The regular representation splits $120 = 60 + 60$
 The $120/128$ split in the \emph{Coxeter decomposition} (not the
 regular representation) is the mathematical origin of the
 $\mathrm{SO}(16)$ adjoint/spinor distinction in the $E_8$ framework.
+
+%% ====================================================================
+\section{The derivation chain: vortices to gauge fields}
+\label{sec:derivation-chain}
+%% ====================================================================
+
+The identification of vortex configurations with gauge groups is not
+an assumption---it is derived in Papers~III--IV through a chain of
+established theorems:
+\begin{enumerate}
+\item The Havelock Casimir $f(m,N) = m(N{-}m)/2$ equals the
+  $\mathrm{sl}(2,\mathbb{R})$ quadratic Casimir, by the Helgason
+  symmetric space theorem on
+  $\mathbf{H}^2 = \mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$
+  (Proposition~III-2.1).
+\item The Witten--Ach\'ucarro--Townsend theorem identifies $2{+}1$D
+  gravity with Chern--Simons theory (Paper~III, \S2).
+\item The DHVW orbifold construction produces
+  $\widehat{\mathfrak{su}}(3)_1$, $\widehat{\mathfrak{su}}(2)_1$,
+  and $\mathrm{U}(1)_1$ from the $\mathbb{Z}_N$ orbifold via the
+  McKay correspondence (Theorems~IV-6.1, IV-6.3).
+\item The Weinberg angle $\sin^2\theta_W = 3/11$ uses the conformal
+  weight ratio $h_Y/(h_Y + h_W)$ with $j = 1$ (the $\mathrm{SU}(2)$
+  adjoint Casimir $C_2 = 2 = f(2,4)$, read from the vortex spectrum).
+  Although $j = 1$ exceeds the integrable bound $j \le k/2 = 1/2$
+  for $\mathrm{SU}(2)_1$ WZW, the Casimir $C_2 = j(j{+}1)$ is a
+  Lie-algebra property independent of the CS level; the conformal
+  weight formula is evaluated as a Casimir ratio, not as a TQFT
+  observable (Paper~IV, Proposition~IV-9.4).
+\end{enumerate}
+
+The $S^3$ framework of this paper provides the UV completion
+(Sections~\ref{sec:green}--\ref{sec:onsager-schur}) and the
+breaking mechanism (Section~\ref{sec:phase-transition}), while
+the gauge-theoretic content rests on the derivations in
+Papers~III--IV.
 
 %% ====================================================================
 \section{Conclusion}
