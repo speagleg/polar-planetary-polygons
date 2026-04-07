@@ -115,3 +115,31 @@ def i_star_character_table():
         table[8, c_idx] = _su2_character(3, alpha) - table[6, c_idx]
 
     return table, class_sizes, irrep_dims, irrep_names, class_angles
+
+
+# =====================================================================
+# Step 2: Platonic Havelock Casimirs for integer-spin A₅ irreps
+# =====================================================================
+
+def icosahedron_havelock_casimirs_integer_spin():
+    """Compute T_j for the icosahedron at integer spins j=0,1,2,3.
+
+    Uses the generalized Havelock formula:
+        T_j = Σ_{k≠0} K(d_{0k}) [1 - P_j(cos d_{0k})]
+
+    For the icosahedron (A₅ symmetry, 12 vertices on S²):
+        j=0: T₀ = 0 (trivial)
+        j=1: D¹|_{A₅} = 3 (irreducible)
+        j=2: D²|_{A₅} = 5 (irreducible)
+        j=3: D³|_{A₅} = 3' ⊕ 4 (splits — Legendre gives weighted average)
+
+    Returns
+    -------
+    list of 4 floats: [T₀, T₁, T₂, T₃_avg]
+    """
+    from planetary_polygons.proofs.platonic_havelock import generalized_casimir
+    from planetary_polygons.explorations.platonic_vortices import (
+        icosahedron_vertices,
+    )
+    verts = icosahedron_vertices()
+    return [generalized_casimir(verts, j) for j in range(4)]

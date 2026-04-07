@@ -143,3 +143,55 @@ class TestIStarCharacterTable:
                     f"McKay fail: ρ₁⊗ρ_{i} has mult(ρ_{j})={mults[j]}, "
                     f"expected {exp}"
                 )
+
+
+class TestIntegerSpinCasimirs:
+    """Platonic Havelock T_j for icosahedron A₅ irreps (integer spin)."""
+
+    def test_T0_is_zero(self):
+        """Trivial irrep (j=0) has T=0."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            icosahedron_havelock_casimirs_integer_spin,
+        )
+        casimirs = icosahedron_havelock_casimirs_integer_spin()
+        assert abs(casimirs[0]) < 1e-10
+
+    def test_T1_positive(self):
+        """j=1 irrep has T>0."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            icosahedron_havelock_casimirs_integer_spin,
+        )
+        casimirs = icosahedron_havelock_casimirs_integer_spin()
+        assert casimirs[1] > 0
+
+    def test_exact_T_values(self):
+        """T values are exact half-integers determined by icosahedral geometry.
+
+        T₀ = 0, T₁ = 11/2, T₂ = 15/2, T₃ = 8.
+        These are NOT proportional to j(j+1).
+        C₁ = 13/2.
+        """
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            icosahedron_havelock_casimirs_integer_spin,
+        )
+        from planetary_polygons.proofs.platonic_havelock import per_vertex_sum
+        from planetary_polygons.explorations.platonic_vortices import (
+            icosahedron_vertices,
+        )
+        casimirs = icosahedron_havelock_casimirs_integer_spin()
+        verts = icosahedron_vertices()
+        C1 = per_vertex_sum(verts)
+        assert abs(C1 - 6.5) < 1e-10, f"C₁ = {C1}, expected 13/2"
+        assert abs(casimirs[0] - 0.0) < 1e-10
+        assert abs(casimirs[1] - 5.5) < 1e-10, f"T₁ = {casimirs[1]}"
+        assert abs(casimirs[2] - 7.5) < 1e-10, f"T₂ = {casimirs[2]}"
+        assert abs(casimirs[3] - 8.0) < 1e-10, f"T₃ = {casimirs[3]}"
+
+    def test_T1_equals_N_minus_1_over_2(self):
+        """Universal Casimir: T₁ = (N-1)/2 for any Platonic solid."""
+        from planetary_polygons.proofs.e8_casimir_bridge import (
+            icosahedron_havelock_casimirs_integer_spin,
+        )
+        casimirs = icosahedron_havelock_casimirs_integer_spin()
+        N = 12  # icosahedron vertices
+        assert abs(casimirs[1] - (N - 1) / 2) < 1e-10
