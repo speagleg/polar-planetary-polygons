@@ -1490,10 +1490,17 @@ The $2 \times 2$ diagonal block~$H_{kk}$ of the tangent Hessian has
 $\operatorname{Tr}(H_{kk}) = \sum_{j \neq k} \frac{1}{2} = \frac{N-1}{2}$.
 
 \emph{Step~3 (Schur decomposition).}
-The Hessian~$H$ is $G$-equivariant.  On the isotypic component
-of~$\rho$ (multiplicity~$2$ from
-$\operatorname{Ind}(\omega) \oplus \operatorname{Ind}(\bar\omega)$),
-Schur's lemma gives
+The Hessian~$H$ is $G$-equivariant.  The tangent representation is
+$\operatorname{Ind}_H^G(\omega) \oplus \operatorname{Ind}_H^G(\bar\omega)$
+where $H = \mathrm{Stab}(v_0)$ and $\omega$ is the tangent character.
+By Frobenius reciprocity,
+$\operatorname{mult}(\rho,\, \operatorname{Ind}(\omega))
+= \dim\operatorname{Hom}_H(\rho|_H,\, \omega)$.
+For Platonic stabilisers $H = \mathbb{Z}_n$ ($n \ge 3$), each
+$G$-irrep restricts to~$H$ with at most one copy of each
+$\mathbb{Z}_n$ character, giving multiplicity~$1$ in each induced
+representation, total~$2$.
+Schur's lemma then gives
 $H|_\rho = A_\rho \otimes \mathrm{Id}_{d_\rho}$ where
 $A_\rho$ is a $2 \times 2$ matrix with eigenvalues
 $\lambda_\pm(\rho)$.
