@@ -64,3 +64,52 @@ In the vortex framework: the icosahedron's vertices (12 vortex positions) tensor
 2. Does the identity generalize to other quantities (e.g., higher moments)?
 3. What is the geometric meaning of the "pivot value" 4 (the dim of ρ₃ and ρ₆)?
 4. Does the octahedron identity V⊗F = 2×reg(S₄) have consequences for E₇?
+
+## Further Discoveries (continued exploration)
+
+### The E₈ Balance Pivot Sequence
+
+The E₈ marks (1,2,3,4,5,6,4,2,3) generate a sequence of balance pivots k_n = Σd^{n+1}/Σd:
+
+| n | k_n | Value | Interpretation |
+|---|-----|-------|----------------|
+| 0 | Σd/Σ1 = 30/9 | 10/3 | average dim |
+| 1 | Σd²/Σd | **4 = rank(E₈)/2** | THE mark-balance identity |
+| 2 | Σd³/Σd | **18 = h(E₇)** | cross-references E₇! |
+| 3 | Σd⁴/Σd | 438/5 | (not clean) |
+| 4 | Σd⁵/Σd | **450 = h(E₈)²/2** | squares the Coxeter number |
+
+### Cross-Type Pivot Table
+
+The k₂ = Σd³/Σd pivot cross-references between types:
+
+| Marks of | k₂ = Σd³/Σd | Interpretation |
+|----------|-------------|----------------|
+| E₆ | 9/2 | — |
+| E₇ | **8 = rank(E₈)** | E₇ marks know about E₈ rank |
+| E₈ | **18 = h(E₇)** | E₈ marks know about E₇ Coxeter number |
+
+The exceptional Lie algebras cross-reference each other through the moments of their McKay marks.
+
+### The V⊗F Theorem Generalization
+
+V⊗F = k × reg(G) whenever gcd(|Stab_V|, |Stab_F|) = 1:
+
+| Solid | V⊗F | k | Matches roots? |
+|-------|-----|---|----------------|
+| Tetrahedron | NOT k×reg | — | — (gcd=3) |
+| Octahedron | 2×reg(S₄) | 2 | No (48 ≠ 126) |
+| Icosahedron | 4×reg(A₅) | 4 | **YES (240 = 240)** |
+
+### Second Balance Identity
+
+Σ dᵢ(dᵢ² - 18) = 0 for the E₈ marks. The pivot 18 = h(E₇).
+
+### Open: Why Do the E-Types Cross-Reference?
+
+The moments of the I* marks encode data about E₇ and E₈:
+- k₁ = 4 = rank(E₈)/2
+- k₂ = 18 = h(E₇)
+- k₄ = 450 = h(E₈)²/2
+
+This suggests the mark distribution encodes the ENTIRE exceptional hierarchy, not just E₈. The mechanism connecting the moment structure to the Lie algebraic data is unknown.
