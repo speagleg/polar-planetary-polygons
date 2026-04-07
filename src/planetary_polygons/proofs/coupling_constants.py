@@ -39,15 +39,17 @@ def wzw_central_charge(group, k=1):
 
 
 def weinberg_angle_cs():
-    """sin²θ_W = h_Y/(h_Y+h_W) = (1/4)/(11/12) = 3/11.
+    """sin²θ_W = α_Y/(α_Y+α_W) = (1/4)/(11/12) = 3/11.
 
-    h_W = j(j+1)/(k+h∨) = 2/3 (SU(2)₁, j=1), h_Y = Q²/k_Y = 1/4 (Q=1/2, k_Y=1).
+    α_W = g_W² C₂(j) = j(j+1)/(k+h∨) = 2/3 (CS coupling × Lie algebra Casimir).
+    α_Y = g_Y² Q² = Q²/k_Y = 1/4 (Q=1/2, k_Y=1).
+    No WZW integrability restriction: g² and C₂ are defined for all j.
     See Paper IV §8 for the full derivation.
     """
-    h_W = Fraction(2, 3)    # j(j+1)/(k+h∨) = 2/3 for SU(2)₁ adjoint
-    h_Y = Fraction(1, 4)    # Q²/k_Y = (1/2)²/1 = 1/4 for k_Y=1
+    alpha_W = Fraction(2, 3)  # g²×C₂ = j(j+1)/(k+h∨) = 2/3 for SU(2), j=1
+    alpha_Y = Fraction(1, 4)  # g²×Q² = Q²/k_Y = (1/2)²/1 = 1/4 for U(1)
 
-    sin2_theta = h_Y / (h_Y + h_W)  # = (1/4)/(11/12) = 3/11
+    sin2_theta = alpha_Y / (alpha_Y + alpha_W)  # = (1/4)/(11/12) = 3/11
     return float(sin2_theta)
 
 

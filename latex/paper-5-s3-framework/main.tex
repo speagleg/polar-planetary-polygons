@@ -205,27 +205,39 @@ $H_{600} = -67.9$ vs.\ $H_{24} = -1.2$ for the 24-cell
 
 \subsection{Schur conservation theorem}
 
-\begin{theorem}[Schur conservation]\label{thm:schur}
-For any $I^*$-equivariant perturbation of the 600-cell, the
-energy weight matrix decomposes into $I^*$ irrep blocks with
-eigenvalues that vary continuously within each block.
-The block structure (degeneracies~$d_\rho^2$) is symmetry-protected.
+\begin{theorem}[Dynamical Schur conservation]\label{thm:schur}
+Let $H$ be an $I^*$-invariant Hamiltonian on~$S^3$.  If the initial
+configuration is $I^*$-symmetric (i.e., lies on the $I^*$ orbit),
+then the Hamiltonian flow preserves $I^*$ symmetry for all time,
+and the energy weight matrix decomposes into $I^*$ irrep blocks
+with degeneracies~$d_\rho^2$ that are conserved along the flow.
 \end{theorem}
 
 \begin{proof}
-The energy weight matrix commutes with the $I^*$ action
-(by $I^*$-equivariance of the configuration).  By Schur's lemma,
-its eigenspaces are $I^*$ irreps.  The eigenvalue within each
-block varies continuously under smooth perturbation, but the
-\emph{degeneracy} $d_\rho^2$ is a discrete invariant (determined
-by the representation type) that cannot change without breaking
-$I^*$ symmetry.
+\emph{Step~1 (Symmetry preservation).}
+The Hamiltonian~$H$ is $I^*$-invariant:
+$H(g \cdot \mathbf{q}) = H(\mathbf{q})$ for all $g \in I^*$.
+By equivariance of Hamilton's equations, $g \in I^*$ maps
+solutions to solutions.  An $I^*$-symmetric initial condition
+$\mathbf{q}_0 = g \cdot \mathbf{q}_0$ evolves to
+$\mathbf{q}(t) = g \cdot \mathbf{q}(t)$ for all~$t$ (uniqueness
+of solutions).  Therefore the orbit remains $I^*$-symmetric.
+
+\emph{Step~2 (Block structure).}
+At each time~$t$, the configuration is $I^*$-symmetric, so the
+energy weight matrix commutes with~$I^*$.  By Schur's lemma, its
+eigenspaces decompose by $I^*$ irreps with degeneracies~$d_\rho^2$.
+The eigenvalues vary continuously; the discrete degeneracies
+cannot change.
 \end{proof}
 
-This is the $S^3$ analogue of the CMS Lax conservation on
-$\mathbb{R}^2/\mathbf{H}^2$ (Paper~III, \S3): the Lax spectrum
-prevents polygon--BTZ transitions; the Schur block structure
-prevents 600-cell--lower-symmetry transitions.
+This is stronger than instantaneous Schur's lemma: it is a
+\emph{dynamical} conservation law.  The $I^*$ block structure is
+preserved not just under equivariant perturbations, but under
+the full Hamiltonian time evolution starting from any $I^*$-symmetric
+state.  The analogy with Lax conservation (Paper~III, \S3) is:
+Lax conserves eigenvalues of the Lax matrix; Schur conserves the
+\emph{block structure} (degeneracy pattern) of the interaction matrix.
 
 %% ====================================================================
 \section{The Hopf projection: $S^3 \to S^2$}
@@ -306,12 +318,26 @@ dominant saddle switches, changing the leading energy term from
 $66\ln(1/\sqrt{K})$ to $21\ln(1/\sqrt{K})$), the transition is
 first-order in the Ehrenfest classification.
 
+\emph{Icosahedron dominance (over all configurations).}\enspace
+The icosahedron is the unique Thomson minimum on~$S^2$ for $N = 12$
+(\citealt{Andreev1996}; \citealt{CohnKumar2007}).
+The log-sine interaction $H = -\sum \ln\sin(d_{jk}/2)$ is a
+monotone transform of the Coulomb energy
+($-\ln\sin(d/2)$ is strictly decreasing in~$d$),
+so the Thomson minimum \emph{is} the log-energy maximum
+$=$ the Onsager ground state at negative temperature.
+Among stable configurations of \emph{any} $N$ on~$S^2$,
+$N = 12$ (icosahedron) is selected by the Onsager
+maximum-$N$ principle (Paper~II, \S11): the icosahedron is
+stable while the dodecahedron ($N = 20$) is not.
+
 \emph{The mechanism.}\enspace
 On $S^2(R)$ for any $R > 0$, the icosahedron has higher energy
 than the heptagon:
 $\Delta E(R) = \Delta E_{\mathrm{unit}} + 45\ln R \to \infty$.
-But polygon rings are \emph{all unstable} on~$S^2$
-(Morse index $N - 5$ for $N \ge 8$), while the icosahedron is stable.
+Polygon rings are unstable on~$S^2$ for all
+$N \ge 4$ (the out-of-plane modes are destabilising),
+while the icosahedron is stable (zero Morse index).
 At $K = 0$, the topology changes: $S^2 \to \mathbb{R}^2$, and
 Platonic configurations cease to exist as finite-energy objects.
 The 236~coset generators ($E_8 \to \mathrm{SM}$,
@@ -382,14 +408,20 @@ through a chain of established theorems:
   $\widehat{\mathfrak{su}}(3)_1$, $\widehat{\mathfrak{su}}(2)_1$,
   and $\mathrm{U}(1)_1$ from the $\mathbb{Z}_N$ orbifold via the
   McKay correspondence (Theorems~IV-6.1, IV-6.3).
-\item The Weinberg angle $\sin^2\theta_W = 3/11$ uses the conformal
-  weight ratio $h_Y/(h_Y + h_W)$ with $j = 1$ (the $\mathrm{SU}(2)$
-  adjoint Casimir $C_2 = 2 = f(2,4)$, read from the vortex spectrum).
-  Although $j = 1$ exceeds the integrable bound $j \le k/2 = 1/2$
-  for $\mathrm{SU}(2)_1$ WZW, the Casimir $C_2 = j(j{+}1)$ is a
-  Lie-algebra property independent of the CS level; the conformal
-  weight formula is evaluated as a Casimir ratio, not as a TQFT
-  observable (Paper~IV, Proposition~IV-9.4).
+\item The Weinberg angle $\sin^2\theta_W = 3/11$ uses the
+  \emph{effective coupling ratio}
+  $\alpha_Y/(\alpha_Y + \alpha_W)$ where
+  $\alpha_W = g_W^2 C_2(j) = j(j{+}1)/(k{+}h^\vee) = 2/3$
+  and $\alpha_Y = g_Y^2 Q^2 = Q^2/k_Y = 1/4$
+  (Paper~IV, eq.~IV-8.x).
+  No WZW integrability bound applies: $g^2 = 1/(k{+}h^\vee)$
+  is the CS coupling (defined for all~$k$) and
+  $C_2(j) = j(j{+}1)$ is the Lie-algebra Casimir
+  (defined for all~$j$, independent of~$k$).
+  The product $g^2 C_2$ coincides numerically with the
+  WZW conformal weight but is derived as a KK-reduced
+  Yang--Mills coupling $\times$ Casimir (Blau--Thompson 1993),
+  with no restriction on~$j$.
 \end{enumerate}
 
 The $S^3$ framework of this paper provides the UV completion
