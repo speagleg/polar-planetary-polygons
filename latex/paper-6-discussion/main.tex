@@ -6,7 +6,7 @@
 \externaldocument[IV-]{../paper-4-field-theory/main}
 \externaldocument[V-]{../paper-5-cosmology/main}
 
-\title{\seriestitle\\[6pt]\large Paper VI: Discussion, Predictions, and Status}
+\title{\seriestitle\\[6pt]\large Paper VII: Discussion, Predictions, and Status}
 \author{Gordon Speagle}
 \date{}
 
@@ -306,7 +306,7 @@ BF instanton (\S\ref*{IV-sec:mass-hierarchy}):
 $m_s/m_b = (v/M_{\mathrm{poly}})^{2\Delta c}/K^2$,
 where $\Delta c = 0.351$ (including the $O(1/c)$ Euler
 class and BO corrections;
-eq.~\eqref*{IV-eq:Dc-corrected}) and $K = 0.548$.
+eq.~(\ref*{IV-eq:Dc-corrected})) and $K = 0.548$.
 At two-loop ($M_{\mathrm{poly}} = 294$\,TeV): $0.023$
 (observed $0.024$, $4\%$ match).
 
@@ -410,7 +410,7 @@ parameters, not by the theory.
 The geometric-tier predictions depend on fermion
 zero-mode profiles on the Seifert manifold.
 Including the $O(1/c)$ Euler class and BO corrections
-(eq.~\eqref*{IV-eq:Dc-corrected}) brings $m_s/m_b$
+(eq.~(\ref*{IV-eq:Dc-corrected})) brings $m_s/m_b$
 from $0.045$ to $0.023$ ($4\%$ from observed),
 promoting it to the algebraic tier.
 
@@ -635,7 +635,7 @@ determined by $b(N)$ with no free parameters;
 the $4\%$ match on $m_s/m_b$
 confirms that $K$ is computed consistently).
 $K$~links two independent observables:
-$m_s/m_b \propto 1/K^2$ (eq.~\eqref{V-eq:mass-hierarchy},
+$m_s/m_b \propto 1/K^2$ (eq.~\eqref{IV-eq:mass-hierarchy},
 elasticity $\partial\ln(m_s/m_b)/\partial k_{\mathrm{frac}} = 4\pi$)
 and $\Omega_b$ via
 $K/(1{+}K^2)$ (eq.~\eqref{V-eq:mass-gap-resum},
@@ -741,6 +741,96 @@ The theory predicts that future measurements of the
 matter power spectrum at $k > 1\;\mathrm{Mpc}^{-1}$
 (Euclid, Roman) will find $n_s \approx 0.96$--$0.97$
 with no blue tilt or scale-dependent enhancement.
+
+\subsection{Laboratory predictions}
+\label{sec:laboratory}
+
+The stability framework makes quantitative predictions
+in four laboratory settings, each testing the Havelock
+eigenvalue formula independently of the gravitational
+interpretation (Papers~III--VI).
+
+\paragraph{BEC vortex clusters (Paper~II, \S\ref*{II-sec:quantum}).}
+In a quasi-2D Bose--Einstein condensate, quantised
+circulation ($\kappa = qh/m$, $q \in \mathbb{Z}$)
+converts the central-vortex ratio $\kappa_0/\kappa$ into
+an integer winding-number ratio $q_0/q$, giving
+sharp integer-valued thresholds:
+\begin{center}\small
+\begin{tabular}{lcl}
+\toprule
+Configuration & $\kappa_{\mathrm{crit}}$ & Prediction \\
+\midrule
+$N \le 7$ ring & $0$ & Stable without central vortex \\
+$N = 8$ ring & $1/2$ & Unstable alone; stable with $q_0 \ge 1$ \\
+$N = 9$ ring & $1$ & Stable with $q_0 \ge 2$ \\
+$N = 10$ ring & $7/4$ & Stable with $q_0 \ge 2$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+The $N = 8$ prediction is the sharpest:
+a ring of eight unit-winding vortices is unstable alone
+and stable upon adding a single central vortex
+($q_0 = 1 > \kappa_{\mathrm{crit}} = 1/2$).
+
+The $N = 7$ ring provides a distinct dynamical signature.
+The quartic restoring force ($\alpha_0 = 45/14$,
+Paper~II, \S5) produces an
+\emph{amplitude-dependent} oscillation frequency for the
+$m = 3$ mode: $\omega_{m=3} \propto \varepsilon^2$
+(vanishes as $\varepsilon \to 0$, unlike the finite
+frequency of $N \le 6$ quadratic modes).
+For $^{87}$Rb at $R = 50\;\mu\mathrm{m}$:
+period $\sim\!100$\,s at $\varepsilon = 0.05$,
+resolvable with standard BEC vortex imaging.
+
+In a hard-wall circular trap, the image-vortex construction
+gives \emph{exactly} the Poincar\'e disk Green's function
+(Proposition~II-12.1).
+The palindromic thresholds of Paper~I become exact
+$r/R$ ratios: $N = 8$ is stable for
+$r/R > \sqrt{8{-}3\sqrt{7}} \approx 0.25$;
+$N = 11$ for $r/R > 0.41$; $N = 23$ for $r/R > 0.62$.
+Flat-bottomed BEC traps \citep{Gauthier2019} are the
+natural setting.
+
+\paragraph{Hyperbolic lattices
+  (Paper~II, \S\ref*{II-sec:quantum}).}
+Interacting bosons on a $\{p,q\}$ hyperbolic lattice
+(circuit-QED or topoelectric realisations) reduce to the
+point vortex Hamiltonian in the Thomas--Fermi regime.
+In the continuum limit (lattice spacing $\ll$ intervortex
+spacing, requiring $\gtrsim\!1000$ sites):
+$N_{\mathrm{crit}} = 12$ on the Bolza surface
+($\{8,8\}$ tiling, genus~$2$).
+Current circuit-QED experiments reach $\sim\!100$ sites
+\citep{Kollar2019}; topoelectric circuits ($\sim\!10^4$
+sites) are within reach.
+
+\paragraph{Mesoscopic superconductors
+  (Paper~II, Remark~\ref*{II-rmk:superconductor}).}
+Abrikosov vortices in a type-II superconducting disk obey the
+same boundary condition as BEC vortices in a hard-wall trap.
+The observed shell transitions in mesoscopic Nb disks
+\citep{Grigorieva2006}---single polygon for $N \le 6$,
+shell ($1{+}6$) at $N = 7$, and shells ($1{+}7$, $2{+}7$)
+for $N \ge 8$---are consistent with $N_{\mathrm{crit}} = 7$.
+
+\paragraph{Quantum Hall systems
+  (Paper~II, Remarks~\ref*{II-rmk:laughlin},
+  \ref*{II-rmk:non-abelian}).}
+Laughlin quasiholes at filling $\nu = 1/m$ interact
+logarithmically; the Havelock eigenvalue acquires an
+overall $1/m$ factor that cancels in the stability
+condition.
+The threshold $P_{\mathrm{crit}} = 7$ is therefore
+\emph{universal across all gapped quantum Hall states},
+independent of filling fraction, braiding statistics,
+and fusion channel.
+For topological quantum computation: standard braiding
+protocols use $P \le 6$ quasiholes, safely below
+the threshold.
 
 \subsection{Dynamical maintenance of polar polygons}
 \label{sec:dynamical-maintenance}
@@ -902,6 +992,20 @@ falsifies the theory;
 failure of a quantitative prediction ($\sin^2\theta_W$,
 $|V_{cb}|$, $\eta_B$) constrains the derivation chain
 at the failed step.
+
+Independent of the high-energy programme, the mathematical
+core---the Havelock eigenvalue and its algebraic thresholds---is
+testable in BEC vortex clusters ($N = 8$ integer winding
+threshold, $N = 7$ quartic oscillation signature),
+hyperbolic lattice realisations ($N_{\mathrm{crit}} = 12$
+on the Bolza surface), mesoscopic superconductors
+(shell transitions at $N = 7$), and quantum Hall quasihole
+polygons ($P_{\mathrm{crit}} = 7$, universal across all
+gapped states).
+These laboratory tests probe Paper~I--II results directly,
+without relying on the gravitational or gauge-theoretic
+extensions of Papers~III--V.
+
 A companion supplement develops an arithmetic interpretation:
 the Havelock eigenvalues satisfy the Ramanujan--Petersson
 bound for all stable polygons, linking vortex stability
