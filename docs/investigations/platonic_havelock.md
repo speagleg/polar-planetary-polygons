@@ -105,7 +105,7 @@ The Coxeter number formula tau = 1 - (h-1)/|O*| does NOT hold. The E_7 connectio
 
 ### Structural (requires new ideas)
 
-5. **E_8 -> SM breaking mechanism**: How does the geometric transition (icosahedron -> heptagon at K=0) realize the standard GUT breaking chain? Is there a geometric interpolation?
+5. **E_8 -> SM breaking mechanism**: ANSWERED (mechanism identified). The breaking is a two-stage process: (1) topology change S² → R² at K=0 dissolves the icosahedron (vertices spread to infinity), (2) the Onsager partition function transitions from N=12 dominant saddle (E_8) to N=7 dominant saddle (SM). This is a PHASE TRANSITION in the vortex gas, not a continuous deformation. The broken generators (248-12=236) acquire infinite mass at K=0 because the icosahedral modes cease to exist on R². For K slightly positive (inflation), the mass is ~ H_inf. The match dim(SM)=12=N_icosa is a numerical coincidence (not yet proven structural).
 
 6. **The 3+1D formulation**: The Platonic framework on S² naturally lives in 3D (S² subset R³). Does this give a direct 3+1D theory without the KK compactification needed in the polygon framework?
 
