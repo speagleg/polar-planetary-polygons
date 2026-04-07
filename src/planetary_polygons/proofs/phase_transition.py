@@ -23,7 +23,8 @@ PROOF:
     Step 3: The transition is first-order (discontinuous).
         - The symmetry group jumps: A₅ → Z₇ (non-abelian → abelian)
         - No intermediate phase: for K > 0, A₅ is selected; at K=0, Z₇
-        - The 248-12=236 broken E₈ generators acquire infinite mass at K=0
+        - The gauge group changes from E₈ (dim 248) to SM (dim 8+3+1=12);
+          the 236 coset generators become massive at the transition
 
     Step 4 (from S³, Gaps A+B): The S³ framework completes the picture.
         - K > 0 corresponds to S³ spatial geometry (Hopf fibration)
@@ -142,7 +143,7 @@ def verify_first_order_transition():
         'r2_gauge': 'SM = SU(3)×SU(2)×U(1) (via Frobenius)',
         'first_order': True,
         'order_parameter_jump': f'A₅ (60) → Z₇ (7)',
-        'broken_generators': 248 - 12,
+        'broken_generators': 248 - 12,  # E₈(248) → SM(8+3+1=12): 236 coset generators
         'energy_gaps': gaps,
         'asymptotic_gap': '45 × ln(R)',
     }

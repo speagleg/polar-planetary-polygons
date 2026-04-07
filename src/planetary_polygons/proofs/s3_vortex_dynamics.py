@@ -1,8 +1,13 @@
 r"""
 THEOREM (S³ vortex dynamics — GAP A):
-    Point vortices on S³ interact via the Green's function of the
+    Particles on S³ interact via the Green's function of the scalar
     Laplacian on S³. The 600-cell (120 I* quaternion vertices) is
-    the natural I*-symmetric vortex configuration on S³.
+    the natural I*-symmetric configuration on S³.
+
+    NOTE: Point vortices are intrinsically a 2D phenomenon. On S³,
+    this system is a Coulomb-type particle interaction, not vortex
+    dynamics in the fluid-mechanical sense. The connection to 2D
+    vortex dynamics comes through the Hopf fibration S³ → S².
 
 DERIVATION (from first principles):
     Step 1: S³ Laplacian eigenvalues -Δf = l(l+2)f, degeneracy (l+1)²
