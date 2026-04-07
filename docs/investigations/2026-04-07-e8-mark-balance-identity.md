@@ -232,3 +232,40 @@ NOT supersymmetry, but a representation-theoretic constraint that plays the same
 1. Does the mark charge Q = d-4 correspond to a conserved quantity in the 600-cell dynamics?
 2. Is there a "mark supersymmetry" generator that maps d < 4 modes to d > 4 modes?
 3. Does the gravitino pivot (d = 4, spin 3/2) have implications for the fermion sector?
+
+## Mark Charge Conservation Law
+
+### The Mark Charge Q = d - 4
+
+For each I* irrep ρᵢ with dimension dᵢ, define the mark charge Qᵢ = dᵢ - 4.
+
+Charges: Q = (-3, -2, -1, 0, +1, +2, 0, -2, -1) for (ρ₀, ..., ρ₈).
+
+### The Identity Table
+
+| Moment | Unweighted Σ Qⁿ | Dim-weighted Σ d Qⁿ | Interpretation |
+|--------|-----------------|---------------------|----------------|
+| n=0 | 9 = rank+1 | 30 = h(E₈) | Number of irreps / Coxeter number |
+| n=1 | -6 | **0** | The mark-balance identity |
+| n=2 | **24 = \|T*\|** | **60 = \|A₅\|** | Binary tetrahedral / icosahedral group |
+
+### Three group orders from one charge
+
+- Σ Qⁿ at n=0: number of irreps = 9 = rank(E₈) + 1
+- Σ d Qⁿ at n=0: Coxeter number = 30
+- Σ Q² = 24 = |T*| = |S₄| = binary tetrahedral group order
+- Σ d Q² = 60 = |A₅| = icosahedral rotation group order
+
+### The factorial identity
+
+Σ Q² = 24 = 4! = factorial(pivot)
+
+The charge variance is the factorial of the spacetime dimension. Since the pivot d=4 = dim(spacetime), this means Σ Q² = dim(spacetime)!.
+
+### Dimension-weighted moments
+
+- Σ d Q⁰ = h = 30
+- Σ d Q¹ = 0 (the balance)
+- Σ d Q² = 2h = 60
+
+The first three weighted moments: h, 0, 2h. The balance identity sits between the Coxeter number and twice the Coxeter number.
