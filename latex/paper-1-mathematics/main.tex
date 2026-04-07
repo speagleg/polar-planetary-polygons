@@ -2602,12 +2602,67 @@ Gauss--Legendre quadrature nodes on~$[0,1]$; whether this
 coincidence reflects a deeper connection remains open.
 \end{remark}
 
+\subsection{The binary icosahedral group and the McKay correspondence}
+\label{sec:i-star-mckay}
+
+The Platonic framework of Section~\ref{sec:platonic} connects to~$E_8$
+through the binary icosahedral group $I^* \subset \mathrm{SU}(2)$,
+the double cover of the icosahedral rotation group~$A_5$.
+$I^*$ has order~$120$ and nine conjugacy classes.
+
+\begin{theorem}[McKay correspondence for $I^*$]\label{thm:mckay-i-star}
+The nine irreps of~$I^*$ have dimensions
+$\{1, 2, 3, 4, 5, 6, 4, 2, 3\}$ (in McKay ordering).
+The tensor product
+$\rho_1 \otimes \rho_i = \bigoplus_j a_{ij}\,\rho_j$
+has adjacency matrix $(a_{ij})$ equal to the adjacency matrix of the
+extended $E_8$ Dynkin diagram~$\tilde{E}_8$.
+\end{theorem}
+
+The first six irreps are restrictions of $\mathrm{SU}(2)$ representations
+$V_{2j+1}$ for $j = 0, \tfrac{1}{2}, 1, \tfrac{3}{2}, 2, \tfrac{5}{2}$;
+the remaining three arise from the McKay recursion when $V_7$, $V_8$,
+$V_9$ split upon restriction to~$I^*$.
+The marks of $\tilde{E}_8$ are the dimensions of the $I^*$ irreps:
+$1, 2, 3, 4, 5, 6, 4, 2, 3$ (sum~$30 = h(E_8)$, the Coxeter number).
+
+The McKay adjacency matrix has eigenvalues
+$\{-2, -\varphi, -1, -1/\varphi, 0, 1/\varphi, 1, \varphi, 2\}$,
+where $\varphi = (1+\sqrt{5})/2$ is the golden ratio---the same
+$\varphi$ that governs the icosahedral interaction kernel
+(Theorem~\ref{thm:bridge}).  This connects $E_8$ graph theory to
+icosahedral geometry through the golden ratio.
+
+\subsection{Coxeter decomposition of the $E_8$ adjoint}
+\label{sec:coxeter-decomposition}
+
+\begin{theorem}[Coxeter decomposition]\label{thm:coxeter}
+The $E_8$ adjoint representation restricted to~$I^*$ (via the
+Coxeter element of $W(E_8)$) decomposes as
+\begin{equation}\label{eq:coxeter}
+  248 = 2\,\mathrm{reg}(I^*) + 2(\rho_1 + \rho_7),
+\end{equation}
+with multiplicities $\{2, 6, 6, 8, 10, 12, 8, 6, 6\}$.
+\end{theorem}
+
+The excess eight dimensions beyond $2\,\mathrm{reg}$ come from
+$\rho_1$ and $\rho_7$, the two dimension-$2$ irreps sitting at
+opposite ends of the $E_8$ Dynkin diagram branch.
+The integer-spin irreps ($\rho_0, \rho_2, \rho_4, \rho_6, \rho_8$)
+contribute $120$~dimensions; the half-integer irreps
+($\rho_1, \rho_3, \rho_5, \rho_7$) contribute~$128$.
+This matches the branching $E_8 \supset \mathrm{SO}(16)$:
+$248 = 120_{\mathrm{adj}} \oplus 128_{\mathrm{spinor}}$.
+The integer-spin sector is the classical vortex physics visible
+on~$\mathbf{S}^2$ (Section~\ref{sec:platonic}); the half-integer
+sector is revealed on~$S^3$ (Paper~V).
+
 \paragraph{Code availability.}
 All numerical verifications are in the companion repository
 (\url{https://github.com/gspea/planetary-polygons-unified}).
 The K-theoretic classification of stability phases is developed
 in Appendix~\ref{sec:k-theory}.
-Parameter accounting and predictions appear in Paper~VI.
+Parameter accounting and predictions appear in Paper~VII.
 
 \appendix
 %% ====================================================================
