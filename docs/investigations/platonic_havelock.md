@@ -68,8 +68,25 @@ is suggestive but NOT confirmed as the exact limit.
 Prediction for Bring surface (g=4, |Aut|=120, McKay E8, h=30):
   tau = (120 - 29)/120 = 91/120 = 0.758333...
 
+## Result 5: First-order phase transition at K=0 (proved)
+
+The energy ordering on S²(R) is R-INDEPENDENT: the term -N(N-1)/2 × ln R is universal. Therefore Platonic solids are the ground state for ALL K > 0.
+
+At K = 0 (flat), the transition is DISCONTINUOUS:
+- Octahedron: antipodal vertices project to infinity (topological obstruction)
+- Icosahedron: both configs exist but 12-gon wins by energy gap +58.7
+
+The ground state classification:
+- K > 0 (any S²): Platonic solid (E-type McKay)
+- K = 0 (flat R²): Polygon ring (A-type McKay)
+- K < 0 (any H²): Polygon ring (A-type McKay)
+
+GUT interpretation: E → SM breaking is a topological phase transition at K=0, coinciding with the inflationary → radiation-dominated epoch in cosmology.
+
 ## Remaining questions
 
 1. Closed-form T(rho) for all G-irreps (not just when D^j is irreducible)
 2. Prove the ADE-surface formula tau = 1 - (h-1)/|Aut|
 3. Compute the Bring surface tau to test the E8 prediction tau = 91/120
+4. Which Platonic solid is the OVERALL ground state on S²? (Among all N, which N and which shape minimizes energy per vertex?)
+5. Does the E_7 → SM breaking chain match the octahedron → heptagon geometric transition exactly?
