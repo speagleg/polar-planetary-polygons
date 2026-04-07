@@ -60,7 +60,10 @@ The fractional Morse index on the Bolza surface is exactly 31/48:
 - 31 = 48 - 17 = |O*| - max(E7 exponent)
 - tau = 1 - (h-1)/|O*| where h=18 is the E7 Coxeter number
 
-Resolves Problem 7: tau = 31/48 = 0.645833... (all digits exact).
+NOTE: tau = 31/48 at word length L=3 (336 = 7x48 elements).
+At L=4,5 the counting tau drifts (0.642, 0.636). The exact
+converged value requires higher word lengths. The 31/48 result
+is suggestive but NOT confirmed as the exact limit.
 
 Prediction for Bring surface (g=4, |Aut|=120, McKay E8, h=30):
   tau = (120 - 29)/120 = 91/120 = 0.758333...
