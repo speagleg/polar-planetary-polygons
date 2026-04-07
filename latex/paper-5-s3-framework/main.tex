@@ -1,0 +1,370 @@
+\input{../shared/preamble}
+
+\externaldocument[I-]{../paper-1-mathematics/main}
+\externaldocument[II-]{../paper-2-physics/main}
+\externaldocument[III-]{../paper-3-gravity/main}
+\externaldocument[IV-]{../paper-4-field-theory/main}
+\externaldocument[A-]{../paper-A-appendices/main}
+
+\title{\seriestitle\\[6pt]\large Paper V: The $S^3$ Framework and the ADE Phase Transition}
+\author{Gordon Speagle}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The polygon vortex framework (Papers~I--IV) operates on two-dimensional
+surfaces.  We lift it to the three-sphere~$S^3$ via the Hopf fibration,
+showing that the 600-cell---the 120 vertices of the binary icosahedral
+group~$I^*$ viewed as unit quaternions---is the natural UV configuration.
+The scalar Green's function on~$S^3$ is derived from first principles
+($G(\chi) = (1/4\pi^2)(\pi - \chi)\cot\chi$, verified by direct PDE
+substitution), and its spectral decomposition reveals all nine~$I^*$
+irreps with degeneracies~$d_\rho^2$ (the regular representation).
+The Onsager selection on~$S^3$ and the Schur conservation theorem
+(the non-abelian analogue of Lax integrability) protect the 600-cell
+phase.  The Hopf projection $S^3 \to S^2$ recovers the icosahedron.
+At $K = 0$---the topological transition from $S^3$ spatial geometry
+to~$\mathbb{R}^3$---the dominant saddle changes from the icosahedron
+($N = 12$, $A_5$, $E_8$) to the heptagon ($N = 7$, $\mathbb{Z}_7$, SM),
+a first-order phase transition in the Ehrenfest sense.  The integer-spin
+sector (120~dimensions) is the classical vortex physics visible
+on~$S^2$; the half-integer sector (128~dimensions) is the $E_8$
+spinor, invisible classically but revealed on~$S^3$.
+\end{abstract}
+
+\tableofcontents
+
+%% ====================================================================
+\section{Introduction}
+\label{sec:intro}
+%% ====================================================================
+
+Papers~I--IV develop the vortex framework on two-dimensional surfaces:
+the flat plane~$\mathbb{R}^2$, the sphere~$\mathbf{S}^2$, and the
+hyperbolic plane~$\mathbf{H}^2$.  The stability threshold $N = 7$,
+the Chern--Simons gauge theory, and the Standard Model all emerge from
+the Havelock eigenvalue decomposition on these surfaces.
+
+This paper lifts the framework to three dimensions.  The key geometry
+is the three-sphere~$S^3$, which fibers over~$S^2$ via the Hopf
+fibration $S^1 \to S^3 \to S^2$.  The three Thurston model geometries
+relevant to the vortex universe are:
+\begin{center}
+\begin{tabular}{lcll}
+\toprule
+Curvature & Geometry & Vortex ground state & Gauge group \\
+\midrule
+$K > 0$ & $S^3$ (Hopf) & Icosahedron ($N = 12$, $A_5$) & $E_8$ \\
+$K = 0$ & $\mathbb{R}^3$ (trivial) & Heptagon ($N = 7$, $\mathbb{Z}_7$) & SM \\
+$K < 0$ & $\widetilde{\mathrm{SL}}(2,\mathbb{R})$ (Seifert) &
+  Heptagon ($N = 7$, $\mathbb{Z}_7$) & SM \\
+\bottomrule
+\end{tabular}
+\end{center}
+The Euler class jumps: $e = 1$ (Hopf) $\to$ $e = 0$ (trivial) $\to$
+$e = N/2$ (Seifert).  The transition is topological, not metric.
+
+%% ====================================================================
+\section{The scalar Green's function on $S^3$}
+\label{sec:green}
+%% ====================================================================
+
+\subsection{Eigenvalues and eigenfunctions}
+
+On the unit three-sphere, the scalar Laplacian has eigenvalues
+$-\Delta f = l(l+2)\,f$ for $l = 0, 1, 2, \ldots$, with
+degeneracy $(l+1)^2$.  The zonal eigenfunctions (depending only on
+geodesic distance~$\chi$) are the Gegenbauer polynomials $C_l^1(\cos\chi)$,
+also known as Chebyshev polynomials of the second kind.
+They satisfy the recurrence $C_0^1 = 1$, $C_1^1 = 2x$,
+$C_{l+1}^1 = 2x\,C_l^1 - C_{l-1}^1$,
+with $C_l^1(1) = l + 1$ and $C_l^1(\cos\chi) = \sin((l{+}1)\chi)/\sin\chi$.
+
+\subsection{Closed form and verification}
+
+The Green's function $G(\chi)$ satisfying
+$\Delta G = -\delta + 1/\mathrm{Vol}(S^3)$ (where $\mathrm{Vol}(S^3) = 2\pi^2$)
+is constructed from the eigenfunction expansion using the $S^3$ addition
+theorem and summed to a closed form.
+
+\begin{theorem}[$S^3$ Green's function]\label{thm:green-s3}
+\begin{equation}\label{eq:green-s3}
+  G(\chi) = \frac{1}{4\pi^2}\,(\pi - \chi)\,\cot\chi.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Direct substitution into the $S^3$ radial Laplacian
+$\Delta f = f'' + 2\cot(\chi)\,f'$.  Let $h(\chi) = (\pi - \chi)\cot\chi$.
+Then $h' = -\cot\chi - (\pi - \chi)\csc^2\chi$ and
+$h'' = 2\csc^2\chi + 2(\pi - \chi)\csc^2\chi\,\cot\chi$.
+Computing $\Delta h = h'' + 2\cot\chi\cdot h'$:
+the $(\pi - \chi)$ terms cancel, leaving
+$\Delta h = 2(\csc^2\chi - \cot^2\chi) = 2$.
+Therefore $\Delta G = 2/(4\pi^2) = 1/(2\pi^2) = 1/\mathrm{Vol}(S^3)$.
+\end{proof}
+
+Properties: $G(0^+) \to +\infty$ (Coulomb singularity,
+$\sim \pi/(4\pi^2\chi)$); $G(\pi/2) = 0$;
+$G(\pi^-) = -1/(4\pi^2)$ (finite at the antipode).
+
+\begin{remark}
+The $S^3$ Laplacian identity $\Delta_{S^3}(-G) = -1/(2\pi^2)$ (constant)
+is the three-dimensional analogue of the $S^2$ identity
+$\Delta_{S^2}[-\ln\sin(d/2)] = 1/2$ that underlies the eigenvalue
+pairing theorem (Theorem~I-\ref{I-thm:hessian-pairing}).
+\end{remark}
+
+%% ====================================================================
+\section{The 600-cell: $I^*$ on $S^3$}
+\label{sec:600cell}
+%% ====================================================================
+
+The binary icosahedral group $I^* \subset \mathrm{SU}(2)$ has 120
+elements, which we represent as unit quaternions
+$q = w + x\mathbf{i} + y\mathbf{j} + z\mathbf{k} \in S^3$.
+These 120 quaternions are the vertices of the 600-cell, a regular
+4-dimensional polytope with 120~vertices, 720~edges,
+1200~triangular faces, and 600~tetrahedral cells.
+
+The construction: 8~quaternion units ($\pm 1, \pm\mathbf{i},
+\pm\mathbf{j}, \pm\mathbf{k}$), 16~half-integer quaternions
+$(\pm 1 \pm \mathbf{i} \pm \mathbf{j} \pm \mathbf{k})/2$,
+and 96~golden quaternions (even permutations of
+$(0, \pm 1, \pm\varphi, \pm 1/\varphi)/2$ where
+$\varphi = (1+\sqrt{5})/2$).
+
+\subsection{Distance classes and conjugacy classes}
+
+The geodesic distance between quaternions $q_1, q_2 \in S^3$ is
+$\chi = \arccos(q_1 \cdot q_2)$ (the $\mathbb{R}^4$ inner product).
+The 119~non-identity 600-cell vertices fall into exactly eight
+distance classes from any reference vertex, with sizes
+$\{12, 20, 12, 30, 12, 20, 12, 1\}$.
+
+These eight distance classes are precisely the eight nontrivial
+conjugacy classes of~$I^*$ (the ninth class is the identity).
+The geometry of the 600-cell IS the group theory of~$I^*$.
+
+%% ====================================================================
+\section{Energy decomposition: the regular representation}
+\label{sec:energy-decomp}
+%% ====================================================================
+
+The energy weight matrix $K_{jk} = -G(\chi_{jk})$ for $j \neq k$,
+$K_{jj} = -\sum_{l \neq j} K_{jl}$ (zero-sum rows), gives the
+decomposition of the interaction energy by~$I^*$ irreps.
+
+\begin{theorem}[Regular representation]\label{thm:regular-rep}
+The eigenvalue degeneracies of the energy weight matrix on the
+600-cell are $d_\rho^2$ for each $I^*$ irrep~$\rho$:
+$\{1, 4, 9, 16, 25, 36, 16, 4, 9\}$.
+\end{theorem}
+
+\noindent
+This is the regular representation structure: each irrep~$\rho$ of
+dimension~$d_\rho$ appears with multiplicity~$d_\rho$ in the
+permutation representation of $I^*$ acting on itself.
+
+The nine distinct eigenvalues correspond to the nine $I^*$ irreps,
+giving the energy-weighted Havelock Casimir $T_\rho$ for \emph{all}
+nine irreps---including the four half-integer-spin irreps
+($\rho_1, \rho_3, \rho_5, \rho_7$) that are invisible on~$S^2$
+(where the icosahedron permutation representation factors through
+$A_5 = I^*/\mathbb{Z}_2$ and sees only integer-spin irreps).
+
+\begin{remark}
+On~$S^2$, the icosahedron's 12-vertex permutation representation
+decomposes as $1 \oplus 3 \oplus 5 \oplus 3'$ (four $A_5$ irreps,
+all integer-spin).  On~$S^3$, the 600-cell's 120-vertex regular
+representation decomposes into all nine $I^*$ irreps with multiplicity
+$d_\rho$.  The $S^3$ framework \emph{completes} the $S^2$ picture.
+\end{remark}
+
+%% ====================================================================
+\section{Onsager selection and Schur conservation}
+\label{sec:onsager-schur}
+%% ====================================================================
+
+\subsection{Onsager selection on $S^3$}
+
+At negative temperature (the Onsager regime), the equilibrium
+maximises the energy~$H$.  Among $I^*$-symmetric configurations
+on~$S^3$, the 600-cell has the maximum number of pairwise interactions
+(120~vertices, $\binom{120}{2} = 7140$ pairs) and is selected by
+the Onsager principle as the ground state.
+
+\subsection{Schur conservation theorem}
+
+\begin{theorem}[Schur conservation]\label{thm:schur}
+For any $I^*$-equivariant perturbation of the 600-cell, the
+energy weight matrix decomposes into $I^*$ irrep blocks with
+eigenvalues that vary continuously within each block.
+The block structure (degeneracies~$d_\rho^2$) is topologically
+protected.
+\end{theorem}
+
+\begin{proof}
+The energy weight matrix commutes with the $I^*$ action
+(by $I^*$-equivariance of the configuration).  By Schur's lemma,
+its eigenspaces are $I^*$ irreps.  The eigenvalue within each
+block varies continuously under smooth perturbation, but the
+\emph{degeneracy} $d_\rho^2$ is a discrete invariant (determined
+by the representation type) that cannot change without breaking
+$I^*$ symmetry.
+\end{proof}
+
+This is the $S^3$ analogue of the CMS Lax conservation on
+$\mathbb{R}^2/\mathbf{H}^2$ (Paper~III, \S3): the Lax spectrum
+prevents polygon--BTZ transitions; the Schur block structure
+prevents 600-cell--lower-symmetry transitions.
+
+%% ====================================================================
+\section{The Hopf projection: $S^3 \to S^2$}
+\label{sec:hopf}
+%% ====================================================================
+
+The Hopf fibration $S^1 \to S^3 \to S^2$ has Euler class $e = 1$
+(the first Chern class of $\mathcal{O}(1)$ on $\mathbb{CP}^1 = S^2$).
+It connects the 600-cell on~$S^3$ to the icosahedron on~$S^2$.
+
+Each icosahedron vertex has a stabiliser $\mathbb{Z}_{10} \subset I^*$
+(the ten $I^*$ elements whose $\mathrm{SO}(3)$ projection fixes that
+vertex).  The group quotient $I^*/\mathbb{Z}_{10}$ gives the
+12~icosahedron vertices: $120/10 = 12$.
+
+The bridge identity
+(Theorem~I-\ref{I-thm:bridge}, eq.~\eqref{I-eq:bridge})
+\[
+  \lambda_j = 5K_1\, P_j\!\Bigl(\frac{1}{\sqrt{5}}\Bigr)
+            + 5K_2\, P_j\!\Bigl(-\frac{1}{\sqrt{5}}\Bigr)
+            + \frac{1}{4}(-1)^j
+\]
+is the Hopf descendant of the $S^3$ spectral decomposition:
+the Gegenbauer eigenvalues on~$S^3$ project to the Legendre
+eigenvalues on~$S^2$ through the Hopf map.
+
+%% ====================================================================
+\section{The $S^3$ Havelock decomposition}
+\label{sec:s3-havelock}
+%% ====================================================================
+
+The $S^3$ Havelock Casimir for the $l$-th harmonic on the 600-cell is
+\begin{equation}\label{eq:s3-havelock}
+  T_l = \sum_{k \neq 0} w(\chi_{0k})
+  \Bigl[1 - \frac{C_l^1(\cos\chi_{0k})}{l+1}\Bigr],
+\end{equation}
+where $w = -G$ is the interaction weight and $C_l^1/(l+1)$ is the
+normalised zonal spherical function on~$S^3$.
+
+The corresponding eigenvalue
+$\lambda_l = C_1 - T_l = \sum_{k \neq 0} w(\chi_{0k})\,
+C_l^1(\cos\chi_{0k})/(l+1)$
+is the $S^3$ bridge formula (the Gegenbauer analogue of the
+$S^2$ Legendre formula).
+
+%% ====================================================================
+\section{The phase transition at $K = 0$}
+\label{sec:phase-transition}
+%% ====================================================================
+
+\begin{theorem}[First-order phase transition]\label{thm:phase-transition}
+The dominant vortex configuration changes discontinuously at $K = 0$:
+\begin{itemize}
+\item $K > 0$ ($S^2$): Icosahedron ($N = 12$, $A_5$, $E_8$ via McKay).
+\item $K = 0$ ($\mathbb{R}^2$): Heptagon ($N = 7$, $\mathbb{Z}_7$,
+  $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
+  via Frobenius).
+\end{itemize}
+\end{theorem}
+
+\emph{Thermodynamic framework.}\enspace
+Microcanonical ensemble at fixed angular impulse~$L$,
+negative temperature $\beta < 0$.
+The order parameter $\sigma(K) = $ symmetry group of the dominant
+saddle: $\sigma(K > 0) = A_5$ (non-abelian, $|G| = 60$),
+$\sigma(K = 0) = \mathbb{Z}_7$ (abelian, $|G| = 7$).
+The jump is discontinuous $\Rightarrow$ first-order by Ehrenfest.
+
+\emph{The mechanism.}\enspace
+On $S^2(R)$ for any $R > 0$, the icosahedron has higher energy
+than the heptagon:
+$\Delta E(R) = \Delta E_{\mathrm{unit}} + 45\ln R \to \infty$.
+But polygon rings are \emph{all unstable} on~$S^2$
+(Morse index $N - 5$ for $N \ge 8$), while the icosahedron is stable.
+At $K = 0$, the topology changes: $S^2 \to \mathbb{R}^2$, and
+Platonic configurations cease to exist as finite-energy objects.
+The 236~coset generators ($E_8 \to \mathrm{SM}$, dimension $248 - 12$)
+become massive at the transition.
+
+%% ====================================================================
+\section{The $120/128$ split: classical and quantum sectors}
+\label{sec:split}
+%% ====================================================================
+
+The Coxeter decomposition
+(Theorem~I-\ref{I-thm:coxeter}, eq.~\eqref{I-eq:coxeter})
+gives $248 = 120 + 128$ under $I^*$:
+\begin{itemize}
+\item \textbf{Integer-spin sector} (120~dimensions,
+  $\mathrm{SO}(16)$ adjoint):
+  the five irreps $\rho_0, \rho_2, \rho_4, \rho_6, \rho_8$.
+  These are visible on~$S^2$ as the eigenvalues of the icosahedron's
+  interaction matrix.  This is the classical vortex physics.
+
+\item \textbf{Half-integer-spin sector} (128~dimensions,
+  $\mathrm{SO}(16)$ spinor):
+  the four irreps $\rho_1, \rho_3, \rho_5, \rho_7$.
+  These are invisible on~$S^2$ (the icosahedron permutation representation
+  factors through $A_5 = I^*/\mathbb{Z}_2$) but revealed on~$S^3$
+  (the 600-cell regular representation sees all nine irreps).
+  This is the quantum/spinor sector.
+\end{itemize}
+
+The half-integer irreps have zero multiplicity in the icosahedron's
+permutation representation because the $\mathbb{Z}_{10}$ stabiliser
+character sum vanishes for half-integer-spin characters
+(proved: the sum $\sum_{h \in \mathbb{Z}_{10}} \chi_\rho(h) = 0$
+for all half-integer~$\rho$).
+
+This $120/128$ split is the mathematical origin of the boson/fermion
+distinction in the $E_8$ framework.
+
+%% ====================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+%% ====================================================================
+
+The $S^3$ framework completes the vortex universe:
+\begin{center}
+\small
+\begin{tabular}{lll}
+\toprule
+Framework & Ground state & Gauge group \\
+\midrule
+$S^3$ (Paper V) & 600-cell ($I^*$, 120 vertices) & $E_8$ (UV) \\
+$S^2$ (Papers I--IV) & Icosahedron ($A_5$, 12 vertices) & $E_8$ (via McKay) \\
+$\mathbb{R}^2$ (Papers I--IV) & Heptagon ($\mathbb{Z}_7$, 7 vertices) & SM (via Frobenius) \\
+\bottomrule
+\end{tabular}
+\end{center}
+The transition from $S^3$ to $\mathbb{R}^3$ at $K = 0$ is topological
+(a Thurston geometry change), producing the $E_8 \to \mathrm{SM}$
+breaking without a Higgs mechanism.  Paper~VI uses this as the
+foundation for the cosmological parameters: the 600-cell is the
+inflationary ground state, the $K = 0$ transition is reheating,
+and $\Lambda \propto K$ is the residual curvature.
+
+All results in this paper are backed by 77 computational tests
+in the companion code repository
+(\texttt{proofs/s3\_vortex\_dynamics.py},
+ \texttt{proofs/e8\_casimir\_bridge.py},
+ \texttt{proofs/phase\_transition.py},
+ \texttt{proofs/coupling\_constants.py}).
+
+\bibliographystyle{plainnat}
+\bibliography{../shared/refs}
+
+\end{document}
