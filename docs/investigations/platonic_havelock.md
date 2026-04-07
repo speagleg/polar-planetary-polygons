@@ -109,7 +109,7 @@ The Coxeter number formula tau = 1 - (h-1)/|O*| does NOT hold. The E_7 connectio
 
 6. **The 3+1D formulation**: The Platonic framework on S² naturally lives in 3D (S² subset R³). Does this give a direct 3+1D theory without the KK compactification needed in the polygon framework?
 
-7. **Dihedral intermediates**: The dihedral groups D_n (binary dihedral D*_n -> D_{n+2} -> SO(2n+4)) lie between cyclic and Platonic in the ADE classification. Do dihedral vortex configurations on S² interpolate between the polygon and Platonic ground states?
+7. **Dihedral intermediates**: ANSWERED. The antiprism (D_n, 2n vertices) fills the ADE gap. At N=8: square antiprism (D_6→SO(12)) is the ground state, beating both cube (E_7) and polygon (A_7). At N=6: antiprism = octahedron (D_5 = E_7). At N=12: icosahedron (E_8) beats antiprism (D_8). The full ADE — all of A, D, E — appear as S² ground states at different N.
 
 8. **Curvature quantization**: If the gauge group is determined by the curvature sign (E-type for K>0, A-type for K<=0), is there a selection principle that determines the MAGNITUDE of K? This would connect to the cosmological constant problem.
 
