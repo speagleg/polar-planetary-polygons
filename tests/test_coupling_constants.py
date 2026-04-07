@@ -56,11 +56,11 @@ class TestE8ToSMReduction:
         result = e8_to_sm_coupling_reduction()
         assert result['e8_c_is_8']
 
-    def test_u1_level_is_half(self):
-        """U(1)_Y level K_Y = e/2 = 1/2 (Euler class of Hopf bundle)."""
+    def test_u1_level_is_one(self):
+        """U(1)_Y level k_Y = 1 (compact boson, single-valued holonomy)."""
         from planetary_polygons.proofs.coupling_constants import e8_to_sm_coupling_reduction
         result = e8_to_sm_coupling_reduction()
-        assert abs(result['u1_level'] - 0.5) < 1e-10
+        assert abs(result['u1_level'] - 1.0) < 1e-10
 
     def test_coupling_hierarchy(self):
         """Non-abelian SM couplings: 1/g₃² = 4 > 1/g₂² = 3."""

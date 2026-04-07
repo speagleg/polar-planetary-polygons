@@ -393,7 +393,11 @@ def e8_adjoint_character_coxeter():
         order 5 (both):     χ = -2
         order 6:            χ = 4
         order 10 (both):    χ = 2
-        order 4:            χ = 0    (not in Z₃₀, deduced from consistency)
+        order 4:            χ = 0    (not in Z₃₀; uniquely determined by
+                                     the constraint that all multiplicities
+                                     are non-negative integers summing to 248,
+                                     given the 8 Coxeter-derived values and
+                                     the invertible I* character table)
 
     RESULT: 248 = 2×reg(I*) + 2ρ₁ + 2ρ₇
     Multiplicities: {2, 6, 6, 8, 10, 12, 8, 6, 6}
