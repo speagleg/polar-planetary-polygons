@@ -74,11 +74,20 @@ E_8 contains SM via: E_8 -> E_6 x SU(3) -> SO(10) x U(1) x SU(3) -> SU(5) x U(1)
 
 ## Suggestive but Unconfirmed
 
-### Bolza tau and E_7
+### Bolza tau convergence (Q2 result)
 
-At word length L=3 (336 = 7 x 48 elements), the Bolza tau(P_-) = 217/336 = 31/48, and 31 = 48 - 17 = |O*| - max(E_7 exponent). This is suggestive but NOT confirmed as the converged value — tau drifts to 0.642 (L=4) and 0.636 (L=5). Higher word lengths needed.
+The counting tau at word lengths L=1..6:
 
-Prediction for Bring surface (g=4, |Aut|=120, McKay E_8, h=30): tau = 91/120 = 0.7583. Testable once the Bring surface Fuchsian group is implemented.
+    L=1:  5/8    = 0.625000  (8 elements)
+    L=2:  5/8    = 0.625000  (56 elements)
+    L=3:  31/48  = 0.645833  (336 elements)
+    L=4:  79/123 = 0.642276  (1968 elements)
+    L=5: 243/382 = 0.636126  (6112 elements)
+    L=6: 1503/2390 = 0.628870  (9560 elements)
+
+**31/48 is EXCLUDED** — tau is below it at L=5,6 and decreasing. The sequence appears to converge toward 5/8 = 0.625 (deviations: 0.021, 0.017, 0.011, 0.004 — shrinking). Linear extrapolation gives 0.615; the true limit is likely in [0.62, 0.63].
+
+The Coxeter number formula tau = 1 - (h-1)/|O*| does NOT hold. The E_7 connection may operate through a different mechanism than the counting measure.
 
 ---
 
