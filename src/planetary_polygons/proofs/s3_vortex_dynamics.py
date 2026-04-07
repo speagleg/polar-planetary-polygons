@@ -275,6 +275,33 @@ def s3_havelock_casimir(quats, l):
     return T
 
 
+def s3_bridge_formula(quats, l):
+    r"""S³ bridge formula: λ_l via Gegenbauer projection onto the 600-cell orbit.
+
+    λ_l = Σ_{k≠0} w(χ_{0k}) × C_l^1(cos χ_{0k}) / (l+1)
+
+    where w = -G is the interaction weight and C_l^1/(l+1) is the
+    normalized zonal spherical function on S³.
+
+    This is the S³ analog of the GAP D bridge identity on S²:
+        λ_j^{S²} = 5K₁P_j(c) + 5K₂P_j(-c) + ¼(-1)^j
+
+    On S³, there are 8 distance classes (= I* conjugacy classes),
+    so the formula has 8 terms instead of 3.
+
+    The 600-cell (I* regular representation) gives T values for ALL 9
+    I* irreps, including the 4 half-integer ones invisible on S².
+    """
+    N = len(quats)
+    lam = 0.0
+    for k in range(1, N):
+        chi = s3_geodesic_distance(quats[0], quats[k])
+        w = -s3_green_function(chi)
+        Cl = gegenbauer_C1(l, cos(chi))
+        lam += w * Cl / (l + 1)
+    return lam
+
+
 def verify_s3_green_function(l_max=100):
     """Verify closed form matches eigenfunction expansion."""
     chi_values = [0.3, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0]

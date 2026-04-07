@@ -168,3 +168,44 @@ class Test600Cell:
         verts = build_600cell_vertices()
         T0 = s3_havelock_casimir(verts, 0)
         assert abs(T0) < 1e-10
+
+    def test_eigenvalue_degeneracies_are_d_squared(self):
+        """K-matrix eigenvalue degeneracies = d² for I* irreps (regular rep)."""
+        from planetary_polygons.proofs.s3_vortex_dynamics import (
+            build_600cell_vertices, s3_interaction_matrix,
+        )
+        verts = build_600cell_vertices()
+        K = s3_interaction_matrix(verts)
+        evals = np.sort(np.linalg.eigvalsh(K))
+        # Cluster
+        used = set()
+        degs = []
+        for i in range(len(evals)):
+            if i in used:
+                continue
+            group = [i]
+            for j in range(i+1, len(evals)):
+                if j not in used and abs(evals[j]-evals[i]) < 0.001:
+                    group.append(j)
+            for j in group:
+                used.add(j)
+            degs.append(len(group))
+        # Should be {1, 4, 9, 16, 25, 36, 9, 16, 4} = d² for I* dims
+        expected_degs = sorted([d**2 for d in [1, 2, 3, 4, 5, 6, 4, 2, 3]])
+        assert sorted(degs) == expected_degs, f"degs={sorted(degs)}, expected={expected_degs}"
+
+    def test_bridge_formula_matches_havelock(self):
+        """S³ bridge formula gives same λ as C₁ - T."""
+        from planetary_polygons.proofs.s3_vortex_dynamics import (
+            build_600cell_vertices, s3_havelock_casimir,
+            s3_per_vertex_sum, s3_bridge_formula,
+        )
+        verts = build_600cell_vertices()
+        C1 = s3_per_vertex_sum(verts)
+        for l in range(5):
+            T = s3_havelock_casimir(verts, l)
+            lam_from_T = C1 - T
+            lam_bridge = s3_bridge_formula(verts, l)
+            assert abs(lam_from_T - lam_bridge) < 1e-8, (
+                f"l={l}: C1-T={lam_from_T}, bridge={lam_bridge}"
+            )
