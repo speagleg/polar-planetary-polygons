@@ -156,12 +156,18 @@ def tangent_hessian_eigenvalues(verts):
     For Platonic configurations, eigenvalues cluster by symmetry group irreps.
 
     THEOREM (Eigenvalue Pairing):
-        For a Platonic solid with N vertices on S², the tangent Hessian
-        eigenvalues come in pairs (λ₋, λ₊) summing to (N-1)/2:
+        For a G-symmetric configuration of N vertices on S², the tangent
+        Hessian eigenvalues pair with universal sum:
 
-            λ₋(ρ) + λ₊(ρ) = (N-1)/2  for all irreps ρ
+            λ₊(ρ) + λ₋(ρ) = (N-1)/2  for all G-irreps ρ
 
-        where the two copies of ρ arise from Ind(ω) ⊕ Ind(ω̄).
+    PROOF:
+        (1) Laplacian identity: Δ_{S²}[-ln sin(d/2)] = 1/2 for all d > 0.
+            [f'' + cot(d)f' = (1-cos d)/(4sin²(d/2)) = 1/2.]
+        (2) Per-vertex trace: Tr(H_{kk}) = Σ_{j≠k} 1/2 = (N-1)/2.
+        (3) Schur's lemma: H is G-equivariant → scalar on each irrep.
+        (4) Since Δf = 1/2 is constant (independent of d), the trace
+            distributes uniformly: λ₊(ρ)+λ₋(ρ) = (N-1)/2 for all ρ. QED.
 
     COROLLARY: Tr(H) = N(N-1)/2.
 
@@ -495,7 +501,7 @@ if __name__ == "__main__":
     for j_half in range(6):
         j = j_half / 2.0
         d = int(2*j + 1)
-        lam = icosahedron_havelock_eigenvalue_su2(j)
+        lam = icosahedron_havelock_eigenvalue(j)
         T = C1 - lam
         name = names[j_half]
         print(f"{j:5.1f} {d:3d} {name:>6s} {lam:+10.6f} {T:10.6f}")

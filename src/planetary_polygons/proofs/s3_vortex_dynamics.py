@@ -81,16 +81,11 @@ def s3_green_function(chi):
         ΔG = -δ + 1/Vol(S³)
     where Vol(S³) = 2π².
 
-    Eigenfunction expansion:
-        G(χ) = -Σ_{l≥1} [1/(l(l+2))] × [(l+1)²/(2π²)] × [C_l^1(cos χ)/(l+1)]
-              = -(1/(2π²)) Σ_{l≥1} (l+1)/(l(l+2)) × C_l^1(cos χ)/(l+1)
-              = -(1/(2π²)) Σ_{l≥1} C_l^1(cos χ) / (l(l+2))
+    Eigenfunction expansion (from S³ addition theorem):
+        G(χ) = -(1/(2π²)) Σ_{l≥1} (l+1) C_l^1(cos χ) / (l(l+2))
 
-    Using C_l^1(cos χ) = sin((l+1)χ)/sin(χ) and partial fractions:
-        1/(l(l+2)) = (1/2)[1/l - 1/(l+2)]
-
-    The sum telescopes to give:
-        G(χ) = -(1/(4π²)) × (π - χ) / sin(χ)
+    where the (l+1) factor comes from the zonal kernel on S³:
+        Σ_m Y_{lm}(x) Y*_{lm}(y) = [(l+1)/(2π²)] C_l^1(cos χ)
 
     CLOSED FORM (verified by direct substitution into Δf = f'' + 2cot(χ)f'):
         G(χ) = (1/(4π²)) × (π - χ) × cot(χ)
@@ -205,8 +200,7 @@ def build_600cell_vertices():
 def s3_vortex_energy(quats):
     r"""Vortex energy on S³: H = -Σ_{j<k} G(χ_{jk}).
 
-    Equal circulations κ=1. The Green's function G(χ) = -(1/4π²)(π-χ)/sin(χ).
-    So H = (1/4π²) Σ_{j<k} (π-χ_{jk})/sin(χ_{jk}).
+    Equal circulations κ=1. The Green's function G(χ) = (1/4π²)(π-χ)cot(χ).
     """
     N = len(quats)
     H = 0.0
