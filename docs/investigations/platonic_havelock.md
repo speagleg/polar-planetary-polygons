@@ -88,5 +88,19 @@ GUT interpretation: E → SM breaking is a topological phase transition at K=0, 
 1. Closed-form T(rho) for all G-irreps (not just when D^j is irreducible)
 2. Prove the ADE-surface formula tau = 1 - (h-1)/|Aut|
 3. Compute the Bring surface tau to test the E8 prediction tau = 91/120
-4. Which Platonic solid is the OVERALL ground state on S²? (Among all N, which N and which shape minimizes energy per vertex?)
-5. Does the E_7 → SM breaking chain match the octahedron → heptagon geometric transition exactly?
+## Result 6: Icosahedron is the Onsager-selected ground state on S²
+
+The Onsager principle (maximize N subject to stability) selects the icosahedron (N=12, A_5 → E_8) as the ground state on S². This parallels the heptagon (N=7) selection on the flat plane.
+
+The full ADE complementarity:
+
+    dS  (K>0):  Icosahedron (N=12, A_5)  →  E_8  (Onsager on S²)
+    flat (K=0):  Heptagon (N=7, Z_7)     →  SM   (Onsager on R²)
+    AdS  (K<0):  Heptagon (N≤7, Z_N)     →  SM   (Onsager on H²)
+
+GUT breaking: E_8 → SM at the curvature phase transition K: + → 0.
+
+## Remaining questions
+
+4. Does the E_8 → SM breaking chain follow the standard GUT sequence E_8 → E_7 → E_6 → SO(10) → SU(5) → SM?
+5. Is there a geometric interpolation between the icosahedron and heptagon that realizes each intermediate step?
