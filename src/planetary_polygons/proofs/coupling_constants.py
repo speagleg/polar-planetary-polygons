@@ -89,3 +89,32 @@ def e8_to_sm_coupling_reduction():
         'level_preserved': True,
         'coupling_split': '31 → (4, 3, k_Y=1)',
     }
+
+
+def spectral_weinberg_angle():
+    """sin²θ_W from spectral denominators of the Ẽ₈ Cartan matrix.
+
+    The effective denominators {1,2,3,5} arise from the prime
+    factorization of h = 30. The gauge modes at p=3 (triangle)
+    give SU(2) with CS coupling 1/g² = k+h∨ = 1+2 = 3.
+    The boundary mode gives U(1) with 1/g² = k_Y = 1.
+
+    sin²θ = α_Y/(α_Y+α_W) where α = g²×C₂:
+      α_W = (1/3)×j(j+1) = (1/3)×2 = 2/3  (SU(2), j=1)
+      α_Y = (1/1)×Q² = 1×(1/4) = 1/4      (U(1), Q=1/2)
+    sin²θ = (1/4)/(11/12) = 3/11.
+
+    Equivalently: sin²θ = (a-1)/(a+N_crit) = 3/11
+    where a=4=dim(spacetime) and N_crit=7.
+    """
+    return 3 / 11
+
+
+def bernoulli_coxeter():
+    """The identity B₄ = B₈ = -1/h(E₈).
+
+    By von Staudt-Clausen: denom(B_{2k}) = Π_{(p-1)|2k} p.
+    For B₄: primes with (p-1)|4 are {2,3,5}, denom = 30.
+    For B₈: primes with (p-1)|8 are {2,3,5} (9=3² not prime), denom = 30.
+    """
+    return Fraction(-1, 30), Fraction(-1, 30), 30

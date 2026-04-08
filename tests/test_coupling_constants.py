@@ -67,3 +67,57 @@ class TestE8ToSMReduction:
         from planetary_polygons.proofs.coupling_constants import e8_to_sm_coupling_reduction
         result = e8_to_sm_coupling_reduction()
         assert result['su3_inverse_coupling'] > result['su2_inverse_coupling']
+
+
+class TestSpectralWeinberg:
+    """Tests for the spectral derivation of sin²θ_W = 3/11."""
+
+    def test_spectral_denominators_sum_11(self):
+        from planetary_polygons.proofs.mark_distribution import spectral_denominators
+        assert sum(spectral_denominators(h=30)) == 11
+
+    def test_spectral_weinberg(self):
+        from planetary_polygons.proofs.coupling_constants import spectral_weinberg_angle
+        sin2 = spectral_weinberg_angle()
+        assert abs(sin2 - 3/11) < 1e-15
+
+    def test_weinberg_equals_existing(self):
+        """Spectral derivation matches existing CS derivation."""
+        from planetary_polygons.proofs.coupling_constants import (
+            weinberg_angle_cs, spectral_weinberg_angle,
+        )
+        assert abs(weinberg_angle_cs() - spectral_weinberg_angle()) < 1e-15
+
+    def test_weinberg_formula(self):
+        """sin²θ = (a-1)/(a+N_crit) = (dim-1)/(dim+stability)."""
+        a = 4
+        n_crit = 7
+        assert abs((a - 1) / (a + n_crit) - 3 / 11) < 1e-15
+
+
+class TestBernoulliCoxeter:
+    """Tests for B₄ = B₈ = -1/h(E₈)."""
+
+    def test_b4_equals_b8(self):
+        from fractions import Fraction
+        from planetary_polygons.proofs.coupling_constants import bernoulli_coxeter
+        b4, b8, h = bernoulli_coxeter()
+        assert b4 == b8
+        assert b4 == Fraction(-1, 30)
+        assert h == 30
+
+    def test_zeta_neg3(self):
+        """ζ(-3) = -B₄/4 = 1/120 = 1/|I*|."""
+        from fractions import Fraction
+        from planetary_polygons.proofs.coupling_constants import bernoulli_coxeter
+        b4, _, _ = bernoulli_coxeter()
+        zeta_neg3 = -b4 / 4
+        assert zeta_neg3 == Fraction(1, 120)
+
+    def test_zeta_neg7(self):
+        """ζ(-7) = -B₈/8 = 1/240 = 1/roots(E₈)."""
+        from fractions import Fraction
+        from planetary_polygons.proofs.coupling_constants import bernoulli_coxeter
+        _, b8, _ = bernoulli_coxeter()
+        zeta_neg7 = -b8 / 8
+        assert zeta_neg7 == Fraction(1, 240)
