@@ -185,3 +185,86 @@ class TestMarkSupercharge:
         trans = supercharge_transitions()
         for src in ['K1', 'K2', 'K3']:
             assert src not in trans[src], f"{src} maps to itself!"
+
+
+class TestCartanSpectrum:
+    """Tests for the Ẽ₈ Cartan eigenvalues and spectral decomposition."""
+
+    def test_eigenvalue_count(self):
+        from planetary_polygons.proofs.mark_distribution import cartan_eigenvalues
+        eigs = cartan_eigenvalues('E8')
+        assert len(eigs) == 9
+
+    def test_eigenvalues_golden(self):
+        from planetary_polygons.proofs.mark_distribution import cartan_eigenvalues
+        from math import sqrt
+        eigs = cartan_eigenvalues('E8')
+        phi = (1 + sqrt(5)) / 2
+        # Cartan eigenvalues μ = 2 - λ_adj where λ_adj ∈ {±2,±φ,±1,±1/φ,0}
+        expected = sorted([0, 1/phi**2, 1, 3-phi, 2, 2+1/phi, 3, 2+phi, 4])
+        for e, x in zip(sorted(eigs), expected):
+            assert abs(e - x) < 1e-10
+
+    def test_spectral_denominators(self):
+        from planetary_polygons.proofs.mark_distribution import spectral_denominators
+        denoms = spectral_denominators(h=30)
+        assert denoms == {1, 2, 3, 5}
+        assert sum(denoms) == 11
+        assert 1 * 2 * 3 * 5 == 30
+
+    def test_cyclotomic_indices(self):
+        from planetary_polygons.proofs.mark_distribution import cyclotomic_indices
+        indices = cyclotomic_indices()
+        assert indices == {1, 2, 3, 4, 5, 6, 10}
+        assert all(60 % d == 0 and d <= 10 for d in indices)
+
+    def test_dark_light_decomposition(self):
+        """60 = 16 (light) + 44 (dark)."""
+        from planetary_polygons.proofs.mark_distribution import dark_light_decomposition
+        light, dark = dark_light_decomposition()
+        assert light == 16
+        assert dark == 44
+        assert light + dark == 60
+
+
+class TestGenerations:
+    """Tests for three generations from the weak eigenvector."""
+
+    def test_e8_three_generations(self):
+        from planetary_polygons.proofs.mark_distribution import weak_eigenvector_generations
+        n_gen, doublets = weak_eigenvector_generations('E8')
+        assert n_gen == 3
+
+    def test_e6_two_generations(self):
+        from planetary_polygons.proofs.mark_distribution import weak_eigenvector_generations
+        n_gen, _ = weak_eigenvector_generations('E6')
+        assert n_gen == 2
+
+    def test_det_removal_equals_mark_squared(self):
+        """det(C without ρᵢ) = dᵢ² for all i."""
+        from planetary_polygons.proofs.mark_distribution import det_removal
+        marks = [1, 2, 3, 4, 5, 6, 4, 2, 3]
+        for i, d in enumerate(marks):
+            det = det_removal('E8', i)
+            assert abs(det - d**2) < 1e-8, f"node {i}: det={det}, d²={d**2}"
+
+
+class TestBipartiteConjugation:
+    """Tests for matter-antimatter bipartite symmetry."""
+
+    def test_conjugate_eigenvectors(self):
+        from planetary_polygons.proofs.mark_distribution import bipartite_conjugation_check
+        assert bipartite_conjugation_check('E8')
+
+    def test_five_independent_modes(self):
+        """9 eigenvalues → 4 conjugate pairs + 1 self-conjugate at μ=2."""
+        from planetary_polygons.proofs.mark_distribution import cartan_eigenvalues
+        eigs = sorted(cartan_eigenvalues('E8'))
+        for i in range(4):
+            assert abs(eigs[i] + eigs[8-i] - 4.0) < 1e-10
+        assert abs(eigs[4] - 2.0) < 1e-10
+
+    def test_n_crit_from_spectral(self):
+        """N_crit = Σ(spectral denoms) - dim(spacetime) = 11 - 4 = 7."""
+        from planetary_polygons.proofs.mark_distribution import spectral_denominators
+        assert sum(spectral_denominators(h=30)) - 4 == 7

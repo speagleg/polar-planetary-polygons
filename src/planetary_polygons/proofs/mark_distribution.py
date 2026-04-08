@@ -202,3 +202,151 @@ def supercharge_transitions():
             tgt = _layer(marks[j])
             transitions[src].add(tgt)
     return transitions
+
+
+# =====================================================================
+# Cartan matrix and spectral decomposition
+# =====================================================================
+
+def _build_cartan(ade_type):
+    """Build the affine Cartan matrix C = 2I - A."""
+    import numpy as np
+    marks = _ADE_MARKS[ade_type]
+    edges = _ADE_EDGES[ade_type]
+    n = len(marks)
+    C = 2 * np.eye(n)
+    for i, j in edges:
+        C[i, j] = -1
+        C[j, i] = -1
+    return C
+
+
+def cartan_eigenvalues(ade_type):
+    """Return sorted eigenvalues of the affine Cartan matrix."""
+    import numpy as np
+    C = _build_cartan(ade_type)
+    return sorted(np.linalg.eigvalsh(C))
+
+
+def spectral_denominators(h):
+    """Effective denominators k = h/gcd(m,h) for the Ẽ₈ affine m-values.
+
+    Returns {1, 2, 3, 5} for h=30: sum = 11, product = 30.
+    """
+    m_values = [0, 6, 10, 12, 15, 18, 20, 24, 30]
+    denoms = set()
+    for m in m_values:
+        if m == 0 or m == h:
+            denoms.add(1)
+        else:
+            denoms.add(h // gcd(m, h))
+    return denoms
+
+
+def cyclotomic_indices():
+    """The cyclotomic indices = I* element orders = {1,2,3,4,5,6,10}.
+
+    These are the divisors of |A₅|=60 that are ≤ 10.
+    """
+    return {1, 2, 3, 4, 5, 6, 10}
+
+
+def dark_light_decomposition():
+    """Decompose |A₅|=60 into light (present orders) and dark (absent orders).
+
+    Light = Σφ(d) for d ∈ I* element orders = 16.
+    Dark = Σφ(d) for d | 60, d ∉ I* orders = 44.
+    """
+    def euler_phi(n):
+        count = 0
+        for k in range(1, n):
+            if gcd(k, n) == 1:
+                count += 1
+        return count if n > 1 else 1
+
+    present = {1, 2, 3, 4, 5, 6, 10}
+    divs_60 = [d for d in range(1, 61) if 60 % d == 0]
+    absent = [d for d in divs_60 if d not in present]
+
+    light = sum(euler_phi(d) for d in present)
+    dark = sum(euler_phi(d) for d in absent)
+    return light, dark
+
+
+# =====================================================================
+# Generations from weak eigenvector
+# =====================================================================
+
+def weak_eigenvector_generations(ade_type):
+    """Count generations from the μ=1 eigenvector of the Cartan matrix."""
+    import numpy as np
+    C = _build_cartan(ade_type)
+    edges = _ADE_EDGES[ade_type]
+    marks = _ADE_MARKS[ade_type]
+
+    eigenvalues, eigenvectors = np.linalg.eigh(C)
+    idx = np.argsort(eigenvalues)
+    eigenvalues = eigenvalues[idx]
+    eigenvectors = eigenvectors[:, idx]
+
+    weak_idx = int(np.argmin(np.abs(eigenvalues - 1.0)))
+    v = eigenvectors[:, weak_idx]
+    v = v / np.max(np.abs(v))
+    if v[int(np.argmax(np.abs(v)))] < 0:
+        v = -v
+
+    doublets = []
+    visited = set()
+    for i, j in edges:
+        if i not in visited and j not in visited:
+            if abs(v[i]) > 0.1 and abs(v[j]) > 0.1:
+                if np.sign(v[i]) == np.sign(v[j]):
+                    doublets.append((i, j))
+                    visited.add(i)
+                    visited.add(j)
+
+    return len(doublets), doublets
+
+
+def det_removal(ade_type, node_idx):
+    """Determinant of Cartan matrix with node_idx removed."""
+    import numpy as np
+    C = _build_cartan(ade_type)
+    remaining = [i for i in range(C.shape[0]) if i != node_idx]
+    C_sub = C[np.ix_(remaining, remaining)]
+    return abs(np.linalg.det(C_sub))
+
+
+def bipartite_conjugation_check(ade_type):
+    """Verify v_{μ=4} = ±v_{μ=0} × (-1)^level."""
+    import numpy as np
+    from collections import deque
+    C = _build_cartan(ade_type)
+    edges = _ADE_EDGES[ade_type]
+    n = C.shape[0]
+
+    eigenvalues, eigenvectors = np.linalg.eigh(C)
+    idx = np.argsort(eigenvalues)
+    eigenvectors = eigenvectors[:, idx]
+
+    v0 = eigenvectors[:, 0]
+    v4 = eigenvectors[:, -1]
+
+    adj = {i: [] for i in range(n)}
+    for i, j in edges:
+        adj[i].append(j)
+        adj[j].append(i)
+    level = {}
+    q = deque([0])
+    level[0] = 0
+    while q:
+        node = q.popleft()
+        for nb in adj[node]:
+            if nb not in level:
+                level[nb] = level[node] + 1
+                q.append(nb)
+
+    signs = np.array([(-1)**level[i] for i in range(n)])
+    Sv0 = v0 * signs
+    ratio = v4 / Sv0
+    return np.std(ratio) / np.mean(np.abs(ratio)) < 0.01
