@@ -155,12 +155,10 @@ class TestTwoAdicFiltration:
         from planetary_polygons.proofs.mark_distribution import is_proper_2adic_coloring
         assert is_proper_2adic_coloring('D4') is True
 
-    def test_e7_coloring(self):
-        """E₇ with standard marks/edges: check coloring status."""
+    def test_proper_3_coloring_e7(self):
+        """E₇ also admits a proper 2-adic 3-coloring."""
         from planetary_polygons.proofs.mark_distribution import is_proper_2adic_coloring
-        # Result depends on the specific E₇ node ordering used
-        result = is_proper_2adic_coloring('E7')
-        assert isinstance(result, bool)
+        assert is_proper_2adic_coloring('E7') is True
 
     def test_layer_sizes_sum_to_9(self):
         from planetary_polygons.proofs.mark_distribution import two_adic_layers

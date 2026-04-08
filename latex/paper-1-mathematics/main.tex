@@ -2696,9 +2696,11 @@ This identity holds for \emph{no other} ADE type at pivot~$4$.
 \begin{proof}
 Direct computation: $\sum d_i^2 = 1 + 4 + 9 + 16 + 25 + 36 + 16 + 4 + 9 = 120$
 and $\sum d_i = 30$, so $\sum d_i(d_i-4) = 120 - 4 \times 30 = 0$.
-For $E_6$: $k_1 = 24/12 = 2 \neq 4$.
+For $A_n$: all marks equal~$1$, so $k_1 = 1$.
+For $D_n$ ($n \geq 4$): $k_1 = 2(n{-}2)/(n{-}1) < 2 < 4$.
+For $E_6$: $k_1 = 24/12 = 2$.
 For $E_7$: $k_1 = 48/18 = 8/3 \notin \mathbb{Z}$.
-Among all ADE types, only $E_8$ has $k_1 = \sum d_i^2 / \sum d_i = 4$.
+Among all ADE types, only $E_8$ has $k_1 = 4$.
 
 \emph{Geometric form (Gauss--Bonnet).}
 The $(2,3,5)$ Schwarz triangle on~$S^2$ has area
@@ -2729,7 +2731,9 @@ For the icosahedron with rotation group~$A_5$,
   = 4 \times \mathrm{reg}(A_5)
 \end{equation}
 as $A_5$-representations.  Hence $V \times F = 12 \times 20 = 240 = |\text{roots}(E_8)|$.
-This holds if and only if\/ $\gcd(|\mathrm{Stab}_V|, |\mathrm{Stab}_F|) = 1$.
+The sufficient condition is $\gcd(|\mathrm{Stab}_V|, |\mathrm{Stab}_F|) = 1$;
+for Platonic solids this is also necessary (the tetrahedron, with
+$\gcd(3,3) = 3$, fails).
 \end{theorem}
 
 \begin{proof}
@@ -2776,7 +2780,7 @@ summing to $9 = |\tilde{E}_8|$ and multiplying to $24 = |T^*|$.
 \begin{proof}
 Step~1: $|d_i - 4|$ for $d = (1,2,3,4,5,6,4,2,3)$ gives
 $(3,2,1,0,1,2,0,2,1)$.  Nonzero values sorted:
-$(1,1,1,2,2,2,3) = $ affine $E_6$ marks.  Kernel: two copies of~$4$.
+$(1,1,1,2,2,2,3)$, which is the multiset of affine $\tilde{E}_6$ marks.  Kernel: two copies of~$4$.
 
 Step~2: $E_6$ marks $(1,1,2,2,3,2,1)$ have $k_1 = 24/12 = 2$.
 $|d_i - 2|$ gives $(1,1,0,0,1,0,1)$; nonzero sorted: $(1,1,1,1) = A_3$ marks.
@@ -2792,16 +2796,25 @@ $(a,b,c)$ satisfying $a + b + c = abc - 1$.
 \end{theorem}
 
 \begin{proof}
-With $c = 1$: $a + b + 1 = ab - 1$, so $(a-1)(b-1) = 3$.
-Since $3$ is prime and $a \geq b \geq 1$, the unique factorisation
-is $(a-1, b-1) = (3, 1)$, giving $(a,b,c) = (4,2,1)$.
+For $c \geq 3$: $abc \geq 3ab$ and $a+b+c \leq 3a$, so
+$abc - (a{+}b{+}c) \geq 3ab - 3a = 3a(b{-}1) \geq 3 \cdot 3 \cdot 2 = 18 > 1$;
+no solution.
+For $c = 2$: the equation gives $2ab - a - b = 3$, i.e.\
+$a = (b{+}3)/(2b{-}1)$.  For $b = 2$: $a = 5/3$; $b = 3$: $a = 6/5$;
+$b \geq 4$: $a < 1$.  No integer solution.
+For $c = 1$: $a + b + 1 = ab - 1$, so $(a-1)(b-1) = 3$.
+Since $3$ is prime: $(a-1, b-1) = (3, 1)$, giving $(a,b,c) = (4,2,1)$.
 \end{proof}
 
-\begin{corollary}\label{cor:ncrit-rank}
-The pivots satisfy $\sum = 4 + 2 + 1 = 7 = N_{\mathrm{crit}}$
-(the flat-plane stability boundary) and
+\begin{proposition}[Pivot--stability coincidence]\label{prop:ncrit-rank}
+The division algebra pivots satisfy
+$\sum = 4 + 2 + 1 = 7 = N_{\mathrm{crit}}$ (the flat-plane stability
+boundary, Theorem~\ref{thm:havelock}) and
 $\prod = 4 \times 2 \times 1 = 8 = \operatorname{rank}(E_8) = \dim(\mathbb{O})$.
-\end{corollary}
+Both equalities are verified directly; the sum connects
+the division algebra chain (Theorem~\ref{thm:division-chain})
+to the Havelock stability threshold (Theorem~\ref{thm:havelock}).
+\end{proposition}
 
 \subsection{The 2-adic filtration}
 \label{sec:2adic}
@@ -2819,8 +2832,9 @@ $K_1$ & $\nu_2 \geq 2$ & $\rho_3,\rho_6$ & $\{4,4\}$ & $\tfrac32,\tfrac32$ (grav
 \end{tabular}
 \end{center}
 This assignment is a proper $3$-colouring of the $\tilde{E}_8$ Dynkin diagram
-(no adjacent nodes share a layer), and this property holds only for~$\tilde{D}_4$
-and~$\tilde{E}_8$ among all affine ADE types.
+(no adjacent nodes share a layer).
+Among all affine ADE types, this property holds exactly for
+$\tilde{D}_4$, $\tilde{E}_7$, and~$\tilde{E}_8$.
 
 The mark-balance decomposes by layer as
 \begin{equation}\label{eq:supertrace}
@@ -2836,7 +2850,8 @@ and $\sum_{K_2} d_i^2 = \sum_{K_3} d_i^2 = 44$
 \begin{proof}
 Layer assignment: direct from $\nu_2(d)$.
 Proper $3$-colouring: verified for all eight edges of~$\tilde{E}_8$;
-exhaustive check on all other ADE types shows failure except~$\tilde{D}_4$.
+exhaustive check on all affine ADE types shows the property holds
+exactly for $\tilde{D}_4$, $\tilde{E}_7$, and $\tilde{E}_8$.
 Layer balances: $K_3$: $1(-3)+3(-1)+5(1)+3(-1) = -4$;
 $K_2$: $2(-2)+6(2)+2(-2) = 4$; $K_1$: $4(0)+4(0) = 0$.
 $\sum d^2$ matching: $\sum_{K_2} d^2 = 4+36+4 = 44$,
@@ -2877,12 +2892,18 @@ The characteristic polynomial of the $\tilde{E}_8$ adjacency matrix factors as
 \end{equation}
 where $x^4 - 3x^2 + 1 = \prod_{k=1}^{4}(x - 2\cos(k\pi/5))$ is the
 pentagonal Chebyshev polynomial.
-Under the Joukowski map $x = z + z^{-1}$, the polynomial lifts to
+Under the Joukowski map $x = z + z^{-1}$, the set of~$z$ on the
+unit circle with $z + z^{-1}$ equal to an eigenvalue consists of
+the roots of
 \begin{equation}\label{eq:cyclotomic}
-  P(z) = \Phi_1 \cdot \Phi_2 \cdot \Phi_3 \cdot \Phi_4 \cdot \Phi_5 \cdot \Phi_6 \cdot \Phi_{10},
+  P(z) = \Phi_1 \cdot \Phi_2 \cdot \Phi_3 \cdot \Phi_4 \cdot \Phi_5 \cdot \Phi_6 \cdot \Phi_{10}
+  \qquad(\deg P = 16 = 2\operatorname{rank}(E_8)),
 \end{equation}
 whose indices $\{1,2,3,4,5,6,10\}$ are exactly the element orders of~$I^*$
 and the divisors of~$|A_5| = 60$ that are~$\leq 10$.
+(The degree doubling $9 \to 16$ arises because each real eigenvalue~$x$
+corresponds to two unit-circle points $z, z^{-1}$, except $x = \pm 2$
+which give $z = \pm 1$.)
 \end{theorem}
 
 \begin{proof}
@@ -2907,7 +2928,7 @@ The $\mu = 1$ eigenvector of the $\tilde{E}_8$ Cartan matrix
 has the form $(-1,-1,0,+1,+1,0,-1,-1,0)$, yielding exactly three
 weak doublets: $(\rho_0,\rho_1)$, $(\rho_3,\rho_4)$, $(\rho_6,\rho_7)$.
 The three neutral singlets $\rho_2, \rho_5, \rho_8$ have zero weak charge.
-The number of generations is topological: forced by the eigenvalue~$\mu=1$
+The number of generations is combinatorial: forced by the eigenvalue~$\mu=1$
 and the $\tilde{E}_8$ graph structure.
 \end{theorem}
 
@@ -2919,7 +2940,9 @@ The three zeros occur at nodes adjacent to or on the branch
 ($\rho_2, \rho_5, \rho_8$); the six nonzero nodes pair into three
 doublets by adjacency and sign agreement.
 The same computation for $\tilde{E}_6$ gives two generations
-and for~$\tilde{E}_7$ gives three.
+(eigenvector $(0,-1,-1,0,+1,+1,0)$, two doublets)
+and for~$\tilde{E}_7$ gives three
+(eigenvector $(+1,+1,0,-1,0,+1,+1,-1)$, three doublets).
 \end{proof}
 
 \begin{proposition}[Supporting identities]\label{prop:supporting}
@@ -2928,10 +2951,13 @@ and for~$\tilde{E}_7$ gives three.
 \item $\det(C \setminus \rho_i) = d_i^2$ for every node~$i$
   (standard for unimodular affine Cartan matrices).
 \item $\prod d_i = 17280 = 6! \times 4! = |S_6| \times |T^*|$.
-\item $G(q) = q \cdot \Phi_3(q) \cdot (q^3+q+1)$,
-  where $\Phi_3$ encodes $\mathrm{SU}(3)$ (the charge-magnitude kernel)
-  and $q^3+q+1$ generates $\mathbb{F}_8$
-  (connected to the Fano plane and $\mathrm{PSL}(2,7)$).
+\item The mark multiplicity polynomial
+  $G(q) = \sum_i q^{d_i} = q + 2q^2 + 2q^3 + 2q^4 + q^5 + q^6$
+  factors as $G(q) = q \cdot \Phi_3(q) \cdot (q^3+q+1)$,
+  where $\Phi_3 = q^2{+}q{+}1$ is the $3$rd cyclotomic polynomial
+  and $q^3{+}q{+}1$ is irreducible over~$\mathbb{F}_2$
+  (generating $\mathbb{F}_8$, the field with $\operatorname{rank}(E_8)$
+  elements).
 \item The effective spectral denominators $\{1,2,3,5\}$ have
   $\sum = 11$ (Weinberg denominator, Paper~IV) and $\prod = 30 = h(E_8)$.
 \item $|A_5| = 60 = 16 + 20 + 24$
