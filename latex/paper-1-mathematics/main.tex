@@ -2641,7 +2641,7 @@ icosahedral geometry through the golden ratio.
 \subsection{Coxeter decomposition of the $E_8$ adjoint}
 \label{sec:coxeter-decomposition}
 
-\begin{theorem}[Coxeter decomposition]\label{thm:coxeter}
+\begin{theorem}[Coxeter decomposition {\citep{Kostant1985}}]\label{thm:coxeter}
 The $E_8$ adjoint representation restricted to~$I^*$ (via the
 Coxeter element of $W(E_8)$) decomposes as
 \begin{equation}\label{eq:coxeter}
@@ -2938,8 +2938,11 @@ directly.
 The pentagonal identification: $2\cos(k\pi/5) = \varphi, 1/\varphi, -1/\varphi, -\varphi$
 for $k=1,2,3,4$.
 Under $x = z + z^{-1}$, $x = 2\cos\theta$ maps to $z = e^{\pm i\theta}$.
-The eigenvalue $2\cos(m\pi/30)$ at each affine $m$-value
-corresponds to primitive roots of~$\Phi_d$ where $d$ is the order of~$z = e^{im\pi/30}$.
+Each adjacency eigenvalue $\lambda_j = 2\cos(m_j\pi/h)$ determines an
+\emph{affine angle} $m_j \in [0,h]$; explicitly,
+$m \in \{0, 6, 10, 12, 15, 18, 20, 24, 30\}$ for~$\tilde{E}_8$.
+The unit-circle point $z = e^{im\pi/h}$ is a primitive root of~$\Phi_d$
+where $d$ is its multiplicative order.
 The element orders of~$I^*$ are $\{1,2,3,4,5,6,10\}$
 (identity, $-I$, face rotations, edge rotations, vertex rotations,
 and their products with~$-I$).
