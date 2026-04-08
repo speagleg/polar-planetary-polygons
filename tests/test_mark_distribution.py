@@ -155,10 +155,27 @@ class TestTwoAdicFiltration:
         from planetary_polygons.proofs.mark_distribution import is_proper_2adic_coloring
         assert is_proper_2adic_coloring('D4') is True
 
+    def test_proper_3_coloring_e6(self):
+        """E₆ admits a proper 2-adic 3-coloring (with correct topology)."""
+        from planetary_polygons.proofs.mark_distribution import is_proper_2adic_coloring
+        assert is_proper_2adic_coloring('E6') is True
+
     def test_proper_3_coloring_e7(self):
-        """E₇ also admits a proper 2-adic 3-coloring."""
+        """E₇ admits a proper 2-adic 3-coloring."""
         from planetary_polygons.proofs.mark_distribution import is_proper_2adic_coloring
         assert is_proper_2adic_coloring('E7') is True
+
+    def test_all_exceptional_proper(self):
+        """The proper 3-coloring holds for ALL exceptional types + D₄."""
+        from planetary_polygons.proofs.mark_distribution import is_proper_2adic_coloring
+        for t in ['D4', 'E6', 'E7', 'E8']:
+            assert is_proper_2adic_coloring(t) is True, f"{t} should be proper"
+
+    def test_d5_d6_not_proper(self):
+        """D₅ and D₆ fail the proper 3-coloring (adjacent mark-2 nodes)."""
+        from planetary_polygons.proofs.mark_distribution import is_proper_2adic_coloring
+        assert is_proper_2adic_coloring('D5') is False
+        assert is_proper_2adic_coloring('D6') is False
 
     def test_layer_sizes_sum_to_9(self):
         from planetary_polygons.proofs.mark_distribution import two_adic_layers
@@ -233,10 +250,18 @@ class TestGenerations:
         n_gen, doublets = weak_eigenvector_generations('E8')
         assert n_gen == 3
 
-    def test_e6_two_generations(self):
+    def test_e6_three_generations(self):
+        """E₆ with correct topology also gives 3 generations."""
         from planetary_polygons.proofs.mark_distribution import weak_eigenvector_generations
         n_gen, _ = weak_eigenvector_generations('E6')
-        assert n_gen == 2
+        assert n_gen == 3
+
+    def test_all_exceptional_three_generations(self):
+        """ALL exceptional types give exactly 3 generations."""
+        from planetary_polygons.proofs.mark_distribution import weak_eigenvector_generations
+        for t in ['E6', 'E7', 'E8']:
+            n_gen, _ = weak_eigenvector_generations(t)
+            assert n_gen == 3, f"{t} gives {n_gen} generations, expected 3"
 
     def test_det_removal_equals_mark_squared(self):
         """det(C without ρᵢ) = dᵢ² for all i."""
@@ -266,3 +291,61 @@ class TestBipartiteConjugation:
         """N_crit = Σ(spectral denoms) - dim(spacetime) = 11 - 4 = 7."""
         from planetary_polygons.proofs.mark_distribution import spectral_denominators
         assert sum(spectral_denominators(h=30)) - 4 == 7
+
+
+class TestSpectralDiameter:
+    """Tests for Level 0: the spectral diameter is 4 for all affine ADE."""
+
+    def test_spectral_diameter_constant(self):
+        from planetary_polygons.proofs.mark_distribution import spectral_diameter
+        assert spectral_diameter() == 4
+
+    def test_all_ade_max_eigenvalue_is_4(self):
+        """max(Cartan eigenvalue) = 4 for all ADE types with edges defined."""
+        from planetary_polygons.proofs.mark_distribution import cartan_eigenvalues
+        for t in ['D4', 'D5', 'D6', 'E6', 'E7', 'E8']:
+            eigs = cartan_eigenvalues(t)
+            assert abs(max(eigs) - 4.0) < 1e-8, f"{t}: max eigenvalue = {max(eigs)}"
+
+    def test_all_ade_min_eigenvalue_is_0(self):
+        """min(Cartan eigenvalue) = 0 for all ADE types with edges defined."""
+        from planetary_polygons.proofs.mark_distribution import cartan_eigenvalues
+        for t in ['D4', 'D5', 'D6', 'E6', 'E7', 'E8']:
+            eigs = cartan_eigenvalues(t)
+            assert abs(min(eigs)) < 1e-8, f"{t}: min eigenvalue = {min(eigs)}"
+
+    def test_e8_unique_k1_equals_diameter(self):
+        """E₈ is the unique ADE type with k₁ = spectral diameter = 4."""
+        from planetary_polygons.proofs.mark_distribution import mark_balance, ade_marks
+        from fractions import Fraction
+        for t in ['D4', 'D5', 'D6', 'E6', 'E7']:
+            _, k1 = mark_balance(ade_marks(t))
+            assert k1 != Fraction(4), f"{t} has k₁ = {k1} = 4!"
+        _, k1_e8 = mark_balance(ade_marks('E8'))
+        assert k1_e8 == Fraction(4)
+
+
+class TestGoldenDecoherence:
+    """Tests for Level 5: golden decoherence from incommensurable frequencies."""
+
+    def test_observable_hidden_split(self):
+        from planetary_polygons.proofs.mark_distribution import (
+            cartan_eigenvalues, golden_decoherence_rate
+        )
+        eigs = cartan_eigenvalues('E8')
+        n_obs, n_hid, min_gap = golden_decoherence_rate(eigs)
+        assert n_obs == 5  # eigenvalues at 0, 1, 2, 3, 4
+        assert n_hid == 4  # golden eigenvalues
+
+    def test_min_gap_is_irrational(self):
+        """The minimum frequency gap involves the golden ratio."""
+        from planetary_polygons.proofs.mark_distribution import (
+            cartan_eigenvalues, golden_decoherence_rate
+        )
+        from math import sqrt
+        eigs = cartan_eigenvalues('E8')
+        _, _, min_gap = golden_decoherence_rate(eigs)
+        phi = (1 + sqrt(5)) / 2
+        # The smallest gap should be |1/φ² - 0| = 1/φ² ≈ 0.382 or |1 - 1/φ²| ≈ 0.618
+        assert min_gap > 0.3
+        assert min_gap < 0.7

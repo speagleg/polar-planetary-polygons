@@ -31,7 +31,9 @@ _ADE_EDGES = {
     'D4': [(0, 2), (1, 2), (2, 3), (2, 4)],
     'D5': [(0, 2), (1, 2), (2, 3), (3, 4), (3, 5)],
     'D6': [(0, 2), (1, 2), (2, 3), (3, 4), (4, 5), (4, 6)],
-    'E6': [(0, 3), (1, 2), (2, 3), (3, 4), (4, 5), (3, 6)],
+    # Ẽ₆: star with 3 arms from central node 4 (mark 3)
+    # Arm 1: 0(1)-2(2)-4(3), Arm 2: 1(1)-3(2)-4(3), Arm 3: 6(1)-5(2)-4(3)
+    'E6': [(0, 2), (1, 3), (2, 4), (3, 4), (4, 5), (5, 6)],
     'E7': [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (3, 7)],
     'E8': [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (5, 8)],
 }
@@ -315,6 +317,42 @@ def det_removal(ade_type, node_idx):
     remaining = [i for i in range(C.shape[0]) if i != node_idx]
     C_sub = C[np.ix_(remaining, remaining)]
     return abs(np.linalg.det(C_sub))
+
+
+def spectral_diameter():
+    """The spectral diameter of any affine ADE Cartan matrix is 4.
+
+    Proof: C = 2I - A with det(C) = 0 implies ρ(A) = 2 (Perron-Frobenius).
+    Eigenvalues of C lie in [0, 2+ρ(A)] = [0, 4]. The maximum is 4.
+    This is universal across all ADE types.
+    """
+    return 4
+
+
+def golden_decoherence_rate(eigenvalues):
+    """Compute the decoherence timescale from golden/integer frequency splitting.
+
+    The observable sector has integer Cartan eigenvalues {0, 1, 2, 3, 4}.
+    The hidden sector has golden eigenvalues involving φ.
+    Off-diagonal coherences between sectors oscillate at irrational
+    frequencies, giving decoherence by the Riemann-Lebesgue lemma.
+
+    Returns (n_observable, n_hidden, min_irrational_frequency).
+    """
+    phi = (1 + sqrt(5)) / 2
+    tol = 1e-8
+    observable = [mu for mu in eigenvalues if any(abs(mu - k) < tol for k in range(5))]
+    hidden = [mu for mu in eigenvalues if not any(abs(mu - k) < tol for k in range(5))]
+
+    # The minimum irrational frequency gap
+    min_gap = float('inf')
+    for mu_h in hidden:
+        for mu_o in observable:
+            gap = abs(mu_h - mu_o)
+            if gap > tol and gap < min_gap:
+                min_gap = gap
+
+    return len(observable), len(hidden), min_gap
 
 
 def bipartite_conjugation_check(ade_type):
