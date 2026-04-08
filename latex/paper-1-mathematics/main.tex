@@ -2681,7 +2681,17 @@ taken together, single out~$E_8$ among all ADE types.
 This section proves these identities; physical interpretations are
 developed in Papers~IV, V, and~VII.
 
-\subsection{The spectral diameter}
+The section proceeds in three stages.
+First, Theorems~\ref{thm:spectral-diameter}--\ref{thm:mark-balance}
+establish that $E_8$ is selected among all ADE types by a spectral
+bound and a moment condition on its marks.
+Second, Theorems~\ref{thm:vtensor-f}--\ref{thm:pivot-unique} show
+that the marks encode the normed division algebra dimensions through
+a charge-magnitude iteration.
+Third, Theorems~\ref{thm:2adic}--\ref{thm:three-gen} reveal the
+$2$-adic, cyclotomic, and generational structures.
+
+\subsection{The spectral bound}
 \label{sec:spectral-diameter}
 
 \begin{theorem}[Spectral bound]\label{thm:spectral-diameter}
@@ -2893,7 +2903,9 @@ $\sum d^2$ matching: $\sum_{K_2} d^2 = 4+36+4 = 44$,
 $\sum_{K_3} d^2 = 1+9+25+9 = 44$.
 Uniqueness at $n=2$: the equation
 $2^{n+1} + 6^n = 1 + 2 \cdot 3^n + 5^n$
-has unique solution $n = 2$ (for $n \geq 3$, the $6^n$ term dominates).
+has unique solution $n = 2$
+($n = 0$: $3 \ne 4$; $n = 1$: $10 \ne 12$;
+for $n \ge 3$, $6^n > 5^n + 2 \cdot 3^n + 1$ since $6^n$ dominates).
 \end{proof}
 
 \subsection{The mark supercharge}
