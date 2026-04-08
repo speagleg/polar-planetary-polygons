@@ -436,39 +436,107 @@ Papers~III--IV.
 %% ====================================================================
 
 \begin{theorem}[The derived framework]\label{thm:master}
-Let $a = 4$ be the spectral diameter
-(Theorem~I-\ref{I-thm:spectral-diameter}).
-Onsager stability (Proposition~\ref{prop:onsager}) selects the
-icosahedron, whose binary lift gives the $(2,3,5)$ triangle group
-with spherical excess $\varepsilon = 1/30$.
-Then
+Let $a = 4$ be the spectral diameter of any bipartite
+affine ADE Cartan matrix
+(Theorem~I-\ref{I-thm:spectral-diameter};
+shared by $\tilde{D}_n$, $\tilde{E}_6$, $\tilde{E}_7$,
+$\tilde{E}_8$).
+The mark-balance condition $k_1 = a$
+(Theorem~I-\ref{I-thm:mark-balance})
+selects $E_8$ uniquely.
+Onsager stability (Proposition~\ref{prop:onsager}) independently
+selects the icosahedron, whose binary lift gives the $(2,3,5)$
+Schwarz triangle with spherical excess $\varepsilon = 1/30$.
+Defining $b \coloneqq r_{\max}$ (the maximal vertex stabilizer
+order in the $(2,3,r)$ family) and
+$c \coloneqq d_{\max}(\tilde{E}_8)$ (the maximum affine mark):
 \begin{alignat}{3}
-  b &= a+1 &&= 5  &\quad&(\text{number of Platonic solids}),\\
-  c &= a+2 &&= 6  &&(\text{maximum mark}),\\
-  |I^*| &= abc &&= 120 = 5!,\\
-  h &= 6b  &&= 30, \\
-  \operatorname{rank} &= 2a &&= 8 = \dim(\mathbb{O}),\\
-  \textstyle\sum\text{pivots} &= a{+}a/2{+}a/4 &&= 7 = N_{\mathrm{crit}}, \\
-  \dim(E_8) &= |I^*| + 2^{\operatorname{rank}-1} &&= 120 + 128 = 248.
+  b &= a+1 &&= 5  &\quad&(\text{Schwarz spherical bound}),\\
+  c &= a+2 &&= 6  &&(\text{affine mark recurrence}),\\
+  |I^*| &= abc &&= 120 = 5!
+    &&(\text{Gauss--Bonnet on } S^2),\\
+  h &= |I^*|/a &&= 30
+    &&(\text{mark-balance } k_1 = a), \\
+  \operatorname{rank} &= 2a &&= 8
+    &&(\text{class equation of } I^*),\\
+  \textstyle\sum\text{pivots} &= a{+}a/2{+}a/4 &&= 7 = N_{\mathrm{crit}}
+    &&(\text{division chain}), \\
+  \dim(E_8) &= |I^*| + 2^{\operatorname{rank}-1} &&= 120 + 128 = 248
+    &&(\mathrm{SO}(16)\text{ branching}).
 \end{alignat}
-All quantities are derived from two inputs: the spectral diameter~$a = 4$
-and the Onsager selection of the $(2,3,5)$ triangle.
+Two inputs: $a = 4$ (graph theory, Perron--Frobenius)
+and the Onsager selection of the icosahedron (Cohn--Kumar).
+The mark-balance $k_1 = a$ is the bridge:
+it selects $E_8$ from the universal spectral diameter~$a$
+plus the $(2,3,5)$ triangle datum.
 \end{theorem}
 
 \begin{proof}
-$|I^*| = 4/\varepsilon = 4 \times 30 = 120$
-(Gauss--Bonnet: $|\Gamma^*|\varepsilon = 4$ for all binary polyhedral groups).
-$h = |I^*|/a = 120/4 = 30$ (mark-balance $k_1 = a$,
-Theorem~I-\ref{I-thm:mark-balance}).
+Seven steps, each from a distinct mathematical source.
+
+\emph{Step~1 ($b = a{+}1$).}
+The E-type Schwarz triangles have $(p,q) = (2,3)$,
+the unique non-dihedral spherical pair
+(forced by $(p{-}1)(q{-}1) = 2$ having sole solution $p = 2$, $q = 3$).
+The spherical condition $1/p + 1/q + 1/r > 1$ gives
+\[
+  r < \frac{pq}{pq - p - q} = \frac{6}{1} = 6.
+\]
+Since $a = 2\chi(S^2) = 2p = 4$, the bound is
+$r < 2(p{+}1) = a + 2$, so $r_{\max} = a + 1 = 5$.
+The identity $r_{\mathrm{crit}} = a + 2$ holds because
+$p = \chi(S^2) = 2$ (edge stabilizer of every convex polyhedron)
+and $q = p + 1$ (E-family).
+
+\emph{Step~2 ($c = a{+}2$).}
+On the longest arm of the affine $\tilde{E}_8$ diagram,
+the extended node has mark $d_0 = 1$ and connects via $r = 5$ edges
+to the trivalent node.
+The affine condition $Ad = 2d$ gives the recurrence
+$d_{k+1} = 2d_k - d_{k-1}$ on the chain;
+with $d_0 = 1$ and $d_1 = 2$ (endpoint condition:
+$d_{\mathrm{neighbor}} = 2d_{\mathrm{endpoint}}$),
+this is an arithmetic progression $d_k = k + 1$.
+After $r = 5$ edges: $c = d_{\max} = d_r = r + 1 = b + 1 = a + 2 = 6$.
+(The trivalent node carries the maximum mark because all three
+arms have monotonically increasing marks toward it.)
+
+\emph{Step~3 ($|I^*| = abc = 120$).}
+Gauss--Bonnet: $|I^*| \cdot \varepsilon = 2\chi(S^2) = a$
+for every binary polyhedral group
+(Theorem~I-\ref{I-thm:mark-balance}, geometric form).
+At $r = 5$: $\varepsilon = 1/2 + 1/3 + 1/5 - 1 = 1/30$,
+so $|I^*| = a/\varepsilon = 4 \times 30 = 120$.
+Cross-check: $abc = 4 \times 5 \times 6 = 120 = 5!$.
+
+\emph{Step~4 ($h = 30$).}
+The mark-balance identity $k_1 = \sum d_i^2/\sum d_i = a$
+(Theorem~I-\ref{I-thm:mark-balance},
+unique to $E_8$ among all ADE types)
+gives $\sum d_i^2 = a \cdot h$,
+so $h = |I^*|/a = 120/4 = 30$.
+
+\emph{Step~5 ($\operatorname{rank} = 8$).}
 The class equation of~$I^*$ gives $9$ conjugacy classes
 ($\{e\}$, $\{-I\}$, and $7$ non-central classes with sizes
 $12, 12, 20, 20, 30, 12, 12$);
-by Burnside, $9$ irreps, so $\operatorname{rank} = 9 - 1 = 8$.
-$\sum\text{pivots} = a + a/2 + a/4 = 7 = N_{\mathrm{crit}}$
-(Theorem~I-\ref{I-thm:division-chain} and Proposition~I-\ref{I-prop:ncrit-rank}).
-The split $248 = 120 + 128$ is the $\mathrm{SO}(16)$ branching
-$E_8 \supset D_8$: $120 = \dim(\mathrm{adj}\;\mathrm{SO}(16))$,
-$128 = 2^{\operatorname{rank}-1} = 2^7 = \dim(\text{half-spinor of } \mathrm{SO}(2 \times \mathrm{rank}))$.
+by Burnside's theorem, $9$ irreps, so $\operatorname{rank} = 9 - 1 = 8$.
+The identity $\operatorname{rank} = 2a$ follows:
+$I^* \to A_5$ doubles each non-involution class
+($|A_5|$ has $b = 5$ conjugacy classes),
+and the involution class merges under the binary lift,
+giving $|CC(I^*)| = 2b - 1 = 2(a{+}1) - 1 = 2a + 1 = 9$.
+
+\emph{Step~6 ($\sum\text{pivots} = 7$).}
+$\sum\text{pivots} = a + a/2 + a/4 = 4 + 2 + 1 = 7 = N_{\mathrm{crit}}$
+(Theorem~I-\ref{I-thm:division-chain}
+and Proposition~I-\ref{I-prop:ncrit-rank}).
+
+\emph{Step~7 ($\dim(E_8) = 248$).}
+The $\mathrm{SO}(16)$ branching $E_8 \supset D_8$:
+$120 = \dim(\mathrm{adj}\;\mathrm{SO}(16))$,
+$128 = 2^{\operatorname{rank}-1} = 2^7
+= \dim(\text{half-spinor of } \mathrm{SO}(2 \times \operatorname{rank}))$.
 Note $\operatorname{rank} - 1 = 7 = \sum\text{pivots} = N_{\mathrm{crit}}$.
 \end{proof}
 

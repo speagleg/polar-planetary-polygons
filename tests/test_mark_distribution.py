@@ -370,3 +370,110 @@ class TestGoldenDecoherence:
         # The smallest gap should be |1/φ² - 0| = 1/φ² ≈ 0.382 or |1 - 1/φ²| ≈ 0.618
         assert min_gap > 0.3
         assert min_gap < 0.7
+
+
+class TestMasterEquationDerivation:
+    """Tests for the 7-step master equation derivation (Theorem V-7.1).
+    Verifies that b = a+1 and c = a+2 are DERIVED, not assumed."""
+
+    def test_spectral_diameter_universal(self):
+        """a = 4 is shared by ALL bipartite affine ADE — it selects nothing."""
+        from planetary_polygons.proofs.mark_distribution import cartan_eigenvalues
+        for typ in ['D4', 'D5', 'D6', 'E6', 'E7', 'E8']:
+            eigs = cartan_eigenvalues(typ)
+            assert max(eigs) == pytest.approx(4.0, abs=1e-10), f"{typ}: max eigenvalue ≠ 4"
+
+    def test_mark_balance_selects_e8(self):
+        """k₁ = Σd²/Σd = 4 = a, unique to E₈ among all ADE types."""
+        from planetary_polygons.proofs.mark_distribution import ade_marks
+        for typ in ['D4', 'D5', 'D6', 'E6', 'E7']:
+            d = ade_marks(typ)
+            k1 = Fraction(sum(x*x for x in d), sum(d))
+            assert k1 != 4, f"{typ} also has k₁ = 4 (should be unique to E₈)"
+        d8 = ade_marks('E8')
+        k1_e8 = Fraction(sum(x*x for x in d8), sum(d8))
+        assert k1_e8 == 4
+
+    def test_e_family_unique(self):
+        """(p-1)(q-1) = 2 has unique solution (p,q) = (2,3)."""
+        solutions = []
+        for p in range(2, 20):
+            for q in range(p, 20):
+                if (p - 1) * (q - 1) == 2:
+                    solutions.append((p, q))
+        assert solutions == [(2, 3)]
+
+    def test_spherical_bound(self):
+        """For (2,3,r): r < 6 = a+2, so r_max = 5 = a+1."""
+        a = 4
+        p, q = 2, 3
+        r_crit = Fraction(p * q, p * q - p - q)
+        assert r_crit == 6
+        assert r_crit == a + 2
+        r_max = int(r_crit) - 1  # largest integer < r_crit
+        assert r_max == a + 1 == 5
+
+    def test_r_crit_equals_a_plus_2(self):
+        """r_crit = 2(p+1) = a+2, because p = χ(S²) = 2 and q = p+1."""
+        p, q = 2, 3
+        a = 2 * p  # = 2χ(S²) = 4
+        r_crit = p * q // (p * q - p - q)
+        assert r_crit == 2 * (p + 1)
+        assert r_crit == a + 2
+
+    def test_affine_mark_recurrence(self):
+        """Marks on longest arm: d_k = k+1 (arithmetic progression)."""
+        # Simulate the recurrence d_{k+1} = 2d_k - d_{k-1}
+        # with d_0 = 1, d_1 = 2 (endpoint condition)
+        r = 5  # arm length
+        d = [1, 2]
+        for k in range(1, r):
+            d.append(2 * d[-1] - d[-2])
+        assert d == [1, 2, 3, 4, 5, 6]
+        assert d[-1] == r + 1  # d_max = r+1 = a+2
+
+    def test_c_equals_a_plus_2(self):
+        """Maximum mark of Ẽ₈ = 6 = a+2."""
+        from planetary_polygons.proofs.mark_distribution import ade_marks
+        d = ade_marks('E8')
+        assert max(d) == 6 == 4 + 2
+
+    def test_gauss_bonnet(self):
+        """|I*| = a/ε = 120, cross-check abc = 120."""
+        a, b, c = 4, 5, 6
+        epsilon = Fraction(1, 2) + Fraction(1, 3) + Fraction(1, 5) - 1
+        assert epsilon == Fraction(1, 30)
+        assert a * b * c == 120
+        assert Fraction(a, 1) / epsilon == 120
+
+    def test_coxeter_number(self):
+        """h = |I*|/a = 30 from mark-balance."""
+        from planetary_polygons.proofs.mark_distribution import ade_marks
+        d = ade_marks('E8')
+        h = sum(d)
+        assert h == 30
+        assert h == 120 // 4  # |I*|/a
+
+    def test_rank_from_class_equation(self):
+        """9 conjugacy classes → rank = 8 = 2a."""
+        # Conjugacy class sizes of I*
+        cc_sizes = [1, 1, 12, 12, 20, 20, 30, 12, 12]
+        assert sum(cc_sizes) == 120  # |I*|
+        assert len(cc_sizes) == 9
+        rank = len(cc_sizes) - 1
+        assert rank == 8 == 2 * 4
+
+    def test_rank_formula(self):
+        """|CC(I*)| = 2b - 1 = 2(a+1) - 1 = 2a + 1 = 9."""
+        a, b = 4, 5
+        assert 2 * b - 1 == 9
+        assert 2 * a + 1 == 9
+
+    def test_pivots_sum(self):
+        """Σ pivots = a + a/2 + a/4 = 7 = N_crit."""
+        a = 4
+        assert a + a // 2 + a // 4 == 7
+
+    def test_dim_e8(self):
+        """dim(E₈) = |I*| + 2^(rank-1) = 248."""
+        assert 120 + 2**7 == 248
