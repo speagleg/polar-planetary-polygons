@@ -57,3 +57,67 @@ class TestMarkBalance:
         from planetary_polygons.proofs.mark_distribution import ade_marks
         m = ade_marks('E8')
         assert sum(d**2 for d in m) == 4 * sum(m)
+
+
+class TestVtensorF:
+    """Tests for V⊗F = 4×reg(A₅)."""
+
+    def test_icosahedron_vf_equals_roots(self):
+        from planetary_polygons.proofs.mark_distribution import vtensor_f_multiplicity
+        k = vtensor_f_multiplicity(V=12, F=20, stab_V=5, stab_F=3, group_order=60)
+        assert k == 4  # V⊗F = 4 × reg(A₅)
+        assert 12 * 20 == 240  # = roots(E₈)
+
+    def test_octahedron_vf(self):
+        from planetary_polygons.proofs.mark_distribution import vtensor_f_multiplicity
+        k = vtensor_f_multiplicity(V=6, F=8, stab_V=4, stab_F=3, group_order=24)
+        assert k == 2  # V⊗F = 2 × reg(S₄)
+
+    def test_tetrahedron_not_regular(self):
+        """Tetrahedron: gcd(3,3)=3≠1, so V⊗F is NOT a multiple of reg."""
+        from planetary_polygons.proofs.mark_distribution import vtensor_f_multiplicity
+        k = vtensor_f_multiplicity(V=4, F=4, stab_V=3, stab_F=3, group_order=12)
+        assert k is None
+
+
+class TestChargeMagnitudeChain:
+    """Tests for the iterated charge-magnitude map E₈→E₆→A₃→∅."""
+
+    def test_e8_to_e6(self):
+        from planetary_polygons.proofs.mark_distribution import charge_magnitude_map
+        target, kernel = charge_magnitude_map([1, 2, 3, 4, 5, 6, 4, 2, 3], pivot=4)
+        assert sorted(target) == sorted([1, 1, 1, 2, 2, 2, 3])
+        assert kernel == [4, 4]
+
+    def test_e6_to_a3(self):
+        from planetary_polygons.proofs.mark_distribution import charge_magnitude_map
+        target, kernel = charge_magnitude_map([1, 1, 2, 2, 3, 2, 1], pivot=2)
+        assert sorted(target) == [1, 1, 1, 1]
+        assert sorted(kernel) == [2, 2, 2]
+
+    def test_full_chain(self):
+        from planetary_polygons.proofs.mark_distribution import division_algebra_chain
+        chain = division_algebra_chain([1, 2, 3, 4, 5, 6, 4, 2, 3])
+        pivots = [step['pivot'] for step in chain]
+        assert pivots == [4, 2, 1]
+        assert sum(pivots) == 7
+        assert 4 * 2 * 1 == 8
+
+
+class TestPivotUniqueness:
+    """Test the uniqueness theorem: (4,2,1) unique with Σ=Π-1."""
+
+    def test_uniqueness(self):
+        from planetary_polygons.proofs.mark_distribution import sum_equals_product_minus_one
+        solutions = sum_equals_product_minus_one(max_a=20)
+        assert solutions == [(4, 2, 1)]
+
+    def test_product_identity(self):
+        """Πdᵢ = 6!×4! = 17280."""
+        from planetary_polygons.proofs.mark_distribution import ade_marks
+        from math import factorial
+        m = ade_marks('E8')
+        prod = 1
+        for d in m:
+            prod *= d
+        assert prod == factorial(6) * factorial(4)

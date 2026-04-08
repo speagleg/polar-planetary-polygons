@@ -63,3 +63,69 @@ def mark_balance(marks):
         # Test at pivot 4 (the E₈ value)
         balance = sum(d * (d - 4) for d in marks)
     return balance, k1
+
+
+# =====================================================================
+# V⊗F theorem
+# =====================================================================
+
+def vtensor_f_multiplicity(V, F, stab_V, stab_F, group_order):
+    """Check if V⊗F = k × reg(G) for a Platonic solid.
+
+    V⊗F is a multiple of the regular representation iff
+    gcd(|Stab_V|, |Stab_F|) = 1. If so, returns k = V*F/|G|.
+    """
+    if gcd(stab_V, stab_F) != 1:
+        return None
+    return (V * F) // group_order
+
+
+# =====================================================================
+# Charge-magnitude chain
+# =====================================================================
+
+def charge_magnitude_map(marks, pivot):
+    """Apply the charge-magnitude map: |d - pivot| for nonzero values.
+
+    Returns (surviving_marks_sorted, kernel_values).
+    """
+    kernel = [d for d in marks if d == pivot]
+    surviving = sorted(abs(d - pivot) for d in marks if d != pivot)
+    return surviving, kernel
+
+
+def division_algebra_chain(marks):
+    """Compute the full iterated charge-magnitude chain.
+
+    Returns list of dicts with pivot, target marks, kernel at each step.
+    """
+    chain = []
+    current = list(marks)
+    while len(set(current)) > 1:
+        s1 = sum(current)
+        s2 = sum(d**2 for d in current)
+        k1 = Fraction(s2, s1)
+        if k1.denominator != 1:
+            break
+        pivot = int(k1)
+        target, kernel = charge_magnitude_map(current, pivot)
+        chain.append({'pivot': pivot, 'target': target, 'kernel': kernel})
+        current = target
+    if current and len(set(current)) == 1:
+        chain.append({'pivot': current[0], 'target': [], 'kernel': current})
+    return chain
+
+
+# =====================================================================
+# Pivot uniqueness
+# =====================================================================
+
+def sum_equals_product_minus_one(max_a=20):
+    """Find all (a,b,c) with a≥b≥c≥1 and a+b+c = abc-1."""
+    solutions = []
+    for a in range(1, max_a + 1):
+        for b in range(1, a + 1):
+            for c in range(1, b + 1):
+                if a * b * c - a - b - c == 1:
+                    solutions.append((a, b, c))
+    return solutions
