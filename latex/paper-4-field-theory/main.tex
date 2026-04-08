@@ -544,15 +544,19 @@ Factor~(iii): $Z(S^3)$ is the partition function of the
 the non-abelian flat-connection moduli on the $S^1$ fiber
 (\citealt{Witten1989Jones}, eq.~(2.21)).
 The product is the total zero-mode volume of the CS path
-integral; dividing by it converts the $3$D coupling
-$g_3^2 = 4\pi/(k{+}h^\vee)$ to the $4$D YM coupling
-$g_4^2 = g_3^2/V_{\mathrm{eff}}$.
-Explicitly:
+integral.
+The $3$D CS coupling is
+$\alpha_s^{3\mathrm{D}} = 1/(k{+}h^\vee)$ (the inverse
+shifted level).
+The $4$D effective coupling arises from the ratio of the
+CS normalization $(k{+}h^\vee)$ to the zero-mode volume
+$V_{\mathrm{eff}}$:
 $\alpha_s^{4\mathrm{D}}
-= \alpha_s^{3\mathrm{D}} \times (k{+}h^\vee)/V_{\mathrm{eff}}
-= [1/(k{+}h^\vee)] \times (k{+}h^\vee) / [k \times 4\pi \times \sqrt{2}]
+= (k{+}h^\vee)^{-1} \times (k{+}h^\vee) / V_{\mathrm{eff}}
+= 1/V_{\mathrm{eff}}
 = 1/(k \times 4\pi\sqrt{2})$.
-The $(k{+}h^\vee)$ cancel:
+The $(k{+}h^\vee)$ cancels between the bare coupling and
+the CS path-integral normalization:
 \begin{equation}\label{eq:alpha-s}
   \alpha_s(M_{\mathrm{poly}})
   = \frac{1}{k \times 4\pi(g{-}1) \times Z(S^3)}
@@ -3063,10 +3067,12 @@ the $4$D Ricci tensor decomposes as:
 $R^{(4)}_{ij} = R^{(3)}_{ij} - \frac{1}{2}F_{ik}F_j{}^k$,
 $R^{(4)}_{i\varphi} = \frac{1}{2}\nabla_j F^j{}_i = 0$
 (uniform flux satisfies Maxwell on constant-curvature $\mathbf{H}^2$),
-$R^{(4)}_{\varphi\varphi} = -\frac{1}{4}F^2$
+$R^{(4)}_{\varphi\varphi} = -\tfrac{1}{4}F^2 = -N^2/16$
 (constant for uniform flux).
-The $\varphi\varphi$ component gives
-$\Lambda^{(4)} = N^2/16$ (in units of $1/\ell^2$).
+Combined with the base curvature $K = -1$,
+the effective $3$D cosmological constant is
+$\Lambda_3 = K + \tfrac{1}{4}|F|^2 = -1 + N^2/16
+= (N^2{-}16)/16$ (Paper~V, Proposition~\ref*{V-prop:lambda}).
 The $ij$ components give $R^{(3)}_{ij} = \Lambda_3\,g_{ij}$
 with $\Lambda_3 = (N^2 - 16)/16$---precisely the $3$D equation
 that the CS theory produces in Step~A.
