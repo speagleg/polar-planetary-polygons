@@ -443,20 +443,33 @@ Let $a = k_1(E_8) = 4$ (the mark-balance pivot = spacetime dimension).  Then
   |I^*| &= abc &&= 120 = 5!,\\
   h &= 6b  &&= 30, \\
   \operatorname{rank} &= 2a &&= 8 = \dim(\mathbb{O}),\\
-  N_{\mathrm{crit}} &= 7a/4 &&= 7, \\
+  \textstyle\sum\text{pivots} &= a{+}a/2{+}a/4 &&= 7 = N_{\mathrm{crit}}, \\
   \dim(E_8) &= abc + 2^{7a/4} &&= 120 + 128 = 248.
 \end{alignat}
-The value $a = 4$ is the unique positive integer divisible by~$4$
-such that $a(a+1)(a+2)$ is a binary polyhedral group order.
+The value $a = 4$ is the unique positive integer such that
+(i)~the division algebra pivots $(a, a/2, a/4)$ are all positive integers
+(requiring $4 \mid a$), and
+(ii)~$a(a+1)(a+2)$ is the order of a binary \emph{exceptional}
+polyhedral group ($T^*$, $O^*$, or~$I^*$).
 \end{theorem}
 
 \begin{proof}
 Each identity is verified directly.  The split $248 = 120 + 128$
 is the $\mathrm{SO}(16)$ branching: $120$ = integer-spin (adjoint),
 $128$ = half-integer-spin (spinor), matching $|I^*|$ and~$2^{N_{\mathrm{crit}}}$.
-Uniqueness: $a$ must be divisible by~$4$ for integer pivots $(a, a/2, a/4)$.
-At $a = 4$: $|I^*| = 120$ (binary icosahedral).
-At $a = 8$: $a(a+1)(a+2) = 720 = |S_6|$, not a binary polyhedral group order.
+
+\emph{Uniqueness.}
+Condition~(i) requires $4 \mid a$, so $a \in \{4, 8, 12, \ldots\}$.
+The exceptional binary orders are $24 = |T^*|$, $48 = |O^*|$, $120 = |I^*|$.
+At $a = 4$: $4 \times 5 \times 6 = 120 = |I^*|$.
+At $a = 8$: $8 \times 9 \times 10 = 720 > 120$.
+For $a \geq 8$, $a(a+1)(a+2) \geq 720 > 120$, so no exceptional order is reached.
+Note: $a = 2$ gives $2 \times 3 \times 4 = 24 = |T^*|$, but
+$a = 2$ fails condition~(i) since $a/4 = 1/2 \notin \mathbb{Z}$.
+The constraint $4 \mid a$ comes from the division algebra chain
+(Theorem~I-\ref{I-thm:division-chain}): the three pivots
+$(k_1(E_8), k_1(E_6), k_1(A_3)) = (a, a/2, a/4)$
+must all be positive integers (since they are ratios of integer moments).
 \end{proof}
 
 %% ====================================================================
@@ -488,21 +501,45 @@ $2\cos(k\pi/5)$ = golden eigenvalues), $k=3$ for $m \in \{10,20\}$
 (giving $\pm 1$), $k=2$ for $m=15$ (giving~$0$), $k=1$ for $m \in \{0,30\}$
 (giving~$\pm 2$).
 
-The force identification follows from the icosahedral symmetry axes:
-the icosahedron has exactly 5-fold (vertex), 3-fold (face), and 2-fold (edge)
-rotational symmetries, with $h = \mathrm{lcm}(2,3,5) = 30$.
-The $p=5$ sector carries golden-ratio-weighted eigenvector components
-$\{0, \pm\varphi^{-2}, \pm\varphi^{-1}, \pm 1\}$ (verified directly),
-matching the $\mathrm{SU}(3)$ branching.
-The $p=3$ sector has $\pm 1$ alternating eigenvector, matching the
-$\mathrm{SU}(2)$ doublet structure (Paper~I, Theorem~\ref{I-thm:three-gen}).
-The CS inverse couplings confirm:
-$1/g^2(\mathrm{SU}(3)) = k + h^\vee = 1 + 3 = 4$,
-$1/g^2(\mathrm{SU}(2)) = 1 + 2 = 3$,
-$1/g^2(\mathrm{U}(1)) = k_Y = 1$.
-The Majorana mode at $\mu = 2$ is self-conjugate, vanishes on all
-fermionic nodes, and decouples at the $K=0$ transition---consistent
-with gravity being geometric rather than gauge-theoretic.
+The force identification follows from the gauge group derivations in
+Papers~III--IV connected to the spectral structure:
+
+\emph{$p = 3$ sector $\leftrightarrow$ $\mathrm{SU}(2)$:}
+The eigenvalue $\mu = 1$ of the Cartan matrix equals the Havelock Casimir
+$f(m^*,N) = m^*(N{-}m^*)/2 = 2(4{-}2)/2 = 2$ at the critical mode
+$m^* = 2$, $N = 4$ for $\mathrm{SU}(2)$.
+This identification is the Helgason symmetric-space theorem
+(Proposition~III-2.1): on $\mathbf{H}^2$, the $\mathrm{sl}(2,\mathbb{R})$
+Casimir restricted to the $m$-th $\mathbb{Z}_N$ mode gives~$f(m,N)$.
+The $\mu = 1$ eigenvector gives three weak doublets
+(Theorem~I-\ref{I-thm:three-gen}), matching the $\mathrm{SU}(2)$ doublet
+structure with three generations.
+
+\emph{$p = 5$ sector $\leftrightarrow$ $\mathrm{SU}(3)$:}
+The charge-magnitude map (Theorem~I-\ref{I-thm:division-chain})
+identifies $\mathrm{SU}(3)$ as the kernel of $E_8 \to E_6$,
+sitting on the two $d = 4$ nodes.
+The golden eigenvector components $\{0, \pm\varphi^{-2}, \pm\varphi^{-1}, \pm 1\}$
+encode the pentagonal vertex structure of the icosahedron,
+whose vertex stabiliser $\mathbb{Z}_5 \subset A_5$ generates
+$\mathrm{SU}(5) \supset \mathrm{SU}(3)$ via McKay.
+The CS coupling $1/g^2(\mathrm{SU}(3)) = 1 + 3 = 4$
+is derived independently in Paper~IV, \S6.
+
+\emph{Boundary sector $\leftrightarrow$ $\mathrm{U}(1)$:}
+The boundary eigenvalues $\pm 2$ correspond to the identity
+and $-I$ elements of~$I^*$.
+The CS level $k_Y = 1$ is derived from the Hopf Euler class
+(Paper~IV, \S8).
+
+\emph{$p = 2$ sector $\leftrightarrow$ gravity:}
+The self-conjugate eigenvalue $\mu = 2$ satisfies
+$Sv = +v$ under the bipartite sign operator
+(Theorem~\ref{thm:bipartite}), making it
+time-reversal invariant.  Its eigenvector vanishes on all
+fermionic nodes ($K_2 \cup K_1$) and couples only to
+bosonic energy---the defining properties of the gravitational
+sector (Paper~III, \S3).
 \end{proof}
 
 %% ====================================================================

@@ -1772,36 +1772,73 @@ The SU$(5)$ prediction $3/8$ matches at
 $M_{\mathrm{GUT}} \sim 10^{14}$\,GeV
 ($62\%$ above experiment at tree level).
 
-\subsection{Spectral derivation}
+\subsection{Spectral derivation of the electroweak couplings}
 \label{sec:spectral-weinberg}
 
-The Weinberg angle admits a second, independent derivation from the spectral
-structure of the $\tilde{E}_8$ Cartan matrix (Paper~I, \S\ref{I-sec:mark-distribution};
+The CS inverse couplings that enter the Weinberg angle can be derived
+independently from the spectral structure of the $\tilde{E}_8$ Cartan matrix
+(Paper~I, \S\ref{I-sec:mark-distribution};
 Paper~V, \S\ref{V-sec:spectral-primes}).
+This provides a graph-theoretic derivation of the coupling constants
+that enter~\eqref{eq:weinberg-cs}, without invoking Chern--Simons theory
+directly.
 
-\begin{theorem}[Spectral Weinberg angle]\label{thm:spectral-weinberg}
-Let $a = k_1(E_8) = 4 = \dim(\text{spacetime})$ and
-$N_{\mathrm{crit}} = 7$.  Then
-\begin{equation}\label{eq:spectral-weinberg}
-  \sin^2\theta_W = \frac{a-1}{a + N_{\mathrm{crit}}} = \frac{3}{11}.
-\end{equation}
-\end{theorem}
+\begin{lemma}[Spectral--CS bridge]\label{lem:spectral-bridge}
+The $\tilde{E}_8$ adjacency eigenvalues decompose by spectral
+denominator $k = h/\gcd(m,h)$ into sectors labelled by the primes
+of~$h = 30$.
+For the electroweak sectors:
+\begin{enumerate}
+\item The triangle sector ($p = 3$, eigenvalues $\pm 1$)
+  has spectral denominator $k = 3 = 1 + h^\vee(\mathrm{SU}(2))$,
+  which equals the CS inverse coupling $1/g_W^2$ at level~$k = 1$.
+\item The boundary sector ($p = 1$, eigenvalues $\pm 2$)
+  has spectral denominator $k = 1 = k_Y$,
+  which equals the $\mathrm{U}(1)$ level.
+\end{enumerate}
+\end{lemma}
 
 \begin{proof}
-The Cartan eigenvalue spectrum decomposes by the prime factors of~$h = 30$
-(Paper~V, Theorem~V-\ref{V-thm:spectral-decomp}).
-The effective spectral denominators $\{1,2,3,5\}$ have $\sum = 11$ and
-$\prod = 30$.  Each denominator is identified with a CS inverse coupling:
-$k_p = k + h^\vee(G_p)$ where $G_p$ is the gauge group at prime~$p$.
-For $p = 3$ (triangle/weak): $k_3 = 1 + 2 = 3 = $ spectral denominator.
-For the boundary (EM): $k_1 = k_Y = 1$.
-Substituting into~\eqref{eq:weinberg-cs}:
-\[
-  \sin^2\theta_W = \frac{Q^2/k_Y}{Q^2/k_Y + j(j{+}1)/(k{+}h^\vee)}
-  = \frac{1/4}{1/4 + 2/3} = \frac{3}{11}.
-\]
-The numerator $3 = a - 1 = \dim(\text{spatial}) = $ triangle prime.
-The denominator $11 = a + N_{\mathrm{crit}} = \sum(\text{spectral denominators})$.
+For the triangle sector: $m \in \{10, 20\}$, $\gcd(m, 30) = 10$,
+so $k = 30/10 = 3$.  Since $h^\vee(\mathrm{SU}(2)) = 2$ and the
+universal CS level is~$k = 1$ (Euler class), $1 + h^\vee = 3 = k$.
+For the boundary: $m \in \{0, 30\}$, $\gcd(m, 30) = 30$, $k = 1$.
+Since $h^\vee(\mathrm{U}(1)) = 0$, $k + h^\vee = 1$.
+
+The identity $k + h^\vee = p$ holds for the electroweak sector
+because $h^\vee(\mathrm{SU}(2)) = 2 = p - 1$ where $p = 3$ is the
+triangle prime, and $h^\vee(\mathrm{U}(1)) = 0 = 1 - 1$.
+\end{proof}
+
+\begin{remark}
+The bridge identity does \emph{not} hold for the strong sector:
+the golden denominator is $k = 5$, but $1 + h^\vee(\mathrm{SU}(3)) = 4$.
+This does not affect the Weinberg angle, which involves only the
+electroweak sectors.  The strong coupling is derived separately
+from the Witten partition function (Paper~IV, \S6).
+\end{remark}
+
+\begin{corollary}[Spectral Weinberg angle]\label{thm:spectral-weinberg}
+The spectral denominators of the electroweak sectors recover
+\begin{equation}\label{eq:spectral-weinberg}
+  \sin^2\theta_W
+  = \frac{Q^2/k_Y}{Q^2/k_Y + j(j{+}1)/(k{+}h^\vee)}
+  = \frac{1/4}{1/4 + 2/3}
+  = \frac{3}{11}
+  = \frac{a-1}{a + N_{\mathrm{crit}}},
+\end{equation}
+where $a = k_1(E_8) = 4$ and $N_{\mathrm{crit}} = 7$.
+The numerator $a - 1 = 3 = \dim(\mathrm{SO}(3))$ is the spatial
+rotation dimension; the denominator $a + N_{\mathrm{crit}} = 11$
+is the sum of all spectral denominators $\{1,2,3,5\}$.
+\end{corollary}
+
+\begin{proof}
+By the spectral--CS bridge (Lemma~\ref{lem:spectral-bridge}),
+the electroweak couplings in~\eqref{eq:weinberg-cs}
+are $k + h^\vee(\mathrm{SU}(2)) = 3$ and $k_Y = 1$.
+With $Q = 1/2$ and $j = 1$ from the Havelock Casimir
+(Step~1, \S\ref{sec:weinberg}), the result follows.
 \end{proof}
 
 \begin{proposition}[Bernoulli--Coxeter identity]\label{prop:bernoulli-coxeter}
