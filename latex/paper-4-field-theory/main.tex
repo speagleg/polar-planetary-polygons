@@ -1696,71 +1696,90 @@ Substituting from Steps~1--2
 \end{proof}
 
 \begin{theorem}[Gauge--matter factorization]\label{thm:gauge-matter}
-In the KK-reduced CS theory, the effective coupling of matter in
-representation~$R$ to the gauge field factorizes as
+The theory has three cleanly separated sectors:
+\begin{enumerate}
+\item[\emph{(T)}] \emph{Topological sector} (3D CS):
+  determines the gauge group and level~$k$.
+  The WZW integrability bound $j \le k/2$ constrains this sector
+  (conformal blocks, Verlinde formula, anyonic braiding).
+\item[\emph{(D)}] \emph{Dynamical sector} (2D KK-reduced YM):
+  the KK reduction of $\mathrm{CS}_3$ on
+  $\mathbf{H}^2 \times S^1(R)$ produces $\mathrm{YM}_2$
+  on~$\mathbf{H}^2$ with coupling
+  $g^2 = 2\pi/((k{+}h^\vee)\,R)$ (Blau--Thompson).
+\item[\emph{(G)}] \emph{Geometric sector} (polygon on~$\mathbf{H}^2$):
+  the Havelock critical mode has Casimir
+  $C_2 = f(m^*,N) = m^*(N{-}m^*)/2$, an eigenvalue of the
+  $\mathbf{H}^2$ Laplacian determined by the polygon alone.
+\end{enumerate}
+The effective coupling factorizes as
 \begin{equation}\label{eq:gauge-matter}
-  \alpha(R) = \underbrace{g^2}_{\text{gauge}} \times \underbrace{C_2(R)}_{\text{matter}},
+  \alpha(R) = \underbrace{g^2}_{\text{(D) gauge}} \times
+  \underbrace{C_2(R)}_{\text{(G) matter}},
 \end{equation}
-where $g^2 = 4\pi/(k{+}h^\vee)$ depends on the CS level and dual
-Coxeter number (gauge sector), and $C_2(R) = \sum_a (T^a_R)^2$ depends
-only on the Lie-algebra representation (matter sector).
-The WZW integrability bound $j \le k/2$ restricts the topological sector
-(conformal blocks, Verlinde formula, quantum dimension) and does \emph{not}
-constrain the perturbative coupling~\eqref{eq:gauge-matter}.
+where $g^2$ comes from sector~(D) and $C_2$ from sector~(G).
+The integrability bound from sector~(T) is irrelevant: it
+constrains topological excitations (Wilson loops),
+not geometric excitations (polygon displacements).
 \end{theorem}
 
 \begin{proof}
-\emph{(a) Gauge sector.}  The CS action
+\emph{(a) From CS to YM (sectors T$\to$D).}
+The CS action
 $S_{\mathrm{CS}} = (k/4\pi)\int \mathrm{Tr}(A \wedge dA + \tfrac{2}{3}A^3)$
-has tree-level coupling $g^2 = 4\pi/k$.  The one-loop shift
-$k \to k + h^\vee$ (exact in CS theory) gives
-$g^2 = 4\pi/(k{+}h^\vee)$.
+on $\mathbf{H}^2 \times S^1(R)$ has no propagating degrees of freedom
+in~$3$D.  The KK reduction on~$S^1(R)$ produces a $2$D YM kinetic term
+$\tfrac{1}{4g^2}\int F^2$ with coupling
+$g^2 = 2\pi/((k{+}h^\vee)\,R)$ (\citealt{BlauThompson1993};
+the shift $k \to k{+}h^\vee$ is the standard one-loop CS
+renormalization).
+This is the step that creates a propagating gauge field.
 
-\emph{(b) Matter sector.}  Matter in representation~$R$ couples through
-$D_\mu = \partial_\mu - ig\,A^a_\mu\,T^a_R$.
-The generator $T^a_R$ is a matrix in~$R$, determined by the Lie algebra
-alone.  The one-gluon exchange gives $\alpha = g^2 C_2(R)$, a
-\emph{perturbative} quantity defined for any~$R$.
+\emph{(b) Geometric matter (sector G).}
+The vortex critical mode at $N = 4$ has Casimir
+$f(2,4) = 2 \times 2 / 2 = 2 = j(j{+}1)$ with $j = 1$.
+This is a \emph{geometric} quantity: the eigenvalue of the
+$\mathbf{H}^2$ Laplacian restricted to the $m = 2$ Fourier mode.
+The mode exists independently of the gauge field ---
+it is a polygon displacement on~$\mathbf{H}^2$,
+present before the CS theory is introduced.
+It couples to the gauge field through the standard
+covariant derivative $D_\mu = \partial_\mu - ig\,A^a_\mu\,T^a_R$
+of the KK-reduced YM theory, giving
+$\alpha = g^2 C_2(R)$ at one-gluon exchange.
 
-\emph{(c) Topological sector.}  The quantum dimension
+\emph{(c) Why the integrability bound is irrelevant.}
+The quantum dimension
 $d_j = \sin\bigl((2j{+}1)\pi/(k{+}2)\bigr)/\sin(\pi/(k{+}2))$
-is positive only for $j \le k/2$ (the integrable representations).
-At $j > k/2$, $d_j \le 0$ and the representation is topologically
-invisible: no conformal blocks, no Verlinde entries, no braiding.
-But $d_j \le 0$ does \emph{not} prevent~$R$ from coupling through
-the perturbative vertex~$g\,T^a_R$.
+is the norm of a \emph{Wilson loop} (a topological
+excitation in sector~T).
+At $k = 1$, $j = 1$: $d_1 = \sin(3\pi/3)/\sin(\pi/3) = 0$
+--- the $j = 1$ Wilson loop has zero norm and does not exist
+as a state in the CS Hilbert space.
+But the vortex mode is \emph{not a Wilson loop}.
+It is a localized excitation on~$\mathbf{H}^2$
+(sector~G), coupled to the gauge field through the
+YM vertex (sector~D).
+The vanishing $d_1 = 0$ confirms the clean separation:
+the $j = 1$ representation has no topological content
+and enters the physics purely through the perturbative
+YM coupling.
 
-\emph{(d) The matter is external to the CS Hilbert space.}
-The WZW integrability bound $j \le k/2$ restricts which
-\emph{Wilson loops} (anyonic quasiparticles) exist as physical
-states in the CS Hilbert space.
-It does \emph{not} restrict the representations carried by
-external matter fields coupled to the CS gauge field.
-This is standard in Chern--Simons--matter theories
-\citep{ABJM2008}: the CS level~$k$ determines the gauge coupling
-$g^2 = 4\pi/(k{+}h^\vee)$, while the matter representation~$R$ is
-a separate input from the physical system.
-In our framework, $R$ is the Havelock critical mode
-on~$\mathbf{H}^2$: the Casimir $f(m^*,N) = m^*(N{-}m^*)/2 = 2 = j(j{+}1)$
-at $m^* = 2$, $N = 4$ determines $j = 1$ (the adjoint of $\mathrm{SU}(2)$)
-independently of~$k$.
-The vortex mode couples to the gauge field through the KK-reduced
-YM vertex, not through topological braiding.
+\emph{(d) The Weinberg angle uses only sectors D and G.}
+The effective couplings are
+$\alpha_W = g_W^2 \cdot C_2(j{=}1) = (2\pi/3R) \cdot 2$
+and $\alpha_Y = g_Y^2 \cdot Q^2 = (2\pi/R) \cdot 1/4$.
+The common factor $2\pi/R$ cancels in the mixing ratio:
+$\sin^2\theta_W = \alpha_Y/(\alpha_Y + \alpha_W) = 3/11$.
+The topological sector (where $d_1 = 0$) does not enter.
 
-\emph{(e) At $k = 1$, $j = 1$:} $d_1 = \sin(3\pi/3)/\sin(\pi/3) = 0$
-(topologically invisible in the CS Hilbert space).
-The Casimir $C_2 = j(j{+}1) = 2$ and
-$g^2 = 2\pi/((k{+}h^\vee)R)$ (Blau--Thompson, eq.~\eqref{eq:conformal-coupling})
-are well-defined in the KK-reduced YM theory.
-The effective coupling $\alpha_W = g^2 C_2 = (2\pi/3R) \cdot 2$;
-the common factor $2\pi/R$ cancels in the mixing ratio.
-The Weinberg angle $\alpha_Y/(\alpha_Y + \alpha_W) = (1/4)/(11/12) = 3/11$
-uses only the \emph{ratio} of perturbative YM couplings; the
-CS topological sector (where $d_1 = 0$) does not enter.
-
-\emph{(f) Cross-check.}  The same logic applies to $\mathrm{SU}(3)_1$:
-gluons ($C_2 = 3$, non-integrable at $k = 1$) propagate through
-the YM kinetic term, not through topological braiding.
+\emph{(e) Cross-check: $\mathrm{SU}(3)_1$.}
+Gluons have $C_2(\mathrm{adj}) = 3$, also non-integrable at $k = 1$.
+They propagate through the YM kinetic term (sector~D),
+not through topological braiding (sector~T).
+This is standard in all CS--matter theories
+\citep{ABJM2008}: the CS level determines the gauge coupling,
+the matter representation is a separate physical input.
 \end{proof}
 
 \paragraph{Comparison with unification frameworks.}
@@ -1780,10 +1799,12 @@ CS/WZW (this work) & $h_Y/(h_Y + h_W)$ & $3/11 = 0.273$ \\
 In 4D, the gauge coupling is representation-independent,
 so the mixing angle requires an external normalization
 condition (the GUT embedding).
-In CS theory, the coupling $h_R$ already incorporates the
-representation through~\eqref{eq:conformal-coupling},
-so the mixing angle is determined by the CS data
-alone---no GUT embedding is needed.
+In the KK-reduced framework, the effective coupling
+$\alpha(R) = g^2 C_2(R)$ already incorporates the
+representation through~\eqref{eq:gauge-matter}:
+the CS level determines $g^2$ (sector~D) and the polygon
+determines $C_2$ (sector~G), so the mixing angle is
+fixed by these two ingredients---no GUT embedding is needed.
 
 At the CS threshold there is a single matter species
 (the Havelock critical mode at $N = 4$).
