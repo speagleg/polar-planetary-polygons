@@ -123,6 +123,56 @@ All conditions (H1)--(H3) are mathematical theorems;
 the $17$~testable outputs enumerated in Paper~VII
 constitute the empirical test.
 
+\begin{theorem}[Uniqueness of the polygon-gravity correspondence]
+\label{thm:uniqueness}
+The point vortex system on a constant-curvature surface
+is the unique $2$D Hamiltonian system whose tangential
+eigenvalues are polynomial in the mode number~$m$.
+The $\mathrm{SL}(2,\mathbb{R})$ CS boundary theory is the
+unique $2{+}1$D topological theory producing this
+polynomial structure.
+\end{theorem}
+
+\begin{proof}
+\emph{Vortex uniqueness (Paper~I, Remark~\ref*{I-rmk:polynomial-uniqueness}).}
+The $\mathbb{Z}_N$ Fourier sum
+$S_\alpha(m) = \sum_p [1{-}\cos(2\pi pm/N)]/|\sin(\pi p/N)|^\alpha$
+is polynomial in~$m$ if and only if $\alpha = 2$.
+At $\alpha = 2$, the holomorphic factorization
+$|\sum\omega^{pk}|^2$ (a polynomial in the root of unity)
+produces $T_m = m(N{-}m)/2$.
+For $\alpha \ne 2$, the second finite difference $\Delta^2 S_\alpha$
+has infinite Fourier support (Paley--Wiener), precluding
+polynomial dependence on~$m$.
+The kernel $\csc^2$ corresponds to the $2$D logarithmic
+Green's function ($d = 2 \Leftrightarrow \alpha = 2$);
+no other spatial dimension gives polynomial eigenvalues.
+
+\emph{Gravity uniqueness.}
+In $2{+}1$D, the unique first-order topological gauge theory
+with gauge group $\mathrm{SL}(2,\mathbb{R})$ is CS theory
+(\citealt{Witten1988}).
+The CS boundary dynamics on a punctured surface is the KZ
+connection (CS/WZW theorem), which at the $\mathbb{Z}_N$
+locus is the CMS Hamiltonian (EFK, Theorem~7.1.2).
+The CMS Casimir $m(N{-}m)/2$ is polynomial in~$m$ (degree~$2$).
+No other $2{+}1$D topological theory has this property:
+higher-spin or non-compact gauge groups change the Casimir
+from a degree-$2$ polynomial to a higher-degree or
+non-polynomial expression.
+
+\emph{Bridge.}
+Both sides give the same polynomial $T_m = m(N{-}m)/2$.
+On the $1$-dimensional $\mathbb{Z}_N$ irreducible~$V_m$
+($m \ne N{-}m$), the quadratic Casimir determines the
+operator uniquely (Schur: a linear map $V_m \to V_m$
+on a $1$D space is a scalar).
+The identification is therefore not a choice among
+alternatives but the unique match between the
+$2$D polynomial structure and the $2{+}1$D topological
+structure.
+\end{proof}
+
 \paragraph{The central charge.}
 The quantity
 \begin{equation}\label{eq:central-charge}
