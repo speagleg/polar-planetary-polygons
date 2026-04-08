@@ -1245,11 +1245,21 @@ because the Havelock eigenvectors are $\rho$-independent;
 the constraint is on the \emph{quantum} BO factorization,
 which requires $c$~constant for the reasons in
 \S\ref{sec:wdw}, step~1.
-The value $c = 12\,b(N)$ is uniquely determined:
-it is the only kinetic coefficient for which (i)~the
-quantum BO factorization holds and (ii)~the Brown--Henneaux
-central charge matches the CMS--CS Casimir identification.
-Both constraints give the same~$c$, providing a cross-check.)
+The value $c = 12\,b(N)$ is uniquely determined by
+three independent constraints that all give the same answer:
+(i)~the quantum BO factorization requires $c$ to be
+mode-independent (the Havelock eigenvalues $\lambda_m = C_1 - T_m$
+have mode-independent $C_1$, so the one-loop effective action
+$-\log Z_{\mathrm{angular}} = -\tfrac{1}{2}\sum\log\lambda_m
+= -(N{-}2)\log C_1 + f(C_1)$ depends on $\rho$ only through $C_1(\rho)$,
+giving $c = (N{-}1) \cdot (\partial C_1/\partial\rho)^2 / C_1$
+evaluated at the saddle --- this equals $12\,b(N)$ by
+the Gauss product formula $\prod\sin(\pi p/N) = N/2^{N-1}$);
+(ii)~Brown--Henneaux gives $c = 3\ell/(2G)$ with
+$\ell$ and $G$ from the Seifert geometry;
+(iii)~the Polyakov formula relates $c$ to the conformal anomaly
+of the boundary CFT, which equals $12\,b(N)$ by the
+eigenvalue decomposition (Proposition~\ref{prop:equiv-rr}).)
 In the classical limit $c \to \infty$:
 $V(\rho^*) = 0$, giving $\Phi(\rho^*) = f(m^*,N)$ and hence
 $\Lambda = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.

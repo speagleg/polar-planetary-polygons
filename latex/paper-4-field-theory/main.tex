@@ -114,8 +114,10 @@ no geometric input):
   and holonomy $e^{2\pi i/N}$ around the fiber.
   The Seifert Euler class is
   $e = \sum_{k=1}^N \beta_k/\alpha_k = N \cdot (1/N) = 1$
-  in the standard normalization, or $e = N/2$ in the
+  in the Seifert normalization, or $e = N/2$ in the
   Chern class convention ($c_1 = N$, $e = c_1/2$).
+  Throughout this paper, we use the Chern class convention
+  $c_1 = N$; the Seifert normalization appears only here.
   The flux quantization
   $\oint\!dA = \pi N$ (from $c_1 = N$ with the KK
   normalization $\oint\!dA = \pi c_1$) gives
@@ -526,12 +528,22 @@ $Z_{\mathrm{surg}} = (k{+}N)^{-N/2}\prod(\cdots) = 1/2$
 omits the prefactor $\sqrt{2}^N$; our formula~\eqref{eq:z-s3}
 follows Witten's original normalization.
 The product $V_{\mathrm{eff}} = k \times 4\pi(g{-}1) \times
-Z(S^3)$ is the dimensionless volume that converts the
-$3$D CS coupling $g_3^2 = 4\pi/(k{+}h^\vee)$ into
-the $4$D YM coupling $g_4^2 = g_3^2/V_{\mathrm{eff}}$
-via KK reduction, with $Z(S^3)$ arising from the
-zero-mode integral over the flat connection moduli space
+Z(S^3)$ arises from the CS path integral on
+$\Sigma_g \times S^1$: the three factors have independent
+origins in the functional integral.
+Factor~(i): $k$ counts the topologically distinct flat
+connections on~$S^1$ ($\pi_1(G) = \mathbb{Z}$ sectors).
+Factor~(ii): $4\pi(g{-}1)$ is the Gauss--Bonnet volume
+of the base (the geometric zero-mode from translating
+the vortex center over~$\Sigma_g$).
+Factor~(iii): $Z(S^3)$ is the partition function of the
+\emph{fiber} CS theory, arising from the integration over
+the non-abelian flat-connection moduli on the $S^1$ fiber
 (\citealt{Witten1989Jones}, eq.~(2.21)).
+The product is the total zero-mode volume of the CS path
+integral; dividing by it converts the $3$D coupling
+$g_3^2 = 4\pi/(k{+}h^\vee)$ to the $4$D YM coupling
+$g_4^2 = g_3^2/V_{\mathrm{eff}}$.
 Explicitly:
 $\alpha_s^{4\mathrm{D}}
 = \alpha_s^{3\mathrm{D}} \times (k{+}h^\vee)/V_{\mathrm{eff}}
