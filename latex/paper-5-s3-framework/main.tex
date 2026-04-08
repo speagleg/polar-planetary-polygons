@@ -449,7 +449,7 @@ Then
   h &= 6b  &&= 30, \\
   \operatorname{rank} &= 2a &&= 8 = \dim(\mathbb{O}),\\
   \textstyle\sum\text{pivots} &= a{+}a/2{+}a/4 &&= 7 = N_{\mathrm{crit}}, \\
-  \dim(E_8) &= abc + 2^{7a/4} &&= 120 + 128 = 248.
+  \dim(E_8) &= |I^*| + 2^{\operatorname{rank}-1} &&= 120 + 128 = 248.
 \end{alignat}
 All quantities are derived from two inputs: the spectral diameter~$a = 4$
 and the Onsager selection of the $(2,3,5)$ triangle.
@@ -467,7 +467,9 @@ by Burnside, $9$ irreps, so $\operatorname{rank} = 9 - 1 = 8$.
 $\sum\text{pivots} = a + a/2 + a/4 = 7 = N_{\mathrm{crit}}$
 (Theorem~I-\ref{I-thm:division-chain} and Proposition~I-\ref{I-prop:ncrit-rank}).
 The split $248 = 120 + 128$ is the $\mathrm{SO}(16)$ branching
-$E_8 \supset D_8$: $120$ = adjoint, $128 = 2^7$ = spinor.
+$E_8 \supset D_8$: $120 = \dim(\mathrm{adj}\;\mathrm{SO}(16))$,
+$128 = 2^{\operatorname{rank}-1} = 2^7 = \dim(\text{half-spinor of } \mathrm{SO}(2 \times \mathrm{rank}))$.
+Note $\operatorname{rank} - 1 = 7 = \sum\text{pivots} = N_{\mathrm{crit}}$.
 \end{proof}
 
 %% ====================================================================
