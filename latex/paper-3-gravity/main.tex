@@ -1049,8 +1049,16 @@ and the entropy-maximizing Regge metric converges to
 the entropy-maximizing smooth metric
 (strict concavity ensures convergence of maximizers
 under pointwise convergence; \citealt{DalMaso1993}).
-The Szeg\H{o}--Toeplitz convergence analysis
-(supplementary material) sharpens the rate to $O(h^\infty)$.
+The Szeg\H{o}--Toeplitz analysis sharpens the rate:
+the entropy $S_{\mathrm{Regge}}$ is a Toeplitz sum
+$\sum \log\lambda_m$ over the circulant eigenvalues,
+and Szeg\H{o}'s strong theorem
+(\citealt{GrenanderSzego1958}, Theorem~5.2)
+gives $|S_{\mathrm{Regge}} - S_{\mathrm{total}}[g]|
+= O(V^{-k})$ for every $k \ge 1$
+(exponential convergence of Toeplitz determinants
+for analytic symbols; the symbol here is
+$\log(C_1 - f(\theta))$, analytic in~$\theta$).
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:polygon-einstein}]

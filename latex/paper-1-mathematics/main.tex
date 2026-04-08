@@ -1507,10 +1507,17 @@ $\lambda_\pm(\rho)$.
 
 \emph{Step~4 (Stabilizer isotropy).}
 The vertex stabilizer $H_v \supset \mathbb{Z}_n$ ($n \ge 3$ for
-all Platonic solids) acts on $T_{v_k}\mathbf{S}^2$ by rotation,
-forcing $H_{kk} = \frac{N-1}{4}\,I_2$.  By $G$-transitivity,
-the per-vertex trace distributes uniformly across all irreps:
-$\operatorname{Tr}(A_\rho)
+all Platonic solids) acts on $T_{v_k}\mathbf{S}^2$ by rotation
+of angle $2\pi/n$.  A real $2 \times 2$ matrix commuting with
+a rotation of order $n \ge 3$ must be a scalar multiple of~$I_2$
+(the only $2 \times 2$ matrices commuting with
+$\bigl(\begin{smallmatrix}\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta\end{smallmatrix}\bigr)$ for
+$\theta = 2\pi/n \notin \{0,\pi\}$ are $\alpha\,I_2$).
+Since $H_{kk}$ is $H_v$-equivariant and
+$\operatorname{Tr}(H_{kk}) = (N{-}1)/2$ (Step~2),
+$H_{kk} = \tfrac{N-1}{4}\,I_2$.
+By $G$-transitivity, $\operatorname{Tr}(A_\rho)
 = \lambda_+(\rho) + \lambda_-(\rho) = (N{-}1)/2$.
 \end{proof}
 
@@ -1686,7 +1693,14 @@ For $k \ge 5$: $k^2 - 4k + 2 \ge 7 > 0$ and
 $k^2 - 4k + 2 > 8k - 4$ iff $k^2 - 12k + 6 > 0$ iff $k \ge 12$.
 Checking $k = 4$ ($N = 8$): $k^2{-}4k{+}2 = 2$, $8k{-}4 = 28$,
 $2 \mid 28$~$\checkmark$.
-For $k = 5,6,\ldots,11$: direct check shows none divide.
+For $k = 5,6,\ldots,11$ (exhibited):
+$k{=}5$: $7 \nmid 36$;
+$k{=}6$: $14 \nmid 44$;
+$k{=}7$: $23 \nmid 52$;
+$k{=}8$: $34 \nmid 60$;
+$k{=}9$: $47 \nmid 68$;
+$k{=}10$: $62 \nmid 76$;
+$k{=}11$: $79 \nmid 84$.
 For $k \ge 12$: the divisor exceeds the dividend, impossible.
 \end{proof}
 
