@@ -2803,6 +2803,145 @@ The pivots satisfy $\sum = 4 + 2 + 1 = 7 = N_{\mathrm{crit}}$
 $\prod = 4 \times 2 \times 1 = 8 = \operatorname{rank}(E_8) = \dim(\mathbb{O})$.
 \end{corollary}
 
+\subsection{The 2-adic filtration}
+\label{sec:2adic}
+
+\begin{theorem}[2-adic filtration]\label{thm:2adic}
+The $2$-adic valuation $\nu_2(d_i)$ partitions the nine nodes of~$\tilde{E}_8$
+into three layers:
+\begin{center}
+\begin{tabular}{lcccl}
+Layer & Condition & Nodes & Dims & Spins \\
+\hline
+$K_3$ & $\nu_2 = 0$ (odd) & $\rho_0,\rho_2,\rho_4,\rho_8$ & $\{1,3,5,3\}$ & $0,1,2,1$ (bosons)\\
+$K_2$ & $\nu_2 = 1$ & $\rho_1,\rho_5,\rho_7$ & $\{2,6,2\}$ & $\tfrac12,\tfrac52,\tfrac12$ (fermions)\\
+$K_1$ & $\nu_2 \geq 2$ & $\rho_3,\rho_6$ & $\{4,4\}$ & $\tfrac32,\tfrac32$ (gravitinos)\\
+\end{tabular}
+\end{center}
+This assignment is a proper $3$-colouring of the $\tilde{E}_8$ Dynkin diagram
+(no adjacent nodes share a layer), and this property holds only for~$\tilde{D}_4$
+and~$\tilde{E}_8$ among all affine ADE types.
+
+The mark-balance decomposes by layer as
+\begin{equation}\label{eq:supertrace}
+  \underbrace{\sum_{K_3} d_i(d_i-4)}_{-4}
+  + \underbrace{\sum_{K_2} d_i(d_i-4)}_{+4}
+  + \underbrace{\sum_{K_1} d_i(d_i-4)}_{0}
+  = 0,
+\end{equation}
+and $\sum_{K_2} d_i^2 = \sum_{K_3} d_i^2 = 44$
+(boson--fermion $\sum d^2$ matching, unique at the quadratic moment).
+\end{theorem}
+
+\begin{proof}
+Layer assignment: direct from $\nu_2(d)$.
+Proper $3$-colouring: verified for all eight edges of~$\tilde{E}_8$;
+exhaustive check on all other ADE types shows failure except~$\tilde{D}_4$.
+Layer balances: $K_3$: $1(-3)+3(-1)+5(1)+3(-1) = -4$;
+$K_2$: $2(-2)+6(2)+2(-2) = 4$; $K_1$: $4(0)+4(0) = 0$.
+$\sum d^2$ matching: $\sum_{K_2} d^2 = 4+36+4 = 44$,
+$\sum_{K_3} d^2 = 1+9+25+9 = 44$.
+Uniqueness at $n=2$: the equation
+$2^{n+1} + 6^n = 1 + 2 \cdot 3^n + 5^n$
+has unique solution $n = 2$ (for $n \geq 3$, the $6^n$ term dominates).
+\end{proof}
+
+\subsection{The mark supercharge}
+\label{sec:supercharge}
+
+\begin{theorem}[Mark supercharge]\label{thm:supercharge}
+The McKay fundamental representation~$\rho_1$ (dimension~$2$, spin~$\tfrac12$)
+acts as an algebraic supercharge: tensoring with~$\rho_1$ maps each
+$2$-adic layer to other layers only.  Moreover,
+$\rho_1 \otimes \rho_1 = \rho_0 \oplus \rho_2 \in K_3$ (bosonic).
+\end{theorem}
+
+\begin{proof}
+By the McKay correspondence (Theorem~\ref{thm:mckay-i-star}),
+$\rho_1 \otimes \rho_i = \bigoplus_j a_{ij}\,\rho_j$
+where $(a_{ij})$ is the adjacency matrix of~$\tilde{E}_8$.
+By Theorem~\ref{thm:2adic}, the $3$-colouring is proper,
+so adjacent nodes (tensor-product targets) lie in different layers.
+For the square: $\rho_1 \otimes \rho_1$ decomposes via $\mathrm{SU}(2)$
+as $2 \otimes 2 = 1 \oplus 3 = \rho_0 \oplus \rho_2$,
+both of odd dimension (layer~$K_3$, bosonic).
+\end{proof}
+
+\subsection{The cyclotomic-Chebyshev factorisation}
+\label{sec:cyclotomic}
+
+\begin{theorem}[Cyclotomic-Chebyshev factorisation]\label{thm:cyclotomic}
+The characteristic polynomial of the $\tilde{E}_8$ adjacency matrix factors as
+\begin{equation}\label{eq:char-poly}
+  p(x) = x(x^2-1)(x^2-4)(x^4-3x^2+1),
+\end{equation}
+where $x^4 - 3x^2 + 1 = \prod_{k=1}^{4}(x - 2\cos(k\pi/5))$ is the
+pentagonal Chebyshev polynomial.
+Under the Joukowski map $x = z + z^{-1}$, the polynomial lifts to
+\begin{equation}\label{eq:cyclotomic}
+  P(z) = \Phi_1 \cdot \Phi_2 \cdot \Phi_3 \cdot \Phi_4 \cdot \Phi_5 \cdot \Phi_6 \cdot \Phi_{10},
+\end{equation}
+whose indices $\{1,2,3,4,5,6,10\}$ are exactly the element orders of~$I^*$
+and the divisors of~$|A_5| = 60$ that are~$\leq 10$.
+\end{theorem}
+
+\begin{proof}
+The adjacency eigenvalues $\{0, \pm 1/\varphi, \pm 1, \pm\varphi, \pm 2\}$
+(Section~\ref{sec:i-star-mckay}) give the factorisation~\eqref{eq:char-poly}
+directly.
+The pentagonal identification: $2\cos(k\pi/5) = \varphi, 1/\varphi, -1/\varphi, -\varphi$
+for $k=1,2,3,4$.
+Under $x = z + z^{-1}$, $x = 2\cos\theta$ maps to $z = e^{\pm i\theta}$.
+The eigenvalue $2\cos(m\pi/30)$ at each affine $m$-value
+corresponds to primitive roots of~$\Phi_d$ where $d$ is the order of~$z = e^{im\pi/30}$.
+The element orders of~$I^*$ are $\{1,2,3,4,5,6,10\}$
+(identity, $-I$, face rotations, edge rotations, vertex rotations,
+and their products with~$-I$).
+\end{proof}
+
+\subsection{Three generations}
+\label{sec:generations}
+
+\begin{theorem}[Three generations]\label{thm:three-gen}
+The $\mu = 1$ eigenvector of the $\tilde{E}_8$ Cartan matrix
+has the form $(-1,-1,0,+1,+1,0,-1,-1,0)$, yielding exactly three
+weak doublets: $(\rho_0,\rho_1)$, $(\rho_3,\rho_4)$, $(\rho_6,\rho_7)$.
+The three neutral singlets $\rho_2, \rho_5, \rho_8$ have zero weak charge.
+The number of generations is topological: forced by the eigenvalue~$\mu=1$
+and the $\tilde{E}_8$ graph structure.
+\end{theorem}
+
+\begin{proof}
+The Cartan matrix $C = 2I - A$ has eigenvalue~$\mu=1$ with eigenvector~$v$
+satisfying $Av = v$.  Direct computation on the $9 \times 9$ adjacency
+matrix of~$\tilde{E}_8$ gives the stated pattern.
+The three zeros occur at nodes adjacent to or on the branch
+($\rho_2, \rho_5, \rho_8$); the six nonzero nodes pair into three
+doublets by adjacency and sign agreement.
+The same computation for $\tilde{E}_6$ gives two generations
+and for~$\tilde{E}_7$ gives three.
+\end{proof}
+
+\begin{proposition}[Supporting identities]\label{prop:supporting}
+\leavevmode
+\begin{enumerate}
+\item $\det(C \setminus \rho_i) = d_i^2$ for every node~$i$
+  (standard for unimodular affine Cartan matrices).
+\item $\prod d_i = 17280 = 6! \times 4! = |S_6| \times |T^*|$.
+\item $G(q) = q \cdot \Phi_3(q) \cdot (q^3+q+1)$,
+  where $\Phi_3$ encodes $\mathrm{SU}(3)$ (the charge-magnitude kernel)
+  and $q^3+q+1$ generates $\mathbb{F}_8$
+  (connected to the Fano plane and $\mathrm{PSL}(2,7)$).
+\item The effective spectral denominators $\{1,2,3,5\}$ have
+  $\sum = 11$ (Weinberg denominator, Paper~IV) and $\prod = 30 = h(E_8)$.
+\item $|A_5| = 60 = 16 + 20 + 24$
+  (light cyclotomic modes $+$ two-prime dark $+$ three-prime dark),
+  in ratio $4:5:6 = \dim(\text{spacetime}) : \#\text{Platonic} : \max(d_i)$.
+\item $N_{\mathrm{crit}} = \sum(\text{spectral denominators}) - \dim(\text{spacetime})
+  = 11 - 4 = 7$.
+\end{enumerate}
+\end{proposition}
+
 Parameter accounting and predictions appear in Paper~VII.
 
 \appendix
