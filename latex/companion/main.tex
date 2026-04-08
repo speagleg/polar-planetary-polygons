@@ -2018,6 +2018,31 @@ system evolves, is not a rough estimate; it is exponentially sharp.
 Non-Markovian corrections are $O(e^{-S_{\text{BO}}})$: negligible by a
 factor that is itself exponentially small.
 
+\subsection*{Golden decoherence and the arrow of time}
+
+The $E_8$ Cartan matrix, viewed as a tight-binding Hamiltonian on the
+McKay graph, has nine eigenvalues. Five are integers: $0, 1, 2, 3, 4$.
+Four involve the golden ratio: $1/\varphi^2$, $3 - \varphi$,
+$2 + 1/\varphi$, $2 + \varphi$.
+
+The golden eigenvalues are irrational. The integer eigenvalues are not.
+When you trace over the golden sector (average out those four modes),
+the off-diagonal coherences between integer modes oscillate at
+frequencies like $\varphi - 1$ or $2 + \varphi - 3$, all irrational.
+Over time, these average to zero (the Riemann-Lebesgue lemma).
+The reduced density matrix becomes diagonal. Entropy increases.
+
+This is the golden decoherence theorem: the split between integer
+and golden eigenvalues produces irreversible decoherence from
+reversible dynamics. No external environment is needed. The $E_8$
+structure itself separates into an ``observable'' sector (integers)
+and a ``hidden'' sector (golden), and the irrationality of the golden
+ratio guarantees that coherence between the two is lost over time.
+
+The arrow of time is not a mystery in this framework. It is a
+consequence of the $E_8$ Cartan spectrum having both rational and
+irrational eigenvalues, forced by the affine Dynkin diagram topology.
+
 \subsection*{What emerges}
 
 Paper~III catalogs the quantum structures that arise from the
@@ -2312,6 +2337,31 @@ discrepancy after running: $0.1\%$.
 $\sin^2\theta_W = 3/8 = 0.375$ at the GUT scale, which is $62\%$ above
 the measured value at tree level. The polygon prediction $3/11$ starts
 closer and arrives closer.)
+
+\subsection*{Why the coupling formula works (the three sectors)}
+
+A subtlety: the Havelock eigenvalue $f(2,4) = 2$ corresponds to
+spin $j = 1$ in the SU(2) representation theory. But at Chern-Simons
+level $k = 1$, the standard topological theory only allows spins
+$j = 0$ and $j = 1/2$. Spin $j = 1$ does not exist as a topological
+state.
+
+The resolution: the theory has three cleanly separated sectors.
+The \emph{topological sector} (from the 3D Chern-Simons theory)
+determines which gauge group exists and at what level.
+The \emph{dynamical sector} (from the Kaluza-Klein reduction to
+2D Yang-Mills) produces the propagating gauge field with coupling
+$g^2 = 2\pi/((k + h^\vee) R)$.
+The \emph{geometric sector} (from the polygon on $\mathbf{H}^2$)
+provides the Havelock eigenvalue $f(2,4) = 2$.
+
+The integrability bound $j \le k/2$ constrains the topological
+sector (Wilson loops, braiding). It does not constrain the geometric
+sector. And after the Kaluza-Klein reduction, the 2D Yang-Mills
+theory has no integrability bound at all: every representation
+propagates. The eigenvalue $f(2,4) = 2$ enters through the
+dynamical and geometric sectors, bypassing the topological
+constraint entirely.
 
 \subsection*{The coupling lock}
 
@@ -3185,6 +3235,33 @@ dimension?''  The bosonic and fermionic sectors have the same total
 squared dimension ($44$ each), a cancellation reminiscent of supersymmetry.
 The pivot-sector representations contribute zero to the balance, they sit at the pivot,
 the neutral fulcrum between matter and antimatter.
+
+\subsection*{The division algebra chain: why 3+1 dimensions}
+
+The mark distribution encodes one more structure. Start with the
+spectral diameter $a = 4$ and subtract it from each mark:
+$|d_i - 4|$ gives the residual marks $(3,2,1,0,1,2,0,2,1)$.
+Dropping the zeros and sorting, you get $(1,1,1,2,2,2,3)$, which
+are the marks of the $E_6$ Dynkin diagram. The operation
+$d \mapsto |d - 4|$ is a projection: it strips away the ``pivot''
+at $d = 4$ and reveals the smaller algebra $E_6$ hiding inside $E_8$.
+
+Repeat. Starting from $E_6$ with pivot at $d = 2$, the same
+operation gives $A_3$ (with pivot at $d = 1$). The chain is:
+\[
+  E_8 \xrightarrow{\;4\;} E_6 \xrightarrow{\;2\;} A_3 \xrightarrow{\;1\;} \varnothing.
+\]
+The pivots are $(4, 2, 1)$. Their sum is $4 + 2 + 1 = 7 = N_{\mathrm{crit}}$,
+the stability threshold. Their product is $4 \times 2 \times 1 = 8$,
+the rank of $E_8$. And $(4, 2, 1)$ are the dimensions of the
+division algebras: quaternions ($\mathbb{H}$, dimension 4),
+complex numbers ($\mathbb{C}$, dimension 2), and reals
+($\mathbb{R}$, dimension 1).
+
+The spacetime dimension 4 is the first pivot. It is not an input
+to the framework. It is the largest pivot in the unique chain that
+terminates at the empty diagram, forced by the $E_8$ mark
+distribution.
 
 The Coxeter number $h = 30 = 2 \times 3 \times 5$ factorizes into
 three primes.  Each prime corresponds to one of the three symmetry axes
