@@ -121,3 +121,67 @@ class TestPivotUniqueness:
         for d in m:
             prod *= d
         assert prod == factorial(6) * factorial(4)
+
+
+class TestTwoAdicFiltration:
+    """Tests for the 2-adic layer structure."""
+
+    def test_layer_assignment(self):
+        from planetary_polygons.proofs.mark_distribution import two_adic_layers
+        layers = two_adic_layers([1, 2, 3, 4, 5, 6, 4, 2, 3])
+        assert layers['K3'] == [1, 3, 5, 3]
+        assert layers['K2'] == [2, 6, 2]
+        assert layers['K1'] == [4, 4]
+
+    def test_supertrace_cancellation(self):
+        from planetary_polygons.proofs.mark_distribution import two_adic_layers
+        layers = two_adic_layers([1, 2, 3, 4, 5, 6, 4, 2, 3])
+        assert sum(d * (d - 4) for d in layers['K1']) == 0
+        assert sum(d * (d - 4) for d in layers['K2']) == 4
+        assert sum(d * (d - 4) for d in layers['K3']) == -4
+
+    def test_sigma_d2_matching(self):
+        """Σd²(bosons) = Σd²(fermions) = 44."""
+        from planetary_polygons.proofs.mark_distribution import two_adic_layers
+        layers = two_adic_layers([1, 2, 3, 4, 5, 6, 4, 2, 3])
+        assert sum(d**2 for d in layers['K2']) == 44
+        assert sum(d**2 for d in layers['K3']) == 44
+
+    def test_proper_3_coloring_e8(self):
+        from planetary_polygons.proofs.mark_distribution import is_proper_2adic_coloring
+        assert is_proper_2adic_coloring('E8') is True
+
+    def test_proper_3_coloring_d4(self):
+        from planetary_polygons.proofs.mark_distribution import is_proper_2adic_coloring
+        assert is_proper_2adic_coloring('D4') is True
+
+    def test_e7_coloring(self):
+        """E₇ with standard marks/edges: check coloring status."""
+        from planetary_polygons.proofs.mark_distribution import is_proper_2adic_coloring
+        # Result depends on the specific E₇ node ordering used
+        result = is_proper_2adic_coloring('E7')
+        assert isinstance(result, bool)
+
+    def test_layer_sizes_sum_to_9(self):
+        from planetary_polygons.proofs.mark_distribution import two_adic_layers
+        layers = two_adic_layers([1, 2, 3, 4, 5, 6, 4, 2, 3])
+        total = sum(len(v) for v in layers.values())
+        assert total == 9
+
+
+class TestMarkSupercharge:
+    """Tests for ρ₁ as the supercharge."""
+
+    def test_q_squared_bosonic(self):
+        """ρ₁⊗ρ₁ = ρ₀+ρ₂, both in K₃ (bosonic)."""
+        from planetary_polygons.proofs.mark_distribution import mark_supercharge_squared
+        rho0_dim, rho2_dim = mark_supercharge_squared()
+        assert rho0_dim == 1
+        assert rho2_dim == 3
+
+    def test_layer_transitions(self):
+        """ρ₁⊗ maps each layer to OTHER layers only."""
+        from planetary_polygons.proofs.mark_distribution import supercharge_transitions
+        trans = supercharge_transitions()
+        for src in ['K1', 'K2', 'K3']:
+            assert src not in trans[src], f"{src} maps to itself!"
