@@ -501,16 +501,23 @@ at integer~$k$; the factor~$k$ enters $V_{\mathrm{eff}}$
 as the normalization of the CS path integral measure);
 (ii)~the Gauss--Bonnet volume of the base
 $\mathbf{H}^2/\Gamma$:
-$\mathrm{Area} = 4\pi(g{-}1) = 4\pi$ at the minimal
-hyperbolic genus $g = 2$ (the uniformization theorem
-requires $g \ge 2$ for $K = -1$;
-the polygon radius $\rho^* = 2\,\mathrm{arctanh}(\sqrt{\xi^*})
-\approx 0.51$ is much smaller than the
-injectivity radius of any genus-$2$ surface
---- in particular $0.51 \ll 1.53$ for the Bolza surface ---
-so the $\mathbb{Z}_7$ polygon symmetry acts locally
-in~$\mathbf{H}^2$, not as a deck transformation,
-and Riemann--Hurwitz places no constraint on~$g$); and
+$\mathrm{Area} = 4\pi(g{-}1) = 4\pi$ at $g = 2$,
+the unique genus consistent with the
+$\mathrm{SU}(3)$ RG running.
+The one-loop $\beta$-function
+$1/\alpha_s(M_Z) = 1/\alpha_s(M_{\mathrm{poly}})
+- (b_0/2\pi)\ln(M_{\mathrm{poly}}/M_Z)$
+with $b_0 = 7$ (derived from $\mathrm{SU}(3)$
+with $n_f = 6$) and
+$\alpha_s(M_{\mathrm{poly}}) = 1/(4\pi(g{-}1)\sqrt{2})$
+gives $\alpha_s(M_Z) = 0.114$ at $g = 2$
+(within $3\%$ of the observed $0.118$).
+At $g = 3$: $\alpha_s(M_Z) = 0.038$ ($68\%$ off);
+at $g \ge 4$: worse.
+The uniformization theorem requires $g \ge 2$ ($K = -1$),
+and the polygon acts locally
+($\rho^* \approx 0.51 \ll 1.53$ injectivity radius),
+so Riemann--Hurwitz places no constraint; and
 (iii)~the CS partition function $Z(S^3) = \sqrt{2}$,
 derived from the exact Witten formula
 (\citealt{Witten1989Jones}, eq.~(2.21)):
@@ -1644,17 +1651,32 @@ Three steps: derive the quantum numbers from the Casimir,
 derive the CS gauge couplings from the DHVW levels,
 compute the mixing angle from the KK-reduced action.
 
-\emph{Step~1 (Polygon eigenvalues).}
+\emph{Step~1 (Polygon eigenvalue = gauge Casimir).}
 The critical mode at $N = 4$ has Havelock eigenvalue
 $f(2,4) = m^*(N{-}m^*)/2 = 2$ and KK charge $Q = m^*/N = 1/2$.
 Both are read off from the vortex spectrum (Paper~I);
 no choice is involved.
-The Havelock eigenvalue $f(m,N)$ equals the
-$\mathbf{H}^2$ Laplacian restricted to the $m$-th
-$\mathbb{Z}_N$ mode (Proposition~\ref{III-prop:casimir-havelock},
-Helgason symmetric space theorem).
-This is a \emph{geometric} quantity: it does not require
-assigning a representation label $j$ to the mode.
+The CMS--CS Casimir identification
+(Proposition~\ref{III-prop:casimir-havelock})
+proves that $f(m,N)$ is simultaneously the
+$\mathbf{H}^2$ Laplacian eigenvalue (geometric),
+the $\mathfrak{sl}(2,\mathbb{R})$ Casimir
+(representation-theoretic), and the CS Wilson line
+eigenvalue (gauge-theoretic)---all equal to
+$m(N{-}m)/2$ because all three use the same operator
+on the same space (Helgason symmetric space theorem).
+The value $f(2,4) = 2$ is therefore not a ``choice
+of representation'': it is the unique eigenvalue
+of the $m = 2$ mode on~$\mathbf{H}^2$, which
+the CMS--CS identification proves equals the
+$\mathrm{SU}(2)$ Casimir $C_2 = j(j{+}1) = 2$
+at $j = 1$.
+The fundamental representation ($j = 1/2$,
+$C_2 = 3/4$) does not enter because the
+critical Fourier mode at $N = 4$ has $m^* = 2$,
+not $m^* = 1$; the polygon determines which mode
+is critical, and the Casimir identification determines
+its gauge-theoretic value.
 
 \emph{Step~2 (CS gauge couplings).}
 At the Chern--Simons threshold
@@ -1805,10 +1827,16 @@ But the vortex mode is \emph{not a Wilson loop}.
 It is a localized excitation on~$\mathbf{H}^2$
 (sector~G), coupled to the gauge field through the
 YM vertex (sector~D).
+The KK reduction produces $\mathrm{YM}_2$
+on~$\mathbf{H}^2$ (Blau--Thompson), and \emph{2D
+Yang--Mills has no integrability bound}: all
+representations of the gauge group propagate in the
+$\mathrm{YM}_2$ path integral, regardless of the
+parent CS level~$k$.
 The vanishing $d_1 = 0$ confirms the clean separation:
 the $j = 1$ representation has no topological content
-and enters the physics purely through the perturbative
-YM coupling.
+(sector~T) but propagates freely in the dynamical
+theory (sector~D).
 
 \emph{(d) The Weinberg angle uses only sectors D and G.}
 The effective couplings are
