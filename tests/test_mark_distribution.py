@@ -279,6 +279,68 @@ class TestGenerations:
             n_gen, _ = weak_eigenvector_generations(t)
             assert n_gen == 3, f"{t} gives {n_gen} generations, expected 3"
 
+    def test_mu1_unique_for_doublets(self):
+        """μ=1 is the UNIQUE non-trivial integer eigenvalue with doublets.
+        μ=4: alternating sign. μ=3: bipartite conjugate flips pairs.
+        μ=2: zeros on even-mark nodes. μ=0: trivial (all same sign)."""
+        import numpy as np
+        edges = [(0,1),(1,2),(2,3),(3,4),(4,5),(5,6),(6,7),(5,8)]
+        A = np.zeros((9,9))
+        for i,j in edges: A[i,j]=1; A[j,i]=1
+        C = 2*np.eye(9) - A
+        evals, evecs = np.linalg.eigh(C)
+
+        doublet_counts = {}
+        for idx in range(9):
+            mu = evals[idx]
+            mu_round = round(mu)
+            if abs(mu - mu_round) > 0.01:
+                continue  # skip golden eigenvalues
+            v = evecs[:, idx]
+            # Count adjacent same-sign pairs (both nonzero)
+            count = 0
+            for a, b in edges:
+                if abs(v[a]) > 0.01 and abs(v[b]) > 0.01:
+                    if v[a] * v[b] > 0:
+                        count += 1
+            doublet_counts[mu_round] = count
+
+        # μ=0: all same sign (trivial)
+        assert doublet_counts[0] == 8  # every edge
+        # μ=1: exactly 3 doublets
+        assert doublet_counts[1] == 3
+        # μ=2,3,4: zero doublets
+        assert doublet_counts[2] == 0
+        assert doublet_counts[3] == 0
+        assert doublet_counts[4] == 0
+
+    def test_mu3_is_bipartite_conjugate_of_mu1(self):
+        """v₃ = S·v₁ where S flips one node of each edge → no doublets."""
+        import numpy as np
+        edges = [(0,1),(1,2),(2,3),(3,4),(4,5),(5,6),(6,7),(5,8)]
+        A = np.zeros((9,9))
+        for i,j in edges: A[i,j]=1; A[j,i]=1
+        C = 2*np.eye(9) - A
+        evals, evecs = np.linalg.eigh(C)
+
+        # Find μ=1 and μ=3 eigenvectors
+        v1 = v3 = None
+        for idx in range(9):
+            if abs(evals[idx] - 1) < 0.01: v1 = evecs[:, idx]
+            if abs(evals[idx] - 3) < 0.01: v3 = evecs[:, idx]
+
+        # Bipartition: nodes in class A have even distance from node 0
+        # For Ẽ₈ (a tree), BFS from node 0 gives bipartition
+        classA = {0, 2, 4, 6, 8}  # even-distance from 0
+        classB = {1, 3, 5, 7}     # odd-distance from 0
+        S = np.array([1 if i in classA else -1 for i in range(9)], dtype=float)
+
+        # v₃ should equal ±S·v₁
+        ratio = (S * v1) / v3
+        nonzero = np.abs(v3) > 0.01
+        assert np.allclose(ratio[nonzero], ratio[nonzero][0], atol=1e-8), \
+            "v₃ ≠ ±S·v₁"
+
     def test_det_removal_equals_mark_squared(self):
         """det(C without ρᵢ) = dᵢ² for all i."""
         from planetary_polygons.proofs.mark_distribution import det_removal
