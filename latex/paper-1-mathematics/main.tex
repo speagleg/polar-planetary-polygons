@@ -2684,19 +2684,29 @@ developed in Papers~IV, V, and~VII.
 \subsection{The spectral diameter}
 \label{sec:spectral-diameter}
 
-\begin{theorem}[Spectral diameter]\label{thm:spectral-diameter}
-For \emph{any} connected affine ADE Dynkin diagram, the Cartan matrix
-$C = 2I - A$ has eigenvalues in~$[0, 4]$.  The spectral diameter
-$a \coloneqq \max(\mathrm{spec}\,C) = 4$ is universal.
+\begin{theorem}[Spectral bound]\label{thm:spectral-diameter}
+For any connected affine ADE Dynkin diagram with Cartan matrix $C = 2I - A$:
+\begin{enumerate}
+\item[(i)] $C$ is positive semidefinite with $\min(\mathrm{spec}\,C) = 0$.
+\item[(ii)] $\max(\mathrm{spec}\,C) \le 4$, with equality if and only if
+  the diagram is bipartite.
+\end{enumerate}
+All D-type and E-type affine diagrams are trees (hence bipartite),
+so $a \coloneqq \max(\mathrm{spec}\,C) = 4$ for $\tilde{D}_n$,
+$\tilde{E}_6$, $\tilde{E}_7$, $\tilde{E}_8$.
 \end{theorem}
 
 \begin{proof}
-$C$ is positive semidefinite with $\det C = 0$ (affine condition),
-so $\min(\mathrm{spec}\,C) = 0$.
-The adjacency matrix~$A$ of a connected bipartite graph has spectral
-radius $\rho(A) = \max|\lambda_i(A)|$.  Since $C = 2I - A$ and
-$\min(\mathrm{spec}\,C) = 0$, we have $\rho(A) = 2$.
-Thus $\max(\mathrm{spec}\,C) = 2 + \rho(A) = 4$.
+(i)~$\det C = 0$ (affine condition: the marks~$d$ satisfy $Cd = 0$).
+The quadratic form $x^TCx = 2\sum x_i^2 - 2\sum_{i \sim j} x_i x_j \ge 0$
+(Cauchy--Schwarz on each edge), so $C$ is positive semidefinite.
+
+(ii)~$C = 2I - A$ gives $\mathrm{spec}(C) = \{2 - \lambda : \lambda \in \mathrm{spec}(A)\}$.
+The affine condition $Ad = 2d$ with $d > 0$ makes $\rho(A) = 2$ (Perron--Frobenius).
+Therefore $\max(\mathrm{spec}\,C) = 2 + |\min\mathrm{spec}(A)| \le 2 + \rho(A) = 4$.
+Equality holds iff $-2 \in \mathrm{spec}(A)$, which occurs iff the graph
+is bipartite (the spectrum of a bipartite graph is symmetric about~$0$).
+Trees are bipartite; all affine D and E diagrams are trees.
 \end{proof}
 
 \subsection{The mark-balance identity and $E_8$ selection}
@@ -2952,36 +2962,39 @@ and their products with~$-I$).
 \label{sec:generations}
 
 \begin{theorem}[Three generations]\label{thm:three-gen}
-For all three exceptional affine Dynkin diagrams $\tilde{E}_6$,
-$\tilde{E}_7$, $\tilde{E}_8$, the $\mu = 1$ eigenvector of the
-Cartan matrix partitions the nodes into exactly \emph{three doublets}
-(adjacent same-sign pairs) and singlets (zeros).
-For~$\tilde{E}_8$, the eigenvector is $(-1,-1,0,+1,+1,0,-1,-1,0)$
-with doublets $(\rho_0,\rho_1)$, $(\rho_3,\rho_4)$, $(\rho_6,\rho_7)$.
+For each exceptional affine Dynkin diagram $\tilde{E}_6$,
+$\tilde{E}_7$, $\tilde{E}_8$, the $\mu = 1$ eigenspace of the
+Cartan matrix contains a vector that partitions the nodes into
+exactly \emph{three doublets} (adjacent same-sign pairs) and singlets (zeros).
+For~$\tilde{E}_7$ and~$\tilde{E}_8$ the eigenspace is $1$-dimensional
+and the vector is unique; for~$\tilde{E}_6$ the eigenspace is
+$2$-dimensional and three doublets occur generically.
 \end{theorem}
 
 \begin{proof}
-The eigenvector~$v$ satisfies $Av = v$ (equivalently $Cv = v$).
-For~$\tilde{E}_8$, writing $v = (v_0, \ldots, v_8)$ and applying
-$Av = v$ at each node:
-\begin{align*}
-  \rho_0&: v_1 = v_0, \quad
-  \rho_1: v_0 + v_2 = v_1, \quad
-  \rho_2: v_1 + v_3 = v_2.
-\end{align*}
-The first equation gives $v_1 = v_0$; the second gives $v_2 = 0$;
-the third gives $v_3 = -v_0$.  Continuing along the chain and branch:
-$v_4 = -v_0$, $v_5 = 0$, $v_6 = v_0$, $v_7 = v_0$, $v_8 = 0$.
-Setting $v_0 = -1$ gives $(-1,-1,0,+1,+1,0,-1,-1,0)$.
-The six nonzero entries form three doublets: $\{0,1\}$, $\{3,4\}$,
-$\{6,7\}$.  No other same-sign adjacent pairing exists (the three
-zero nodes $\rho_2, \rho_5, \rho_8$ separate the doublets).
+\emph{$\tilde{E}_8$ (multiplicity~$1$).}
+Solving $Av = v$ node by node:
+$v_1 = v_0$; $v_2 = 0$; $v_3 = -v_0$; $v_4 = -v_0$; $v_5 = 0$;
+$v_6 = v_0$; $v_7 = v_0$; $v_8 = 0$.
+Setting $v_0 = -1$: $v = (-1,-1,0,+1,+1,0,-1,-1,0)$.
+Three doublets: $\{0,1\}$, $\{3,4\}$, $\{6,7\}$; unique.
 
-For~$\tilde{E}_6$: $Av = v$ yields the pattern
-$(+1,-1,0,0,+1,-1,0)$ with three doublets $\{0,2\}$, $\{1,3\}$, $\{4,5\}$
-(verified by the same node-by-node computation).
-For~$\tilde{E}_7$: $(+1,+1,0,-1,0,+1,+1,-1)$ with three doublets
-$\{0,1\}$, $\{5,6\}$, $\{3,7\}$.
+\emph{$\tilde{E}_7$ (multiplicity~$1$).}
+Solving $Av = v$: $v = (v_0, v_0, 0, -v_0, 0, v_0, v_0, -v_0)$.
+Three doublets: $\{0,1\}$, $\{5,6\}$, $\{3,7\}$; unique.
+
+\emph{$\tilde{E}_6$ (multiplicity~$2$).}
+The $\tilde{E}_6$ diagram is a star (central node~$\rho_4$,
+three arms of length~$2$).
+Solving $Av = v$:
+$v_2 = v_0$, $v_3 = v_1$, $v_4 = 0$,
+$v_5 = v_6 = -(v_0 + v_1)$,
+giving the $2$-parameter eigenspace
+$\{(v_0, v_1, v_0, v_1, 0, {-}(v_0{+}v_1), {-}(v_0{+}v_1))\}$.
+Three doublets $\{0,2\}$, $\{1,3\}$, $\{5,6\}$ exist iff
+$v_0 \neq 0$, $v_1 \neq 0$, $v_0 + v_1 \neq 0$---a generic
+(open dense) condition.
+Example: $v_0 = v_1 = 1$ gives $(1,1,1,1,0,-2,-2)$.
 \end{proof}
 
 \begin{proposition}[Supporting identities]\label{prop:supporting}
