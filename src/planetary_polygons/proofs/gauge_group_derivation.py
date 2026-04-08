@@ -108,16 +108,14 @@ def frobenius_order(N, base=2):
 
     ord_N(base) = smallest d > 0 such that base^d ≡ 1 (mod N).
 
-    The choice base = 2 is canonical: it is the SMALLEST PRIME, and
-    Frob_2 generates the decomposition group of the rational prime
-    (2) in the cyclotomic field Q(zeta_N). For N = 7 (prime), Frob_2
-    is the unique generator of Gal(F_{2^3}/F_2) = Z/3Z, because
-    the residue field at (2) in Z[zeta_7] has degree ord_7(2) = 3.
-
-    This is the standard Frobenius in algebraic number theory:
-    the Frobenius at the smallest rational prime not dividing N.
-    For N = 7: p = 2 (since gcd(2,7) = 1), giving ord_7(2) = 3.
-    No other choice of base is needed or motivated.
+    For N = 7 (prime), the subgroup Z/3Z of (Z/7Z)* is UNIQUE
+    (the only proper non-trivial subgroup not equal to the
+    palindromic Z/2Z = {1,6}).  Any generator of this subgroup
+    (base=2 or base=4) gives the same orbits.  The selection
+    is by CP exclusion: Z/2Z is the palindromic involution
+    (already identified with CP), Z/6Z is the full group
+    (single orbit, no conjugate pair), leaving Z/3Z as the
+    unique choice for a non-abelian gauge symmetry.
 
     Key values:
         ord_7(2) = 3  (since 2^3 = 8 ≡ 1 mod 7)
@@ -173,6 +171,76 @@ def euler_totient(N):
         if gcd(k, N) == 1:
             count += 1
     return count
+
+
+def derive_color_subgroup(N=7):
+    """Derive the unique color gauge subgroup of (Z/NZ)* by CP exclusion.
+
+    Returns (subgroup, orbits, reason) where:
+    - subgroup: the elements of the unique valid subgroup
+    - orbits: the Frobenius orbits under this subgroup
+    - reason: dict mapping each rejected subgroup to its exclusion reason
+
+    The derivation:
+    1. Enumerate all subgroups of (Z/NZ)*
+    2. Exclude {1} (trivial — no gauge symmetry)
+    3. Exclude the palindromic Z/2Z = {1, N-1} (already CP)
+    4. Exclude the full group (single orbit, no conjugate pair)
+    5. The unique remaining subgroup gives the color gauge group
+
+    For N=7: Z/3Z = {1,2,4}, orbits {1,2,4} and {3,5,6}.
+    """
+    units = [k for k in range(1, N) if gcd(k, N) == 1]
+    phi_N = len(units)
+
+    # Find all subgroups of (Z/NZ)* by checking each element as generator
+    subgroups = {}
+    for g in units:
+        sg = set()
+        power = 1
+        for _ in range(phi_N):
+            power = (power * g) % N
+            sg.add(power)
+        sg = frozenset(sg)
+        subgroups[sg] = g  # store one generator
+
+    # Also include the trivial subgroup
+    subgroups[frozenset([1])] = 1
+
+    palindromic = frozenset([1, N - 1]) if N > 2 else frozenset([1])
+    full_group = frozenset(units)
+    trivial = frozenset([1])
+
+    reasons = {}
+    valid = []
+
+    for sg in subgroups:
+        if sg == trivial:
+            reasons[sg] = "trivial — no gauge symmetry"
+        elif sg == palindromic:
+            reasons[sg] = "palindromic involution (CP) — already identified"
+        elif sg == full_group:
+            reasons[sg] = "full group — single orbit, no conjugate pair"
+        else:
+            valid.append(sg)
+
+    assert len(valid) == 1, f"Expected unique valid subgroup, got {len(valid)}"
+    color_sg = valid[0]
+
+    # Compute orbits under this subgroup
+    gen = subgroups[color_sg]
+    orbits = frobenius_orbits(N, base=gen)
+
+    # Verify CP exchanges the orbits
+    for orb in orbits:
+        cp_image = sorted([(N - m) % N for m in orb])
+        assert cp_image != sorted(orb), "Orbit is CP-self-conjugate"
+
+    # Verify Casimir multisets match
+    casimirs = [sorted([m * (N - m) // 2 for m in orb]) for orb in orbits]
+    assert casimirs[0] == casimirs[1], "Casimir multisets don't match"
+
+    return sorted(color_sg), orbits, reasons
 
 
 # =====================================================================

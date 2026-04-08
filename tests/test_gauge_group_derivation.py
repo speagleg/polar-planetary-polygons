@@ -114,6 +114,62 @@ class TestFrobenius:
 
 
 # =====================================================================
+# 2b. CP-exclusion derivation of color subgroup
+# =====================================================================
+
+class TestColorSubgroupDerivation:
+    """The Z/3Z orbifold group is DERIVED by exhaustive exclusion,
+    not chosen by 'smallest prime' convention."""
+
+    def test_unique_subgroup(self):
+        """Z/3Z is the unique valid color subgroup of (Z/7Z)*."""
+        from planetary_polygons.proofs.gauge_group_derivation import derive_color_subgroup
+        sg, orbits, reasons = derive_color_subgroup(7)
+        assert sg == [1, 2, 4]
+
+    def test_cp_excluded(self):
+        """Z/2Z = {1,6} is excluded because it IS the palindromic (CP) involution."""
+        from planetary_polygons.proofs.gauge_group_derivation import derive_color_subgroup
+        _, _, reasons = derive_color_subgroup(7)
+        assert frozenset([1, 6]) in reasons
+        assert "CP" in reasons[frozenset([1, 6])] or "palindromic" in reasons[frozenset([1, 6])]
+
+    def test_full_group_excluded(self):
+        """Z/6Z is excluded: single orbit, no conjugate pair."""
+        from planetary_polygons.proofs.gauge_group_derivation import derive_color_subgroup
+        _, _, reasons = derive_color_subgroup(7)
+        full = frozenset([1, 2, 3, 4, 5, 6])
+        assert full in reasons
+        assert "single orbit" in reasons[full]
+
+    def test_orbits_are_cp_conjugates(self):
+        """CP (m -> 7-m) exchanges the two orbits."""
+        from planetary_polygons.proofs.gauge_group_derivation import derive_color_subgroup
+        _, orbits, _ = derive_color_subgroup(7)
+        o1, o2 = set(orbits[0]), set(orbits[1])
+        cp_of_o1 = {(7 - m) % 7 for m in o1}
+        assert cp_of_o1 == o2
+
+    def test_casimir_multisets_match(self):
+        """Both orbits have the same Casimir multiset {3,5,6}."""
+        from planetary_polygons.proofs.gauge_group_derivation import derive_color_subgroup
+        _, orbits, _ = derive_color_subgroup(7)
+        cas = [sorted([m * (7 - m) // 2 for m in orb]) for orb in orbits]
+        assert cas[0] == cas[1] == [3, 5, 6]
+
+    def test_generator_irrelevant(self):
+        """base=2 and base=4 give identical orbits (same subgroup)."""
+        orb2 = frobenius_orbits(7, 2)
+        orb4 = frobenius_orbits(7, 4)
+        assert [set(o) for o in orb2] == [set(o) for o in orb4]
+
+    def test_other_primes_give_full_group(self):
+        """p=3 and p=5 generate Z/6Z (the full group), hence no conjugate pair."""
+        assert frobenius_order(7, 3) == 6  # single orbit of size 6
+        assert frobenius_order(7, 5) == 6  # single orbit of size 6
+
+
+# =====================================================================
 # 3. McKay correspondence
 # =====================================================================
 

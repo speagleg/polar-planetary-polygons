@@ -18,9 +18,9 @@ This paper provides the series-level audit: parameter accounting,
 status classification (Theorem / Derivation / Conjecture),
 cumulative uncertainty analysis, and falsifiable predictions
 for the Havelock field theory developed in Papers~I--V.
-From one discrete input ($N = 7$), one dimensionful scale ($M_P$),
-and three structural identifications
-(Seifert geometry, BF threshold, minimal CS levels),
+From two axioms ($N = 7$ and the Seifert geometry
+$\mathbf{H}^2 \times_N S^1$) and one dimensionful
+scale ($M_P$),
 the series obtains the Standard Model gauge group, the Weinberg
 angle, the CKM phase, three generations, the cosmological
 constant, the Hubble parameter, the dark matter fraction,
@@ -48,7 +48,7 @@ The derivation chain is:
   The CMS--CS Casimir identification;
   the graviton at $N = 7$;
   the vacuum Einstein equations from polygon entropy
-  maximisation; the Onsager--WDW correspondence.
+  maximization; the Onsager--WDW correspondence.
 \item \emph{Paper~IV (Gauge theory):}
   The Seifert manifold
   $\mathbf{H}^2 \times_N S^1$;
@@ -68,43 +68,63 @@ The derivation chain is:
 \label{sec:parameters}
 
 \paragraph{Summary.}
-One discrete input ($N = 7$), one dimensionful scale ($M_P$),
-and three structural identifications---each argued to be the
-unique consistent option---produce the seventeen testable outputs
+Two axioms and one scale produce the seventeen testable outputs
 enumerated in \S\ref{sec:status}.
 No continuous free parameters are adjusted.
 
-\paragraph{Structural framework.}
-Each structural element is the \emph{unique} option
-compatible with the requirements of the vortex system:
+\paragraph{Axioms.}
+The framework rests on two discrete inputs and one dimensionful scale:
 \begin{enumerate}
-\item \emph{Seifert manifold.}
-  Uniquely determined by the Thurston classification
+\item[\textbf{A1.}] \emph{Polygon number $N = 7$.}
+  The unique value giving a spin-$2$ boundary mode
+  via the Pell equation
+  (Theorem~\ref*{V-thm:n-selection}(b)).
+\item[\textbf{A2.}] \emph{Seifert geometry
+  $\mathbf{H}^2 \times_N S^1$.}
+  Uniquely determined by the Thurston classification:
+  $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ is the only Thurston
+  geometry with constant negative sectional curvature on a
+  $2$D base and a compact fiber
   (Proposition~\ref*{IV-prop:spacetime}).
-\item \emph{BF threshold $\mu_4 = 1$.}
-  The $\mathbf{H}^2$ Breitenlohner--Freedman bound gives
-  the scalar spectrum $M^2 = \Delta(\Delta{-}1) \ge -1/4$.
-  The first KK mode above the threshold
-  ($\Delta = 3/2$, $M^2 > 0$) has $\mu_4 = \Delta - 1/2 = 1$.
-  This is determined by the $\mathbf{H}^2$ spectrum.
-\item \emph{CS levels $k = K = 1$.}
-  For compact groups: $k \in \mathbb{Z}^+$
-  (from $\pi_3(G) = \mathbb{Z}$).
-  At $k = 1$: the integrable representations of SU$(2)_1$
-  are $j = 0$ and $j = 1/2$ --- the Higgs doublet is the
-  maximal representation (at $k \ge 2$ there would be
-  additional states not present in the SM).
-  At $K = 1$: the compact boson is at the self-dual radius
-  (the unique T-duality fixed point with enhanced SU$(2)$
-  symmetry).
+\item[\textbf{Scale.}] $M_P$ (or equivalently $v$), needed
+  to set units in any dimensionful theory.
 \end{enumerate}
-Within this structure:
 
-\paragraph{Input.}
-The single discrete input is $N = 7$ (the polygon number),
-determined by the Pell equation (Theorem~\ref*{V-thm:n-selection}(b)).
-The cosmological polygon number $N = 11$ follows from Chern class
-additivity (Theorem~\ref*{V-thm:n-selection}(c)).
+\paragraph{Derived from the axioms (no additional freedom).}
+The quantities that earlier rounds of review identified as
+possible ``hidden inputs'' are in fact consequences of
+\textbf{A1}--\textbf{A2}:
+\begin{enumerate}
+\item \emph{BF threshold $\mu_4 = 1$.}
+  The $\mathbf{H}^2$ Laplacian has spectrum
+  $M^2 = \Delta(\Delta{-}1) \ge -1/4$
+  (the Breitenlohner--Freedman bound, a theorem of
+  spectral theory on~$\mathbf{H}^2$).
+  The first massive KK level above the BF threshold
+  has $\Delta = 3/2$, giving $\mu_4 = \Delta - 1/2 = 1$.
+  This is the $\mathbf{H}^2$ spectrum of~\textbf{A2},
+  not a choice.
+\item \emph{CS levels $k = k_Y = 1$.}
+  For compact gauge groups, $\pi_3(G) = \mathbb{Z}$
+  forces $k \in \mathbb{Z}^+$.
+  The DHVW twist-field OPE (a consequence of the
+  orbifold construction in~\textbf{A2}) produces
+  Kac--Moody currents at conformal weight $h = 1$,
+  determining $k = 1$
+  (Theorem~\ref{thm:su3}, Step~B3).
+  For $\mathrm{U}(1)$: single-valued holonomy
+  on the $S^1$ fiber of~\textbf{A2} forces
+  $k_Y = 1$.
+\item \emph{Cosmological polygon $N = 11$.}
+  From Chern class additivity
+  $c_1(L_{\mathrm{EW}} \oplus L_{\mathrm{grav}})
+  = 4 + 7 = 11$
+  (Theorem~\ref*{V-thm:n-selection}(c)),
+  using \textbf{A1} for $N_{\mathrm{grav}} = 7$
+  and the $N = 4$ electroweak polygon
+  (the unique value with integer $j < 2$;
+  Proposition~\ref*{IV-prop:n4-selection}).
+\end{enumerate}
 
 \paragraph{Derived from~$N$ (no freedom).}
 The central charge $c = 12\,b(N)$, CS phase~$\theta_{\mathrm{CS}}$,
@@ -147,23 +167,20 @@ and the mass hierarchy are genuine predictions
 ($M_{\mathrm{KK}}$-independent).
 
 \paragraph{Total.}
-One discrete input ($N = 7$) plus one dimensionful
-scale ($v$ or $M_P$, needed to set units in any theory),
-plus the structural identifications (Thurston $\widetilde{\mathrm{SL}(2,\mathbb{R})}$
-geometry, BF-threshold identification with the $T_3$ split,
-$k = K = 1$ for the compact gauge levels),
+Two axioms (\textbf{A1}: $N = 7$; \textbf{A2}: Seifert geometry)
+plus one dimensionful scale ($M_P$),
 yielding $17$~testable outputs ($15$~predictions and
 $2$~consistency checks in the master table), of which
 $11$ are independent after accounting for Yukawa-texture
 correlations and CKM unitarity.
+The BF threshold, CS levels, and $N = 11$ are derived
+from \textbf{A1}--\textbf{A2}, not additional inputs
+(see derivation chain above).
 The Standard Model, by comparison, has $19$~free parameters
 for roughly the same set of observables.
-The structural choices above are determined by the geometry
-and representation theory, but differ from quantities
-computed by integration (WKB actions, Legendre functions).
 
-\paragraph{Sensitivity to structural modifications.}
-Each structural choice, if altered, breaks an
+\paragraph{Sensitivity to modifications of derived quantities.}
+Each derived quantity, if hypothetically altered, breaks an
 \emph{internal} prediction (computed from the
 framework's own formulae, then compared to data):
 \begin{itemize}
@@ -191,9 +208,9 @@ framework's own formulae, then compared to data):
   $\Lambda_3(12) = 8$ gives $H_0 = 74$\,km/s/Mpc,
   excluded at ${>}\,5\sigma$).
 \end{itemize}
-The structural identifications have no continuous freedom:
-each choice is the unique option consistent with
-observation.
+None of these quantities are free to vary:
+each is derived from \textbf{A1}--\textbf{A2} by spectral
+theory, representation theory, or topology.
 
 
 \section{Discussion}
@@ -323,8 +340,8 @@ Model passes through three distinct types of link:
   \begin{itemize}
   \item[\textbf{(a)}] CMS $\to$ KZ $\to$ CS
     (proved operator isomorphism, EFK 1998);
-  \item[\textbf{(b)}] dreibein $=$ linearised Havelock mode
-    (proved at linearised level; nonlinear extension
+  \item[\textbf{(b)}] dreibein $=$ linearized Havelock mode
+    (proved at linearized level; nonlinear extension
     guaranteed by target-space symmetry of the WZW model);
   \item[\textbf{(c)}] Regge vertex $=$ point vortex
     (kinematic identity: deficit angle $=$ circulation;
@@ -497,7 +514,7 @@ from structure alone:
 Among frameworks with zero continuous free parameters,
 no other simultaneously predicts
 fermion mass ratios, CKM elements,
-and cosmological parameters from a single discrete input.
+and cosmological parameters from two discrete axioms.
 The algebraic-tier predictions ($< 5\%$) include $m_s/m_b$,
 which reaches $4\%$ accuracy once the $O(1/c)$ Euler class
 correction is included.
@@ -525,7 +542,7 @@ LEGEND/nEXO for the absence of neutrinoless double beta decay):
   dynamical component).
   The DESI DR2 BAO data (2025) show a
   $2.8$--$4.2\sigma$ preference for time-varying $w$
-  in the $w_0 w_a$CDM parametrisation;
+  in the $w_0 w_a$CDM parametrization;
   the best-fit values ($w_0 \approx 0$, $w_a \approx -3.7$)
   require phantom crossing, which no standard scalar field
   produces.
@@ -537,7 +554,7 @@ LEGEND/nEXO for the absence of neutrinoless double beta decay):
 \item Proton exactly stable ($\mathbb{Z}_{56}$ conservation;
   Hyper-K will reach $\tau > 10^{35}$\,yr);
 \item $\theta_{\mathrm{QCD}} = 0$ exactly
-  (CS level quantisation for $\mathrm{SU}(3)$,
+  (CS level quantization for $\mathrm{SU}(3)$,
   preserved under fermion shifts;
   no axion, no axion dark matter;
   nEDM $= 0$ to all orders; ADMX null result).
@@ -668,7 +685,7 @@ and the initial state is uniquely determined by the
 Born--Oppenheimer structure of the polygon breathing mode
 (Remark~\ref{III-rmk:wdw-uniqueness}).
 The classical big-bang singularity is replaced by quantum
-tunnelling at the palindromic threshold~$\rho^*$, where
+tunneling at the palindromic threshold~$\rho^*$, where
 the 2D vortex system on~$\mathbf{H}^2$ gives rise to
 $3{+}1$-dimensional Lorentzian spacetime through the
 Wick rotation $\rho \to \rho + i\pi/2$.
@@ -692,13 +709,13 @@ involves $\sin^{-d}$.
 The polynomial structure enables CMS integrability
 (from the holomorphicity of $\log z$), exact BO
 separation, and the entire Havelock framework.
-The third spatial dimension arises from the $S^1$ fibre
+The third spatial dimension arises from the $S^1$ fiber
 of the Seifert manifold ($\mathbb{Z}_N \subset U(1)$
 is the polygon rotational symmetry).
 Time emerges from the WKB approximation on the single
 breathing mode~$\rho$---the unique slow degree of
 freedom after the CMS angular modes are frozen.
-The count $2\,(\text{log kernel}) + 1\,(S^1\text{ fibre})
+The count $2\,(\text{log kernel}) + 1\,(S^1\text{ fiber})
 + 1\,(\text{WKB clock}) = 3{+}1$ is forced by
 the Havelock eigenvalue structure.
 The WKB time coordinate is valid in the semiclassical
@@ -751,7 +768,7 @@ eigenvalue formula independently of the gravitational
 interpretation (Papers~III--VI).
 
 \paragraph{BEC vortex clusters (Paper~II, \S\ref*{II-sec:quantum}).}
-In a quasi-2D Bose--Einstein condensate, quantised
+In a quasi-2D Bose--Einstein condensate, quantized
 circulation ($\kappa = qh/m$, $q \in \mathbb{Z}$)
 converts the central-vortex ratio $\kappa_0/\kappa$ into
 an integer winding-number ratio $q_0/q$, giving
@@ -798,7 +815,7 @@ natural setting.
 \paragraph{Hyperbolic lattices
   (Paper~II, \S\ref*{II-sec:quantum}).}
 Interacting bosons on a $\{p,q\}$ hyperbolic lattice
-(circuit-QED or topoelectric realisations) reduce to the
+(circuit-QED or topoelectric realizations) reduce to the
 point vortex Hamiltonian in the Thomas--Fermi regime.
 In the continuum limit (lattice spacing $\ll$ intervortex
 spacing, requiring $\gtrsim\!1000$ sites):
@@ -933,7 +950,7 @@ Three predictions:
 (1)~triangular vortex lattice (triangle universality);
 (2)~ring instability threshold at $N = 7$ (any ring of $N \ge 8$
 co-rotating vortices fragments);
-(3)~quantised pulsar glitch sizes
+(3)~quantized pulsar glitch sizes
 $\Delta\Omega_N = N\kappa/(2\pi R_{\mathrm{pin}}^2)$
 in units of $N = 3, \ldots, 7$, with maximum at $N = 7$.
 \citet{Howitt2020} already use the Havelock framework
@@ -945,7 +962,7 @@ Vega, Altair, Achernar) have curvature gradients
 analogous to Saturn's.
 The oblateness correction may increase $N_{\mathrm{crit}}$
 by $1$--$2$ relative to a sphere,
-potentially stabilising polar vortex polygons.
+potentially stabilizing polar vortex polygons.
 Testable by direct imaging with
 extreme-adaptive-optics instruments.
 
@@ -953,7 +970,7 @@ extreme-adaptive-optics instruments.
 If the cores of strongly magnetised white dwarfs
 ($B \sim 10^6$--$10^9$\,G) support a type-II
 superconducting phase---as proposed for some
-high-field objects but not yet confirmed---quantised
+high-field objects but not yet confirmed---quantized
 magnetic flux tubes ($\Phi_0 = h/(2e)$) would interact
 via the 2D logarithmic kernel when the London penetration
 depth exceeds the inter-tube spacing.
@@ -1031,7 +1048,7 @@ The Majorana mode at $\mu = 2$ is time-reversal invariant---consistent
 with gravity being blind to the arrow of time.
 
 The arrow of time corresponds to the approach to equilibrium
-($\beta > 0$): the ground state is thermally favoured over
+($\beta > 0$): the ground state is thermally favored over
 the antimatter mode at $\mu = 4$.
 The golden frequencies $\varphi$ and $1/\varphi^2$ are incommensurable
 with the integer frequencies $1, 2, 3$ (since $\varphi \notin \mathbb{Q}$),
@@ -1125,11 +1142,11 @@ failure of a quantitative prediction ($\sin^2\theta_W$,
 $|V_{cb}|$, $\eta_B$) constrains the derivation chain
 at the failed step.
 
-Independent of the high-energy programme, the mathematical
+Independent of the high-energy program, the mathematical
 core---the Havelock eigenvalue and its algebraic thresholds---is
 testable in BEC vortex clusters ($N = 8$ integer winding
 threshold, $N = 7$ quartic oscillation signature),
-hyperbolic lattice realisations ($N_{\mathrm{crit}} = 12$
+hyperbolic lattice realizations ($N_{\mathrm{crit}} = 12$
 on the Bolza surface), mesoscopic superconductors
 (shell transitions at $N = 7$), and quantum Hall quasihole
 polygons ($P_{\mathrm{crit}} = 7$, universal across all

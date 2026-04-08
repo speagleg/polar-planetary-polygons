@@ -16,10 +16,11 @@
 \begin{abstract}
 We derive the cosmological constant, Hubble parameter, dark
 energy/matter fractions, neutrino mass ratio, and baryon
-asymmetry from a single discrete input: the polygon number
-$N = 11 = 4 + 7$, selected by Kaluza--Klein flux additivity
-on a Seifert-fibered spacetime.
-The $N = 11$ Born--Oppenheimer tunnelling action fixes the
+asymmetry from the two axioms of the series
+($N = 7$ and the Seifert geometry), which determine
+the cosmological polygon $N = 11 = 4 + 7$ via
+Kaluza--Klein flux additivity.
+The $N = 11$ Born--Oppenheimer tunneling action fixes the
 hyperbolic curvature radius~$\ell$, giving
 $H_0 = 67.4$\,km/s/Mpc (Planck 2018 \citep{Planck2018}: $67.4 \pm 0.5$),
 $\Omega_\Lambda = 68.9\%$,
@@ -92,7 +93,7 @@ and the positive flux energy on the $S^1$ fiber
 In the standard KK reduction of the metric~\eqref{IV-eq:metric-4d},
 the fiber contribution to the effective potential is
 $(1/4)|F|^2$, where $F = dA$ is the gauge field strength.
-With quantised flux $\oint dA = \pi N$
+With quantized flux $\oint dA = \pi N$
 (from~\eqref{IV-eq:flux}), the energy density on a unit-area
 base is $(1/4)(\pi N / (2\pi))^2 = N^2/16$.
 The base Gaussian curvature: $K_{\mathbf{H}^2} = -1$
@@ -112,7 +113,7 @@ On a constant-curvature base with $K = -1$
 (so $G^{(3)} = -K\,g = g$):
 $\Lambda_3 = K + (1/4)|F|^2 = -1 + N^2/16$,
 where $|F|^2 = (\pi N/(2\pi))^2 = N^2/4$ from the
-quantised flux $\oint\!dA = \pi N$.
+quantized flux $\oint\!dA = \pi N$.
 On $\mathbf{H}^2$ with $K = -1$:
 $\Lambda_3 = -1 + N^2/16 = (N^2 - 16)/16$
 (in units of $1/\ell^2$).
@@ -121,7 +122,7 @@ affect this formula: the KK reduction is a local
 computation (the Einstein--Hilbert integrand is a
 density), and the $\mathbb{Z}_N$ orbifold singularities
 have zero measure.
-The flux quantisation $\oint dA = \pi N$ is
+The flux quantization $\oint dA = \pi N$ is
 determined by the orbifold Euler class $e = N/2$,
 which is a topological invariant of the Seifert
 fibration (unchanged by resolving or smoothing the
@@ -132,7 +133,7 @@ cone points).
 The physical four-dimensional cosmological constant is
 $\Lambda_4 = \Lambda_3/\ell^2$,
 where $\ell$ is the $\mathbf{H}^2$ curvature radius
-(determined by the $N = 11$ tunnelling action,
+(determined by the $N = 11$ tunneling action,
 Theorem~\ref{thm:cc}).
 The ratio $\Omega_\Lambda/\Omega_{\mathrm{DM}}$ is
 dimensionless and $\ell$-independent.
@@ -442,24 +443,24 @@ $v = M_P / \exp(38.444) = 245.9$\,GeV
 
 With the electroweak VEV $v = 245.9$\,GeV determined by the
 $N = 7$ hierarchy (Theorem~\ref{thm:hierarchy}), the $N = 11$
-tunnelling action fixes the curvature radius~$\ell$.
+tunneling action fixes the curvature radius~$\ell$.
 The following two lemmas isolate the subleading corrections
-to the tunnelling action; the main theorem references them.
+to the tunneling action; the main theorem references them.
 
 \begin{lemma}[One-loop determinant correction is $-\gamma/2$]
 \label{lem:one-loop}
-The one-loop functional determinant of the tunnelling
+The one-loop functional determinant of the tunneling
 amplitude contributes $\delta(\ln A) = -\gamma/2$
 to the exponent, where $\gamma = 0.5772\ldots$ is the
 Euler--Mascheroni constant.
 \end{lemma}
 
 \begin{proof}
-The tunnelling amplitude is
+The tunneling amplitude is
 $A = e^{-S}\bigl(\det'(-\partial^2 + V'')/\det(-\partial^2+\omega^2)
 \bigr)^{\!-1/2}$,
 with $\det'$ the zero-mode-removed functional determinant.
-The ratio is computed via spectral zeta regularisation:
+The ratio is computed via spectral zeta regularization:
 $\ln(\det'/\det) = -\zeta'_{\mathrm{rel}}(0)$.
 The BF threshold at $c = 1$ has spectral flow $\mathrm{SF} = 1$.
 \emph{Proof of $\mathrm{SF} = 1$}:
@@ -515,7 +516,7 @@ The Seeley--DeWitt coefficients are:
 $a_0' = (2c)^{1/2}/(4\pi)^{1/2}$
 (volume, identical for $H$ and $H_0$ since both
 act on the same half-line),
-and $a_1'$ is determined by the \emph{regularised}
+and $a_1'$ is determined by the \emph{regularized}
 potential integral
 $\int_0^\infty [V(\rho) - V_{\mathrm{asymp}}(\rho)]\,d\rho$,
 where $V_{\mathrm{asymp}} = \rho + \ln 2 + b - f$
@@ -523,7 +524,7 @@ is the large-$\rho$ asymptote.
 Since $V - V_{\mathrm{asymp}}
 = \log(2\sinh\rho) - \rho - \ln 2
 = \log(1 - e^{-2\rho})$---independent of $f$---the
-regularised integral is $\int_0^\infty\!\log(1{-}e^{-2\rho})\,
+regularized integral is $\int_0^\infty\!\log(1{-}e^{-2\rho})\,
 d\rho = -\pi^2/12$
 (a standard Bose--Einstein integral)
 for \emph{both} $H$ and $H_0$.
@@ -618,7 +619,7 @@ $N = 11$ Born--Oppenheimer tunneling action:
 \end{equation}
 where $S_{\mathrm{BO}}(11) = 102.724$ is the WKB tunneling action of the
 $N = 11$ breathing-mode potential, $\gamma = 0.5772\ldots$ is the
-Euler--Mascheroni constant (from Green's function regularisation),
+Euler--Mascheroni constant (from Green's function regularization),
 $c_{11} = 12\,b(11) = 126.56$, and $v = 245.9$\,GeV (from the
 $N = 7$ hierarchy, Theorem~\ref{thm:hierarchy}).
 This gives:
@@ -652,7 +653,7 @@ Each step uses only the output of the previous step.
 
 \paragraph{Physical mechanism.}
 The $\mathbf{H}^2$ curvature radius~$\ell$ is the scale at which
-the $N = 11$ cosmological sector undergoes BO tunnelling from the
+the $N = 11$ cosmological sector undergoes BO tunneling from the
 unstable flat-plane configuration ($\rho = 0$) to the stable
 polygon at~$\rho^*_{11}$.
 In the WDW equation $[-1/(2c)\,\Psi'' + V(\rho)\,\Psi = 0]$,
@@ -761,7 +762,7 @@ $8^2 - 7 \times 3^2 = 1$ that controls the electroweak hierarchy.
 The $N - 2$ angular Havelock modes with $m \ne m^*$
 are \emph{frozen}: their eigenvalues $\lambda_m > 0$ at
 the BF threshold prevent them from participating in
-breathing-mode tunnelling, so they contribute only through
+breathing-mode tunneling, so they contribute only through
 their one-loop determinant.
 The partition function $Z = e^{-F}$ of the BO
 breathing mode then has three contributions:
@@ -776,9 +777,9 @@ breathing mode then has three contributions:
 \end{align}
 The decomposition is \emph{canonical}: each term arises from
 a distinct order of the saddle-point expansion
-(classical action, Gaussian fluctuation, tunnelling correction).
+(classical action, Gaussian fluctuation, tunneling correction).
 No freedom exists in assigning terms to orders.
-The \emph{physical labelling}
+The \emph{physical labeling}
 (DE $\leftrightarrow$ tree, DM $\leftrightarrow$ one-loop,
 baryon $\leftrightarrow$ non-perturbative)
 follows from the equation of state of each term:
@@ -817,16 +818,16 @@ follows from the equation of state of each term:
   $T_{\mu\nu} = \rho_E\,u_\mu u_\nu$ with $p = 0$
   (cold dark matter).
 \item $F_{\mathrm{M}}$ is the non-perturbative
-  WDW mass gap (the tunnelling amplitude), localised and
-  thermalised below $T_{\mathrm{EW}}$: baryonic matter ($w = 0$).
+  WDW mass gap (the tunneling amplitude), localized and
+  thermalized below $T_{\mathrm{EW}}$: baryonic matter ($w = 0$).
 \end{itemize}
 The equation-of-state assignment is determined by the
 saddle-point order: constant ($w = {-}1$),
-frozen massive ($w = 0$), localised tunnelling ($w = 0$).
+frozen massive ($w = 0$), localized tunneling ($w = 0$).
 No freedom exists in assigning terms to cosmological
 components.
 The radion contribution $N/4$ in~\eqref{eq:F-DE} is the zero-point
-energy of the $S^1$ fiber modulus, stabilised at unit radius by
+energy of the $S^1$ fiber modulus, stabilized at unit radius by
 the flux~$N/2$: the radion mass is $M_{\mathrm{rad}} = N/2$,
 giving $(1/2)M_{\mathrm{rad}} = N/4$.
 This is determined by the geometry.
@@ -892,7 +893,7 @@ $K^{2n}$ times an $n$-dependent prefactor) because
 the CS action on the Seifert manifold is additive
 across flat connections: the $n$-th flat connection
 has Chern--Simons invariant $\mathrm{CS}_n = n \times
-\mathrm{CS}_1$ (mod~$\mathbb{Z}$), so the tunnelling
+\mathrm{CS}_1$ (mod~$\mathbb{Z}$), so the tunneling
 exponent is $e^{-2\pi n \,k_{\mathrm{frac}}} = K^n$.
 The instanton--anti-instanton pair has amplitude $K^n
 \times K^n = K^{2n}$.
@@ -905,7 +906,7 @@ property of analytic torsion on product connections
 Combined with the alternating sign: the $n$-th term
 is $(-1)^n |\tau_1|^n K^{2n} = (-1)^n (|\tau_1| K^2)^n$.
 Since $|\tau_1| \approx 1$ (the torsion of the trivial
-connection is normalised) and $K = 0.548$:
+connection is normalized) and $K = 0.548$:
 the effective expansion parameter is $K^2 = 0.300$.
 This gives the geometric resummation
 \begin{equation}\label{eq:mass-gap-resum}
@@ -974,7 +975,7 @@ maps the quantum ground-state probability $|\Psi_0(\rho)|^2$
 to the classical Boltzmann weight $e^{-\beta V}/Z$,
 and the one-loop determinant
 $Z_{\mathrm{frozen}} = \prod_{m \ne m^*}|\lambda_m|^{-1/2}$
-evaluated at the tunnelling threshold gives the
+evaluated at the tunneling threshold gives the
 number density of each species:
 $n_k \propto |\lambda_k|^{-1/2}$.
 The equal energy density follows from \emph{equipartition}:
@@ -1049,7 +1050,7 @@ is \emph{independent of~$\alpha$}: a universal constant
   \qquad\text{(shooting method + Richardson extrapolation;
   see Code Availability)}.
 \end{equation}
-The WKB quantisation condition for the log potential
+The WKB quantization condition for the log potential
 $V(x) = \ln x$ on $(0,\infty)$ with $\Psi(0) = 0$ is
 \[
   \int_0^{x_n}\!\sqrt{2\alpha(\varepsilon_n - \ln x)}\,dx
@@ -1109,7 +1110,8 @@ of the $H_0$ tension.
 Since $\Omega_b = \Omega_b h^2 / h^2$, the prediction
 is sensitive to the Hubble tension: the $0.40$\,pp residual
 ($4.53\%$ vs.\ $4.93\%$) corresponds to an $8\%$ relative
-error on~$\Omega_b$ for a theory with one discrete input.
+error on~$\Omega_b$ for a theory with two discrete axioms
+and zero continuous parameters.
 \end{remark}
 
 %% ====================================================================
@@ -1153,7 +1155,7 @@ than the SM Jarlskog invariant $J \approx 3 \times 10^{-5}$.
 The Born--Oppenheimer potential $V_7(\rho)$ has a barrier
 ($S_{\mathrm{BO}} = 18.3$, \S\ref*{IV-sec:loops}).
 The EWPT order parameter is determined by the ratio of the
-tunnelling action to the central charge:
+tunneling action to the central charge:
 \begin{equation}\label{eq:v-over-Tc}
   \frac{v(T_c)}{T_c}
   = \sqrt{\frac{2\,S_{\mathrm{BO}}}{c}}
@@ -1195,7 +1197,7 @@ the specific $v/T_c = 0.84$ from eq.~\eqref{eq:v-over-Tc}
 constrains the BSM sector to the BO barrier shape.
 
 \paragraph{$N$-selection gravitational wave signal.}
-The cosmological $N$-selection transition (the tunnelling from the
+The cosmological $N$-selection transition (the tunneling from the
 symmetric configuration to the $N = 11$ polygon at $\rho^*_{11} = 4.45$)
 is also first-order, with order parameter
 $v_N/T_N = \sqrt{2\,S_{\mathrm{BO}}(11)/c_{11}}
@@ -1246,7 +1248,7 @@ of this section.
 At central lattice values ($\kappa = 20$, $\Gamma_y = 0.2\,y_t^2\,T$),
 $\eta_B/\eta_B^{\mathrm{obs}} \approx 3$.
 Agreement requires both $\kappa$ and $\Gamma_y$ to shift
-in their favourable directions ($\kappa = 10$,
+in their favorable directions ($\kappa = 10$,
 $\Gamma_y = 0.3$, giving $\eta_B/\eta_B^{\mathrm{obs}} = 1.1$).
 This lattice dependence is shared by all electroweak
 baryogenesis models.
@@ -1287,7 +1289,7 @@ One calibration input ($\Delta m^2_{\mathrm{atm}}$) pins
 $M_{\mathrm{poly}}$; $M_{\mathrm{KK}}$ is then determined by~$N = 7$.
 
 The Dirac seesaw $m_\nu = m_D^2/M_{\mathrm{KK}}$ with Dirac masses
-from properly normalised radial profiles on~$\mathbf{H}^2$
+from properly normalized radial profiles on~$\mathbf{H}^2$
 (at warp parameter $\rho^* = 1.734$) gives:
 \begin{center}
 \small
@@ -1344,12 +1346,12 @@ where $\sigma$ is the $S^1$ radius (not the inverse),
 $N^2/(8\sigma^2)$ is the flux energy,
 $c_{11}/(12\sigma)$ is the Casimir energy,
 and $\Lambda\,\sigma$ is the cosmological term.
-The potential is stabilised at $\sigma_{\min} \approx 1.35$
+The potential is stabilized at $\sigma_{\min} \approx 1.35$
 (for $N = 11$) and grows linearly for large~$\sigma$:
 $V \approx \Lambda\,\sigma$.
 
 The radion's initial value is set by the $N$-selection
-tunnelling (\S\ref{sec:n-selection}): the BO breathing mode
+tunneling (\S\ref{sec:n-selection}): the BO breathing mode
 tunnels at $\rho^*_{11} = 4.45$, at which the $S^1$ modulus
 takes the value $\sigma_{\mathrm{start}} = \rho^*_{11}/\ln\varepsilon_{11}
 \approx 3\,\sigma_{\mathrm{infl}}$.
@@ -1444,10 +1446,10 @@ and $\Psi \to 0$ exponentially.  The WKB action
 converges (numerically: $5.8$ oscillations for $N = 7$,
 $32.7$ for $N = 11$; see Code Availability).
 Classical spacetime begins at the turning point
-$\rho = \rho^*$, where the $S^1$ fibre becomes a physical
+$\rho = \rho^*$, where the $S^1$ fiber becomes a physical
 spatial dimension and Lorentzian time emerges from the
 WKB phase.
-The Born--Oppenheimer tunnelling action $2S = 36.548$
+The Born--Oppenheimer tunneling action $2S = 36.548$
 (eq.~\eqref{eq:ell-cc}) determines the amplitude.
 The wave function is unique
 (Remark~\ref{III-rmk:wdw-uniqueness}): the CMS integrability
@@ -1482,7 +1484,7 @@ $10^{-4}$; Code Availability).
 For $\rho < \rho^*$: the critical mode is inverted
 ($\lambda_{m^*} < 0$), the effective temperature
 is negative, and the regular polygon is the
-entropy-maximising macrostate.
+entropy-maximizing macrostate.
 At creation ($\rho = \rho^*$), the gravitational
 entropy is
 $S_{\mathrm{grav}} = S_{\mathrm{1\text{-}loop}}
@@ -1505,7 +1507,7 @@ boundary CFT at the Gibbons--Hawking temperature.
 Their ratio measures the non-perturbative state-counting
 enhancement (Virasoro descendants beyond the Gaussian sector).
 The initial low gravitational entropy is not fine-tuned but
-follows from the tunnelling occurring at the
+follows from the tunneling occurring at the
 negative-to-positive temperature boundary.
 The Weyl curvature hypothesis \citep{Penrose1979} is
 automatic.
@@ -1544,7 +1546,7 @@ the ordered initial state.
 
 The $N = 11$ polygon, uniquely selected by KK flux additivity
 (Theorem~\ref{thm:n-selection}), determines the cosmological
-energy budget through the Born--Oppenheimer tunnelling action.
+energy budget through the Born--Oppenheimer tunneling action.
 The strongest results are the $\ell$-independent ratios:
 $\Omega_\Lambda/\Omega_{\mathrm{DM}} = 2.56$
 (Planck: $2.57$, $0.5\%$) and
@@ -1561,7 +1563,7 @@ Five falsifiable predictions --- normal neutrino hierarchy,
 $w = -1$ exactly, no $0\nu\beta\beta$ decay,
 $\Omega_k = 0$ exactly (\S\ref{sec:geometry-initial}),
 and no initial singularity
-(replaced by quantum tunnelling at $\rho = \rho^*$) --- are
+(replaced by quantum tunneling at $\rho = \rho^*$) --- are
 tested by JUNO, Euclid, nEXO, CMB-S4, and future
 quantum-gravity phenomenology respectively.
 The full parameter accounting appears in Paper~VII.
