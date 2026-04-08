@@ -2281,22 +2281,26 @@ numbers enter: the $\mathrm{SU}(2)$ level $k = 1$ and dual Coxeter
 number $h^\vee = 2$ (so $k + h^\vee = 3$), and the $\mathrm{U}(1)$
 level $K = 1$.
 
-The mixing angle in Chern--Simons theory is:
+The mixing angle is the ratio of two conformal weights,
+each determined by the polygon:
 \[
-  \sin^2\theta_W = \frac{Q^2/K}{Q^2/K + j(j+1)/(k + h^\vee)}.
+  \sin^2\theta_W = \frac{Q^2/k_Y}{Q^2/k_Y + f(m^*,N)/(k + h^\vee)}.
 \]
-Substitute:
+The number $f(2,4) = 2$ is the Havelock eigenvalue of the $N=4$
+polygon at its critical mode $m^* = 2$. It is an eigenvalue of the
+$\mathbf{H}^2$ Laplacian, computed in Paper I. No representation
+label $j$ is needed. The charge $Q = m^*/N = 2/4 = 1/2$ is the
+Kaluza-Klein momentum. Substituting:
 \[
-  \sin^2\theta_W = \frac{(1/2)^2 / 1}{(1/2)^2/1 + 1 \cdot 2/3}
+  \sin^2\theta_W = \frac{(1/2)^2 / 1}{(1/2)^2/1 + 2/3}
   = \frac{1/4}{1/4 + 2/3}
   = \frac{1/4}{11/12}
   = \frac{3}{11}
   = 0.2727.
 \]
-Every number in that calculation ($Q$, $K$, $j$, $k$, $h^\vee$) is
-determined by the polygon. $Q$ and $j$ come from the Havelock Casimir
-at $N = 4$. The levels $k = K = 1$ are forced by the orbifold
-construction. The dual Coxeter number $h^\vee = 2$ is a property of
+Every number in that calculation ($Q$, $k_Y$, $f(2,4)$, $k$, $h^\vee$) is
+determined by the polygon. The levels $k = k_Y = 1$ are forced by the
+orbifold construction. The dual Coxeter number $h^\vee = 2$ is a property of
 $\mathrm{SU}(2)$. Nothing is adjusted.
 
 The prediction $3/11 = 0.2727$ is at the polygon scale, not at the
@@ -2392,15 +2396,29 @@ parity-invariant, so the gauge theory it generates is not either.
 The strong force requires the longest derivation. It proceeds
 through five algebraic steps.
 
-\textbf{Step 1: The Frobenius action.} The multiplicative group of
-integers modulo $7$ (the nonzero elements $\{1, 2, 3, 4, 5, 6\}$
-under multiplication mod~$7$) has a unique subgroup of order~$3$:
-$\{1, 2, 4\}$. The map $m \mapsto 2m \bmod 7$ generates this subgroup,
-and it partitions the six Havelock modes into two orbits:
-$O_+ = \{1, 2, 4\}$ and $O_- = \{3, 5, 6\}$. The Havelock Casimirs
-of each orbit are $\{3, 5, 6\}$ and $\{6, 5, 3\}$, the same set,
-just reordered. This is not a coincidence; it is forced by the
-Frobenius symmetry.
+\textbf{Step 1: The Frobenius action (derived, not chosen).}
+The multiplicative group of integers modulo $7$ (the nonzero
+elements $\{1, 2, 3, 4, 5, 6\}$ under multiplication mod~$7$)
+is isomorphic to $\mathbb{Z}/6\mathbb{Z}$. It has exactly four
+subgroups. Three are excluded:
+\begin{itemize}
+\item The trivial subgroup $\{1\}$: no gauge symmetry.
+\item $\{1, 6\}$ (the map $m \mapsto 7-m$): this is conformal
+  inversion on the Poincar\'e disk, which reverses the fiber
+  orientation. It is the CP operator (charge conjugation times
+  parity), already a symmetry of the spectrum. Using it as a
+  gauge symmetry would conflate color with matter/antimatter.
+\item The full group $\{1,2,3,4,5,6\}$: gives a single orbit
+  of size~$6$ with no conjugate pair (no $3 + \bar{3}$).
+\end{itemize}
+The unique remaining subgroup is $\{1, 2, 4\}$, of order~$3$.
+The map $m \mapsto 2m \bmod 7$ generates it, partitioning the
+six Havelock modes into two orbits:
+$O_+ = \{1, 2, 4\}$ and $O_- = \{3, 5, 6\}$.
+The CP operator exchanges them ($O_- = 7 - O_+$), making
+them a genuine $3 + \bar{3}$ conjugate pair.
+The Havelock Casimirs of each orbit are $\{3, 5, 6\}$, the
+same set. The gauge symmetry is exact at all orders.
 
 \textbf{Step 2: The McKay correspondence.} The Frobenius map acts as a
 cyclic permutation of order~$3$ on each orbit: $\phi_1 \mapsto \phi_2
@@ -3555,14 +3573,20 @@ are identifications, not theorems. The distinction matters.
   maximal parity violation in weak decays. The Seifert structure
   is the only survivor.
 
-\item \emph{The BF threshold.} The Breitenlohner--Freedman bound on
-  $\mathbf{H}^2$ gives the scalar spectrum $M^2 \ge -1/4$. The first
-  Kaluza--Klein mode above this threshold has a bulk mass parameter
-  $\mu_4 = 1$. The weak isospin splitting $T_3 = \pm 1/2$ gives two
+\item \emph{The BF threshold.} The Breitenlohner-Freedman bound on
+  $\mathbf{H}^2$ gives the Dirac spectrum $\Delta = |\mu| + 1/2$
+  (the 1/2 is the spin contribution, standard for fermions).
+  The stability boundary is at $\Delta = 1$, giving $|\mu| = 1/2$
+  (massless). The ground state of the massive sector is $|\mu| = 1$,
+  $\Delta = 3/2$: the lightest fermion that is not massless.
+  Higher levels ($|\mu| = 2, 3, \ldots$) are heavier by the
+  Kaluza-Klein scale and decouple at low energies.
+  So $\mu_4 = 1$ is the Dirac ground state on $\mathbf{H}^2$,
+  not a choice.
+  The weak isospin splitting $T_3 = \pm 1/2$ gives two
   branches: $\mu_4 = 1/2$ (the heaviest generation, conformal profile)
   and $\mu_4 = 3/2$ (the lighter generations, exponentially
-  suppressed). The value $\mu_4 = 1$ is determined by the
-  $\mathbf{H}^2$ spectrum, not selected by hand. At $\mu_4 = 0$, all
+  suppressed). At $\mu_4 = 0$, all
   generations would be degenerate. At $\mu_4 = 2$, the bottom-to-top
   mass ratio drops to $10^{-4}$, two orders of magnitude too small.
 
