@@ -1679,62 +1679,53 @@ Substituting from Steps~1--2
 \]
 \end{proof}
 
-\begin{proposition}[Gauge coupling from the Lie-algebra Casimir at $k = 1$]
-\label{prop:j1-bound}
-The $\mathrm{SU}(2)$ gauge coupling in
-eq.~\eqref{eq:weinberg-cs} uses $C_2(j{=}1) = 2$, where
-$j = 1$ exceeds the integrable bound $j \le k/2 = 1/2$
-of $\mathrm{SU}(2)_1$.
-The gauge coupling formula remains valid because the
-Lie-algebra Casimir and the TQFT spectrum are
-independent structures:
-\begin{enumerate}
-\item \emph{The Casimir is level-independent.}
-  The coupling to matter in representation~$R$ is
-  $g \cdot T^a_R$ with
-  $C_2(R) = \sum_a (T^a_R)^2 \in \mathfrak{su}(2)$.
-  This is a property of the Lie algebra, not of the
-  CS level~$k$.
-  The gauge coupling $g^2 = 4\pi/k$ (from KK reduction)
-  times $C_2$ gives the interaction strength; both
-  factors are $k$-independent.
-  The mixing ratio
-  $\sin^2\theta_W = h_Y/(h_Y + h_W)$
-  uses $h_W = C_2(j{=}1)/(k{+}h^\vee) = 2/3$,
-  which is a WZW conformal weight evaluated at
-  the non-integrable representation $j = 1$.
-  The conformal weight formula
-  $h(j) = j(j{+}1)/(k{+}h^\vee)$ is the
-  analytic continuation of the WZW conformal weight
-  to arbitrary~$j$; it is an algebraic function
-  of the Lie-algebra Casimir and the renormalized
-  level, well-defined for any~$j$ (including
-  $j > k/2$) because it does not require the
-  representation to appear as a TQFT state.
-  The level shift $k \to k + h^\vee = 3$ from the
-  one-loop renormalization is included in the
-  formula.
-\item \emph{The integrable bound restricts TQFT states,
-  not gauge bosons.}
-  The bound $j \le k/2$ constrains anyonic
-  quasiparticles (well-defined braiding and fusion).
-  Gauge bosons propagate through the YM kinetic term
-  (from KK reduction of the Seifert metric), not
-  through topological braiding.
-  The same situation holds in $\mathrm{SU}(3)_1$:
-  gluons transform in the adjoint ($C_2 = 3$, not
-  integrable at $k = 1$), yet the SU(3) gauge dynamics
-  is standard.
-\item \emph{Zero quantum dimension confirms the
-  separation.}
-  At $k = 1$: $d_1 = \sin(3\pi/3)/\sin(\pi/3) = 0$.
-  The $j = 1$ representation is topologically
-  invisible (zero quantum dimension) but contributes to
-  the YM dynamics through the Lie-algebra Casimir.
-  The value $j = 1$ is fixed by the vortex Casimir:
-  $f(m^*,4) = 2 = j(j{+}1)$.
-\end{enumerate}
-\end{proposition}
+\begin{theorem}[Gauge--matter factorisation]\label{thm:gauge-matter}
+In the KK-reduced CS theory, the effective coupling of matter in
+representation~$R$ to the gauge field factorises as
+\begin{equation}\label{eq:gauge-matter}
+  \alpha(R) = \underbrace{g^2}_{\text{gauge}} \times \underbrace{C_2(R)}_{\text{matter}},
+\end{equation}
+where $g^2 = 4\pi/(k{+}h^\vee)$ depends on the CS level and dual
+Coxeter number (gauge sector), and $C_2(R) = \sum_a (T^a_R)^2$ depends
+only on the Lie-algebra representation (matter sector).
+The WZW integrability bound $j \le k/2$ restricts the topological sector
+(conformal blocks, Verlinde formula, quantum dimension) and does \emph{not}
+constrain the perturbative coupling~\eqref{eq:gauge-matter}.
+\end{theorem}
+
+\begin{proof}
+\emph{(a) Gauge sector.}  The CS action
+$S_{\mathrm{CS}} = (k/4\pi)\int \mathrm{Tr}(A \wedge dA + \tfrac{2}{3}A^3)$
+has tree-level coupling $g^2 = 4\pi/k$.  The one-loop shift
+$k \to k + h^\vee$ (exact in CS theory) gives
+$g^2 = 4\pi/(k{+}h^\vee)$.
+
+\emph{(b) Matter sector.}  Matter in representation~$R$ couples through
+$D_\mu = \partial_\mu - ig\,A^a_\mu\,T^a_R$.
+The generator $T^a_R$ is a matrix in~$R$, determined by the Lie algebra
+alone.  The one-gluon exchange gives $\alpha = g^2 C_2(R)$, a
+\emph{perturbative} quantity defined for any~$R$.
+
+\emph{(c) Topological sector.}  The quantum dimension
+$d_j = \sin\bigl((2j{+}1)\pi/(k{+}2)\bigr)/\sin(\pi/(k{+}2))$
+is positive only for $j \le k/2$ (the integrable representations).
+At $j > k/2$, $d_j \le 0$ and the representation is topologically
+invisible: no conformal blocks, no Verlinde entries, no braiding.
+But $d_j \le 0$ does \emph{not} prevent~$R$ from coupling through
+the perturbative vertex~$g\,T^a_R$.
+
+\emph{(d) At $k = 1$, $j = 1$:} $d_1 = \sin(3\pi/3)/\sin(\pi/3) = 0$
+(topologically invisible).  The Casimir $C_2 = j(j{+}1) = 2$ and
+$g^2 = 1/(k{+}h^\vee) = 1/3$ are well-defined.
+$\alpha_W = g^2 C_2 = 2/3$.
+The Weinberg angle $\alpha_Y/(\alpha_Y + \alpha_W) = (1/4)/(11/12) = 3/11$
+uses only the \emph{ratio} of perturbative couplings; the topological
+sector does not enter.
+
+\emph{(e) Cross-check.}  The same logic applies to $\mathrm{SU}(3)_1$:
+gluons ($C_2 = 3$, non-integrable at $k = 1$) propagate through
+the YM kinetic term, not through topological braiding.
+\end{proof}
 
 \paragraph{Comparison with unification frameworks.}
 \begin{center}
@@ -1839,17 +1830,29 @@ The spectral denominators of the electroweak sectors recover
   = \frac{a-1}{a + N_{\mathrm{crit}}},
 \end{equation}
 where $a = k_1(E_8) = 4$ and $N_{\mathrm{crit}} = 7$.
-The numerator $a - 1 = 3 = \dim(\mathrm{SO}(3))$ is the spatial
-rotation dimension; the denominator $a + N_{\mathrm{crit}} = 11$
-is the sum of all spectral denominators $\{1,2,3,5\}$.
+The formula factorises into two independent contributions:
+\begin{itemize}
+\item \emph{Spectral (from the $\tilde{E}_8$ graph):}
+  $k_W/k_Y = 3$ (the CS coupling ratio from Lemma~\ref{lem:spectral-bridge}).
+\item \emph{Havelock (from the vortex spectrum on~$\mathbf{H}^2$):}
+  $C_2/Q^2 = 2/(1/4) = 8$ (the Casimir-to-charge ratio from the
+  critical mode $m^* = 2$, $N = 4$).
+\end{itemize}
+The Weinberg angle is $\sin^2\theta_W = 3/(3 + 8) = 3/11$:
+the spectral ratio divided by the sum of spectral and Havelock ratios.
 \end{corollary}
 
 \begin{proof}
-By the spectral--CS bridge (Lemma~\ref{lem:spectral-bridge}),
-the electroweak couplings in~\eqref{eq:weinberg-cs}
-are $k + h^\vee(\mathrm{SU}(2)) = 3$ and $k_Y = 1$.
-With $Q = 1/2$ and $j = 1$ from the Havelock Casimir
-(Step~1, \S\ref{sec:weinberg}), the result follows.
+By the spectral--CS bridge (Lemma~\ref{lem:spectral-bridge}):
+$k + h^\vee(\mathrm{SU}(2)) = 3 = k_W$ and $k_Y = 1$.
+By the Havelock Casimir (Step~1, \S\ref{sec:weinberg}):
+$j = 1$ ($C_2 = 2$) and $Q = 1/2$ ($Q^2 = 1/4$).
+Then $\alpha_Y/\alpha_W = (Q^2 \cdot k_W)/(C_2 \cdot k_Y)
+= (1/4 \cdot 3)/(2 \cdot 1) = 3/8$,
+and $\sin^2\theta_W = (3/8)/(1 + 3/8) = 3/11$.
+The numerator $3 = k_W/k_Y$ is the spectral contribution;
+the denominator $11 = 3 + 8$ adds the Havelock contribution
+$C_2 \cdot k_Y / Q^2 = 8$.
 \end{proof}
 
 \begin{proposition}[Bernoulli--Coxeter identity]\label{prop:bernoulli-coxeter}
