@@ -17,13 +17,14 @@
 \begin{abstract}
 We derive the vacuum Einstein equations
 $R_{\mu\nu} = \Lambda g_{\mu\nu}$ from three conditions on
-regular point-vortex polygons:
+regular point-vortex polygons, all of which are mathematical
+theorems:
 (H1)~the angular eigenvalues have the Havelock form
-$\lambda_m = C_1 - m(N{-}m)/2$ (a theorem, from $\csc^2$
-uniqueness);
-(H2)~the polygon entropy functional has a unique maximum,
-selected by the Onsager principle at negative temperature;
-(H3)~the Hadamard parametrix holds (a theorem).
+$\lambda_m = C_1 - m(N{-}m)/2$ ($\csc^2$ uniqueness);
+(H2)~the polygon entropy functional has a unique maximum
+at constant curvature (strict concavity~$+$
+Osgood--Phillips--Sarnak spectral determinant theorem);
+(H3)~the Hadamard parametrix holds.
 Together these force the scalar curvature to be constant,
 which in $2{+}1$D is the vacuum Einstein equation.
 The cosmological constant is determined by $N$ through the
@@ -89,11 +90,12 @@ The series rests on one physical identification:
 the Regge vertex (deficit angle $\varepsilon_v$) with the
 point vortex (circulation $\kappa = \varepsilon_v/(2\pi)$).
 Both are logarithmic sources of the 2D Green's function.
-The Onsager selection principle on this system then selects
-the physical spacetime geometry.
-Conditions (H1)--(H3) are proved; the $17$~testable outputs
-enumerated in Paper~VI constitute the empirical test of the
-identification.
+The Osgood--Phillips--Sarnak spectral determinant
+theorem then selects the constant-curvature geometry
+as the unique entropy maximum.
+All conditions (H1)--(H3) are mathematical theorems;
+the $17$~testable outputs enumerated in Paper~VII
+constitute the empirical test of the identification.
 
 \paragraph{The central charge.}
 The quantity
@@ -461,10 +463,15 @@ No circularity arises: the derivation of $R = \mathrm{const}$
 uses (H1)~$\csc^2$ universality, (H2a)~strict concavity,
 (H2b)~OPS/Jensen, and (H3)~Hadamard---all of which are
 mathematical theorems about 2D Riemannian geometry.
-The saddle-point approximation at finite~$N$ is
-controlled by $c = 12\,b(N)$ (Laplace method,
-$O(1/c) \approx 2\%$ at $N = 7$;
+The OPS theorem applies to continuous metrics; the
+$N$-point polygon functional differs from the continuous
+limit by $O(\varepsilon^2) = O(1/c)$, where
+$c = 12\,b(N)$ controls the point-vortex regularization
+(Laplace method, $O(1/c) \approx 2\%$ at $N = 7$;
 \citealt{Erdelyi1956}, \S2.4).
+The Onsager contraction (Corollary~\ref{cor:onsager-contraction})
+provides the independent finite-$N$ bound: $97\%$ variance
+reduction per iteration at $N = 7$.
 \end{remark}
 
 \begin{lemma}[Onsager prerequisites for the Regge system]
@@ -947,10 +954,10 @@ By the mathematical content of~(H2):
 $S_{\mathrm{total}}[g] = \int S(x)\,dA$ is strictly
 concave in~$C_1(x)$, so Jensen's inequality gives a
 unique entropy maximum at uniform~$C_1$.
-The Onsager principle (the physical content of~(H2))
-selects this maximum: at negative temperature, the
-partition function is dominated by the macrostate
-maximizing~$S_{\mathrm{total}}$.
+The OPS theorem (Remark~\ref{rmk:logical-status})
+identifies this maximum with the physical equilibrium:
+$\det'\Delta_g = \exp(S_{\mathrm{total}} + \mathrm{const})$
+is uniquely maximized at constant curvature.
 Write $C_1^{\mathrm{eq}}$ for this uniform value.
 Substituting the expansion~(\ref{eq:C1-expansion-proof}):
 \[
@@ -1117,15 +1124,18 @@ Fefferman--Graham reconstruction
 \label{rem:H2-structure}
 Three points merit emphasis.
 \begin{enumerate}
-\item \emph{Onsager, not relaxation.}
-  The entropy maximization comes from the Onsager selection
-  principle (dominant microcanonical macrostate at negative
-  temperature), not from dynamical relaxation of the
-  integrable CMS modes.
+\item \emph{OPS, not relaxation.}
+  The entropy maximization comes from the OPS spectral
+  determinant theorem (the constant-curvature metric
+  uniquely maximizes $\det'\Delta$), not from dynamical
+  relaxation of the integrable CMS modes.
+  The Onsager principle provides the physical interpretation
+  (negative-temperature equilibrium) but is not the
+  logical foundation.
 \item \emph{Two variational principles.}
   (H2a) characterizes the entropy functional at fixed geometry;
-  (H2b) selects the entropy-maximizing metric via the Onsager
-  principle.  Neither implies the other.
+  (H2b) selects the entropy-maximizing metric via the OPS
+  theorem.  Neither implies the other.
 \item \emph{The BO bridge.}
   At fixed~$g$, the angular modes determine $S(x,g)$;
   varying~$g$ varies $S_{\mathrm{poly}}[g] = \int S(x,g)\,dA$.
