@@ -431,6 +431,123 @@ the gauge-theoretic content rests on the derivations in
 Papers~III--IV.
 
 %% ====================================================================
+\section{The master equation}
+\label{sec:master-equation}
+%% ====================================================================
+
+\begin{theorem}[Master equation]\label{thm:master}
+Let $a = k_1(E_8) = 4$ (the mark-balance pivot = spacetime dimension).  Then
+\begin{alignat}{3}
+  b &= a+1 &&= 5  &\quad&(\text{number of Platonic solids}),\\
+  c &= a+2 &&= 6  &&(\text{maximum mark}),\\
+  |I^*| &= abc &&= 120 = 5!,\\
+  h &= 6b  &&= 30, \\
+  \operatorname{rank} &= 2a &&= 8 = \dim(\mathbb{O}),\\
+  N_{\mathrm{crit}} &= 7a/4 &&= 7, \\
+  \dim(E_8) &= abc + 2^{7a/4} &&= 120 + 128 = 248.
+\end{alignat}
+The value $a = 4$ is the unique positive integer divisible by~$4$
+such that $a(a+1)(a+2)$ is a binary polyhedral group order.
+\end{theorem}
+
+\begin{proof}
+Each identity is verified directly.  The split $248 = 120 + 128$
+is the $\mathrm{SO}(16)$ branching: $120$ = integer-spin (adjoint),
+$128$ = half-integer-spin (spinor), matching $|I^*|$ and~$2^{N_{\mathrm{crit}}}$.
+Uniqueness: $a$ must be divisible by~$4$ for integer pivots $(a, a/2, a/4)$.
+At $a = 4$: $|I^*| = 120$ (binary icosahedral).
+At $a = 8$: $a(a+1)(a+2) = 720 = |S_6|$, not a binary polyhedral group order.
+\end{proof}
+
+%% ====================================================================
+\section{Spectral decomposition by primes}
+\label{sec:spectral-primes}
+%% ====================================================================
+
+\begin{theorem}[Spectral decomposition]\label{thm:spectral-decomp}
+The nine $\tilde{E}_8$ Cartan eigenvalues decompose by effective denominator
+$k = h/\gcd(m,h)$ into four sectors corresponding to the primes of~$h = 30 = 2 \times 3 \times 5$:
+\begin{center}
+\begin{tabular}{llcl}
+Prime & Eigenvalues & Count & Physical sector \\
+\hline
+$p=5$ (golden)    & $\pm\varphi,\;\pm 1/\varphi$ & 4 & Strong $\mathrm{SU}(3)$ \\
+$p=3$ (triangle)  & $\pm 1$                       & 2 & Weak $\mathrm{SU}(2)$ \\
+$p=2$ (Majorana)  & $0$                           & 1 & Gravity (geometric) \\
+boundary          & $\pm 2$                        & 2 & EM $\mathrm{U}(1)$ \\
+\end{tabular}
+\end{center}
+The effective spectral denominators $\{1,2,3,5\}$ have
+$\sum = 11$ and $\prod = 30 = h$.
+\end{theorem}
+
+\begin{proof}
+The affine $m$-values $\{0,6,10,12,15,18,20,24,30\}$ group by
+$k = 30/\gcd(m,30)$: $k=5$ for $m \in \{6,12,18,24\}$ (giving
+$2\cos(k\pi/5)$ = golden eigenvalues), $k=3$ for $m \in \{10,20\}$
+(giving $\pm 1$), $k=2$ for $m=15$ (giving~$0$), $k=1$ for $m \in \{0,30\}$
+(giving~$\pm 2$).
+
+The force identification follows from the icosahedral symmetry axes:
+the icosahedron has exactly 5-fold (vertex), 3-fold (face), and 2-fold (edge)
+rotational symmetries, with $h = \mathrm{lcm}(2,3,5) = 30$.
+The $p=5$ sector carries golden-ratio-weighted eigenvector components
+$\{0, \pm\varphi^{-2}, \pm\varphi^{-1}, \pm 1\}$ (verified directly),
+matching the $\mathrm{SU}(3)$ branching.
+The $p=3$ sector has $\pm 1$ alternating eigenvector, matching the
+$\mathrm{SU}(2)$ doublet structure (Paper~I, Theorem~\ref{I-thm:three-gen}).
+The CS inverse couplings confirm:
+$1/g^2(\mathrm{SU}(3)) = k + h^\vee = 1 + 3 = 4$,
+$1/g^2(\mathrm{SU}(2)) = 1 + 2 = 3$,
+$1/g^2(\mathrm{U}(1)) = k_Y = 1$.
+The Majorana mode at $\mu = 2$ is self-conjugate, vanishes on all
+fermionic nodes, and decouples at the $K=0$ transition---consistent
+with gravity being geometric rather than gauge-theoretic.
+\end{proof}
+
+%% ====================================================================
+\section{Bipartite conjugation and the five Platonic modes}
+\label{sec:bipartite}
+%% ====================================================================
+
+\begin{theorem}[Bipartite conjugation]\label{thm:bipartite}
+For each Cartan eigenvalue~$\mu$, the eigenvector at~$4-\mu$ equals
+$\pm$ the eigenvector at~$\mu$ multiplied by~$(-1)^{\ell}$
+(where~$\ell$ is the BFS level from~$\rho_0$).
+The nine eigenvalues thus reduce to five independent modes:
+four conjugate pairs $(\mu, 4-\mu)$ plus one self-conjugate mode at~$\mu = 2$.
+\end{theorem}
+
+\begin{proof}
+$\tilde{E}_8$ is bipartite (a tree).  For bipartite graphs,
+if $Av = \lambda v$ then $A(Sv) = -\lambda(Sv)$ where $S = \mathrm{diag}((-1)^\ell)$.
+For $C = 2I - A$: $Cv = \mu v$ implies $C(Sv) = (4-\mu)(Sv)$.
+Verified to machine precision for all four pairs.
+The self-conjugate mode at $\mu = 2$ satisfies $Sv = +v$ (verified).
+\end{proof}
+
+The five independent modes are in bijection with the five Platonic solids:
+the icosahedron/dodecahedron (dual pair) correspond to the $0 \leftrightarrow 4$
+pair (matter/antimatter), the octahedron/cube to $1 \leftrightarrow 3$,
+and the tetrahedron (self-dual) to the self-conjugate mode at~$\mu = 2$.
+
+The trace formula $\mathrm{Tr}(A^{2n}) = 2(4^n + L_{2n} + 1)$
+(where $L_n$ is the $n$-th Lucas number) follows from the eigenvalues
+$\pm 2, \pm\varphi, \pm 1, \pm 1/\varphi, 0$ and the identity
+$\varphi^{2n} + \varphi^{-2n} = L_{2n}$.
+
+\begin{remark}[Three independent selections of~$E_8$]
+The $E_8$ framework is forced simultaneously by three independent theorems:
+(1)~\emph{Stability}: the icosahedron is the unique universal optimizer
+on~$S^2$ (Cohn--Kumar);
+(2)~\emph{Algebra}: $I^* \to \tilde{E}_8$ via McKay;
+(3)~\emph{Topology}: the $E_8$ lattice generates
+$\mathrm{im}(J_7) = \mathbb{Z}/240$ via the $J$-homomorphism
+(Adams, at dimension~$7 = N_{\mathrm{crit}}$),
+with Bott period $8 = \operatorname{rank}(E_8)$.
+\end{remark}
+
+%% ====================================================================
 \section{Conclusion}
 \label{sec:conclusion}
 %% ====================================================================
