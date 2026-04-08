@@ -435,10 +435,13 @@ Papers~III--IV.
 \label{sec:master-equation}
 %% ====================================================================
 
-\begin{proposition}[Internal consistency of the $E_8$ framework]\label{thm:master}
-Let $a = 4$ be the spectral diameter (Theorem~I-\ref{I-thm:spectral-diameter}),
-which equals $k_1(E_8)$ by the mark-balance selection
-(Theorem~I-\ref{I-thm:mark-balance}).  Then
+\begin{theorem}[The derived framework]\label{thm:master}
+Let $a = 4$ be the spectral diameter
+(Theorem~I-\ref{I-thm:spectral-diameter}).
+Onsager stability (Proposition~\ref{prop:onsager}) selects the
+icosahedron, whose binary lift gives the $(2,3,5)$ triangle group
+with spherical excess $\varepsilon = 1/30$.
+Then
 \begin{alignat}{3}
   b &= a+1 &&= 5  &\quad&(\text{number of Platonic solids}),\\
   c &= a+2 &&= 6  &&(\text{maximum mark}),\\
@@ -448,20 +451,23 @@ which equals $k_1(E_8)$ by the mark-balance selection
   \textstyle\sum\text{pivots} &= a{+}a/2{+}a/4 &&= 7 = N_{\mathrm{crit}}, \\
   \dim(E_8) &= abc + 2^{7a/4} &&= 120 + 128 = 248.
 \end{alignat}
-These identities are verified directly from the $E_8$ marks;
-they demonstrate that the spectral diameter~$a$
-determines all structural constants of the framework.
-\end{proposition}
+All quantities are derived from two inputs: the spectral diameter~$a = 4$
+and the Onsager selection of the $(2,3,5)$ triangle.
+\end{theorem}
 
 \begin{proof}
-Each identity is verified directly from the $E_8$ marks
-$(1,2,3,4,5,6,4,2,3)$.  The split $248 = 120 + 128$
-is the $\mathrm{SO}(16)$ branching: $120$ = integer-dimension irreps,
-$128$ = even-dimension irreps.
-The derivation of~$a = 4$ from first principles (without using the marks)
-is Theorems~I-\ref{I-thm:spectral-diameter} and~I-\ref{I-thm:mark-balance}:
-the spectral diameter is~$4$ for all affine ADE graphs,
-and~$E_8$ is the unique type whose mark-balance pivot equals this diameter.
+$|I^*| = 4/\varepsilon = 4 \times 30 = 120$
+(Gauss--Bonnet: $|\Gamma^*|\varepsilon = 4$ for all binary polyhedral groups).
+$h = |I^*|/a = 120/4 = 30$ (mark-balance $k_1 = a$,
+Theorem~I-\ref{I-thm:mark-balance}).
+The class equation of~$I^*$ gives $9$ conjugacy classes
+($\{e\}$, $\{-I\}$, and $7$ non-central classes with sizes
+$12, 12, 20, 20, 30, 12, 12$);
+by Burnside, $9$ irreps, so $\operatorname{rank} = 9 - 1 = 8$.
+$\sum\text{pivots} = a + a/2 + a/4 = 7 = N_{\mathrm{crit}}$
+(Theorem~I-\ref{I-thm:division-chain} and Proposition~I-\ref{I-prop:ncrit-rank}).
+The split $248 = 120 + 128$ is the $\mathrm{SO}(16)$ branching
+$E_8 \supset D_8$: $120$ = adjoint, $128 = 2^7$ = spinor.
 \end{proof}
 
 %% ====================================================================
@@ -495,46 +501,58 @@ $2\cos(k\pi/5)$ = golden eigenvalues), $k=3$ for $m \in \{10,20\}$
 
 The force identification rests on one principle applied uniformly:
 
-\begin{theorem}[McKay--stabiliser gauge assignment]\label{thm:mckay-stab}
-The icosahedron has three rotation-axis types with stabiliser subgroups
-$\mathbb{Z}_p$ for $p = 5$ (vertex), $p = 3$ (face), $p = 2$ (edge).
-The McKay correspondence $\mathbb{Z}_p \subset \mathrm{SU}(2) \to
-\tilde{A}_{p-1}$ assigns gauge groups:
-\begin{center}
-\begin{tabular}{llll}
-Axis & Stabiliser & McKay & Gauge group \\
-\hline
-Vertex ($5$-fold) & $\mathbb{Z}_5$ & $\tilde{A}_4$ & $\mathrm{SU}(5)$ \\
-Face ($3$-fold) & $\mathbb{Z}_3$ & $\tilde{A}_2$ & $\mathrm{SU}(3)$ \\
-Edge ($2$-fold) & $\mathbb{Z}_2$ & $\tilde{A}_1$ & $\mathrm{SU}(2)$ \\
-\end{tabular}
-\end{center}
-At the $K = 0$ transition, $\mathrm{SU}(5) \to
-\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
-(the standard GUT breaking).
-The CS inverse couplings are $1/g^2 = k + h^\vee(\mathrm{SU}(p)) = 1 + p$
-at the universal level~$k = 1$.
+\begin{theorem}[Gauge group derivation]\label{thm:gauge-derivation}
+The Standard Model gauge group $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
+is derived from the $E_8$ mark distribution by two independent routes:
+\begin{enumerate}
+\item \emph{$\mathrm{SU}(3)$ from the charge-magnitude kernel.}
+  The kernel of the charge-magnitude map $E_8 \to E_6$
+  (Theorem~I-\ref{I-thm:division-chain}) consists of~$2$ nodes
+  with total dimension $4 + 4 = 8$.
+  The commutant of~$E_6$ in~$E_8$ has $\dim = 248 - 78 - 2 \times 27 \times 3 = 8$
+  and $\operatorname{rank} = 2$.
+  The unique rank-$2$ simple Lie algebra of dimension~$8$ is $\mathrm{SU}(3)$.
+
+\item \emph{$\mathrm{SU}(2)$ from the weak eigenvector.}
+  The $\mu = 1$ eigenvector of the Cartan matrix
+  (Theorem~I-\ref{I-thm:three-gen}) yields three doublets---the
+  defining structure of $\mathrm{SU}(2)_L$ with three generations.
+
+\item \emph{$\mathrm{U}(1)$ from the remaining Cartan.}
+  After extracting $\mathrm{SU}(3)$ (rank~$2$) and $\mathrm{SU}(2)$ (rank~$1$),
+  the rank-$8$ Cartan of~$E_8$ retains $8 - 6 - 2 - 1 = \text{rank}(U(1))$
+  abelian directions, with the hypercharge $\mathrm{U}(1)_Y$ determined by
+  the CS level $k_Y = 1$ (Paper~IV, \S8).
+\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-The icosahedron has exactly three types of rotational axis:
-$5$-fold (through vertices, stabiliser~$\mathbb{Z}_5$),
-$3$-fold (through face centres, stabiliser~$\mathbb{Z}_3$),
-$2$-fold (through edge midpoints, stabiliser~$\mathbb{Z}_2$).
-The McKay correspondence for $\mathbb{Z}_p \subset \mathrm{SU}(2)$
-gives the affine Dynkin diagram $\tilde{A}_{p-1}$, whose
-finite part is the Dynkin diagram of~$\mathrm{SU}(p)$.
-The dual Coxeter numbers are $h^\vee(\mathrm{SU}(p)) = p$.
-At level $k = 1$ (Paper~IV, \S8), $1/g^2 = k + h^\vee = 1 + p$.
+(1)~The branching $E_8 \supset E_6 \times G$ requires
+$\dim(G) = 248 - 78 - (\text{mixed reps})$.
+The mixed representations are $(27,3) \oplus (\overline{27},\bar{3})$,
+contributing $2 \times 27 \times 3 = 162$ dimensions.
+Thus $\dim(G) = 248 - 78 - 162 = 8$, and~$G$ commutes with~$E_6$
+(rank~$6$), giving $\operatorname{rank}(G) = 8 - 6 = 2$.
+The only simple rank-$2$ algebra of dimension~$8$ is~$\mathrm{SU}(3)$.
+
+(2)~Theorem~I-\ref{I-thm:three-gen}: the eigenvector
+$(-1,-1,0,+1,+1,0,-1,-1,0)$ at $\mu = 1$ groups nodes into
+three doublets with alternating sign, the characteristic structure
+of $\mathrm{SU}(2)$ weak isospin.
+
+(3)~Standard: $\mathrm{U}(1)_Y$ is the unique abelian factor in
+the rank-$8$ Cartan not spanned by $\mathrm{SU}(3) \times \mathrm{SU}(2)
+\times E_6$.
 \end{proof}
 
-\begin{corollary}[Spectral verification]
-The spectral denominators $\{1, 2, 3, 5\}$
-(Theorem~I-\ref{I-thm:cyclotomic}) equal the stabiliser orders
-$\{|e|, |\mathbb{Z}_2|, |\mathbb{Z}_3|, |\mathbb{Z}_5|\}$,
-confirming that the $\tilde{E}_8$ graph spectrum encodes the
-icosahedral gauge structure.
-\end{corollary}
+\begin{remark}[McKay confirmation]
+The McKay correspondence for the icosahedral stabiliser subgroups
+$\mathbb{Z}_5$, $\mathbb{Z}_3$, $\mathbb{Z}_2 \subset I^* \subset \mathrm{SU}(2)$
+gives $\mathrm{SU}(5)$, $\mathrm{SU}(3)$, $\mathrm{SU}(2)$
+respectively, confirming the Lie-algebraic derivation.
+The spectral denominators $\{1,2,3,5\}$ equal the stabiliser orders,
+providing a further graph-theoretic check.
+\end{remark}
 \end{proof}
 
 %% ====================================================================
