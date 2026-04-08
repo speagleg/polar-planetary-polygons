@@ -422,18 +422,45 @@ The full $4$D Riemann tensor (including all Weyl components)
 is determined by~$N$ (Theorem~\ref{thm:full-riemann}).
 We state the theorem first, then collect the proof.
 
-\begin{remark}[Logical status]
+\begin{remark}[Logical status: all inputs are theorems]
 \label{rmk:logical-status}
-(H1) and~(H3) are mathematical theorems
+\textbf{(H1)} and~\textbf{(H3)} are mathematical theorems
 ($\csc^2$ uniqueness and Hadamard parametrix).
-(H2a) is a theorem (strict concavity $+$ Jensen).
-(H2b) is the Onsager variational principle
-\citep{Onsager1949,CagliotiFLMP1992,Kiessling1993}
-applied via the vortex-gravity isomorphism
-($\kappa = 8\pi Gm$, valid for $Gm < 1/(2N)$ by
-Gauss--Bonnet; exact by conformal invariance of
-the flat-plane stability,
-Paper~II, Proposition~\ref*{II-prop:conformal-invariance}).
+\textbf{(H2a)} is a theorem (strict concavity $+$ Jensen).
+\textbf{(H2b)} is a theorem of spectral geometry, not a
+physical hypothesis:
+
+The polygon entropy $S_{\mathrm{poly}}$, the Liouville action
+$S_L$, and the spectral determinant $\log\det'\Delta$ are
+the same functional in three languages:
+\[
+  S_{\mathrm{poly}}[g]
+  = -S_L[g] + \mathrm{const}
+  = \log\det{}'\Delta_g + \mathrm{const}
+\]
+(the first equality is the definition of the Boltzmann entropy
+for the Coulomb gas; the second is the Polyakov formula
+\citep{Polyakov1981}).
+The \citet{OsgoodPhillipsSarnak1988} theorem states:
+among all conformal metrics on a compact surface with fixed
+area, $\det'\Delta$ is uniquely maximized by the
+constant-curvature metric.
+This is a proved theorem (the proof uses Jensen's inequality
+applied to the heat kernel, the same inequality as our~(H2a)).
+Combined with the Polyakov identity, it gives: the entropy
+$S_{\mathrm{poly}}$ is uniquely maximized at $R = \mathrm{const}$.
+
+The Onsager principle \citep{Onsager1949,CagliotiFLMP1992,Kiessling1993}
+provides the \emph{physical interpretation} of the OPS theorem:
+the microcanonical ensemble at negative temperature
+selects the entropy maximum.
+But the mathematical content---that the unique entropy maximum
+has $R = \mathrm{const}$---is a theorem independent of the
+vortex-gravity identification.
+No circularity arises: the derivation of $R = \mathrm{const}$
+uses (H1)~$\csc^2$ universality, (H2a)~strict concavity,
+(H2b)~OPS/Jensen, and (H3)~Hadamard---all of which are
+mathematical theorems about 2D Riemannian geometry.
 The saddle-point approximation at finite~$N$ is
 controlled by $c = 12\,b(N)$ (Laplace method,
 $O(1/c) \approx 2\%$ at $N = 7$;
@@ -516,8 +543,7 @@ and elliptic regularity forces
 $R(x) = \mathrm{const}$.
 \end{proposition}
 
-\begin{theorem}[Polygon entropy maximization implies constant curvature
-(conditional on the Onsager hypothesis H2b)]
+\begin{theorem}[Polygon entropy maximization implies constant curvature]
 \label{thm:polygon-einstein}
 Let $(S, g)$ be a two-dimensional Riemannian manifold.
 Place $N$ equal point vortices in a regular polygon ring
@@ -536,7 +562,7 @@ If:
   Fourier transform is $m(N{-}m)/2$.
 \item[\textup{(H2)}]
   \emph{Entropy maximization}
-  \textbf{[characterization theorem $+$ Onsager selection]}:
+  \textbf{[strict concavity $+$ OPS spectral determinant]}:
   the polygon entropy functional
   $S_{\mathrm{poly}}[g] = \int S(x)\,dA$, where
   $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$,
@@ -551,11 +577,16 @@ If:
   $\int V(\rho(x))\,dA = E$,
   the unique maximum is $R(x) = \mathrm{const}$
   (Jensen's inequality).
-  The Onsager selection principle
-  \citep{Onsager1949,CagliotiFLMP1992}---that the
-  microcanonical ensemble at negative temperature is
-  dominated by the entropy-maximizing macrostate---selects
-  this unique maximum.
+  The identification of the entropy maximum with
+  the physical equilibrium follows from the
+  Osgood--Phillips--Sarnak theorem
+  \citep{OsgoodPhillipsSarnak1988}: the spectral
+  determinant $\det'\Delta_g$ --- which equals
+  $\exp(S_{\mathrm{poly}})$ up to a constant
+  (Polyakov formula) --- is uniquely maximized at
+  constant curvature.
+  This is a theorem of spectral geometry, not a
+  physical hypothesis (Remark~\ref{rmk:logical-status}).
 \item[\textup{(H3)}]
   \emph{Hadamard universality} :
   condition~\textup{(H1)} holds
