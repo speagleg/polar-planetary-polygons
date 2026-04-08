@@ -150,7 +150,7 @@ The additive rescaling map
 $T_b\colon h \mapsto h(b\,\cdot) - h(b)$ acts on~$f$ as
 $(T_b f)(r) = f(br) - f(b)$.
 (We borrow the ``relevant/irrelevant/marginal'' terminology from
-the Wilsonian renormalisation group by analogy; the map $T_b$ is
+the Wilsonian renormalization group by analogy; the map $T_b$ is
 a pointwise rescaling, not a Wilson-style coarse-graining over
 short-wavelength modes.)
 \begin{enumerate}
@@ -812,7 +812,7 @@ $\mathbb{Z}_N$ Fourier eigenvalue is
   = \frac{m(N{-}m)}{2\rho^2}
 \]
 by the Havelock identity (Lemma~\ref{lem:havelock}).
-In the geodesic normalisation
+In the geodesic normalization
 $\lambda_m r_E^2 = C_1 - m(N{-}m)/2$
 (with $r_E$ the Euclidean ring radius),
 the tangential sector contributes exactly $m(N{-}m)/2$,
@@ -837,7 +837,7 @@ When the polygon center~$z_0$ is the $\mathrm{Aut}(\Sigma)$-fixed
 point of the Dirichlet domain (as on the Bolza surface),
 each $\gamma \in \Gamma$ maps the ring to a concentric ring,
 so $\gamma$ commutes with the $\mathbb{Z}_N$ rotation.
-The inner sum then factorises as
+The inner sum then factorizes as
 $(\sum_p e^{2\pi ipm/N}) \times f(\gamma)$,
 and $\sum_p e^{2\pi ipm/N} = 0$ for $m \ge 1$.
 The automorphic images therefore contribute a
@@ -2708,8 +2708,10 @@ $\tilde{E}_6$, $\tilde{E}_7$, $\tilde{E}_8$.
 
 \begin{proof}
 (i)~$\det C = 0$ (affine condition: the marks~$d$ satisfy $Cd = 0$).
-The quadratic form $x^TCx = 2\sum x_i^2 - 2\sum_{i \sim j} x_i x_j \ge 0$
-(Cauchy--Schwarz on each edge), so $C$ is positive semidefinite.
+The affine condition $Ad = 2d$ with $d > 0$ gives $\rho(A) = 2$
+by Perron--Frobenius, so all eigenvalues of~$A$ lie in~$[-2,2]$
+and all eigenvalues of $C = 2I - A$ lie in~$[0,4]$.
+In particular $C$ is positive semidefinite.
 
 (ii)~$C = 2I - A$ gives $\mathrm{spec}(C) = \{2 - \lambda : \lambda \in \mathrm{spec}(A)\}$.
 The affine condition $Ad = 2d$ with $d > 0$ makes $\rho(A) = 2$ (Perron--Frobenius).
@@ -2771,9 +2773,10 @@ For the icosahedron with rotation group~$A_5$,
   = 4 \times \mathrm{reg}(A_5)
 \end{equation}
 as $A_5$-representations.  Hence $V \times F = 12 \times 20 = 240 = |\text{roots}(E_8)|$.
-The sufficient condition is $\gcd(|\mathrm{Stab}_V|, |\mathrm{Stab}_F|) = 1$;
-for Platonic solids this is also necessary (the tetrahedron, with
-$\gcd(3,3) = 3$, fails).
+The sufficient condition is $\gcd(|\mathrm{Stab}_V|, |\mathrm{Stab}_F|) = 1$.
+Among the five Platonic solids, only the tetrahedron has $\gcd > 1$
+(namely $\gcd(3,3) = 3$), and it is the only one for which
+$V \otimes F$ fails to be a regular multiple.
 \end{theorem}
 
 \begin{proof}
@@ -2849,12 +2852,14 @@ Since $3$ is prime: $(a-1, b-1) = (3, 1)$, giving $(a,b,c) = (4,2,1)$.
 \begin{proposition}[Pivot--stability coincidence]\label{prop:ncrit-rank}
 The division algebra pivots satisfy
 $\sum = 4 + 2 + 1 = 7 = N_{\mathrm{crit}}$ (the flat-plane stability
-boundary, Theorem~\ref{thm:havelock}) and
+boundary, Lemma~\ref{lem:havelock}) and
 $\prod = 4 \times 2 \times 1 = 8 = \operatorname{rank}(E_8) = \dim(\mathbb{O})$.
-Both equalities are verified directly; the sum connects
-the division algebra chain (Theorem~\ref{thm:division-chain})
-to the Havelock stability threshold (Theorem~\ref{thm:havelock}).
 \end{proposition}
+
+\begin{proof}
+$4 + 2 + 1 = 7 = N_{\mathrm{crit}}$ (Lemma~\ref{lem:havelock})
+and $4 \times 2 \times 1 = 8 = \operatorname{rank}(E_8)$.
+\end{proof}
 
 \subsection{The 2-adic filtration}
 \label{sec:2adic}
@@ -2914,7 +2919,8 @@ for $n \ge 3$, $6^n > 5^n + 2 \cdot 3^n + 1$ since $6^n$ dominates).
 \begin{theorem}[Mark supercharge]\label{thm:supercharge}
 The McKay fundamental representation~$\rho_1$ (dimension~$2$, spin~$\tfrac12$)
 acts as an algebraic supercharge: tensoring with~$\rho_1$ maps each
-$2$-adic layer to other layers only.  Moreover,
+$2$-adic layer to the union of the other two
+($K_3 \to K_1 \cup K_2$, $K_2 \to K_1 \cup K_3$, $K_1 \to K_2 \cup K_3$).  Moreover,
 $\rho_1 \otimes \rho_1 = \rho_0 \oplus \rho_2 \in K_3$ (bosonic).
 \end{theorem}
 
@@ -2961,8 +2967,10 @@ The pentagonal identification: $2\cos(k\pi/5) = \varphi, 1/\varphi, -1/\varphi, 
 for $k=1,2,3,4$.
 Under $x = z + z^{-1}$, $x = 2\cos\theta$ maps to $z = e^{\pm i\theta}$.
 Each adjacency eigenvalue $\lambda_j = 2\cos(m_j\pi/h)$ determines an
-\emph{affine angle} $m_j \in [0,h]$; explicitly,
+angle $m_j \in [0,h]$; explicitly,
 $m \in \{0, 6, 10, 12, 15, 18, 20, 24, 30\}$ for~$\tilde{E}_8$.
+(These are the \emph{affine} eigenvalue angles, distinct from the
+$E_8$ exponents $\{1,7,11,13,17,19,23,29\}$ of the finite diagram.)
 The unit-circle point $z = e^{im\pi/h}$ is a primitive root of~$\Phi_d$
 where $d$ is its multiplicative order.
 The element orders of~$I^*$ are $\{1,2,3,4,5,6,10\}$
@@ -3163,7 +3171,7 @@ $T_m/\sinh^2\rho_0$, where
 $T_m = \sum_{p=1}^{N-1}(1 - \cos(2\pi pm/N))
 /(4\sin^2(\pi p/N)) = m(N{-}m)/2$
 (Havelock identity, Lemma~\ref{lem:havelock}).
-The conformal normalisation (multiplication by
+The conformal normalization (multiplication by
 $\sinh^2\rho_0$) gives the $\rho_0$-independent value
 $C_2(m) = m(N{-}m)/2$.
 On the symmetric space $G/K = \mathrm{SL}(2,\mathbb{R})

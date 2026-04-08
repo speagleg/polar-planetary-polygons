@@ -303,10 +303,15 @@ class TestBipartiteConjugation:
             assert abs(eigs[i] + eigs[8-i] - 4.0) < 1e-10
         assert abs(eigs[4] - 2.0) < 1e-10
 
-    def test_n_crit_from_spectral(self):
-        """N_crit = Σ(spectral denoms) - dim(spacetime) = 11 - 4 = 7."""
+    def test_spectral_denom_sum(self):
+        """Σ(spectral denoms) = 11 and Π = 30 = h."""
         from planetary_polygons.proofs.mark_distribution import spectral_denominators
-        assert sum(spectral_denominators(h=30)) - 4 == 7
+        denoms = spectral_denominators(h=30)
+        assert sum(denoms) == 11
+        prod = 1
+        for d in denoms:
+            prod *= d
+        assert prod == 30
 
 
 class TestSpectralDiameter:

@@ -630,6 +630,13 @@ with Bott period $8 = \operatorname{rank}(E_8)$.
 \label{sec:decoherence}
 %% ====================================================================
 
+The nearest-neighbor hopping Hamiltonian on the affine $\tilde{E}_8$
+Dynkin diagram is the Cartan matrix~$C$ (the diagonal entries give on-site
+energies, the off-diagonal entries give hopping amplitudes).
+This is the standard tight-binding Hamiltonian of solid-state physics
+restricted to the McKay graph, and its spectrum is the Cartan eigenvalue
+set derived in~\S\ref{sec:spectral}.
+
 \begin{theorem}[Golden decoherence]\label{thm:decoherence}
 Let $H = C$ be the $\tilde{E}_8$ Cartan matrix acting as the Hamiltonian
 on the $9$-dimensional representation space
@@ -638,7 +645,9 @@ Decompose the nine eigenvalues into integer-frequency modes
 $\mathcal{O} = \{\mu \in \{0, 1, 2, 3, 4\}\}$ (5~modes) and
 golden-frequency modes
 $\mathcal{H} = \{\mu \in \{1/\varphi^2, 3{-}\varphi, 2{+}1/\varphi, 2{+}\varphi\}\}$ (4~modes).
-For any initial state $|\psi\rangle$ with nonzero projection onto both sectors,
+For any initial state $|\psi\rangle$ with nonzero coefficients
+for at least two eigenstates in~$\mathcal{O}$ and at least one
+in~$\mathcal{H}$ (cross-sector coherence),
 the time-averaged reduced density matrix of~$\mathcal{O}$ is diagonal:
 \[
   \overline{\rho}_{\mathcal{O}}
@@ -662,8 +671,9 @@ all golden eigenvalues involve~$\varphi$).
 The time average of $e^{i\omega t}$ over $[0,T]$ tends to~$0$
 as $T \to \infty$ for any $\omega \neq 0$ (Riemann--Lebesgue).
 The resulting diagonal~$\rho_{\mathrm{diag}}$ has strictly positive
-von Neumann entropy whenever the initial state has nontrivial
-projection onto at least two eigenmodes of different frequency.
+von Neumann entropy: the hypothesis gives at least two nonzero
+diagonal entries $|c_i|^2$ in the $\mathcal{O}$ sector, so
+$S(\rho_{\mathrm{diag}}) = -\sum_i |c_i|^2\log|c_i|^2 > 0$.
 \end{proof}
 
 \begin{remark}
