@@ -1784,39 +1784,50 @@ that enter~\eqref{eq:weinberg-cs}, without invoking Chern--Simons theory
 directly.
 
 \begin{lemma}[Spectral--CS bridge]\label{lem:spectral-bridge}
-The $\tilde{E}_8$ adjacency eigenvalues decompose by spectral
-denominator $k = h/\gcd(m,h)$ into sectors labelled by the primes
-of~$h = 30$.
-For the electroweak sectors:
-\begin{enumerate}
-\item The triangle sector ($p = 3$, eigenvalues $\pm 1$)
-  has spectral denominator $k = 3 = 1 + h^\vee(\mathrm{SU}(2))$,
-  which equals the CS inverse coupling $1/g_W^2$ at level~$k = 1$.
-\item The boundary sector ($p = 1$, eigenvalues $\pm 2$)
-  has spectral denominator $k = 1 = k_Y$,
-  which equals the $\mathrm{U}(1)$ level.
-\end{enumerate}
+The spectral denominators $\{1, 2, 3, 5\}$ of the $\tilde{E}_8$
+Cartan matrix are the \emph{stabiliser orders} of the icosahedral
+symmetry axes (trivial, edge~$\mathbb{Z}_2$, face~$\mathbb{Z}_3$,
+vertex~$\mathbb{Z}_5$).
+The dual Coxeter numbers of the SM gauge groups equal
+the corresponding stabiliser orders:
+$h^\vee(\mathrm{SU}(3)) = 3 = |\mathbb{Z}_3|$ (face),
+$h^\vee(\mathrm{SU}(2)) = 2 = |\mathbb{Z}_2|$ (edge),
+$h^\vee(\mathrm{U}(1)) = 0$ (trivial).
+Consequently, the CS inverse couplings at level~$k = 1$ are
+\begin{equation}\label{eq:spectral-cs-bridge}
+  1/g^2(\mathrm{SU}(3)) = 1 + 3 = 4, \quad
+  1/g^2(\mathrm{SU}(2)) = 1 + 2 = 3, \quad
+  k_Y = 1.
+\end{equation}
+The vertex stabiliser $\mathbb{Z}_5$ gives
+$h^\vee(\mathrm{SU}(5)) = 5$ (the GUT group),
+which breaks to $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
+at the $K = 0$ transition.
 \end{lemma}
 
 \begin{proof}
-For the triangle sector: $m \in \{10, 20\}$, $\gcd(m, 30) = 10$,
-so $k = 30/10 = 3$.  Since $h^\vee(\mathrm{SU}(2)) = 2$ and the
-universal CS level is~$k = 1$ (Euler class), $1 + h^\vee = 3 = k$.
-For the boundary: $m \in \{0, 30\}$, $\gcd(m, 30) = 30$, $k = 1$.
-Since $h^\vee(\mathrm{U}(1)) = 0$, $k + h^\vee = 1$.
+The spectral denominators $k = h/\gcd(m,h)$ for the affine
+$m$-values are: $k = 1$ (boundary, $m \in \{0,30\}$),
+$k = 2$ (Majorana, $m = 15$),
+$k = 3$ (triangle, $m \in \{10,20\}$),
+$k = 5$ (golden, $m \in \{6,12,18,24\}$).
 
-The identity $k + h^\vee = p$ holds for the electroweak sector
-because $h^\vee(\mathrm{SU}(2)) = 2 = p - 1$ where $p = 3$ is the
-triangle prime, and $h^\vee(\mathrm{U}(1)) = 0 = 1 - 1$.
+Each prime $p \mid h = 30$ corresponds to an icosahedral
+rotation axis with stabiliser $\mathbb{Z}_p$:
+$p = 5$ (vertices, $12$ elements of order~$5$ or~$10$),
+$p = 3$ (faces, $20$ elements of order~$3$ or~$6$),
+$p = 2$ (edges, $30$ elements of order~$4$).
+The orbifold gauge group at each axis is $\mathrm{SU}(p)$ via
+the McKay correspondence $\mathbb{Z}_p \subset \mathrm{SU}(2)
+\to \tilde{A}_{p-1}$, with $h^\vee(\mathrm{SU}(p)) = p$.
+
+For the SM gauge groups after breaking: $\mathrm{SU}(3)$ retains
+$h^\vee = 3$ from the face stabiliser,
+$\mathrm{SU}(2)$ retains $h^\vee = 2$ from the edge stabiliser,
+and $\mathrm{U}(1)$ is abelian ($h^\vee = 0$).
+The universal CS level $k = 1$ (Hopf Euler class, \S\ref{sec:weinberg})
+gives~\eqref{eq:spectral-cs-bridge}.
 \end{proof}
-
-\begin{remark}
-The bridge identity does \emph{not} hold for the strong sector:
-the golden denominator is $k = 5$, but $1 + h^\vee(\mathrm{SU}(3)) = 4$.
-This does not affect the Weinberg angle, which involves only the
-electroweak sectors.  The strong coupling is derived separately
-from the Witten partition function (Paper~IV, \S6).
-\end{remark}
 
 \begin{corollary}[Spectral Weinberg angle]\label{thm:spectral-weinberg}
 The spectral denominators of the electroweak sectors recover
