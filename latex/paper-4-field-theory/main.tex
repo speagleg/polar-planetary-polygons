@@ -1772,6 +1772,62 @@ The SU$(5)$ prediction $3/8$ matches at
 $M_{\mathrm{GUT}} \sim 10^{14}$\,GeV
 ($62\%$ above experiment at tree level).
 
+\subsection{Spectral derivation}
+\label{sec:spectral-weinberg}
+
+The Weinberg angle admits a second, independent derivation from the spectral
+structure of the $\tilde{E}_8$ Cartan matrix (Paper~I, \S\ref{I-sec:mark-distribution};
+Paper~V, \S\ref{V-sec:spectral-primes}).
+
+\begin{theorem}[Spectral Weinberg angle]\label{thm:spectral-weinberg}
+Let $a = k_1(E_8) = 4 = \dim(\text{spacetime})$ and
+$N_{\mathrm{crit}} = 7$.  Then
+\begin{equation}\label{eq:spectral-weinberg}
+  \sin^2\theta_W = \frac{a-1}{a + N_{\mathrm{crit}}} = \frac{3}{11}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The Cartan eigenvalue spectrum decomposes by the prime factors of~$h = 30$
+(Paper~V, Theorem~V-\ref{V-thm:spectral-decomp}).
+The effective spectral denominators $\{1,2,3,5\}$ have $\sum = 11$ and
+$\prod = 30$.  Each denominator is identified with a CS inverse coupling:
+$k_p = k + h^\vee(G_p)$ where $G_p$ is the gauge group at prime~$p$.
+For $p = 3$ (triangle/weak): $k_3 = 1 + 2 = 3 = $ spectral denominator.
+For the boundary (EM): $k_1 = k_Y = 1$.
+Substituting into~\eqref{eq:weinberg-cs}:
+\[
+  \sin^2\theta_W = \frac{Q^2/k_Y}{Q^2/k_Y + j(j{+}1)/(k{+}h^\vee)}
+  = \frac{1/4}{1/4 + 2/3} = \frac{3}{11}.
+\]
+The numerator $3 = a - 1 = \dim(\text{spatial}) = $ triangle prime.
+The denominator $11 = a + N_{\mathrm{crit}} = \sum(\text{spectral denominators})$.
+\end{proof}
+
+\begin{proposition}[Bernoulli--Coxeter identity]\label{prop:bernoulli-coxeter}
+$B_4 = B_8 = -1/30 = -1/h(E_8)$.
+Consequently $\zeta(-3) = 1/120 = 1/|I^*|$ and
+$\zeta(-7) = 1/240 = 1/|\text{roots}(E_8)|$.
+\end{proposition}
+
+\begin{proof}
+By von Staudt--Clausen, $\mathrm{denom}(B_{2k}) = \prod_{(p-1)|2k} p$.
+For $B_4$: $(p{-}1)|4$ gives $p \in \{2,3,5\}$, denom${}= 30$.
+For $B_8$: $(p{-}1)|8$ gives $p \in \{2,3,5\}$
+(since $p = 9 = 3^2$ is not prime), denom${}= 30$.
+Both numerators are~$-1$ by the Bernoulli recursion.
+Then $\zeta(-3) = -B_4/4 = (1/30)/4 = 1/120$
+and $\zeta(-7) = -B_8/8 = (1/30)/8 = 1/240$.
+\end{proof}
+
+\begin{remark}
+The identity $B_4 = B_8$ relies on $\operatorname{rank}(E_8) + 1 = 9 = 3^2$
+being composite.  If~$9$ were prime, $\mathrm{denom}(B_8) = 270 \neq 30$,
+and the Riemann zeta would not encode~$|I^*|$ at~$s = -3$.
+The number-theoretic consistency of the framework requires
+$\operatorname{rank} + 1 = p^2$ for some $p \mid h$.
+\end{remark}
+
 %% ====================================================================
 %% Section "Two-force unification" removed: pure summary of
 %% Theorems in secs 4, 8, 9 with no new content.
