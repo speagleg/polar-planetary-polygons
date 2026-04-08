@@ -435,8 +435,10 @@ Papers~III--IV.
 \label{sec:master-equation}
 %% ====================================================================
 
-\begin{theorem}[Master equation]\label{thm:master}
-Let $a = k_1(E_8) = 4$ (the mark-balance pivot = spacetime dimension).  Then
+\begin{proposition}[Internal consistency of the $E_8$ framework]\label{thm:master}
+Let $a = 4$ be the spectral diameter (Theorem~I-\ref{I-thm:spectral-diameter}),
+which equals $k_1(E_8)$ by the mark-balance selection
+(Theorem~I-\ref{I-thm:mark-balance}).  Then
 \begin{alignat}{3}
   b &= a+1 &&= 5  &\quad&(\text{number of Platonic solids}),\\
   c &= a+2 &&= 6  &&(\text{maximum mark}),\\
@@ -446,30 +448,20 @@ Let $a = k_1(E_8) = 4$ (the mark-balance pivot = spacetime dimension).  Then
   \textstyle\sum\text{pivots} &= a{+}a/2{+}a/4 &&= 7 = N_{\mathrm{crit}}, \\
   \dim(E_8) &= abc + 2^{7a/4} &&= 120 + 128 = 248.
 \end{alignat}
-The value $a = 4$ is the unique positive integer such that
-(i)~the division algebra pivots $(a, a/2, a/4)$ are all positive integers
-(requiring $4 \mid a$), and
-(ii)~$a(a+1)(a+2)$ is the order of a binary \emph{exceptional}
-polyhedral group ($T^*$, $O^*$, or~$I^*$).
-\end{theorem}
+These identities are verified directly from the $E_8$ marks;
+they demonstrate that the spectral diameter~$a$
+determines all structural constants of the framework.
+\end{proposition}
 
 \begin{proof}
-Each identity is verified directly.  The split $248 = 120 + 128$
-is the $\mathrm{SO}(16)$ branching: $120$ = integer-spin (adjoint),
-$128$ = half-integer-spin (spinor), matching $|I^*|$ and~$2^{N_{\mathrm{crit}}}$.
-
-\emph{Uniqueness.}
-Condition~(i) requires $4 \mid a$, so $a \in \{4, 8, 12, \ldots\}$.
-The exceptional binary orders are $24 = |T^*|$, $48 = |O^*|$, $120 = |I^*|$.
-At $a = 4$: $4 \times 5 \times 6 = 120 = |I^*|$.
-At $a = 8$: $8 \times 9 \times 10 = 720 > 120$.
-For $a \geq 8$, $a(a+1)(a+2) \geq 720 > 120$, so no exceptional order is reached.
-Note: $a = 2$ gives $2 \times 3 \times 4 = 24 = |T^*|$, but
-$a = 2$ fails condition~(i) since $a/4 = 1/2 \notin \mathbb{Z}$.
-The constraint $4 \mid a$ comes from the division algebra chain
-(Theorem~I-\ref{I-thm:division-chain}): the three pivots
-$(k_1(E_8), k_1(E_6), k_1(A_3)) = (a, a/2, a/4)$
-must all be positive integers (since they are ratios of integer moments).
+Each identity is verified directly from the $E_8$ marks
+$(1,2,3,4,5,6,4,2,3)$.  The split $248 = 120 + 128$
+is the $\mathrm{SO}(16)$ branching: $120$ = integer-dimension irreps,
+$128$ = even-dimension irreps.
+The derivation of~$a = 4$ from first principles (without using the marks)
+is Theorems~I-\ref{I-thm:spectral-diameter} and~I-\ref{I-thm:mark-balance}:
+the spectral diameter is~$4$ for all affine ADE graphs,
+and~$E_8$ is the unique type whose mark-balance pivot equals this diameter.
 \end{proof}
 
 %% ====================================================================
@@ -501,45 +493,48 @@ $2\cos(k\pi/5)$ = golden eigenvalues), $k=3$ for $m \in \{10,20\}$
 (giving $\pm 1$), $k=2$ for $m=15$ (giving~$0$), $k=1$ for $m \in \{0,30\}$
 (giving~$\pm 2$).
 
-The force identification follows from the gauge group derivations in
-Papers~III--IV connected to the spectral structure:
+The force identification rests on one principle applied uniformly:
 
-\emph{$p = 3$ sector $\leftrightarrow$ $\mathrm{SU}(2)$:}
-The eigenvalue $\mu = 1$ of the Cartan matrix equals the Havelock Casimir
-$f(m^*,N) = m^*(N{-}m^*)/2 = 2(4{-}2)/2 = 2$ at the critical mode
-$m^* = 2$, $N = 4$ for $\mathrm{SU}(2)$.
-This identification is the Helgason symmetric-space theorem
-(Proposition~III-2.1): on $\mathbf{H}^2$, the $\mathrm{sl}(2,\mathbb{R})$
-Casimir restricted to the $m$-th $\mathbb{Z}_N$ mode gives~$f(m,N)$.
-The $\mu = 1$ eigenvector gives three weak doublets
-(Theorem~I-\ref{I-thm:three-gen}), matching the $\mathrm{SU}(2)$ doublet
-structure with three generations.
+\begin{theorem}[McKay--stabiliser gauge assignment]\label{thm:mckay-stab}
+The icosahedron has three rotation-axis types with stabiliser subgroups
+$\mathbb{Z}_p$ for $p = 5$ (vertex), $p = 3$ (face), $p = 2$ (edge).
+The McKay correspondence $\mathbb{Z}_p \subset \mathrm{SU}(2) \to
+\tilde{A}_{p-1}$ assigns gauge groups:
+\begin{center}
+\begin{tabular}{llll}
+Axis & Stabiliser & McKay & Gauge group \\
+\hline
+Vertex ($5$-fold) & $\mathbb{Z}_5$ & $\tilde{A}_4$ & $\mathrm{SU}(5)$ \\
+Face ($3$-fold) & $\mathbb{Z}_3$ & $\tilde{A}_2$ & $\mathrm{SU}(3)$ \\
+Edge ($2$-fold) & $\mathbb{Z}_2$ & $\tilde{A}_1$ & $\mathrm{SU}(2)$ \\
+\end{tabular}
+\end{center}
+At the $K = 0$ transition, $\mathrm{SU}(5) \to
+\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
+(the standard GUT breaking).
+The CS inverse couplings are $1/g^2 = k + h^\vee(\mathrm{SU}(p)) = 1 + p$
+at the universal level~$k = 1$.
+\end{theorem}
 
-\emph{$p = 5$ sector $\leftrightarrow$ $\mathrm{SU}(3)$:}
-The charge-magnitude map (Theorem~I-\ref{I-thm:division-chain})
-identifies $\mathrm{SU}(3)$ as the kernel of $E_8 \to E_6$,
-sitting on the two $d = 4$ nodes.
-The golden eigenvector components $\{0, \pm\varphi^{-2}, \pm\varphi^{-1}, \pm 1\}$
-encode the pentagonal vertex structure of the icosahedron,
-whose vertex stabiliser $\mathbb{Z}_5 \subset A_5$ generates
-$\mathrm{SU}(5) \supset \mathrm{SU}(3)$ via McKay.
-The CS coupling $1/g^2(\mathrm{SU}(3)) = 1 + 3 = 4$
-is derived independently in Paper~IV, \S6.
+\begin{proof}
+The icosahedron has exactly three types of rotational axis:
+$5$-fold (through vertices, stabiliser~$\mathbb{Z}_5$),
+$3$-fold (through face centres, stabiliser~$\mathbb{Z}_3$),
+$2$-fold (through edge midpoints, stabiliser~$\mathbb{Z}_2$).
+The McKay correspondence for $\mathbb{Z}_p \subset \mathrm{SU}(2)$
+gives the affine Dynkin diagram $\tilde{A}_{p-1}$, whose
+finite part is the Dynkin diagram of~$\mathrm{SU}(p)$.
+The dual Coxeter numbers are $h^\vee(\mathrm{SU}(p)) = p$.
+At level $k = 1$ (Paper~IV, \S8), $1/g^2 = k + h^\vee = 1 + p$.
+\end{proof}
 
-\emph{Boundary sector $\leftrightarrow$ $\mathrm{U}(1)$:}
-The boundary eigenvalues $\pm 2$ correspond to the identity
-and $-I$ elements of~$I^*$.
-The CS level $k_Y = 1$ is derived from the Hopf Euler class
-(Paper~IV, \S8).
-
-\emph{$p = 2$ sector $\leftrightarrow$ gravity:}
-The self-conjugate eigenvalue $\mu = 2$ satisfies
-$Sv = +v$ under the bipartite sign operator
-(Theorem~\ref{thm:bipartite}), making it
-time-reversal invariant.  Its eigenvector vanishes on all
-fermionic nodes ($K_2 \cup K_1$) and couples only to
-bosonic energy---the defining properties of the gravitational
-sector (Paper~III, \S3).
+\begin{corollary}[Spectral verification]
+The spectral denominators $\{1, 2, 3, 5\}$
+(Theorem~I-\ref{I-thm:cyclotomic}) equal the stabiliser orders
+$\{|e|, |\mathbb{Z}_2|, |\mathbb{Z}_3|, |\mathbb{Z}_5|\}$,
+confirming that the $\tilde{E}_8$ graph spectrum encodes the
+icosahedral gauge structure.
+\end{corollary}
 \end{proof}
 
 %% ====================================================================
@@ -582,6 +577,52 @@ on~$S^2$ (Cohn--Kumar);
 $\mathrm{im}(J_7) = \mathbb{Z}/240$ via the $J$-homomorphism
 (Adams, at dimension~$7 = N_{\mathrm{crit}}$),
 with Bott period $8 = \operatorname{rank}(E_8)$.
+\end{remark}
+
+%% ====================================================================
+\section{Golden decoherence}
+\label{sec:decoherence}
+%% ====================================================================
+
+\begin{theorem}[Golden decoherence]\label{thm:decoherence}
+Decompose the nine Cartan eigenvalues into integer-frequency modes
+$\mathcal{O} = \{\mu \in \{0, 1, 2, 3, 4\}\}$ (5~modes) and
+golden-frequency modes
+$\mathcal{H} = \{\mu \in \{1/\varphi^2, 3{-}\varphi, 2{+}1/\varphi, 2{+}\varphi\}\}$ (4~modes).
+For any initial state $|\psi\rangle$ with nonzero projection onto both sectors,
+the time-averaged reduced density matrix of~$\mathcal{O}$ is diagonal:
+\[
+  \overline{\rho}_{\mathcal{O}}
+  \;\coloneqq\;
+  \lim_{T\to\infty} \frac{1}{T} \int_0^T
+  \mathrm{Tr}_{\mathcal{H}}\bigl(|\psi(t)\rangle\langle\psi(t)|\bigr)\,dt
+  \;=\; \rho_{\mathrm{diag}},
+\]
+with $S(\rho_{\mathrm{diag}}) > 0 = S(|\psi\rangle)$.
+The decoherence arises because the golden-to-integer frequency differences
+$\mu_h - \mu_o$ are irrational for all $\mu_h \in \mathcal{H}$,
+$\mu_o \in \mathcal{O}$, so the off-diagonal coherences average to zero
+by the Riemann--Lebesgue lemma.
+\end{theorem}
+
+\begin{proof}
+The off-diagonal matrix elements of~$\rho_\mathcal{O}(t)$ contain
+phases $e^{i(\mu_h - \mu_o)t}$ with $\mu_h - \mu_o \notin \mathbb{Q}$
+(since $\varphi \notin \mathbb{Q}$ by Niven's theorem, and
+all golden eigenvalues involve~$\varphi$).
+The time average of $e^{i\omega t}$ over $[0,T]$ tends to~$0$
+as $T \to \infty$ for any $\omega \neq 0$ (Riemann--Lebesgue).
+The resulting diagonal~$\rho_{\mathrm{diag}}$ has strictly positive
+von Neumann entropy whenever the initial state has nontrivial
+projection onto at least two eigenmodes of different frequency.
+\end{proof}
+
+\begin{remark}
+The golden ratio's extremal irrationality (continued-fraction
+coefficients all~$1$, giving the slowest rational approximation)
+makes $\varphi$ the worst-case for recurrence.  Among all algebraic
+irrational frequencies, the golden modes produce the most uniform
+time-averaged decoherence (Weyl equidistribution).
 \end{remark}
 
 %% ====================================================================

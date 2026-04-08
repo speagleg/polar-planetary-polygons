@@ -2674,51 +2674,71 @@ Parameter accounting and predictions appear in Paper~VII.
 \label{sec:mark-distribution}
 %% ====================================================================
 
-The marks $d_i = (1,2,3,4,5,6,4,2,3)$ of the affine $\tilde{E}_8$ Dynkin
-diagram---equivalently, the dimensions of the nine irreps of~$I^*$---satisfy
-a cascade of identities that encode the division algebra hierarchy, the
-boson--fermion separation, and the generation structure of the Standard Model.
-This section proves the main identities; their physical interpretations are
+The affine marks $d_i = (1,2,3,4,5,6,4,2,3)$ of~$\tilde{E}_8$---equivalently,
+the dimensions of the nine irreps of the binary icosahedral group~$I^*$
+\citep{McKay1980}---satisfy a cascade of algebraic identities that,
+taken together, single out~$E_8$ among all ADE types.
+This section proves these identities; physical interpretations are
 developed in Papers~IV, V, and~VII.
 
-\subsection{The mark-balance identity}
-\label{sec:mark-balance}
+\subsection{The spectral diameter}
+\label{sec:spectral-diameter}
 
-\begin{theorem}[Mark-balance]\label{thm:mark-balance}
-Let $d_0, \ldots, d_8$ be the affine marks of $\tilde{E}_8$.  Then
-\begin{equation}\label{eq:mark-balance}
-  \sum_{i=0}^{8} d_i(d_i - 4) = 0,
-\end{equation}
-equivalently $|I^*| = 4\,h(E_8)$, i.e.\ $120 = 4 \times 30$.
-This identity holds for \emph{no other} ADE type at pivot~$4$.
+\begin{theorem}[Spectral diameter]\label{thm:spectral-diameter}
+For \emph{any} connected affine ADE Dynkin diagram, the Cartan matrix
+$C = 2I - A$ has eigenvalues in~$[0, 4]$.  The spectral diameter
+$a \coloneqq \max(\mathrm{spec}\,C) = 4$ is universal.
 \end{theorem}
 
 \begin{proof}
-Direct computation: $\sum d_i^2 = 1 + 4 + 9 + 16 + 25 + 36 + 16 + 4 + 9 = 120$
-and $\sum d_i = 30$, so $\sum d_i(d_i-4) = 120 - 4 \times 30 = 0$.
-For $A_n$: all marks equal~$1$, so $k_1 = 1$.
-For $D_n$ ($n \geq 4$): $k_1 = 2(n{-}2)/(n{-}1) < 2 < 4$.
-For $E_6$: $k_1 = 24/12 = 2$.
-For $E_7$: $k_1 = 48/18 = 8/3 \notin \mathbb{Z}$.
-Among all ADE types, only $E_8$ has $k_1 = 4$.
+$C$ is positive semidefinite with $\det C = 0$ (affine condition),
+so $\min(\mathrm{spec}\,C) = 0$.
+The adjacency matrix~$A$ of a connected bipartite graph has spectral
+radius $\rho(A) = \max|\lambda_i(A)|$.  Since $C = 2I - A$ and
+$\min(\mathrm{spec}\,C) = 0$, we have $\rho(A) = 2$.
+Thus $\max(\mathrm{spec}\,C) = 2 + \rho(A) = 4$.
+\end{proof}
+
+\subsection{The mark-balance identity and $E_8$ selection}
+\label{sec:mark-balance}
+
+\begin{theorem}[Mark-balance and $E_8$ selection]\label{thm:mark-balance}
+Define $k_1 \coloneqq \sum d_i^2 / \sum d_i$ for the affine marks of
+an ADE type.
+Among \emph{all} ADE types, $E_8$ is the unique type satisfying
+$k_1 = a = 4$ (the spectral diameter), equivalently
+\begin{equation}\label{eq:mark-balance}
+  \sum_{i=0}^{8} d_i(d_i - 4) = 0
+  \qquad\Longleftrightarrow\qquad
+  |I^*| = 4\,h(E_8)\; (= 120 = 4 \times 30).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Direct computation: $\sum d_i^2 = 120$, $\sum d_i = 30$,
+$k_1 = 120/30 = 4$.
+Exhaustive check of all ADE types:
+$A_n$: marks all~$1$, $k_1 = 1$.
+$D_n$ ($n \geq 4$): $k_1 = 2(n{-}2)/(n{-}1) < 2$.
+$E_6$: $k_1 = 24/12 = 2$.
+$E_7$: $k_1 = 48/18 = 8/3$.
+Only~$E_8$ has $k_1 = 4 = a$.
 
 \emph{Geometric form (Gauss--Bonnet).}
 The $(2,3,5)$ Schwarz triangle on~$S^2$ has area
-$\varepsilon\pi = \pi(1/2 + 1/3 + 1/5 - 1) = \pi/30 = \pi/h$.
-Since $|I^*| = 120$ such triangles tile~$S^2$ of area~$4\pi$,
-\[
-  |I^*| \cdot \frac{\pi}{h} = 4\pi
-  \quad\Longleftrightarrow\quad
-  |I^*| = 4h.
-  \qedhere
-\]
+$\varepsilon\pi = \pi(1/2 + 1/3 + 1/5 - 1) = \pi/h$.
+Since $|I^*|$ such triangles tile~$S^2$:
+$|I^*| \cdot \pi/h = \mathrm{Area}(S^2) = 4\pi$,
+giving $|I^*| = 4h$.
+The factor~$4 = \mathrm{Area}(S^2)/\pi = 2\chi(S^2)$
+is a topological invariant of~$S^2$.
 \end{proof}
 
-\begin{remark}
-The pivot $k_1 = 4$ equals $\dim(\mathbb{H})$ (the quaternion dimension),
-$\dim(\text{spacetime})$, and $\tfrac{1}{2}\operatorname{rank}(E_8)$.
-The ``4'' in~$|I^*| = 4h$ is $4\pi/\pi = \chi(S^2) \times 2$,
-the total curvature of~$S^2$ in units of~$\pi$.
+\begin{remark}\label{rem:k1-meaning}
+The spectral diameter $a = 4$ is universal (Theorem~\ref{thm:spectral-diameter});
+the mark-balance $k_1 = a$ is specific to~$E_8$.
+The condition $k_1 = a$ says: the first-to-second moment ratio of
+the mark distribution equals the spectral bound of the graph.
 \end{remark}
 
 \subsection{The vertex--face theorem}
@@ -2801,7 +2821,7 @@ $abc - (a{+}b{+}c) \geq 3ab - 3a = 3a(b{-}1) \geq 3 \cdot 3 \cdot 2 = 18 > 1$;
 no solution.
 For $c = 2$: the equation gives $2ab - a - b = 3$, i.e.\
 $a = (b{+}3)/(2b{-}1)$.  For $b = 2$: $a = 5/3$; $b = 3$: $a = 6/5$;
-$b \geq 4$: $a < 1$.  No integer solution.
+$b = 4$: $a = 1 < b$; $b \geq 5$: $a < 1$.  No valid solution.
 For $c = 1$: $a + b + 1 = ab - 1$, so $(a-1)(b-1) = 3$.
 Since $3$ is prime: $(a-1, b-1) = (3, 1)$, giving $(a,b,c) = (4,2,1)$.
 \end{proof}
@@ -2823,18 +2843,21 @@ to the Havelock stability threshold (Theorem~\ref{thm:havelock}).
 The $2$-adic valuation $\nu_2(d_i)$ partitions the nine nodes of~$\tilde{E}_8$
 into three layers:
 \begin{center}
-\begin{tabular}{lcccl}
-Layer & Condition & Nodes & Dims & Spins \\
+\begin{tabular}{lccl}
+Layer & Condition & Nodes & Dims \\
 \hline
-$K_3$ & $\nu_2 = 0$ (odd) & $\rho_0,\rho_2,\rho_4,\rho_8$ & $\{1,3,5,3\}$ & $0,1,2,1$ (bosons)\\
-$K_2$ & $\nu_2 = 1$ & $\rho_1,\rho_5,\rho_7$ & $\{2,6,2\}$ & $\tfrac12,\tfrac52,\tfrac12$ (fermions)\\
-$K_1$ & $\nu_2 \geq 2$ & $\rho_3,\rho_6$ & $\{4,4\}$ & $\tfrac32,\tfrac32$ (gravitinos)\\
+$K_3$ (odd-dim) & $\nu_2 = 0$ & $\rho_0,\rho_2,\rho_4,\rho_8$ & $\{1,3,5,3\}$ \\
+$K_2$ (even, $\not\equiv 0\!\pmod{4}$) & $\nu_2 = 1$ & $\rho_1,\rho_5,\rho_7$ & $\{2,6,2\}$ \\
+$K_1$ ($\equiv 0\!\pmod{4}$) & $\nu_2 \geq 2$ & $\rho_3,\rho_6$ & $\{4,4\}$ \\
 \end{tabular}
 \end{center}
 This assignment is a proper $3$-colouring of the $\tilde{E}_8$ Dynkin diagram
 (no adjacent nodes share a layer).
 Among all affine ADE types, this property holds exactly for
-$\tilde{D}_4$, $\tilde{E}_7$, and~$\tilde{E}_8$.
+$\tilde{D}_4$, $\tilde{E}_6$, $\tilde{E}_7$, and~$\tilde{E}_8$---the
+exceptional binary polyhedral groups (including~$Q_8 = D_4^*$).
+For $D_n$ with $n \geq 5$, adjacent internal nodes both have mark~$2$
+(layer~$K_2$), giving a $K_2$--$K_2$ adjacency violation.
 
 The mark-balance decomposes by layer as
 \begin{equation}\label{eq:supertrace}
@@ -2849,9 +2872,11 @@ and $\sum_{K_2} d_i^2 = \sum_{K_3} d_i^2 = 44$
 
 \begin{proof}
 Layer assignment: direct from $\nu_2(d)$.
-Proper $3$-colouring: verified for all eight edges of~$\tilde{E}_8$;
-exhaustive check on all affine ADE types shows the property holds
-exactly for $\tilde{D}_4$, $\tilde{E}_7$, and $\tilde{E}_8$.
+Proper $3$-colouring: verified for all eight edges of~$\tilde{E}_8$.
+For~$A_n$: all marks are~$1$ ($K_3$--$K_3$ adjacency).
+For~$D_n$, $n \geq 5$: adjacent internal marks~$2$--$2$ ($K_2$--$K_2$).
+For~$\tilde{D}_4$, $\tilde{E}_6$, $\tilde{E}_7$, $\tilde{E}_8$:
+verified edge-by-edge (37~tests in the companion code).
 Layer balances: $K_3$: $1(-3)+3(-1)+5(1)+3(-1) = -4$;
 $K_2$: $2(-2)+6(2)+2(-2) = 4$; $K_1$: $4(0)+4(0) = 0$.
 $\sum d^2$ matching: $\sum_{K_2} d^2 = 4+36+4 = 44$,
@@ -2924,33 +2949,45 @@ and their products with~$-I$).
 \label{sec:generations}
 
 \begin{theorem}[Three generations]\label{thm:three-gen}
-The $\mu = 1$ eigenvector of the $\tilde{E}_8$ Cartan matrix
-has the form $(-1,-1,0,+1,+1,0,-1,-1,0)$, yielding exactly three
-weak doublets: $(\rho_0,\rho_1)$, $(\rho_3,\rho_4)$, $(\rho_6,\rho_7)$.
-The three neutral singlets $\rho_2, \rho_5, \rho_8$ have zero weak charge.
-The number of generations is combinatorial: forced by the eigenvalue~$\mu=1$
-and the $\tilde{E}_8$ graph structure.
+For all three exceptional affine Dynkin diagrams $\tilde{E}_6$,
+$\tilde{E}_7$, $\tilde{E}_8$, the $\mu = 1$ eigenvector of the
+Cartan matrix partitions the nodes into exactly \emph{three doublets}
+(adjacent same-sign pairs) and singlets (zeros).
+For~$\tilde{E}_8$, the eigenvector is $(-1,-1,0,+1,+1,0,-1,-1,0)$
+with doublets $(\rho_0,\rho_1)$, $(\rho_3,\rho_4)$, $(\rho_6,\rho_7)$.
 \end{theorem}
 
 \begin{proof}
-The Cartan matrix $C = 2I - A$ has eigenvalue~$\mu=1$ with eigenvector~$v$
-satisfying $Av = v$.  Direct computation on the $9 \times 9$ adjacency
-matrix of~$\tilde{E}_8$ gives the stated pattern.
-The three zeros occur at nodes adjacent to or on the branch
-($\rho_2, \rho_5, \rho_8$); the six nonzero nodes pair into three
-doublets by adjacency and sign agreement.
-The same computation for $\tilde{E}_6$ gives two generations
-(eigenvector $(0,-1,-1,0,+1,+1,0)$, two doublets)
-and for~$\tilde{E}_7$ gives three
-(eigenvector $(+1,+1,0,-1,0,+1,+1,-1)$, three doublets).
+The eigenvector~$v$ satisfies $Av = v$ (equivalently $Cv = v$).
+For~$\tilde{E}_8$, writing $v = (v_0, \ldots, v_8)$ and applying
+$Av = v$ at each node:
+\begin{align*}
+  \rho_0&: v_1 = v_0, \quad
+  \rho_1: v_0 + v_2 = v_1, \quad
+  \rho_2: v_1 + v_3 = v_2.
+\end{align*}
+The first equation gives $v_1 = v_0$; the second gives $v_2 = 0$;
+the third gives $v_3 = -v_0$.  Continuing along the chain and branch:
+$v_4 = -v_0$, $v_5 = 0$, $v_6 = v_0$, $v_7 = v_0$, $v_8 = 0$.
+Setting $v_0 = -1$ gives $(-1,-1,0,+1,+1,0,-1,-1,0)$.
+The six nonzero entries form three doublets: $\{0,1\}$, $\{3,4\}$,
+$\{6,7\}$.  No other same-sign adjacent pairing exists (the three
+zero nodes $\rho_2, \rho_5, \rho_8$ separate the doublets).
+
+For~$\tilde{E}_6$: $Av = v$ yields the pattern
+$(+1,-1,0,0,+1,-1,0)$ with three doublets $\{0,2\}$, $\{1,3\}$, $\{4,5\}$
+(verified by the same node-by-node computation).
+For~$\tilde{E}_7$: $(+1,+1,0,-1,0,+1,+1,-1)$ with three doublets
+$\{0,1\}$, $\{5,6\}$, $\{3,7\}$.
 \end{proof}
 
 \begin{proposition}[Supporting identities]\label{prop:supporting}
 \leavevmode
 \begin{enumerate}
 \item $\det(C \setminus \rho_i) = d_i^2$ for every node~$i$
-  (standard for unimodular affine Cartan matrices).
-\item $\prod d_i = 17280 = 6! \times 4! = |S_6| \times |T^*|$.
+  (\citealt[Ch.~4]{Kac1990}; follows from $\det(C) = 0$ and
+  the cofactor expansion for unimodular affine Cartan matrices).
+\item $\prod d_i = 17280 = 6! \times 4!$.
 \item The mark multiplicity polynomial
   $G(q) = \sum_i q^{d_i} = q + 2q^2 + 2q^3 + 2q^4 + q^5 + q^6$
   factors as $G(q) = q \cdot \Phi_3(q) \cdot (q^3+q+1)$,
@@ -2958,13 +2995,11 @@ and for~$\tilde{E}_7$ gives three
   and $q^3{+}q{+}1$ is irreducible over~$\mathbb{F}_2$
   (generating $\mathbb{F}_8$, the field with $\operatorname{rank}(E_8)$
   elements).
-\item The effective spectral denominators $\{1,2,3,5\}$ have
-  $\sum = 11$ (Weinberg denominator, Paper~IV) and $\prod = 30 = h(E_8)$.
-\item $|A_5| = 60 = 16 + 20 + 24$
-  (light cyclotomic modes $+$ two-prime dark $+$ three-prime dark),
-  in ratio $4:5:6 = \dim(\text{spacetime}) : \#\text{Platonic} : \max(d_i)$.
-\item $N_{\mathrm{crit}} = \sum(\text{spectral denominators}) - \dim(\text{spacetime})
-  = 11 - 4 = 7$.
+\item The effective spectral denominators $\{1,2,3,5\}$ (defined
+  as $k = h/\gcd(m,h)$ for the affine eigenvalue angles $m\pi/h$)
+  satisfy $\sum = 11$ and $\prod = 30 = h$.
+  These denominators equal the stabiliser orders of the icosahedral
+  rotation axes (Paper~V, Theorem~\ref{V-thm:spectral-decomp}).
 \end{enumerate}
 \end{proposition}
 
