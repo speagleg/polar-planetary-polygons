@@ -2669,6 +2669,142 @@ The K-theoretic classification of stability phases is developed
 in Appendix~\ref{sec:k-theory}.
 Parameter accounting and predictions appear in Paper~VII.
 
+%% ====================================================================
+\section{The mark distribution}
+\label{sec:mark-distribution}
+%% ====================================================================
+
+The marks $d_i = (1,2,3,4,5,6,4,2,3)$ of the affine $\tilde{E}_8$ Dynkin
+diagram---equivalently, the dimensions of the nine irreps of~$I^*$---satisfy
+a cascade of identities that encode the division algebra hierarchy, the
+boson--fermion separation, and the generation structure of the Standard Model.
+This section proves the main identities; their physical interpretations are
+developed in Papers~IV, V, and~VII.
+
+\subsection{The mark-balance identity}
+\label{sec:mark-balance}
+
+\begin{theorem}[Mark-balance]\label{thm:mark-balance}
+Let $d_0, \ldots, d_8$ be the affine marks of $\tilde{E}_8$.  Then
+\begin{equation}\label{eq:mark-balance}
+  \sum_{i=0}^{8} d_i(d_i - 4) = 0,
+\end{equation}
+equivalently $|I^*| = 4\,h(E_8)$, i.e.\ $120 = 4 \times 30$.
+This identity holds for \emph{no other} ADE type at pivot~$4$.
+\end{theorem}
+
+\begin{proof}
+Direct computation: $\sum d_i^2 = 1 + 4 + 9 + 16 + 25 + 36 + 16 + 4 + 9 = 120$
+and $\sum d_i = 30$, so $\sum d_i(d_i-4) = 120 - 4 \times 30 = 0$.
+For $E_6$: $k_1 = 24/12 = 2 \neq 4$.
+For $E_7$: $k_1 = 48/18 = 8/3 \notin \mathbb{Z}$.
+Among all ADE types, only $E_8$ has $k_1 = \sum d_i^2 / \sum d_i = 4$.
+
+\emph{Geometric form (Gauss--Bonnet).}
+The $(2,3,5)$ Schwarz triangle on~$S^2$ has area
+$\varepsilon\pi = \pi(1/2 + 1/3 + 1/5 - 1) = \pi/30 = \pi/h$.
+Since $|I^*| = 120$ such triangles tile~$S^2$ of area~$4\pi$,
+\[
+  |I^*| \cdot \frac{\pi}{h} = 4\pi
+  \quad\Longleftrightarrow\quad
+  |I^*| = 4h.
+  \qedhere
+\]
+\end{proof}
+
+\begin{remark}
+The pivot $k_1 = 4$ equals $\dim(\mathbb{H})$ (the quaternion dimension),
+$\dim(\text{spacetime})$, and $\tfrac{1}{2}\operatorname{rank}(E_8)$.
+The ``4'' in~$|I^*| = 4h$ is $4\pi/\pi = \chi(S^2) \times 2$,
+the total curvature of~$S^2$ in units of~$\pi$.
+\end{remark}
+
+\subsection{The vertex--face theorem}
+\label{sec:vtensor-f}
+
+\begin{theorem}[$V \otimes F$ theorem]\label{thm:vtensor-f}
+For the icosahedron with rotation group~$A_5$,
+\begin{equation}\label{eq:vtensor-f}
+  V_{\mathrm{vertex}} \otimes V_{\mathrm{face}}
+  = 4 \times \mathrm{reg}(A_5)
+\end{equation}
+as $A_5$-representations.  Hence $V \times F = 12 \times 20 = 240 = |\text{roots}(E_8)|$.
+This holds if and only if\/ $\gcd(|\mathrm{Stab}_V|, |\mathrm{Stab}_F|) = 1$.
+\end{theorem}
+
+\begin{proof}
+The $A_5$-character of $V \otimes F$ at $g \neq e$ is
+$\chi_{V \otimes F}(g) = \chi_V(g) \chi_F(g)$.
+Since $|\mathrm{Stab}_V| = 5$ and $|\mathrm{Stab}_F| = 3$
+with $\gcd(5,3) = 1$, no non-identity element fixes both a vertex
+and a face.  Thus $\chi_V(g) \chi_F(g) = 0$ for all $g \neq e$.
+A character proportional to~$\delta(g,e)$ is a multiple of the
+regular representation, with multiplicity
+$\chi_{V \otimes F}(e)/|A_5| = 240/60 = 4$.
+\end{proof}
+
+\begin{remark}
+The same argument gives $V \otimes F = 2 \cdot \mathrm{reg}(S_4)$
+for the octahedron and cube (where $\gcd(4,3)=1$).
+The tetrahedron fails: $\gcd(3,3) = 3 \neq 1$,
+so $V \otimes F$ is \emph{not} a regular multiple.
+The identity $V \times F = |\text{roots}|$ holds \emph{only} for
+the icosahedron among all Platonic solids, because it requires
+$|I^*| = 4h$ (Theorem~\ref{thm:mark-balance}).
+\end{remark}
+
+\subsection{The division algebra chain}
+\label{sec:division-algebra-chain}
+
+\begin{definition}[Charge-magnitude map]
+For marks $\{d_i\}$ with integer pivot $k_1 = \sum d_i^2/\sum d_i$,
+the \emph{charge-magnitude map} sends $d_i \mapsto |d_i - k_1|$
+and discards zeros.  The kernel consists of the marks equal to~$k_1$.
+\end{definition}
+
+\begin{theorem}[Division algebra chain]\label{thm:division-chain}
+Iterating the charge-magnitude map on the $E_8$ marks gives:
+\[
+  E_8 \xrightarrow{k_1=4} E_6 \xrightarrow{k_1=2} A_3 \xrightarrow{k_1=1} \varnothing
+\]
+with pivots $4 = \dim(\mathbb{H})$, $2 = \dim(\mathbb{C})$,
+$1 = \dim(\mathbb{R})$---the normed division algebra dimensions.
+The kernel at each step has size $2, 3, 4$ respectively,
+summing to $9 = |\tilde{E}_8|$ and multiplying to $24 = |T^*|$.
+\end{theorem}
+
+\begin{proof}
+Step~1: $|d_i - 4|$ for $d = (1,2,3,4,5,6,4,2,3)$ gives
+$(3,2,1,0,1,2,0,2,1)$.  Nonzero values sorted:
+$(1,1,1,2,2,2,3) = $ affine $E_6$ marks.  Kernel: two copies of~$4$.
+
+Step~2: $E_6$ marks $(1,1,2,2,3,2,1)$ have $k_1 = 24/12 = 2$.
+$|d_i - 2|$ gives $(1,1,0,0,1,0,1)$; nonzero sorted: $(1,1,1,1) = A_3$ marks.
+Kernel: three copies of~$2$.
+
+Step~3: $A_3$ marks $(1,1,1,1)$ have $k_1 = 1$.  All equal the pivot;
+the chain terminates.  Kernel: four copies of~$1$.
+\end{proof}
+
+\begin{theorem}[Pivot uniqueness]\label{thm:pivot-unique}
+The triple $(4,2,1)$ is the unique decreasing positive-integer triple
+$(a,b,c)$ satisfying $a + b + c = abc - 1$.
+\end{theorem}
+
+\begin{proof}
+With $c = 1$: $a + b + 1 = ab - 1$, so $(a-1)(b-1) = 3$.
+Since $3$ is prime and $a \geq b \geq 1$, the unique factorisation
+is $(a-1, b-1) = (3, 1)$, giving $(a,b,c) = (4,2,1)$.
+\end{proof}
+
+\begin{corollary}\label{cor:ncrit-rank}
+The pivots satisfy $\sum = 4 + 2 + 1 = 7 = N_{\mathrm{crit}}$
+(the flat-plane stability boundary) and
+$\prod = 4 \times 2 \times 1 = 8 = \operatorname{rank}(E_8) = \dim(\mathbb{O})$.
+\end{corollary}
+
+Parameter accounting and predictions appear in Paper~VII.
+
 \appendix
 %% ====================================================================
 \section{K-theoretic classification of stability phases}
