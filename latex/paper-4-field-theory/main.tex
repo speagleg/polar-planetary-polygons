@@ -665,10 +665,13 @@ with $c_{\mathrm{total}} = \underbrace{(12b(N){-}4)}_{c_{\mathrm{grav}}}
 At $N = 4$, the critical mode $m^* = 2$ has KK mass
 $\mu_2 = |2 - 4/2| = 0$: it \emph{is} the zero mode.
 
-\emph{Step~4 (SU(2) adjoint).}
-The critical Casimir $f(2,4) = 2 = j(j{+}1)$ with $j = 1$.
-The $j = 1$ representation of $\mathrm{SU}(2)$ is the adjoint
-(dimension~$3$).
+\emph{Step~4 (SU(2) matter content).}
+The critical Havelock eigenvalue $f(2,4) = 2$ equals
+$j(j{+}1)$ at $j = 1$ (the adjoint, dimension~$3$).
+This $j$ labels the $\mathbf{H}^2$ Laplacian eigenvalue
+via the CMS--CS identification
+(Proposition~\ref{III-prop:casimir-havelock}),
+not a state in the $\mathrm{SU}(2)_1$ CS Hilbert space.
 Therefore the critical gravitational mode at $N = 4$ carries
 $\mathrm{SU}(2)$ quantum numbers in the adjoint representation.
 \end{proof}
@@ -1506,8 +1509,8 @@ The chain uses three mathematical theorems applied to the geometry:
 \begin{enumerate}
 \item \emph{$\mathrm{SU}(2)$ from CS gravity} (Witten 1988):
   KK reduction on~$S^1$ gives $2{+}1$D gravity $= \mathrm{CS}[\mathrm{SU}(2)]$.
-  At $N = 4$, the critical Casimir $f(2,4) = 2 = j(j{+}1)$ with $j = 1$
-  (the adjoint).  The Euler class $e = N/2$ breaks
+  At $N = 4$, the critical Havelock eigenvalue $f(2,4) = 2$.
+  The Euler class $e = N/2$ breaks
   $\mathrm{SU}(2)_R$ via the parity anomaly.
 
 \item \emph{$\mathrm{SU}(3)$ from McKay} (McKay 1980):
@@ -1576,24 +1579,37 @@ isomorphism of Paper~III.
 \section{The Weinberg angle}
 \label{sec:weinberg}
 
-\begin{derivation}[Weinberg angle from the KK-reduced gauge action]
+\begin{derivation}[Weinberg angle from polygon eigenvalues]
 \label{thm:weinberg}
 The KK reduction of $\mathrm{CS}_3$ on $\mathbf{H}^2 \times S^1$
 gives $\mathrm{YM}_2$ on $\mathbf{H}^2$ with coupling
 $g^2 = 2\pi/((k{+}h^\vee)R)$ (Blau--Thompson 1993).
-The effective coupling $\alpha_{\mathrm{eff}}(R) = g^2 C_2(R)
-= 2\pi h_R/R$ (with $h_R$ the WZW conformal weight),
-and the common factor $2\pi/R$ cancels in the mixing angle ratio.
-The electroweak mixing angle is therefore:
+The effective coupling of matter in the $m$-th Fourier mode is
+$\alpha(m) = g^2 \times f(m,N)$,
+where $f(m,N) = m(N{-}m)/2$ is the \emph{Havelock eigenvalue}
+--- the eigenvalue of the $\mathbf{H}^2$ Laplacian restricted
+to the $\mathbb{Z}_N$ mode
+(Proposition~\ref{III-prop:casimir-havelock}).
+This is a geometric quantity (sector~G of
+Theorem~\ref{thm:gauge-matter}), determined by the
+polygon, not by a gauge-group representation label.
+The common factor $2\pi/R$ cancels in the mixing angle ratio:
 \begin{equation}\label{eq:weinberg}
   \sin^2\theta_W
   = \frac{h_Y}{h_Y + h_W}
-  = \frac{Q^2(k{+}h^\vee)}{Q^2(k{+}h^\vee) + k_Y\,j(j{+}1)}
+  = \frac{Q^2(k{+}h^\vee)}{Q^2(k{+}h^\vee) + k_Y\,f(m^*,N)}
   = \frac{3}{11} \approx 0.2727,
 \end{equation}
-where $h_Y = Q^2/k_Y$ and $h_W = j(j{+}1)/(k{+}h^\vee)$,
-with $k_Y = 1$ the U(1) compact-boson level
-(distinguished from $K$ for Gaussian curvature).
+where $h_W = f(m^*,N)/(k{+}h^\vee) = 2/3$
+(Havelock eigenvalue at $N = 4$, $m^* = 2$),
+$h_Y = Q^2/k_Y = 1/4$ (KK momentum charge $Q = m^*/N = 1/2$),
+and $k_Y = 1$ (U(1) compact-boson level).
+No representation label $j$ is needed:
+the number~$2$ enters as $f(2,4)$, an eigenvalue of the
+$\mathbf{H}^2$ Laplacian proved in Paper~I.
+The integrability bound $j \le k/2$ of $\mathrm{SU}(2)_1$
+WZW constrains topological states in the CS Hilbert space;
+it does not constrain geometric eigenvalues on~$\mathbf{H}^2$.
 \end{derivation}
 
 \begin{proof}
@@ -1601,22 +1617,17 @@ Three steps: derive the quantum numbers from the Casimir,
 derive the CS gauge couplings from the DHVW levels,
 compute the mixing angle from the KK-reduced action.
 
-\emph{Step~1 (Quantum numbers from the Havelock Casimir).}
-The critical mode at $N = 4$ has Havelock Casimir
-$f(2,4) = m^*(N{-}m^*)/2 = 2$.
-This determines two quantum numbers:
-\begin{itemize}
-\item $\mathrm{SU}(2)$ Casimir:
-  $C_2(j) = j(j{+}1) = f(m^*,N) = 2$, giving $j = 1$.
-\item $\mathrm{U}(1)$ charge:
-  $Q = m^*/N = 2/4 = 1/2$.
-\end{itemize}
-Both are read off from the vortex spectrum.
-No choice is involved.  The identification
-$C_2^{\mathrm{SU}(2)} = f(m^*,N)$ is the Helgason symmetric
-space theorem (Proposition~III-2.1): on $\mathbf{H}^2 = \mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$,
-the $\mathrm{sl}(2,\mathbb{R})$ Casimir equals the Laplacian, which
-restricted to the $m$-th $\mathbb{Z}_N$ mode gives $m(N{-}m)/2$.
+\emph{Step~1 (Polygon eigenvalues).}
+The critical mode at $N = 4$ has Havelock eigenvalue
+$f(2,4) = m^*(N{-}m^*)/2 = 2$ and KK charge $Q = m^*/N = 1/2$.
+Both are read off from the vortex spectrum (Paper~I);
+no choice is involved.
+The Havelock eigenvalue $f(m,N)$ equals the
+$\mathbf{H}^2$ Laplacian restricted to the $m$-th
+$\mathbb{Z}_N$ mode (Proposition~\ref{III-prop:casimir-havelock},
+Helgason symmetric space theorem).
+This is a \emph{geometric} quantity: it does not require
+assigning a representation label $j$ to the mode.
 
 \emph{Step~2 (CS gauge couplings).}
 At the Chern--Simons threshold
@@ -1686,7 +1697,7 @@ The fiber radius~$R$ cancels in the mixing angle ratio:
 \begin{equation}\label{eq:weinberg-cs}
   \sin^2\theta_W
   = \frac{g_Y^2\,C_2(Y)}{g_Y^2\,C_2(Y) + g_W^2\,C_2(W)}
-  = \frac{Q^2/k_Y}{\;Q^2/k_Y \;+\; j(j{+}1)/(k{+}h^\vee)\;}.
+  = \frac{Q^2/k_Y}{\;Q^2/k_Y \;+\; f(m^*,N)/(k{+}h^\vee)\;}.
 \end{equation}
 The numerator and denominator are products of two
 independent factors: the YM coupling $g^2 = 2\pi/((k{+}h^\vee)R)$
@@ -1694,7 +1705,7 @@ independent factors: the YM coupling $g^2 = 2\pi/((k{+}h^\vee)R)$
 Lie-algebra Casimir $C_2$ (a property of the representation,
 independent of~$k$).
 Substituting from Steps~1--2
-($Q^2 = 1/4$, $k_Y = 1$, $j = 1$, $k{+}h^\vee = 3$):
+($Q^2 = 1/4$, $k_Y = 1$, $f(2,4) = 2$, $k{+}h^\vee = 3$):
 \[
   \sin^2\theta_W
   = \frac{1/4}{1/4 + 2/3}
@@ -1743,8 +1754,8 @@ renormalization).
 This is the step that creates a propagating gauge field.
 
 \emph{(b) Geometric matter (sector G).}
-The vortex critical mode at $N = 4$ has Casimir
-$f(2,4) = 2 \times 2 / 2 = 2 = j(j{+}1)$ with $j = 1$.
+The vortex critical mode at $N = 4$ has Havelock eigenvalue
+$f(2,4) = 2 \times 2 / 2 = 2$.
 This is a \emph{geometric} quantity: the eigenvalue of the
 $\mathbf{H}^2$ Laplacian restricted to the $m = 2$ Fourier mode.
 The mode exists independently of the gauge field ---
@@ -1803,15 +1814,19 @@ CS/WZW (this work) & $h_Y/(h_Y + h_W)$ & $3/11 = 0.273$ \\
 \hline
 \end{tabular}
 \end{center}
-In 4D, the gauge coupling is representation-independent,
-so the mixing angle requires an external normalization
-condition (the GUT embedding).
-In the KK-reduced framework, the effective coupling
-$\alpha(R) = g^2 C_2(R)$ already incorporates the
-representation through~\eqref{eq:gauge-matter}:
-the CS level determines $g^2$ (sector~D) and the polygon
-determines $C_2$ (sector~G), so the mixing angle is
-fixed by these two ingredients---no GUT embedding is needed.
+In 4D YM, the gauge coupling $g$ is representation-independent,
+so $\sin^2\theta_W = g'^2/(g^2{+}g'^2)$ requires an external
+normalization (the GUT embedding).
+In the KK-reduced framework, the $\mathbf{H}^2$ Laplacian
+eigenvalue $f(m,N)$ enters the vertex coupling
+$\alpha = g^2 f(m,N)$ (eq.~\eqref{eq:gauge-matter}),
+making the coupling representation-dependent at the
+CS threshold.
+The mixing angle $h_Y/(h_Y + h_W)$ is then the ratio of
+\emph{conformal weights}, which are directly measurable
+through scattering cross-sections.
+No GUT embedding is needed because the polygon (sector~G)
+and the CS level (sector~D) together fix the ratio.
 
 At the CS threshold there is a single matter species
 (the Havelock critical mode at $N = 4$).
@@ -1888,7 +1903,7 @@ gives~\eqref{eq:spectral-cs-bridge}.
 The spectral denominators of the electroweak sectors recover
 \begin{equation}\label{eq:spectral-weinberg}
   \sin^2\theta_W
-  = \frac{Q^2/k_Y}{Q^2/k_Y + j(j{+}1)/(k{+}h^\vee)}
+  = \frac{Q^2/k_Y}{Q^2/k_Y + f(m^*,N)/(k{+}h^\vee)}
   = \frac{1/4}{1/4 + 2/3}
   = \frac{3}{11}
   = \frac{a-1}{a + N_{\mathrm{crit}}},
@@ -3162,8 +3177,8 @@ Two corrections, both derived from the orbifold structure, raise this:
   $\mathcal{K} = 0.548$~\eqref{eq:instanton-K}.
   The quartic vertex involves two instanton--anti-instanton pairs
   (amplitude $\mathcal{K}^2 = 0.300$), mediated by the
-  critical mode ($j = 1$, conformal weight
-  $h = j(j{+}1)/(k{+}h^\vee) = 2/3$).
+  critical mode (Havelock eigenvalue $f(2,4) = 2$, conformal weight
+  $h = f/(k{+}h^\vee) = 2/3$).
   The critical mode dominates because it is the lightest excitation
   at the BF threshold ($\lambda_{m^*} = 0$).
   The central-charge suppression $1/c_{\mathrm{EW}} = 1/17.2$
