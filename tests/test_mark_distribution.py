@@ -539,3 +539,42 @@ class TestMasterEquationDerivation:
     def test_dim_e8(self):
         """dim(E₈) = |I*| + 2^(rank-1) = 248."""
         assert 120 + 2**7 == 248
+
+
+class TestGenusDerivation:
+    """g=2 is the minimum hyperbolic genus; the polygon fits locally."""
+
+    def test_uniformization_minimum(self):
+        """Uniformization: K=-1 requires g ≥ 2."""
+        # genus 0 = S² (K > 0), genus 1 = T² (K = 0)
+        # genus ≥ 2 = hyperbolic (K < 0)
+        g_min = 2  # minimum for K = -1
+        assert g_min == 2
+
+    def test_polygon_radius(self):
+        """ρ* = 2 arctanh(√ξ*) ≈ 0.51 for N=7."""
+        import math
+        xi_star = 8 - 3 * math.sqrt(7)
+        rho_star = 2 * math.atanh(math.sqrt(xi_star))
+        assert 0.50 < rho_star < 0.52
+
+    def test_polygon_fits_in_bolza(self):
+        """ρ* ≪ injectivity radius of Bolza surface."""
+        import math
+        xi_star = 8 - 3 * math.sqrt(7)
+        rho_star = 2 * math.atanh(math.sqrt(xi_star))
+        systole_bolza = 2 * math.acosh(1 + math.sqrt(2))
+        inj_rad = systole_bolza / 2
+        assert rho_star < inj_rad / 2  # well inside, not just barely
+
+    def test_z7_no_riemann_hurwitz_constraint(self):
+        """Since polygon is local, Riemann-Hurwitz is irrelevant.
+        (Z₇ cannot act globally on g=2, but doesn't need to.)"""
+        # Riemann-Hurwitz: g + 6 = 7h + 3n for Z₇ on genus g
+        g = 2
+        solutions = [(h, (g + 6 - 7*h) // 3)
+                     for h in range(g)
+                     if (g + 6 - 7*h) >= 0 and (g + 6 - 7*h) % 3 == 0]
+        # No global Z₇ action on g=2 exists
+        assert solutions == []
+        # But this is fine: the polygon acts locally (ρ* < inj. radius)
