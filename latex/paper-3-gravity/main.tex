@@ -149,17 +149,24 @@ Green's function ($d = 2 \Leftrightarrow \alpha = 2$);
 no other spatial dimension gives polynomial eigenvalues.
 
 \emph{Gravity uniqueness.}
-In $2{+}1$D, the unique first-order topological gauge theory
-with gauge group $\mathrm{SL}(2,\mathbb{R})$ is CS theory
-(\citealt{Witten1988}).
-The CS boundary dynamics on a punctured surface is the KZ
-connection (CS/WZW theorem), which at the $\mathbb{Z}_N$
-locus is the CMS Hamiltonian (EFK, Theorem~7.1.2).
-The CMS Casimir $m(N{-}m)/2$ is polynomial in~$m$ (degree~$2$).
-No other $2{+}1$D topological theory has this property:
-higher-spin or non-compact gauge groups change the Casimir
-from a degree-$2$ polynomial to a higher-degree or
-non-polynomial expression.
+The $2$D base~$\mathbf{H}^2$ has isometry group
+$\mathrm{SL}(2,\mathbb{R})$, which is \emph{rank~$1$}:
+the symmetric space $G/K = \mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$
+has one angular coordinate, so $\mathbb{Z}_N$ modes are
+labelled by a single integer~$m$.
+For rank~$\ge 2$ groups ($G/K$ has $\ge 2$ angular coordinates),
+the $\mathbb{Z}_N$ decomposition involves multiple quantum
+numbers and the Casimir is not a polynomial in a single
+variable~$m$.
+Among rank-$1$ symmetric spaces, $\mathbf{H}^2$ is uniquely
+two-dimensional; the unique first-order topological gauge
+theory with isometry group $\mathrm{SL}(2,\mathbb{R})$
+is CS theory (\citealt{Witten1988}).
+The CMS Casimir on the $\mathbb{Z}_N$ mode is then
+$m(N{-}m)/2$ (Helgason + Havelock): a degree-$2$
+polynomial in the single quantum number~$m$,
+with the specific form $m(N{-}m)/2$ forced by
+the $\csc^2$ angular kernel of the $2$D Laplacian.
 
 \emph{Bridge.}
 Both sides give the same polynomial $T_m = m(N{-}m)/2$.
@@ -661,7 +668,9 @@ If:
   the polygon entropy functional
   $S_{\mathrm{poly}}[g] = \int S(x)\,dA$, where
   $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$
-  is a finite sum over $N{-}1$ modes,
+  is a finite sum over $N{-}2$ binding modes
+  (excluding the critical mode $m^*$ where $\lambda_{m^*} = 0$
+  at the threshold $N = 7$; all remaining $\lambda_m > 0$),
   is \emph{strictly concave} in~$R(x)$:
   $S$ is strictly concave in~$C_1$
   ($d^2S/dC_1^2 = -\tfrac{1}{2}\sum 1/\lambda_m^2 < 0$,
@@ -762,8 +771,9 @@ $R_0 = 2\pi\chi/\mathrm{Vol}$ is the mean curvature
 ($|R_0| = 1$ for the Bolza surface), and
 $V_1, V_2$ are defined in the proof below.
 At~$N = 7$: $|\beta_{\mathrm{eff}}| R_0 = 1/f(3,7) = 1/6$,
-giving contraction factor $(1/6)^2 \times 1.75 = 0.049$,
-i.e.\ $95\%$ variance reduction per step.
+giving contraction factor $(1/6)^2 \times 1.48 = 0.041$
+on the Bolza surface (Sobolev bound in the proof below;
+the cruder basin estimate $\mathrm{Var} \le 2$ gives $0.049$).
 The contraction improves with~$N$: $|\beta_{\mathrm{eff}}| R_0
 = 1/8$ at $N = 8$, $1/15$ at $N = 11$.
 \end{corollary}
@@ -1495,8 +1505,14 @@ The boundary has $\mathbb{Z}_N$ orbifold singularities
 smooth: the FG expansion is well-defined in the distributional
 sense, with $g_2$ acquiring delta-function contributions
 at the cone points and $g_4$ remaining regular
-(the $\delta^2$ terms cancel by the $\mathbb{Z}_N$
-symmetry of the metric).
+(the $\delta^2$ terms vanish because the $\mathbb{Z}_N$
+orbit-averaged stress tensor $\langle T_{ab}\rangle$
+is smooth: the $N$ delta-function contributions at the
+equally-spaced cone points sum to a constant by the
+$\mathbb{Z}_N$ Fourier projection
+$\sum_{k=0}^{N-1}\delta(z - z_k)
+= N/(4\pi(g{-}1)) + O(m \ge 1)$,
+with all $m \ge 1$ modes entering only linearly).
 The orbifold boundary is a Lipschitz Riemannian manifold
 with isolated cone singularities of angle $2\pi/N$;
 the scattering operator extends to this setting by
