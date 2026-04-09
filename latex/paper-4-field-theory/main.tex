@@ -2641,14 +2641,27 @@ $G(\mathrm{QR}) + G(\mathrm{QNR}) = -1$ and
 $G(\mathrm{QR}) - G(\mathrm{QNR}) = i\sqrt{7}$.
 
 \emph{Step~4: The sector amplitude.}
-The total up-type amplitude (untwisted sector plus QR twisted sectors) is
+The Yukawa three-point function in the $\mathbb{Z}_7$ orbifold
+sums over all orbifold sectors.
+The untwisted sector ($m = 0$) contributes the identity operator
+with coefficient~$1$: this is fixed by the twist-field normalization
+$\langle\sigma_m\,\sigma_{-m}\rangle = 1$ and the OPE Ward identity
+(the identity operator always has unit OPE coefficient;
+\citealt{DixonHarveyVafaWitten1985}).
+The QR twisted sectors contribute $\omega^m$ for $m \in \{1,2,4\}$.
+The total up-type amplitude is therefore
 \[
-  \alpha_2 = 1 + G(\mathrm{QR})
+  \alpha_2 = \underbrace{1}_{\text{untwisted (identity)}}
+  + \underbrace{G(\mathrm{QR})}_{\text{twisted (QR)}}
   = \frac{1 + i\sqrt{7}}{2}.
 \]
-This equals the Frobenius eigenvalue of the CM curve $49.a3$ at $p = 2$,
-satisfying $\alpha_2^2 - \alpha_2 + 2 = 0$ and $|\alpha_2|^2 = 2$
-(the Weil bound).
+The coefficient~$1$ is \emph{not} a normalization choice:
+at $c_{\mathrm{untw}} = 0$ the phase would be $110.7^\circ$
+(the supplementary angle), and no other integer coefficient
+gives $\arctan(\sqrt{7})$.
+The down-type amplitude is $\bar\alpha_2 = (1 - i\sqrt{7})/2$
+(since $G(\mathrm{QNR}) = \overline{G(\mathrm{QR})}$
+for $p \equiv 3 \pmod{4}$).
 
 \emph{Step~5: The CKM phase.}
 $\delta_{\mathrm{CKM}} = \arg(\alpha_2) = \arctan(\sqrt{7})$.

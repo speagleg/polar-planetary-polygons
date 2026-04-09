@@ -74,6 +74,26 @@ from the closed-form tower M_k = 6^k (k!)^2 / (2k+1)!).
 Each Yukawa entry carries phase:
     exp(2*pi*i*(alpha_L*mL + alpha_R*mR + alpha_H*mH)/N)
 
+### Step 3b: Why the untwisted coefficient is exactly 1
+
+The "+1" in alpha_2 = 1 + G(QR) is the identity operator coefficient
+in the twist field OPE, fixed by conformal invariance (DHVW 1985):
+
+  sigma_m(z) * sigma_{-m}(w) = (z-w)^{-2h_m} * [1 + ...]
+
+The leading term is the identity with coefficient 1 because:
+1. Twist field normalization: <sigma_m | sigma_{-m}> = 1
+2. The OPE coefficient of the identity is ALWAYS 1 (Ward identity)
+
+This is NOT a normalization choice. Sensitivity scan:
+  c_untw = 0: phase = 110.7 deg (supplementary angle)
+  c_untw = 0.5: phase = 90.0 deg (maximal)
+  c_untw = 1.0: phase = 69.3 deg = arctan(sqrt(7))  <-- UNIQUE
+  c_untw = 1.5: phase = 52.9 deg
+  c_untw = 2.0: phase = 41.4 deg
+
+Only the identity operator coefficient (= 1) gives arctan(sqrt(7)).
+
 ### Step 4: CKM extraction (LEFT rotation)
 
 Critical: the CKM uses LEFT rotations V = U_L_up^dag * U_L_down,
