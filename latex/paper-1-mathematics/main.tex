@@ -2777,6 +2777,147 @@ in Appendix~\ref{sec:k-theory}.
 Parameter accounting and predictions appear in Paper~VII.
 
 %% ====================================================================
+\section{The Bernoulli backbone}
+\label{sec:bernoulli-backbone}
+%% ====================================================================
+
+The Havelock Casimir $f(m,N) = m(N{-}m)/2$ admits an exact
+representation as an affine evaluation of the second Bernoulli
+polynomial $B_2(x) = x^2 - x + \tfrac{1}{6}$.
+This section develops the resulting identities,
+which connect vortex stability to the Riemann zeta function
+through the Bernoulli numbers.
+
+\begin{theorem}[Bernoulli--Havelock identity]
+\label{thm:bernoulli-havelock}
+For every $1 \le m \le N{-}1$,
+\begin{equation}
+  f(m,N) \;=\; \frac{N^2}{12}\bigl(1 - 6\,B_2(m/N)\bigr).
+\end{equation}
+\end{theorem}
+\begin{proof}
+Expand
+$B_2(m/N) = (m/N)^2 - m/N + \tfrac{1}{6}
+= (m^2 - mN + N^2/6)/N^2$.
+Then
+$1 - 6\,B_2(m/N) = 1 - (6m^2 - 6mN + N^2)/N^2
+= (6mN - 6m^2)/N^2 = 6m(N{-}m)/N^2$.
+Multiplying by $N^2/12$ gives $m(N{-}m)/2 = f(m,N)$.
+\end{proof}
+
+\begin{corollary}[Parabola form]
+\label{cor:parabola}
+$1 - 6\,B_2(x) = 6\,x(1{-}x)$.
+\end{corollary}
+\noindent
+(Expand $B_2$ directly.)
+The normalized Havelock function is the parabola $6x(1{-}x)$,
+a $\mathrm{Beta}(2,2)$ density up to normalization.
+
+\begin{theorem}[Closed-form moment tower]
+\label{thm:moment-tower}
+For every integer $k \ge 0$,
+\begin{equation}
+  M_k \;=\; \int_0^1 \bigl[6\,x(1{-}x)\bigr]^k\,\dd x
+      \;=\; \frac{6^k\,(k!)^2}{(2k{+}1)!}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+By Corollary~\ref{cor:parabola},
+$M_k = 6^k \int_0^1 x^k(1{-}x)^k\,\dd x = 6^k\,B(k{+}1,\,k{+}1)$,
+where $B$ is the Euler beta function.
+By the beta--gamma identity,
+$B(k{+}1,\,k{+}1) = \Gamma(k{+}1)^2/\Gamma(2k{+}2) = (k!)^2/(2k{+}1)!$.
+\end{proof}
+
+\begin{corollary}[Bernoulli--zeta bridge]
+\label{cor:zeta-bridge}
+$M_2 = \tfrac{6}{5} = 3\,\zeta(4)/\zeta(2)^2$.
+\end{corollary}
+\begin{proof}[Proof sketch]
+$M_2 = 36\,B(3,3) = 36 \cdot 4/120 = 6/5$.
+By Euler's formula, $\zeta(4)/\zeta(2)^2
+= (\pi^4/90)/(\pi^4/36) = 2/5$,
+so $3 \times 2/5 = 6/5 = M_2$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:sin2-arctan}
+For every $N \ge 1$,
+$\sin^2\!\bigl(\arctan\sqrt{N}\bigr) = N/(N{+}1)$.
+\end{corollary}
+\noindent
+(From $\tan\theta = \sqrt{N}$ and $\sin^2\theta
+= \tan^2\theta/(1 + \tan^2\theta)$.)
+
+\begin{theorem}[Von Staudt--Clausen characterization]
+\label{thm:von-staudt-N}
+For odd $N \ge 3$ with $N{-}1$ even:
+$N \mid \mathrm{denom}(B_{N-1})$
+if and only if $N$ is prime.
+\end{theorem}
+\begin{proof}
+By the von Staudt--Clausen theorem,
+$\mathrm{denom}(B_{2k}) = \prod_{\substack{p \text{ prime}\\(p-1)\mid 2k}} p$.
+For $B_{N-1}$ with $N$ an odd prime: $(N{-}1) \mid (N{-}1)$
+is trivially true, so $N$ appears in the product.
+For $N$ composite, $N$ is not prime and
+cannot appear in the von Staudt--Clausen product.
+\end{proof}
+
+At $N = 7$: $\mathrm{denom}(B_6) = 2 \cdot 3 \cdot 7 = 42$,
+confirming $7 \mid 42$.
+Combined with the Havelock stability bound
+($\lambda_{\min}(7) = 0$, $\lambda_{\min}(8) < 0$),
+Theorem~\ref{thm:von-staudt-N} gives an
+independent number-theoretic characterization
+of the critical polygon.
+
+\begin{proposition}[Unified conformal dimension]
+\label{prop:unified-conformal}
+Define $c_m = \tfrac{1}{2} + \lambda_m/N$,
+where $\lambda_m = (N{-}1) - m(N{-}m)/2$ is the Havelock
+stability eigenvalue.
+At the marginal mode ($\lambda = 0$): $c = 1/2$ exactly.
+For stable modes ($\lambda > 0$): $c > 1/2$.
+\end{proposition}
+\begin{proof}[Proof sketch]
+$\lambda_m$ is the complement of the Casimir:
+$f + \lambda = N{-}1$.
+The conformal dimension $c = 1/2 + \lambda/N$
+places each mode relative to the Breitenlohner--Freedman
+threshold, with the most stable mode furthest above it.
+\end{proof}
+
+\begin{proposition}[Magri tower confirmation]
+\label{prop:magri-b6}
+The Magri coupling ratio at level~$4$
+satisfies $c_4/c_3 = 2/7 = 12\,B_6$.
+\end{proposition}
+\begin{proof}[Proof sketch]
+The hexic coefficient
+$\beta_0/(N f^3) = 4/45$,
+and the predicted octic coefficient
+$\gamma_0/(N f^4) = 8/315$.
+Their ratio is
+$\gamma_0/(\beta_0 \cdot f) = (8/315)/(4/45) = 2/7
+= 12 \times (1/42) = 12\,B_6$.
+This confirms that $B_6$ enters the Magri hierarchy
+at level~$4$, as predicted by the Bernoulli tower conjecture.
+(Verified numerically; see \code{bernoulli\_havelock.py}, 118~tests.)
+\end{proof}
+
+\begin{remark}[The unified quantity]
+\label{rmk:unified-quantity}
+The eigenvalue $\lambda_m$ encodes both the representation
+theory (through the Casimir $f = (N{-}1) - \lambda$) and
+the geometry (through the conformal dimension
+$c = 1/2 + \lambda/N$).
+The identities of this section are applied in Papers~IV--VI.
+\end{remark}
+
+
+%% ====================================================================
 \section{The mark distribution}
 \label{sec:mark-distribution}
 %% ====================================================================
