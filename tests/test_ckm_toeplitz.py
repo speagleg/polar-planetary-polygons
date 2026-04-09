@@ -1,4 +1,8 @@
-"""Tests for the CKM phase from the H^2 Dirac Plancherel density."""
+"""Tests for the CKM phase from the H^2 Dirac Plancherel density.
+
+DEPRECATED: These tests verify the old Plancherel/Toeplitz CKM derivation.
+See test_orbit_ckm.py for the corrected Gauss sum derivation.
+"""
 
 import pytest
 from math import pi, log, cosh, tanh, sqrt
@@ -9,6 +13,7 @@ from planetary_polygons.extensions.ckm_toeplitz import (
 )
 
 
+@pytest.mark.deprecated
 class TestConicalFunction:
     """The conical function P_{-1/2+im}(cosh rho) must be real."""
 
@@ -44,6 +49,7 @@ class TestConicalFunction:
         assert abs(val) < 1.0
 
 
+@pytest.mark.deprecated
 class TestPlancherelWeight:
     """Plancherel density weight tanh(pi s) of the H^2 Dirac (Bolte-Stiepan 2006)."""
 
@@ -74,6 +80,7 @@ class TestPlancherelWeight:
             assert abs(mod_sq - pi / cosh(pi * m)) < 1e-12
 
 
+@pytest.mark.deprecated
 class TestOverlapIntegral:
     """The overlap integral I(m) must be real and positive."""
 
@@ -96,6 +103,7 @@ class TestOverlapIntegral:
         assert 0.3 < I < 0.6
 
 
+@pytest.mark.deprecated
 class TestKKMomentumTransfer:
     """m = Delta T_3 = 1 from the Seifert structure."""
 
@@ -117,6 +125,7 @@ class TestKKMomentumTransfer:
         assert kk['forced'] is True
 
 
+@pytest.mark.deprecated
 class TestCKMPhase:
     """The full CKM phase computation: delta = 2 * theta_CS * tanh(pi) = 68.63 deg."""
 

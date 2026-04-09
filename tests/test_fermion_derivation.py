@@ -156,6 +156,7 @@ class TestMassHierarchy:
 # 7. CKM phase
 # =====================================================================
 
+@pytest.mark.deprecated
 class TestCKMPhase:
     def test_delta_value(self):
         result = ckm_phase()

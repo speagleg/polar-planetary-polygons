@@ -1,31 +1,26 @@
 r"""
+DEPRECATED: This module uses the Plancherel formula (delta=68.63 deg) and
+the RIGHT rotation (Y†Y instead of YY†). Both are superseded by orbit_ckm.py
+which uses the Gauss sum derivation (delta=arctan(sqrt(7))=69.3 deg), LEFT
+rotation (YY†), and instanton K^(N-1) correction for V_ub.
+
+See: src/planetary_polygons/extensions/orbit_ckm.py (replacement)
+     docs/investigations/2026-04-09-bernoulli-havelock-backbone.md (derivation)
+
+Known issues in this module:
+  1. ckm_matrix() diagonalizes M†M giving U_R, not the CKM-standard U_L from MM†
+  2. delta=68.63 deg from Plancherel formula differs from Gauss sum delta=69.3 deg
+  3. The tanh(pi) factor is the scalar Plancherel density, not the Dirac density
+
+Original description (preserved for reference):
+
 CKM mixing matrix from the Havelock Yukawa texture.
 
-The 3×3 Yukawa matrix has 4 texture zeros from Z₇ charge conservation
-(m_i - m_j + m_H ≡ 0 mod 7). The nonzero entries are determined by:
-1. RS profile overlaps on H² (normalized with sinh(ρ) metric measure)
-2. KK winding phases: exp(i × 2π × w × frac(k_phys))
-3. Localization-dependent CS instanton phase: φ = -θ_CS × (2c_L - 1)
-
-The CKM phase δ is the product of three independent factors:
-1. The fractional Chern-Simons phase from N=7: θ_CS = 2π × frac(k_phys)
-2. The Plancherel density of the Dirac operator on H² at the BF-crossing
-   endpoint: tanh(π × 1) = tanh(π) ≈ 0.9963 (Bolte-Stiepan 2006; Bär 2000)
-3. The SL(2,R) weight factor Δw = 2(c_dn - c_up) = 2
-
-  δ_CKM = Δw × θ_CS × tanh(π) = 2 × θ_CS × tanh(π) = 68.63°
-       (observed: 69° ± 3°, 0.12σ match)
-
-The BF-crossing mode (gen 3, m=3, μ₇=0) contributes 92.6% of the
-total Plancherel weight difference; tanh saturates rapidly so all
-other modes are negligible.
-
-Predictions (no adjustable parameters):
-  |V_us| = 0.237 (obs: 0.224, 6% off)
-  θ_C = 13.7° (obs: 13.0°, 5% off)
-  δ = 68.63° (obs: 69°, 0.37° off)  ← from 2·θ_CS·tanh(π)
-  J = 3.09 × 10⁻⁵ (obs: 3.0 × 10⁻⁵, 3% off)  ← consistency check
-  |V_us| >> |V_cb| >> |V_ub| ✓ (Wolfenstein hierarchy)
+The 3x3 Yukawa matrix has 4 texture zeros from Z_7 charge conservation
+(m_i - m_j + m_H = 0 mod 7). The nonzero entries are determined by:
+1. RS profile overlaps on H^2 (normalized with sinh(rho) metric measure)
+2. KK winding phases: exp(i * 2*pi * w * frac(k_phys))
+3. Localization-dependent CS instanton phase: phi = -theta_CS * (2c_L - 1)
 """
 
 import numpy as np
@@ -37,7 +32,10 @@ def b_exact(N):
 
 
 def eta_invariant_phase(N=7, mu4_up=0.5, mu4_down=1.5):
-    """CKM phase from the H² Dirac Plancherel density (exact).
+    """DEPRECATED: Use orbit_ckm.ckm_matrix() instead.
+    Known issue: tanh(pi) is the scalar spectral function, not Dirac.
+
+    CKM phase from the H^2 Dirac Plancherel density (exact).
 
     The Selberg trace formula gives the Plancherel density of the
     Dirac operator on H² as (1/(4pi))*tanh(pi*s), where s is the
@@ -236,7 +234,10 @@ def yukawa_texture(N=7, higgs_pair_idx=2):
 
 
 def build_yukawa_complex(mu4_L, rho_star=1.734, N=7):
-    """Build 3×3 COMPLEX Yukawa with KK winding + localization phases.
+    """DEPRECATED: Use orbit_ckm.build_orbit_yukawa() instead.
+    Known issue: uses pair-based generation assignment, not Frobenius orbits.
+
+    Build 3x3 COMPLEX Yukawa with KK winding + localization phases.
 
     Each entry includes:
     1. RS profile magnitude: f_L(c_L) × f_R(c_R)
@@ -274,7 +275,11 @@ def build_yukawa_complex(mu4_L, rho_star=1.734, N=7):
 
 
 def ckm_matrix(rho_star=1.734):
-    """Compute the CKM matrix with localization-dependent CS phases.
+    """DEPRECATED: Use orbit_ckm.ckm_matrix() instead.
+    Known issue: diagonalizes M†M (RIGHT rotation U_R), not MM† (LEFT rotation U_L).
+    The CKM matrix requires LEFT rotations: V = U_L_up† * U_L_down.
+
+    Compute the CKM matrix with localization-dependent CS phases.
 
     Returns dict with CKM matrix, masses, and mixing parameters.
     """

@@ -1,8 +1,18 @@
 r"""
+DEPRECATED: The theta_CS * tanh(pi) formula is superseded by the Gauss sum
+derivation in orbit_ckm.py. The tanh(pi) Plancherel factor was based on the
+scalar spectral function, not the Dirac operator. The corrected CKM phase is
+delta = arctan(sqrt(7)) = 69.3 deg from the Z_7 quadratic Gauss sum.
+
+See: src/planetary_polygons/extensions/orbit_ckm.py (replacement)
+     docs/investigations/2026-04-09-bernoulli-havelock-backbone.md (derivation)
+
+Original description (preserved for reference):
+
 CKM phase from the Toeplitz/Selberg structure of the Havelock kernel.
 
-THEOREM: The CKM CP-violating phase is
-    δ = 2 × θ_CS × tanh(π) = 68.63°.
+THEOREM (SUPERSEDED): The CKM CP-violating phase is
+    delta = 2 * theta_CS * tanh(pi) = 68.63 deg.
 
 PROOF (three steps):
 
@@ -152,9 +162,12 @@ def yukawa_overlap(m, N=7, n_rho=5000):
 
 
 def yukawa_amplitude(m, N=7):
-    """The Yukawa amplitude Y(m) and its Plancherel-weighted CKM phase.
+    """DEPRECATED: Use orbit_ckm.ckm_matrix() instead.
+    Known issue: uses Plancherel formula (scalar, not Dirac) for the CP phase.
 
-    Y(m) = (1/|Γ(1/2+im)|) × I(m) has real positive magnitude
+    The Yukawa amplitude Y(m) and its Plancherel-weighted CKM phase.
+
+    Y(m) = (1/|Gamma(1/2+im)|) * I(m) has real positive magnitude
     (since I(m) is real positive and the Harish-Chandra c-function
     modulus is real positive).
 

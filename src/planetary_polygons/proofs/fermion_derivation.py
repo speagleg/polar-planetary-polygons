@@ -324,23 +324,21 @@ def mass_hierarchy(M_poly_TeV=294, mu4_type='down'):
 
 # =====================================================================
 # Step 5: CKM phase from BF-crossing
+# DEPRECATED: This section contains the formula delta = (1/2) log cosh(pi) = 70.2 deg,
+# which has a calculus error: d/ds arg Gamma(1/2+is) = Re psi, not Im psi.
+# The corrected CKM phase is delta = arctan(sqrt(7)) = 69.3 deg from the
+# Z_7 Gauss sum. See orbit_ckm.py for the replacement.
 # =====================================================================
 
 def ckm_phase():
-    """CKM CP-violating phase from BF-crossing on H^2.
+    """DEPRECATED: Use orbit_ckm.ckm_matrix() instead.
+    Known error: (1/2) log cosh(pi) = 70.2 deg is based on d/ds arg Gamma = Im psi,
+    but the correct identity is d/ds arg Gamma = Re psi. The Plancherel-corrected
+    value 68.63 deg (in ckm_mixing.py) is also superseded. The correct CKM phase is
+    delta = arctan(sqrt(7)) = 69.3 deg from the quadratic Gauss sum over QR(7).
 
-    delta = arg Gamma(1/2 + i) = (1/2) log cosh(pi)
-
-    DERIVED from the H^2 scattering matrix:
-    - At N=7, generation 3 has c_up = 1/2, c_down = 3/2
-    - The spectral parameter sweeps s = 0 to s = 1 (Δs = Δc = 1)
-    - The scattering phase is arg Gamma(1/2 + is)
-    - Integrated from s=0 to s=1:
-      delta = Im integral_0^1 psi(1/2 + it) dt
-            = integral_0^1 (pi/2) tanh(pi*t) dt
-            = (1/2) log cosh(pi)
-
-    No identification needed — this IS the H^2 Dirac scattering phase.
+    Original formula (preserved for reference):
+    delta = arg Gamma(1/2 + i) = (1/2) log cosh(pi) = 70.2 deg
     """
     # The exact computation
     delta_rad = 0.5 * math.log(math.cosh(math.pi))

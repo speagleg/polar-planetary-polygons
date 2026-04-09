@@ -1,10 +1,15 @@
-"""Tests for CKM mixing from the Havelock Yukawa texture."""
+"""Tests for CKM mixing from the Havelock Yukawa texture.
+
+DEPRECATED: These tests verify the old Plancherel-based CKM derivation.
+See test_orbit_ckm.py for the corrected Gauss sum derivation.
+"""
 
 import numpy as np
 import pytest
 from planetary_polygons.extensions.ckm_mixing import ckm_matrix, yukawa_texture
 
 
+@pytest.mark.deprecated
 class TestYukawaTexture:
     def test_4_zeros(self):
         t = yukawa_texture()
@@ -15,6 +20,7 @@ class TestYukawaTexture:
         assert np.sum(t == 1) == 5
 
 
+@pytest.mark.deprecated
 class TestCKMStructure:
     def test_near_diagonal(self):
         assert ckm_matrix()['is_near_diagonal']
@@ -38,6 +44,7 @@ class TestCKMStructure:
         assert ckm['V_ub'] < ckm['V_cb'] < ckm['V_us']
 
 
+@pytest.mark.deprecated
 class TestCPViolation:
     def test_jarlskog_nonzero(self):
         """J ≠ 0: CP violation exists from the CS instanton."""
@@ -69,6 +76,7 @@ class TestCPViolation:
         assert ckm_matrix()['sin_delta'] > 0
 
 
+@pytest.mark.deprecated
 class TestPlancherelPhase:
     """Tests for delta = 2*theta_CS*tanh(pi) from the H^2 Dirac Plancherel density."""
 
@@ -118,6 +126,7 @@ class TestPlancherelPhase:
         assert r['delta_m'] == 1.0
 
 
+@pytest.mark.deprecated
 class TestBFBarrierTransmission:
     """Tests for the orbifold image barrier T_2 = Q_1(cosh d_image)."""
 
