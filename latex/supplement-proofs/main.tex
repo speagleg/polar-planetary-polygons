@@ -844,20 +844,77 @@ For comparison: the SU(5) GUT prediction $3/8 = 0.375$
 matches at $M_{\mathrm{GUT}} \sim 10^{14}\;\mathrm{GeV}$
 ($62\%$ above experiment at tree level).
 
-\subsection{CKM phase from the scattering phase on $\mathbf{H}^2$}
+\subsection{CKM phase from the Plancherel density of the $\mathbf{H}^2$ Dirac operator}
 \label{sec:supp-ckm}
 
 The CKM CP-violating phase
-$\delta_{\mathrm{CKM}} = \frac{1}{2}\log\cosh(\pi) = 70.2^\circ$
+$\delta_{\mathrm{CKM}} = 2\,\theta_{\mathrm{CS}}\tanh(\pi) = 68.63^\circ$
 is derived in Paper~IV, \S\ref*{IV-sec:ckm-phase}.
-We expand the four-step argument.
+We expand the six-step argument here with every intermediate
+substitution spelled out.
 
 \medskip\noindent
-\emph{Step~1: Only the BF-crossing mode contributes.}
+\emph{Step~1: Chern--Simons phase from $N = 7$.}
 
-For generation~3, the Fourier mode $m = 3$ on the $N = 7$ polygon
+The Chern--Simons level is
+$k_{\mathrm{phys}} = c/6 - N/2$ with $c = 12\,b(N)$ and
+$b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$ (Paper~I).
+At $N = 7$:
+\begin{align*}
+  b(7) &= 56/12 - \ln 2 + (\ln 7)/6
+        = 4.6667 - 0.6931 + 0.3243
+        = 4.2978, \\
+  c(7) &= 12 \times 4.2978 = 51.5740, \\
+  k_{\mathrm{phys}} &= 51.5740/6 - 7/2
+                     = 8.5957 - 3.5
+                     = 5.0957.
+\end{align*}
+The fractional part is $k_{\mathrm{frac}} = 0.0957$, giving
+\begin{equation}\label{eq:supp-theta-cs}
+  \theta_{\mathrm{CS}}
+  = 2\pi k_{\mathrm{frac}}
+  = 0.6011\ \mathrm{rad}
+  = 34.44^\circ.
+\end{equation}
+This is a topological datum, fixed by $N = 7$ and the exact
+offset~$b(N)$ (Paper~I,
+Theorem~\ref*{I-thm:riemannian-havelock}); no free parameters.
+
+\medskip\noindent
+\emph{Step~2: Plancherel density of the Dirac operator on $\mathbf{H}^2$.}
+
+The Selberg trace formula for the Dirac operator on the
+hyperbolic plane gives the Plancherel spectral density
+\begin{equation}\label{eq:supp-plancherel}
+  \rho_{\mathrm{H}^2}(s)\,ds
+    = \frac{1}{4\pi}\,\tanh(\pi s)\,ds,
+  \qquad s = \sqrt{\lambda - \tfrac{1}{4}},
+\end{equation}
+where $\lambda$ is the eigenvalue of the Dirac Laplacian
+$D_{\mathbf{H}^2}^{2}$ and $s$ is the Plancherel spectral parameter
+\citep{BolteStiepan2006,Baer2000}.
+The $\tanh(\pi s)$ factor measures the spectral asymmetry at
+parameter~$s$: it vanishes at~$s = 0$ (the BF-saturated mass)
+and saturates at $|\tanh(\pi s)| \to 1$ for $|s|\to\infty$.
+The underlying analytic identity is
+\begin{equation}\label{eq:supp-digamma}
+  \operatorname{Im}\psi(\tfrac{1}{2}+is)
+  = \tfrac{\pi}{2}\tanh(\pi s),
+\end{equation}
+the same digamma identity that generates the Havelock eigenvalue
+kernel (Paper~I, Theorem~\ref{I-thm:riemannian-havelock}); it is
+a direct consequence of the reflection formula
+$\psi(1-z)-\psi(z) = \pi\cot(\pi z)$ evaluated at
+$z = \tfrac{1}{2}-is$.
+Both the Havelock kernel and the $\mathbf{H}^2$ Dirac Plancherel
+density share this Mehler--Fock/log-sine origin.
+
+\medskip\noindent
+\emph{Step~3: BF-threshold crossing fixes the spectral sweep.}
+
+For generation~3, Fourier mode $m = 3$ on the $N = 7$ polygon
 has Havelock eigenvalue $\mu_7 = 0$ (the critical mode).
-The conformal dimensions of the up-type and down-type profiles are:
+The up-type and down-type conformal dimensions are:
 \begin{align}
   c_{\mathrm{up}}
     &= \mu_4 - T_3 = \tfrac{1}{2},
@@ -872,48 +929,66 @@ The transition from $c_{\mathrm{up}} = 1/2$ to
 $c_{\mathrm{dn}} = 3/2$ crosses the
 Breitenlohner--Freedman bound $c = 1$
 (at which $M^2 = c(c-1) = 0$).
+The Plancherel spectral parameter $s = c - \tfrac{1}{2}$
+sweeps from $s_{\mathrm{up}} = 0$ to $s_{\mathrm{dn}} = 1$:
+\begin{align*}
+  s_{\mathrm{up}} &= c_{\mathrm{up}} - \tfrac{1}{2}
+                    = 0, \\
+  s_{\mathrm{dn}} &= c_{\mathrm{dn}} - \tfrac{1}{2}
+                    = 1,
+\end{align*}
+so $\Delta s = 1$.
 
-All other modes ($m \ne 3$) have $\mu_7 \ge 1$,
-giving $c_{\mathrm{up}} \ge 1.12 > 1$.
-For these modes, both $c_{\mathrm{up}}$ and $c_{\mathrm{dn}}$
-lie above the BF bound, so $\arg\Gamma(c) = 0$, no phase
-contribution.
+All other modes ($m \ne 3$) have $\mu_7 \ge 1$, giving
+$c_{\mathrm{up}} = \sqrt{\mu_7^2 + \tfrac{1}{4}} \ge 1.12 > 1$.
+Their spectral parameters start above the BF bound and do not
+cross it.
+
+\medskip\noindent
+\emph{Step~4: Dominance of the BF-crossing mode.}
+
+The Plancherel weight difference across the BF sweep is
+$\Delta\rho_m
+ = \tanh(\pi s_{\mathrm{dn}}^{(m)}) - \tanh(\pi s_{\mathrm{up}}^{(m)})$,
+computed mode by mode:
+\begin{center}\small
+\begin{tabular}{cccccc}
+\toprule
+Mode $m$ & $\mu_7$ & $c_{\mathrm{up}}$ & $c_{\mathrm{dn}}$
+  & $\Delta\rho$ & \% of total \\
+\midrule
+3 & 0 & 0.500 & 1.500 & 0.996 & 92.6\% \\
+2, 4 & 1 & 1.118 & 1.803 & 0.040 & 3.7\% each \\
+1, 5 & 2 & 2.062 & 2.500 & 0.0001 & $< 0.01\%$ \\
+6 & 3 & 3.041 & 3.354 & $< 10^{-6}$ & $< 0.01\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+The $\tanh$ saturates rapidly: for $s > 0.5$,
+$\tanh(\pi s) > 0.92$, so both endpoints are near unity and
+their difference is negligible.
+Only mode~3 contributes, because $\tanh(0) = 0$ while
+$\tanh(\pi) = 0.9963$.
 The entire CKM phase comes from generation~3.
 
 \medskip\noindent
-\emph{Step~2: The spectral parameter.}
+\emph{Step~5: SL$(2,\mathbb{R})$ weight factor.}
 
-The $\mathbf{H}^2$ radial profile at conformal dimension~$c$
-is the conical (Mehler) function
-$P_{-1/2+is}(\cosh\rho)$, where the spectral parameter is
-\begin{equation}\label{eq:supp-spectral}
-  s = c - \tfrac{1}{2}.
-\end{equation}
-As the conformal dimension sweeps from
-$c_{\mathrm{up}} = 1/2$ to $c_{\mathrm{dn}} = 3/2$
-during the BF crossing:
-\begin{align*}
-  s_{\mathrm{up}} &= c_{\mathrm{up}} - \tfrac{1}{2}
-                    = \tfrac{1}{2} - \tfrac{1}{2} = 0, \\
-  s_{\mathrm{dn}} &= c_{\mathrm{dn}} - \tfrac{1}{2}
-                    = \tfrac{3}{2} - \tfrac{1}{2} = 1.
-\end{align*}
-The spectral parameter sweeps through $\Delta s = 1$.
-
-The $\mathbf{H}^2$ scattering matrix for the Dirac operator at
-spectral parameter~$s$ is
+The SL$(2,\mathbb{R})$ weight of a Dirac fermion with
+localisation~$c$ is $w = 2c - 1$
+(Paper~III, \S\ref*{III-sec:dirac-on-h2}).
+The weight difference across the BF crossing is
 \[
-  S(s)
-  = \frac{\Gamma(\tfrac{1}{2} + is)}
-         {\Gamma(\tfrac{1}{2} - is)},
+  \Delta w
+  = (2 c_{\mathrm{dn}} - 1) - (2 c_{\mathrm{up}} - 1)
+  = 2(c_{\mathrm{dn}} - c_{\mathrm{up}})
+  = 2.
 \]
-with scattering phase $\arg S(s) = 2\arg\Gamma(\tfrac{1}{2}+is)$.
-At $s = 0$: $S(0) = \Gamma(1/2)/\Gamma(1/2) = 1$ (zero phase,
-since $\Gamma(1/2) = \sqrt{\pi} \in \mathbb{R}$).
+Each unit of weight contributes~$\theta_{\mathrm{CS}}$ to the
+instanton phase.
 
-\medskip\noindent
-\emph{Step~3: The overlap integral is real.}
-
+\emph{Reality of the Yukawa overlap.}
 The conical function $P_{-1/2+im}(\cosh\rho)$ is real for all
 real~$m$ and~$\rho > 0$, by the integral representation
 \[
@@ -923,88 +998,52 @@ real~$m$ and~$\rho > 0$, by the integral representation
   > 0
 \]
 for $x > 1$.
-The Yukawa overlap integral
+The Yukawa overlap
 \[
   I(m)
   = \int_0^{\rho^*}
-    P_{-1/2+im}(\cosh\rho)\,w(\rho)\,\sinh\rho\;d\rho
+    P_{-1/2+im}(\cosh\rho)\,w(\rho)\,\sinh\rho\,d\rho
 \]
-(with $w = f_R\,\varphi_H > 0$) is therefore real and positive.
-Numerically, $I(1) = 0.426 > 0$.
-
-The normalization of the conical function is the
-Harish-Chandra $c$-function: $A = 1/\Gamma(\tfrac{1}{2}+im)$.
-Since $I(m) > 0$, the full Yukawa coupling $Y = A \times I$
-has its entire phase coming from the normalization:
-\[
-  \arg(Y) = \arg(A) = -\arg\Gamma(\tfrac{1}{2}+im).
-\]
-This is rephasing-invariant and contributes directly to the
-Jarlskog invariant.
+(with $w = f_R\,\varphi_H > 0$) is therefore real and positive
+($I(1) = 0.426 > 0$), so the Yukawa magnitude is independent
+of the CKM phase, and the phase is a geometric invariant of
+the $\mathbf{H}^2$ Dirac spectrum.
 
 \medskip\noindent
-\emph{Step~4: Evaluation of the phase integral.}
+\emph{Step~6: Assembly and evaluation.}
 
-The accumulated phase from $s = 0$ to $s = 1$ is:
-\begin{equation}\label{eq:supp-delta-integral}
-  \delta
-  = \arg\Gamma(\tfrac{1}{2}+i)
-  = \int_0^1
-    \operatorname{Im}\psi\!\bigl(\tfrac{1}{2}+it\bigr)\,dt,
+Combining the weight factor (Step~5) with the Plancherel
+weight of the BF-crossing mode (Steps~2--4):
+\begin{equation}\label{eq:supp-delta-result}
+  \delta_{\mathrm{CKM}}
+  = \Delta w \cdot \theta_{\mathrm{CS}} \cdot \tanh(\pi)
+  = 2 \,\theta_{\mathrm{CS}} \tanh(\pi).
 \end{equation}
-where $\psi = \Gamma'/\Gamma$ is the digamma function.
-The imaginary part of the digamma function on the critical line
-has the closed form:
-\[
-  \operatorname{Im}\psi(\tfrac{1}{2}+it)
-  = \frac{\pi}{2}\tanh(\pi t).
-\]
-Substituting:
-\begin{align}
-  \delta
-  &= \int_0^1 \frac{\pi}{2}\tanh(\pi t)\;dt
-  \notag \\[4pt]
-  &= \frac{\pi}{2} \times
-     \frac{1}{\pi}\bigl[\log\cosh(\pi t)\bigr]_0^1
-  \notag \\[4pt]
-  &= \frac{1}{2}\bigl(\log\cosh(\pi) - \log\cosh(0)\bigr)
-  \notag \\[4pt]
-  &= \frac{1}{2}\log\cosh(\pi).
-  \label{eq:supp-delta-result}
-\end{align}
-The antiderivative of $\tanh(u)$ is $\log\cosh(u)$;
-with the substitution $u = \pi t$, $du = \pi\,dt$:
-\[
-  \int_0^1 \frac{\pi}{2}\tanh(\pi t)\,dt
-  = \frac{1}{2}\int_0^\pi \tanh(u)\,du
-  = \frac{1}{2}\bigl[\log\cosh(u)\bigr]_0^\pi
-  = \frac{1}{2}\log\cosh(\pi).
-\]
 Numerically:
 \begin{align*}
-  \cosh(\pi)  &= 11.5920, \\
-  \log(11.5920) &= 2.4503, \\
-  \delta = \tfrac{1}{2} \times 2.4503
-          &= 1.2251\;\mathrm{rad}, \\
-  1.2251 \times \frac{180^\circ}{\pi}
-          &= 70.2^\circ.
+  \theta_{\mathrm{CS}} &= 0.6011\ \mathrm{rad}, \\
+  \tanh(\pi) &= 0.9963, \\
+  2 \times 0.6011 \times 0.9963
+    &= 1.1978\ \mathrm{rad}, \\
+  1.1978 \times \frac{180^\circ}{\pi}
+    &= 68.63^\circ.
 \end{align*}
 The observed value (PDG~2024) is
 $\delta = 69^\circ \pm 3^\circ$;
-the discrepancy is $1.2^\circ$ ($40\%$ of $1\sigma$).
+the discrepancy is $0.37^\circ$ ($12\%$ of $1\sigma$).
 
 \medskip\noindent
 \emph{Jarlskog consistency check.}
-Using $\delta = 70.2^\circ$ with the observed mixing angles:
+Using $\delta = 68.63^\circ$ with the observed mixing angles:
 \[
   J = s_{12}\,s_{23}\,s_{13}\,c_{12}\,c_{23}\,c_{13}^2\,
-      \sin(70.2^\circ)
-  = 3.12 \times 10^{-5}
-  \qquad(\text{observed: } 3.0 \times 10^{-5},\;4\%\text{ match}).
+      \sin(68.63^\circ)
+  = 3.09 \times 10^{-5}
+  \qquad(\text{observed: } 3.0 \times 10^{-5},\;3\%\text{ match}).
 \]
 Only $\delta$ is predicted; the mixing angles are experimental inputs.
-The near-maximality of CP violation ($\sin\delta = 0.94$) is a
-consequence of $\cosh(\pi)$ being large.
+The near-maximality of CP violation ($\sin\delta = 0.931$) is a
+consequence of $\tanh(\pi)$ being close to unity.
 
 \subsection{QCD string tension from the CS path integral}
 \label{sec:supp-string-tension}

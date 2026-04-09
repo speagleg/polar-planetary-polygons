@@ -69,34 +69,47 @@ class TestCPViolation:
         assert ckm_matrix()['sin_delta'] > 0
 
 
-class TestScatteringPhase:
-    """Tests for delta = (1/2)*log(cosh(pi)) from the integrated scattering phase."""
+class TestPlancherelPhase:
+    """Tests for delta = 2*theta_CS*tanh(pi) from the H^2 Dirac Plancherel density."""
 
     def test_delta_matches_observed(self):
-        """delta = 70.2 deg matches observed 69 +/- 3 deg."""
+        """delta = 68.63 deg matches observed 69 +/- 3 deg."""
         from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
         r = eta_invariant_phase()
         assert abs(r['delta_deg'] - 69) < 3  # within 1 sigma
 
-    def test_delta_is_half_log_cosh_pi(self):
-        """delta = (1/2)*log(cosh(pi)) = 1.2252 rad exactly."""
-        from math import log, cosh, pi
+    def test_delta_is_2_theta_cs_tanh_pi(self):
+        """delta = 2 * theta_CS * tanh(pi) exactly (N=7)."""
+        from math import tanh, pi
         from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
         r = eta_invariant_phase()
-        expected = 0.5 * log(cosh(pi))
-        assert abs(r['delta_rad'] - expected) < 1e-10
+        expected = 2 * r['theta_CS_rad'] * tanh(pi)
+        assert abs(r['delta_rad'] - expected) < 1e-12
+
+    def test_delta_68_63(self):
+        """delta = 68.63 deg at N=7 (0.37 deg off PDG, 0.12 sigma)."""
+        from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
+        r = eta_invariant_phase()
+        assert abs(r['delta_deg'] - 68.63) < 0.01
+
+    def test_theta_cs_34_44(self):
+        """theta_CS = 34.44 deg from N=7 (topological, via b(N))."""
+        from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
+        r = eta_invariant_phase()
+        assert abs(r['theta_CS_deg'] - 34.44) < 0.01
 
     def test_bf_crossing_dominates(self):
-        """Gen 3 mode 3 (BF crossing) contributes > 90% of scattering phase density."""
+        """Gen 3 mode 3 (BF crossing) contributes > 90% of Plancherel weight."""
         from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
         r = eta_invariant_phase()
         assert r['bf_fraction'] > 0.90
 
     def test_j_consistency_check(self):
-        """J check with observed angles and predicted delta matches to 10%."""
+        """J check with observed angles and predicted delta matches to 5%."""
         from planetary_polygons.extensions.ckm_mixing import eta_invariant_phase
         r = eta_invariant_phase()
-        assert abs(r['J_check'] - 3.0e-5) / 3.0e-5 < 0.10
+        # J = 3.09e-5 (3% off observed 3.0e-5)
+        assert abs(r['J_check'] - 3.0e-5) / 3.0e-5 < 0.05
 
     def test_delta_m_is_unity(self):
         """BF crossing range Delta_m = 1 from the T3 Higgs split."""

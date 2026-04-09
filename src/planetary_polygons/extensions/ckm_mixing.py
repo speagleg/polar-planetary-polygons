@@ -7,22 +7,24 @@ The 3×3 Yukawa matrix has 4 texture zeros from Z₇ charge conservation
 2. KK winding phases: exp(i × 2π × w × frac(k_phys))
 3. Localization-dependent CS instanton phase: φ = -θ_CS × (2c_L - 1)
 
-The CKM phase δ is determined non-perturbatively by the APS eta
-invariant of the massive Dirac operator on H²:
-  η(m) = tanh(πm),  m = c - 1/2
-from Im ψ(1/2 + im) = (π/2)tanh(πm) — the same digamma function
-as the Havelock kernel.
+The CKM phase δ is the product of three independent factors:
+1. The fractional Chern-Simons phase from N=7: θ_CS = 2π × frac(k_phys)
+2. The Plancherel density of the Dirac operator on H² at the BF-crossing
+   endpoint: tanh(π × 1) = tanh(π) ≈ 0.9963 (Bolte-Stiepan 2006; Bär 2000)
+3. The SL(2,R) weight factor Δw = 2(c_dn - c_up) = 2
+
+  δ_CKM = Δw × θ_CS × tanh(π) = 2 × θ_CS × tanh(π) = 68.63°
+       (observed: 69° ± 3°, 0.12σ match)
 
 The BF-crossing mode (gen 3, m=3, μ₇=0) contributes 92.6% of the
-eta invariant difference. With the SL(2,R) weight factor Δw = 2:
-
-  δ_CKM = (1/2) log cosh(π) = 70.2°  (observed: 69° ± 3°)
+total Plancherel weight difference; tanh saturates rapidly so all
+other modes are negligible.
 
 Predictions (no adjustable parameters):
   |V_us| = 0.237 (obs: 0.224, 6% off)
   θ_C = 13.7° (obs: 13.0°, 5% off)
-  δ = 70.2° (obs: 69°, 1.2° off)  ← from integrated scattering phase
-  J = 3.5 × 10⁻⁵ (obs: 3.0 × 10⁻⁵, 17% off)  ← from perturbative CKM
+  δ = 68.63° (obs: 69°, 0.37° off)  ← from 2·θ_CS·tanh(π)
+  J = 3.09 × 10⁻⁵ (obs: 3.0 × 10⁻⁵, 3% off)  ← consistency check
   |V_us| >> |V_cb| >> |V_ub| ✓ (Wolfenstein hierarchy)
 """
 
@@ -35,19 +37,26 @@ def b_exact(N):
 
 
 def eta_invariant_phase(N=7, mu4_up=0.5, mu4_down=1.5):
-    """CKM phase from the integrated scattering phase on H² (exact).
+    """CKM phase from the H² Dirac Plancherel density (exact).
 
-    The digamma identity Im psi(1/2 + im) = (pi/2)*tanh(pi*m) gives
-    the scattering phase density of the massive Dirac operator on H².
-    Integrating over the BF crossing range m in [0, Delta_m]:
+    The Selberg trace formula gives the Plancherel density of the
+    Dirac operator on H² as (1/(4pi))*tanh(pi*s), where s is the
+    Plancherel spectral parameter (Bolte-Stiepan 2006; Bar 2000).
+    The tanh(pi*s) factor measures spectral asymmetry.
 
-      delta = integral_0^{Delta_m} Im psi(1/2 + im) dm
-            = (1/2) log cosh(pi * Delta_m)
+    For the BF-crossing mode, s sweeps from s_up = 0 (BF saturated)
+    to s_dn = 1 (BF-crossing endpoint), accumulating weight tanh(pi).
+    The SL(2,R) weight factor is Delta_w = 2(c_dn - c_up) = 2, and
+    each unit of weight contributes theta_CS:
 
-    where Delta_m = mu4_down - mu4_up = 3/2 - 1/2 = 1 (the T3 split).
-    This gives delta = (1/2) log cosh(pi) = 70.2 deg (observed 69 +/- 3).
+      delta = Delta_w * theta_CS * tanh(pi) = 2 * theta_CS * tanh(pi)
 
-    The same digamma function generates the Havelock eigenvalue kernel.
+    where theta_CS = 2*pi*frac(k_phys) = 0.601 rad from N=7.
+    Numerically: delta = 2 * 0.601 * 0.9963 = 1.198 rad = 68.63 deg
+    (observed 69 +/- 3 deg, 0.12 sigma match).
+
+    The digamma identity Im psi(1/2 + is) = (pi/2)*tanh(pi*s) underlies
+    both the Plancherel density and the Havelock eigenvalue kernel.
 
     Returns dict with delta, mode breakdown, and consistency checks.
     """
@@ -57,11 +66,17 @@ def eta_invariant_phase(N=7, mu4_up=0.5, mu4_down=1.5):
     k_frac = k_phys - int(k_phys)
     theta_CS = 2 * pi * k_frac
 
-    # The BF crossing range
+    # The BF crossing range (spectral parameter sweep)
     delta_m = mu4_down - mu4_up  # = 1 for the T3 split
 
-    # The prediction: delta = (1/2) log cosh(pi * delta_m)
-    delta_rad = 0.5 * log(cosh(pi * delta_m))
+    # SL(2,R) weight factor: Delta_w = 2(c_dn - c_up) = 2 * delta_m
+    delta_w = 2 * delta_m
+
+    # Plancherel weight at the BF-crossing endpoint: tanh(pi * s_dn)
+    plancherel_weight = tanh(pi * delta_m)  # tanh(pi) = 0.9963
+
+    # The prediction: delta = Delta_w * theta_CS * tanh(pi)
+    delta_rad = delta_w * theta_CS * plancherel_weight
     delta_deg = float(delta_rad * 180 / pi)
     sin_delta = sin(delta_rad)
 

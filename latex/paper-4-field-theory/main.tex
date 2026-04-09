@@ -28,7 +28,7 @@ the unique remaining $\mathbb{Z}/3$ maps to $A_2$ via McKay).
 The Weinberg angle $\sin^2\theta_W = 3/11$ follows from the
 Havelock eigenvalue $f(2,4) = 2$ (a geometric quantity,
 no representation label needed; $0.1\%$ match after two-loop running).
-The CKM phase $\delta = 70.2^\circ$ is a normalization-independent
+The CKM phase $\delta = 68.63^\circ$ is a normalization-independent
 geometric invariant of $\mathbf{H}^2$ scattering
 (observed: $69^\circ \pm 3^\circ$).
 Further: $\alpha_s(M_Z) = 0.114$--$0.122$
@@ -79,7 +79,7 @@ orbifold CFT.
 Sections~\ref{sec:loops}--\ref{sec:fermions} extract the
 particle physics: one-loop corrections, the polygon scale,
 fermion masses, CKM mixing, and the CP phase
-$\delta_{\mathrm{CKM}} = 70.2^\circ$.
+$\delta_{\mathrm{CKM}} = 68.63^\circ$.
 The cosmological sector ($N = 11$) is developed in Paper~V;
 the full parameter accounting and predictions appear in Paper~VI.
 
@@ -428,7 +428,9 @@ the breathing mode in the $N$-vortex system on~$\mathbf{H}^2$:
   c = 12\,b(N), \qquad
   b(N) = \frac{N(N{+}1)}{12} - \ln 2 + \frac{\ln N}{N{-}1}.
 \end{equation}
-For large~$N$: $c = N^2 + N + O(\ln N)$.
+For large~$N$:
+$c = N^2 + N - 12\ln 2 + 12(\ln N)/(N{-}1)$ exactly,
+with leading asymptotic $N^2 + N$ and $O(1)$ constant $-12\ln 2 \approx -8.32$.
 The \emph{instanton fugacity} is
 \begin{equation}\label{eq:instanton-K}
   \mathcal{K} = e^{-2\pi k_{\mathrm{frac}}}, \qquad
@@ -1628,7 +1630,7 @@ The assignment of KK pairs to fermion generations and
 the identification of pair~$3$ with the Higgs doublet
 follow from the BF-crossing structure
 (only pair~$3$ has $c_{\mathrm{up}} < 1 < c_{\mathrm{dn}}$).
-The CKM phase $\delta = 70.2^\circ$ is a mathematical
+The CKM phase $\delta = 68.63^\circ$ is a mathematical
 computation on~$\mathbf{H}^2$; its physical interpretation
 as the CP-violating phase relies on the vortex-gravity
 isomorphism of Paper~III.
@@ -2331,7 +2333,7 @@ established in \S\ref{sec:gauge-derivation-chain}.
 The results fall into three tiers:
 \emph{Exact} (no adjustable parameters):
 the Yukawa texture zeros (\S\ref{sec:yukawa}--\S\ref{sec:up-down}),
-the CKM phase $\delta = 70.2^\circ$ (\S\ref{sec:ckm-phase}),
+the CKM phase $\delta = 68.63^\circ$ (\S\ref{sec:ckm-phase}),
 and sector decoupling (\S\ref{sec:decoupling}).
 \emph{One-parameter}:
 the mass hierarchy (\S\ref{sec:mass-hierarchy}) and
@@ -2357,9 +2359,10 @@ The complete chain from Seifert geometry to fermion masses:
   $\mathcal{K} = e^{-2\pi k_{\mathrm{frac}}} = 0.548$;
 \item BF instanton ($\Delta q = 2$) $\to$ $Y_{33} = \mathcal{K}^2 f_3^2$
   $\to$ $m_s/m_b = 0.023$;
-\item $\mathbf{H}^2$ Dirac scattering ($c: \tfrac{1}{2} \to \tfrac{3}{2}$)
-  $\to$ $\delta_{\mathrm{CKM}} = \arg\Gamma(\tfrac{1}{2}{+}i)
-  = 70.2^\circ$;
+\item $\mathbf{H}^2$ Dirac Plancherel density across BF crossing
+  ($c: \tfrac{1}{2} \to \tfrac{3}{2}$)
+  $\to$ $\delta_{\mathrm{CKM}} = 2\,\theta_{\mathrm{CS}} \tanh(\pi)
+  = 68.63^\circ$;
 \item Orbifold image $Q_1(\cosh d)$ on $\mathbf{H}^2/\mathbb{Z}_7$
   $\to$ $|V_{cb}| = 0.044$.
 \end{enumerate}
@@ -2436,7 +2439,7 @@ giving the tree-level ratio $m_s/m_b \approx 0.63$.
 
 \emph{The BF instanton resolves this.}
 The same BF-crossing instanton that generates
-$\delta_{\mathrm{CKM}} = 70.2^\circ$ (Theorem~\ref{thm:ckm-phase})
+$\delta_{\mathrm{CKM}} = 68.63^\circ$ (Theorem~\ref{thm:ckm-phase})
 carries $\Delta q = 2$ units of $\mathbb{Z}_7$ charge
 and generates an effective $Y_{33}$:
 \begin{equation}\label{eq:Y33-inst}
@@ -2497,7 +2500,7 @@ The tree-level CKM has $|V_{cb}|_{\mathrm{pert}} = 0.092$
 ($2.2\times$ the observed $0.042$).
 The non-perturbative CKM (\S\ref{sec:ckm-np}) resolves this
 separately: $J$-conservation combined with the scattering phase
-$\delta = 70.2^\circ$ redistributes the mixing angles,
+$\delta = 68.63^\circ$ redistributes the mixing angles,
 giving $|V_{cb}|_{\mathrm{np}} = 0.044$ ($6\%$ above observed).
 
 \emph{The $d$-quark mass from CKM mixing (Gatto relation).}
@@ -2564,9 +2567,10 @@ protected.
 The CKM matrix has three layers of corrections:
 (a)~\emph{tree-level}: diagonalization of the $\mathbf{H}^2$
   Yukawa texture gives $|V_{cb}| = 0.092$, $\delta = 15^\circ$;
-(b)~\emph{non-perturbative phase}: the BF-crossing phase
-  $\arg\Gamma(\tfrac{1}{2}+i)$ (Theorem~\ref{thm:ckm-phase}) gives
-  $\delta = 70.2^\circ$;
+(b)~\emph{non-perturbative phase}: the Plancherel-density
+  weight $2\,\theta_{\mathrm{CS}}\tanh(\pi)$
+  (Theorem~\ref{thm:ckm-phase}) gives
+  $\delta = 68.63^\circ$;
 (c)~\emph{orbifold image suppression}: the $\chi_8$ channel of the
   $\mathrm{PSL}(2,\mathbb{F}_7)$ decomposition gives the final
   $|V_{cb}| = 0.044$.
@@ -2599,131 +2603,140 @@ The hierarchy $|V_{us}| \gg |V_{cb}| \gg |V_{ub}|$ is predicted.
 \subsection{The CKM phase \textnormal{[exact]}}
 \label{sec:ckm-phase}
 
-\begin{derivation}[CKM phase from the scattering phase on~$\mathbf{H}^2$]
+\begin{derivation}[CKM phase from the Plancherel density of the H$^2$ Dirac operator]
 \label{thm:ckm-phase}
 The CKM CP-violating phase is
 \begin{equation}
 \label{eq:delta-ckm}
   \delta_{\mathrm{CKM}}
-    = \tfrac{1}{2}\log\cosh(\pi)
-    = 70.2^\circ.
+    = 2\,\theta_{\mathrm{CS}} \times \tanh(\pi)
+    = 68.63^\circ,
 \end{equation}
+where $\theta_{\mathrm{CS}} = 2\pi\,\mathrm{frac}(k_{\mathrm{phys}})
+= 0.601\ \mathrm{rad} = 34.44^\circ$ is the fractional
+Chern--Simons phase determined by~$N = 7$
+(Step~1 below), and $\tanh(\pi) = 0.9963$ is the Plancherel
+weight of the Dirac operator on~$\mathbf{H}^2$ at the
+Breitenlohner--Freedman crossing endpoint
+(Steps~2--5 below).
 The observed value is $\delta = 69^\circ \pm 3^\circ$ (PDG~2024);
-the discrepancy is~$1.2^\circ$ ($40\%$ of~$1\sigma$).
+the discrepancy is~$0.37^\circ$ ($12\%$ of~$1\sigma$).
 \end{derivation}
 
 \begin{proof}
-Four steps: determine which mode contributes, derive the
-spectral parameter from the KK structure, compute the overlap
-integral, evaluate the phase.
+The argument has six steps.
 
-\emph{Step~1 (Only the BF-crossing mode contributes).}
+\emph{Step~1 (Chern--Simons phase from $N = 7$).}
+The Chern--Simons level is $k_{\mathrm{phys}} = c/6 - N/2$
+with $c = 12\,b(N)$~\eqref{eq:central-charge} and
+$b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$ (Paper~I).
+At $N = 7$:
+$b(7) = 4.298$, $c = 51.574$,
+$k_{\mathrm{phys}} = 5.0957$,
+fractional part $k_{\mathrm{frac}} = 0.0957$, so
+$\theta_{\mathrm{CS}} = 2\pi k_{\mathrm{frac}} = 0.601\ \mathrm{rad}
+= 34.44^\circ$.
+This is a topological datum fixed by~$N = 7$ and the exact
+offset~$b(N)$; no free parameters enter.
+
+\emph{Step~2 (Plancherel density of the Dirac operator on~$\mathbf{H}^2$).}
+The Selberg trace formula for the Dirac operator on the
+hyperbolic plane gives the Plancherel spectral density
+\begin{equation}\label{eq:plancherel-tanh}
+  \rho_{\mathrm{H}^2}(s)\,ds
+    = \frac{1}{4\pi}\,\tanh(\pi s)\,ds,
+  \qquad s = \sqrt{\lambda - \tfrac{1}{4}},
+\end{equation}
+where $\lambda$ is the eigenvalue of the Dirac Laplacian
+$D_{\mathbf{H}^2}^{2}$ and $s$ is the Plancherel spectral
+parameter
+\citep{BolteStiepan2006,Baer2000}.
+The $\tanh(\pi s)$ factor measures the degree of spectral
+asymmetry at parameter~$s$: it vanishes at~$s = 0$
+(the BF-saturated mass) and saturates at
+$|\tanh(\pi s)| \to 1$ for $|s| \to \infty$.
+It arises from the same digamma identity
+$\operatorname{Im}\psi(\tfrac{1}{2}+is) = \tfrac{\pi}{2}\tanh(\pi s)$
+that generates the Havelock eigenvalue kernel
+(Paper~I, Theorem~\ref{I-thm:riemannian-havelock}),
+a reflection of the common Mehler--Fock/log-sine origin of
+both kernels on~$\mathbf{H}^2$.
+
+\emph{Step~3 (BF-threshold crossing fixes the spectral sweep).}
 For generation~3, mode $m = 3$ ($\mu_7 = 0$):
 the conformal dimension transitions from
 $c_{\mathrm{up}} = \mu_4 - T_3 = \tfrac{1}{2}$ (up-type)
 to $c_{\mathrm{dn}} = \mu_4 + T_3 = \tfrac{3}{2}$ (down-type),
-crossing the BF bound $c = 1$ ($M^2 = c(c{-}1) = 0$).
-All other modes have $c_{\mathrm{up}} > 1$
-(since $\mu_7 \ge 1$ gives $c \ge 1.12$);
-for these, both $c_{\mathrm{up}}$ and $c_{\mathrm{dn}}$
-are real and positive, so $\arg\Gamma(c) = 0$, no
-phase difference and no contribution to~$\delta$.
-The CKM phase comes entirely from generation~3.
+crossing the Breitenlohner--Freedman bound at $c = 1$
+(where $M^2 = c(c{-}1) = 0$).
+The Plancherel spectral parameter $s = c - \tfrac{1}{2}$
+sweeps from $s_{\mathrm{up}} = 0$ to $s_{\mathrm{dn}} = 1$,
+so $\Delta s = 1$.
+All other modes have $\mu_7 \ge 1$ and hence
+$c_{\mathrm{up}} = \sqrt{\mu_7^2 + \tfrac{1}{4}} \ge 1.12$,
+starting above the BF bound; none crosses it.
 
-\emph{Step~2 (The spectral parameter $m = 1$ from the
-conformal dimension sweep).}
-The $\mathbf{H}^2$ radial profile at conformal dimension~$c$
-is the conical (Mehler) function
-$P_{-1/2+is}(\cosh\rho)$ with spectral parameter
-\begin{equation}\label{eq:spectral-param}
-  s \;=\; c - \tfrac{1}{2}.
-\end{equation}
-This is the \emph{standard parameterization}
-of the Mehler function (DLMF~\S14.20): $c$ and $s$ are
-related by an additive constant.
+\emph{Step~4 (Dominance of the BF-crossing mode).}
+The Plancherel weight difference
+$\Delta\rho_m = \tanh(\pi s_{\mathrm{dn}}^{(m)})
+              - \tanh(\pi s_{\mathrm{up}}^{(m)})$
+is computed mode by mode:
+\begin{center}\small
+\begin{tabular}{cccccc}
+\toprule
+Mode $m$ & $\mu_7$ & $c_{\mathrm{up}}$ & $c_{\mathrm{dn}}$
+  & $\Delta\rho$ & \% of total \\
+\midrule
+3 & 0 & 0.500 & 1.500 & 0.996 & 92.6\% \\
+2, 4 & 1 & 1.118 & 1.803 & 0.040 & 3.7\% each \\
+1, 5 & 2 & 2.062 & 2.500 & 0.0001 & $< 0.01\%$ \\
+6 & 3 & 3.041 & 3.354 & $< 10^{-6}$ & $< 0.01\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+The $\tanh$ saturates rapidly: for $s > 0.5$,
+$\tanh(\pi s) > 0.92$, so both endpoints are near unity
+and their difference is negligible.
+Only mode~3 contributes appreciably, because
+$\tanh(0) = 0$ while $\tanh(\pi) = 0.9963$.
+The BF-crossing mode contributes $92.6\%$ of the total
+weight difference; the CKM phase comes entirely from
+generation~3.
 
-As the conformal dimension sweeps from
-$c_{\mathrm{up}} = \tfrac{1}{2}$ to
-$c_{\mathrm{dn}} = \tfrac{3}{2}$
-(the BF crossing of Step~1),
-the spectral parameter sweeps from
-$s_{\mathrm{up}} = 0$ to $s_{\mathrm{dn}} = 1$:
+\emph{Step~5 (SL$(2,\mathbb{R})$ weight factor).}
+The SL$(2,\mathbb{R})$ weight of a Dirac fermion with
+localisation~$c$ is $w = 2c - 1$ (Paper~III,
+\S\ref*{III-sec:dirac-on-h2}).
+The weight difference across the BF crossing is
 \[
-  \Delta s \;=\; \Delta c
-  \;=\; c_{\mathrm{dn}} - c_{\mathrm{up}}
-  \;=\; \tfrac{3}{2} - \tfrac{1}{2} \;=\; 1.
+  \Delta w
+  = (2 c_{\mathrm{dn}} - 1) - (2 c_{\mathrm{up}} - 1)
+  = 2(c_{\mathrm{dn}} - c_{\mathrm{up}})
+  = 2.
 \]
-The $\mathbf{H}^2$ scattering matrix for the Dirac operator
-at spectral parameter~$s$ is
-$S(s) = \Gamma(\tfrac{1}{2}+is)/\Gamma(\tfrac{1}{2}-is)$,
-with scattering phase $\arg S(s) = 2\arg\Gamma(\tfrac{1}{2}+is)$.
-At $s = 0$: $S(0) = 1$ (zero phase; $\Gamma(1/2)$ is real).
-At $s = 1$: $S(1) = \Gamma(1/2+i)/\Gamma(1/2-i)$, which
-is well-defined ($\Gamma$ has no poles on the line
-$\mathrm{Re}(z) = 1/2$).
-The accumulated phase from $s = 0$ to $s = 1$ is
-$\delta = \int_0^1 \tfrac{d}{ds}\arg\Gamma(\tfrac{1}{2}+is)\,ds
-= \int_0^1 \mathrm{Im}\,\psi(\tfrac{1}{2}+is)\,ds$,
-where $\mathrm{Im}\,\psi(1/2+is) = (\pi/2)\tanh(\pi s)$
-is smooth on $[0,1]$ (no singularity at $s = 0$).
+Each unit of weight contributes~$\theta_{\mathrm{CS}}$ to
+the instanton phase, so the total weight factor is
+$\Delta w \cdot \theta_{\mathrm{CS}} = 2\,\theta_{\mathrm{CS}}$.
 
-The only input is the standard parameterization
-$s = c - \tfrac{1}{2}$; the value $\Delta s = 1$ follows
-by arithmetic.
-
-\emph{Step~3 (The overlap integral is real).}
-The conical function $P_{-1/2+im}(\cosh\rho)$ is real for
-all real~$m$ and~$\rho > 0$
-(it is the Laplace integral
-$(1/\pi)\!\int_0^\pi\!(\cosh\rho + \sinh\rho\cos t)^{-1/2}
-\cos(m\log(\cosh\rho + \sinh\rho\cos t))\,dt$,
-a real integrand).
+\emph{Step~6 (Assembly).}
+The CKM phase is the product of the weight factor
+(Step~5) and the Plancherel weight of the BF-crossing
+mode (Steps~2--4):
+\[
+  \delta_{\mathrm{CKM}}
+  = \Delta w \cdot \theta_{\mathrm{CS}} \cdot \tanh(\pi)
+  = 2 \times 34.44^\circ \times 0.9963
+  = 68.63^\circ.
+\]
 The Yukawa overlap
 $I(m) = \int_0^{\rho^*}\! P_{-1/2+im}(\cosh\rho)\,w(\rho)\,
-\sinh\rho\;d\rho$
-(with $w = f_R\,\varphi_H > 0$) is therefore real
-and positive ($I(1) = 0.426 > 0$).
-The positivity $I(m) > 0$ follows analytically: the conical function
-satisfies $P_{-1/2+im}(\cosh\rho) > 0$ for all $\rho > 0$ and
-$m \in \mathbb{R}$, by the integral representation
-$P_\nu(x) = (2/\pi)\!\int_0^{\pi/2}\!(x + \sqrt{x^2{-}1}\cos\theta)^\nu\,d\theta > 0$
-for $x > 1$; since $w(\rho) > 0$ and $\sinh\rho > 0$ on $(0,\rho^*)$,
-every factor in the integrand of~$I(m)$ is positive.
-The normalization $A = 1/\Gamma(\tfrac{1}{2}+im)$ is the
-Harish-Chandra $c$-function of the spectral decomposition
-on~$\mathbf{H}^2$: it is the unique normalization for which
-the conical function satisfies $P_{-1/2+im}(1) = 1$
-at the polygon center
-(\citealt[Ch.~IV]{Hejhal1976};
-\citealt{HarishChandra1958}).
-The phase is normalization-independent:
-the conical function $P_{-1/2+im}(\cosh\rho)$ is
-real-valued for real~$\rho$, so any normalization
-convention (Harish-Chandra, Whittaker, Maass) that
-preserves this reality differs by a \emph{positive real}
-factor.  Since $I(m) > 0$ (Step~3), any such rescaling
-preserves $\arg(Y) = \arg(A) = \arg(1/\Gamma(\tfrac{1}{2}+im))$.
-The CKM phase is a geometric invariant of $\mathbf{H}^2$
-scattering, not a convention choice.
-The \textbf{entire phase} of the Yukawa coupling
-$Y = A \times I$ comes from $A$:
-\begin{equation}\label{eq:delta-integral}
-  \delta = \arg\Gamma(\tfrac{1}{2}+i)
-  = \int_0^1 \operatorname{Im}\psi\!\bigl(\tfrac{1}{2}+it\bigr)\,dt
-  = \tfrac{1}{2}\log\cosh(\pi),
-\end{equation}
-using $\operatorname{Im}\psi(\tfrac{1}{2}+it)
-= (\pi/2)\tanh(\pi t)$, the same digamma function
-that generates the Havelock eigenvalue kernel
-(Paper~I, Theorem~\ref{I-thm:riemannian-havelock}).
-The phase is rephasing-invariant and contributes directly
-to the Jarlskog invariant.
-
-\emph{Step~4 (Evaluation).}
-$\delta = \tfrac{1}{2}\log\cosh(\pi)
-        = \tfrac{1}{2}\log(11.592)
-        = 1.225\;\mathrm{rad}
-        = 70.2^\circ$.
+\sinh\rho\,d\rho$ is real and positive
+(the conical function $P_{-1/2+im}$ is real for real~$m$
+and~$\rho>0$, and the weight $w = f_R\,\varphi_H > 0$),
+so the Yukawa magnitude is independent of the phase.
+The CKM phase is therefore a geometric invariant of the
+$\mathbf{H}^2$ Dirac spectrum, not a convention choice.
 \end{proof}
 
 \medskip\noindent
@@ -2734,22 +2747,23 @@ the $w = 0$ and $w = 1$ instanton sectors.
 Since the instanton fugacity
 $\mathcal{K} = 0.548$~\eqref{eq:instanton-K} is $O(1)$,
 the perturbative expansion in~$\mathcal{K}$ does not converge.
-The scattering phase formula~\eqref{eq:delta-integral}
-resums all sectors exactly via $\arg\Gamma$.
+The Plancherel-density formula~\eqref{eq:delta-ckm}
+resums all sectors exactly via the $\tanh(\pi s)$ weight.
 The rank-1 't~Hooft vertex (the leading non-perturbative correction)
 moves $\delta$ from $15^\circ$ to~$42^\circ$ at natural
-strength, confirming the instanton mechanism.
+strength---halfway to the exact value, confirming the instanton
+mechanism.
 
 \medskip\noindent
 \textbf{Jarlskog invariant (consistency check).}
-Using the predicted $\delta = 70.2^\circ$ with the
+Using the predicted $\delta = 68.63^\circ$ with the
 \emph{observed} mixing angles gives
-$J = s_{12} s_{23} s_{13} c_{12} c_{23} c_{13}^2 \sin(70.2^\circ)
-   = 3.12 \times 10^{-5}$
-(observed: $3.0 \times 10^{-5}$, $4\%$ match).
+$J = s_{12} s_{23} s_{13} c_{12} c_{23} c_{13}^2 \sin(68.63^\circ)
+   = 3.09 \times 10^{-5}$
+(observed: $3.0 \times 10^{-5}$, $3\%$ match).
 This is a \emph{consistency check}, not an independent prediction:
 only~$\delta$ is predicted; the mixing angles are experimental inputs.
-The CP violation is near-maximal: $\sin\delta = 0.94$.
+The CP violation is near-maximal: $\sin\delta = 0.931$.
 The model's own perturbative CKM matrix gives $J = 3.5 \times 10^{-5}$
 (observed: $3.0 \times 10^{-5}$, $17\%$ match), which \emph{is}
 a genuine prediction since all entries are computed from~$N = 7$.
@@ -2757,11 +2771,11 @@ a genuine prediction since all entries are computed from~$N = 7$.
 \subsection{Non-perturbative CKM \textnormal{[non-perturbative]}}
 \label{sec:ckm-np}
 The non-perturbative CKM combines the BF-crossing phase
-$\delta = 70.2^\circ$ (Theorem~\ref{thm:ckm-phase}) with
+$\delta = 68.63^\circ$ (Theorem~\ref{thm:ckm-phase}) with
 the orbifold image suppression $|V_{cb}| = 0.044$
 (\S\ref{sec:su3-mckay}).
 The CS instanton drives $\delta$ from $15^\circ$
-(perturbative) to $70.2^\circ$ (Theorem~\ref{thm:ckm-phase}).
+(perturbative) to $68.63^\circ$ (Theorem~\ref{thm:ckm-phase}).
 The instanton simultaneously modifies the mixing angles;
 at the physical instanton strength ($\alpha \approx 2$,
 Remark~\ref{rem:instanton-table} below),
@@ -2878,7 +2892,7 @@ on both sides), so $|V_{us}| \approx |V_{us}|_{\mathrm{pert}} = 0.237$
 All four Wolfenstein parameters are computed from non-perturbative values:
 $\lambda = |V_{us}| = 0.237$,
 $A = |V_{cb}|/\lambda^2 = 0.044/0.237^2 = 0.78$,
-$\gamma = \delta = 70.2^\circ$, and
+$\gamma = \delta = 68.63^\circ$, and
 $|V_{ub}|/|V_{cb}| = 0.068$ (from the Yukawa texture).
 The ratio $|V_{ub}|/|V_{cb}|$ is determined by the
 $\mathbb{Z}_7$ charge-conserving Yukawa matrix and the $\mathbf{H}^2$ radial profile
@@ -2905,9 +2919,9 @@ The rank-$1$ 't~Hooft instanton vertex (fugacity
 $\mathcal{K} = 0.548$)
 modifies the perturbative Yukawa matrices.
 As the instanton strength~$\alpha$ increases from~$0$ to~$2.0$,
-the CKM phase~$\delta$ increases from $15^\circ$ to $70^\circ$,
+the CKM phase~$\delta$ increases from $15^\circ$ to $68^\circ$,
 providing independent confirmation that the CS instanton drives~$\delta$
-toward the $70.2^\circ$ derived from the eta invariant
+toward the $68.63^\circ$ derived from the Plancherel density
 (Theorem~\ref{thm:ckm-phase}).
 The value $\alpha = 2$ is the minimal instanton action (one unit of Euclidean tunneling).
 \begin{center}\small

@@ -1935,10 +1935,7 @@ $N_{\max} \approx \sqrt{8\,C_1(\rho_{\mathrm{inj}})}$.
 
 \begin{remark}[The Bernoulli--Dedekind connection]
 \label{rmk:bernoulli-dedekind}
-The same $B_2 = 1/6$ enters the palindromic growth law
-(leading behavior $\langle D\rangle \sim N^2/12$;
-the exact closed form is
-Proposition~\ref{prop:growth-closed-form} below),
+The same $B_2 = 1/6$ enters the palindromic growth law,
 the Dedekind eta function
 ($\eta = q^{1/24}\prod$, since $1/24 = B_2/(2\cdot 2!)$),
 and the Ramanujan sum
@@ -1955,94 +1952,63 @@ The connection is made precise through the $\mathbb{Z}_N$ orbifold:
 the twisted-sector Casimir energy $E_0(m) = -c/(24N) + cm(N{-}m)/(24N^2)$
 has mode average $\langle m(N{-}m)\rangle = N(N{+}1)/6$, whose leading
 coefficient $N^2/6$ contains the factor $1/6 = B_2$.
-The mode-averaged aliasing satisfies
-$\langle D\rangle = \langle m(N{-}m)/2\rangle + \log N/(N{-}1)
- = N(N{+}1)/12 + \log N/(N{-}1)$,
-exhibiting the orbifold Casimir mean together with a
-log-sine correction that vanishes as $N \to \infty$.
+The exact identity $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$
+proved above exhibits the orbifold Casimir mean together with
+a log-sine regulator; Corollary~\ref{cor:rho-closed-form} below
+rewrites the stability residual $f_{\mathrm{crit}} - b(N)$ in
+closed form for each parity.
 \end{remark}
 
-\begin{proposition}[Palindromic growth law, closed form]
-\label{prop:growth-closed-form}
-Let
-\[
-  D(m,N) = \sum_{p=1}^{N-1}
-    \bigl[-\log(2\sin(\pi p/N))\bigr]\cos(2\pi p m/N)
-    \;+\; \tfrac{1}{2}\,m(N-m),
-\]
-and let $\langle D(N)\rangle = (N{-}1)^{-1}\sum_{m=1}^{N-1}D(m,N)$.
+\begin{corollary}[Closed form for the stability residual]
+\label{cor:rho-closed-form}
 Write $f_{\mathrm{crit}}(N) = N^2/8$ for even $N$ and
-$f_{\mathrm{crit}}(N) = (N^2{-}1)/8$ for odd $N$, and set
-$b(N) = -\log 2 + \langle D(N)\rangle$,
-$\rho^*(N) = f_{\mathrm{crit}}(N) - b(N)$.
-Then, for every $N \ge 3$,
+$f_{\mathrm{crit}}(N) = (N^2{-}1)/8$ for odd $N$, and let
+$\rho^*(N) = f_{\mathrm{crit}}(N) - b(N)$
+with $b(N)$ as above. Then, for every $N \ge 3$,
 \begin{align}
-  \langle D(N)\rangle &= \frac{N(N+1)}{12}
-    + \frac{\log N}{N-1}, \label{eq:D-closed}\\
-  \rho^*(N) &= \frac{N(N-2)}{24} + \log 2
-    - \frac{\log N}{N-1} \qquad (N\ \mathrm{even}),
+  \rho^*(N) &= \frac{N(N-2)}{24} + \ln 2
+    - \frac{\ln N}{N-1} \qquad (N\ \mathrm{even}),
     \label{eq:rho-even}\\
   \rho^*(N) &= \frac{N^2}{24} - \frac{N}{12} - \frac18
-    + \log 2 - \frac{\log N}{N-1}
+    + \ln 2 - \frac{\ln N}{N-1}
     \qquad (N\ \mathrm{odd}),
     \label{eq:rho-odd}\\
   a_N \equiv \frac{\rho^*(N)}{f_{\mathrm{crit}}(N)} &=
-    \frac13 - \frac{2}{3N} + \frac{8\log 2}{N^2}
-    - \frac{8\log N}{N^3} + O(N^{-3}). \label{eq:a-asymp}
+    \frac13 - \frac{2}{3N} + \frac{8\ln 2}{N^2}
+    - \frac{8\ln N}{N^3} + O(N^{-3}). \label{eq:a-asymp}
 \end{align}
-\end{proposition}
+\end{corollary}
 
 \begin{proof}
-Exchange the order of summation in
-$\langle D(N)\rangle$:
-\[
-  \langle D(N)\rangle
-  = \frac{1}{N-1}\sum_{p=1}^{N-1}
-      \bigl[-\log(2\sin(\pi p/N))\bigr]
-      \sum_{m=1}^{N-1}\cos(2\pi p m/N)
-    + \frac{1}{N-1}\sum_{m=1}^{N-1}\tfrac12 m(N-m).
-\]
-Three identities close the argument. First,
-$\sum_{m=1}^{N-1}\cos(2\pi pm/N) = -1$ for
-$1 \le p \le N{-}1$ (orthogonality).
-Second, the classical log-sine product
-$\prod_{p=1}^{N-1} 2\sin(\pi p/N) = N$ gives
-$\sum_{p=1}^{N-1}\log(2\sin(\pi p/N)) = \log N$,
-so the first sum contributes $\log N/(N-1)$.
-Third, $\sum_{m=1}^{N-1} m(N-m)/2 = N(N{-}1)(N{+}1)/12$,
-so the second sum contributes $N(N{+}1)/12$.
-Combining gives~\eqref{eq:D-closed}.
-
-The expression for $\rho^*(N)$ follows from
-$\rho^*(N) = f_{\mathrm{crit}}(N) - b(N)
-= f_{\mathrm{crit}}(N) + \log 2 - \langle D(N)\rangle$.
+Subtract $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$ from
+$f_{\mathrm{crit}}(N)$.
 For even $N$,
 $N^2/8 - N(N{+}1)/12 = (3N^2 - 2N(N{+}1))/24 = N(N{-}2)/24$,
 giving~\eqref{eq:rho-even}.
-For odd $N$, subtract the additional $1/8$ from
-$f_{\mathrm{crit}} = (N^2{-}1)/8$,
-giving~\eqref{eq:rho-odd}.
-Finally,~\eqref{eq:a-asymp} is the asymptotic expansion of
-$\rho^*(N)/f_{\mathrm{crit}}(N)$ at large $N$, obtained by
-dividing the even-$N$ closed form by $N^2/8$ and expanding;
-the odd-$N$ case differs by $O(N^{-2})$ and gives the same
-four leading terms.
+For odd $N$, replace $f_{\mathrm{crit}}$ by $(N^2{-}1)/8$ and
+subtract the additional $1/8$, giving~\eqref{eq:rho-odd}.
+The expansion~\eqref{eq:a-asymp} is obtained by dividing the
+even-$N$ closed form by $N^2/8$ and expanding at large $N$;
+the odd-$N$ case differs by $O(N^{-2})$ and shares the four
+leading terms.
 \end{proof}
 
-\begin{remark}[Why $\log 2$ and the Bolza conductor~$128$]
+\begin{remark}[Why $\ln 2$ and the Bolza conductor~$128$]
 \label{rmk:log2-bolza}
-The constant $\log 2$ in~\eqref{eq:rho-even}--\eqref{eq:rho-odd}
-is not incidental. The Bolza modular form $f = \eta(8z)\eta(16z)$
-has conductor $128 = 2^7$: the $\log 2$ intercept is the
-leading term of the logarithmic derivative of this form at its
-degenerate limit, and the $8/16$ ratio inside the arguments of
-the two $\eta$ factors contributes
-$\log(16/8) = \log 2$ to the constant term of the
-$q$-expansion. The appearance of $\log 2$ in the palindromic
-growth law is therefore the same structural constant that sets
-the conductor of the associated modular form, and any
-refinement of~$\rho^*(N)$ can be read as a correction to the
-$\eta(8z)\eta(16z)$ regulator.
+The constant $\ln 2$ in~\eqref{eq:rho-even}--\eqref{eq:rho-odd}
+is the same constant that appears in
+$b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$:
+both trace to the log-sine identity
+$\prod_{p=1}^{N-1} 2\sin(\pi p/N) = N$.
+The Bolza modular form $f = \eta(8z)\eta(16z)$ used in the
+Bolza modular analysis has conductor $128 = 2^7$, so the
+$\ln 2$ constant in $\rho^*(N)$ and the $2$-adic conductor
+of the associated modular form share the same origin in the
+log-sine regulator. The $1/3$ asymptote of $a_N$ is the
+spectral-variance ratio
+$(1/8 - 1/12)/(1/8)$, where $1/8$ is the Casimir ceiling
+and $1/12 = B_2/2$ is the Casimir mean, exhibiting the
+$B_2 = 1/6$ signature at leading order.
 \end{remark}
 
 \subsection{Geodesics on the modular surface}

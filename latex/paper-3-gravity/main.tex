@@ -2911,24 +2911,25 @@ to the continuum Casimir.
 
 The central charge~$c$~\eqref{eq:central-charge} makes five
 independently testable predictions beyond the Casimir:
-(i)~the exact offset $b(N)$ (Paper~I);
-(ii)~the mean aliasing
-$\langle D(N)\rangle = N(N{+}1)/12 + \log N/(N{-}1)$
-(exact closed form, Paper~I Proposition~\ref*{I-prop:growth-closed-form});
-(iii)~the growth law $a_N \equiv \rho^*(N)/f_{\mathrm{crit}}(N) =
-  1/3 - 2/(3N) + 8\log 2/N^2 - 8\log N/N^3 + O(N^{-3})$
-(exact asymptotic expansion, same reference);
+(i)~the exact offset
+$b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$
+(Paper~I, the $b(N)$ identity proof);
+(ii)~the mean Casimir
+$\langle m(N{-}m)/2\rangle = N(N{+}1)/12$
+and the mean log-sine regulator
+$\langle S\rangle = (\ln N)/(N{-}1) - \ln 2$
+(the two pieces that sum to $b(N)$);
+(iii)~the stability residual in closed form,
+$\rho^*(N) = N(N{-}2)/24 + \ln 2 - (\ln N)/(N{-}1)$ (even $N$)
+and $a_N \equiv \rho^*(N)/f_{\mathrm{crit}}(N) =
+  1/3 - 2/(3N) + 8\ln 2/N^2 - 8\ln N/N^3 + O(N^{-3})$
+(Paper~I, Corollary~\ref*{I-cor:rho-closed-form});
 (iv)~the quartic coupling $Q/f_{\mathrm{crit}}^2 = N/48$ (even~$N$);
 (v)~$\Delta_{\mathbf{H}^2} h = -1/2$.
 All five follow from the $B_2$-tower:
 the Casimir $m(N{-}m)/2$ is $O(c)$; the Havelock remainder $\delta_m$
 is $O(c^0)$ (topological); the Virasoro block correction is
 $O(1/c) \approx 10^{-5}$ (\S\ref{sec:holographic}).
-Predictions (ii) and (iii) were previously stated only to leading
-order; they are now known in closed form via three elementary
-identities (cosine orthogonality, the log-sine product
-$\prod_{p=1}^{N-1} 2\sin(\pi p/N) = N$, and
-$\sum_{m=1}^{N-1} m(N{-}m)/2 = N(N{-}1)(N{+}1)/12$).
 
 \subsection{Bihamiltonian hierarchy and arithmetic surfaces}
 
@@ -3684,7 +3685,7 @@ $4$D Einstein + matter & CS + KK + RT (derived from CFT$_2$) & Paper~IV, Theorem
 $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$ &
   McKay + Eightfold Way + KK & $N = 7$ \\
 $\sin^2\theta_W = 3/11$ & CS conformal weights & Paper~IV, Theorem~\ref*{IV-thm:weinberg} \\
-$\delta_{\mathrm{CKM}} = 70.2^\circ$ & BF-crossing phase & $\arg\Gamma(\tfrac{1}{2}+i)$ \\
+$\delta_{\mathrm{CKM}} = 68.63^\circ$ & BF-crossing Plancherel weight & $2\,\theta_{\mathrm{CS}}\tanh(\pi)$ \\
 \bottomrule
 \end{tabular}
 \end{center}
