@@ -282,6 +282,19 @@ From the SINGLE quantity lambda_m = (N-1) - m(N-m)/2 at N=7:
 - The orbit-based CKM and PMNS computations are in this investigation
   document (not yet integrated into the main codebase)
 
+## Historical note (not for paper, reference only)
+
+The CKM phase derivation went through 8 iterations:
+1. (1/2) log cosh(pi) = 70.2° — calculus error (d/ds arg Gamma = Re psi, not Im psi)
+2. 2*theta_CS*tanh(pi) = 68.63° — scalar Plancherel density (not Dirac), RIGHT rotation
+3-6. Various rejected attempts (dimensional errors, modular non-invariance)
+7. arctan(sqrt(7)) via CM curve 49.a3 — correct angle, required 8-10 week program
+8. arctan(sqrt(7)) via Gauss sum — FINAL: elementary number theory, same angle as #7
+
+The Plancherel formula (68.63°) and the Gauss sum (69.3°) agree within 0.6%.
+The near-equality was coincidental: theta_CS ≈ arctan(√7)/2 to 0.6%.
+The Gauss sum is the correct derivation; the Plancherel formula is superseded.
+
 ## Remaining items for paper integration
 
 1. Build `orbit_ckm.py` module implementing the full CKM computation
