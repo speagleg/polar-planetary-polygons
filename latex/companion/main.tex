@@ -123,7 +123,7 @@ Gauge group of particle physics is $\mathrm{SU}(3) \times \mathrm{SU}(2) \times 
   & Confirmed experimentally & Exact match & Theorem \\[4pt]
 Three generations of matter particles
   & Three observed & Exact match & Derived \\[4pt]
-CKM phase (a parameter governing matter--antimatter asymmetry) is $68.63^\circ$
+CKM phase (a parameter governing matter--antimatter asymmetry) is $69.3^\circ$
   & $69^\circ \pm 3^\circ$ & $0.4$ standard deviations & Derived \\[4pt]
 The Weinberg angle (which sets the ratio of electromagnetic to weak force strength) gives $\sin^2\theta_W = 3/11$
   & Measured value differs by $3.9\%$ after quantum corrections & $3.9\%$ & Derived \\[4pt]
@@ -2641,44 +2641,39 @@ and antimatter that allows the universe to contain more matter than
 antimatter.
 
 The measured value: $\delta = 69^\circ \pm 3^\circ$ (Particle Data
-Group, 2024). The polygon prediction: $\delta = 68.63^\circ$.
+Group, 2024). The polygon prediction: $\delta = 69.3^\circ$.
 
-The derivation proceeds through the Plancherel density of the Dirac
-operator on the hyperbolic plane.
+The derivation proceeds through the quadratic Gauss sum of
+the $\mathbb{Z}_7$ orbifold.
 
-At $N = 7$, the third generation of quarks has a mode ($m = 3$) whose
-conformal dimension sweeps from $c = 1/2$ (up-type) to $c = 3/2$
-(down-type), crossing the Breitenlohner--Freedman bound at $c = 1$.
-The BF bound is the stability threshold for fields on the hyperbolic
-plane; below it, the field profile oscillates rather than decaying.
-This crossing generates a spectral weight.
+The nonzero integers modulo~7 split into two groups of three:
+the \emph{quadratic residues} $\{1, 2, 4\}$ (the squares modulo~7)
+and the \emph{non-residues} $\{3, 5, 6\}$.
+These label the three generations of up-type and down-type quarks,
+respectively.
 
-The Selberg trace formula gives the Plancherel density of the Dirac
-operator on $\mathbf{H}^2$ as $(1/4\pi)\tanh(\pi s)$, where $s$ is the
-spectral parameter (Bolte--Stiepan 2006; B\"ar 2000). The $\tanh(\pi
-s)$ factor measures the spectral asymmetry at parameter $s$: it is
-zero at $s = 0$ and saturates at unity for large $s$. As the mode
-sweeps from $s_{\mathrm{up}} = 0$ (BF saturated) to $s_{\mathrm{dn}} = 1$
-(BF-crossing endpoint), the accumulated weight is $\tanh(\pi) = 0.9963$.
-
-Combining this with the fractional Chern--Simons phase
-$\theta_{\mathrm{CS}} = 2\pi \cdot \mathrm{frac}(k_{\mathrm{phys}}) =
-0.601$ rad (a topological datum fixed by $N = 7$ through $b(N)$) and
-the SL$(2,\mathbb{R})$ weight factor $\Delta w = 2$ (the difference
-of Dirac weights across the BF sweep):
+The key step is a sum over the quadratic residues using seventh
+roots of unity $\omega = e^{2\pi i/7}$:
 \[
-  \delta = \Delta w \cdot \theta_{\mathrm{CS}} \cdot \tanh(\pi)
-         = 2 \times 0.601 \times 0.9963 = 1.198 \text{ rad} = 68.63^\circ.
+  G = \omega + \omega^2 + \omega^4 = \frac{-1 + i\sqrt{7}}{2}.
 \]
-Numerically: $\tanh(\pi) = 0.9963$, $\theta_{\mathrm{CS}} = 34.44^\circ$,
-so $\delta = 2 \times 34.44^\circ \times 0.9963 = 68.63^\circ$.
+Adding the trivial (untwisted) sector gives
+$\alpha = 1 + G = (1 + i\sqrt{7})/2$,
+a complex number whose \emph{angle} is the CP phase:
+\[
+  \delta = \arctan(\sqrt{7}) = 69.3^\circ.
+\]
+The identity $\sin^2\!\delta = 7/8$ is exact.
 
-Every quantity in this calculation is determined by the polygon:
-$\theta_{\mathrm{CS}}$ comes from $N = 7$ via the central-charge
-formula; $\tanh(\pi)$ comes from the standard Plancherel density of
-the Dirac operator on $\mathbf{H}^2$; the weight factor $\Delta w = 2$
-is the SL$(2,\mathbb{R})$ representation difference across the BF
-crossing. No parameter is adjusted.
+CP violation requires that this angle be nonzero,
+which happens because $7 \equiv 3 \pmod{4}$:
+for such primes, the Gauss sum is complex rather than real.
+The class number $h(-7) = 1$ (a Heegner number)
+ensures the angle is unique.
+
+Every quantity in this calculation is determined by $N = 7$:
+the quadratic residues, the Gauss sum, and the angle.
+No parameter is adjusted.
 
 \subsection*{The quark mixing parameter $|V_{cb}|$}
 
@@ -3763,7 +3758,7 @@ necessity, or the identifications fail and the whole structure
 collapses. There is no middle ground, no adjustment, no fudge factor,
 no ``close enough.''
 
-The numerical predictions in this tier, the CKM phase ($68.63^\circ$,
+The numerical predictions in this tier, the CKM phase ($69.3^\circ$,
 matching $69^\circ \pm 3^\circ$), the Hubble constant
 ($67.4$~km/s/Mpc, matching $67.4 \pm 0.5$), the neutrino mass-squared
 ratio ($31.5$, matching $32.5 \pm 1.0$), have theoretical uncertainties
@@ -4040,7 +4035,7 @@ central charge $c = 12\,b(N)$.
 Paper~IV derived particle physics: the Seifert manifold forced by
 Thurston's theorem; $\mathrm{SU}(3) \times \mathrm{SU}(2) \times
 \mathrm{U}(1)$ from the Klein quartic; $\sin^2\theta_W = 3/11$;
-$\delta_{\mathrm{CKM}} = 68.63^\circ$; the fermion mass hierarchy;
+$\delta_{\mathrm{CKM}} = 69.3^\circ$; the fermion mass hierarchy;
 confinement.
 
 Paper~V derived cosmology: $N = 11$ from Chern class additivity;

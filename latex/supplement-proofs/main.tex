@@ -844,207 +844,75 @@ For comparison: the SU(5) GUT prediction $3/8 = 0.375$
 matches at $M_{\mathrm{GUT}} \sim 10^{14}\;\mathrm{GeV}$
 ($62\%$ above experiment at tree level).
 
-\subsection{CKM phase from the Plancherel density of the $\mathbf{H}^2$ Dirac operator}
+\subsection{CKM phase from the $\mathbb{Z}_7$ quadratic Gauss sum}
 \label{sec:supp-ckm}
 
 The CKM CP-violating phase
-$\delta_{\mathrm{CKM}} = 2\,\theta_{\mathrm{CS}}\tanh(\pi) = 68.63^\circ$
-is derived in Paper~IV, \S\ref*{IV-sec:ckm-phase}.
-We expand the six-step argument here with every intermediate
-substitution spelled out.
+$\delta_{\mathrm{CKM}} = \arctan(\sqrt{7}) = 69.3^\circ$
+is derived in Paper~IV, Theorem~\ref*{IV-thm:ckm-phase}.
+We expand the five-step Gauss sum argument here.
 
 \medskip\noindent
-\emph{Step~1: Chern--Simons phase from $N = 7$.}
-
-The Chern--Simons level is
-$k_{\mathrm{phys}} = c/6 - N/2$ with $c = 12\,b(N)$ and
-$b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$ (Paper~I).
-At $N = 7$:
-\begin{align*}
-  b(7) &= 56/12 - \ln 2 + (\ln 7)/6
-        = 4.6667 - 0.6931 + 0.3243
-        = 4.2978, \\
-  c(7) &= 12 \times 4.2978 = 51.5740, \\
-  k_{\mathrm{phys}} &= 51.5740/6 - 7/2
-                     = 8.5957 - 3.5
-                     = 5.0957.
-\end{align*}
-The fractional part is $k_{\mathrm{frac}} = 0.0957$, giving
-\begin{equation}\label{eq:supp-theta-cs}
-  \theta_{\mathrm{CS}}
-  = 2\pi k_{\mathrm{frac}}
-  = 0.6011\ \mathrm{rad}
-  = 34.44^\circ.
-\end{equation}
-This is a topological datum, fixed by $N = 7$ and the exact
-offset~$b(N)$ (Paper~I,
-Theorem~\ref*{I-thm:riemannian-havelock}); no free parameters.
+\emph{Step~1: Von Staudt--Clausen selects $N = 7$.}
+By the von Staudt--Clausen theorem (Paper~I, Theorem~\ref*{I-thm:von-staudt-N}),
+$N \mid \mathrm{denom}(B_{N-1})$ iff $N$ is prime.
+At $N = 7$: $\mathrm{denom}(B_6) = 2 \cdot 3 \cdot 7 = 42$,
+so $7 \mid 42$.
+Combined with Havelock stability ($\lambda_{\min}(7) = 0$, $\lambda_{\min}(8) < 0$),
+this selects $N = 7$.
 
 \medskip\noindent
-\emph{Step~2: Plancherel density of the Dirac operator on $\mathbf{H}^2$.}
-
-The Selberg trace formula for the Dirac operator on the
-hyperbolic plane gives the Plancherel spectral density
-\begin{equation}\label{eq:supp-plancherel}
-  \rho_{\mathrm{H}^2}(s)\,ds
-    = \frac{1}{4\pi}\,\tanh(\pi s)\,ds,
-  \qquad s = \sqrt{\lambda - \tfrac{1}{4}},
-\end{equation}
-where $\lambda$ is the eigenvalue of the Dirac Laplacian
-$D_{\mathbf{H}^2}^{2}$ and $s$ is the Plancherel spectral parameter
-\citep{BolteStiepan2006,Baer2000}.
-The $\tanh(\pi s)$ factor measures the spectral asymmetry at
-parameter~$s$: it vanishes at~$s = 0$ (the BF-saturated mass)
-and saturates at $|\tanh(\pi s)| \to 1$ for $|s|\to\infty$.
-The underlying analytic identity is
-\begin{equation}\label{eq:supp-digamma}
-  \operatorname{Im}\psi(\tfrac{1}{2}+is)
-  = \tfrac{\pi}{2}\tanh(\pi s),
-\end{equation}
-the same digamma identity that generates the Havelock eigenvalue
-kernel (Paper~I, Theorem~\ref{I-thm:riemannian-havelock}); it is
-a direct consequence of the reflection formula
-$\psi(1-z)-\psi(z) = \pi\cot(\pi z)$ evaluated at
-$z = \tfrac{1}{2}-is$.
-Both the Havelock kernel and the $\mathbf{H}^2$ Dirac Plancherel
-density share this Mehler--Fock/log-sine origin.
+\emph{Step~2: Quadratic residues = Frobenius orbits.}
+The quadratic residues mod~$7$: $\mathrm{QR} = \{1,2,4\}$
+($1^2 \equiv 1$, $2^2 \equiv 4$, $3^2 \equiv 2$).
+Non-residues: $\mathrm{QNR} = \{3,5,6\}$.
+These partition $(\mathbb{Z}/7\mathbb{Z})^*$ into two orbits of size~$3$
+(three generations each of up- and down-type quarks).
 
 \medskip\noindent
-\emph{Step~3: BF-threshold crossing fixes the spectral sweep.}
-
-For generation~3, Fourier mode $m = 3$ on the $N = 7$ polygon
-has Havelock eigenvalue $\mu_7 = 0$ (the critical mode).
-The up-type and down-type conformal dimensions are:
-\begin{align}
-  c_{\mathrm{up}}
-    &= \mu_4 - T_3 = \tfrac{1}{2},
-    \label{eq:supp-cup} \\
-  c_{\mathrm{dn}}
-    &= \mu_4 + T_3 = \tfrac{3}{2},
-    \label{eq:supp-cdn}
-\end{align}
-where $\mu_4 = 1$ is the KK conformal dimension and
-$T_3 = 1/2$ is the weak isospin.
-The transition from $c_{\mathrm{up}} = 1/2$ to
-$c_{\mathrm{dn}} = 3/2$ crosses the
-Breitenlohner--Freedman bound $c = 1$
-(at which $M^2 = c(c-1) = 0$).
-The Plancherel spectral parameter $s = c - \tfrac{1}{2}$
-sweeps from $s_{\mathrm{up}} = 0$ to $s_{\mathrm{dn}} = 1$:
-\begin{align*}
-  s_{\mathrm{up}} &= c_{\mathrm{up}} - \tfrac{1}{2}
-                    = 0, \\
-  s_{\mathrm{dn}} &= c_{\mathrm{dn}} - \tfrac{1}{2}
-                    = 1,
-\end{align*}
-so $\Delta s = 1$.
-
-All other modes ($m \ne 3$) have $\mu_7 \ge 1$, giving
-$c_{\mathrm{up}} = \sqrt{\mu_7^2 + \tfrac{1}{4}} \ge 1.12 > 1$.
-Their spectral parameters start above the BF bound and do not
-cross it.
-
-\medskip\noindent
-\emph{Step~4: Dominance of the BF-crossing mode.}
-
-The Plancherel weight difference across the BF sweep is
-$\Delta\rho_m
- = \tanh(\pi s_{\mathrm{dn}}^{(m)}) - \tanh(\pi s_{\mathrm{up}}^{(m)})$,
-computed mode by mode:
-\begin{center}\small
-\begin{tabular}{cccccc}
-\toprule
-Mode $m$ & $\mu_7$ & $c_{\mathrm{up}}$ & $c_{\mathrm{dn}}$
-  & $\Delta\rho$ & \% of total \\
-\midrule
-3 & 0 & 0.500 & 1.500 & 0.996 & 92.6\% \\
-2, 4 & 1 & 1.118 & 1.803 & 0.040 & 3.7\% each \\
-1, 5 & 2 & 2.062 & 2.500 & 0.0001 & $< 0.01\%$ \\
-6 & 3 & 3.041 & 3.354 & $< 10^{-6}$ & $< 0.01\%$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-The $\tanh$ saturates rapidly: for $s > 0.5$,
-$\tanh(\pi s) > 0.92$, so both endpoints are near unity and
-their difference is negligible.
-Only mode~3 contributes, because $\tanh(0) = 0$ while
-$\tanh(\pi) = 0.9963$.
-The entire CKM phase comes from generation~3.
-
-\medskip\noindent
-\emph{Step~5: SL$(2,\mathbb{R})$ weight factor.}
-
-The SL$(2,\mathbb{R})$ weight of a Dirac fermion with
-localisation~$c$ is $w = 2c - 1$
-(Paper~III, \S\ref*{III-sec:dirac-on-h2}).
-The weight difference across the BF crossing is
+\emph{Step~3: The partial Gauss sum.}
+With $\omega = e^{2\pi i/7}$:
+$G(\mathrm{QR}) = \omega + \omega^2 + \omega^4$.
+Since $G(\mathrm{QR}) + G(\mathrm{QNR}) = -1$
+(sum of all nontrivial $7$th roots) and
+$G(\mathrm{QR}) - G(\mathrm{QNR}) = i\sqrt{7}$
+(standard for $p \equiv 3 \pmod{4}$):
 \[
-  \Delta w
-  = (2 c_{\mathrm{dn}} - 1) - (2 c_{\mathrm{up}} - 1)
-  = 2(c_{\mathrm{dn}} - c_{\mathrm{up}})
-  = 2.
+  G(\mathrm{QR}) = \frac{-1 + i\sqrt{7}}{2}.
 \]
-Each unit of weight contributes~$\theta_{\mathrm{CS}}$ to the
-instanton phase.
-
-\emph{Reality of the Yukawa overlap.}
-The conical function $P_{-1/2+im}(\cosh\rho)$ is real for all
-real~$m$ and~$\rho > 0$, by the integral representation
-\[
-  P_\nu(x)
-  = \frac{2}{\pi}\int_0^{\pi/2}
-    \bigl(x + \sqrt{x^2 - 1}\cos\theta\bigr)^\nu\,d\theta
-  > 0
-\]
-for $x > 1$.
-The Yukawa overlap
-\[
-  I(m)
-  = \int_0^{\rho^*}
-    P_{-1/2+im}(\cosh\rho)\,w(\rho)\,\sinh\rho\,d\rho
-\]
-(with $w = f_R\,\varphi_H > 0$) is therefore real and positive
-($I(1) = 0.426 > 0$), so the Yukawa magnitude is independent
-of the CKM phase, and the phase is a geometric invariant of
-the $\mathbf{H}^2$ Dirac spectrum.
 
 \medskip\noindent
-\emph{Step~6: Assembly and evaluation.}
+\emph{Step~4: The sector amplitude.}
+The total up-type amplitude
+(untwisted sector $+$ QR twisted sectors):
+\[
+  \alpha_2 = 1 + G(\mathrm{QR}) = \frac{1 + i\sqrt{7}}{2}.
+\]
+This satisfies $\alpha_2^2 - \alpha_2 + 2 = 0$
+and $|\alpha_2|^2 = 2$ (the Weil bound at the prime~$2$).
 
-Combining the weight factor (Step~5) with the Plancherel
-weight of the BF-crossing mode (Steps~2--4):
-\begin{equation}\label{eq:supp-delta-result}
-  \delta_{\mathrm{CKM}}
-  = \Delta w \cdot \theta_{\mathrm{CS}} \cdot \tanh(\pi)
-  = 2 \,\theta_{\mathrm{CS}} \tanh(\pi).
-\end{equation}
-Numerically:
-\begin{align*}
-  \theta_{\mathrm{CS}} &= 0.6011\ \mathrm{rad}, \\
-  \tanh(\pi) &= 0.9963, \\
-  2 \times 0.6011 \times 0.9963
-    &= 1.1978\ \mathrm{rad}, \\
-  1.1978 \times \frac{180^\circ}{\pi}
-    &= 68.63^\circ.
-\end{align*}
-The observed value (PDG~2024) is
-$\delta = 69^\circ \pm 3^\circ$;
-the discrepancy is $0.37^\circ$ ($12\%$ of $1\sigma$).
+\medskip\noindent
+\emph{Step~5: The CKM phase.}
+\[
+  \delta_{\mathrm{CKM}} = \arg(\alpha_2) = \arctan(\sqrt{7}) = 69.3^\circ.
+\]
+With $\sin^2\delta = 7/8$ exactly (Paper~I, Corollary~\ref*{I-cor:sin2-arctan}).
 
 \medskip\noindent
 \emph{Jarlskog consistency check.}
-Using $\delta = 68.63^\circ$ with the observed mixing angles:
-\[
-  J = s_{12}\,s_{23}\,s_{13}\,c_{12}\,c_{23}\,c_{13}^2\,
-      \sin(68.63^\circ)
-  = 3.09 \times 10^{-5}
-  \qquad(\text{observed: } 3.0 \times 10^{-5},\;3\%\text{ match}).
-\]
-Only $\delta$ is predicted; the mixing angles are experimental inputs.
-The near-maximality of CP violation ($\sin\delta = 0.931$) is a
-consequence of $\tanh(\pi)$ being close to unity.
+Using $\delta = \arctan(\sqrt{7})$ with the PDG mixing angles:
+$J = s_{12}\,s_{23}\,s_{13}\,c_{12}\,c_{23}\,c_{13}^2\,
+\sin(\arctan\sqrt{7}) = 3.14 \times 10^{-5}$
+(observed: $3.08 \times 10^{-5}$, $2\%$ match).
+The CP violation is near-maximal: $\sin\delta = \sqrt{7/8} = 0.935$.
 
+%% The old Plancherel expansion (200 lines) has been replaced by the
+%% Gauss sum derivation above. See git history for the original.
+%% The Plancherel formula gave 68.63 deg; the Gauss sum gives 69.3 deg.
+%% See docs/investigations/2026-04-09-bernoulli-havelock-backbone.md.
+
+%% REMOVED: old Steps 1-6 of Plancherel proof (lines 856-1047 in previous version)
+%% The following line connects to the next subsection:
 \subsection{QCD string tension from the CS path integral}
 \label{sec:supp-string-tension}
 
