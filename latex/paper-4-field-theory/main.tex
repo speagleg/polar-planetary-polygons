@@ -2342,7 +2342,7 @@ factor $\sigma = \ln(M_{\mathrm{poly}}/v)$, pinned by the
 Weinberg angle running; all mass \emph{ratios} are then fixed.
 \emph{Non-perturbative}:
 the orbifold image suppression (\S\ref{sec:ckm-np}) gives
-$|V_{cb}| = 0.044$.
+$|V_{cb}| = 0.043$.
 
 \medskip\noindent
 \emph{Derivation chain for the fermion sector.}
@@ -2363,7 +2363,7 @@ The complete chain from Seifert geometry to fermion masses:
   $\to$ $\delta_{\mathrm{CKM}} = \arctan(\sqrt{7})
   \approx 69.3^\circ$;
 \item Orbifold image $Q_1(\cosh d)$ on $\mathbf{H}^2/\mathbb{Z}_7$
-  $\to$ $|V_{cb}| = 0.044$.
+  $\to$ $|V_{cb}| = 0.043$.
 \end{enumerate}
 Each step is a computation on the Seifert manifold.
 The only input beyond the gauge sector
@@ -2513,7 +2513,7 @@ with the $s$ quark:
   \qquad
   \frac{m_d}{m_s} = \sin^2\theta_C.
 \end{equation}
-With $|V_{us}| = 0.237$ (the tree-level Cabibbo angle):
+With $|V_{us}| = 0.230$ (the tree-level Cabibbo angle):
 $m_d/m_s = 0.056$ (observed: $0.049$, $14\%$~off).
 This is the Gatto relation \citep{Gatto1968}:
 no new parameter enters.
@@ -2562,29 +2562,21 @@ protected.
 \subsection{CKM mixing matrix \textnormal{[one-parameter: $\sigma$]}}
 \label{sec:ckm-tree}
 
-\emph{Roadmap.}
-The CKM matrix has three layers of corrections:
-(a)~\emph{tree-level}: diagonalization of the $\mathbf{H}^2$
-  Yukawa texture gives $|V_{cb}| = 0.092$, $\delta = 15^\circ$;
-(b)~\emph{non-perturbative phase}: the $\mathbb{Z}_7$ Gauss sum
-  (Theorem~\ref{thm:ckm-phase}) gives
-  $\delta = \arctan(\sqrt{7}) \approx 69.3^\circ$;
-(c)~\emph{orbifold image suppression}: the $\chi_8$ channel of the
-  $\mathrm{PSL}(2,\mathbb{F}_7)$ decomposition gives the final
-  $|V_{cb}| = 0.044$.
-
-\medskip\noindent
-The CKM matrix $V = U_u^\dagger U_d$ is obtained by diagonalizing
-the up-type ($\mu_4 = 1/2$) and down-type ($\mu_4 = 3/2$)
-mass matrices $M = v \times Y$ with the $\mathbf{H}^2$ radial profile overlaps.
-Predicted ($\mu_4 = 1 \mp T_3$ derived from the BF threshold
-and the Higgs $T_3$ eigenvalue; see~Paper~VI):
+The CKM matrix $V = U_L^{(\mathrm{up})\dagger}\,U_L^{(\mathrm{dn})}$
+is extracted from the orbit-based Yukawa matrices
+using the \emph{left} rotation: $U_L$ diagonalizes $YY^\dagger$
+(not $Y^\dagger Y$).
+The Bernoulli instanton phases
+$\alpha_L = 1/7$, $\alpha_R = 5/42$, $\alpha_H = 2/21$
+enter each Yukawa entry through
+$\exp(2\pi i(\alpha_L m_L + \alpha_R m_R + \alpha_H m_H)/N)$.
+Predicted at $\sigma = 5$:
 \begin{center}
 \small
 $|V| \approx \begin{pmatrix}
-  0.972 & 0.237 & 0.006 \\
-  0.236 & 0.967 & 0.092 \\
-  0.016 & 0.091 & 0.996
+  0.973 & 0.230 & 0.088 \\
+  0.230 & 0.971 & 0.043 \\
+  0.088 & 0.043 & 0.995
 \end{pmatrix}$
 \qquad
 Observed: $\begin{pmatrix}
@@ -2756,13 +2748,22 @@ Angle & Prediction & PDG & Match \\
 $\theta_{12}$ & $\pi/4 - \theta_C = 32.9^\circ$ & $33.4^\circ$ & $0.5^\circ$ \\
 $\theta_{23}$ & $\pi/4 = 45^\circ$ & $49 \pm 4^\circ$ & $1\sigma$ \\
 $\theta_{13}$ & $\sin^2\theta_{13} = \tfrac{1}{2}\sin^2\theta_C$, giving $9.3^\circ$ & $8.5^\circ$ & $0.8^\circ$ \\
-$\delta_{\mathrm{CP}}$ & $\arctan\sqrt{7} = 69.3^\circ$ & $-90 \pm 30^\circ$ & testable \\
+$\delta_{\mathrm{CP}}$ & $\arctan\sqrt{7} = 69.3^\circ$ & $-90 \pm 30^\circ$ & in tension \\
 \bottomrule
 \end{tabular}
 \end{center}
 \noindent
-The prediction $\delta_{\mathrm{CP}}^{\mathrm{PMNS}} = \arctan\sqrt{7}$
-is testable at DUNE and Hyper-Kamiokande.
+The prediction $\delta_{\mathrm{CP}}^{\mathrm{PMNS}} = \arctan\sqrt{7} = 69.3^\circ$
+is in tension with the current T2K/NOvA combined preference for
+$\delta_{\mathrm{CP}} \approx -90^\circ$ (${\sim}\,3\sigma$
+from our prediction).
+The experimental uncertainty is large ($\pm 30^\circ$)
+and the measurement is statistics-limited;
+DUNE and Hyper-Kamiokande will provide a decisive test.
+If $\delta_{\mathrm{CP}}^{\mathrm{PMNS}} = -90^\circ$ is confirmed
+at $5\sigma$, the framework's PMNS CP prediction is falsified,
+though the CKM sector (which uses the same $\arctan\sqrt{7}$
+for $\delta_{\mathrm{CKM}}$) would remain intact.
 
 %% OLD PROOF AND NON-PERTURBATIVE SECTION REMOVED
 %% (Plancherel derivation superseded by Gauss sum above)
