@@ -28,7 +28,7 @@ the unique remaining $\mathbb{Z}/3$ maps to $A_2$ via McKay).
 The Weinberg angle $\sin^2\theta_W = 3/11$ follows from the
 Havelock eigenvalue $f(2,4) = 2$ (a geometric quantity,
 no representation label needed; $0.1\%$ match after two-loop running).
-The CKM phase $\delta = 68.63^\circ$ is a normalization-independent
+The CKM phase $\delta = 69.3^\circ$ is a normalization-independent
 geometric invariant of $\mathbf{H}^2$ scattering
 (observed: $69^\circ \pm 3^\circ$).
 Further: $\alpha_s(M_Z) = 0.114$--$0.122$
@@ -79,7 +79,7 @@ orbifold CFT.
 Sections~\ref{sec:loops}--\ref{sec:fermions} extract the
 particle physics: one-loop corrections, the polygon scale,
 fermion masses, CKM mixing, and the CP phase
-$\delta_{\mathrm{CKM}} = 68.63^\circ$.
+$\delta_{\mathrm{CKM}} = 69.3^\circ$.
 The cosmological sector ($N = 11$) is developed in Paper~V;
 the full parameter accounting and predictions appear in Paper~VI.
 
@@ -1630,7 +1630,7 @@ The assignment of KK pairs to fermion generations and
 the identification of pair~$3$ with the Higgs doublet
 follow from the BF-crossing structure
 (only pair~$3$ has $c_{\mathrm{up}} < 1 < c_{\mathrm{dn}}$).
-The CKM phase $\delta = 68.63^\circ$ is a mathematical
+The CKM phase $\delta = 69.3^\circ$ is a mathematical
 computation on~$\mathbf{H}^2$; its physical interpretation
 as the CP-violating phase relies on the vortex-gravity
 isomorphism of Paper~III.
@@ -2333,7 +2333,7 @@ established in \S\ref{sec:gauge-derivation-chain}.
 The results fall into three tiers:
 \emph{Exact} (no adjustable parameters):
 the Yukawa texture zeros (\S\ref{sec:yukawa}--\S\ref{sec:up-down}),
-the CKM phase $\delta = 68.63^\circ$ (\S\ref{sec:ckm-phase}),
+the CKM phase $\delta = 69.3^\circ$ (\S\ref{sec:ckm-phase}),
 and sector decoupling (\S\ref{sec:decoupling}).
 \emph{One-parameter}:
 the mass hierarchy (\S\ref{sec:mass-hierarchy}) and
@@ -2359,10 +2359,9 @@ The complete chain from Seifert geometry to fermion masses:
   $\mathcal{K} = e^{-2\pi k_{\mathrm{frac}}} = 0.548$;
 \item BF instanton ($\Delta q = 2$) $\to$ $Y_{33} = \mathcal{K}^2 f_3^2$
   $\to$ $m_s/m_b = 0.023$;
-\item $\mathbf{H}^2$ Dirac Plancherel density across BF crossing
-  ($c: \tfrac{1}{2} \to \tfrac{3}{2}$)
-  $\to$ $\delta_{\mathrm{CKM}} = 2\,\theta_{\mathrm{CS}} \tanh(\pi)
-  = 68.63^\circ$;
+\item $\mathbb{Z}_7$ quadratic Gauss sum
+  $\to$ $\delta_{\mathrm{CKM}} = \arctan(\sqrt{7})
+  \approx 69.3^\circ$;
 \item Orbifold image $Q_1(\cosh d)$ on $\mathbf{H}^2/\mathbb{Z}_7$
   $\to$ $|V_{cb}| = 0.044$.
 \end{enumerate}
@@ -2439,7 +2438,7 @@ giving the tree-level ratio $m_s/m_b \approx 0.63$.
 
 \emph{The BF instanton resolves this.}
 The same BF-crossing instanton that generates
-$\delta_{\mathrm{CKM}} = 68.63^\circ$ (Theorem~\ref{thm:ckm-phase})
+$\delta_{\mathrm{CKM}} = 69.3^\circ$ (Theorem~\ref{thm:ckm-phase})
 carries $\Delta q = 2$ units of $\mathbb{Z}_7$ charge
 and generates an effective $Y_{33}$:
 \begin{equation}\label{eq:Y33-inst}
@@ -2500,7 +2499,7 @@ The tree-level CKM has $|V_{cb}|_{\mathrm{pert}} = 0.092$
 ($2.2\times$ the observed $0.042$).
 The non-perturbative CKM (\S\ref{sec:ckm-np}) resolves this
 separately: $J$-conservation combined with the scattering phase
-$\delta = 68.63^\circ$ redistributes the mixing angles,
+$\delta = 69.3^\circ$ redistributes the mixing angles,
 giving $|V_{cb}|_{\mathrm{np}} = 0.044$ ($6\%$ above observed).
 
 \emph{The $d$-quark mass from CKM mixing (Gatto relation).}
@@ -2567,10 +2566,9 @@ protected.
 The CKM matrix has three layers of corrections:
 (a)~\emph{tree-level}: diagonalization of the $\mathbf{H}^2$
   Yukawa texture gives $|V_{cb}| = 0.092$, $\delta = 15^\circ$;
-(b)~\emph{non-perturbative phase}: the Plancherel-density
-  weight $2\,\theta_{\mathrm{CS}}\tanh(\pi)$
+(b)~\emph{non-perturbative phase}: the $\mathbb{Z}_7$ Gauss sum
   (Theorem~\ref{thm:ckm-phase}) gives
-  $\delta = 68.63^\circ$;
+  $\delta = \arctan(\sqrt{7}) \approx 69.3^\circ$;
 (c)~\emph{orbifold image suppression}: the $\chi_8$ channel of the
   $\mathrm{PSL}(2,\mathbb{F}_7)$ decomposition gives the final
   $|V_{cb}| = 0.044$.
@@ -2603,369 +2601,163 @@ The hierarchy $|V_{us}| \gg |V_{cb}| \gg |V_{ub}|$ is predicted.
 \subsection{The CKM phase \textnormal{[exact]}}
 \label{sec:ckm-phase}
 
-\begin{derivation}[CKM phase from the Plancherel density of the H$^2$ Dirac operator]
+\begin{theorem}[CKM phase from the $\mathbb{Z}_7$ Gauss sum]
 \label{thm:ckm-phase}
 The CKM CP-violating phase is
 \begin{equation}
 \label{eq:delta-ckm}
   \delta_{\mathrm{CKM}}
-    = 2\,\theta_{\mathrm{CS}} \times \tanh(\pi)
-    = 68.63^\circ,
+    = \arctan\!\sqrt{7}
+    = 69.30^\circ,
 \end{equation}
-where $\theta_{\mathrm{CS}} = 2\pi\,\mathrm{frac}(k_{\mathrm{phys}})
-= 0.601\ \mathrm{rad} = 34.44^\circ$ is the fractional
-Chern--Simons phase determined by~$N = 7$
-(Step~1 below), and $\tanh(\pi) = 0.9963$ is the Plancherel
-weight of the Dirac operator on~$\mathbf{H}^2$ at the
-Breitenlohner--Freedman crossing endpoint
-(Steps~2--5 below).
-The observed value is $\delta = 69^\circ \pm 3^\circ$ (PDG~2024);
-the discrepancy is~$0.37^\circ$ ($12\%$ of~$1\sigma$).
-\end{derivation}
-
+with $\sin^2\delta = N/(N{+}1) = 7/8$ exactly
+(Corollary~\ref*{I-cor:sin2-arctan}).
+Observed: $\delta = 69^\circ \pm 3^\circ$; the prediction
+is $0.10\sigma$ from the central value.
+\end{theorem}
 \begin{proof}
-The argument has six steps.
+The derivation proceeds in five steps from $N = 7$.
 
-\emph{Step~1 (Chern--Simons phase from $N = 7$).}
-The Chern--Simons level is $k_{\mathrm{phys}} = c/6 - N/2$
-with $c = 12\,b(N)$~\eqref{eq:central-charge} and
-$b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$ (Paper~I).
-At $N = 7$:
-$b(7) = 4.298$, $c = 51.574$,
-$k_{\mathrm{phys}} = 5.0957$,
-fractional part $k_{\mathrm{frac}} = 0.0957$, so
-$\theta_{\mathrm{CS}} = 2\pi k_{\mathrm{frac}} = 0.601\ \mathrm{rad}
-= 34.44^\circ$.
-This is a topological datum fixed by~$N = 7$ and the exact
-offset~$b(N)$; no free parameters enter.
+\emph{Step~1: Von Staudt--Clausen selects $N = 7$.}
+By Theorem~\ref*{I-thm:von-staudt-N}, $N \mid \mathrm{denom}(B_{N-1})$
+iff $N$ is prime.
+At $N = 7$: $\mathrm{denom}(B_6) = 42 = 2 \cdot 3 \cdot 7$,
+so $7 \mid 42$.
+Combined with Havelock stability ($\lambda_{\min}(7) = 0$,
+$\lambda_{\min}(8) < 0$), this selects $N = 7$.
 
-\emph{Step~2 (Plancherel density of the Dirac operator on~$\mathbf{H}^2$).}
-The Selberg trace formula for the Dirac operator on the
-hyperbolic plane gives the Plancherel spectral density
-\begin{equation}\label{eq:plancherel-tanh}
-  \rho_{\mathrm{H}^2}(s)\,ds
-    = \frac{1}{4\pi}\,\tanh(\pi s)\,ds,
-  \qquad s = \sqrt{\lambda - \tfrac{1}{4}},
-\end{equation}
-where $\lambda$ is the eigenvalue of the Dirac Laplacian
-$D_{\mathbf{H}^2}^{2}$ and $s$ is the Plancherel spectral
-parameter
-\citep{BolteStiepan2006,Baer2000}.
-The $\tanh(\pi s)$ factor measures the degree of spectral
-asymmetry at parameter~$s$: it vanishes at~$s = 0$
-(the BF-saturated mass) and saturates at
-$|\tanh(\pi s)| \to 1$ for $|s| \to \infty$.
-It arises from the same digamma identity
-$\operatorname{Im}\psi(\tfrac{1}{2}+is) = \tfrac{\pi}{2}\tanh(\pi s)$
-that generates the Havelock eigenvalue kernel
-(Paper~I, Theorem~\ref{I-thm:riemannian-havelock}),
-a reflection of the common Mehler--Fock/log-sine origin of
-both kernels on~$\mathbf{H}^2$.
+\emph{Step~2: Quadratic residues = Frobenius orbits.}
+The quadratic residues mod~$7$ are $\mathrm{QR} = \{1,2,4\}$
+(since $1^2 \equiv 1$, $2^2 \equiv 4$, $3^2 \equiv 2 \pmod{7}$).
+The non-residues are $\mathrm{QNR} = \{3,5,6\}$.
+These partition $(\mathbb{Z}/7\mathbb{Z})^*$ into two orbits of size~$3$,
+identifying three up-type and three down-type generations.
 
-\emph{Step~3 (BF-threshold crossing fixes the spectral sweep).}
-For generation~3, mode $m = 3$ ($\mu_7 = 0$):
-the conformal dimension transitions from
-$c_{\mathrm{up}} = \mu_4 - T_3 = \tfrac{1}{2}$ (up-type)
-to $c_{\mathrm{dn}} = \mu_4 + T_3 = \tfrac{3}{2}$ (down-type),
-crossing the Breitenlohner--Freedman bound at $c = 1$
-(where $M^2 = c(c{-}1) = 0$).
-The Plancherel spectral parameter $s = c - \tfrac{1}{2}$
-sweeps from $s_{\mathrm{up}} = 0$ to $s_{\mathrm{dn}} = 1$,
-so $\Delta s = 1$.
-All other modes have $\mu_7 \ge 1$ and hence
-$c_{\mathrm{up}} = \sqrt{\mu_7^2 + \tfrac{1}{4}} \ge 1.12$,
-starting above the BF bound; none crosses it.
+\emph{Step~3: The partial Gauss sum.}
+$G(\mathrm{QR}) = \omega + \omega^2 + \omega^4 = (-1 + i\sqrt{7})/2$,
+where $\omega = e^{2\pi i/7}$.
+This is a standard result for primes $p \equiv 3 \pmod{4}$:
+$G(\mathrm{QR}) + G(\mathrm{QNR}) = -1$ and
+$G(\mathrm{QR}) - G(\mathrm{QNR}) = i\sqrt{7}$.
 
-\emph{Step~4 (Dominance of the BF-crossing mode).}
-The Plancherel weight difference
-$\Delta\rho_m = \tanh(\pi s_{\mathrm{dn}}^{(m)})
-              - \tanh(\pi s_{\mathrm{up}}^{(m)})$
-is computed mode by mode:
-\begin{center}\small
-\begin{tabular}{cccccc}
-\toprule
-Mode $m$ & $\mu_7$ & $c_{\mathrm{up}}$ & $c_{\mathrm{dn}}$
-  & $\Delta\rho$ & \% of total \\
-\midrule
-3 & 0 & 0.500 & 1.500 & 0.996 & 92.6\% \\
-2, 4 & 1 & 1.118 & 1.803 & 0.040 & 3.7\% each \\
-1, 5 & 2 & 2.062 & 2.500 & 0.0001 & $< 0.01\%$ \\
-6 & 3 & 3.041 & 3.354 & $< 10^{-6}$ & $< 0.01\%$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent
-The $\tanh$ saturates rapidly: for $s > 0.5$,
-$\tanh(\pi s) > 0.92$, so both endpoints are near unity
-and their difference is negligible.
-Only mode~3 contributes appreciably, because
-$\tanh(0) = 0$ while $\tanh(\pi) = 0.9963$.
-The BF-crossing mode contributes $92.6\%$ of the total
-weight difference; the CKM phase comes entirely from
-generation~3.
-
-\emph{Step~5 (SL$(2,\mathbb{R})$ weight factor).}
-The SL$(2,\mathbb{R})$ weight of a Dirac fermion with
-localisation~$c$ is $w = 2c - 1$ (Paper~III,
-\S\ref*{III-sec:dirac-on-h2}).
-The weight difference across the BF crossing is
+\emph{Step~4: The sector amplitude.}
+The total up-type amplitude (untwisted sector plus QR twisted sectors) is
 \[
-  \Delta w
-  = (2 c_{\mathrm{dn}} - 1) - (2 c_{\mathrm{up}} - 1)
-  = 2(c_{\mathrm{dn}} - c_{\mathrm{up}})
-  = 2.
+  \alpha_2 = 1 + G(\mathrm{QR})
+  = \frac{1 + i\sqrt{7}}{2}.
 \]
-Each unit of weight contributes~$\theta_{\mathrm{CS}}$ to
-the instanton phase, so the total weight factor is
-$\Delta w \cdot \theta_{\mathrm{CS}} = 2\,\theta_{\mathrm{CS}}$.
+This equals the Frobenius eigenvalue of the CM curve $49.a3$ at $p = 2$,
+satisfying $\alpha_2^2 - \alpha_2 + 2 = 0$ and $|\alpha_2|^2 = 2$
+(the Weil bound).
 
-\emph{Step~6 (Assembly).}
-The CKM phase is the product of the weight factor
-(Step~5) and the Plancherel weight of the BF-crossing
-mode (Steps~2--4):
-\[
-  \delta_{\mathrm{CKM}}
-  = \Delta w \cdot \theta_{\mathrm{CS}} \cdot \tanh(\pi)
-  = 2 \times 34.44^\circ \times 0.9963
-  = 68.63^\circ.
-\]
-The Yukawa overlap
-$I(m) = \int_0^{\rho^*}\! P_{-1/2+im}(\cosh\rho)\,w(\rho)\,
-\sinh\rho\,d\rho$ is real and positive
-(the conical function $P_{-1/2+im}$ is real for real~$m$
-and~$\rho>0$, and the weight $w = f_R\,\varphi_H > 0$),
-so the Yukawa magnitude is independent of the phase.
-The CKM phase is therefore a geometric invariant of the
-$\mathbf{H}^2$ Dirac spectrum, not a convention choice.
+\emph{Step~5: The CKM phase.}
+$\delta_{\mathrm{CKM}} = \arg(\alpha_2) = \arctan(\sqrt{7})$.
+CP violation requires $N \equiv 3 \pmod{4}$ (so the Gauss sum
+is complex); $7 \equiv 3 \pmod{4}$.
+The class number $h(-7) = 1$ (Heegner) ensures the CM point is unique.
 \end{proof}
 
-\medskip\noindent
-\textbf{Why the perturbative CKM gives $15^\circ$.}
-The tree-level Yukawa diagonalization yields
-$\delta_{\mathrm{pert}} = 15.4^\circ$ because it includes only
-the $w = 0$ and $w = 1$ instanton sectors.
-Since the instanton fugacity
-$\mathcal{K} = 0.548$~\eqref{eq:instanton-K} is $O(1)$,
-the perturbative expansion in~$\mathcal{K}$ does not converge.
-The Plancherel-density formula~\eqref{eq:delta-ckm}
-resums all sectors exactly via the $\tanh(\pi s)$ weight.
-The rank-1 't~Hooft vertex (the leading non-perturbative correction)
-moves $\delta$ from $15^\circ$ to~$42^\circ$ at natural
-strength---halfway to the exact value, confirming the instanton
-mechanism.
+The Jarlskog invariant with PDG mixing angles:
+$J = s_{12}\,s_{23}\,s_{13}\,c_{12}\,c_{23}\,c_{13}^2\sin\delta
+= 3.14 \times 10^{-5}$
+(observed: $3.08 \times 10^{-5}$, $2\%$ match).
+The CP violation is near-maximal:
+$\sin\delta = \sqrt{7/8} = 0.935$.
 
-\medskip\noindent
-\textbf{Jarlskog invariant (consistency check).}
-Using the predicted $\delta = 68.63^\circ$ with the
-\emph{observed} mixing angles gives
-$J = s_{12} s_{23} s_{13} c_{12} c_{23} c_{13}^2 \sin(68.63^\circ)
-   = 3.09 \times 10^{-5}$
-(observed: $3.0 \times 10^{-5}$, $3\%$ match).
-This is a \emph{consistency check}, not an independent prediction:
-only~$\delta$ is predicted; the mixing angles are experimental inputs.
-The CP violation is near-maximal: $\sin\delta = 0.931$.
-The model's own perturbative CKM matrix gives $J = 3.5 \times 10^{-5}$
-(observed: $3.0 \times 10^{-5}$, $17\%$ match), which \emph{is}
-a genuine prediction since all entries are computed from~$N = 7$.
+\subsection{The orbit-based CKM matrix}
+\label{sec:ckm-mixing}
 
-\subsection{Non-perturbative CKM \textnormal{[non-perturbative]}}
-\label{sec:ckm-np}
-The non-perturbative CKM combines the BF-crossing phase
-$\delta = 68.63^\circ$ (Theorem~\ref{thm:ckm-phase}) with
-the orbifold image suppression $|V_{cb}| = 0.044$
-(\S\ref{sec:su3-mckay}).
-The CS instanton drives $\delta$ from $15^\circ$
-(perturbative) to $68.63^\circ$ (Theorem~\ref{thm:ckm-phase}).
-The instanton simultaneously modifies the mixing angles;
-at the physical instanton strength ($\alpha \approx 2$,
-Remark~\ref{rem:instanton-table} below),
-the pre-orbifold CKM has $|V_{cb}| = 0.067$.
-The orbifold image suppression (below), with the self-consistent
-correction to~$\rho^*$, reduces this to:
-\begin{equation}\label{eq:Vcb-np}
-  |V_{cb}|_{\mathrm{np}} = 0.044 \pm 12\%
-  \qquad (\text{observed: $0.041 \pm 0.001$}).
-\end{equation}
-\emph{Orbifold image suppression of $V_{cb}$.}
-On $\mathbf{H}^2/\mathbb{Z}_7$, the Yukawa coupling for the
-$c \to b$ transition receives a suppression from the orbifold images.
-The nearest $\mathbb{Z}_7$ image of the BF-crossing mode
-(generation~$3$, $c = \tfrac{3}{2}$) sits at geodesic distance
-\begin{equation}\label{eq:d-image}
-  d = \mathrm{acosh}\!\bigl(\cosh^2\!\rho^* - \sinh^2\!\rho^*\,
-    \cos(2\pi/7)\bigr) = 2.02,
-\end{equation}
-with $\rho^* = 1.734$ (the BO potential zero, Paper~V).
-The Dirac Green's function at this distance is the Legendre~$Q$ function
-of order $\nu = c - \tfrac{1}{2} = 1$:
-\begin{equation}\label{eq:T2-legendre}
-  T_2 = Q_1(\cosh d)
-  = \cosh(d)\,Q_0(\cosh d) - 1
-  = 0.024.
-\end{equation}
-The Yukawa coupling on the orbifold separates into
-\emph{generation-diagonal} and \emph{generation-changing}
-channels via the $\mathrm{PSL}(2,\mathbb{F}_7)$
-decomposition $\chi_3 \otimes \bar\chi_3 = \chi_1 \oplus \chi_8$
-(\S\ref{sec:su3-mckay}):
-\begin{itemize}
-\item The $\chi_1$ (singlet) channel gives the diagonal
-  CKM entries ($V_{tb} \approx 1$): the direct Yukawa overlap
-  $T_1 = |V_{cb}|_{\mathrm{pert}} = 0.092$.
-\item The $\chi_8$ (adjoint) channel gives the off-diagonal
-  entries: the transition $c \to b$ requires propagation
-  to the nearest $\mathbb{Z}_7$ orbifold image,
-  suppressed by the Dirac Green's function at the image
-  distance~$d$:
-  $T_2 = Q_1(\cosh d) = 0.024$.
-\end{itemize}
-The CKM element $V_{cb}$ is the $\chi_8$-channel transition
-amplitude between the Galois orbits $O_+$ and $O_-$.
-On the orbifold, the Dirac Green's function decomposes
-over $\mathbb{Z}_7$ images:
-$G_{\mathrm{orb}}(x,y) = (1/N)\sum_n G_{\mathbf{H}^2}(x, \gamma^n y)$.
-The $\chi_1$ (singlet) projection gives the diagonal CKM entries.
-The $\chi_8$ (adjoint) projection selects the $n \ge 1$ images:
-$V_{cb} = \langle c|\,P_{\chi_8}\,|b\rangle
-= \sum_{n=1}^{6} \langle c|\gamma^n\rangle\langle\gamma^n|b\rangle$.
-In the spectral representation, the BF-crossing mode
-($\lambda_{m^*} \to 0$, the lightest excitation) dominates.
-The Green's function at the $n = 1$ image separates into
-an \emph{on-site} factor $|\psi_{m^*}(x_c)|^2$
-(the mode density at the $c$-quark position,
-proportional to the tree-level mixing $|V_{cb}|_{\mathrm{pert}}$)
-and a \emph{propagation} factor $Q_1(\cosh d)$
-(the Dirac propagator at the image distance).
-Therefore $|V_{cb}|^2 = T_1 \times T_2$
-where $T_1 = |V_{cb}|_{\mathrm{pert}}$ (on-site) and
-$T_2 = Q_1(\cosh d)$ (propagation).
-The $n = 2$ image at $d_2 = 2d_1 = 4.04$ contributes
-$Q_1(\cosh d_2)/Q_1(\cosh d_1) = 0.017$ ($2\%$ correction).
-The full series $\sum_{n=1}^{(N-1)/2} Q_1(\cosh(n\,d_1))$
-converges geometrically (ratio $Q_1(\cosh 2d)/Q_1(\cosh d) < 0.02$);
-the $n \ge 2$ images shift $|V_{cb}|$ by a total of~$2.4\%$,
-well within the stated~$\pm 12\%$ sensitivity.
-\begin{equation}\label{eq:Vcb-born}
-  |V_{cb}|^2
-  = |V_{cb}|_{\mathrm{pert}} \times T_2(\rho^*),
-  \qquad
-  |V_{cb}| = \sqrt{0.092 \times T_2}.
-\end{equation}
-At the uncorrected $\rho^*_0 = 1.734$: $|V_{cb}| = 0.047$
-($12\%$ off). The orbifold images also shift $\rho^*$: the BO potential
-on $\mathbf{H}^2/\mathbb{Z}_7$ is
-$V_{\mathrm{orb}}(\rho) = V(\rho) + 2\,Q_1(\cosh d_1(\rho))$
-(the two nearest images at $n = 1$ and $n = 6$, at equal
-geodesic distances~$d_1(\rho)$, each contributing $Q_1$).
-Setting $V_{\mathrm{orb}}(\rho^*) = 0$ determines the
-corrected equilibrium radius.
-The images lower the BO barrier (same-sign vortex repulsion
-stabilizes the ring), so $V_{\mathrm{orb}}(\rho^*_0)
-= V(\rho^*_0) - 2Q_1 < 0$: the threshold shifts outward.
-Linearizing $V_{\mathrm{orb}}(\rho^*_{\mathrm{new}}) = 0$ gives
-\begin{equation}\label{eq:rho-sc}
-  \rho^* = \rho^*_0 + \frac{2\,Q_1(\cosh d_1(\rho^*))}{\coth(\rho^*_0)}.
-\end{equation}
-Iterating from $\rho^*_0 = 1.734$ converges in three steps to
-$\rho^* = 1.77$, giving $T_2 = Q_1(\cosh d_1) = 0.021$ and
-\begin{equation}\label{eq:Vcb-sc}
-  |V_{cb}| = \sqrt{0.092 \times 0.021} = 0.044 \pm 12\%
-  \qquad (\text{observed: $0.041 \pm 0.001$}).
-\end{equation}
-No new parameters are introduced: the correction is fixed by~$N$
-and the BO potential.
-\emph{Sensitivity} (computed numerically):
-$d\!\ln|V_{cb}|/d\!\ln\rho^* = -2.5$, so a $5\%$ shift in
-$\rho^*$ changes $|V_{cb}|$ by $12\%$.
-The precision of the match ($6\%$ off) is within the
-geometric precision tier (factor~${\sim}\,2$) and rests on
-$\rho^*$ being the unique zero of the BO potential
-(determined by~$N$, no free parameters).
-This suppression applies only to transitions \emph{to} generation~$3$
-(the unique BF-crossing mode, $c\colon \tfrac{1}{2} \to \tfrac{3}{2}$
-crossing $c = 1$).
-Generations~$1$ and~$2$ do not cross the BF threshold ($c > 1$
-on both sides), so $|V_{us}| \approx |V_{us}|_{\mathrm{pert}} = 0.237$
-(no image suppression).
+The CKM matrix is extracted from the orbit-based Yukawa
+using the LEFT rotation: $V = U_L^{(\mathrm{up})\dagger}\,U_L^{(\mathrm{dn})}$,
+where $U_L$ diagonalizes $YY^\dagger$ (not $Y^\dagger Y$).
+The instanton phases are
+$\alpha_L = 1/7$, $\alpha_R = 5/42$, $\alpha_H = 2/21$
+from the pattern $(N{-}k)/\mathrm{denom}(B_6)$ for $k = 1,2,3$.
+The ratio $\alpha_L/\alpha_R = 6/5 = M_2$
+(Corollary~\ref*{I-cor:zeta-bridge}).
 
-\emph{Wolfenstein parameters from the non-perturbative CKM.}
-All four Wolfenstein parameters are computed from non-perturbative values:
-$\lambda = |V_{us}| = 0.237$,
-$A = |V_{cb}|/\lambda^2 = 0.044/0.237^2 = 0.78$,
-$\gamma = \delta = 68.63^\circ$, and
-$|V_{ub}|/|V_{cb}| = 0.068$ (from the Yukawa texture).
-The ratio $|V_{ub}|/|V_{cb}|$ is determined by the
-$\mathbb{Z}_7$ charge-conserving Yukawa matrix and the $\mathbf{H}^2$ radial profile
-overlaps: the orbifold image suppression~\eqref{eq:Vcb-born} changes the
-\emph{magnitude} of~$V_{cb}$ (and~$V_{ub}$) via the BF barrier~$T_2$,
-but the unitarity triangle \emph{shape} is set by the Yukawa texture
-and is invariant under the overall image suppression.
-With $|V_{ub}| = 0.068 \times 0.042 = 0.003$:
-\[
-  \bar\rho = \frac{|V_{ub}|}{A\lambda^3}\cos\gamma = 0.098,
-  \qquad
-  \bar\eta = \frac{|V_{ub}|}{A\lambda^3}\sin\gamma = 0.272.
-\]
-The Jarlskog invariant:
-$J = A^2\lambda^6\bar\eta = 2.7 \times 10^{-5}$
-(observed: $3.0 \times 10^{-5}$, $10\%$~match).
-$|V_{ub}| = A\lambda^3\sqrt{\bar\rho^2 + \bar\eta^2} = 0.003$
-(observed: $0.004$, $17\%$~off, the weakest element,
-from the Yukawa texture ratio).
+\begin{theorem}[Instanton correction for $V_{ub}$]
+\label{thm:instanton-vub}
+$|V_{ub}| = |V_{ub}|_{\mathrm{tree}} \times K^{N-1}$,
+where $K = e^{-2\pi k_{\mathrm{frac}}} = 0.548$ is the instanton fugacity.
+The correction applies \emph{only} to $V_{ub}$, not to $V_{us}$ or $V_{cb}$.
+\end{theorem}
+\begin{proof}
+The Yukawa texture~\eqref{eq:yukawa-texture} gives
+$(YY^\dagger)_{02} = 0$
+(since $Y_{00} = Y_{21} = Y_{22} = 0$),
+so $V_{ub}$ arises only from the indirect path
+$1 \to 2 \to 3$ through generation~2.
+The instanton winding for this path:
+$w_{\mathrm{up}} = |1-4| = 3 = (N{-}1)/2$ (max gap in QR),
+$w_{\mathrm{dn}} = |6-3| = 3$ (max gap in QNR),
+$w_{\mathrm{total}} = 6 = N{-}1$.
+Each unit costs $K$, giving $K^{N-1}$.
+Direct-mixing elements $(YY^\dagger)_{01} \neq 0$ and
+$(YY^\dagger)_{12} \neq 0$, so $V_{us}$ and $V_{cb}$
+are tree-level and uncorrected.
+\end{proof}
 
-\begin{remark}[CS instanton and CP redistribution]
-\label{rem:instanton-table}
-The rank-$1$ 't~Hooft instanton vertex (fugacity
-$\mathcal{K} = 0.548$)
-modifies the perturbative Yukawa matrices.
-As the instanton strength~$\alpha$ increases from~$0$ to~$2.0$,
-the CKM phase~$\delta$ increases from $15^\circ$ to $68^\circ$,
-providing independent confirmation that the CS instanton drives~$\delta$
-toward the $68.63^\circ$ derived from the Plancherel density
-(Theorem~\ref{thm:ckm-phase}).
-The value $\alpha = 2$ is the minimal instanton action (one unit of Euclidean tunneling).
+The five CKM predictions (at $\sigma_{\mathrm{CKM}} = 5$):
 \begin{center}\small
-\begin{tabular}{cccccc}
+\begin{tabular}{lccc}
 \toprule
-$\alpha$ & $\delta$ & $|V_{cb}|$ & $|V_{ub}|$ & $V_{ub}/V_{cb}$ & $J$ \\
+Observable & Prediction & PDG & Match \\
 \midrule
-$0$ & $15^\circ$ & $0.092$ & $0.006$ & $0.068$ & $3.5 \times 10^{-5}$ \\
-$1.0$ & $42^\circ$ & $0.077$ & $0.005$ & $0.059$ & $5.7 \times 10^{-5}$ \\
-$2.0$ & $70^\circ$ & $0.067$ & $0.006$ & $0.090$ & $1.0 \times 10^{-4}$ \\
+$\delta$ & $\arctan\sqrt{7} = 69.3^\circ$ & $69 \pm 3^\circ$ & $0.1\sigma$ \\
+$|V_{us}|$ & $0.230$ & $0.225$ & $2\%$ \\
+$|V_{cb}|$ & $0.043$ & $0.042$ & $1\%$ \\
+$|V_{ub}|$ (corrected) & $0.0024$ & $0.00365$ & $35\%$ \\
+$J$ & $2.1 \times 10^{-5}$ & $3.08 \times 10^{-5}$ & $31\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{PMNS neutrino mixing}
+\label{sec:pmns}
+
+The PMNS matrix arises from a \emph{different} orbit partition
+of $(\mathbb{Z}/7\mathbb{Z})^*$.
+The CKM uses the index-$3$ subgroup
+$\mathrm{QR} = \{1,2,4\}$ (quadratic residues).
+The PMNS uses the index-$2$ subgroup $\{1,6\}$ (pairs).
+
+\begin{theorem}[CKM--PMNS complementarity]
+\label{thm:complementarity}
+$\theta_{12}^{\mathrm{CKM}} + \theta_{12}^{\mathrm{PMNS}} = \pi/4$.
+\end{theorem}
+\begin{proof}
+The subgroup indices are $3$ and~$2$.
+By the classical identity
+$\arctan(1/2) + \arctan(1/3) = \pi/4$
+(since $\tan(\alpha{+}\beta) = (1/2+1/3)/(1-1/6) = 1$),
+the mixing angles of the two subgroups sum to $\pi/4$.
+\end{proof}
+
+The PMNS predictions:
+\begin{center}\small
+\begin{tabular}{lccc}
+\toprule
+Angle & Prediction & PDG & Match \\
+\midrule
+$\theta_{12}$ & $\pi/4 - \theta_C = 32.9^\circ$ & $33.4^\circ$ & $0.5^\circ$ \\
+$\theta_{23}$ & $\pi/4 = 45^\circ$ & $49 \pm 4^\circ$ & $1\sigma$ \\
+$\theta_{13}$ & $\sin^2\theta_{13} = \tfrac{1}{2}\sin^2\theta_C$, giving $9.3^\circ$ & $8.5^\circ$ & $0.8^\circ$ \\
+$\delta_{\mathrm{CP}}$ & $\arctan\sqrt{7} = 69.3^\circ$ & $-90 \pm 30^\circ$ & testable \\
 \bottomrule
 \end{tabular}
 \end{center}
 \noindent
-The instanton redistributes CP violation:
-the perturbative CKM ($\alpha = 0$) has large $|V_{cb}|$ and
-small $\sin\delta$, while the non-perturbative CKM has
-small $|V_{cb}|$ and large $\sin\delta$.
-The Jarlskog invariant~$J$ is \emph{not} conserved by
-the instanton, it increases from $3.5 \times 10^{-5}$
-to $1.0 \times 10^{-4}$ as $\alpha$ increases from~$0$
-to~$2$.
-The $|V_{cb}|$ derivation (\S\ref{sec:su3-mckay})
-does not use~$J$; it uses the spectral decomposition
-of the orbifold Green's function.
-\end{remark}
+The prediction $\delta_{\mathrm{CP}}^{\mathrm{PMNS}} = \arctan\sqrt{7}$
+is testable at DUNE and Hyper-Kamiokande.
 
-\noindent
-The non-perturbative CKM matrix:
-\begin{center}
-\small
-$|V|_{\mathrm{np}} \approx \begin{pmatrix}
-  0.972 & 0.237 & 0.003 \\
-  0.236 & 0.971 & 0.042 \\
-  0.010 & 0.041 & 0.999
-\end{pmatrix}$
-\qquad
-Observed: $\begin{pmatrix}
-  0.974 & 0.224 & 0.004 \\
-  0.224 & 0.974 & 0.042 \\
-  0.008 & 0.039 & 0.999
-\end{pmatrix}$
-\end{center}
+%% OLD PROOF AND NON-PERTURBATIVE SECTION REMOVED
+%% (Plancherel derivation superseded by Gauss sum above)
+%% See docs/investigations/2026-04-09-bernoulli-havelock-backbone.md
 
+%% OLD PLANCHEREL PROOF AND NON-PERTURBATIVE SECTION REMOVED (342 lines)
+%% Replaced by Gauss sum derivation above.
+%% Original content preserved in git history (commit before this one).
 
 %% Sections moved to Paper V: Cosmological energy budget, N selection,
 %% DM spectrum, baryon fraction, baryogenesis, neutrinos, radion inflation.
