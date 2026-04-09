@@ -1238,6 +1238,82 @@ Fefferman--Graham reconstruction
 (Theorem~\ref{thm:full-riemann}).
 \end{proof}
 
+\subsection{Newton's constant from the Havelock spectral zeta}
+\label{sec:newton-from-havelock}
+
+The polygon entropy functional is not merely \emph{concave} in~$R$;
+at leading order in the polygon radius~$\varepsilon$,
+it \emph{equals} the Einstein--Hilbert action.
+
+\begin{proposition}[Newton's constant from the polygon entropy]
+\label{prop:newton-havelock}
+The polygon entropy functional~$S_{\mathrm{poly}}[g] = \int S(x)\,dA$,
+expanded to first order in~$R\varepsilon^2$, gives
+\begin{equation}\label{eq:spoly-expansion}
+  S_{\mathrm{poly}} = S_0 \cdot \mathrm{Area}
+  - \frac{(N{-}1)\,\varepsilon^2}{8}\,Z_H(1)\,\int R\,dA
+  + O(R^2\varepsilon^4),
+\end{equation}
+where $Z_H(1) = \sum_{\lambda_m > 0} \lambda_m^{-1}$
+is the Havelock spectral zeta function at $s = 1$.
+This is the Einstein--Hilbert action
+$S_{\mathrm{EH}} = -(16\pi G)^{-1}\int R\,dA$
+with Newton's constant
+\begin{equation}\label{eq:newton-from-spectrum}
+  G = \frac{1}{2\pi(N{-}1)\,Z_H(1)\,\varepsilon^2}
+    = \frac{3}{(N^2{-}1)\cdot 2\pi\varepsilon^2}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Expanding $\lambda_m = \lambda_m^{(0)} - (N{-}1)R\varepsilon^2/4 + O(R^2\varepsilon^4)$
+in the entropy
+$S(x) = \tfrac{1}{2}\sum_{\lambda_m > 0}\log\lambda_m$ gives
+\[
+  S(x) = S_0
+  - \frac{(N{-}1)\varepsilon^2}{8}\,R(x)\sum_{\lambda_m > 0}\frac{1}{\lambda_m^{(0)}}
+  + O(R^2\varepsilon^4).
+\]
+Integrating and matching
+$-\alpha\int R\,dA = -(16\pi G)^{-1}\int R\,dA$
+gives $G = 1/(16\pi\alpha\varepsilon^2)$
+with $\alpha = (N{-}1)Z_H(1)/8$.
+
+At $N = 7$: the binding modes ($\lambda > 0$) are
+$m \in \{1,2,5,6\}$ with $\lambda = 3, 1, 1, 3$,
+so $Z_H(1) = \tfrac{8}{3}$.
+Then $(N{-}1)\,Z_H(1) = 6 \cdot \tfrac{8}{3} = 16 = (N^2{-}1)/3$,
+giving $G = 3/((N^2{-}1)\cdot 2\pi\varepsilon^2) = 1/(32\pi\varepsilon^2)$.
+\end{proof}
+
+\begin{remark}[Connection to $\alpha_s$ and the Bernoulli backbone]
+\label{rem:G-alpha-s}
+The quantity $(N^2{-}1)/3 = 16$ is the same csc$^2$ sum
+$\sum_{m=1}^{N-1}\csc^2(\pi m/N)$ that determines
+the strong coupling constant $\alpha_s$ in Paper~IV.
+Newton's constant~$G$ and $\alpha_s$
+are both controlled by the same Bernoulli-backbone quantity:
+the Ramanujan csc$^2$ identity $(N^2{-}1)/3 = 2N\,B_2$
+(Paper~I, Remark~\ref*{I-sec:b2-tower}).
+This is a structural prediction: the ratio $G\alpha_s$
+is determined by $\varepsilon$ alone,
+with no dependence on the Havelock eigenvalues.
+\end{remark}
+
+\begin{remark}[Consistency check: Brown--Henneaux]
+\label{rem:brown-henneaux-check}
+The Brown--Henneaux formula gives $G_{\mathrm{BH}} = 3\ell/(2c)$
+with $c = 12\,b(N) = 51.57$.
+Matching $G_{\mathrm{BH}} = G_{\mathrm{polygon}}$ requires
+$\varepsilon^2/\ell = 0.342$,
+consistent with the Poincar\'e disk parameter
+$\xi^* = \tanh^2(\rho^*/2) = 0.490$
+at the Born--Oppenheimer minimum $\rho^* = 1.734$.
+This is a \emph{consistency check}, not a derivation:
+both~$G$ values agree when the polygon radius is set
+by the BO potential, with no free parameters.
+\end{remark}
+
 \subsection{The cosmological constant and Clausius relation}
 
 \begin{remark}[The logical structure of~(H2)]

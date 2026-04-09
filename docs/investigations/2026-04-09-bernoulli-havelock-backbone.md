@@ -263,17 +263,22 @@ From the SINGLE quantity lambda_m = (N-1) - m(N-m)/2 at N=7:
 **Gauge sector:**
  10. sin^2(theta_W) = 3/11 from B_2 evaluations
 
+**Gravity sector:**
+ 11. Newton's constant G = 3/((N^2-1)*2*pi*eps^2) from Havelock spectral zeta
+ 12. G and alpha_s both from the SAME csc^2 sum = (N^2-1)/3 = 16
+
 **Structural:**
- 11. Three generations from |QR(7)| = 3
- 12. CP violation from 7 = 3 mod 4
- 13. Uniqueness from h(-7) = 1 (Heegner)
- 14. N=7 from von Staudt-Clausen: 7 | denom(B_6)
+ 13. Three generations from |QR(7)| = 3
+ 14. CP violation from 7 = 3 mod 4
+ 15. Uniqueness from h(-7) = 1 (Heegner)
+ 16. N=7 from von Staudt-Clausen: 7 | denom(B_6)
 
 **Mathematical identities:**
- 15. M_k = 6^k(k!)^2/(2k+1)! (moment tower)
- 16. M_2 = 6/5 = 3*zeta(4)/zeta(2)^2
- 17. Magri c_4/c_3 = 12*B_6 = 2/7
- 18. sin^2(arctan(sqrt(N))) = N/(N+1)
+ 17. M_k = 6^k(k!)^2/(2k+1)! (moment tower)
+ 18. M_2 = 6/5 = 3*zeta(4)/zeta(2)^2
+ 19. Magri c_4/c_3 = 12*B_6 = 2/7
+ 20. sin^2(arctan(sqrt(N))) = N/(N+1)
+ 21. (N-1)*Z_H(1) = (N^2-1)/3 (spectral zeta = csc^2 sum)
 
 ## Files
 
@@ -281,6 +286,31 @@ From the SINGLE quantity lambda_m = (N-1) - m(N-m)/2 at N=7:
 - `tests/test_bernoulli_havelock.py`
 - The orbit-based CKM and PMNS computations are in this investigation
   document (not yet integrated into the main codebase)
+
+## Newton's constant from the polygon entropy (NEW)
+
+The polygon entropy S_poly[g] expanded to first order in R*eps^2 gives the
+Einstein-Hilbert action with Newton's constant derived from the Havelock spectrum:
+
+    S_poly = S_0*Area - alpha*integral(R dA) + O(R^2*eps^4)
+    alpha = (N-1)*eps^2/8 * Z_H(1)
+    G = 1/(16*pi*alpha*eps^2) = 3/((N^2-1)*2*pi*eps^2)
+
+At N=7: Z_H(1) = Sum 1/lambda_m = 8/3 (over binding modes m=1,2,5,6).
+Then (N-1)*Z_H(1) = 16 = (N^2-1)/3 (the csc^2 sum!).
+G = 1/(32*pi*eps^2).
+
+KEY IDENTITY: (N-1)*Z_H(1) = (N^2-1)/3 = 16.
+This is the SAME quantity that determines alpha_s in Paper IV.
+Newton's constant and the strong coupling are both controlled by the
+Ramanujan csc^2 sum, a single Bernoulli-backbone quantity.
+
+Consistency check: Brown-Henneaux G_BH = 3*ell/(2*c) matches G_polygon
+when eps^2/ell = 0.342, consistent with the BO minimum at rho* = 1.734.
+
+This is added to Paper III as Proposition (prop:newton-havelock),
+placed BEFORE the Clausius relation (which becomes a consistency check,
+not the primary derivation).
 
 ## Historical note (not for paper, reference only)
 
