@@ -115,13 +115,16 @@ class TestCKMObservables:
 
 class TestInstantonCorrection:
     def test_instanton_formula(self):
-        """s13_corrected = s13_tree * K^(N-1)."""
+        """s13_corrected = s13_tree * K^(N-1) * (1+K) at NLO."""
         from planetary_polygons.extensions.bernoulli_havelock import instanton_fugacity
         K = instanton_fugacity()
         s13_tree = 0.145
         s13_corr = instanton_correction(s13_tree, K)
-        expected = s13_tree * K ** 6
+        expected = s13_tree * K ** 6 * (1 + K)
         assert abs(s13_corr - expected) < 1e-10
+        # LO (without NLO) should be K^6 only
+        s13_lo = instanton_correction(s13_tree, K, nlo=False)
+        assert abs(s13_lo - s13_tree * K ** 6) < 1e-10
 
     def test_instanton_changes_vub(self):
         """s13_tree != s13_corrected (instanton changes V_ub)."""

@@ -106,8 +106,9 @@ own judgment.
 
 \subsection*{The scorecard}
 
-The theory takes in one integer ($N = 7$), one scale (the Planck
-mass, which sets the units of gravity), and three identifications
+The theory takes in one integer ($N = 7$), two scales (the Planck
+mass $M_P$ and the atmospheric neutrino mass splitting
+$\Delta m^2_{\mathrm{atm}}$), and three identifications
 that connect the mathematical formalism to physics. From these
 inputs it produces numerical predictions. The table below summarizes
 the main ones.
@@ -127,7 +128,7 @@ Cabibbo--Kobayashi--Maskawa (CKM) phase (a parameter governing matter--antimatte
   & $65.9^\circ \pm 3.5^\circ$ & $1.0$ standard deviations & Derived \\[4pt]
 The Weinberg angle (which sets the ratio of electromagnetic to weak force strength) gives $\sin^2\theta_W = 3/11$
   & Measured value differs by $3.9\%$ after quantum corrections & $3.9\%$ & Derived \\[4pt]
-A quark mixing parameter $|V_{cb}| = 0.044$
+A quark mixing parameter $|V_{cb}| = 0.043$
   & Measured $\approx 0.042$ & $6\%$ & Derived \\[4pt]
 The strange-to-bottom quark mass ratio is $0.023$
   & Measured $\approx 0.024$ & $4\%$ & Derived \\[4pt]
@@ -2706,8 +2707,9 @@ factor $T_2 = Q_1(\cosh d) = 0.021$, where $Q_1$ is the Legendre
 function of the second kind and $d = 2.02$ is the geodesic distance
 to the nearest image.
 
-The result: $|V_{cb}| = \sqrt{0.092 \times 0.021} = 0.044$. The
-measured value: $0.041 \pm 0.001$. Match: $6\%$.
+The simplified estimate gives $|V_{cb}| \approx \sqrt{0.092 \times 0.021} = 0.044$;
+the full matrix diagonalization (Paper~IV) gives $|V_{cb}| = 0.043$.
+The measured value: $0.042$. Match: $2\%$.
 
 \textbf{Status: (Derived)}, the CKM phase is computed from the
 Harish-Chandra $c$-function via a standard integral. The mixing
@@ -3057,12 +3059,12 @@ $N = 7$ graviton sector). The central charge $c_{11} = 12\,b(11) =
 126.56$ enters through the Brown--Henneaux relation:
 $(1/2)\ln(c_{11}/(24\pi^2)) = -0.313$. A small negative correction.
 
-The arithmetic: $36.548 + 2.224 + (-0.313) = 38.458$.
+The arithmetic: $36.548 + 2.224 + (-0.313) = 38.459$.
 
 The observed value, from the measured Planck mass and electroweak
 vacuum expectation value: $\ln(M_P/v) = 38.442$.
 
-The match: $38.458$ versus $38.442$. A discrepancy of $0.016$ in the
+The match: $38.459$ versus $38.442$. A discrepancy of $0.017$ in the
 logarithm, or $0.04\%$. In the ratio itself: a $1.5\%$ discrepancy
 for a number that spans sixteen orders of magnitude. I stared at that
 output for a long time before moving on.
@@ -3085,8 +3087,9 @@ one Pell regulator $\ln\varepsilon_7$ to the tunneling exponent.
 \subsection*{Prediction of the Higgs vacuum expectation value}
 
 The hierarchy formula runs in both directions. Given the Planck mass
-as input: $v = M_P/\exp(38.458) = 245.9$ GeV. The measured value:
-$246.2$ GeV. Match: $0.12\%$.
+as input: $v = M_P/\exp(38.459) = 242.0$ GeV. The measured value:
+$246.2$ GeV. Match: $1.7\%$
+(the residual is the $O(1/c^2)$ Dunham correction).
 
 \textbf{Status: (Derived)}, the tunneling action is computed
 numerically from the Born--Oppenheimer potential. The mass gap is a
@@ -3441,7 +3444,7 @@ The baryon-to-photon ratio $\eta_B$ measures how much ordinary matter
 the universe contains per photon. The observed value:
 $6.1 \times 10^{-10}$.
 
-The polygon prediction: $\eta_B = 5.4 \times 10^{-10}$, a $12\%$
+The polygon prediction: $\eta_B = 5.7 \times 10^{-10}$, a $7\%$
 match. This refined value comes from the Bernoulli backbone
 (Paper~IV): $\eta_B = J \cdot K^{15}/7$, where all three inputs
 ($J$, $K$, $N = 7$) are derived from the polygon number with no
@@ -3650,8 +3653,8 @@ the Cardy entropy and the one-loop determinant at $\rho^*$.
 
 \medskip
 
-\noindent\textit{Bottom line: One integer, one scale, three
-identifications. Seventeen outputs.}
+\noindent\textit{Bottom line: One integer, two scales, three
+identifications. Twenty-eight outputs.}
 
 \medskip
 
@@ -3671,11 +3674,16 @@ carries spin~$2$. The cosmological polygon number $N = 11$ follows from
 Chern class additivity: $(4 + 7)/2 = 11/2 \to N = 11$. Once $N = 7$ is
 fixed, $N = 11$ is forced.
 
-\textbf{One scale: the Planck mass $M_P$.} Every physical theory needs a
-unit of mass. In the Standard Model it enters through Newton's constant
-$G$. In this framework it enters the same way: the central charge
-$c = 12\,b(N)$ determines the ratio $\alpha/(8\pi G) = 1/(2\pi^2)$, and
-one measurement of $G$ (or equivalently $M_P$) sets the unit. This is
+\textbf{Two scales: $M_P$ and $\Delta m^2_{\mathrm{atm}}$.}
+Every physical theory needs a unit of mass.
+The Planck mass $M_P$ enters through Newton's constant $G$;
+the atmospheric neutrino mass splitting
+$\Delta m^2_{\mathrm{atm}}$ pins the Dirac KK mass scale
+(the neutrino mass \emph{ratio} is a prediction).
+In the Standard Model, Newton's constant enters the same way:
+the central charge $c = 12\,b(N)$ determines the ratio
+$\alpha/(8\pi G) = 1/(2\pi^2)$, and one measurement of $G$
+(or equivalently $M_P$) sets the unit. This is
 not a free parameter in any meaningful sense, it is the ruler.
 
 \textbf{Three identifications.} These connect the mathematical formalism
@@ -3799,7 +3807,7 @@ correction. Each of these approximation steps has a bounded error.
 
 The Weinberg angle ($3/11 = 0.2727$ at the polygon scale, running to
 $0.231$ at the $Z$ mass, $3.9\%$ from the measured value). The quark
-mixing parameter $|V_{cb}| = 0.044$ ($6\%$ off). The mass ratio
+mixing parameter $|V_{cb}| = 0.043$ ($6\%$ off). The mass ratio
 $m_s/m_b = 0.023$ ($4\%$ off). The Higgs mass $125 \pm 3$~GeV ($2\%$
 window). These are good, better than other zero-parameter frameworks
 achieve, but they are not exact.
@@ -3982,9 +3990,9 @@ than Derived.
 
 The baryon-to-photon ratio $\eta_B$, the number that determines how
 much ordinary matter exists relative to radiation, is predicted to be
-$5.4 \times 10^{-10}$ via the Bernoulli backbone formula
+$5.7 \times 10^{-10}$ via the Bernoulli backbone formula
 $\eta_B = J \cdot K^{15}/7$. The Planck satellite measures
-$6.12 \times 10^{-10}$: a $12\%$ match, with all three inputs
+$6.12 \times 10^{-10}$: a $7\%$ match, with all three inputs
 ($J$, $K$, $N = 7$) derived from the polygon number.
 
 An earlier, cruder transport calculation gave
@@ -4066,7 +4074,7 @@ Paper~VI derived cosmology: $N = 11$ from Chern class additivity;
 $H_0 = 67.4$~km/s/Mpc from the instanton action; the cosmic energy
 budget $69/26/5$ from tree-level, one-loop, and tunneling contributions.
 
-Paper~VII collected the scorecard: one integer, one scale, three
+Paper~VII collected the scorecard: one integer, two scales, three
 identifications, twenty-eight outputs, ten falsifiable tests.
 
 \bigskip

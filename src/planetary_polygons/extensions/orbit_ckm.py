@@ -69,15 +69,22 @@ def diag_left(Y):
     return np.sqrt(np.maximum(evals[idx], 0)), evecs[:, idx]
 
 
-def instanton_correction(s13_tree, K, N_val=N):
-    """s13_corrected = s13_tree * K^(N-1).
+def instanton_correction(s13_tree, K, N_val=N, nlo=True):
+    """s13_corrected = s13_tree * K^(N-1) * (1 + K).
 
     The power N-1 = 6 comes from the total instanton winding:
     w_up = (N-1)/2 = 3 (max gap in QR = {1,2,4})
     w_dn = (N-1)/2 = 3 (max gap in QNR = {6,5,3})
     w_total = w_up + w_dn = N-1 = 6.
+
+    The NLO correction (1 + K) is the single-instanton
+    correction from Paper IV, Derivation (Instanton correction
+    for V_ub). It applies only to V_ub, not to V_us or V_cb.
     """
-    return s13_tree * K ** (N_val - 1)
+    lo = s13_tree * K ** (N_val - 1)
+    if nlo:
+        return lo * (1 + K)
+    return lo
 
 
 def unitarity_triangle(V):
