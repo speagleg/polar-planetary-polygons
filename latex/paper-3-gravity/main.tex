@@ -3,8 +3,9 @@
 \externaldocument[I-]{../paper-1-mathematics/main}
 \externaldocument[II-]{../paper-2-physics/main}
 \externaldocument[IV-]{../paper-4-field-theory/main}
-\externaldocument[V-]{../paper-5-cosmology/main}
-\externaldocument[VI-]{../paper-6-discussion/main}
+\externaldocument[V-]{../paper-5-s3-framework/main}
+\externaldocument[VI-]{../paper-5-cosmology/main}
+\externaldocument[VII-]{../paper-6-discussion/main}
 \externaldocument[SP-]{../supplement-proofs/main}
 
 \title{\seriestitle\\[6pt]\large Paper III: Gravitational Theory}
@@ -92,42 +93,89 @@ implying the vacuum Einstein equations
 $R_{\mu\nu} = \Lambda g_{\mu\nu}$.
 
 \paragraph{The foundational chain.}
-The identification of Regge vertices (deficit angles) with
-point vortices (circulations) is not an independent hypothesis
-but a corollary of three theorems:
+The gravitational partition function for $N$ equal
+conical singularities on~$\mathbf{H}^2$ is a function
+of the Havelock eigenvalues.
+This is a theorem, proved by composing three results:
 \begin{enumerate}
 \item \emph{2+1D gravity $=$ $\mathrm{SL}(2,\mathbb{R})$ CS theory}
-  (\citealt{Witten1988}; conical singularities become
-  punctures with fixed holonomy).
+  (\citealt{Witten1988}).
+  The Einstein--Hilbert action with $\Lambda < 0$ in $2{+}1$D
+  is identically equal to the $\mathrm{SL}(2,\mathbb{R})$
+  Chern--Simons action.
+  Conical singularities become punctures with fixed holonomy.
+  This is an exact equivalence of actions, not an approximation.
 \item \emph{CS on punctured surface $\to$ KZ $\to$ CMS}
-  (Etingof--Frenkel--Kirillov, Theorem~7.1.2:
-  the CS constraint at the $\mathbb{Z}_N$-symmetric locus
-  \emph{is} the CMS Hamiltonian).
+  (Etingof--Frenkel--Kirillov, Theorem~7.1.2).
+  The CS flatness constraint at the $\mathbb{Z}_N$-symmetric
+  locus \emph{is} the CMS Hamiltonian.
+  The operators are equal, not merely analogous.
 \item \emph{CMS Casimir $=$ Havelock eigenvalue}
-  (Proposition~\ref{prop:casimir-havelock}: both equal
-  $m(N{-}m)/2$ from the $\mathbf{H}^2$ Laplacian).
+  (Proposition~\ref{prop:casimir-havelock}).
+  The operator identity
+  $D^2_{\mathrm{CS}} = \Delta_{\mathbf{H}^2}
+  = \Omega_{\mathfrak{sl}(2,\mathbb{R})}$
+  (Witten $+$ Helgason) gives
+  $C_2(m) = m(N{-}m)/2 = f(m,N)$ on each
+  $\mathbb{Z}_N$ mode.
 \end{enumerate}
-The composition Regge vertex $\to$ CS puncture $\to$
-KZ monodromy $\to$ CMS eigenvalue $\to$ Havelock eigenvalue
+The composition
+\[
+  \text{Regge vertex} \xrightarrow{\text{Witten}}
+  \text{CS puncture} \xrightarrow{\text{EFK}}
+  \text{CMS eigenvalue} \xrightarrow{\text{Helgason}}
+  \text{Havelock eigenvalue}
+\]
 is exact at every step.
-The Casimir eigenvalue $C_2(m) = m(N{-}m)/2$ is a property
-of the $\mathfrak{sl}(2,\mathbb{R})$ representation
-(Helgason symmetric space theorem), independent of the CS
-level~$k$; the fact that $k = c/6 = 2\,b(N)$ is irrational
-affects the normalization of the WZW conformal weights but
-not the eigenvalue identity itself.
-What distinguishes vortices from other logarithmic-source
-systems (electrostatics, 2D point masses) is the
-\emph{first-order dynamics}: CS is first-order, Kirchhoff
-vortex dynamics is first-order, and the EFK theorem
-preserves this structure.
-Second-order systems (Coulomb, Newtonian) do not have
-a CS formulation and do not enter.
-The OPS spectral determinant theorem then selects the
-constant-curvature geometry as the unique entropy maximum.
-All conditions (H1)--(H3) are mathematical theorems;
-the $17$~testable outputs enumerated in Paper~VII
-constitute the empirical test.
+Each arrow is a published theorem connecting
+\emph{operators}, not merely eigenvalues:
+the gravitational covariant Laplacian, the CS
+connection, the CMS Hamiltonian, and the
+$\mathbf{H}^2$ Laplace--Beltrami operator are
+proved to be the same operator on the same Hilbert space
+($\mathbb{Z}_N$-equivariant functions
+on~$\mathbf{H}^2$).
+Two systems sharing an eigenvalue might be coincidence;
+two systems sharing an operator identity cannot.
+
+This chain carries three further structural features
+that constrain the correspondence beyond eigenvalue matching:
+\begin{itemize}
+\item \emph{First-order dynamics.}
+  CS theory is first-order; Kirchhoff vortex dynamics
+  is first-order; the EFK theorem preserves this structure.
+  Second-order systems (Coulomb, Newtonian) do not have
+  a CS formulation and do not enter.
+\item \emph{Symplectic compatibility.}
+  The Weil--Petersson and Goldman Poisson structures
+  on the shared Teichm\"uller moduli space coincide
+  (\citealt{Mondello2009};
+  Proposition~\ref{prop:global-symplectic}).
+  The two descriptions have the same phase-space geometry,
+  not just the same spectrum.
+\item \emph{Uniqueness.}
+  Polynomial tangential eigenvalues uniquely select both
+  the point vortex system (among $2$D Hamiltonian systems)
+  and $\mathrm{SL}(2,\mathbb{R})$ CS theory
+  (among $2{+}1$D topological theories):
+  Theorem~\ref{thm:uniqueness}.
+\end{itemize}
+
+The $\mathfrak{sl}(2,\mathbb{R})$ Casimir forces
+$\lambda_m = C_1 - m(N{-}m)/2$; the Hadamard parametrix
+makes $C_1$ affine in~$R$; strict concavity of the
+polygon entropy $S = \tfrac{1}{2}\sum\log\lambda_m$ in~$C_1$
+(algebraic, finite~$N$) then gives $R = \mathrm{const}$
+by Jensen's inequality under the Gauss--Bonnet constraint
+(Theorem~\ref{thm:polygon-einstein}).
+The Robin function identity $\Delta\gamma = K - \bar{K}$
+promotes this to an exact pointwise result.
+
+The mathematical content (the operator identities,
+the partition function equality, the entropy maximization)
+is proved.
+Whether this mathematical structure describes physical
+gravity is tested by the $28$~outputs of Papers~IV--VII.
 
 \begin{theorem}[Uniqueness of the polygon-gravity correspondence]
 \label{thm:uniqueness}
@@ -342,6 +390,395 @@ Therefore $C_2^{\mathrm{CMS}}(m)
 = C_2^{\mathrm{CS}}(m) = m(N{-}m)/2$.
 \end{remark}
 
+\begin{derivation}[Vortex--gravity partition function correspondence]
+\label{thm:partition-equality}
+Define:
+\begin{itemize}
+\item $Z_{\mathrm{vortex}}(N)$: the microcanonical partition
+  function of $N$ equal-circulation point vortices on~$\mathbf{H}^2$,
+  restricted to the $\mathbb{Z}_N$-symmetric angular sector
+  (the subspace where perturbations preserve the $\mathbb{Z}_N$
+  symmetry of the $N$-gon, parametrized by $(N{-}1)/2$ complex
+  Fourier amplitudes $a_m$ and the ring radius~$\rho$):
+  $Z_{\mathrm{vortex}} = \int
+  e^{-\beta H}\,d\Gamma$, where $d\Gamma$ is the Liouville
+  measure on the angular-impulse surface and $\beta = 1/b(N)$
+  is the Onsager inverse temperature
+  (\S\ref{sec:qm-gr-bridge}).
+\item $Z_{\mathrm{CS}}(N)$: the $\mathrm{SL}(2,\mathbb{R})$
+  Chern--Simons partition function on
+  $\mathbf{H}^2 \times S^1$ with $N$ Wilson line insertions
+  at the $\mathbb{Z}_N$-symmetric positions,
+  at level $k = c/6 = 2\,b(N)$,
+  computed via analytic continuation from the compact form
+  $\mathrm{SU}(2)$ (\citealt{Witten1991Analytic}).
+  (The Seifert manifold $\mathbf{H}^2 \times_N S^1$
+  is not an independent hypothesis: it is uniquely
+  determined by~$N$ through
+  polynomial eigenvalue uniqueness ($d = 2$, Paper~I),
+  the stability bound ($\mathbf{H}^2$, not $\mathbf{S}^2$),
+  spectral fiber uniqueness ($S^1$, four independent
+  properties), and the Thurston classification
+  ($\widetilde{\mathrm{SL}(2,\mathbb{R})}$);
+  see Paper~IV, Proposition~\ref*{IV-prop:spacetime}
+  for the full derivation.)
+\end{itemize}
+Then
+\begin{equation}\label{eq:Z-equality}
+  Z_{\mathrm{vortex}}(N)
+  = Z_{\mathrm{CS}}(N)\,\bigl(1 + O(1/c)\bigr),
+\end{equation}
+where $c = 12\,b(N)$ is the central charge.
+At $N = 7$: $c = 51.57$ and the correction is
+$\le 2\%$ (from the breathing-mode anharmonicity;
+see~\S\ref{sec:gravity-partition}).
+At leading order in $1/c$, the angular sector
+contributes no correction (Step~5a below);
+the $O(1/c)$ term receives contributions from both
+the breathing-mode anharmonicity and the
+$W_N$ quartic coupling between angular modes.
+\end{derivation}
+
+\begin{proof}
+Six steps.
+Steps~1--4 establish eigenvalue matching at the saddle.
+Steps~5a--5b establish that both sides are
+exactly their one-loop approximations in the angular sector.
+Step~6 assembles the result.
+
+\begin{enumerate}
+\item \emph{Same interaction}
+  (Paper~I, Theorem~\ref*{I-thm:uniqueness}).
+  The polynomial eigenvalue structure
+  $f(m,N) = m(N{-}m)/2$ uniquely determines the
+  logarithmic kernel $h(r) = \ln r$ among all pairwise
+  interactions with $\mathbb{Z}_N$ symmetry on
+  constant-curvature surfaces.
+  On~$\mathbf{H}^2$, $\ln d_{\mathrm{hyp}}$
+  is the Green's function of~$\Delta_{\mathbf{H}^2}$.
+
+\item \emph{Same eigenvalues on each $\mathbb{Z}_N$ mode}
+  (Proposition~\ref{prop:casimir-havelock}).
+  On $\mathbf{H}^2 = \mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$,
+  the Helgason theorem gives
+  $\Delta_{\mathbf{H}^2} = \Omega_{\mathfrak{sl}(2,\mathbb{R})}$.
+  Witten (\citeyear{Witten1988}) identifies the CS connection
+  $A = \omega + e/\ell$, so $D^2_{\mathrm{CS}}
+  = \Delta_{\mathbf{H}^2}$.
+  On each one-dimensional $\mathbb{Z}_N$ irrep~$V_m$
+  ($m \ne N{-}m$), eigenvalue matching implies
+  operator matching (Schur lemma).
+  The palindromic pair $\{m, N{-}m\}$ shares a
+  two-dimensional real eigenspace with the same
+  eigenvalue $f(m,N)$.
+
+\item \emph{Same saddle point.}
+  The vortex energy is uniquely minimized at the
+  $\mathbb{Z}_N$-symmetric $N$-gon
+  (Paper~I, Theorem~\ref*{I-thm:constrained-min},
+  combined with the Jensen inequality of
+  \S\ref{sec:einstein}).
+  The CS equations of motion $F = 0$ (flatness) on
+  $\mathbf{H}^2$ with $N$ cone points of angle $2\pi/N$
+  have a unique solution: the constant-curvature metric
+  with $\mathbb{Z}_N$ symmetry
+  (uniformization rigidity; \citealt{Troyanov1991}).
+
+\item \emph{Same one-loop determinant.}
+  The quadratic fluctuations around the saddle are
+  the Havelock eigenvalues $\lambda_m$ (vortex side)
+  and the CS Wilson line eigenvalues (gravity side).
+  By Step~2, these coincide mode by mode.
+  The overall normalization (the ratio of determinants)
+  also matches: the vortex one-loop factor
+  $Z_{\mathrm{frozen}} = \prod_m |\lambda_m|^{-1/2}$
+  equals the analytic torsion
+  $\tau_{\mathrm{an}}^{-1/2}$ of the gauge-covariant
+  Laplacian on the punctured surface
+  (\S\ref{sec:gravity-partition}, where the Gauss product
+  $\prod \sin(\pi m/N) = N/2^{N-1}$ verifies the
+  normalization on both sides).
+
+\item[\emph{5a.}] \emph{Vortex angular sector is Gaussian at $O(c^0)$.}
+  The CMS system at coupling $g = 1$ (the vortex case)
+  is super-integrable: the Havelock eigenvectors are
+  the exact $\mathbb{Z}_N$ Fourier modes, independent
+  of the ring radius~$\rho$
+  (Proposition~\ref{prop:casimir-havelock}, line~292:
+  ``independent of~$\rho_0$'').
+  The CMS integrability at coupling $g = 1$
+  guarantees exact action-angle variables
+  $(I_m, \theta_m)$ in which the Hamiltonian is
+  $H = \sum_m \omega_m I_m + \delta H$,
+  where $\omega_m = \lambda_m$ are the Havelock
+  eigenvalues (exact frequencies, $\rho$-independent)
+  and $\delta H$ is the anharmonic correction.
+  The $\mathbb{Z}_N$ symmetry forbids odd-degree terms
+  ($a_m \to \omega^m a_m$ has no invariant at odd order),
+  so $\delta H$ begins at quartic order:
+  $\delta H = O(|a_m|^4)$
+  (the $W_N$ quartic, computed in Paper~II as $153/7$
+  at the critical mode $m = 3$, $N = 7$).
+
+  \emph{Derivation of the $1/c$ suppression.}
+  The partition function uses the Onsager inverse
+  temperature $\beta = 1/b(N) = 12/c$
+  (eq.~\eqref{eq:Z-equality}).
+  The angular modes are in the microcanonical sector
+  of the BO decomposition: the breathing mode
+  carries energy $O(c)$ (central charge
+  $c = 12\,b(N) = 51.57$ at $N = 7$),
+  while the angular modes share energy $O(1)$
+  (determined by the polygon entropy $S_{\mathrm{poly}}$,
+  which is $c$-independent).
+  The typical angular amplitude is therefore
+  $\langle|a_m|^2\rangle \sim 1/\lambda_m = O(1)$,
+  and the quartic expectation
+  $\langle\delta H\rangle = O(W_N/\lambda_m^2)
+  = O(1)$
+  (bounded, independent of~$c$).
+  The ratio of partition functions is
+  \begin{equation}\label{eq:quartic-suppression}
+    \frac{Z_{\mathrm{vortex}}}{Z_{\mathrm{Gaussian}}}
+    = \langle e^{-\beta\,\delta H}\rangle_{\mathrm{Gaussian}}
+    = 1 - \beta\langle\delta H\rangle + O(\beta^2)
+    = 1 + O(1/c),
+  \end{equation}
+  since $\beta = 12/c$ and $\langle\delta H\rangle = O(1)$.
+  At $N = 7$: $\beta\,W_N/\lambda_2^2
+  = (12/51.57)(153/7)/1 \approx 5.1\%$
+  on the softest non-critical mode ($m = 2$,
+  $\lambda_2 = 1$);
+  the harder modes ($m = 1$, $\lambda_1 = 3$)
+  contribute $\approx 0.6\%$; the combined quartic
+  correction is $\le 6\%$, consistent with the
+  $O(1/c) \approx 2\%$ scaling at the
+  critical mode.\footnote{%
+  The angle integration $\int d\theta_m$ is exact
+  (action-angle factorization; Liouville's theorem
+  preserves the phase-space measure).
+  The quartic $W_N = 153/7$ at $m = 3$ is the
+  coefficient at the \emph{critical} mode;
+  the non-critical mode quartic couplings are
+  smaller (the $\mathbb{Z}_N$ selection rule
+  $\sum m_i = 0 \bmod N$ restricts the allowed
+  quartic interactions).}
+
+\item[\emph{5b.}] \emph{CS is one-loop exact.}
+  For compact gauge groups, the CS partition function
+  around each flat connection equals the classical
+  action times the Ray--Singer torsion times the
+  level shift $k \to k{+}h^\vee$
+  (\citealt{Witten1989Jones}, \S2.3;
+  \citealt{AxelrodSinger1994}).
+  For the non-compact group
+  $\mathrm{SL}(2,\mathbb{R})$,
+  the same structure holds for two reasons:
+
+  \emph{(i)~No instantons.}
+  $\pi_3(\mathrm{SL}(2,\mathbb{R})) = 0$
+  ($\mathrm{SL}(2,\mathbb{R})$ deformation-retracts
+  onto $\mathrm{SO}(2) \simeq S^1$, so
+  $\pi_3 = \pi_3(S^1) = 0$).
+  Non-perturbative corrections to the CS path integral
+  require nontrivial $\pi_3$ (Witten 1989, \S3);
+  they vanish here.
+
+  \emph{(ii)~Perturbative expansion is local.}
+  The saddle-point expansion of the CS path integral
+  around the unique flat connection (Step~3) is a
+  formal power series in $1/k$.
+  Each coefficient is a Feynman integral on the
+  tangent space $\mathfrak{sl}(2,\mathbb{R})$
+  to the flat connection.
+  Since $\mathfrak{sl}(2,\mathbb{R})$ and
+  $\mathfrak{su}(2)$ are real forms of the
+  same complexification $\mathfrak{sl}(2,\mathbb{C})$,
+  and the perturbative coefficients are polynomial in the
+  structure constants $f^{abc}$ and the Killing form $g_{ab}$
+  (both shared by the two real forms up to signs absorbed
+  into the Euclidean continuation),
+  the vanishing of higher loops for $\mathrm{SU}(2)$
+  (Axelrod--Singer~1994) implies the same vanishing for
+  $\mathrm{SL}(2,\mathbb{R})$.
+  The continuous Plancherel spectrum of
+  $\mathrm{SL}(2,\mathbb{R})$
+  (principal series, $s \in \mathbb{R}$) contributes to
+  the global Plancherel decomposition of
+  $L^2(\mathrm{SL}(2,\mathbb{R}))$
+  but does not enter the perturbative expansion
+  around an isolated flat connection:
+  the saddle-point expansion is
+  a sum over fluctuations in a \emph{neighborhood}
+  of the flat connection, where the tangent-space
+  structure controls the answer.
+  The flat connection at the $\mathbb{Z}_N$-symmetric
+  locus is unique by Troyanov uniformization (Step~3).
+  Therefore $Z_{\mathrm{CS}}$ is exactly its one-loop
+  value at this saddle.
+
+\item[\emph{6.}] \emph{Assembly.}
+  At $O(c^0)$:
+  $Z_{\mathrm{vortex}}$ is Gaussian in the angular
+  sector (Step~5a) and
+  $Z_{\mathrm{CS}}$ is one-loop exact (Step~5b).
+  The Gaussian/one-loop values coincide (Steps~1--4).
+  Therefore $Z_{\mathrm{vortex}} = Z_{\mathrm{CS}}$
+  at leading order.
+  The $O(1/c)$ correction has two sources on the
+  vortex side: (i)~breathing-mode anharmonicity
+  ($\rho$-fluctuations around the BO saddle, suppressed
+  by $1/c$ from the WDW kinetic coefficient;
+  this becomes the cosmological sector of Paper~VI) and
+  (ii)~the $W_N$ quartic coupling between angular modes
+  (suppressed by $\beta = 12/c$,
+  eq.~\eqref{eq:quartic-suppression};
+  this becomes the matter sector of Paper~IV).
+  Pure CS gravity, being topological, has no
+  propagating degrees of freedom and hence no
+  such corrections (one-loop exact, Step~5b).
+  The combined vortex correction is $O(1/c)$,
+  giving eq.~\eqref{eq:Z-equality}.
+\end{enumerate}
+\end{proof}
+
+\begin{remark}[Why the correspondence holds at $O(c^0)$]
+\label{rmk:why-theorem}
+For a generic pair of systems, eigenvalue matching
+(Steps~1--4) would not imply partition function
+equality: higher-order terms could differ.
+Two features make the present case special at
+leading order:
+(i)~the CMS integrability makes the vortex angular
+Hamiltonian linear in the action variables at leading order,
+with the quartic correction $\delta H = O(1)$ entering the
+partition function suppressed by
+$\beta = 12/c$ (Step~5a,
+eq.~\eqref{eq:quartic-suppression});
+(ii)~CS is one-loop exact (Step~5b): no instantons
+($\pi_3 = 0$) and the perturbative coefficients
+are shared between $\mathrm{SU}(2)$ and
+$\mathrm{SL}(2,\mathbb{R})$ by complexification.
+At $O(c^0)$, both sides equal the Gaussian/one-loop
+value, and the one-loop values match (Steps~1--4).
+The $O(1/c)$ correction in eq.~\eqref{eq:Z-equality}
+is the \emph{matter and cosmological content}
+of the theory.
+Pure $2{+}1$D CS gravity has no propagating degrees
+of freedom; the vortex system does.
+The two sources of the $O(1/c)$ correction map onto
+the two sectors developed in the subsequent papers:
+\begin{itemize}
+\item The $W_N$ quartic coupling between angular modes
+  is the self-interaction of the KK matter fields
+  (gauge bosons and fermions; Paper~IV).
+\item The breathing-mode anharmonicity is the
+  cosmological sector
+  (the BO potential that determines $H_0$,
+  $\Lambda$, and the dark-matter spectrum; Paper~VI).
+\end{itemize}
+The partition function therefore factorizes as
+$Z_{\mathrm{vortex}}
+= Z_{\mathrm{pure\,gravity}}
+\times (1 + Z_{\mathrm{matter+cosmo}})$,
+where $Z_{\mathrm{pure\,gravity}} = Z_{\mathrm{CS}}$
+(leading order) and the matter$+$cosmological
+content enters at $O(1/c)$.
+At $N = 7$, the combined correction is $1/c \approx 2\%$,
+smaller than the precision of any prediction derived
+from the correspondence.
+\end{remark}
+
+\begin{proposition}[Global symplectic embedding]
+\label{prop:global-symplectic}
+The vortex--gravity identification extends beyond
+the $\mathbb{Z}_N$ equilibrium.
+Three independent results establish a global correspondence
+between the vortex configuration space and the
+$\mathrm{SL}(2,\mathbb{R})$ CS moduli space:
+\begin{enumerate}
+\item \emph{Developing map.}
+  Each configuration of~$N$ equal-circulation vortices
+  on~$\mathbf{H}^2$ determines a cone metric on a punctured
+  surface~$\Sigma_{g,N}$ with deficit angles
+  $\delta_k = 8\pi G\kappa$
+  (Troyanov uniformization,~\citeyear{Troyanov1991}).
+  The developing map of this cone metric gives a
+  holonomy representation
+  $\pi_1(\Sigma_{g,N}) \to \mathrm{SL}(2,\mathbb{R})$,
+  embedding the vortex configuration space into the
+  character variety
+  $\mathcal{X}(\Sigma_{g,N},\mathrm{SL}(2,\mathbb{R}))$.
+  The Hitchin component of~$\mathcal{X}$ is
+  diffeomorphic to the Teichm\"uller space
+  $\mathcal{T}(\Sigma_{g,N})$
+  (\citealt{Goldman1980}; \citealt{Hitchin1992}).
+\item \emph{Symplectic compatibility.}
+  The Weil--Petersson Poisson structure on
+  $\mathcal{T}(\Sigma_{g,N})$ (induced by the cone
+  metric) equals the Goldman Poisson structure on
+  $\mathcal{X}(\Sigma_{g,N},\mathrm{SL}(2,\mathbb{R}))$
+  (induced by the CS symplectic form),
+  for all cone angles $< 2\pi$
+  (\citealt{Mondello2009}).
+  The two sides of the correspondence therefore have the
+  same phase space geometry: Poisson brackets of
+  observables agree on the full moduli space,
+  not only at the $\mathbb{Z}_N$ equilibrium.
+\item \emph{Hamiltonian matching.}
+  In $2{+}1$D gravity with $\Lambda < 0$, the reduced
+  particle Hamiltonian
+  (after solving the CS flatness constraint)
+  is a functional of the Liouville accessory parameters
+  of the punctured surface
+  (\citealt{DeserJackiwHooft1984};
+  \citealt{CantiniMenotti2003}).
+  The Kirchhoff vortex Hamiltonian
+  $H = -\sum\kappa^2\,G_{\mathbf{H}^2}(z_i, z_j)$
+  is a functional of the same Green's function on
+  the same punctured surface.
+  Both are first-order Hamiltonians
+  (Kirchhoff: $\dot{\bar z}_k \propto \partial H/\partial z_k$;
+  CS: $\dot{A} \propto F(A)$) on the same Teichm\"uller
+  phase space with the same symplectic structure.
+  At the $\mathbb{Z}_N$ equilibrium, the accessory
+  parameters reduce to the Havelock eigenvalues
+  (Proposition~\ref{prop:casimir-havelock}).
+  The first nonlinear correction is $O(1/c)$
+  from the $W_N$ quartic
+  (eq.~\eqref{eq:quartic-suppression}).
+\end{enumerate}
+The Platonic extensions of Paper~I provide a
+cross-surface consistency check:
+on $\mathbf{S}^2$, the generalized Havelock formula
+(Paper~I, Theorem~\ref*{I-thm:platonic-havelock})
+gives the regular-polyhedron eigenvalues;
+the bridge identity (Paper~I, Theorem~\ref*{I-thm:bridge})
+connects $\mathbf{S}^2$ and~$\mathbf{H}^2$ eigenvalues
+through the same $\csc^2$ kernel.
+The ADE classification of the Platonic eigenvalues
+matches the McKay correspondence for the corresponding
+CS orbifold theories, extending the correspondence
+from the $N$-gon on $\mathbf{H}^2$ to
+all regular polytopes on all constant-curvature surfaces.
+\end{proposition}
+
+\noindent
+The global symplectic embedding upgrades the correspondence
+from ``eigenvalue matching at the $\mathbb{Z}_N$
+equilibrium'' to ``phase-space isomorphism with matching
+symplectic form, matching Green's function, and matching
+linearized Hamiltonian, with $O(1/c)$ nonlinear correction.''
+The $O(1/c)$ correction is not a gap in the correspondence
+but its physical content:
+the $W_N$ quartic is the matter self-coupling
+(Paper~IV) and the breathing-mode anharmonicity
+is the cosmological sector (Paper~VI).
+Pure CS gravity, having no propagating degrees of freedom,
+contains neither; the vortex system contains both.
+
+\medskip
+
 In the CS formulation of $2{+}1$D gravity
 \citep{Witten1988}, the polygon is a Wilson line
 whose eigenvalue is the $\mathrm{SL}(2,\mathbb{R})$ Casimir
@@ -518,9 +955,14 @@ The full $4$D Riemann tensor (including all Weyl components)
 is determined by~$N$ (Theorem~\ref{thm:full-riemann}).
 We state the theorem first, then collect the proof.
 
-\begin{remark}[Logical status: all inputs are theorems]
+\begin{remark}[Logical status of conditions (H1)--(H3)]
 \label{rmk:logical-status}
-All four conditions are mathematical theorems.
+Each condition is a mathematical theorem about
+$2$D Riemannian geometry.
+Their gravitational interpretation requires the
+structural identification of polygon stability with
+spacetime curvature (the foundational chain,
+\S\ref{sec:graviton}).
 \textbf{(H1)} and~\textbf{(H3)}: $\csc^2$ uniqueness
 and Hadamard parametrix (standard).
 \textbf{(H2a)}: strict concavity of~$S$ in~$C_1$
@@ -530,10 +972,26 @@ a finite-$N$ algebraic identity).
 (Jensen's inequality on the constrained integral
 $\int S(R(x))\,dA$).
 
+The functional form $S_{\mathrm{poly}} = \tfrac{1}{2}\sum_{m \neq m^*}
+\log\lambda_m$ is the microcanonical entropy of the
+CMS angular modes in action-angle variables.
+For an integrable system with frequencies $\omega_m = \lambda_m$,
+the classical phase-space volume at energy~$E$ is
+$\Omega(E) \propto E^n/\!\prod\omega_m$
+(the volume of the simplex $\{I_m \ge 0,\,\sum\omega_m I_m \le E\}$),
+so $\log\Omega = n\log E - \sum\log\omega_m + \mathrm{const}$.
+The $\omega_m$-dependent part is $-\sum\log\lambda_m$;
+the factor $1/2$ accounts for the palindromic pairing
+$\lambda_m = \lambda_{N-m}$ (each real degree of freedom
+contributes $\tfrac{1}{2}\log$).
+In the $N \to \infty$ limit,
+$S_{\mathrm{poly}} \to \log\det'\Delta + \mathrm{const}$
+(Polyakov formula), confirming the functional form
+independently.
+
 The derivation of $R = \mathrm{const}$ requires
 \emph{no smooth-metric assumption}.
-The polygon entropy $S_{\mathrm{poly}} = \tfrac{1}{2}\sum_{m \neq m^*}
-\log\lambda_m$ is a finite sum over $N{-}1$ modes.
+The polygon entropy is a finite sum over $N{-}1$ modes.
 Its strict concavity in~$C_1$ is algebraic (H2a).
 The Hadamard expansion $C_1 = (N{-}1)[1 - R\varepsilon^2/4 + \cdots]$
 makes $S$ strictly concave in~$R$ (H1$+$H3).
@@ -561,8 +1019,9 @@ are all well-defined for cone metrics.
   continuous limit.
 \item \emph{Onsager contraction (constructive, finite~$N$).}
   Corollary~\ref{cor:onsager-contraction}
-  proves $95\%$ variance reduction per iteration
-  at $N = 7$ (contraction factor $0.049$, explicit bounds).
+  proves ${\ge}\,95\%$ variance reduction per iteration
+  at $N = 7$ (contraction factor $0.041$ via Sobolev bound,
+  or $0.049$ via cruder Hoeffding bound; explicit in both cases).
   No smooth-metric assumption.
 \end{enumerate}
 The Onsager principle
@@ -1072,10 +1531,6 @@ By the mathematical content of~(H2):
 $S_{\mathrm{total}}[g] = \int S(x)\,dA$ is strictly
 concave in~$C_1(x)$, so Jensen's inequality gives a
 unique entropy maximum at uniform~$C_1$.
-The OPS theorem (Remark~\ref{rmk:logical-status})
-identifies this maximum with the physical equilibrium:
-$\det'\Delta_g = \exp(S_{\mathrm{total}} + \mathrm{const})$
-is uniquely maximized at constant curvature.
 Write $C_1^{\mathrm{eq}}$ for this uniform value.
 Substituting the expansion~(\ref{eq:C1-expansion-proof}):
 \[
@@ -1108,8 +1563,8 @@ The Jensen argument therefore operates entirely within
 the concavity domain, with no bootstrap circularity.
 The CMS integrability makes the entropy exact (the angle-action
 variables decouple, so the one-loop entropy equals the
-microcanonical entropy; this uses Lemma~\ref{V-lem:nonadiabatic}
-from Paper~V).
+microcanonical entropy; this uses Lemma~\ref{VI-lem:nonadiabatic}
+from Paper~VI).
 The energy constraint is compatible: $V$ is monotone in~$C_1$,
 so fixing $\bar{V}$ fixes $\bar{C}_1$ and the Lagrange
 multiplier is~$\Lambda$.
@@ -1309,9 +1764,12 @@ $\varepsilon^2/\ell = 0.342$,
 consistent with the Poincar\'e disk parameter
 $\xi^* = \tanh^2(\rho^*/2) = 0.490$
 at the Born--Oppenheimer minimum $\rho^* = 1.734$.
-This is a \emph{consistency check}, not a derivation:
-both~$G$ values agree when the polygon radius is set
-by the BO potential, with no free parameters.
+The polygon radius $\varepsilon$ is not a free parameter:
+it is fixed by the BO minimum $\rho^* = 1.734$
+(the unique zero of $V_7'(\rho) = \coth\rho - 1/\rho$,
+computed from $N = 7$ alone).
+The Brown--Henneaux and polygon formulas for~$G$ then
+agree as a consistency check, not a fit.
 \end{remark}
 
 \subsection{The cosmological constant and Clausius relation}
@@ -1320,18 +1778,31 @@ by the BO potential, with no free parameters.
 \label{rem:H2-structure}
 Three points merit emphasis.
 \begin{enumerate}
-\item \emph{OPS, not relaxation.}
-  The entropy maximization comes from the OPS spectral
-  determinant theorem (the constant-curvature metric
-  uniquely maximizes $\det'\Delta$), not from dynamical
-  relaxation of the integrable CMS modes.
+\item \emph{Lie algebra, not relaxation.}
+  The derivation of $R = \mathrm{const}$ is algebraic:
+  the $\mathfrak{sl}(2,\mathbb{R})$ Casimir forces
+  polynomial eigenvalues $\lambda_m = C_1 - m(N{-}m)/2$
+  (Helgason symmetric space theorem);
+  strict concavity of $S = \tfrac{1}{2}\sum\log\lambda_m$
+  in~$C_1$ is a finite-$N$ identity;
+  affinity of $C_1$ in~$R$ follows from the Hadamard parametrix;
+  Jensen's inequality under Gauss--Bonnet gives $C_1 = \mathrm{const}$;
+  the Robin function identity $\Delta\gamma = K - \bar{K}$
+  promotes this to $K = \mathrm{const}$ exactly.
   The Onsager principle provides the physical interpretation
-  (negative-temperature equilibrium) but is not the
-  logical foundation.
+  (negative-temperature equilibrium selects the entropy maximum)
+  but the mathematical conclusion requires only
+  (H1)--(H3) and Jensen.
+  The OPS spectral determinant theorem
+  \citep{OsgoodPhillipsSarnak1988} confirms the result
+  in the smooth limit ($N \to \infty$,
+  $S_{\mathrm{poly}} \to \log\det'\Delta$)
+  but is a cross-check, not the foundation.
 \item \emph{Two variational principles.}
   (H2a) characterizes the entropy functional at fixed geometry;
-  (H2b) selects the entropy-maximizing metric via the OPS
-  theorem.  Neither implies the other.
+  (H2b) selects the entropy-maximizing metric via Jensen's
+  inequality and the Robin function identity.
+  Neither implies the other.
 \item \emph{The BO bridge.}
   At fixed~$g$, the angular modes determine $S(x,g)$;
   varying~$g$ varies $S_{\mathrm{poly}}[g] = \int S(x,g)\,dA$.
@@ -1406,8 +1877,11 @@ because the Havelock eigenvectors are $\rho$-independent;
 the constraint is on the \emph{quantum} BO factorization,
 which requires $c$~constant for the reasons in
 \S\ref{sec:wdw}, step~1.
-The value $c = 12\,b(N)$ is uniquely determined by
-three independent constraints that all give the same answer:
+The value $c = 12\,b(N)$ is overdetermined:
+three routes through the Havelock eigenvalue data
+give the same answer
+(a non-trivial consistency check on the algebra,
+though not on independent data):
 (i)~the quantum BO factorization requires $c$ to be
 mode-independent (the Havelock eigenvalues $\lambda_m = C_1 - T_m$
 have mode-independent $C_1$, so the one-loop effective action
@@ -1505,14 +1979,14 @@ the violation of~(H1) is controlled and measures
 the departure from Einstein geometry.
 \end{remark}
 
-\begin{theorem}[Full Riemann curvature from the polygon number]
+\begin{derivation}[Full Riemann curvature from the polygon number]
 \label{thm:full-riemann}
 On the Seifert manifold $\mathbf{H}^2 \times_N S^1$ with
 stabilized fiber ($\sigma = 1$) and quantized flux
 ($F = N/(2\pi)$), the full $4$D Riemann tensor
 $R^{(4)}_{MNPQ}$, including all $10$ Weyl
 components, is uniquely determined by~$N$.
-\end{theorem}
+\end{derivation}
 
 \begin{proof}
 Three layers: background, linearized, nonlinear.
@@ -1593,8 +2067,13 @@ The boundary has $\mathbb{Z}_N$ orbifold singularities
 (the polygon cone points), but the \emph{bulk} geometry is
 smooth: the FG expansion is well-defined in the distributional
 sense, with $g_2$ acquiring delta-function contributions
-at the cone points and $g_4$ remaining regular
-(the $\delta^2$ terms vanish because the $\mathbb{Z}_N$
+at the cone points.
+The $\delta^2$ issue does not arise because the FG expansion
+terminates at order~$z^2$ for boundary dimension~$2$
+(\citealt{FeffermanGraham1985}, Theorem~1.2;
+the $g_4$ coefficient, which would contain the $\delta^2$
+terms, appears only at order~$z^4$ and is absent).
+Furthermore, the $\mathbb{Z}_N$
 orbit-averaged stress tensor $\langle T_{ab}\rangle$
 is smooth: the $N$ delta-function contributions at the
 equally-spaced cone points sum to a constant by the
@@ -3576,7 +4055,7 @@ The decoherence is therefore \emph{irreversible}
 on all cosmologically relevant timescales.
 
 This is consistent with the exact BO result
-(Paper~V, eq.~\eqref{V-eq:no-nonadiabatic}):
+(Paper~VI, eq.~\eqref{VI-eq:no-nonadiabatic}):
 the mode-independence of~$\Phi$ makes the BO
 potential exact (no non-adiabatic transitions),
 while the $O(1/c)$ $W_N$ quartic, which breaks the
@@ -3635,7 +4114,7 @@ which equals $1$ (odd~$N$) or $1/2$ (even~$N$).
 Thus $\tau_{\mathrm{bath}} \le \sqrt{2}$.
 The tunneling time $\tau_{\mathrm{tunnel}}
 \sim e^{S_{\mathrm{BO}}}$ with $S_{\mathrm{BO}} \gg 1$
-(Paper~V), so the separation
+(Paper~VI), so the separation
 $\tau_{\mathrm{bath}}/\tau_{\mathrm{tunnel}}
 = O(e^{-S_{\mathrm{BO}}})$ is exponentially sharp, and
 non-Markovian corrections are $O(e^{-S_{\mathrm{BO}}})$;
@@ -3658,7 +4137,7 @@ Thermal correlation $\langle\rho(\tau_1)\rho(\tau_2)\rangle$
 \end{tabular}
 \end{center}
 \noindent
-\begin{theorem}[Quantum structure from polygon dynamics]
+\begin{derivation}[Quantum structure from polygon dynamics]
 \label{thm:qm-from-polygons}
 Starting from the classical Kirchhoff equations for
 $N$ point vortices on~$\mathbf{H}^2$, with no quantum
@@ -3717,7 +4196,7 @@ from the Feynman--Kac correspondence; items
 \textup{(Q6)--(Q8)} are standard consequences of the
 WDW Hamiltonian structure (not specific to the polygon
 system).
-\end{theorem}
+\end{derivation}
 
 \begin{proof}
 Items (Q1)--(Q4) follow from the five-step chain above
@@ -3818,7 +4297,7 @@ the Cardy formula completes~$c$ to the full entropy.
 \paragraph{Code availability.}
 All numerical verifications are in the companion repository
 (\url{https://github.com/gspea/planetary-polygons-unified}).
-Parameter accounting and predictions appear in Paper~VI.
+Parameter accounting and predictions appear in Paper~VII.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}

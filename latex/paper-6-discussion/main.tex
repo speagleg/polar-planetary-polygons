@@ -4,7 +4,8 @@
 \externaldocument[II-]{../paper-2-physics/main}
 \externaldocument[III-]{../paper-3-gravity/main}
 \externaldocument[IV-]{../paper-4-field-theory/main}
-\externaldocument[V-]{../paper-5-cosmology/main}
+\externaldocument[V-]{../paper-5-s3-framework/main}
+\externaldocument[VI-]{../paper-5-cosmology/main}
 
 \title{\seriestitle\\[6pt]\large Paper VII: Discussion, Predictions, and Status}
 \author{Gordon Speagle}
@@ -17,15 +18,16 @@
 This paper provides the series-level audit: parameter accounting,
 status classification (Theorem / Derivation / Conjecture),
 cumulative uncertainty analysis, and falsifiable predictions
-for the Havelock field theory developed in Papers~I--V.
-From two axioms ($N = 7$ and the Seifert geometry
-$\mathbf{H}^2 \times_N S^1$) and one dimensionful
-scale ($M_P$),
+for the Havelock field theory developed in Papers~I--VI.
+From one algebraic criterion (integer spin at the
+Havelock stability threshold, selecting $N = 4$ and $N = 7$)
+and two dimensionful scales ($M_P$ and
+$\Delta m^2_{\mathrm{atm}}$),
 the series obtains the Standard Model gauge group, the Weinberg
 angle, the CKM phase, three generations, the cosmological
 constant, the Hubble parameter, the dark matter fraction,
 and the baryon asymmetry.
-Seven binary predictions are testable within two decades.
+Ten binary predictions are testable within two decades.
 \end{abstract}
 
 \section{Series overview}
@@ -56,7 +58,11 @@ The derivation chain is:
   from the McKay correspondence and CS gravity;
   $\sin^2\theta_W = 3/11$; the CKM phase $\delta = \arctan(\sqrt{7}) = 69.3^\circ$;
   the fermion mass hierarchy; PMNS neutrino mixing from complementarity.
-\item \emph{Paper~V (Cosmology):}
+\item \emph{Paper~V ($S^3$ Framework):}
+  The Hopf fibration $S^3 \to S^2$; $E_8$ at CS level $k = 1$;
+  the $E_8 \to \mathrm{SM}$ breaking at the Thurston geometry
+  transition; spectral-prime derivation of gauge couplings.
+\item \emph{Paper~VI (Cosmology):}
   The $N = 11$ instanton;
   $H_0 = 67.4$\,km/s/Mpc; $\Omega_\Lambda = 68.9\%$;
   dark matter from frozen KK modes; baryogenesis;
@@ -68,32 +74,50 @@ The derivation chain is:
 \label{sec:parameters}
 
 \paragraph{Summary.}
-Two axioms and one scale produce the seventeen testable outputs
-enumerated in \S\ref{sec:status}.
+One algebraic criterion and one dimensionful scale produce the
+twenty-eight testable outputs enumerated in \S\ref{sec:status}.
 No continuous free parameters are adjusted.
 
-\paragraph{Axioms.}
-The framework rests on two discrete inputs and one dimensionful scale:
+\paragraph{Input.}
+The framework rests on one algebraic criterion and two
+dimensionful scales:
 \begin{enumerate}
-\item[\textbf{A1.}] \emph{Polygon number $N = 7$.}
-  The unique value giving a spin-$2$ boundary mode
-  via the Pell equation
-  (Theorem~\ref*{V-thm:n-selection}(b)).
-\item[\textbf{A2.}] \emph{Seifert geometry
-  $\mathbf{H}^2 \times_N S^1$.}
-  Uniquely determined by the Thurston classification:
-  $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ is the only Thurston
-  geometry with constant negative sectional curvature on a
-  $2$D base and a compact fiber
-  (Proposition~\ref*{IV-prop:spacetime}).
-\item[\textbf{Scale.}] $M_P$ (or equivalently $v$), needed
-  to set units in any dimensionful theory.
+\item[\textbf{A1.}] \emph{Integer spin at the Havelock
+  stability threshold.}
+  The Pell equation selects the polygon numbers whose
+  critical mode carries integer spin~$j$:
+  $N = 4$ ($j = 1$, gauge boson) and $N = 7$ ($j = 2$, graviton).
+  No other $N \le 40$ satisfies this criterion
+  (Paper~I, Proposition~5.4).
+\item[\textbf{Scale~1.}] $M_P$ (the Planck mass),
+  setting the gravitational energy scale.
+\item[\textbf{Scale~2.}] $\Delta m^2_{\mathrm{atm}}$
+  (the atmospheric neutrino mass splitting),
+  pinning the Dirac KK mass $M_{\mathrm{KK}}$
+  (Paper~VI, eq.~\eqref{VI-eq:M-R}).
+  The neutrino mass \emph{ratio}
+  $\Delta m^2_{\mathrm{sol}}/\Delta m^2_{\mathrm{atm}}
+  = 1/31.5$ and the mass hierarchy are predictions,
+  independent of this scale.
 \end{enumerate}
+Any dimensionful theory requires at least one scale;
+the SM has two ($v$ and $\Lambda_{\mathrm{QCD}}$,
+or equivalently $M_P$ and $v$).
+This framework has one discrete criterion and two
+scales for $28$~outputs.
 
-\paragraph{Derived from the axioms (no additional freedom).}
-The quantities that earlier rounds of review identified as
-possible ``hidden inputs'' are in fact consequences of
-\textbf{A1}--\textbf{A2}:
+\paragraph{Derived from the criterion (no additional freedom).}
+The Seifert geometry $\mathbf{H}^2 \times_N S^1$
+follows from~\textbf{A1}
+(Proposition~\ref*{IV-prop:spacetime}):
+the Havelock spectrum forces a $1$D fiber
+(four spectral properties);
+flux additivity on the derived $S^1$ gives $N = 11 = 4 + 7$;
+$N = 11$ stability forces $\mathbf{H}^2$;
+the Thurston classification gives
+$\widetilde{\mathrm{SL}(2,\mathbb{R})}$ uniquely.
+The structural quantities are consequences
+of~\textbf{A1}:
 \begin{enumerate}
 \item \emph{BF threshold $\mu_4 = 1$.}
   The $\mathbf{H}^2$ Laplacian has spectrum
@@ -114,39 +138,48 @@ possible ``hidden inputs'' are in fact consequences of
   For compact gauge groups, $\pi_3(G) = \mathbb{Z}$
   forces $k \in \mathbb{Z}^+$.
   The DHVW twist-field OPE (a consequence of the
-  orbifold construction in~\textbf{A2}) produces
+  orbifold construction of the Seifert geometry) produces
   Kac--Moody currents at conformal weight $h = 1$,
   determining $k = 1$
   (Theorem~\ref{thm:su3}, Step~B3).
   For $\mathrm{U}(1)$: single-valued holonomy
-  on the $S^1$ fiber of~\textbf{A2} forces
+  on the $S^1$ fiber of the Seifert manifold forces
   $k_Y = 1$.
 \item \emph{Cosmological polygon $N = 11$.}
   From Chern class additivity
   $c_1(L_{\mathrm{EW}} \oplus L_{\mathrm{grav}})
   = 4 + 7 = 11$
-  (Theorem~\ref*{V-thm:n-selection}(c)),
+  (Theorem~\ref*{VI-thm:n-selection}(c)),
   using \textbf{A1} for $N_{\mathrm{grav}} = 7$
   and the $N = 4$ electroweak polygon
   (the unique value with integer $j < 2$;
   Proposition~\ref*{IV-prop:n4-selection}).
 \item \emph{Base genus $g = 2$.}
-  The uniformization theorem requires $g \ge 2$ for $K = -1$.
-  The confinement scale
-  $\Lambda_{\mathrm{QCD}} = M_{\mathrm{poly}}\,
-  \exp(-2\pi/(b_0 \alpha_s(M_{\mathrm{poly}})))$
-  depends exponentially on~$g$ through
-  $\alpha_s(M_{\mathrm{poly}}) = 1/(4\pi(g{-}1)\sqrt{2})$.
-  At $g = 2$: $\Lambda_{\mathrm{QCD}} \approx 35$\,MeV
-  (hadrons form).
-  At $g = 3$: $\Lambda_{\mathrm{QCD}} \approx 4$\,neV
-  (quarks never bind, no hadrons, contradicting the
-  derived baryonic sector).
-  Therefore $g = 2$ is the unique genus for which the
-  derived $\mathrm{SU}(3)$ confines at a scale
-  compatible with the derived quark masses.
-  No observed $\alpha_s$ is used in this selection.
+  $g = 0$: the CS path integral has wrong-sign
+  Boltzmann weight ($V_{\mathrm{eff}} < 0$).
+  $g = 1$: the flat-connection moduli space is degenerate
+  ($V_{\mathrm{eff}} = 0$, $\alpha_s$ diverges).
+  Both are mathematical exclusions
+  (Paper~IV, Step~ii-a).
+  For $g \ge 2$, free-energy minimization selects
+  $g = 2$: the area cost $E \propto 4\pi\ell^2(g{-}1)$
+  dominates the CS entropy $S = g\ln N_c$ by $27$~orders
+  of magnitude at the Gibbons--Hawking temperature
+  (Paper~IV, Step~ii-b), so $F(g)$ is monotonically
+  increasing for $g \ge 2$.
+  Consistency check: $\Lambda_{\mathrm{QCD}}(g{=}2)
+  \approx 35$\,MeV (hadrons form);
+  $\Lambda_{\mathrm{QCD}}(g{=}3) \approx 4$\,neV
+  (quarks never bind).
 \end{enumerate}
+None of these can be changed independently:
+altering $\mu_4$ takes a non-ground-state level;
+altering $k$ breaks the ALE resolution;
+altering $N = 11$ breaks stability or integer spin;
+altering $g$ breaks CS nondegeneracy or free-energy
+minimization.
+Each is constrained by the derivation chain, not
+chosen from a menu.
 
 \paragraph{Derived from~$N$ (no freedom).}
 The central charge $c = 12\,b(N)$, CS phase~$\theta_{\mathrm{CS}}$,
@@ -180,7 +213,7 @@ The $k = K = 1$ reasoning is as above.
 \paragraph{Neutrino sector.}
 The Galois centrifugal suppression $a = 1/N = 1/7$ is derived from the
 orbifold angular scale.
-The Dirac KK mass scale $M_{\mathrm{KK}}$ is set by eq.~\eqref{V-eq:M-R}
+The Dirac KK mass scale $M_{\mathrm{KK}}$ is set by eq.~\eqref{VI-eq:M-R}
 ($M_{\mathrm{KK}} = M_{\mathrm{poly}} \times \varepsilon_7^7 \times 6$);
 the overall normalization is calibrated to
 $\Delta m^2_{\mathrm{atm}}$, making this one input.
@@ -189,17 +222,16 @@ and the mass hierarchy are genuine predictions
 ($M_{\mathrm{KK}}$-independent).
 
 \paragraph{Total.}
-Two axioms (\textbf{A1}: $N = 7$; \textbf{A2}: Seifert geometry)
-plus one dimensionful scale ($M_P$),
-yielding $17$~testable outputs ($15$~predictions and
-$2$~consistency checks in the master table), of which
-$11$ are independent after accounting for Yukawa-texture
-correlations and CKM unitarity.
-The BF threshold, CS levels, and $N = 11$ are derived
-from \textbf{A1}--\textbf{A2}, not additional inputs
-(see derivation chain above).
-The Standard Model, by comparison, has $19$~free parameters
-for roughly the same set of observables.
+One discrete criterion (\textbf{A1})
+plus two dimensionful scales ($M_P$ and
+$\Delta m^2_{\mathrm{atm}}$),
+yielding $28$~testable outputs ($26$~predictions and
+$2$~consistency checks in the master table).
+The Seifert geometry, BF threshold, CS levels, base genus,
+and $N = 11$ are all derived from~\textbf{A1};
+none can be altered without breaking the derivation chain.
+The Standard Model has $19$~free parameters
+(all continuous) for the same set of observables.
 
 \paragraph{Sensitivity to modifications of derived quantities.}
 Each derived quantity, if hypothetically altered, breaks an
@@ -231,7 +263,7 @@ framework's own formulae, then compared to data):
   excluded at ${>}\,5\sigma$).
 \end{itemize}
 None of these quantities are free to vary:
-each is derived from \textbf{A1}--\textbf{A2} by spectral
+each is derived from \textbf{A1} by spectral
 theory, representation theory, or topology.
 
 
@@ -286,15 +318,15 @@ WDW equation from stat.\ mech. & Derived & Derivation &, \\
 $M_P/M_{\mathrm{EW}}$ hierarchy & Derived & Derivation & $0.003\%$ \\
 \midrule
 \multicolumn{4}{l}{\emph{Predictions (computed before comparison)}} \\
-$\delta_{\mathrm{CKM}} = \arctan(\sqrt{7}) = 69.3^\circ$ & Prediction & Derivation & $0.10\sigma$ \\
+$\delta_{\mathrm{CKM}} = \arctan(\sqrt{7}) = 69.3^\circ$ & Prediction & Derivation & $1.0\sigma$ \\
 $\sin^2\theta_W = 3/11$ & Prediction & Derivation$^*$ & $0.1\%$ (2-loop) \\
 $|V_{us}| = 0.230$ & Prediction & Derivation & $2\%$ \\
 $|V_{cb}| = 0.043$ & Prediction & Derivation & $1\%$ \\
-$|V_{ub}| = 0.0024$ (instanton) & Prediction & Derivation & $35\%$ \\
-$\theta_{12}^{\mathrm{PMNS}} = 32.9^\circ$ & Prediction & Derivation & $0.5^\circ$ \\
-$\theta_{23}^{\mathrm{PMNS}} = 45^\circ$ & Prediction & Derivation & $1\sigma$ \\
-$\theta_{13}^{\mathrm{PMNS}} = 9.3^\circ$ & Prediction & Derivation & $0.8^\circ$ \\
-$\eta_B = 5.96 \times 10^{-10}$ & Prediction & Derivation & $2.6\%$ \\
+$|V_{ub}| = 0.0037$ (NLO instanton) & Prediction & Derivation & $2\%$ \\
+$\sin^2(2\theta_{12}^{\mathrm{PMNS}}) = 6/7$ & Prediction & Conjecture & $0.6\sigma$ \\
+$\sin^2\theta_{23}^{\mathrm{PMNS}} = 4/7$ & Prediction & Conjecture & $0.1\sigma$ \\
+$\sin^2\theta_{13}^{\mathrm{PMNS}} = 1/48$ & Prediction & Conjecture & $1.6\sigma$ \\
+$\eta_B = 5.96 \times 10^{-10}$ & Prediction & Derivation & $2.6\%$ (factor~$3$ theor.)\ \\
 $m_b = 3.95$\,GeV & Prediction & Derivation & $5.5\%$ \\
 $m_c = 1.19$\,GeV & Prediction & Derivation & $6.5\%$ \\
 $m_u = 2.06$\,MeV & Prediction & Derivation & $6.4\%$ \\
@@ -302,7 +334,7 @@ $\bar\theta < 10^{-10}$ (Nelson--Barr) & Prediction & Derivation & consistent \\
 $H_0 = 67.4$ km/s/Mpc & Prediction & Derivation & $2 \times 10^{-5}$ \\
 $\Omega_{\mathrm{DM}} = 26.9\%$ & Prediction & Conjecture & $0.4\sigma$ \\
 $\Omega_b = 5.0\%$ & Prediction & Derivation & $0.6\sigma$ \\
-$\eta_B = 2 \times 10^{-9}$ & Prediction & Derivation & $\times 0.8$--$3$ \\
+%% Duplicate eta_B removed (refined value is at line 297)
 $\Delta m^2$ ratio $= 31.5$ & Prediction & Derivation & $3\%$ \\
 $m_H = 125 \pm 3$ GeV & Prediction & Derivation & $2\%$ \\
 $\theta_{\mathrm{QCD}} = 0$ & Prediction & Derivation &, \\
@@ -466,16 +498,28 @@ Including the $O(1/c)$ Euler class and BO corrections
 from $0.045$ to $0.023$ ($4\%$ from observed),
 promoting it to the algebraic tier.
 
-Two predictions are beyond current experimental reach.
-(i)~The frozen-mode dark matter has cross-section
-$\sigma \sim 10^{-103}\;\mathrm{cm}^2$, undetectable by
-any foreseeable direct-detection experiment.
-The suppression is structural: $\sigma \propto e^{-c}$
-with $c \approx 52$ (the topological coupling).
-The prediction is testable indirectly through the
-clustering spectrum: the frozen modes have a specific
-mass spectrum (eq.~\eqref{V-eq:dm-masses}) that
-imprints on small-scale structure.
+The frozen-mode dark matter has direct-detection
+cross-section $\sigma \sim 10^{-103}\;\mathrm{cm}^2$
+($\sigma \propto e^{-c}$, $c \approx 52$),
+far below any foreseeable detector threshold.
+Six auxiliary predictions are falsifiable by
+current or near-future experiments
+(Paper~VI, \S\ref*{VI-sec:dm-detection}):
+no DM self-interaction ($\sigma_{\mathrm{self}}/m = 0$,
+testable via cluster mergers);
+no annihilation or decay signal
+(Fermi-LAT, CTA, IceCube);
+cold production only (no warm-DM suppression
+in the matter power spectrum);
+$\Delta N_{\mathrm{eff}} = 0$
+(CMB-S4);
+no collider signal below $50$\,TeV;
+four species with equal energy density
+and mass ratios $1:\!\sqrt{3}:\!\sqrt{6}:\!\sqrt{10}$
+(21\,cm intensity mapping at $z > 30$).
+A confirmed detection of DM self-interaction,
+annihilation, decay, or a warm-DM signature
+would each independently falsify the frozen-mode model.
 (ii)~The extension to $d \ge 4$ spatial dimensions
 uses polygons with $N \ge 10$ (unstable on the flat plane)
 as \emph{mathematical probes} of the Green's function
@@ -549,7 +593,8 @@ from structure alone:
 Among frameworks with zero continuous free parameters,
 no other simultaneously predicts
 fermion mass ratios, CKM elements,
-and cosmological parameters from two discrete axioms.
+and cosmological parameters from one discrete criterion
+and two scales.
 The algebraic-tier predictions ($< 5\%$) include $m_s/m_b$,
 which reaches $4\%$ accuracy once the $O(1/c)$ Euler class
 correction is included.
@@ -616,7 +661,7 @@ LEGEND/nEXO for the absence of neutrinoless double beta decay):
 \item EWPT gravitational wave signal at
   $f \approx 4 \times 10^{-5}$\,Hz,
   $\Omega_{\mathrm{GW}} h^2 \approx 10^{-9}$
-  (eq.~\eqref{V-eq:gw-ewpt};
+  (eq.~\eqref{VI-eq:gw-ewpt};
   the SM gives $\Omega = 0$; LISA $\sim\!2037$).
 \item $\Omega_k = 0$ exactly
   (the KK reduction absorbs all spatial curvature into
@@ -625,7 +670,7 @@ LEGEND/nEXO for the absence of neutrinoless double beta decay):
   where the theory predicts exactly zero,
   distinguishable from inflationary
   $\Omega_k \sim e^{-2N_e}$;
-  \S\ref{V-sec:geometry-initial}).
+  \S\ref{VI-sec:geometry-initial}).
 \end{itemize}
 \emph{(i\hspace{0.5pt}b)~Null predictions}
 (the absence of each is a falsifiable consequence):
@@ -649,7 +694,27 @@ $\sigma_{\mathrm{SI}} \sim 10^{-103}\;\mathrm{cm^2}$),
 NANOGrav stochastic background is astrophysical
 (supermassive black hole binaries, not cosmological),
 and $r \sim 10^{-6}$ (undetectable primordial gravitational
-waves from inflation; \S\ref{V-sec:inflation}).
+waves from inflation; \S\ref{VI-sec:inflation}).
+
+Of the ten binary tests in~(i), five have no counterpart
+in the Standard Model or in generic BSM scenarios:
+$\delta_{\mathrm{CP}}^{\mathrm{PMNS}} = 69.3^\circ$
+(the SM leaves this free),
+the CKM--PMNS complementarity relation
+(no SM prediction),
+$\sin^2\theta_{13} = \tfrac{1}{2}\sin^2\theta_C$
+(no SM prediction),
+the EWPT gravitational wave signal
+(the SM gives $\Omega_{\mathrm{GW}} = 0$),
+and $\Omega_k = 0$ exactly
+(distinguishable from inflationary
+$\Omega_k \sim e^{-2N_e}$).
+The remaining five (normal hierarchy, $w = -1$,
+no $0\nu\beta\beta$, proton stability, $\bar\theta = 0$)
+are consistent with the SM extended by Dirac neutrinos
+but are not predicted by it:
+the SM treats the hierarchy, the Dirac/Majorana nature,
+and $\bar\theta$ as free parameters.
 
 \emph{(i\hspace{0.5pt}c)~Planetary polygon predictions}
 (Paper~II, \S\ref*{II-sec:oblateness}):
@@ -710,7 +775,7 @@ $K$~links two independent observables:
 $m_s/m_b \propto 1/K^2$ (eq.~\eqref{IV-eq:mass-hierarchy},
 elasticity $\partial\ln(m_s/m_b)/\partial k_{\mathrm{frac}} = 4\pi$)
 and $\Omega_b$ via
-$K/(1{+}K^2)$ (eq.~\eqref{V-eq:mass-gap-resum},
+$K/(1{+}K^2)$ (eq.~\eqref{VI-eq:mass-gap-resum},
 elasticity $-0.3$).
 The CKM phase $\delta_{\mathrm{CKM}} = \arctan(\sqrt{7}) = 69.3^\circ$
 is a \emph{separate} prediction, independent of~$K$
@@ -733,9 +798,9 @@ prediction with all entries computed from~$N = 7$.
 The theory determines the large-scale structure of the
 universe without free cosmological parameters beyond~$M_P$.
 Spatial sections are flat
-($\Omega_k = 0$, \S\ref{V-sec:geometry-initial}),
+($\Omega_k = 0$, \S\ref{VI-sec:geometry-initial}),
 the equation of state is $w = -1$ at all redshifts
-(\S\ref{V-sec:cc-instanton}),
+(\S\ref{VI-sec:cc-instanton}),
 and the initial state is uniquely determined by the
 Born--Oppenheimer structure of the polygon breathing mode
 (Remark~\ref{III-rmk:wdw-uniqueness}).
@@ -777,11 +842,11 @@ The WKB time coordinate is valid in the semiclassical
 regime ($\rho > \rho^*$, $c \gg 1$); at the turning
 point $\rho = \rho^*$ the Airy regime replaces it,
 and for $\rho < \rho^*$ there is no classical time
-(\S\ref{V-sec:geometry-initial}).
+(\S\ref{VI-sec:geometry-initial}).
 
 \paragraph{Structure formation and the high-redshift universe.}
 The radion inflection-point potential
-(\S\ref{V-sec:inflation}) gives a featureless red tilt
+(\S\ref{VI-sec:inflation}) gives a featureless red tilt
 with $n_s(k) \approx 0.964$--$0.970$ across galactic scales
 ($k = 1$--$100\;\mathrm{Mpc}^{-1}$) and running
 $dn_s/d\ln k \approx -10^{-3}$.
@@ -1175,13 +1240,17 @@ $|V_{us}|$, $\sin^2\theta_W$) remain at factor-${\sim}2$
 accuracy, reflecting the sensitivity of light-quark masses
 to the Dirac zero-mode profiles on~$\mathbf{H}^2$.
 
-Seven binary tests are experimentally
+Ten binary tests are experimentally
 accessible within two decades.
 Of these, the EWPT gravitational wave signal
 ($f \approx 4 \times 10^{-5}$\,Hz,
 $\Omega_{\mathrm{GW}} h^2 \approx 10^{-9}$),
-the $K$-correlation between $m_s/m_b$ and $\Omega_b$,
-and $\Omega_k = 0$ exactly are \emph{diagnostic}:
+$\Omega_k = 0$ exactly,
+the PMNS CP phase $\delta_{\mathrm{CP}}^{\mathrm{PMNS}} = 69.3^\circ$,
+the CKM--PMNS complementarity relation,
+the $\sin^2\theta_{13}$ prediction,
+and the $K$-correlation between $m_s/m_b$ and $\Omega_b$
+are \emph{diagnostic}:
 they distinguish this theory from other BSM approaches.
 The remaining four (normal hierarchy, $w = -1$, proton
 stability, $\theta_{\mathrm{QCD}} = 0$) are shared

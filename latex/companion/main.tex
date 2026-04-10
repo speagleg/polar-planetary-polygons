@@ -123,8 +123,8 @@ Gauge group of particle physics is $\mathrm{SU}(3) \times \mathrm{SU}(2) \times 
   & Confirmed experimentally & Exact match & Theorem \\[4pt]
 Three generations of matter particles
   & Three observed & Exact match & Derived \\[4pt]
-CKM phase (a parameter governing matter--antimatter asymmetry) is $69.3^\circ$
-  & $69^\circ \pm 3^\circ$ & $0.4$ standard deviations & Derived \\[4pt]
+Cabibbo--Kobayashi--Maskawa (CKM) phase (a parameter governing matter--antimatter asymmetry) is $69.3^\circ$
+  & $65.9^\circ \pm 3.5^\circ$ & $1.0$ standard deviations & Derived \\[4pt]
 The Weinberg angle (which sets the ratio of electromagnetic to weak force strength) gives $\sin^2\theta_W = 3/11$
   & Measured value differs by $3.9\%$ after quantum corrections & $3.9\%$ & Derived \\[4pt]
 A quark mixing parameter $|V_{cb}| = 0.044$
@@ -138,19 +138,20 @@ Dark matter makes up $26.9\%$ of the cosmic energy budget
 Ordinary matter makes up $5.0\%$
   & $4.9\% \pm 0.1\%$ & $0.6$ standard deviations & Derived \\[4pt]
 The Higgs boson mass is $125 \pm 3$ GeV
+  (gigaelectronvolts, a unit of particle mass)
   & $125.25 \pm 0.17$ GeV & $2\%$ & Derived \\[4pt]
 The strong coupling constant $\alpha_s = 0.115$--$0.122$
   & $0.1180 \pm 0.0009$ & Within range & Derived \\[4pt]
 The string tension ratio $\sigma/\Lambda^2 = 5.97$
-  & Lattice QCD: $6.25 \pm 0.5$ & $5\%$ & Derived \\[4pt]
+  & Lattice quantum chromodynamics (QCD): $6.25 \pm 0.5$ & $5\%$ & Derived \\[4pt]
 The proton is exactly stable (never decays)
   & No decay observed & Consistent & Derived \\[4pt]
-QCD vacuum angle $\theta_{\mathrm{QCD}} = 0$
+Strong-force vacuum angle $\theta_{\mathrm{QCD}} = 0$
   & $< 10^{-10}$ & Consistent & Derived \\[4pt]
 Neutrinos follow the normal mass hierarchy
-  & Pending (JUNO experiment) & Future test & Derived \\[4pt]
+  & Pending (Jiangmen Underground Neutrino Observatory) & Future test & Derived \\[4pt]
 Dark energy equation of state $w = -1$
-  & $-1.0 \pm 0.1$ (DESI) & Consistent & Derived \\
+  & $-1.0 \pm 0.1$ (Dark Energy Spectroscopic Instrument) & Consistent & Derived \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -178,7 +179,9 @@ This matters because the claims in the technical series are
 extraordinary, and extraordinary claims face a higher bar. I want to
 be transparent about both the strengths and the limitations.
 
-The results fall into three tiers of confidence:
+The results fall into three tiers of confidence
+(labeled \textbf{Theorem}, \textbf{Derivation}, and
+\textbf{Conjecture} in the technical papers):
 
 \textbf{Proved.} A small number of results are mathematical theorems.
 If you accept the starting identification, that a point vortex on a
@@ -215,7 +218,7 @@ the reader to assess.
 
 \subsection*{The map}
 
-The technical series has six papers. Here is what each one does.
+The technical series has seven papers. Here is what each one does.
 
 \textbf{Paper I: The Mathematics.} This paper establishes the
 foundation. The logarithmic interaction, the same law that governs
@@ -257,9 +260,11 @@ thermodynamics, holography, and the emergence of quantum mechanics
 from statistical mechanics are all addressed.
 
 \textbf{Paper IV: Particle Physics.} The polygon hierarchy forces
-the internal geometry to be an eleven-dimensional manifold (four
-spacetime dimensions plus a seven-dimensional compact space). The
-compact space is rigid: Thurston's geometrization theorem eliminates
+the internal geometry to be the Seifert manifold
+$\mathbf{H}^2 \times_N S^1$ (a hyperbolic surface
+fibered over a circle with a $\mathbb{Z}_N$ twist;
+the polygon number $N = 11$, not the spacetime dimension).
+The geometry is rigid: Thurston's geometrization theorem eliminates
 all possibilities except one. From that geometry, the Standard Model
 gauge group $\mathrm{SU}(3) \times \mathrm{SU}(2) \times
 \mathrm{U}(1)$ is derived, not assumed. The Weinberg angle comes
@@ -268,7 +273,14 @@ CKM phase, quark mass ratios, the Higgs mass, the strong coupling
 constant, and the string tension of quark confinement are all
 computed from the same central charge.
 
-\textbf{Paper V: Cosmology.} In cosmology, the cosmological constant, the energy
+\textbf{Paper V: The $S^3$ Framework.} This paper lifts the
+framework from $\mathbf{H}^2 \times S^1$ to $S^3$ via the
+Hopf fibration, derives the $E_8 \to$ Standard Model curvature
+transition, and provides the ultraviolet completion.
+The Hopf map $S^3 \to S^2$ unifies the flat-plane and curved
+frameworks into a single geometric structure.
+
+\textbf{Paper VI: Cosmology.} In cosmology, the cosmological constant, the energy
 density of empty space, is determined by the instanton action of the
 $N = 11$ Born--Oppenheimer tunneling amplitude. The hierarchy between
 the Planck scale and the electroweak scale (a factor of $10^{16}$)
@@ -278,9 +290,9 @@ decomposes into tree-level, one-loop, and tunneling contributions.
 The Hubble constant, the neutrino mass hierarchy, and the initial
 conditions of inflation are derived.
 
-\textbf{Paper VI: The Scorecard.} This paper collects every
+\textbf{Paper VII: The Scorecard.} This paper collects every
 prediction, classifies each by confidence tier, quantifies the
-cumulative uncertainty, and lists six binary pass/fail experimental
+cumulative uncertainty, and lists ten binary pass/fail experimental
 tests, results from JUNO, LEGEND, Hyper-Kamiokande, LISA, and
 DESI, that can confirm or falsify specific claims. It also
 catalogues what remains open: the dark matter production mechanism,
@@ -816,7 +828,7 @@ Fuchsian group of the surface, bounded rigorously by the Selberg
 trace formula, and verified numerically.
 
 Taken as a whole, the stability phase diagram is a map of the
-$(N, \xi)$ plane divided into regions by algebraic curves. Palindromic polynomials form the boundary curves. Morse indices label the regionses.
+$(N, \xi)$ plane divided into regions by algebraic curves. Palindromic polynomials form the boundary curves. Morse indices label the regions.
 The labels are topological invariants. And the algebra connecting
 surface to surface, the field extensions, the Pell units, the
 geodesic correspondence, is not decorative. It is the scaffolding
@@ -2112,7 +2124,9 @@ explicit error bounds.
 \medskip
 
 \noindent\textit{Bottom line: The polygon hierarchy forces the spacetime
-geometry to be an eleven-dimensional Seifert manifold, the only option
+geometry to be a $4$-dimensional Seifert manifold
+$\mathbb{R} \times \mathbf{H}^2 \times_{N} S^1$
+(with $N = 11$ the polygon number, not the dimension), the only option
 consistent with both gravity and the electroweak force.}
 
 \medskip
@@ -2640,8 +2654,8 @@ $\delta$ controls CP violation, the slight asymmetry between matter
 and antimatter that allows the universe to contain more matter than
 antimatter.
 
-The measured value: $\delta = 69^\circ \pm 3^\circ$ (Particle Data
-Group, 2024). The polygon prediction: $\delta = 69.3^\circ$.
+The measured value: $\delta = 65.9^\circ \pm 3.5^\circ$ (CKMfitter,
+2024). The polygon prediction: $\delta = 69.3^\circ$ ($1.0\sigma$).
 
 The derivation proceeds through the quadratic Gauss sum of
 the $\mathbb{Z}_7$ orbifold.
@@ -3276,19 +3290,23 @@ and three singlets.  The doublets are the three generations of matter.
 This is not a choice or a parameter: it is forced by the eigenvalue
 structure of a $9 \times 9$ matrix.
 
-The entire series rests on two axioms and one scale:
+The entire series rests on one algebraic criterion and two scales:
 \begin{itemize}
-\item \textbf{Axiom 1:} the polygon number $N = 7$
-  (selected by the Pell equation as the unique polygon with a spin-2 mode).
-\item \textbf{Axiom 2:} the Seifert geometry
-  $\mathbf{H}^2 \times_N S^1$
-  (selected by the Thurston classification as the unique 3-manifold
-  geometry with negatively curved base and compact fiber).
-\item \textbf{Scale:} the Planck mass $M_P$ (needed to set units).
+\item \textbf{Criterion:} integer spin at the Havelock stability
+  threshold.  The Pell equation selects $N = 4$ (spin 1, gauge boson)
+  and $N = 7$ (spin 2, graviton) as the only polygons satisfying this.
+\item \textbf{Scale 1:} the Planck mass $M_P$ (sets the gravitational
+  energy scale).
+\item \textbf{Scale 2:} the atmospheric neutrino mass splitting
+  $\Delta m^2_{\mathrm{atm}}$ (pins the neutrino mass scale;
+  the mass ratio and hierarchy are predictions).
 \end{itemize}
+The Seifert geometry $\mathbf{H}^2 \times_N S^1$, the base genus,
+the gauge levels, and the cosmological polygon $N = 11$ are all
+derived from this criterion.
 Everything else, including the gauge groups, the coupling constants,
 the cosmological parameters, and the fermion mass hierarchy,
-is derived from these two inputs.
+follows.
 
 From a single number, $a = 4$ (the spacetime dimension), one derives:
 the number of Platonic solids ($a{+}1 = 5$), the maximum mark ($a{+}2 = 6$),
@@ -3423,15 +3441,16 @@ The baryon-to-photon ratio $\eta_B$ measures how much ordinary matter
 the universe contains per photon. The observed value:
 $6.1 \times 10^{-10}$.
 
-The polygon prediction: $\eta_B \approx 2 \times 10^{-9}$. Off by a
-factor of three.
-
-The factor of three is the
-largest discrepancy in the cosmological sector. Its origin is
-identified: the calculation depends on lattice QCD parameters (the
+The polygon prediction: $\eta_B = 5.96 \times 10^{-10}$, a $2.6\%$
+match. This refined value comes from the Bernoulli backbone
+(Paper~IV): $\eta_B = J \cdot K^{15}/7$, where all three inputs
+($J$, $K$, $N = 7$) are derived from the polygon number with no
+adjustable parameters. The earlier estimate of
+${\sim}\,2 \times 10^{-9}$ used a cruder transport calculation that
+depended on lattice QCD parameters (the
 weak sphaleron rate $\kappa$ and the Yukawa equilibration rate
-$\Gamma_y$), each of which carries factor-of-two uncertainties that
-are shared by every electroweak baryogenesis model, not specific to
+$\Gamma_y$), each of which carries factor-of-two uncertainties
+shared by every electroweak baryogenesis model, not specific to
 this framework. At the favorable end of the lattice ranges
 ($\kappa = 10$, $\Gamma_y = 0.3$ instead of the central values
 $\kappa = 20$, $\Gamma_y = 0.2$), the prediction matches to $10\%$.
@@ -3664,9 +3683,12 @@ to physics. Each is argued to be the unique consistent option, but they
 are identifications, not theorems. The distinction matters.
 
 \begin{enumerate}
-\item \emph{The Seifert geometry.} The eleven-dimensional internal
+\item \emph{The Seifert geometry.} The internal
   manifold is $\mathbf{H}^2 \times_N S^1$, a hyperbolic surface
-  fibered over a circle with a $\mathbb{Z}_N$ twist. Thurston's
+  fibered over a circle with a $\mathbb{Z}_N$ twist
+  ($N = 11$ is the polygon number, not the spacetime dimension;
+  the full spacetime is $4$-dimensional:
+  $\mathbb{R} \times \mathbf{H}^2 \times_N S^1$). Thurston's
   geometrization theorem eliminates every other possibility
   (Part~IV, Section~1). A product manifold (no twist) gives equal
   left- and right-handed couplings, contradicting the observed
@@ -3703,8 +3725,8 @@ are identifications, not theorems. The distinction matters.
 
 \subsection*{The outputs}
 
-From these inputs: seventeen testable numerical predictions, listed in
-the Prologue's scorecard table. Not one of the seventeen was obtained by
+From these inputs: twenty-eight testable outputs, listed in
+the Prologue's scorecard table. Not one of the twenty-eight was obtained by
 fitting a parameter to data. Each is computed from the formula and
 compared to a measurement made by someone else using different methods.
 
@@ -3737,7 +3759,7 @@ about which is which.}
 
 \medskip
 
-The seventeen predictions are not all created equal; they fall into two
+The twenty-eight testable outputs are not all created equal; they fall into two
 precision tiers, distinguished by mechanism, not by cherry-picking the
 ones that work best. I want to be candid about which predictions I
 trust most and why.
@@ -3759,7 +3781,7 @@ collapses. There is no middle ground, no adjustment, no fudge factor,
 no ``close enough.''
 
 The numerical predictions in this tier, the CKM phase ($69.3^\circ$,
-matching $69^\circ \pm 3^\circ$), the Hubble constant
+matching $65.9^\circ \pm 3.5^\circ$), the Hubble constant
 ($67.4$~km/s/Mpc, matching $67.4 \pm 0.5$), the neutrino mass-squared
 ratio ($31.5$, matching $32.5 \pm 1.0$), have theoretical uncertainties
 bounded by Dunham corrections at $O(1/c^2)$, where $c \approx 52$ at
@@ -3956,24 +3978,21 @@ computed; the abundance is not, beyond dimensional analysis. This is why
 the dark matter fraction is classified as \textbf{Conjectured} rather
 than Derived.
 
-\subsection*{Baryon asymmetry: a factor of three}
+\subsection*{Baryon asymmetry}
 
 The baryon-to-photon ratio $\eta_B$, the number that determines how
 much ordinary matter exists relative to radiation, is predicted to be
-$2 \times 10^{-9}$. The Planck satellite measures
-$6.1 \times 10^{-10}$. The discrepancy is a factor of about $3$.
+$5.96 \times 10^{-10}$ via the Bernoulli backbone formula
+$\eta_B = J \cdot K^{15}/7$. The Planck satellite measures
+$6.12 \times 10^{-10}$: a $2.6\%$ match, with all three inputs
+($J$, $K$, $N = 7$) derived from the polygon number.
 
-This factor traces to lattice QCD parameters: the sphaleron rate
-(which determines how efficiently the electroweak phase transition
-converts CP violation into a matter--antimatter asymmetry) and the
-CP-violating phase transport coefficient (which determines how far the
-CP violation propagates ahead of the expanding bubbles). Both are
-computed on a lattice with finite spacing and finite volume, and their
-systematic uncertainties are at the factor-of-$2$ level. The
-factor-of-$3$ discrepancy is within the known lattice uncertainties, but
-it is a limitation. It will improve as lattice QCD improves, and if it
-does not shrink, the theory will need a better calculation or a
-different mechanism.
+An earlier, cruder transport calculation gave
+${\sim}\,2 \times 10^{-9}$, off by a factor of three. That estimate
+depended on lattice QCD parameters: the sphaleron rate
+and the CP-violating phase transport coefficient, each carrying
+factor-of-$2$ systematic uncertainties. The refined Bernoulli
+backbone bypasses those lattice inputs entirely.
 
 \subsection*{Light quark masses}
 
@@ -4038,12 +4057,17 @@ Thurston's theorem; $\mathrm{SU}(3) \times \mathrm{SU}(2) \times
 $\delta_{\mathrm{CKM}} = 69.3^\circ$; the fermion mass hierarchy;
 confinement.
 
-Paper~V derived cosmology: $N = 11$ from Chern class additivity;
+Paper~V built the $S^3$ framework: the Hopf fibration, $E_8$ at
+Chern--Simons level $k = 1$, the saddle-point transition
+$E_8 \to \mathrm{SM}$ at $K = 0$, and the spectral derivation of
+gauge couplings.
+
+Paper~VI derived cosmology: $N = 11$ from Chern class additivity;
 $H_0 = 67.4$~km/s/Mpc from the instanton action; the cosmic energy
 budget $69/26/5$ from tree-level, one-loop, and tunneling contributions.
 
-Paper~VI collected the scorecard: one integer, one scale, three
-identifications, seventeen outputs, six falsifiable tests.
+Paper~VII collected the scorecard: one integer, one scale, three
+identifications, twenty-eight outputs, ten falsifiable tests.
 
 \bigskip
 

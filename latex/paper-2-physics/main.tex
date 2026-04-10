@@ -3,8 +3,9 @@
 \externaldocument[I-]{../paper-1-mathematics/main}
 \externaldocument[IV-]{../paper-4-field-theory/main}
 \externaldocument[III-]{../paper-3-gravity/main}
-\externaldocument[V-]{../paper-5-cosmology/main}
-\externaldocument[VI-]{../paper-6-discussion/main}
+\externaldocument[V-]{../paper-5-s3-framework/main}
+\externaldocument[VI-]{../paper-5-cosmology/main}
+\externaldocument[VII-]{../paper-6-discussion/main}
 % \externaldocument[A-]{../paper-A-appendices/main}  % Paper A not yet written
 \externaldocument[SP-]{../supplement-proofs/main}
 
@@ -391,12 +392,26 @@ $B_p = 2\operatorname{Re}(\Delta z\cdot\overline{\Delta u})$,
 $C_p = |\Delta u|^2$.  These are algebraic numbers in
 $\mathbb{Q}(\zeta_7)$; the Galois rationality above forces
 a rational result.
-Direct algebraic summation (exact rational arithmetic;
-see Code Availability) gives $153/7$.
-The unconstrained quartic is computed by evaluating the
-fourth-order circulant Taylor coefficient (the explicit per-chord
-sum involves products of $\csc^2$ and $\csc^4$ terms coupled
-across modes; see Code Availability).
+The per-pair quartic
+$6C_p^2/A_p^2 - 12C_p B_p^2/A_p^3 + 3B_p^4/A_p^4$,
+with $A_p = |z_0{-}z_p|^2 = 4\sin^2(\pi p/7)$,
+$C_p = |u_0{-}u_p|^2$, $B_p = 2\operatorname{Re}(\overline{\Delta z}\,\Delta u)$,
+is a rational function of $\omega = e^{2\pi i/7}$
+(the perturbation $u_k = z_k\cos(6\pi k/7)$
+is algebraic over~$\mathbb{Q}(\zeta_7)$).
+Summing over the $6$ separation classes $p = 1,\ldots,6$
+(each contributing $7$ ordered pairs, divided by $2$ for
+unordered), the total decomposes as
+\begin{equation}\label{eq:quartic-decomposition}
+  \frac{d^4 H}{dt^4}\bigg|_{m=3}
+  = 7 \sum_{p=1}^{6}
+    \frac{6C_p^2 - 12 C_p B_p^2/A_p + 3 B_p^4/A_p^2}{2A_p^2}.
+\end{equation}
+Each summand lies in $\mathbb{Q}(\zeta_7)$; the $\mathbb{Z}_7$
+Galois rationality collapses the sum to~$\mathbb{Q}$.
+Direct evaluation in exact rational arithmetic gives $153/7$
+(verified to $50$~decimal places by Richardson extrapolation;
+see Code Availability).
 (The $\mathbb{Z}_7$ symmetry forces the degree-$4$ form on
 the $2$-dimensional neutral subspace to be proportional to $|z|^4$,
 so $153/7$ holds for \emph{any} unit vector in the $\{m{=}3,\,m{=}4\}$
@@ -2577,7 +2592,7 @@ of $O(1)$.
 \paragraph{Code availability.}
 All numerical verifications are in the companion repository
 (\url{https://github.com/gspea/planetary-polygons-unified}).
-Parameter accounting and predictions appear in Paper~VI.
+Parameter accounting and predictions appear in Paper~VII.
 
 \appendix
 \section{Infinite-dimensional convergence proof}

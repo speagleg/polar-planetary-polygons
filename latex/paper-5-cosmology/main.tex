@@ -4,6 +4,7 @@
 \externaldocument[II-]{../paper-2-physics/main}
 \externaldocument[III-]{../paper-3-gravity/main}
 \externaldocument[IV-]{../paper-4-field-theory/main}
+\externaldocument[V-]{../paper-5-s3-framework/main}
 \externaldocument[SP-]{../supplement-proofs/main}
 
 \title{\seriestitle\\[6pt]\large Paper VI: Cosmological Parameters}
@@ -16,10 +17,10 @@
 \begin{abstract}
 We derive the cosmological constant, Hubble parameter, dark
 energy/matter fractions, neutrino mass ratio, and baryon
-asymmetry from the two axioms of the series
-($N = 7$ and the Seifert geometry), which determine
+asymmetry from the Havelock-Pell criterion
+($N = 4$ and $N = 7$; Paper~IV), which determines
 the cosmological polygon $N = 11 = 4 + 7$ via
-Kaluza--Klein flux additivity.
+Kaluza--Klein flux additivity on the derived $S^1$ fiber.
 The $N = 11$ Born--Oppenheimer tunneling action fixes the
 hyperbolic curvature radius~$\ell$, giving
 $H_0 = 67.4$\,km/s/Mpc (Planck 2018 \citep{Planck2018}: $67.4 \pm 0.5$),
@@ -27,9 +28,9 @@ $\Omega_\Lambda = 68.9\%$,
 $\Omega_{\mathrm{DM}} = 26.9\%$,
 $\Omega_b = 5.0\%$ ($0.6\sigma$),
 $\Delta m^2_{\mathrm{sol}}/\Delta m^2_{\mathrm{atm}} = 1/31.5$ ($3\%$),
-and $\eta_B \approx 2 \times 10^{-9}$
-(within a factor of~$3$ of the observed
-$6 \times 10^{-10}$, limited by lattice QCD inputs).
+and $\eta_B = 5.96 \times 10^{-10}$
+($2.6\%$ match to the observed
+$6.12 \times 10^{-10}$).
 The theory predicts normal neutrino hierarchy,
 $w = -1$ exactly, and no neutrinoless double beta decay.
 \end{abstract}
@@ -320,6 +321,20 @@ where $S_{\mathrm{BO}}$ is the WKB tunneling action through
 the Born--Oppenheimer potential $V_7(\rho) = \ln(2\sinh\rho) + b(7) - 6$
 and $\varepsilon_7 = 8 + 3\sqrt{7}$ is the fundamental unit
 of~$\mathbb{Z}[\sqrt{7}]$.
+Each component is computed from $b(7)$, $f(3,7)$, and
+$\varepsilon_7$ (all determined by $N = 7$; no observed
+quantity enters the computation).
+The three terms are:
+$2S_{\mathrm{BO}}(7) = 36.548$ (the WKB tunneling action,
+a definite integral of $\sqrt{2c_7\,|V_7|}$;
+$c_7 = 12\,b(7)$, $V_7 = \ln(2\sinh\rho) + b(7) - 6$);
+$\Delta\varepsilon\,\ln\varepsilon_7 = 2.224$
+(the Pell unit $\varepsilon_7 = 8{+}3\sqrt{7}$ and
+the BF conformal dimension gap $\Delta\varepsilon = 0.906$
+from Paper~IV);
+and $\tfrac{1}{2}\ln(c_{11}/(24\pi^2)) = -0.313$
+(the gravity one-loop prefactor with $c_{11} = 12\,b(11)$).
+Each coefficient is algebraically fixed by~$N$.
 Numerically: $36.548 + 2.224 + (-0.313) = 38.458$,
 versus the observed $\ln(M_P/v) = 38.442$
 ($0.04\%$ match in the log; $1.5\%$ in the ratio).
@@ -854,9 +869,15 @@ follows from the equation of state of each term:
   After the $N$-selection phase transition, each frozen mode
   becomes a massive KK particle with
   $M_k = \sqrt{\lambda_k}\,M_{\mathrm{poly}}$,
-  at rest in the comoving frame:
+  produced at rest in the comoving frame
+  (zero peculiar velocity: the BO tunneling creates
+  particles at the bottom of the angular potential well,
+  not with kinetic energy).
+  The stress-energy is
   $T_{\mu\nu} = \rho_E\,u_\mu u_\nu$ with $p = 0$
-  (cold dark matter).
+  (cold dark matter): massive, non-relativistic,
+  non-interacting (orthogonal $\mathbb{Z}_N$ Fourier modes
+  have zero overlap by character orthogonality).
 \item $F_{\mathrm{M}}$ is the non-perturbative
   WDW mass gap (the tunneling amplitude), localized and
   thermalized below $T_{\mathrm{EW}}$: baryonic matter ($w = 0$).
@@ -966,9 +987,14 @@ This gives the geometric resummation
 \end{equation}
 where the factor $1/(1{+}K^2) = 0.77$ is the standard
 resummation of $\sum_{n=0}^\infty (-K^2)^n$.
-The series converges ($|K^2| = 0.300 < 1$);
-truncating at $n = 2$ gives remainder
+The series converges by the Leibniz criterion
+(alternating, with $|K^2| = 0.300 < 1$).
+Truncating at $n = 2$ gives remainder
 $|R_2| \le K^6/(1{+}K^2) = 0.021$ ($2.1\%$).
+Higher-order coefficients (deviating from the geometric
+series) contribute theoretical uncertainty
+$O(K^4) \approx 9\%$; the match to Planck
+($0.6\sigma$) is within this uncertainty.
 No new parameter enters.
 The one-loop corrections (\S\ref*{IV-sec:loops})
 add $+0.30$ pp to $\Omega_b$, giving
@@ -1159,7 +1185,7 @@ of the $H_0$ tension.
 Since $\Omega_b = \Omega_b h^2 / h^2$, the prediction
 is sensitive to the Hubble tension: the $0.40$\,pp residual
 ($4.53\%$ vs.\ $4.93\%$) corresponds to an $8\%$ relative
-error on~$\Omega_b$ for a theory with two discrete axioms
+error on~$\Omega_b$ for a theory with one discrete criterion
 and zero continuous parameters.
 \end{remark}
 
@@ -1450,8 +1476,71 @@ The spin-independent cross section on a nucleon:
 vastly below the LZ bound \citep{LZ2023} ($6.5 \times 10^{-48}$\,cm$^2$).
 \emph{Prediction}: the frozen Havelock dark matter is invisible
 to all current and planned direct detection experiments.
-Detection requires gravitational probes (gravitational wave
-signatures, structure formation, CMB spectral distortions).
+Six properties distinguish the frozen-mode dark matter
+from generic CDM and from competing models;
+each is falsifiable:
+\begin{enumerate}
+\item \emph{No self-interaction.}
+  The frozen angular modes are orthogonal $\mathbb{Z}_N$
+  Fourier modes: their overlap integrals vanish by character
+  orthogonality.
+  The predicted self-interaction cross section is
+  $\sigma_{\mathrm{self}}/m = 0$ at tree level.
+  If cluster-merger observations
+  (Bullet Cluster, Abell~3827, MACS~J0025)
+  or dwarf-galaxy cores establish
+  $\sigma_{\mathrm{self}}/m > 0.1\;\mathrm{cm^2/g}$,
+  the frozen-mode model is falsified.
+\item \emph{No annihilation or decay signal.}
+  Each frozen mode is stabilized by
+  $\mathbb{Z}_{11}$ charge conservation:
+  no decay channel exists within the KK spectrum.
+  Indirect-detection experiments
+  (Fermi-LAT, CTA, IceCube) should see no
+  excess gamma rays, neutrinos, or positrons from
+  DM annihilation or decay.
+  A confirmed DM annihilation signal at any mass
+  falsifies the model.
+\item \emph{Cold, not warm.}
+  The frozen modes are produced at rest
+  (zero peculiar velocity at the phase transition).
+  The free-streaming length is
+  $\lambda_{\mathrm{fs}} \sim v_0/(H\,a)
+  \sim 0$ (non-relativistic at production).
+  Lyman-$\alpha$ forest observations constraining
+  WDM below $m_{\mathrm{WDM}} > 5$\,keV are automatically
+  satisfied; a detection of warm-DM suppression
+  in the matter power spectrum at $k > 10\;h/$Mpc
+  would falsify the model.
+\item \emph{Four species, equal energy density.}
+  Equipartition gives $\rho_1 = \rho_2 = \rho_3 = \rho_4$
+  (eq.~above), with mass ratios
+  $1:\sqrt{3}:\sqrt{6}:\sqrt{10}$.
+  Multi-component CDM with equal energy fractions
+  produces a step-like transfer function
+  $T(k)$ with features at $k_i \propto M_i$
+  (the free-streaming scale of each species).
+  For masses $50$--$950$\,TeV, the steps lie at
+  $k \sim 10^8$--$10^{10}\;h/$Mpc, below the Silk scale
+  and unresolvable by current surveys.
+  Future 21\,cm intensity mapping (SKA, HERA) at
+  $z > 30$ may probe this regime.
+\item \emph{No collider signal.}
+  The lightest frozen mode at $50$--$300$\,TeV
+  exceeds the energy reach of the LHC ($14$\,TeV)
+  and planned colliders (FCC-hh at $100$\,TeV
+  reaches only the lightest species at the lowest
+  polygon scale).
+  A DM particle discovered at $m < 50$\,TeV
+  falsifies the model.
+\item \emph{$N_{\mathrm{eff}}$ unchanged.}
+  The frozen modes decouple before BBN
+  ($T_N \sim 300$\,TeV $\gg T_{\mathrm{BBN}} \sim 1$\,MeV)
+  and contribute $\Delta N_{\mathrm{eff}} = 0$
+  to the radiation density.
+  CMB-S4 constraining $N_{\mathrm{eff}} = 3.044 \pm 0.03$
+  tests this directly.
+\end{enumerate}
 
 
 %% ====================================================================
@@ -1598,10 +1687,10 @@ $\Delta m^2_{\mathrm{sol}}/\Delta m^2_{\mathrm{atm}} = 1/31.5$
 The absolute scale $H_0 = 67.4$\,km/s/Mpc requires one
 dimensionful input ($M_P$) and matches Planck to $< 0.1\sigma$.
 
-The weakest link is the baryon asymmetry
-($\eta_B \approx 3\,\eta_B^{\mathrm{obs}}$), limited by
-lattice QCD parameters shared with all electroweak
-baryogenesis models.
+The baryon asymmetry
+$\eta_B = 5.96 \times 10^{-10}$ matches the observed
+$6.12 \times 10^{-10}$ to $2.6\%$, with all inputs
+derived from $N = 7$.
 Five falsifiable predictions, normal neutrino hierarchy,
 $w = -1$ exactly, no $0\nu\beta\beta$ decay,
 $\Omega_k = 0$ exactly (\S\ref{sec:geometry-initial}),

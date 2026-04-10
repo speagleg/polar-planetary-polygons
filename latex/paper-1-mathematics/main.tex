@@ -5,8 +5,9 @@
 \externaldocument[III-]{../paper-3-gravity/main}
 \externaldocument[A-]{../paper-A-appendices/main}
 \externaldocument[S-]{../supplement-number-theory/main}
-\externaldocument[V-]{../paper-5-cosmology/main}
-\externaldocument[VI-]{../paper-6-discussion/main}
+\externaldocument[V-]{../paper-5-s3-framework/main}
+\externaldocument[VI-]{../paper-5-cosmology/main}
+\externaldocument[VII-]{../paper-6-discussion/main}
 \externaldocument[SP-]{../supplement-proofs/main}
 
 \title{\seriestitle\\[6pt]\large Paper I: Mathematical Foundations}
@@ -746,10 +747,13 @@ geodesic distance, so the hypothesis of the theorem is not
 satisfied.  The identity~\eqref{eq:riemannian-havelock}
 applies to the universal cover, not to the quotient.
 
-\emph{Step 3: From mode-independent trace to the eigenvalue formula.}
-Step~2 shows that $\mathrm{tr}(\mathbf{H}^{(m)}) = \delta$
-(mode-independent).  It remains to show that the
-\emph{individual} constrained eigenvalue is $C_1 - m(N{-}m)/2$.
+\emph{Step 3: Eigenvalue formula from conformal coordinates.}
+Steps~1--2 establish a necessary condition: the trace of
+each $2\times 2$ Fourier block is mode-independent.
+Step~3 proves the full result by direct computation:
+the tangential Hessian is exactly $m(N{-}m)/2$
+(from the $\csc^2$ DFT), and the radial sector contributes
+only to~$C_1$.
 On any surface satisfying the hypothesis,
 the Laplacian Green's function has a logarithmic singularity:
 $G(x,y) = -(2\pi)^{-1}\ln d(x,y) + \varphi(x,y)$, where $\varphi$
@@ -808,8 +812,18 @@ $\prod_{p=1}^{N-1}(1 - \xi\,e^{2\pi ip/N}) = 1 - \xi^N$
 see e.g.\ \citealt{Lang2002}, \S IV.1)
 (with $\xi = \rho^2/a^2$), giving
 $\ln|1 - \xi^N|$, a function of~$\rho$ alone.
-For tangential modes $m \ge 1$, the perturbation phases $a_k$ satisfy $\sum_k a_k = 0$ ($\mathbb{Z}_N$ orthogonality), preserving the product identity at all perturbation orders.
-Explicitly: $\partial_\varepsilon|_0 \prod(1 - \xi\,e^{i(\theta_k + \varepsilon a_k)}) = -\xi\prod'(1{-}\xi\omega^k)\sum_k i a_k \omega^k/(1{-}\xi\omega^k)$. The constraint $\sum a_k = 0$ forces this into $\mathbb{Z}_N$ modes $m \ge 1$, each giving an independent eigenvalue.
+For tangential perturbations: the Hessian
+$H_{jk} = \partial^2 H/\partial\theta_j\partial\theta_k$
+at the $\mathbb{Z}_N$-symmetric equilibrium is a
+$\mathbb{Z}_N$-circulant (because $H$ is
+$\mathbb{Z}_N$-invariant at the equilibrium).
+A circulant matrix is exactly diagonalized by the
+discrete Fourier transform (standard linear algebra),
+with eigenvalues equal to the DFT of the first row.
+The Havelock identity (Lemma~\ref{lem:havelock-identity})
+evaluates these DFT eigenvalues as $T_m = m(N{-}m)/2$.
+No perturbative approximation is involved:
+the circulant structure is exact.
 Although the \emph{individual} image terms
 $\ln|a^2 - \rho^2\,e^{2\pi ip/N}|$ depend on the
 angular separation~$p/N$, their \emph{sum} does not.
@@ -821,9 +835,16 @@ so the entire $V_{\mathrm{rad}}$
 has \emph{zero} tangential Hessian.
 
 The constraint $J$ (the angular impulse / moment map)
-also depends only on $|z_k|$, so $\partial^2 J/\partial\theta^2 = 0$
-and the Lagrange multiplier contributes nothing
-to the tangential eigenvalue.
+depends only on the radii:
+$J = \sum_k \kappa_k\,\Phi(|z_k|)$
+where $\Phi(\rho) = \ln(1 - \rho^2/a^2)$ on~$\mathbf{H}^2$,
+$\Phi(\rho) = -\ln(1 + \rho^2/a^2)$ on~$\mathbf{S}^2$,
+and $\Phi(\rho) = \rho^2$ on the plane.
+In every case $\partial^2 J/\partial\theta_j\partial\theta_k = 0$
+(the $\theta$-dependence cancels at the $\mathbb{Z}_N$-symmetric
+equilibrium because $|z_k| = \rho$ for all~$k$),
+so the Lagrange multiplier $\mu_L\,\partial^2 J/\partial\theta^2 = 0$
+contributes nothing to the tangential eigenvalue.
 
 The tangential Hessian of $-\sum\!\ln|z_j{-}z_k|$
 at the ring $z_p = \rho\,e^{2\pi ip/N}$ is a
@@ -1004,7 +1025,7 @@ stability boundary}:
 $N$ & 3 & 4 & 5 & 6 & 7 & $\ge 8$ \\
 \midrule
 $\varphi_{\mathrm{crit}}$ & $60.0^\circ$ & $48.2^\circ$ &
-  $41.4^\circ$ & $25.8^\circ$ & $0^\circ$ &, \\
+  $41.4^\circ$ & $25.8^\circ$ & $0^\circ$ & --- \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1077,7 +1098,7 @@ $N$ & $m(N{-}m)/2$ & $\cos\varphi_{\mathrm{crit}}$ & $\xi_{\mathrm{crit}}$ &
 6 & $9/2$ & $9/10$ & $1/19$ & $25.8^\circ$ & $\varphi_0 < 25.8^\circ$ \\
 7 & $6$ & $1$ & $0$ & $0^\circ$ &
   pole only (marginal) \\
-$\ge 8$ & $> N{-}1$ & $> 1$ &  ( & )  & never \\
+$\ge 8$ & $> N{-}1$ & $> 1$ & --- & --- & never \\
 \bottomrule
 \end{tabular}
 \end{center}

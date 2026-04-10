@@ -29,10 +29,12 @@ Then $b = a{+}1 = 5$ (Schwarz spherical bound),
 $c = a{+}2 = 6$ (affine mark recurrence),
 $|I^*| = abc = 120$, $h = 30$, $\operatorname{rank} = 8$,
 $\dim(E_8) = 120 + 128 = 248$.
-The four fundamental forces correspond to the prime
-factorization of $h = 2 \times 3 \times 5$:
-$p{=}5 \to \mathrm{SU}(3)$, $p{=}3 \to \mathrm{SU}(2)$,
-$p{=}2 \to$ gravity, boundary~$\to \mathrm{U}(1)$.
+The nine Cartan eigenvalues decompose by the primes
+of $h = 2 \times 3 \times 5 = 30$ into four sectors
+whose eigenvalue counts and stabilizer orders
+match the SM gauge groups via the McKay correspondence
+(Theorem~\ref{thm:spectral-decomp}
+and~\ref{thm:gauge-derivation}).
 At $K = 0$ the dominant saddle changes discontinuously from
 the icosahedron ($E_8$) to the heptagon (SM).
 The golden decoherence theorem shows that the split between
@@ -472,11 +474,16 @@ $c \coloneqq d_{\max}(\tilde{E}_8)$ (the maximum affine mark):
   \dim(E_8) &= |I^*| + 2^{\operatorname{rank}-1} &&= 120 + 128 = 248
     &&(\mathrm{SO}(16)\text{ branching}).
 \end{alignat}
-Two inputs: $a = 4$ (graph theory, Perron--Frobenius)
+Two inputs: $a = 4$ (the spectral diameter of
+\emph{every} bipartite affine ADE diagram,
+Theorem~I-\ref{I-thm:spectral-diameter};
+not specific to $E_8$)
 and the Onsager selection of the icosahedron (Cohn--Kumar).
-The mark-balance $k_1 = a$ is the bridge:
-it selects $E_8$ from the universal spectral diameter~$a$
-plus the $(2,3,5)$ triangle datum.
+The derivation is not circular: $a = 4$ is a universal
+graph-theoretic constant (Perron--Frobenius on trees),
+and the mark-balance condition $k_1 = a$ selects $E_8$
+from among $\tilde{D}_n$, $\tilde{E}_6$, $\tilde{E}_7$,
+$\tilde{E}_8$ (all of which share $a = 4$).
 \end{theorem}
 
 \begin{proof}
@@ -557,18 +564,31 @@ Note $\operatorname{rank} - 1 = 7 = \sum\text{pivots} = N_{\mathrm{crit}}$.
 The nine $\tilde{E}_8$ Cartan eigenvalues decompose by effective denominator
 $k = h/\gcd(m,h)$ into four sectors corresponding to the primes of~$h = 30 = 2 \times 3 \times 5$:
 \begin{center}
-\begin{tabular}{llcl}
-Prime & Eigenvalues & Count & Physical sector \\
+\begin{tabular}{llc}
+Prime & Eigenvalues & Count \\
 \hline
-$p=5$ (golden)    & $\pm\varphi,\;\pm 1/\varphi$ & 4 & Strong $\mathrm{SU}(3)$ \\
-$p=3$ (triangle)  & $\pm 1$                       & 2 & Weak $\mathrm{SU}(2)$ \\
-$p=2$ (Majorana)  & $0$                           & 1 & Gravity (geometric) \\
-boundary          & $\pm 2$                        & 2 & EM $\mathrm{U}(1)$ \\
+$p=5$ (golden)    & $\pm\varphi,\;\pm 1/\varphi$ & 4 \\
+$p=3$ (triangle)  & $\pm 1$                       & 2 \\
+$p=2$ (Majorana)  & $0$                           & 1 \\
+boundary ($p=1$)  & $\pm 2$                        & 2 \\
 \end{tabular}
 \end{center}
 The effective spectral denominators $\{1,2,3,5\}$ have
 $\sum = 11$ and $\prod = 30 = h$.
 \end{theorem}
+
+\noindent
+The gauge group derivation (Theorem~\ref{thm:gauge-derivation} below
+and Paper~IV, \S8) assigns each sector to a physical force
+through the McKay correspondence and the Spectral--CS bridge
+(Paper~IV, Lemma~\ref*{IV-lem:spectral-bridge}):
+the icosahedral stabilizer orders $\{|Z_2|, |Z_3|, |Z_5|\}$
+equal the dual Coxeter numbers $\{h^\vee(\mathrm{SU}(2)),
+h^\vee(\mathrm{SU}(3)), h^\vee(\mathrm{SU}(3)){+}h^\vee(\mathrm{SU}(2))\}$.
+This assignment is derived, not imposed:
+it follows from the McKay map
+$\Gamma \subset \mathrm{SU}(2) \to$~Dynkin diagram
+applied to each stabilizer subgroup.
 
 \begin{proof}
 The affine $m$-values $\{0,6,10,12,15,18,20,24,30\}$ group by
@@ -768,12 +788,29 @@ time-averaged decoherence (Weyl equidistribution).
 The $S^3$ framework lifts the 2D vortex theory to three dimensions,
 revealing the full $E_8$ structure (including the half-integer spinor
 sector) and providing the UV completion for the series.
-The transition from $S^3$ to $\mathbb{R}^3$ at $K = 0$ is topological
-(a Thurston geometry change), producing the $E_8 \to \mathrm{SM}$
-breaking without a Higgs mechanism.  Paper~VI uses this as the
-foundation for the cosmological parameters: the 600-cell is the
-inflationary ground state, the $K = 0$ transition is reheating,
-and $\Lambda \propto K$ is the residual curvature.
+The $E_8 \to \mathrm{SM}$ transition at $K = 0$
+(Theorem~\ref{thm:phase-transition})
+is realized dynamically by the WDW tunneling of the
+breathing mode~$\rho$ through the Born--Oppenheimer barrier
+(Paper~VI, \S\ref*{VI-sec:hierarchy}).
+Before tunneling, the base surface has positive curvature
+($S^2$, $K > 0$): the dominant saddle is the icosahedron,
+the symmetry group is $A_5$, and the McKay correspondence
+gives $E_8$.
+At the barrier top ($K = 0$, the flat plane):
+the two saddles compete and the symmetry changes
+discontinuously.
+After tunneling, the base has negative curvature
+($\mathbf{H}^2$, $K < 0$): the dominant saddle is the
+$N = 7$ heptagon, the Frobenius action gives
+$\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$,
+and the tunneling rate sets the hierarchy
+$M_P/M_{\mathrm{EW}} = e^{S_{\mathrm{BO}}(7)}$
+(Paper~VI, Theorem~\ref*{VI-thm:hierarchy}).
+The $E_8 \to \mathrm{SM}$ breaking is therefore not a
+structural comparison between two systems but a
+single quantum-mechanical tunneling event whose
+rate determines the electroweak hierarchy.
 
 All results in this paper are backed by 77 computational tests
 in the companion code repository

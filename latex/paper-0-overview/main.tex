@@ -4,8 +4,9 @@
 \externaldocument[II-]{../paper-2-physics/main}
 \externaldocument[III-]{../paper-3-gravity/main}
 \externaldocument[IV-]{../paper-4-field-theory/main}
-\externaldocument[V-]{../paper-5-cosmology/main}
-\externaldocument[VI-]{../paper-6-discussion/main}
+\externaldocument[V-]{../paper-5-s3-framework/main}
+\externaldocument[VI-]{../paper-5-cosmology/main}
+\externaldocument[VII-]{../paper-6-discussion/main}
 \externaldocument[A-]{../paper-A-appendices/main}
 
 \title{\seriestitle\\[6pt]\large Overview and Preface}
@@ -23,8 +24,9 @@ This single formula, evaluated on the Seifert manifold
 $\mathbf{H}^2 \times_N S^1$, produces the Standard Model gauge group,
 the Weinberg angle, the CKM phase, three generations of fermions,
 quark confinement, the cosmological constant, the Hubble parameter,
-and the dark matter fraction, from two axioms ($N = 7$ and the Seifert geometry) and one
-scale ($M_P$).
+and the dark matter fraction, from one algebraic criterion
+(integer spin at the Havelock threshold, giving $N = 4$ and $N = 7$)
+and two scales ($M_P$ and $\Delta m^2_{\mathrm{atm}}$).
 
 The mathematical foundation is the Havelock eigenvalue
 $\lambda_m = (N{-}1) - m(N{-}m)/2$, which governs the linear stability
@@ -120,7 +122,7 @@ This work is presented as a series of seven papers plus supplements:
   and Bolza convergence (Paper~I), multi-ring instability proof
   (Paper~II), BTZ spectral statistics (Paper~III),
   Weinberg angle, CKM phase, and string tension derivations
-  (Paper~IV), Pell identity via the Klein quartic (Paper~V).
+  (Paper~IV), Pell identity via the Klein quartic (Paper~VI).
 \item[Supplement~A: Number Theory.]  The Bolza modular form
   $\eta(8z)\eta(16z)$ (weight-$1$, level~$128$) identified from
   the palindromic quartic; Hecke eigenvalues and Pythagorean
@@ -230,7 +232,7 @@ stated hypotheses with explicit computation), or
 \begin{enumerate}\setcounter{enumi}{6}
 \item $\mathbf{SU(3) \times SU(2) \times U(1)}$ from the
   $N = 7$ orbifold via McKay correspondence + Chern--Simons
-  gravity (Theorems~IV-6.1, IV-6.3).
+  gravity (Derivations~IV-6.1, IV-6.3).
 
 \item \textbf{Confinement is exact}: the Wilson loop vanishes
   by the Verlinde $\mathbb{Z}_3$ character sum; the QCD string
@@ -238,18 +240,15 @@ stated hypotheses with explicit computation), or
   (Prop~IV-7.3, zero free parameters).
 
 \item \textbf{Weinberg angle} $\sin^2\theta_W = 3/11 = 0.2727$
-  from the CS conformal weight ratio (Theorem~IV-9.1).
+  from the CS conformal weight ratio (Derivation~IV-9.1).
 
 \item \textbf{CKM phase} $\delta = \arctan(\sqrt{7}) = 69.3^\circ$
   from the $\mathbb{Z}_7$ quadratic Gauss sum
-  (Paper~IV, Theorem~\ref*{IV-thm:ckm-phase};
-  experiment: $69^\circ \pm 3^\circ$).
+  (Paper~IV, Derivation~\ref*{IV-thm:ckm-phase};
+  experiment: $65.9^\circ \pm 3.5^\circ$, CKMfitter 2024).
 \item \textbf{PMNS neutrino mixing} from CKM--PMNS complementarity:
   $\theta_{12} = 32.9^\circ$, $\theta_{23} = 45^\circ$,
   $\theta_{13} = 9.3^\circ$ (Paper~IV, \S\ref*{IV-sec:pmns}).
-\item \textbf{Baryon asymmetry}
-  $\eta_B = J \cdot K^{15}/7 = 5.96 \times 10^{-10}$
-  ($2.6\%$ match to Planck; Paper~V).
 
 \item \textbf{Three generations}: $(N-1)/2 = 3$ palindromic
   mode pairs at $N = 7$.  Not a free parameter.
@@ -257,7 +256,7 @@ stated hypotheses with explicit computation), or
 
 \subsection{The $S^3$ framework and $E_8$}
 
-\begin{enumerate}\setcounter{enumi}{11}
+\begin{enumerate}\setcounter{enumi}{12}
 \item \textbf{$I^*$ character table $=$ extended $E_8$ Dynkin}
   (McKay correspondence, Theorem~I-\ref{I-thm:mckay-i-star}).
   McKay adjacency eigenvalues $\{{\pm}2, {\pm}\varphi,
@@ -322,33 +321,34 @@ stated hypotheses with explicit computation), or
 
 \item \textbf{Spectral Weinberg angle}:
   $\sin^2\theta_W = (a{-}1)/(a{+}N_{\mathrm{crit}}) = 3/11$
-  (Theorem~IV-\ref{IV-thm:spectral-weinberg}).
+  (Corollary~IV-\ref{IV-thm:spectral-weinberg}).
 \end{enumerate}
 
 \subsection{Cosmology}
 
-\begin{enumerate}\setcounter{enumi}{18}
+\begin{enumerate}\setcounter{enumi}{26}
 \item $\mathbf{H_0 = 67.4}$~\textbf{km/s/Mpc} from the
-  $N = 11$ instanton (Theorem~V-3.1;
+  $N = 11$ instanton (Derivation~VI-3.1;
   Planck: $67.4 \pm 0.5$).
 
 \item \textbf{Dark matter}: frozen KK polygon modes,
-  $50$--$950$~TeV, absolutely stable (\S V-5).
+  $50$--$950$~TeV, absolutely stable (\S VI-5).
 
 \item \textbf{Baryogenesis}:
-  $\eta_B \approx 2 \times 10^{-9}$, wall-velocity
-  independent (\S V-7).
+  $\eta_B = 5.96 \times 10^{-10}$, wall-velocity
+  independent (\S VI-7).
 
 \item \textbf{Falsifiable binary predictions}:
   normal neutrino hierarchy, $w = -1$ exactly,
   no $0\nu\beta\beta$, proton stable,
   $\theta_{\mathrm{QCD}} = 0$.
-  Five experiments will test these within a decade (Paper~VII).
+  Ten binary predictions, testable by five experimental
+  programmes within two decades (Paper~VII).
 \end{enumerate}
 
 \subsection{Planetary applications}
 
-\begin{enumerate}\setcounter{enumi}{15}
+\begin{enumerate}\setcounter{enumi}{30}
 \item \textbf{Saturn's hexagon} ($N = 6$):
   Rossby-limited, fully derived from the 2D Laplacian (\S II-10).
 
@@ -444,7 +444,8 @@ every input and structural choice; the status classification
 The falsifiable predictions (\S3.3) are binary: normal hierarchy,
 $w = -1$, no $0\nu\beta\beta$, proton stable,
 $\theta_{\mathrm{QCD}} = 0$.
-Five experiments will test these within a decade.
+Ten binary predictions, testable by five experimental
+programmes within two decades.
 
 %% ====================================================================
 \section*{Preface}

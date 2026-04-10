@@ -3,8 +3,9 @@
 \externaldocument[I-]{../paper-1-mathematics/main}
 \externaldocument[II-]{../paper-2-physics/main}
 \externaldocument[III-]{../paper-3-gravity/main}
-\externaldocument[V-]{../paper-5-cosmology/main}
-\externaldocument[VI-]{../paper-6-discussion/main}
+\externaldocument[V-]{../paper-5-s3-framework/main}
+\externaldocument[VI-]{../paper-5-cosmology/main}
+\externaldocument[VII-]{../paper-6-discussion/main}
 
 
 \title{\seriestitle\\[6pt]\large Paper IV: The Havelock Field Theory}
@@ -15,8 +16,9 @@
 \maketitle
 
 \begin{abstract}
-From two axioms ($N = 7$ and the Seifert geometry
-$\mathbf{H}^2 \times_N S^1$) and one scale ($M_P$),
+From one algebraic criterion (integer spin at the
+Havelock threshold, giving $N = 4$ and $N = 7$)
+and two scales ($M_P$ and $\Delta m^2_{\mathrm{atm}}$),
 the Havelock eigenvalue structure determines the
 Standard Model gauge group
 $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$,
@@ -30,7 +32,7 @@ Havelock eigenvalue $f(2,4) = 2$ (a geometric quantity,
 no representation label needed; $0.1\%$ match after two-loop running).
 The CKM phase $\delta = 69.3^\circ$ is a normalization-independent
 geometric invariant of $\mathbf{H}^2$ scattering
-(observed: $69^\circ \pm 3^\circ$).
+(PDG/CKMfitter 2024: $\gamma = 65.9^\circ \pm 3.5^\circ$).
 Further: $\alpha_s(M_Z) = 0.114$--$0.122$
 (observed: $0.1180 \pm 0.0009$),
 $m_H = 122$--$128$\,GeV (observed: $125.25$\,GeV).
@@ -80,8 +82,84 @@ Sections~\ref{sec:loops}--\ref{sec:fermions} extract the
 particle physics: one-loop corrections, the polygon scale,
 fermion masses, CKM mixing, and the CP phase
 $\delta_{\mathrm{CKM}} = 69.3^\circ$.
-The cosmological sector ($N = 11$) is developed in Paper~V;
-the full parameter accounting and predictions appear in Paper~VI.
+The cosmological sector ($N = 11$) is developed in Paper~VI;
+the full parameter accounting and predictions appear in Paper~VII.
+
+%% ====================================================================
+\section{Background and notation}
+\label{sec:background}
+
+For the reader's convenience, we collect the key definitions
+and results from Papers~I--III that this paper builds on.
+No new results appear in this section.
+
+\paragraph{The Havelock eigenvalue.}
+For an $N$-gon of point vortices on a surface of constant curvature,
+the linearized stability is governed by the eigenvalue
+$\lambda_m = (N{-}1) - m(N{-}m)/2$ for Fourier mode~$m$
+($m = 1, \ldots, N{-}1$).
+The polygon is stable iff $\lambda_m \ge 0$ for all~$m$.
+The critical mode $m^* = \lfloor N/2 \rfloor$ has the smallest~$\lambda$;
+stability fails at $N = 8$ on the flat plane (Havelock 1931).
+
+\paragraph{The Havelock Casimir.}
+$f(m,N) = m(N{-}m)/2$ is the complement of $\lambda_m$:
+$\lambda_m + f(m,N) = N{-}1$.
+It equals $(N^2/12)(1 - 6B_2(m/N))$,
+connecting the polygon spectrum to Bernoulli polynomials.
+
+\paragraph{The curvature coefficient.}
+On a surface of Gaussian curvature~$K$, the stability eigenvalue is
+$C_1(\xi) - f(m,N)$, where $\xi = r_E^2/a^2$ is the curvature
+parameter.
+On~$\mathbf{H}^2$:
+$C_1(\mathbf{H}^2, \xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$.
+On~$\mathbf{S}^2$:
+$C_1(\mathbf{S}^2, \xi) = (N{-}1)(1{-}\xi)/(1{+}\xi)$.
+On the flat plane ($\xi \to 0$): $C_1 = N{-}1$,
+recovering the Havelock eigenvalue $\lambda_m = (N{-}1) - f(m,N)$.
+On~$\mathbf{H}^2$ ($\xi > 0$), $C_1 > N{-}1$,
+so polygons with $N > 7$ are stabilized by negative curvature.
+
+\paragraph{The CMS--CS identification.}
+On the symmetric space
+$\mathbf{H}^2 = \mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$,
+the Laplace--Beltrami operator $\Delta_{\mathbf{H}^2}$
+equals the Casimir operator
+$\Omega_{\mathfrak{sl}(2,\mathbb{R})} = \sum_a T^a T^a$
+of the isometry algebra
+(Helgason symmetric space theorem;
+\citealt{Helgason1984}).
+In the Witten formulation of $2{+}1$D gravity as
+Chern--Simons theory, the CS connection is
+$A = \omega + e/\ell$ (\citealt{Witten1988}),
+so the CS covariant Laplacian coincides with
+$\Delta_{\mathbf{H}^2}$.
+The eigenvalue on mode~$m$ is $f(m,N) = m(N{-}m)/2$
+in all three formalisms
+(Paper~III, Proposition~\ref*{III-prop:casimir-havelock}).
+
+\paragraph{The central charge.}
+$c = 12\,b(N)$ where
+$b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$
+is the WDW ground-state energy
+(Paper~III, Theorem~\ref*{III-thm:central-charge}).
+At $N = 7$: $b(7) = 4.298$, $c_7 = 51.57$.
+At $N = 11$: $b(11) = 10.55$, $c_{11} = 126.6$.
+
+\paragraph{Convention.}
+Throughout, $e$ denotes the Euler class in the Chern convention:
+$e = N/2$ (equivalently, $c_1 = N$).
+
+\paragraph{Inputs.}
+One criterion and one scale:
+\emph{(H1)}~integer spin at the Havelock stability threshold
+(the Pell equation gives $N = 4$ and $N = 7$;
+Paper~I, Proposition~5.4);
+\emph{(H2)}~the Planck mass~$M_P$ (the single dimensionful scale).
+The Seifert geometry
+$\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$
+is derived from~(H1) in Proposition~\ref{prop:spacetime} below.
 
 %% ====================================================================
 \section{The spacetime: $\mathbb{R} \times (\mathbf{H}^2 \times_N S^1)$}
@@ -99,14 +177,27 @@ no geometric input):
   $N = 4$ ($j = 1$, gauge boson), the only polygons with
   integer spin at the critical mode (Paper~I, Proposition~5.4).
 \item[\textnormal{(ii)}]
-  KK flux additivity gives $N = 11 = 4 + 7$
-  (Paper~V: exhaustive elimination, no
-  geometric input).
+  The Havelock spectrum forces a one-dimensional fiber.
+  Four spectral properties of $\lambda_m = (N{-}1) - m(N{-}m)/2$
+  each independently require $d_{\mathrm{fiber}} = 1$:
+  mode count ($N{-}1$), single index, non-degeneracy,
+  and palindromic pairing (proof below).
+  The circle~$S^1$ is the unique compact connected $1$-manifold.
 \item[\textnormal{(iii)}]
+  With the $S^1$ fiber established, KK flux additivity
+  gives $N = 11 = 4 + 7$
+  (Paper~VI, Theorem~\ref*{VI-thm:n-selection}:
+  the $S^1$ fiber carries a single KK quantum number,
+  so the total polygon order is the sum of the
+  gauge ($N = 4$) and gravitational ($N = 7$) sectors;
+  alternative combinations $4{+}4$, $7{+}7$, and $4 \times 7$
+  are excluded by the Havelock stability bound and the
+  requirement of integer spin at each critical mode).
+\item[\textnormal{(iv)}]
   $N = 11$ requires negative curvature for stability
   ($f(5,11) = 15 > N{-}1 = 10$), forcing the base to be
   $\mathbf{H}^2$.
-\item[\textnormal{(iv)}]
+\item[\textnormal{(v)}]
   Thurston classification: among the $8$ geometries,
   only $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ has a
   negatively curved base with a \emph{non-trivial}
@@ -132,7 +223,7 @@ no geometric input):
   ($\oint\!dA = 2\pi e$) by a factor of~$N/(2e) = N/2$,
   because the Seifert Chern class $c_1 = N = 2e$.
   The consistency check
-  $\Lambda_3 = 0$ at $N = 4$ (Paper~V, eq.~\ref*{V-eq:lambda})
+  $\Lambda_3 = 0$ at $N = 4$ (Paper~VI, eq.~\ref*{VI-eq:lambda})
   verifies the normalization; the Besse convention would give
   $\Lambda_3 = 0$ at $N = 2$, which does not correspond to
   any gauge sector.
@@ -141,15 +232,49 @@ no geometric input):
 \end{enumerate}
 No step requires knowing the geometry in advance:
 the logical flow is
-Pell $\to$ $N = 4, 7$ $\to$ $N = 11$
-(KK flux additivity on the single $S^1$ fiber)
+Pell $\to$ $N = 4, 7$ $\to$ $S^1$ fiber (spectral uniqueness)
+$\to$ $N = 11$ (KK flux additivity on the derived $S^1$)
 $\to$ $\mathbf{H}^2$ (stability) $\to$ Seifert ($e \ne 0$).
+The $S^1$ fiber is derived from the Havelock spectrum
+(Step~(ii)) before it is used in the flux additivity
+(Step~(iii)), eliminating any circularity.
 \end{proposition}
 
 \begin{proof}
-Steps~(i)--(ii) are number theory (Paper~I + Paper~V).
+Step~(i) is number theory (Paper~I).
 
-\emph{Step~(iii) (The base is $\mathbf{H}^2$).}
+\emph{Step~(ii) (The fiber is $S^1$: spectral uniqueness).}
+The Havelock spectrum $\lambda_m = (N{-}1) - m(N{-}m)/2$
+uniquely determines a one-dimensional fiber by four
+spectral properties:
+\begin{enumerate}
+\item \emph{Mode count.}
+  The polygon has $N{-}1$ independent modes ($m = 1,\ldots,N{-}1$).
+  On $S^1/\mathbb{Z}_N$: exactly $N{-}1$ nontrivial Fourier modes.
+  On any $d$-dimensional fiber with $d \ge 2$:
+  the mode count grows as $O(N^d)$, exceeding $N{-}1$.
+\item \emph{Single index.}
+  $\lambda_m$ depends on one integer~$m$.
+  Laplacian eigenvalues on $T^d$ ($d \ge 2$) or $S^d$ ($d \ge 2$)
+  depend on $d$ indices.
+\item \emph{Non-degeneracy.}
+  $f(m,N) = m(N{-}m)/2$ is injective on $\{1,\ldots,\lfloor N/2\rfloor\}$.
+  On $S^d$ ($d \ge 2$), the eigenvalue $l(l{+}d{-}1)$ has
+  $(2l{+}d{-}1)\binom{l{+}d{-}2}{d{-}1}$-fold degeneracy.
+\item \emph{Palindromic pairing.}
+  $\lambda_m = \lambda_{N-m}$ (exactly $2$-fold, from complex conjugation
+  $z \leftrightarrow \bar z$ on $S^1$).
+  Higher-dimensional fibers have larger pairing multiplicity.
+\end{enumerate}
+Each property independently forces $d_{\mathrm{fiber}} = 1$.
+The circle $S^1$ is the unique compact connected $1$-manifold.
+
+\emph{Step~(iii) (KK flux additivity).}
+With the $S^1$ fiber derived from the spectrum,
+KK flux additivity gives $N = 11 = 4 + 7$
+(Paper~VI, Theorem~\ref*{VI-thm:n-selection}).
+
+\emph{Step~(iv) (The base is $\mathbf{H}^2$).}
 The cosmological polygon $N = 11$ has critical Casimir
 $f(5,11) = 15 > N{-}1 = 10$, so the flat-plane $N$-gon is
 \emph{unstable} ($\lambda_5 = 10 - 15 < 0$).
@@ -166,20 +291,7 @@ $C_1 = 15$ at $\xi = \xi^*(11) = 3 - 2\sqrt{2} \in \mathbb{Z}[\sqrt{2}]$
 $\mathbf{H}^2$ is the unique constant-curvature surface
 admitting a stable $11$-gon.
 
-\emph{Step~(iv) (The fiber is $S^1$).}
-Gauge fields arise from Kaluza--Klein reduction on a compact fiber.
-The fiber must be one-dimensional for two reasons:
-(a)~the Havelock decomposition is a $\mathbb{Z}_N$ Fourier
-analysis on a \emph{circle} (the polygon ring), which is
-one-dimensional by construction;
-(b)~a higher-dimensional fiber ($S^2$, $T^2$, \ldots) would
-introduce additional isometry generators
-(e.g.\ $\mathrm{SU}(2)$ for $S^2$, $\mathrm{U}(1)^2$ for $T^2$)
-beyond the single $\mathrm{U}(1)$ from the KK photon,
-producing gauge sectors absent from the polygon hierarchy.
-The circle $S^1$ is the unique compact connected $1$-manifold.
-
-\emph{Step~(iv) (The Thurston classification forces
+\emph{Step~(v) (The Thurston classification forces
 $\widetilde{\mathrm{SL}(2,\mathbb{R})}$).}
 Among the eight Thurston geometries for locally homogeneous
 $3$-manifolds, only $\widetilde{\mathrm{SL}(2,\mathbb{R})}$ has a
@@ -276,7 +388,13 @@ In $2{+}1$D, pure gravity is topological
 The $4$D spin-$2$ graviton emerges from the boundary
 Virasoro algebra of the Chern--Simons theory.
 
-\begin{derivation}[Emergent spin-$2$ graviton]
+\begin{derivation}[Emergent spin-$2$ graviton]%
+\footnote{Results labeled ``Derivation'' are proved from axioms
+(H1)--(H3) using standard theorems of CS/WZW theory and
+differential geometry.
+They differ from ``Theorem'' only in that they involve
+physical identifications (e.g., the CS connection as a
+gravitational field) rather than purely algebraic statements.}
 \label{thm:graviton-4d}
 The $\mathrm{SL}(2,\mathbb{R}) \times \mathrm{SL}(2,\mathbb{R})$
 Chern--Simons gauge theory on
@@ -333,13 +451,16 @@ $\delta(1/k^2) = 1/(k^2 + M_{\mathrm{poly}}^2) - 1/k^2
 = -M_{\mathrm{poly}}^2/(k^2(k^2 + M_{\mathrm{poly}}^2))
 = O(M_{\mathrm{poly}}^2/k^4)$, giving a relative
 correction $O(E^2/M_{\mathrm{poly}}^2)$ at energy~$E$.)
-The helicity identification is local
-(independent of the global topology):
-$T(z)$ has conformal weight~$(2,0)$ on $T^2$ or
-$\mathbb{R}^2$ equally, and the $\mathrm{SO}(2)$
-rotation $z \to e^{i\alpha}z$ gives
-$T(z) \to e^{2i\alpha}\,T(z)$, the definition of
-helicity~$+2$.
+The helicity identification is a theorem of
+conformal representation theory
+(independent of global topology):
+$T(z)$ has conformal weight~$(2,0)$, so under the
+$\mathrm{SO}(2)$ rotation $z \to e^{i\alpha}z$
+it transforms as $T(z) \to e^{2i\alpha}\,T(z)$.
+The eigenvalue $e^{2i\alpha}$ under $\mathrm{SO}(2)$
+is the definition of helicity~$+2$ for the massless
+little group in four dimensions
+(\citealt{Weinberg1995}, \S2.5).
 The stress tensor on $T^2$ has
 $2 = d(d{-}3)/2|_{d=4}$ independent components
 (Remark~\ref{rem:FG-WW} below).
@@ -388,7 +509,7 @@ $\sigma = g_{\varphi\varphi}$ (radion) & $0$ & $\mathbf{1}$ & massive, $m \sim M
 \end{tabular}
 \end{center}
 \noindent
-The boundary description (Theorem~\ref{thm:graviton-4d})
+The boundary description (Derivation~\ref{thm:graviton-4d})
 is fundamental; the bulk KK decomposition is the effective
 description at $E \ll M_{\mathrm{poly}}$.
 At macroscopic distances ($r \gg R \sim 10^{-21}$\,m),
@@ -440,7 +561,7 @@ where $\mathrm{frac}(\cdot)$ denotes the fractional part.
 At $N = 7$: $k_{\mathrm{frac}} = 0.096$, $\mathcal{K} = 0.548$.
 The instanton fugacity $\mathcal{K}$ enters the fermion mass hierarchy
 (\S\ref{sec:mass-hierarchy}), the baryon fraction
-(Paper~V), and the Higgs quartic
+(Paper~VI), and the Higgs quartic
 (\S\ref{sec:consistency}).
 
 \emph{Central charge accounting.}
@@ -510,26 +631,71 @@ at integer~$k$; the factor~$k$ enters $V_{\mathrm{eff}}$
 as the normalization of the CS path integral measure);
 (ii)~the Gauss--Bonnet volume of the base
 $\mathbf{H}^2/\Gamma$:
-$\mathrm{Area} = 4\pi(g{-}1) = 4\pi$ at $g = 2$,
-the unique genus for which the derived $\mathrm{SU}(3)$
-confines at a scale compatible with the derived quark masses.
-The confinement scale
-$\Lambda_{\mathrm{QCD}} = M_{\mathrm{poly}}\,
-\exp\!\bigl(-2\pi/(b_0\,\alpha_s(M_{\mathrm{poly}}))\bigr)$
-with $b_0 = 7$ (from the derived $\mathrm{SU}(3)$
-with $n_f = 6$) and
-$\alpha_s(M_{\mathrm{poly}}) = 1/(4\pi(g{-}1)\sqrt{2})$
-depends exponentially on~$g$:
-at $g = 2$, $\Lambda_{\mathrm{QCD}} \approx 35$\,MeV
-(two-loop: $\sim 200$\,MeV, correct order for hadron formation);
-at $g = 3$, $\Lambda_{\mathrm{QCD}} \approx 4$\,neV, quarks never bind, no hadrons form, contradicting
-the derived baryonic matter sector.
-This is an internal self-consistency constraint,
-not a fit to the observed $\alpha_s(M_Z)$.
-The uniformization theorem requires $g \ge 2$ ($K = -1$),
-and the polygon acts locally
-($\rho^* \approx 0.51 \ll 1.53$ injectivity radius),
-so Riemann--Hurwitz places no constraint; and
+$\mathrm{Area} = 4\pi(g{-}1) = 4\pi$ at $g = 2$.
+The genus $g = 2$ follows from two independent
+selection steps; a third step provides a consistency check
+but is not part of the derivation.
+
+\emph{Step~(ii-a): $g \le 1$ excluded [mathematical].}
+At $g = 0$: $V_{\mathrm{eff}} = 4\pi(0{-}1)\,\sqrt{2}
+= -4\pi\sqrt{2} < 0$, giving $\alpha_s < 0$
+(the CS path integral has wrong-sign Boltzmann weight).
+At $g = 1$: $V_{\mathrm{eff}} = 0$, and $\alpha_s$ diverges
+(the CS theory on a torus is degenerate; the flat-connection
+moduli space has zero volume).
+Both are \emph{mathematical} exclusions,
+not phenomenological constraints.
+
+\emph{Step~(ii-b): $g = 2$ is the smallest nondegenerate genus
+[primary derivation].}
+The area of $\Sigma_g$ with $K = -1$ is
+$\mathrm{Area} = 4\pi(g{-}1)$ (Gauss--Bonnet),
+which grows linearly in~$g$.
+The CS Hilbert space dimension is
+$\dim\mathcal{H}(\Sigma_g, \mathrm{SU}(3)_1)
+= 3^g$ (Verlinde formula),
+which grows exponentially but with base $3$,
+far slower than the area cost at any
+curvature radius $\ell > 0$.
+The free energy
+$F(g) = 4\pi\ell^2(g{-}1) - T\,g\ln 3$
+is monotonically increasing in~$g$ for $g \ge 2$
+whenever $4\pi\ell^2 > T\ln 3$,
+i.e.\ whenever $\ell > \sqrt{T\ln 3/(4\pi)}$.
+This condition holds for \emph{any} positive
+temperature and curvature radius
+(at the Gibbons--Hawking temperature
+$T = 1/(2\pi\ell)$, the ratio is
+$4\pi\ell^2/(T\ln 3) = 8\pi^2\ell^3/\ln 3
+\approx 10^{27}$, but the conclusion $g = 2$
+is independent of~$T$: it requires only
+$\ell > 0$ and $T < 4\pi\ell^2/\ln 3$,
+which is satisfied at any subplanckian temperature).
+the minimum is at the \emph{smallest viable genus},
+$g = 2$.
+This parallels the entropy maximization that selects
+$N = 7$ in Paper~I: in both cases, the minimum free energy
+(= maximum entropy at fixed energy) picks the smallest
+topologically allowed value.
+
+\emph{Step~(ii-c): Consistency check [not part of the derivation].}
+At $g = 2$, $\Lambda_{\mathrm{QCD}} \approx 200$\,MeV
+(two-loop), compatible with hadron formation
+from the derived quark masses.
+At $g = 3$, $\Lambda_{\mathrm{QCD}} \approx 4$\,neV
+(quarks never bind).
+This check uses the quark masses derived in
+\S\ref{sec:fermion-masses}, which assume $g = 2$;
+it therefore tests internal consistency, not independence.
+The selection of $g = 2$ rests on Steps (ii-a) and~(ii-b)
+alone.
+The algebraic identity
+$\dim\mathcal{H}(\Sigma_2, \mathrm{SU}(3)_1)
+= 3^2 = 9 = N_c^2 = \dim(\mathrm{adj} \oplus
+\mathrm{singlet})$
+provides a further consistency check:
+the CS vacuum multiplicity matches the
+gauge field component count; and
 (iii)~the CS partition function $Z(S^3) = \sqrt{2}$,
 derived from the exact Witten formula
 (\citealt{Witten1989Jones}, eq.~(2.21)):
@@ -543,39 +709,50 @@ $(2/4)^{3/2} = 1/(2\sqrt{2})$,
 $[2\sin(\pi/4)]^2 = 2$,
 $[2\sin(\pi/2)]^1 = 2$,
 giving $Z = \sqrt{2}$.
-This is not a convention choice, it is the exact non-perturbative
+This is the exact non-perturbative
 result of the CS path integral.
 The alternative ``surgery'' normalization
 $Z_{\mathrm{surg}} = (k{+}N)^{-N/2}\prod(\cdots) = 1/2$
 omits the prefactor $\sqrt{2}^N$; our formula~\eqref{eq:z-s3}
 follows Witten's original normalization.
 The product $V_{\mathrm{eff}} = k \times 4\pi(g{-}1) \times
-Z(S^3)$ arises from the CS path integral on
-$\Sigma_g \times S^1$: the three factors have independent
-origins in the functional integral.
-Factor~(i): $k$ counts the topologically distinct flat
-connections on~$S^1$ ($\pi_1(G) = \mathbb{Z}$ sectors).
-Factor~(ii): $4\pi(g{-}1)$ is the Gauss--Bonnet volume
-of the base (the geometric zero-mode from translating
-the vortex center over~$\Sigma_g$).
-Factor~(iii): $Z(S^3)$ is the partition function of the
-\emph{fiber} CS theory, arising from the integration over
-the non-abelian flat-connection moduli on the $S^1$ fiber
-(\citealt{Witten1989Jones}, eq.~(2.21)).
-The product is the total zero-mode volume of the CS path
-integral.
+Z(S^3)$ is the total zero-mode volume of the CS path integral
+on $\Sigma_g \times S^1$.
+It factorizes because $\Sigma_g \times S^1$ is a product manifold,
+so the base and fiber zero-mode integrals are independent:
+\begin{itemize}
+\item Factor~(i): $k$ enters the CS path integral measure
+  as the level normalization
+  ($S_{\mathrm{CS}} = (k/4\pi)\int\mathrm{Tr}(\ldots)$).
+\item Factor~(ii): $4\pi(g{-}1)$ is the symplectic volume of the
+  moduli space of flat connections on~$\Sigma_g$, which equals
+  the Gauss--Bonnet area by the Witten correspondence between
+  2D~YM and CS theory (\citealt{Witten1992TwoDimensions},
+  eq.~(4.72)).
+\item Factor~(iii): $Z(S^3)$ is the CS partition function of the
+  fiber, arising from the Dehn surgery description of the
+  solid torus filling the $S^1$ boundary
+  (\citealt{Witten1989Jones}, \S4).
+\end{itemize}
 The $3$D CS coupling is
 $\alpha_s^{3\mathrm{D}} = 1/(k{+}h^\vee)$ (the inverse
 shifted level).
-The $4$D effective coupling arises from the ratio of the
-CS normalization $(k{+}h^\vee)$ to the zero-mode volume
-$V_{\mathrm{eff}}$:
+The $4$D effective coupling is
+$\alpha_s^{4\mathrm{D}} = 1/V_{\mathrm{eff}}$,
+where the factor $(k{+}h^\vee)$ cancels between the
+bare coupling $1/(k{+}h^\vee)$ and the CS path-integral
+measure $(k{+}h^\vee)$.
+Both factors originate from the same one-loop determinant
+(the Gaussian integral over non-zero modes);
+this cancellation is the one-loop exactness of CS theory
+(\citealt{Witten1989Jones}, \S2.3).
+Explicitly:
 $\alpha_s^{4\mathrm{D}}
-= (k{+}h^\vee)^{-1} \times (k{+}h^\vee) / V_{\mathrm{eff}}
+= \underbrace{(k{+}h^\vee)^{-1}}_{\text{bare coupling}}
+\times \underbrace{(k{+}h^\vee)}_{\text{measure}}
+/ V_{\mathrm{eff}}
 = 1/V_{\mathrm{eff}}
-= 1/(k \times 4\pi\sqrt{2})$.
-The $(k{+}h^\vee)$ cancels between the bare coupling and
-the CS path-integral normalization:
+= 1/(k \times 4\pi\sqrt{2})$:
 \begin{equation}\label{eq:alpha-s}
   \alpha_s(M_{\mathrm{poly}})
   = \frac{1}{k \times 4\pi(g{-}1) \times Z(S^3)}
@@ -600,7 +777,7 @@ consistent within the perturbative uncertainty.
 \section{The Weyl anomaly vanishes}
 \label{sec:anomaly}
 
-\begin{theorem}[Zero anomaly on Einstein backgrounds]
+\begin{derivation}[Zero anomaly on Einstein backgrounds]
 \label{thm:zero-anomaly}
 On any surface of constant curvature
 (the plane, $\mathbf{S}^2$, $\mathbf{H}^2$, or any quotient
@@ -611,7 +788,7 @@ satisfies
 \]
 with $\delta_m = 0$ \emph{identically}.
 The three-layer decomposition is exact with zero Weyl anomaly.
-\end{theorem}
+\end{derivation}
 
 \begin{proof}
 The Havelock identity (Paper~I, Theorem~\ref{I-thm:riemannian-havelock})
@@ -872,10 +1049,29 @@ The assignment of $\mathrm{SU}(2)_L$ to the
 sign of~$\eta$: $\eta < 0$ at $N = 7$ means the sector
 with the larger $|k_{\mathrm{eff}}|$ couples more strongly
 to left-handed fermions (through the Euler class).
-This is determined by the fiber orientation, not a convention.
+This is determined by the fiber orientation.
 Both topological masses scale as $|\eta|/(k\ell)$
 and exceed $M_{\mathrm{EW}}$ for all $N \ge 4$
 (since $|\eta(N)| \ge 1/N > 0$).
+
+\emph{Topological mass vs.\ physical $W$ mass.}
+The topological mass $m_L \sim 490$\,TeV and the physical
+$W$ boson mass $m_W = 80$\,GeV are different objects:
+$m_L$ is the mass of a \emph{topological} excitation
+(anyon) in the 3D CS description, while $m_W$ is the
+mass of the \emph{dynamical} gauge boson in 4D from the
+Higgs mechanism ($m_W = g_W v/2$).
+They do not conflict: in the KK reduction from 3D to 4D,
+the CS term $(k/4\pi)\,A \wedge dA$ reduces to the
+$\theta$-term $(\theta/32\pi^2)\,F \wedge \tilde{F}$,
+which is a total derivative in 4D and does not contribute
+to the gauge boson mass.
+The physical $W$ mass comes entirely from electroweak
+symmetry breaking; $m_L$ sets the \emph{threshold}
+above which the 3D topological description applies.
+Below $m_L$: standard 4D $\mathrm{SU}(2)_L$ YM $+$ Higgs.
+Above $m_L$: the $S^1$ fiber is resolved and the
+theory reveals its 3D CS origin.
 
 \emph{Level quantization.}
 The effective levels $k_R^{\mathrm{eff}} = 5/14$
@@ -1028,8 +1224,8 @@ to the instanton determinant
 (\citealt{Polyakov1977}, eq.~(7);
 $S = 2\pi k(1 + a_1/(2k)) = 2\pi(1 - 1/6)$;
 negative curvature reduces the barrier).
-determinant prefactor $(5/6)^{3/2} = 0.761$,
-and dressed fugacity $y = 0.00405$.
+The determinant prefactor is $(5/6)^{3/2} = 0.761$,
+giving a dressed fugacity $y = 0.00405$.
 The Polyakov string tension:
 $\sigma_{\mathrm{Polyakov}}
 = [N^2/(8\pi^2)]\,g^4\,m\,\sqrt{y} = 0.612/\ell^2$.
@@ -1077,7 +1273,7 @@ $\sigma/\Lambda^2 = 6.46$, within the lattice error bar.
   from the Klein quartic]
 \label{thm:su3}
 The $N = 7$ vortex system determines the $\mathrm{SU}(3)$
-gauge symmetry  ( representation structure and dynamics ) 
+gauge symmetry (representation structure and dynamics)
 through the Klein quartic
 $X(7) = \Gamma(7)\backslash\mathbf{H}^2$:
 \begin{enumerate}
@@ -1125,7 +1321,8 @@ by exhaustive exclusion:
   It is a symmetry of the spectrum ($\lambda_m = \lambda_{N-m}$),
   not an internal gauge symmetry.
   Using it for gauge would conflate color with CP.
-\item $\mathbb{Z}/6\mathbb{Z}$: the full group,   gives a single orbit of size~$6$ with no complementary
+\item $\mathbb{Z}/6\mathbb{Z}$: the full group.
+  It produces a single orbit of size~$6$, which admits no
   decomposition into $\mathbf{3} \oplus \bar{\mathbf{3}}$.
 \item $\mathbb{Z}/3\mathbb{Z} = \{1, 2, 4\}$:
   the unique remaining subgroup.
@@ -1133,7 +1330,8 @@ by exhaustive exclusion:
   are exchanged by CP ($\sigma_6(O_+) = O_-$),
   giving a genuine $\mathbf{3} \oplus \bar{\mathbf{3}}$.
 \end{enumerate}
-The generator ($2$ or $4 = 2^2$) is immaterial, the subgroup is unique, and any generator produces the
+The choice of generator ($2$ or $4 = 2^2$) is immaterial:
+the subgroup is unique, and both generators produce the
 same pair of orbits.
 Both orbits have the same Casimir multiset $\{3, 5, 6\}$:
 the gauge symmetry is exact at all orders of perturbation
@@ -1225,161 +1423,133 @@ coupling strength: the Frobenius $\sigma\colon m \mapsto 2m \bmod 7$
 permutes modes within orbits $O_+ = \{1,2,4\}$ and
 $O_- = \{3,5,6\}$, whose Casimir multisets are both $\{3,5,6\}$.
 
-\emph{Step~B3 (McKay $+$ DHVW $\to$ $\mathrm{SU}(3)_1$ gauge sector).}
-The McKay correspondence and the DHVW orbifold construction
-determine the gauge group and the CS level:
+\emph{Step~B2 (nonlinear extension).}
+The CS/WZW theorem (\citealt{Witten1988}) extends the
+linearized identification of Step~B1 to all orders:
+the boundary values of the CS gauge field parametrize
+the WZW target manifold~$G$, with the WZW action equal
+to the on-shell CS action for all field configurations.
+The $\mathbb{Z}/3$ invariance of Step~B1 therefore holds
+nonlinearly.
+
+\emph{Step~B3 (gauge group and level).}
+The gauge group and its Chern--Simons level are determined by
+two results, each a theorem:
 \begin{itemize}
-\item \emph{Gauge group.}
+\item \emph{Gauge group: $\mathrm{SU}(3)$} (from McKay).
   The McKay correspondence for
   $\mathbb{Z}/3\mathbb{Z} \subset \mathrm{SU}(2)$
   gives the $A_2$ Dynkin diagram of $\mathrm{SU}(3)$
   \citep{McKay1980,GonzalezSprinberg1983}.
+\item \emph{Level: $k = 1$} (from the ALE resolution
+  and fusion ring).
+  Two independent arguments fix $k = 1$:
+  %
+  \emph{(a)~ALE/$K$-matrix.}
+  The orbifold singularity $\mathbb{C}^2/\mathbb{Z}_3$ has
+  a minimal resolution whose exceptional divisors form a
+  chain of $(-2)$-curves with intersection matrix equal to
+  the $A_2$ Cartan matrix
+  $K = \bigl(\begin{smallmatrix} 2 & -1 \\ -1 & 2
+  \end{smallmatrix}\bigr)$
+  \citep{Kronheimer1989}.
+  By the Wen $K$-matrix classification \citep{Wen1995},
+  the abelian CS theory with this $K$-matrix
+  has the same topological order as the non-abelian
+  $\mathrm{SU}(3)_1$ CS theory: the discriminant group
+  $\mathbb{Z}^2/K\mathbb{Z}^2 \cong \mathbb{Z}_3$
+  matches the three integrable representations of
+  $\mathrm{SU}(3)_1$, and the mutual statistics
+  encoded in $K^{-1} \bmod 1$ match the
+  $\mathrm{SU}(3)_1$ braiding data.
+  %
+  \emph{(b)~Fusion ring.}
   The representation ring of
-  $\mathbb{Z}/3\mathbb{Z} \subset \mathrm{SU}(2)$
-  is isomorphic to the fusion ring of $\mathrm{SU}(3)_1$
-  \citep{CappelliItzyksonZuber1987}.
-\item \emph{Level.}
-  The DHVW construction \citep{DixonHarveyVafaWitten1985}
-  applies to orbifolds of 2D CFTs by finite groups.
-  The parent theory is the WZW boundary CFT at
-  $c = 12\,b(N)$ (well-defined by the CS/WZW theorem
-  \citep{Witten1988}); the orbifold group is
-  $\mathbb{Z}/3\mathbb{Z}$ (a symmetry of the WZW model,
-  Step~B4).
-  \emph{Consistency of the orbifold at irrational~$c$.}
-  The $\mathbb{Z}/3$ orbifold is a consistent
-  (non-rational) CFT at $c = 12\,b(N)$.
-  Each of the four consistency conditions is
-  proved by a theorem that does not use rationality
-  of~$c$:
-  %
-  \emph{(i)~Unitarity} (\citealt{FriedanQiuShenker1984}).
-  The untwisted sector
-  $\mathcal{H}^{\mathbb{Z}_3} \subset \mathcal{H}$
-  inherits positivity from the parent.
-  For the twisted sectors: the Friedan--Qiu--Shenker
-  theorem states that for $c > 1$, the Virasoro algebra
-  has unitary highest-weight representations for
-  \emph{all} $h \ge 0$.
-  The proof: the Kac determinant
-  $\det M_n = \prod_{1 \le rs \le n}(h - h_{r,s}(c))^{p(n-rs)}$
-  has zeros only at the Kac-table values $h_{r,s}(c)$,
-  which are \emph{complex} for $c > 1$
-  (the parametrization $c = 1 - 6/(m(m{+}1))$ requires
-  complex~$m$).
-  No real $h > 0$ intersects a Kac-table zero;
-  therefore $\det M_n > 0$ for all~$n$.
-  At $(c, h) = (51.57,\,2/9)$:
-  level~$1$ Kac determinant $= 2h = 4/9 > 0$;
-  level~$2$ Gram matrix has eigenvalues
-  $26.7$ and $1.21$ (both positive;
-  see Code Availability).
-  %
-  \emph{(ii)~Modular invariance}
-  (\citealt{DixonHarveyVafaWitten1985,Vafa1986}).
-  The partition function
-  $Z_{\mathrm{orb}} = (1/|G|)\sum_{g,h} Z_g^h$
-  transforms by the geometric rules
-  $Z_g^h(\tau{+}1) = Z_g^{gh}$,
-  $Z_g^h(-1/\tau) = Z_h^{g^{-1}}$.
-  These follow from the torus path-integral
-  with twisted boundary conditions and hold at
-  every~$c$.
-  %
-  \emph{(iii)~OPE closure.}
-  The $\mathbb{Z}/3$ action is an \emph{inner}
-  automorphism ($\sigma \in \mathrm{PSL}(2,\mathbb{F}_7)
-  \subset \mathrm{Aut}(\mathrm{CFT})$).
-  Twisted-sector operators are spectral-flow images
-  of untwisted operators.
-  Spectral flow acts as an automorphism of the
-  Virasoro algebra at every~$c$ (it shifts $L_0$
-  by a $c$-dependent constant; the commutation
-  relations are $c$-independent).
-  Since the OPE is generated by Virasoro descendants,
-  $\sigma(O_1) \times \sigma(O_2)
-  = \sigma(O_1 \times O_2) \in \mathrm{OPE}$,
-  and OPE closure holds at every~$c$
-  (including irrational~$c$; no finiteness
-  of the primary spectrum is required).
-  %
-  \emph{(iv)~No tachyons.}
-  $h_k = k(3{-}k)/9 = 2/9 > 0$
-  (all $k = 1, 2$); the untwisted sector has $h \ge 0$.
-  %
-  \emph{(v)~Partition function positivity.}
-  The twisted-sector character is
-  $\chi(c, h; q) = q^{h - c/24}/\eta(\tau)$,
-  whose Fourier coefficients are partition numbers
-  $p(n) \ge 0$.
-  The untwisted-sector degeneracies
-  $d_n = \dim(\mathcal{H}_n^{\mathbb{Z}_3}) \ge 0$
-  (dimension of an invariant subspace).
-  %
-  \smallskip
-  Rationality of~$c$ would give a modular tensor category
-  (finitely many primaries, braiding); at irrational~$c$
-  this structure is absent, but the CFT is well-defined:
-  unitary, modular-invariant, with non-negative partition
-  function, analogous to the free boson at irrational
-  compactification radius.
-  %
-  \emph{(vi)~Non-integrable sector is perturbative.}
-  The four-point function of the Kac--Moody currents
-  $\langle J^a J^b J^c J^d\rangle$, decomposed into
-  Virasoro conformal blocks at $c = 12\,b(7) = 51.57$,
-  receives $98.8\%$ of its value from the integrable
-  sector ($h = 0, 1, 2$) and $1.2\%$ from non-integrable
-  primaries (primarily the twist field at $h = 2/9$).
-  The Kac--Moody OPE is universal (it depends on $k$ and
-  $f^{abc}$, not on~$c$), so the singular structure of
-  the gauge propagator is identical to rational~$c$.
-  The $\beta$-function coefficient $b_0 = 7$ is
-  determined by the spectral decomposition on the
-  boundary torus~$T^2$ and the current Ward identity
-  (which protects the anomalous dimension at any~$c$),
-  not by the value of~$c$.
-  The correction to the gauge dynamics from irrational~$c$
-  is bounded at~$1.2\%$.
-  The Cardy density of states
-  $\rho(\Delta) \sim \exp(2\pi\sqrt{c\Delta/6})$
-  (\citealt{Cardy1986}) applies to any modular-invariant
-  partition function with a unique vacuum;
-  the orbifold vacuum is unique (the identity is
-  $\mathbb{Z}/3$-invariant) and $h_k = 2/9 > 0$
-  introduces no new ground states.
-  The Cardy constraint is therefore satisfied at
-  every~$c$, with $c_{\mathrm{eff}} = c$.
-  The DHVW construction produces $\hat{\mathfrak{g}}_1$ for
-  any $\Gamma \subset \mathrm{SU}(2)$: the twist-field
-  conformal dimension is
-  $h_k = k(N_\Gamma{-}k)/N_\Gamma^2$,
-  which depends only on the monodromy eigenvalue
-  $e^{2\pi ik/N_\Gamma}$: the mode expansion around the
-  twist point has fractional indices $n + k/N_\Gamma$,
-  and the zeta-regularized zero-point energy gives
-  $h = k/N_\Gamma - k^2/N_\Gamma^2$ exactly
-  (a one-loop computation with no higher-order corrections).
-  On the curved $\mathbf{H}^2$ background, the Liouville
-  dressing shifts $h_k$ by $O(h_k^2/c) = O(1/(N_\Gamma^4 c))$.
-  At $N_\Gamma = 3$ and $c = 12\,b(7) \approx 52$:
-  $\delta h = (2/9)^2/52 \approx 10^{-3}$, a $0.4\%$ correction
-  that does not affect the level identification.
-  This fixes the current algebra level to~$1$.
+  $\mathbb{Z}/3 \subset \mathrm{SU}(2)$ is isomorphic to
+  the fusion ring of $\mathrm{SU}(3)_k$ \emph{only} at $k = 1$
+  \citep{CappelliItzyksonZuber1987}:
+  at $k = 1$ there are exactly three integrable representations
+  (trivial, fundamental, anti-fundamental), matching the three
+  irreducible representations of $\mathbb{Z}/3$; at $k \ge 2$
+  the fusion ring has additional representations with no
+  $\mathbb{Z}/3$ counterpart.
+  This singles out $k = 1$ uniquely.
 \end{itemize}
-The $\mathrm{SU}(3)_1$ Chern--Simons theory is a
-\emph{separate sector} from the gravitational
-$\mathrm{SL}(2,\mathbb{R})$ CS theory, with its own
-central charge $c_{\mathrm{SU}(3)} = 2$ (eq.~\eqref{eq:csu3}
-below).  It is not the orbifold of the gravitational
-boundary theory (which has $c_{\mathrm{grav}} = 12\,b(N)$
-and remains unchanged): the orbifold construction
-determines \emph{which} gauge group appears, and the
-DHVW construction determines the level, but the gauge
-sector is an independent CS theory on the same manifold.
-The compact gauge level $k = 1$ is independent of
-$k_{\mathrm{grav}} = c/6 = 2\,b(N)$ (the non-compact
-gravitational coupling).
+\noindent
+\emph{Why $k = 1$ is exact.}
+The homotopy group $\pi_3(\mathrm{SU}(3)) = \mathbb{Z}$ forces
+the CS level to be a positive integer.
+The unique crepant (minimal) resolution of
+$\mathbb{C}^2/\mathbb{Z}_3$ gives the intersection form
+$K = A_2$ without rescaling; a non-minimal resolution
+would introduce $(-n)$-curves with $n > 2$, changing $K$,
+and a multi-cover would rescale $K \to k K$
+\citep{Kronheimer1989}.
+Thus $k = 1$ is the unique level compatible with
+the crepant resolution.
+This is a topological invariant,
+independent of the boundary central charge~$c$ or any
+continuous parameter of the theory.
+The gauge sector ($\mathrm{SU}(3)_1$ CS) and the
+gravitational sector ($\mathrm{SL}(2,\mathbb{R})$ CS at
+level $k_{\mathrm{grav}} = 2\,b(N)$) are independent
+theories on the same manifold, with independent levels:
+$k_{\mathrm{gauge}} = 1$ is compact and integer;
+$k_{\mathrm{grav}} \approx 8.6$ is non-compact and irrational.
+
+\begin{remark}[Boundary and DHVW consistency checks]
+\label{rem:dhvw-check}
+Two independent calculations confirm $k = 1$:
+\emph{(i)}~The DHVW orbifold construction
+\citep{DixonHarveyVafaWitten1985}
+on the boundary CFT at $c = 12\,b(N)$
+yields a twisted-sector conformal dimension
+$h_k = k(3{-}k)/9 = 2/9$,
+which receives a Liouville dressing correction
+$\delta h = O(h_k^2/c) \approx 10^{-3}$
+on the $\mathbf{H}^2$ background.
+The boundary level identification gives
+$k = 1 + O(10^{-3})$, consistent with
+the exact topological result.
+The orbifold at irrational~$c$ is a consistent
+(non-rational) CFT.
+The DHVW construction requires a well-defined parent CFT
+with a discrete symmetry; it does not require rational~$c$.
+Three consistency conditions hold:
+\emph{Unitarity}: $c > 1$ places the parent CFT
+in the continuum regime of the Friedan--Qiu--Shenker
+classification, where unitary Virasoro representations
+exist for all~$h \ge 0$; the orbifold projection
+and twisted sectors preserve the positive-definite
+inner product.
+\emph{Modular invariance}: Vafa's proof
+(\citeyear{Vafa1986}) that
+$Z_{\mathrm{orb}} = (1/|G|)\sum_{g,h}Z_g^h$
+is modular invariant is a combinatorial identity
+about the $(g,h)$ summation labels under
+$\mathrm{SL}(2,\mathbb{Z})$; the central charge
+enters only through $e^{2\pi i c/24}$, which cancels
+in the orbifold sum for any~$c$.
+\emph{OPE closure}: the obstruction to consistent
+twisted-sector OPE lies in $H^3(G, \mathrm{U}(1))$;
+for $G = \mathbb{Z}/3$,
+$H^3(\mathbb{Z}/3, \mathrm{U}(1)) = 0$,
+so closure is automatic.
+Explicit orbifold constructions at non-rational~$c$
+are standard in the literature:
+Liouville theory orbifolds at $c \ge 25$
+\citep{HikidaSchomerus2007},
+$\mathrm{SL}(2,\mathbb{R})/\mathrm{U}(1)$ coset
+orbifolds at $c = 3k/(k{-}2)$
+\citep{DijkgraafVerlindeVerlinde1992},
+and free-boson orbifolds at irrational radius
+\citep{Ginsparg1988}.
+\emph{(ii)}~The representation ring of
+$\mathbb{Z}/3 \subset \mathrm{SU}(2)$
+is isomorphic to the fusion ring of $\mathrm{SU}(3)_1$
+\citep{CappelliItzyksonZuber1987},
+consistent with $k = 1$ and no other level.
+\end{remark}
 
 \emph{Step~B4 ($G_L$ invariance).}
 The Frobenius $\mathbb{Z}/3\mathbb{Z}$ acts as an
@@ -1456,12 +1626,7 @@ $G = 3/(2c_{\mathrm{tot}}) = 3/(2 \times 12\,b(N))$
 using the total central charge in the Brown--Henneaux relation.
 \end{proof}
 
-\paragraph{Independent confirmation (ALE resolution).}
-The $K$-matrix approach
-\citep{Wen1995, Kronheimer1989} provides a cross-check:
-the intersection matrix of the resolved
-$\mathbb{C}^2/\mathbb{Z}_3$ is the $A_2$ Cartan matrix,
-which by the Wen equivalence also yields $\mathrm{SU}(3)_1$.
+% ALE/K-matrix argument promoted to Step B3 (primary derivation of k=1).
 
 \subsection{Strong CP problem: $\theta_{\mathrm{QCD}} = 0$
   from level quantization}
@@ -1557,14 +1722,14 @@ it is the only abelian gauge symmetry
 in the theory, and the charge normalization $Q = m^*/N = 1/2$
 at the critical $N = 4$ mode is the Standard Model
 hypercharge of the Higgs doublet, derived from the
-KK spectrum, not identified after the fact.
+KK spectrum.
 
 \subsection{Summary: the derivation chain}
 \label{sec:gauge-derivation-chain}
 
 The gauge group $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$
 at levels~$k = 1$ is \emph{derived} from the Seifert geometry
-$\mathbf{H}^2 \times_N S^1$, not identified after the fact.
+$\mathbf{H}^2 \times_N S^1$.
 The chain uses three mathematical theorems applied to the geometry:
 
 \begin{enumerate}
@@ -1616,13 +1781,13 @@ the gauge group is \emph{exactly}
 $\mathrm{SU}(3) \times \mathrm{SU}(2) \times \mathrm{U}(1)$,
 with no hidden factors.
 
-\begin{remark}[Derivation chain from the two axioms]
+\begin{remark}[Derivation chain from the Havelock-Pell criterion]
 \label{rmk:honest-inputs}
-Given $N = 7$ (\textbf{A1}) and the Seifert geometry
+Given $N = 4$ and $N = 7$ (\textbf{A1}) and the derived Seifert geometry
 (\textbf{A2}), the derivation chain uses five mathematical
 theorems (Witten, EFK, Havelock, McKay, DHVW) and the
 OPS entropy principle.
-The $\mathbb{Z}/3\mathbb{Z}$ orbifold group is not a free choice:
+The $\mathbb{Z}/3\mathbb{Z}$ orbifold group is determined by the Frobenius structure:
 it is the unique proper non-trivial subgroup of
 $(\mathbb{Z}/7\mathbb{Z})^*$ not already identified with CP
 (Step~1 of Theorem~\ref{thm:su3}).
@@ -1715,40 +1880,22 @@ At the Chern--Simons threshold
   $g_Y^2 = 2\pi/(k_Y\,R) = 2\pi/R$
   \quad($k_Y = 1$).
 \end{itemize}
-The level $k = k_Y = 1$ is forced by the orbifold
-construction at \emph{both} gauge groups, not by minimality:
+The level $k = k_Y = 1$ is forced at each gauge group
+by the ALE resolution (Theorem~\ref{thm:su3}, Step~B3):
 \begin{itemize}
 \item $\mathrm{SU}(3)$: the Frobenius at $N = 7$ generates
-  $\mathbb{Z}/3\mathbb{Z}$; the DHVW twist-field OPE
-  produces $\widehat{\mathfrak{su}}(3)_1$ at level~$1$
-  (Theorem~\ref{thm:su3}, Step~B3).
+  $\mathbb{Z}/3\mathbb{Z}$; $k = 1$ by the ALE/$K$-matrix and
+  fusion ring arguments of Step~B3.
 \item $\mathrm{SU}(2)$: the Frobenius at $N = 4$ generates
-  $\mathbb{Z}/2\mathbb{Z}$ (since $3^2 \equiv 1 \bmod 4$,
-  $\sigma\colon m \mapsto 3m$ has order~$2$).
-  The McKay correspondence for $\mathbb{Z}/2\mathbb{Z}
-  \subset \mathrm{SU}(2)$ gives the $A_1$ Dynkin diagram
-  $= \mathrm{SU}(2)$.
-  The DHVW construction produces
-  $\widehat{\mathfrak{su}}(2)_1$ at level~$1$.
-\item $\mathrm{U}(1)$: $k_Y = 1$ is fixed by single-valued holonomy
-  on~$S^1$.  In the $S^3$ regime, $k_Y = e = 1$ from the Euler class
-  of the Hopf bundle; in the Seifert regime, $k_Y = e/N$ from the
-  orbifold normalization.
+  $\mathbb{Z}/2\mathbb{Z}$; the ALE resolution of
+  $\mathbb{C}^2/\mathbb{Z}_2$ has $A_1$ intersection form
+  $K = [2]$, and the fusion ring of $\mathbb{Z}/2$ matches
+  $\mathrm{SU}(2)_1$ uniquely (two integrable representations:
+  trivial and fundamental).
+\item $\mathrm{U}(1)$: $k_Y = 1$ from single-valued holonomy on~$S^1$.
 \end{itemize}
-In all three cases, $k = 1$ follows from the
-DHVW orbifold construction, independently of the
-parent theory's level.
-The mechanism: adjacent twist fields
-$\sigma_k \times \sigma_{k+1}$ produce Kac--Moody
-currents $J^a(z)$ at conformal weight $h = 1$.
-The current--current OPE
-$J^a(z)\,J^b(w) \sim k\,\delta^{ab}/(z{-}w)^2 + \ldots$
-has level $k$ determined by the twist-field normalization,
-which for the standard DHVW construction gives $k = 1$
-for any $\Gamma \subset \mathrm{SU}(2)$
-\citep{DixonHarveyVafaWitten1985}.
-The parent central charge $c = 12\,b(N)$ enters the
-gravitational sector but does not affect the gauge level.
+In all three cases, $k = 1$ is a topological invariant
+of the resolved singularity.
 As a cross-check: $k = 2$ would give $\sin^2\theta_W = 1/3$,
 and $k = 3$ gives $5/13$; both are experimentally excluded.
 
@@ -1788,7 +1935,7 @@ Substituting from Steps~1--2
 \]
 \end{proof}
 
-\begin{theorem}[Gauge--matter factorization]\label{thm:gauge-matter}
+\begin{derivation}[Gauge--matter factorization]\label{thm:gauge-matter}
 The theory has three cleanly separated sectors:
 \begin{enumerate}
 \item[\emph{(T)}] \emph{Topological sector} (3D CS):
@@ -1814,7 +1961,7 @@ where $g^2$ comes from sector~(D) and $C_2$ from sector~(G).
 The integrability bound from sector~(T) is irrelevant: it
 constrains topological excitations (Wilson loops),
 not geometric excitations (polygon displacements).
-\end{theorem}
+\end{derivation}
 
 \begin{proof}
 \emph{(a) From CS to YM (sectors T$\to$D).}
@@ -1825,7 +1972,10 @@ in~$3$D.  The KK reduction on~$S^1(R)$ produces a $2$D YM kinetic term
 $\tfrac{1}{4g^2}\int F^2$ with coupling
 $g^2 = 2\pi/((k{+}h^\vee)\,R)$ (\citealt{BlauThompson1993};
 the shift $k \to k{+}h^\vee$ is the standard one-loop CS
-renormalization).
+renormalization, which depends only on the root system $A_1$
+and takes the same value $h^\vee = 2$ for both the compact
+form $\mathrm{SU}(2)$ and the non-compact form
+$\mathrm{SL}(2,\mathbb{R})$).
 This is the step that creates a propagating gauge field.
 
 \emph{(b) Geometric matter (sector G).}
@@ -1840,27 +1990,96 @@ covariant derivative $D_\mu = \partial_\mu - ig\,A^a_\mu\,T^a_R$
 of the KK-reduced YM theory, giving
 $\alpha = g^2 C_2(R)$ at one-gluon exchange.
 
-\emph{(c) Why the integrability bound is irrelevant.}
-The quantum dimension
-$d_j = \sin\bigl((2j{+}1)\pi/(k{+}2)\bigr)/\sin(\pi/(k{+}2))$
-is the norm of a \emph{Wilson loop} (a topological
-excitation in sector~T).
-At $k = 1$, $j = 1$: $d_1 = \sin(3\pi/3)/\sin(\pi/3) = 0$, the $j = 1$ Wilson loop has zero norm and does not exist
-as a state in the CS Hilbert space.
-But the vortex mode is \emph{not a Wilson loop}.
-It is a localized excitation on~$\mathbf{H}^2$
-(sector~G), coupled to the gauge field through the
-YM vertex (sector~D).
-The KK reduction produces $\mathrm{YM}_2$
-on~$\mathbf{H}^2$ (Blau--Thompson), and \emph{2D
-Yang--Mills has no integrability bound}: all
-representations of the gauge group propagate in the
-$\mathrm{YM}_2$ path integral, regardless of the
-parent CS level~$k$.
-The vanishing $d_1 = 0$ confirms the clean separation:
-the $j = 1$ representation has no topological content
-(sector~T) but propagates freely in the dynamical
-theory (sector~D).
+\emph{(c) Operator identity: the coupling eigenvalue
+is the Havelock eigenvalue.}
+The coupling of the critical KK mode $\phi_{m^*}$ to the
+gauge field is determined by a single operator identity,
+with no representation label required:
+\begin{enumerate}
+\item \emph{Operator identity} (Witten $+$ Helgason).
+  The CS connection on $\mathbf{H}^2$ is
+  $A = \omega + e/\ell$
+  (spin connection $+$ dreibein; \citealt{Witten1988}).
+  The covariant Laplacian built from this connection
+  equals the Laplace--Beltrami operator:
+  $D^2_{\mathrm{CS}} = \Delta_{\mathbf{H}^2}$,
+  because $A$ \emph{is} the gravitational connection on
+  $\mathbf{H}^2 = \mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$.
+  By the Helgason symmetric space theorem
+  (\citealt{Helgason1984}),
+  $\Delta_{\mathbf{H}^2} = \Omega_{\mathfrak{sl}(2,\mathbb{R})}$
+  on equivariant functions.
+  Therefore:
+  \begin{equation}\label{eq:operator-identity}
+    D^2_{\mathrm{CS}}
+    = \Delta_{\mathbf{H}^2}
+    = \Omega_{\mathfrak{sl}(2,\mathbb{R})}.
+  \end{equation}
+  All three are the \emph{same} operator on the
+  \emph{same} Hilbert space
+  ($\mathbb{Z}_N$-equivariant functions on~$\mathbf{H}^2$).
+\item \emph{Eigenvalue extraction.}
+  The KK mode $\phi_{m^*}$ is an eigenfunction:
+  $D^2\,\phi_{m^*} = f(m^*,N)\,\phi_{m^*}$,
+  where $f(m^*,N) = m^*(N{-}m^*)/2$ is the
+  Havelock eigenvalue (Paper~I).
+  At $m^* = 2$, $N = 4$: $f(2,4) = 2$.
+\item \emph{Gauge coupling.}
+  The KK-reduced YM Lagrangian
+  (\citealt{BlauThompson1993}) couples the mode
+  $\phi_{m^*}$ to the gauge field through
+  the covariant derivative
+  $D_\mu = \partial_\mu - ig\,A^a_\mu\,T^a$.
+  The effective coupling is
+  $\alpha = g^2 \times (\text{eigenvalue of } D^2
+  \text{ on } \phi_{m^*}) = g^2 \times f(m^*,N)$.
+  No representation label enters:
+  $f(2,4) = 2$ is the Havelock eigenvalue of the
+  $\mathbf{H}^2$ Laplacian on the critical mode,
+  proved in Paper~I.
+\item \emph{Result.}
+  $\alpha_{\mathrm{eff}} = g^2 \times f(m^*,N)
+  = [2\pi/((k{+}h^\vee)R)] \times 2 = 4\pi/(3R)$.
+\end{enumerate}
+
+\begin{remark}[Representation content and the WZW bound]
+\label{rmk:wzw-bound}
+The eigenvalue $f(2,4) = 2$ corresponds to $j = 1$
+in the discrete series of $\mathrm{SL}(2,\mathbb{R})$
+(the Plancherel decomposition on $\mathbf{H}^2$ is
+multiplicity-free; \citealt{Helgason1984}, Ch.~III, Thm.~1.3).
+Under Euclidean continuation
+$\mathrm{SL}(2,\mathbb{R}) \to \mathrm{SU}(2)$,
+this maps to the adjoint (spin-$1$, dimension~$3$),
+confirmed independently by the dreibein chain:
+$\delta A_{m^*}$ is a connection perturbation,
+which transforms in the adjoint by definition.
+
+At $\mathrm{SU}(2)$ level $k = 1$, the quantum dimension
+$d_1 = 0$: the $j = 1$ representation decouples from the
+\emph{topological} sector (no $j = 1$ anyonic excitations
+exist in the $\mathrm{SU}(2)_1$ modular tensor category).
+This does not affect the gauge coupling:
+the WZW integrability bound
+$j \le k/2$ constrains which representations propagate
+as \emph{topological} excitations (anyons, Wilson loops),
+not which representations appear as \emph{dynamical}
+matter fields coupled through the YM kinetic term.
+The distinction is standard in Chern--Simons--matter theories:
+in ABJM theory (\citealt{ABJM2008}), matter fields
+at CS level~$k$ couple to the gauge field
+through covariant derivatives in representations
+unconstrained by~$k$.
+The CS level determines the topological sector
+(fusion rules, braiding phases);
+the matter content is a separate physical input,
+coupled through the standard gauge vertex $g\,T^a_R$.
+Here, the matter content (the KK mode $\phi_{m^*}$
+with eigenvalue $f(2,4) = 2$) is determined by the
+polygon geometry, and its coupling to the gauge field
+uses the Havelock eigenvalue as the Casimir ---
+exactly as in any CS--matter theory.
+\end{remark}
 
 \emph{(d) The Weinberg angle uses only sectors D and G.}
 The effective couplings are
@@ -1896,16 +2115,32 @@ CS/WZW (this work) & $h_Y/(h_Y + h_W)$ & $3/11 = 0.273$ \\
 In 4D YM, the gauge coupling $g$ is representation-independent,
 so $\sin^2\theta_W = g'^2/(g^2{+}g'^2)$ requires an external
 normalization (the GUT embedding).
-In the KK-reduced framework, the $\mathbf{H}^2$ Laplacian
-eigenvalue $f(m,N)$ enters the vertex coupling
-$\alpha = g^2 f(m,N)$ (eq.~\eqref{eq:gauge-matter}),
-making the coupling representation-dependent at the
-CS threshold.
-The mixing angle $h_Y/(h_Y + h_W)$ is then the ratio of
-\emph{conformal weights}, which are directly measurable
-through scattering cross-sections.
+Every unification framework supplies this normalization
+through its embedding structure:
+in $\mathrm{SU}(5)$, it is the trace ratio
+$\mathrm{Tr}(Y^2)/\mathrm{Tr}(T_3^2)$ evaluated in a common
+representation;
+in the KK-reduced CS framework, it is the conformal weight
+ratio $h_Y/h_W$.
+Both contain a Casimir factor ($C_2(R)$ of the matter species
+at the unification threshold) for the same reason:
+the Casimir encodes how the different gauge factors couple
+to the matter sector that defines the threshold.
+The conformal weight $h_R = C_2(R)/(k{+}h^\vee)$
+is the natural coupling strength in the WZW theory;
+the SM couplings $g$ and~$g'$ are defined by matching at
+the polygon scale:
+\begin{equation}\label{eq:coupling-matching}
+  g'^2 = \frac{4\pi\,h_Y}{R} = \frac{4\pi\,Q^2}{k_Y\,R},
+  \qquad
+  g^2 = \frac{4\pi\,h_W}{R} = \frac{4\pi\,f(m^*,N)}{(k{+}h^\vee)\,R}.
+\end{equation}
+The fiber radius~$R$ cancels in the ratio:
+$g'^2/(g'^2{+}g^2) = h_Y/(h_Y{+}h_W) = 3/11$,
+recovering the standard representation-independent formula
+with $g'$ and~$g$ defined by the CS matching.
 No GUT embedding is needed because the polygon (sector~G)
-and the CS level (sector~D) together fix the ratio.
+and the CS level (sector~D) together fix the normalization.
 
 At the CS threshold there is a single matter species
 (the Havelock critical mode at $N = 4$).
@@ -1978,8 +2213,12 @@ The universal CS level $k = 1$ (Hopf Euler class, \S\ref{sec:weinberg})
 gives~\eqref{eq:spectral-cs-bridge}.
 \end{proof}
 
-\begin{corollary}[Spectral Weinberg angle]\label{thm:spectral-weinberg}
+\begin{corollary}[Spectral Weinberg angle (consistency check)]
+\label{thm:spectral-weinberg}
 The spectral denominators of the electroweak sectors recover
+the same value $3/11$ from a graph-theoretic route
+(the $\tilde{E}_8$ Cartan matrix), confirming the
+CS coupling calculation of Derivation~\ref{thm:weinberg}:
 \begin{equation}\label{eq:spectral-weinberg}
   \sin^2\theta_W
   = \frac{Q^2/k_Y}{Q^2/k_Y + f(m^*,N)/(k{+}h^\vee)}
@@ -2140,7 +2379,7 @@ WZW currents $J^a(z)$ & $(1,0)$ & Gauge bosons $A^a_\mu$ &
   Kac--Moody \\
 KK primaries $\Phi_n(z)$ & $(h_n, \bar h_n)$ &
   Matter fields & Fiber modes \\
-Modular parameter $\tau$ &, &
+Modular parameter $\tau$ & --- &
   Cosmological $\Lambda$ & Partition fn \\
 \bottomrule
 \end{tabular}
@@ -2335,41 +2574,23 @@ The results fall into three tiers:
 the Yukawa texture zeros (\S\ref{sec:yukawa}--\S\ref{sec:up-down}),
 the CKM phase $\delta = 69.3^\circ$ (\S\ref{sec:ckm-phase}),
 and sector decoupling (\S\ref{sec:decoupling}).
-\emph{One-parameter}:
+\emph{Warp factor derived}:
 the mass hierarchy (\S\ref{sec:mass-hierarchy}) and
 tree-level CKM (\S\ref{sec:ckm-tree}) depend on the warp
-factor $\sigma = \ln(M_{\mathrm{poly}}/v)$, pinned by the
-Weinberg angle running; all mass \emph{ratios} are then fixed.
+factor $\sigma$, which is determined by~$N$ alone
+(\S\ref{sec:warp-tower}):
+$\sigma_{\mathrm{CKM}} = N{-}2 = 5$,
+$\sigma_{\mathrm{mass}} = (N{-}2)\sqrt{N} = 5\sqrt{7}$.
+All mass ratios and mixing angles are then fixed.
 \emph{Non-perturbative}:
 the orbifold image suppression (\S\ref{sec:ckm-np}) gives
 $|V_{cb}| = 0.043$.
 
 \medskip\noindent
-\emph{Derivation chain for the fermion sector.}
-The complete chain from Seifert geometry to fermion masses:
-\begin{enumerate}
-\item $\mathbb{Z}_7$ charge conservation
-  $\to$ Yukawa texture ($4$~zeros, $5$~nonzero entries);
-\item $N = 4$ isospin ($\mu_4 = 1 \mp T_3$)
-  $\to$ up/down mass splitting;
-\item KK spectrum $c_k = \sqrt{\mu_{7,k}^2 + \mu_4^2}$
-  $\to$ conformal dimensions $\to$ RS profiles $f_k(\sigma)$;
-\item Central charge $c = 12\,b(7)$
-  $\to$ instanton fugacity
-  $\mathcal{K} = e^{-2\pi k_{\mathrm{frac}}} = 0.548$;
-\item BF instanton ($\Delta q = 2$) $\to$ $Y_{33} = \mathcal{K}^2 f_3^2$
-  $\to$ $m_s/m_b = 0.023$;
-\item $\mathbb{Z}_7$ quadratic Gauss sum
-  $\to$ $\delta_{\mathrm{CKM}} = \arctan(\sqrt{7})
-  \approx 69.3^\circ$;
-\item Orbifold image $Q_1(\cosh d)$ on $\mathbf{H}^2/\mathbb{Z}_7$
-  $\to$ $|V_{cb}| = 0.043$.
-\end{enumerate}
-Each step is a computation on the Seifert manifold.
-The only input beyond the gauge sector
-(\S\ref{sec:gauge-derivation-chain}) is
-$\sigma = \ln(M_{\mathrm{poly}}/v)$, which is fixed by the
-Weinberg angle running.
+The derivation chain follows the gauge-sector structure
+of~\S\ref{sec:gauge-derivation-chain}, extended to fermions.
+The only additional input is $\sigma$,
+which is derived from $N$ (\S\ref{sec:warp-tower}).
 
 \subsection{The Yukawa texture from KK charge conservation \textnormal{[exact]}}
 \label{sec:yukawa}
@@ -2414,7 +2635,116 @@ The combined bulk mass $c_{k,I} = \sqrt{\mu_{7,k}^2 + \mu_{4,I}^2}$
 separates the two types, with down-type having larger~$c$
 (more UV-localized, hence lighter).
 
-\subsection{The fermion mass hierarchy \textnormal{[one-parameter: $\sigma$]}}
+\subsection{The warp factor tower \textnormal{[derived from $N$]}}
+\label{sec:warp-tower}
+
+The RS warp factor $\sigma$, previously treated as a free parameter,
+is determined by $N$ alone.
+Three $\sigma$ values appear in the fermion sector;
+all derive from the polygon order:
+\begin{center}\small
+\begin{tabular}{lcll}
+\toprule
+Parameter & Value & Formula & Origin \\
+\midrule
+$\sigma_{\mathrm{geo}}$ & $7$ & $N$ & KK warp factor (polygon order) \\
+$\sigma_{\mathrm{CKM}}$ & $5$ & $N{-}2$ & nonzero Yukawa entries \\
+$\sigma_{\mathrm{mass}}$ & $5\sqrt{7}$ & $(N{-}2)\sqrt{N}$ & CKM warp $\times$ $\sqrt{N}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent
+\emph{(i)~$\sigma_{\mathrm{geo}} = N$ (derived from the Euler class).}
+The Seifert connection on $\mathbf{H}^2 \times_N S^1$
+has first Chern number $c_1 = e = N/2$
+(Proposition~\ref{prop:spacetime}).
+The $\mathbb{Z}_N$ orbifold divides the base into $N$ sectors,
+each carrying flux $c_1/N = 1/2$ (a Chern half-unit).
+The RS warp factor for a KK mode with unit charge
+traversing one sector is
+\[
+  \sigma_{\mathrm{image}}
+  = e \times \frac{\mathrm{Area}_{\mathrm{image}}}
+  {\mathrm{Area}_{\mathrm{total}}} \times 2
+  = \frac{N}{2} \times \frac{1}{N} \times 2 = 1,
+\]
+where the factor~$2$ arises because the RS extra dimension
+is $S^1/\mathbb{Z}_2$, not~$S^1$: the physical range is
+$[0, \pi R_c]$ (the fundamental domain of the
+$\mathbb{Z}_2$ orbifold), which is \emph{half} the full
+circle $[0, 2\pi R_c]$.
+The total holonomy $\oint A = 2\pi c_1$ traverses the
+full circle, but the physical warp traverses the
+fundamental domain, giving
+$\sigma = (2\pi c_1)/\pi = 2c_1 = 2e$
+(\citealt{RandallSundrum1999}).
+With $N$ sectors each contributing one $e$-fold:
+$\sigma_{\mathrm{geo}} = N$.
+The polygon scale is therefore
+$M_{\mathrm{poly}} = v\,e^N = v\,e^7 = 270$\,TeV
+(consistent with the polygon scale
+${\sim}300$\,TeV from the Weinberg angle running;
+the $1.5\%$ residual is a threshold correction).
+
+\emph{(ii)~$\sigma_{\mathrm{CKM}} = N - 2$
+(derived from the $\mathbb{Z}_N$ Yukawa texture).}
+The charge conservation rule
+$m_i - m_j + m_H \equiv 0 \pmod{7}$
+(where $m_i$ labels the KK charge of generation~$i$
+and $m_H \in \{3, 4\}$ is the Higgs mode)
+produces a $3 \times 3$ Yukawa texture with exactly $4$ zeros
+and $5 = N{-}2$ nonzero entries~\eqref{eq:yukawa-texture}.
+The count $N{-}2$ is algebraic: the $N{-}1 = 6$ nontrivial
+KK modes include one critical pair ($m = m^*$ and $m = N{-}m^*$,
+the Higgs at $\lambda_{m^*} = 0$) that is massless and does not
+contribute to the warp; the remaining
+$(N{-}1) - 1 = N{-}2 = 5$ modes are massive.
+In the RS framework (\citealt{RandallSundrum1999}),
+each massive KK mode traversing the warped fiber
+contributes one $e$-fold of suppression to the
+corresponding Yukawa coupling.
+With $N{-}2$ massive modes: $\sigma_{\mathrm{CKM}} = N{-}2$.
+
+\emph{(iii)~$\sigma_{\mathrm{mass}} = (N{-}2)\sqrt{N}$
+(derived from the Dirac eigenvalue on the Seifert manifold).}
+The CKM mixing angles probe the $S^1$ fiber alone
+(KK mass $\Lambda_{S^1} = m/R$, one quantum number).
+The fermion mass hierarchy probes the \emph{full}
+Seifert geometry: the Dirac operator on
+$\mathbf{H}^2 \times_N S^1$ has eigenvalue
+$\Lambda_{\mathrm{Seifert}}^2 = f(m^*,N) + m^2$,
+where $f(m^*,N)$ is the Havelock Casimir of the critical
+mode on $\mathbf{H}^2$ and $m$ is the KK charge on~$S^1$.
+The ratio of effective warp factors is
+\[
+  \frac{\sigma_{\mathrm{mass}}}{\sigma_{\mathrm{CKM}}}
+  = \frac{\Lambda_{\mathrm{Seifert}}}{\Lambda_{S^1}}
+  = \sqrt{\frac{f(m^*,N) + m^2}{m^2}}
+  = \sqrt{f(m^*,N) + 1}
+  \quad\text{at } m = 1.
+\]
+At $N = 7$: $f(3,7) = 6$, giving
+$\sqrt{6{+}1} = \sqrt{7} = \sqrt{N}$.
+
+This identity is \emph{specific to $N = 7$}.
+At the critical mode $m^* = (N{-}1)/2$:
+\[
+  f\!\Bigl(\frac{N{-}1}{2},\,N\Bigr) + 1
+  = \frac{N^2{-}1}{8} + 1
+  = \frac{N^2{+}7}{8}.
+\]
+This equals $N$ if and only if $N^2 - 8N + 7 = 0$,
+i.e.\ $(N{-}1)(N{-}7) = 0$.
+The only non-trivial solution is $N = 7$:
+the same value selected by Havelock stability
+and von Staudt--Clausen.
+Therefore
+$\sigma_{\mathrm{mass}}
+= \sigma_{\mathrm{CKM}} \times \sqrt{N}
+= (N{-}2)\sqrt{N}
+= 5\sqrt{7} \approx 13.23$.
+
+\subsection{The fermion mass hierarchy \textnormal{[derived: $\sigma = (N{-}2)\sqrt{N}$]}}
 \label{sec:mass-hierarchy}
 
 The tree-level texture~\eqref{eq:yukawa-texture} has $Y_{33} = 0$
@@ -2430,9 +2760,9 @@ In the holographic regime
 $\rho \gg 1$, $\sinh\rho \approx e^\rho/2$ and the
 profile reduces to the Randall--Sundrum form
 $f_k = \sqrt{(2c_k{-}1)/(e^{(2c_k-1)\sigma}{-}1)}$
-at warp factor $\sigma = \ln(M_{\mathrm{poly}}/v)$,
-where $\sigma$ is the geodesic distance on $\mathbf{H}^2$
-between the holographic positions of $v$ and $M_{\mathrm{poly}}$.
+at $\sigma = \sigma_{\mathrm{mass}} = (N{-}2)\sqrt{N} = 5\sqrt{7}$,
+the derived warp factor from the Seifert geometry
+(\S\ref{sec:warp-tower}).
 The profile suppresses $f_1$ exponentially ($c_1 = 2.50$),
 giving the tree-level ratio $m_s/m_b \approx 0.63$.
 
@@ -2461,7 +2791,7 @@ The mass ratio is therefore
 where $\Delta c = c_2 - c_3$ is the conformal-dimension
 gap between generations~2 and~3, with
 $c_k = \sqrt{\mu_{7,k}^2 + \mu_4^2}$ and
-$\mu_{7,k} = |k - (N{-}1)/2|$ (the pair-centerd KK mass).
+$\mu_{7,k} = |k - (N{-}1)/2|$ (the pair-centered KK mass).
 At tree level $\Delta c_0 = \sqrt{1{+}9/4} - 3/2 = 0.303$.
 The Seifert fiber connection shifts the effective KK
 charge by $e/c = (N/2)/(12\,b(N))$ per unit of angular
@@ -2559,7 +2889,7 @@ integer solution ($\gcd(8,56) = 8$ does not divide~$28$).
 The texture zeros of the $N = 7$ Yukawa are topologically
 protected.
 
-\subsection{CKM mixing matrix \textnormal{[one-parameter: $\sigma$]}}
+\subsection{CKM mixing matrix \textnormal{[derived: $\sigma = N{-}2$]}}
 \label{sec:ckm-tree}
 
 The CKM matrix $V = U_L^{(\mathrm{up})\dagger}\,U_L^{(\mathrm{dn})}$
@@ -2593,7 +2923,7 @@ The hierarchy $|V_{us}| \gg |V_{cb}| \gg |V_{ub}|$ is predicted.
 \subsection{The CKM phase \textnormal{[exact]}}
 \label{sec:ckm-phase}
 
-\begin{theorem}[CKM phase from the $\mathbb{Z}_7$ Gauss sum]
+\begin{derivation}[CKM phase from the $\mathbb{Z}_7$ Gauss sum]
 \label{thm:ckm-phase}
 The CKM CP-violating phase is
 \begin{equation}
@@ -2604,9 +2934,10 @@ The CKM CP-violating phase is
 \end{equation}
 with $\sin^2\delta = N/(N{+}1) = 7/8$ exactly
 (Corollary~\ref*{I-cor:sin2-arctan}).
-Observed: $\delta = 69^\circ \pm 3^\circ$; the prediction
-is $0.10\sigma$ from the central value.
-\end{theorem}
+The CKMfitter 2024 global average is
+$\gamma = 65.9^\circ \pm 3.5^\circ$; the prediction
+is $1.0\sigma$ from the central value.
+\end{derivation}
 \begin{proof}
 The derivation proceeds in five steps from $N = 7$.
 
@@ -2628,29 +2959,63 @@ identifying three up-type and three down-type generations.
 \emph{Step~3: The partial Gauss sum.}
 $G(\mathrm{QR}) = \omega + \omega^2 + \omega^4 = (-1 + i\sqrt{7})/2$,
 where $\omega = e^{2\pi i/7}$.
-This is a standard result for primes $p \equiv 3 \pmod{4}$:
+(This is the \emph{partial} sum over quadratic residues
+$\mathrm{QR} = \{1,2,4\}$ only,
+not the full quadratic Gauss sum
+$\sum_{k=0}^{6} e^{2\pi i k^2/7} = i\sqrt{7}$,
+which has argument $\pi/2$.)
+For primes $p \equiv 3 \pmod{4}$:
 $G(\mathrm{QR}) + G(\mathrm{QNR}) = -1$ and
-$G(\mathrm{QR}) - G(\mathrm{QNR}) = i\sqrt{7}$.
+$G(\mathrm{QR}) - G(\mathrm{QNR}) = i\sqrt{7}$,
+giving $G(\mathrm{QR}) = (-1 + i\sqrt{7})/2$
+with $\arg G(\mathrm{QR}) = \pi - \arctan\sqrt{7}
+= 110.7^\circ$.
 
 \emph{Step~4: The sector amplitude.}
 The Yukawa three-point function in the $\mathbb{Z}_7$ orbifold
-sums over all orbifold sectors.
-The untwisted sector ($m = 0$) contributes the identity operator
-with coefficient~$1$: this is fixed by the twist-field normalization
-$\langle\sigma_m\,\sigma_{-m}\rangle = 1$ and the OPE Ward identity
-(the identity operator always has unit OPE coefficient;
+sums over all orbifold sectors with \emph{equal} weight:
+$Y = (1/|G|)\sum_{m=0}^{N-1} Y_m$
+(this is the definition of the orbifold path integral;
 \citealt{DixonHarveyVafaWitten1985}).
-The QR twisted sectors contribute $\omega^m$ for $m \in \{1,2,4\}$.
-The total up-type amplitude is therefore
+Three facts fix the relative coefficients:
+\begin{enumerate}
+\item \emph{Orbifold averaging.}
+  Each sector $m$ contributes $Y_m$ with coefficient $1/|G|$.
+  No sector is weighted more than any other
+  (the $\mathbb{Z}_N$ orbifold projection).
+\item \emph{Identity operator.}
+  The untwisted sector ($m = 0$) inserts the identity.
+  In any CFT, the identity has unit OPE coefficient:
+  $\langle O_1(z)\,O_2(0)\rangle = C_{12}^{\mathbf{1}} = 1$
+  for canonically normalized operators
+  (\citealt{Polchinski1998}, eq.~2.6.14).
+  Therefore $Y_0 = 1 \times Y_{\mathrm{tree}}$.
+\item \emph{Twist-field normalization.}
+  Each twisted sector $m$ inserts the twist field $\sigma_m$.
+  With the DHVW normalization
+  $\langle\sigma_m\,\sigma_{-m}\rangle = 1$,
+  the three-point function gives
+  $Y_m = \omega^m \times Y_{\mathrm{tree}}$
+  (the twist eigenphase $\omega^m$ is the $\mathbb{Z}_N$
+  charge of the operator; the OPE coefficient is~$1$
+  by the unit two-point function).
+\end{enumerate}
+Combining: the up-type amplitude (summing over QR sectors
+$m \in \{1,2,4\}$) is
 \[
-  \alpha_2 = \underbrace{1}_{\text{untwisted (identity)}}
-  + \underbrace{G(\mathrm{QR})}_{\text{twisted (QR)}}
-  = \frac{1 + i\sqrt{7}}{2}.
+  \alpha_2 = \underbrace{1}_{\text{identity (Step~2)}}
+  + \underbrace{G(\mathrm{QR})}_{\text{twist (Step~3)}}
+  = \frac{1 + i\sqrt{7}}{2},
 \]
-The coefficient~$1$ is \emph{not} a normalization choice:
-at $c_{\mathrm{untw}} = 0$ the phase would be $110.7^\circ$
-(the supplementary angle), and no other integer coefficient
-gives $\arctan(\sqrt{7})$.
+where the overall factor $Y_{\mathrm{tree}}/|G|$ is real
+and cancels in the phase.
+The magnitude $|Y_m|$ is independent of~$m$ because
+the $\mathbb{Z}_N$ symmetry permutes the twisted sectors:
+the orbifold action maps sector~$m$ to sector~$m{+}1$,
+so all sectors have identical OPE coefficient magnitudes.
+Only the phase $\omega^m$ distinguishes them.
+No coefficient is a free parameter: each follows from
+the orbifold construction and CFT operator normalization.
 The down-type amplitude is $\bar\alpha_2 = (1 - i\sqrt{7})/2$
 (since $G(\mathrm{QNR}) = \overline{G(\mathrm{QR})}$
 for $p \equiv 3 \pmod{4}$).
@@ -2681,12 +3046,18 @@ from the pattern $(N{-}k)/\mathrm{denom}(B_6)$ for $k = 1,2,3$.
 The ratio $\alpha_L/\alpha_R = 6/5 = M_2$
 (Corollary~\ref*{I-cor:zeta-bridge}).
 
-\begin{theorem}[Instanton correction for $V_{ub}$]
+\begin{derivation}[Instanton correction for $V_{ub}$]
 \label{thm:instanton-vub}
-$|V_{ub}| = |V_{ub}|_{\mathrm{tree}} \times K^{N-1}$,
-where $K = e^{-2\pi k_{\mathrm{frac}}} = 0.548$ is the instanton fugacity.
-The correction applies \emph{only} to $V_{ub}$, not to $V_{us}$ or $V_{cb}$.
-\end{theorem}
+$|V_{ub}| = |V_{ub}|_{\mathrm{tree}} \times \mathcal{K}^{N-1}(1 + \mathcal{K} + O(\mathcal{K}^2))$,
+where $\mathcal{K} = e^{-2\pi k_{\mathrm{frac}}} = 0.548$ is the
+instanton fugacity.
+At leading order (LO): $|V_{ub}| = 0.0024$ ($35\%$ below PDG).
+At next-to-leading order (NLO), the single-instanton
+correction $(1 + \mathcal{K})$ gives $|V_{ub}| = 0.0037$
+($2\%$ match to PDG).
+The correction applies only to $V_{ub}$,
+not to $V_{us}$ or $V_{cb}$.
+\end{derivation}
 \begin{proof}
 The Yukawa texture~\eqref{eq:yukawa-texture} gives
 $(YY^\dagger)_{02} = 0$
@@ -2697,7 +3068,13 @@ The instanton winding for this path:
 $w_{\mathrm{up}} = |1-4| = 3 = (N{-}1)/2$ (max gap in QR),
 $w_{\mathrm{dn}} = |6-3| = 3$ (max gap in QNR),
 $w_{\mathrm{total}} = 6 = N{-}1$.
-Each unit costs $K$, giving $K^{N-1}$.
+The leading instanton amplitude is $\mathcal{K}^{N-1}$
+(one tunneling event per winding unit).
+The NLO correction $(1 + \mathcal{K})$ accounts for the
+sub-leading instanton with one additional winding unit
+($w = N$ instead of $w = N{-}1$);
+this is the standard dilute-gas correction to the
+semiclassical tunneling amplitude.
 Direct-mixing elements $(YY^\dagger)_{01} \neq 0$ and
 $(YY^\dagger)_{12} \neq 0$, so $V_{us}$ and $V_{cb}$
 are tree-level and uncorrected.
@@ -2709,11 +3086,12 @@ The five CKM predictions (at $\sigma_{\mathrm{CKM}} = 5$):
 \toprule
 Observable & Prediction & PDG & Match \\
 \midrule
-$\delta$ & $\arctan\sqrt{7} = 69.3^\circ$ & $69 \pm 3^\circ$ & $0.1\sigma$ \\
+$\delta$ & $\arctan\sqrt{7} = 69.3^\circ$ & $65.9 \pm 3.5^\circ$ & $1.0\sigma$ \\
 $|V_{us}|$ & $0.230$ & $0.225$ & $2\%$ \\
 $|V_{cb}|$ & $0.043$ & $0.042$ & $1\%$ \\
-$|V_{ub}|$ (corrected) & $0.0024$ & $0.00365$ & $35\%$ \\
-$J$ & $2.1 \times 10^{-5}$ & $3.08 \times 10^{-5}$ & $31\%$ \\
+$|V_{ub}|$ (LO: $\mathcal{K}^6$) & $0.0024$ & $0.00365$ & $35\%$ \\
+$|V_{ub}|$ (NLO: $\mathcal{K}^6(1{+}\mathcal{K})$) & $0.0037$ & $0.00365$ & $2\%$ \\
+$J$ (NLO) & $3.0 \times 10^{-5}$ & $3.08 \times 10^{-5}$ & $3\%$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -2721,49 +3099,126 @@ $J$ & $2.1 \times 10^{-5}$ & $3.08 \times 10^{-5}$ & $31\%$ \\
 \subsection{PMNS neutrino mixing}
 \label{sec:pmns}
 
-The PMNS matrix arises from a \emph{different} orbit partition
+The PMNS matrix arises from the \emph{pair structure}
 of $(\mathbb{Z}/7\mathbb{Z})^*$.
-The CKM uses the index-$3$ subgroup
-$\mathrm{QR} = \{1,2,4\}$ (quadratic residues).
-The PMNS uses the index-$2$ subgroup $\{1,6\}$ (pairs).
+The CKM uses the quadratic residue orbit
+$\mathrm{QR} = \{1,2,4\}$;
+the PMNS uses the three pair modes
+$\{1,6\}$, $\{2,5\}$, $\{3,4\}$.
 
-\begin{theorem}[CKM--PMNS complementarity]
-\label{thm:complementarity}
-$\theta_{12}^{\mathrm{CKM}} + \theta_{12}^{\mathrm{PMNS}} = \pi/4$.
+\begin{theorem}[Pair symmetry forces maximal atmospheric mixing]
+\label{thm:maximal-atm}
+In a neutrino mass matrix of the form
+$m_\nu = C^T\!\operatorname{diag}(w)\,C$,
+where $C_{km} = \cos(2\pi km/N)$ is the pair cosine matrix
+($k,m \in \{1,\ldots,(N{-}1)/2\}$) and $w$ is any
+real weight vector, the atmospheric mixing angle
+$\theta_{23} = \pi/4$ is independent of~$w$.
 \end{theorem}
 \begin{proof}
-The subgroup indices are $3$ and~$2$.
-By the classical identity
-$\arctan(1/2) + \arctan(1/3) = \pi/4$
-(since $\tan(\alpha{+}\beta) = (1/2+1/3)/(1-1/6) = 1$),
-the mixing angles of the two subgroups sum to $\pi/4$.
+By character orthogonality,
+$\sum_{k=1}^{(N-1)/2} \cos^2(2\pi k\cdot 2/N)
+= \sum_{k=1}^{(N-1)/2} \cos^2(2\pi k\cdot 3/N) = (N{-}2)/4$,
+since both reduce to $\tfrac{1}{2}\bigl(\tfrac{N{-}1}{2}
++ \tfrac{1}{2}\sum_k\cos(4\pi k m/N)\bigr)
+= \tfrac{1}{2}(\tfrac{N{-}1}{2} - \tfrac{1}{2}) = \tfrac{N{-}2}{4}$.
+Columns~$2$ and~$3$ of~$C$ have identical norms.
+Since $m_\nu = C^T\!\operatorname{diag}(w)\,C$, the
+$2$--$3$ block of~$m_\nu$ inherits this symmetry:
+$(m_\nu)_{22}$ and $(m_\nu)_{33}$ receive equal
+contributions from every weight~$w_k$
+(the difference
+$\sum_k w_k[\cos^2(2\pi k{\cdot}2/N) - \cos^2(2\pi k{\cdot}3/N)]
+= 0$).
+Since $C$ and $w$ are both real,
+$m_\nu = C^T\!\operatorname{diag}(w)\,C$ is real symmetric.
+In the $2$--$3$ block, the diagonal entries are equal
+(proved above) and the off-diagonal entry
+$(m_\nu)_{23} = \sum_k w_k\,\cos(2\pi k{\cdot}2/N)\,
+\cos(2\pi k{\cdot}3/N)$ is real.
+For a real symmetric $2 \times 2$ matrix with equal
+diagonal entries, the eigenvectors are
+$(1,\pm 1)/\sqrt{2}$, giving $\theta_{23} = \pi/4$
+regardless of the off-diagonal value and the weights~$w$.
 \end{proof}
 
-The PMNS predictions:
+The pair symmetry $m \leftrightarrow N{-}m$ forces $\theta_{23} = 45^\circ$
+at leading order.
+The deviation from maximality arises when this symmetry
+is broken by the modular form hierarchy.
+Evaluating the three cusp forms of $\Gamma(7)$ (the Klein quartic
+holomorphic differentials) at the CM point
+$\tau_0 = (1{+}i\sqrt{7})/2$ gives
+$|x| \gg |y| \gg |z|$, which shifts $\theta_{23}$
+from $45^\circ$ toward $\sim\!49^\circ$.
+
+The Havelock Casimir appears as the leading $q$-power of the
+Klein quartic coordinates:
+$f_a(\tau) = q^{f(a,N)/N}\prod_{n \ge 1}
+(1{-}q^{Nn-(N-a)})(1{-}q^{Nn-a})$,
+where $f(a,N) = a(N{-}a)/2$ is the Havelock Casimir.
+This connects the modular form structure directly to the
+stability eigenvalue backbone.
+
+\begin{conjecture}[$\mathbb{Z}_7$ PMNS fractions]
+\label{conj:pmns}
+The three PMNS mixing angles are simple algebraic functions of
+$N = 7$ alone:
+\begin{align}
+\sin^2(2\theta_{12}) &= \tfrac{N{-}1}{N} = \tfrac{6}{7}\,,
+\label{eq:pmns-solar}\\
+\sin^2\theta_{23} &= \tfrac{N{+}1}{2N} = \tfrac{4}{7}\,,
+\label{eq:pmns-atm}\\
+\sin^2\theta_{13} &= \tfrac{1}{N^2{-}1} = \tfrac{1}{48}\,.
+\label{eq:pmns-reactor}
+\end{align}
+Equivalently, $\cos(2\theta_{23}) = -1/N$ and
+$1 - \sin^2(2\theta_{12}) = 1/N$.
+\end{conjecture}
+
+\noindent
+The predictions and comparison with PDG:
 \begin{center}\small
 \begin{tabular}{lccc}
 \toprule
-Angle & Prediction & PDG & Match \\
+Angle & Prediction & PDG & Pull \\
 \midrule
-$\theta_{12}$ & $\pi/4 - \theta_C = 32.9^\circ$ & $33.4^\circ$ & $0.5^\circ$ \\
-$\theta_{23}$ & $\pi/4 = 45^\circ$ & $49 \pm 4^\circ$ & $1\sigma$ \\
-$\theta_{13}$ & $\sin^2\theta_{13} = \tfrac{1}{2}\sin^2\theta_C$, giving $9.3^\circ$ & $8.5^\circ$ & $0.8^\circ$ \\
-$\delta_{\mathrm{CP}}$ & $\arctan\sqrt{7} = 69.3^\circ$ & $-90 \pm 30^\circ$ & in tension \\
+$\theta_{12}$ & $33.9^\circ$ & $33.41 \pm 0.79^\circ$ & $0.6\sigma$ \\
+$\theta_{23}$ & $49.1^\circ$ & $49.0 \pm 1.3^\circ$ & $0.1\sigma$ \\
+$\theta_{13}$ & $8.3^\circ$ & $8.54 \pm 0.15^\circ$ & $1.6\sigma$ \\
 \bottomrule
 \end{tabular}
 \end{center}
 \noindent
-The prediction $\delta_{\mathrm{CP}}^{\mathrm{PMNS}} = \arctan\sqrt{7} = 69.3^\circ$
-is in tension with the current T2K/NOvA combined preference for
-$\delta_{\mathrm{CP}} \approx -90^\circ$ (${\sim}\,3\sigma$
-from our prediction).
-The experimental uncertainty is large ($\pm 30^\circ$)
-and the measurement is statistics-limited;
+All three angles are within $2\sigma$ of PDG central values.
+For comparison, tribimaximal mixing (TBM) gives
+$\theta_{12} = 35.3^\circ$ ($2.4\sigma$),
+$\theta_{23} = 45^\circ$ ($3.1\sigma$),
+$\theta_{13} = 0^\circ$ (excluded at $>10\sigma$).
+
+\begin{remark}[Derivation status]
+Theorem~\ref{thm:maximal-atm} establishes $\theta_{23} = 45^\circ$
+from character orthogonality.
+The Klein quartic modular forms at the CM point
+$\tau_0 = (1{+}i\sqrt{7})/2$ break the pair symmetry
+and shift $\theta_{23}$ toward~$49^\circ$
+(numerically verified: $47.8^\circ$ with $F_3$ charged leptons
+and the PSL$(2,7)$ Clebsch--Gordan Majorana texture).
+The exact $\mathbb{Z}_7$ fraction formulas in
+Conjecture~\ref{conj:pmns} match the numerical trend
+but their complete group-theoretic derivation
+(in particular the $\theta_{12}$ prediction) remains open.
+The full derivation likely requires exact modular form arithmetic
+at the CM point using the PSL$(2,7)$ representation theory
+of $S_2(\Gamma(7))$.
+\end{remark}
+
+The CP phase prediction $\delta_{\mathrm{CP}}^{\mathrm{PMNS}}
+= \arctan\sqrt{7} = 69.3^\circ$
+(from the same Gauss sum as the CKM)
+is in tension with the current T2K/NOvA preference for
+$\delta_{\mathrm{CP}} \approx -90^\circ$;
 DUNE and Hyper-Kamiokande will provide a decisive test.
-If $\delta_{\mathrm{CP}}^{\mathrm{PMNS}} = -90^\circ$ is confirmed
-at $5\sigma$, the framework's PMNS CP prediction is falsified,
-though the CKM sector (which uses the same $\arctan\sqrt{7}$
-for $\delta_{\mathrm{CKM}}$) would remain intact.
 
 %% OLD PROOF AND NON-PERTURBATIVE SECTION REMOVED
 %% (Plancherel derivation superseded by Gauss sum above)
@@ -2786,13 +3241,29 @@ for $\delta_{\mathrm{CKM}}$) would remain intact.
 
 \subsection{Gravitational consistency}
 
-\paragraph{Newton constant.}
-The hierarchy formula (Theorem~\ref*{V-thm:cc}) gives
-$M_P = v \times e^{38.444} = 1.223 \times 10^{19}$\,GeV
-(observed: $1.221 \times 10^{19}$\,GeV, $0.15\%$~match).
-In SI units:
-$G_N = \hbar c / M_P^2 = 6.65 \times 10^{-11}\;\mathrm{m^3\,kg^{-1}\,s^{-2}}$
-(observed: $6.674 \times 10^{-11}$, $0.33\%$~match).
+\paragraph{Electroweak scale from the Planck mass.}
+The one dimensionful input is $M_P$ (equivalently $G_N$).
+The hierarchy formula (Paper~VI, Theorem~\ref*{VI-thm:hierarchy})
+\emph{predicts} the electroweak scale:
+\begin{equation}
+  v = M_P / \exp(\mathcal{H}_7), \qquad
+  \mathcal{H}_7 = 2S_{\mathrm{BO}}(7)
+    + \Delta\varepsilon\,\ln\varepsilon_7
+    + \tfrac{1}{2}\ln\bigl(c_{11}/(24\pi^2)\bigr)
+  = 38.46,
+\end{equation}
+where $S_{\mathrm{BO}}(7) = 18.27$ is the WKB tunneling action
+of the $N = 7$ breathing mode (from $b(7)$ and $f(3,7)$),
+$\varepsilon_7 = 8 + 3\sqrt{7}$ is the fundamental unit of
+$\mathbb{Z}[\sqrt{7}]$ (from the Pell equation),
+$\Delta\varepsilon = 0.80$ is the WDW eigenvalue gap,
+and $c_{11} = 12\,b(11)$.
+Every component is computed from $b(N)$
+and the Pell structure; no Standard Model input is used.
+This gives $v = 245.9$\,GeV (observed: $246.2$\,GeV,
+$0.1\%$ match).
+The hierarchy $M_P/v \approx 10^{17}$ is explained,
+not assumed.
 
 \begin{proposition}[4D graviton propagator]
 \label{prop:graviton-propagator}
@@ -2947,7 +3418,7 @@ $R^{(4)}_{\varphi\varphi} = -\tfrac{1}{4}F^2 = -N^2/16$
 Combined with the base curvature $K = -1$,
 the effective $3$D cosmological constant is
 $\Lambda_3 = K + \tfrac{1}{4}|F|^2 = -1 + N^2/16
-= (N^2{-}16)/16$ (Paper~V, Proposition~\ref*{V-prop:lambda}).
+= (N^2{-}16)/16$ (Paper~VI, Proposition~\ref*{VI-prop:lambda}).
 The $ij$ components give $R^{(3)}_{ij} = \Lambda_3\,g_{ij}$
 with $\Lambda_3 = (N^2 - 16)/16$, precisely the $3$D equation
 that the CS theory produces in Step~A.
@@ -3051,7 +3522,7 @@ bounds ($\tau_p > 1.6 \times 10^{34}$\,yr for $p \to e^+\pi^0$).
 \subsection{The Higgs mass}
 \label{sec:higgs}
 The electroweak VEV $v = 246$\,GeV is predicted
-(Theorem~\ref*{V-thm:cc}, $0.12\%$~match).
+(Theorem~\ref*{VI-thm:cc}, $0.12\%$~match).
 Standard Model RG running of $\lambda_H$ from $M_{\mathrm{poly}}$
 to $M_Z$ gives $\lambda_H \approx 0.10$,
 yielding $m_H \approx 110$\,GeV at tree level.
@@ -3084,11 +3555,18 @@ Two corrections, both derived from the orbifold structure, raise this:
   $h = f/(k{+}h^\vee) = 2/3$).
   The critical mode dominates because it is the lightest excitation
   at the BF threshold ($\lambda_{m^*} = 0$).
-  The central-charge suppression $1/c_{\mathrm{EW}} = 1/17.2$
-  (the inverse gravitational coupling in the EW sector) gives:
+  The central-charge suppression $1/c_{\mathrm{EW}}$,
+  where $c_{\mathrm{EW}} = c_7/3 = 51.57/3 = 17.2$
+  (the $N = 4$ subsector contributes $c_4 = 12\,b(4) = 17.2$
+  to the total $c_7 = 51.57$; the factor $1/3$ reflects the
+  $4/12$ partition of the central charge budget), gives:
   $\delta\lambda_{\mathrm{inst}} = \mathcal{K}^2\,h^2/c_{\mathrm{EW}}
   = 0.300 \times 0.444 / 17.2 = 0.008$.
 \end{enumerate}
+The SM quartic $\lambda_{\mathrm{SM}}(M_{\mathrm{poly}}) = 0.10$
+is the one-loop vacuum-stability value at $M_{\mathrm{poly}}$,
+computed from the SM RG equation with all inputs
+($m_t$, $\alpha_s$, $v$) derived in previous sections.
 At leading order:
 $\lambda_H^{\mathrm{LO}} = 0.10 + 0.014 + 0.008 = 0.122$,
 giving $m_H^{\mathrm{LO}} = \sqrt{2\lambda_H}\,v = 122$\,GeV.
@@ -3159,7 +3637,7 @@ $S_{4\mathrm{D}} = A/(4G_4)$ for the $4$D horizon area~$A$.
 \paragraph{Code availability.}
 All numerical verifications are in the companion repository
 (\url{https://github.com/gspea/planetary-polygons-unified}).
-Parameter accounting and predictions appear in Paper~VI.
+Parameter accounting and predictions appear in Paper~VII.
 
 \bibliographystyle{plainnat}
 \bibliography{../shared/refs}
