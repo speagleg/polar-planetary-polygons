@@ -407,12 +407,12 @@ and the logarithm is the IR fixed point of the RG flow
 \label{sec:sign-rule}
 
 \begin{theorem}[Sign rule for general interactions]\label{thm:sign-rule}
-For $N \ge 3$ vortices on a ring with general pairwise interaction
-$h(r)$, the energy along the centered spiral satisfies
+For $N \ge 3$ vortices on a ring of radius~$R$ with general pairwise
+interaction $h(r)$, the energy along the centered spiral satisfies
 \begin{equation}\label{eq:Hpp-general}
   H''(0) = \sum_{m=1}^{N-1}\Bigl[
     \bigl(d_m^2 h''(d_m) + d_m h'(d_m)\bigr) S_m
-    + \frac{h'(d_m)\, m^2(N-m)}{N^2\, d_m}
+    + \frac{R^2\,h'(d_m)\, m^2(N-m)}{N^2\, d_m}
   \Bigr],
 \end{equation}
 where $d_m = 2R\sin(\pi m/N)$ and
@@ -443,25 +443,34 @@ $D(0) = 2R^2[1 - \cos(2\pi m/N)] = 4R^2\sin^2(\pi m/N) = d_m^2$.
 Write $c_s = (j'+k')/2$ and $c_t = m/(2N)$, so
 $s = \sigma c_s$, $t = \sigma c_t$.  Direct differentiation gives
 \begin{align*}
-  D'(0) &= 4c_s(1 - \cos\phi), \qquad \phi = 2\pi m/N, \\[3pt]
-  D''(0) &= 8c_s^2(1 - \cos\phi) + 8c_t^2.
+  D'(0) &= 4R^2 c_s(1 - \cos\phi) = 2c_s d_m^2,
+    \qquad \phi = 2\pi m/N, \\[3pt]
+  D''(0) &= 8R^2 c_s^2(1 - \cos\phi) + 8R^2 c_t^2
+    = 4c_s^2 d_m^2 + 8R^2 c_t^2,
 \end{align*}
+using $2R^2(1-\cos\phi) = d_m^2$.
 
 \emph{Step 3: Chain rule for $h(\sqrt{D})$.}
 Write $d = \sqrt{D}$.  Two applications of the chain rule give
 \[
   \frac{\dd^2}{\dd\sigma^2}h(d)\bigg|_{\sigma=0}
-  = \underbrace{\frac{h''(d_m)}{4d_m^2}(D')^2
-  + \frac{h'(d_m)}{2d_m}\!\left[D'' - \frac{(D')^2}{2d_m^2}\right]}_{\text{evaluated at each pair $(j,k)$}}.
+  = \frac{h''(d_m)}{4d_m^2}(D'(0))^2
+  + \frac{h'(d_m)}{2d_m}\!\left[D''(0) - \frac{(D'(0))^2}{2d_m^2}\right].
 \]
-Substituting $D'(0) = 4c_s(1{-}\cos\phi) = 2c_s d_m^2/R^2$
-(using $1{-}\cos\phi = d_m^2/(2R^2)$) and collecting terms:
+Substituting $D'(0) = 2c_s d_m^2$ and
+$D''(0) = 4c_s^2 d_m^2 + 8R^2 c_t^2$:
+\begin{align*}
+  \frac{(D'(0))^2}{4d_m^2} &= c_s^2 d_m^2, \\
+  D''(0) - \frac{(D'(0))^2}{2d_m^2}
+    &= 4c_s^2 d_m^2 + 8R^2 c_t^2 - 2c_s^2 d_m^2
+    = 2c_s^2 d_m^2 + 8R^2 c_t^2.
+\end{align*}
+Collecting:
 \[
   \frac{\dd^2}{\dd\sigma^2}h(d)\bigg|_0
-  = \bigl[d_m^2 h''(d_m) + d_m h'(d_m)\bigr]c_s^2
-  + \frac{2R^2\,h'(d_m)}{d_m}\,c_t^2.
+  = \bigl[d_m^2 h''(d_m) + d_m h'(d_m)\bigr] c_s^2
+  + \frac{4R^2\,h'(d_m)}{d_m}\,c_t^2.
 \]
-Here $d_m^2/(1{-}\cos\phi) = 2R^2$ was used in the second term.
 
 \emph{Step 4: Summation over pairs.}
 For fixed separation $m$, sum over the $N-m$ pairs
@@ -472,16 +481,20 @@ $(k, k{+}m)$ for $k = 0, \ldots, N{-}m{-}1$.  Define
 \]
 Since $\sum_k c_{s,k} = 0$ by the centering, $S_m \ge 0$ with equality
 only if all $c_{s,k} = 0$ (which requires $N - m = 1$, i.e.\ $m = N-1$).
-The second sum contributes
-$(N{-}m)\cdot 2R^2 h'(d_m) c_t^2 / d_m
-= 2R^2 h'(d_m) m^2(N{-}m)/(4N^2 d_m)$.
+Because $c_t = m/(2N)$ is constant over all pairs at separation~$m$,
+the second-term contribution summed over those pairs is
+\[
+  (N{-}m)\cdot \frac{4R^2 h'(d_m) c_t^2}{d_m}
+  = \frac{4R^2 h'(d_m)}{d_m}\cdot\frac{m^2(N{-}m)}{4N^2}
+  = \frac{R^2 h'(d_m)\, m^2(N{-}m)}{N^2 d_m}.
+\]
 Summing over $m = 1, \ldots, N-1$
 yields \eqref{eq:Hpp-general}.
 
 \emph{Step 5: Sign determination.}
 Under $h'(r) < 0$: the second term
-$B_m = h'(d_m)\,m^2(N{-}m)/(N^2 d_m) < 0$
-for every $m = 1, \ldots, N-1$, since $h' < 0$, $d_m > 0$,
+$B_m = R^2 h'(d_m)\,m^2(N{-}m)/(N^2 d_m) < 0$
+for every $m = 1, \ldots, N-1$, since $h' < 0$, $R^2 > 0$, $d_m > 0$,
 and $m^2(N{-}m) > 0$.
 Under $(rh'(r))' \le 0$: the first coefficient
 $A_m = d_m^2 h''(d_m) + d_m h'(d_m) = d_m \cdot (rh')'\big|_{r=d_m} \le 0$,
@@ -493,7 +506,8 @@ centering sum has a single term:
 $c_{s,0} = (0 + (N{-}1) - (N{-}1))/(2N) = 0$,
 so $S_{N-1} = 0$.  The first term $A_{N-1} S_{N-1} = 0$ therefore
 \emph{vanishes identically}, regardless of the sign of $A_{N-1}$.
-However, the second term $B_{N-1} = h'(d_{N-1})\,(N{-}1)^2/(N^2 d_{N-1})$
+However, the second term
+$B_{N-1} = R^2 h'(d_{N-1})\,(N{-}1)^2/(N^2 d_{N-1})$
 remains strictly negative (since $h' < 0$).  Thus the $m = N{-}1$
 contribution to $H''(0)$ is $B_{N-1} < 0$, and strict negativity
 of $H''(0) = \sum_m (A_m S_m + B_m)$ follows from $A_m S_m \le 0$
