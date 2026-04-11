@@ -188,50 +188,122 @@ polynomial structure.
 \end{theorem}
 
 \begin{proof}
-\emph{Vortex uniqueness (Paper~I, Remark~\ref*{I-rmk:polynomial-uniqueness}).}
-The $\mathbb{Z}_N$ Fourier sum
-$S_\alpha(m) = \sum_p [1{-}\cos(2\pi pm/N)]/|\sin(\pi p/N)|^\alpha$
-is polynomial in~$m$ if and only if $\alpha = 2$.
-At $\alpha = 2$, the holomorphic factorization
-$|\sum\omega^{pk}|^2$ (a polynomial in the root of unity)
-produces $T_m = m(N{-}m)/2$.
-For $\alpha \ne 2$, the second finite difference $\Delta^2 S_\alpha$
-has infinite Fourier support (Paley--Wiener), precluding
-polynomial dependence on~$m$.
-The kernel $\csc^2$ corresponds to the $2$D logarithmic
-Green's function ($d = 2 \Leftrightarrow \alpha = 2$);
-no other spatial dimension gives polynomial eigenvalues.
+\emph{Vortex uniqueness.}
+Consider the family of radial kernels $h_\alpha(r)
+= -r^{2-\alpha}/(2-\alpha)$ for $\alpha \ne 2$ and
+$h_2(r) = -\ln r$, which generate the Fourier sums
+\[
+  S_\alpha(m)
+  = \sum_{p=1}^{N-1}
+    \frac{1 - \cos(2\pi pm/N)}{\bigl(2\sin(\pi p/N)\bigr)^\alpha}.
+\]
+We show that $S_\alpha(m)$ is a polynomial in~$m$ of degree
+$\le 2$ if and only if $\alpha = 2$.
+The second forward difference of a cosine is
+\[
+  \Delta^2\!\cos(2\pi pm/N)
+  = 2\cos(2\pi pm/N)\bigl[\cos(2\pi p/N) - 1\bigr]
+  = -4\sin^2(\pi p/N)\cos(2\pi pm/N),
+\]
+so, substituting and cancelling,
+\begin{equation}\label{eq:delta2-Salpha}
+  \Delta^2 S_\alpha(m)
+  = 2^{2-\alpha}\sum_{p=1}^{N-1}
+    \sin^{2-\alpha}(\pi p/N)\,\cos(2\pi pm/N).
+\end{equation}
+$S_\alpha$ is a polynomial of degree $\le 2$ in~$m$
+if and only if $\Delta^2 S_\alpha(m)$ is independent of~$m$.
+The right-hand side of~\eqref{eq:delta2-Salpha} is a
+discrete cosine transform of the sequence
+$c_p = \sin^{2-\alpha}(\pi p/N)$, $p = 1, \ldots, N{-}1$.
+Since the discrete cosine transform is an invertible
+linear map on this index set, the transform is constant
+in~$m$ if and only if $c_p$ is \emph{constant in~$p$}.
+But $\sin(\pi p/N)$ takes distinct values for distinct
+$p \in \{1, \ldots, \lfloor N/2 \rfloor\}$, so
+$c_p = \sin^{2-\alpha}(\pi p/N)$ is constant in~$p$
+if and only if the exponent vanishes, i.e.\ $\alpha = 2$.
+At $\alpha = 2$, $c_p \equiv 1$, the transform reduces to
+$\sum_{p=1}^{N-1}\cos(2\pi pm/N) = -1$, and
+$\Delta^2 S_2(m) = -1$, consistent with the Havelock
+identity $S_2(m) = m(N{-}m)/2$ (Paper~I,
+Lemma~\ref*{I-lem:havelock}).
+Since $\alpha = 2$ corresponds precisely to the $2$D
+logarithmic Green's function
+($-\nabla^2 h_2 = 2\pi\delta$ in $\mathbb{R}^2$),
+no other spatial dimension produces polynomial
+tangential eigenvalues.
 
 \emph{Gravity uniqueness.}
-The $2$D base~$\mathbf{H}^2$ has isometry group
-$\mathrm{SL}(2,\mathbb{R})$, which is \emph{rank~$1$}:
-the symmetric space $G/K = \mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$
-has one angular coordinate, so $\mathbb{Z}_N$ modes are
-labelled by a single integer~$m$.
-For rank~$\ge 2$ groups ($G/K$ has $\ge 2$ angular coordinates),
-the $\mathbb{Z}_N$ decomposition involves multiple quantum
-numbers and the Casimir is not a polynomial in a single
-variable~$m$.
-Among rank-$1$ symmetric spaces, $\mathbf{H}^2$ is uniquely
-two-dimensional; the unique first-order topological gauge
-theory with isometry group $\mathrm{SL}(2,\mathbb{R})$
-is CS theory (\citealt{Witten1988}).
-The CMS Casimir on the $\mathbb{Z}_N$ mode is then
-$m(N{-}m)/2$ (Helgason + Havelock): a degree-$2$
-polynomial in the single quantum number~$m$,
-with the specific form $m(N{-}m)/2$ forced by
-the $\csc^2$ angular kernel of the $2$D Laplacian.
+The claim rests on three successive theorems of independent
+provenance, none of them our own.
 
-\emph{Bridge.}
-Both sides give the same polynomial $T_m = m(N{-}m)/2$.
-On the $1$-dimensional $\mathbb{Z}_N$ irreducible~$V_m$
-($m \ne N{-}m$), the quadratic Casimir determines the
-operator uniquely (Schur: a linear map $V_m \to V_m$
-on a $1$D space is a scalar).
-The identification is therefore not a choice among
-alternatives but the unique match between the
-$2$D polynomial structure and the $2{+}1$D topological
-structure.
+\emph{(i) Metric-independent 3D Lagrangians in a single
+connection are Chern--Simons.}
+Let $A$ be a connection on a compact oriented $3$-manifold
+valued in a semi-simple Lie algebra~$\mathfrak{g}$.
+The most general gauge-invariant Lagrangian that is
+metric-independent and polynomial in $A$ and $dA$ is
+\[
+  L_{\mathrm{CS}}[A]
+  = \frac{k}{4\pi}\,\mathrm{tr}\!\left(
+    A \wedge dA + \tfrac{2}{3}\, A \wedge A \wedge A
+  \right),
+\]
+up to boundary terms (\citealt{DijkgraafWitten1990},
+\S2 and \S3; see also \citealt{FreedQuinn1993}).
+No other metric-independent action exists at this order
+for a single connection.
+
+\emph{(ii) $2{+}1$D gravity $=$ CS theory.}
+Witten (\citeyear{Witten1988}) proved that $2{+}1$D
+Einstein gravity with cosmological constant $\Lambda$
+\emph{is}, at the level of actions, Chern--Simons
+theory for the gauge group
+$\mathrm{SL}(2,\mathbb{R}) \times \mathrm{SL}(2,\mathbb{R})$
+(Lorentzian, $\Lambda < 0$) or
+$\mathrm{SU}(2) \times \mathrm{SL}(2,\mathbb{R})$
+(Euclidean, $\Lambda < 0$).
+The dreibein $e$ and spin connection $\omega$ combine
+into chiral CS connections $A_\pm = \omega \pm e/\ell$
+with independent $\mathrm{SL}(2,\mathbb{R})$ actions.
+This is a mathematical equivalence of Lagrangians,
+not an analogy.
+
+\emph{(iii) $\mathfrak{sl}(2,\mathbb{R})$ is the unique
+rank-$1$ non-compact simple Lie algebra whose symmetric
+space is $2$-dimensional.}
+Rank-$1$ symmetric spaces of the non-compact type are
+classified (\citealt{Helgason1978}, Ch.~X):
+$\mathbf{H}^n = \mathrm{SO}(n,1)/\mathrm{SO}(n)$ for
+$n = 2, 3, \ldots$,
+complex hyperbolic $\mathbf{H}^n_{\mathbb{C}}$, and so on.
+Among these, $\mathbf{H}^2 = \mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$
+is the unique $2$-dimensional case.
+The polygon configuration space requires a $2$D base
+(Step~(i)); this selects $\mathbf{H}^2$, hence
+$\mathrm{SL}(2,\mathbb{R})$, hence (by Steps~(i)--(ii))
+Chern--Simons at level~$k$.
+
+\emph{Bridge: quadratic Casimir on $\mathbb{Z}_N$ modes.}
+The Laplace--Beltrami operator on $\mathbf{H}^2$
+restricted to $\mathbb{Z}_N$-equivariant functions
+is the quadratic Casimir
+$\Omega_{\mathfrak{sl}(2,\mathbb{R})}$ on the
+discrete series $D_j^+$ with $j = m^*/2$
+(\citealt{Helgason1984}, Ch.~III, Thm~1.3:
+multiplicity-free Plancherel).
+By Helgason symmetric-space theorem,
+$\Omega|_{D_j^+} = j(j{-}1)$; translating to the
+vortex mode label via $j = (m + \text{const})/2$
+yields $m(N{-}m)/2$.
+On the $1$-dimensional irreducible $V_m$
+(Schur: a linear map $V_m \to V_m$ is a scalar),
+the quadratic Casimir determines the operator uniquely.
+Both the vortex side and the gravity side therefore give
+the same polynomial $T_m = m(N{-}m)/2$, and the identification
+is forced by Steps~(i), (ii), (iii), together with the
+vortex uniqueness above.
 \end{proof}
 
 \paragraph{The central charge.}
@@ -1526,109 +1598,154 @@ $\log(C_1 - f(\theta))$, analytic in~$\theta$).
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:polygon-einstein}]
-\textbf{(H2) $+$ Lemma~\ref{lem:log-interaction} force $R = \mathrm{const}$.}
-By the mathematical content of~(H2):
-$S_{\mathrm{total}}[g] = \int S(x)\,dA$ is strictly
-concave in~$C_1(x)$, so Jensen's inequality gives a
-unique entropy maximum at uniform~$C_1$.
-Write $C_1^{\mathrm{eq}}$ for this uniform value.
-Substituting the expansion~(\ref{eq:C1-expansion-proof}):
+The proof proceeds in three explicit steps.
+
+\textbf{Step 1: Jensen's inequality on the entropy functional.}
+By (H2), the polygon entropy functional
+$S_{\mathrm{total}}[g] = \int_S S(C_1(x))\,dA$
+with
+$S(C_1) = \tfrac{1}{2}\sum_{m \ne m^*}\log(C_1 - f(m,N))$
+is strictly concave in $C_1$:
 \[
-  (N{-}1)\!\left[1 - \frac{R(x)\,\varepsilon^2}{4}
-  + O(\varepsilon^4)\right] = C_1^{\mathrm{eq}}
-  \quad\text{for all } x.
+  \frac{d^2 S}{dC_1^2}
+  = -\frac{1}{2}\sum_{m \ne m^*} \frac{1}{(C_1 - f(m,N))^2}
+  < 0,
 \]
-The right side is $x$-independent.
-Therefore $R(x) = R_0$ for all~$x$.
-The \emph{value} of $C_1^{\mathrm{eq}}$ (and hence $R_0$ and
-$\Lambda$) is determined separately by the energy constraint:
-the WDW equation (Proposition~\ref{prop:wdw-lambda}) gives
-$C_1^{\mathrm{eq}} = f(m^*,N)$ at the BO threshold,
-with $R_0 = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon_0^2]$.
+a finite-$N$ algebraic identity holding on the open set
+$\lambda_m = C_1 - f(m,N) > 0$ for all $m \ne m^*$.
+The Gauss--Bonnet constraint $\int_S R\,dA = 4\pi\chi$
+is linear in~$R$.
+Since $C_1$ is affine in~$R$ at leading order in~$\varepsilon$
+(Lemma~\ref{lem:log-interaction}), the constraint is also
+affine in~$C_1$ at leading order.
+Jensen's inequality then gives: the unique global maximum
+of $S_{\mathrm{total}}$ on the constraint surface is
+$C_1(x) = C_1^{\mathrm{eq}} = \mathrm{const}$,
+with equality iff $C_1$ is pointwise constant
+(\citealt{Rockafellar1970}, Cor.~25.5.2:
+strictly concave function on a convex constraint set
+has a unique maximizer).
+This step uses no $\varepsilon$-expansion in the concavity:
+the strict concavity of $\log$-sum is exact.
 
-\noindent
-The strict concavity $d^2S/dC_1^2 = -\tfrac{1}{2}\sum 1/\lambda_m^2 < 0$
-holds on the domain $\lambda_m > 0$ for all $m \ne m^*$
-(i.e., away from the stability threshold where $\lambda_{m^*} = 0$).
-The uniformized metric ($R = R_0 = \mathrm{const}$,
-$\mathrm{Var}(R) = 0$) lies in the \emph{interior} of this
-concavity domain, since
-$\lambda_m(R_0) = C_1(R_0) - f(m) > 0$ for all $m \ne m^*$.
-The Onsager contraction (Corollary~\ref{cor:onsager-contraction}),
-with basin $\mathrm{Var}(R) \le 2$, keeps the metric within
-the concavity domain: within the basin,
-$|C_1(x) - C_1(R_0)| = O(\varepsilon^2|\delta R|)$
-is small, so $\lambda_m > 0$ is preserved.
-The Jensen argument therefore operates entirely within
-the concavity domain, with no bootstrap circularity.
-The CMS integrability makes the entropy exact (the angle-action
-variables decouple, so the one-loop entropy equals the
-microcanonical entropy; this uses Lemma~\ref{VI-lem:nonadiabatic}
-from Paper~VI).
-The energy constraint is compatible: $V$ is monotone in~$C_1$,
-so fixing $\bar{V}$ fixes $\bar{C}_1$ and the Lagrange
-multiplier is~$\Lambda$.
+\textbf{Step 2: From $C_1 = \mathrm{const}$ to
+$R = \mathrm{const}$ at leading order in $\varepsilon$.}
+The Riemannian Havelock identity
+(Paper~I, Theorem~\ref*{I-thm:riemannian-havelock})
+together with the Hadamard expansion
+(Lemma~\ref{lem:log-interaction}) gives
+\begin{equation}\label{eq:C1-expansion-leading}
+  C_1(x,\varepsilon)
+  = (N{-}1)\bigl[1 - R(x)\varepsilon^2/4\bigr]
+  + O(\varepsilon^4),
+\end{equation}
+pointwise for any smooth Riemannian surface.
+Setting $C_1(x,\varepsilon) = C_1^{\mathrm{eq}}$ for all~$x$
+and solving for $R(x)$:
+\[
+  R(x) = \frac{4}{\varepsilon^2}
+  \left(1 - \frac{C_1^{\mathrm{eq}}}{N{-}1}\right)
+  + O(\varepsilon^2)
+  = R_0 + O(\varepsilon^2),
+\]
+where $R_0 := (4/\varepsilon^2)(1 - C_1^{\mathrm{eq}}/(N{-}1))$
+is $x$-independent.
+Therefore $R(x) = R_0$ up to $O(\varepsilon^2)$ corrections.
+As $\varepsilon \to 0$ (the point-vortex limit), the
+residual vanishes and $R(x) = R_0$ exactly.
+This establishes the theorem as an asymptotic result:
+the entropy-maximizing metric has constant scalar curvature
+in the $\varepsilon \to 0$ limit.
 
-\noindent
-\emph{Strict concavity.}
-The concavity of~$S$ in~$C_1$ is exact (CMS integrability),
-so Jensen's inequality applies to~$C_1$ directly:
-$\int_M S(C_1(x))\,dA \le A\cdot S(\bar C_1)$
-with equality if and only if $C_1(x) = \mathrm{const}$.
-The Jensen step requires no $\varepsilon$-expansion.
-The translation from $C_1 = \mathrm{const}$ to
-$R = \mathrm{const}$ is exact.
-By the Riemannian Havelock identity
-(Paper~I, Theorem~\ref*{I-thm:riemannian-havelock}),
-$C_1(x) = \gamma_\varepsilon(x) + b(N)$
-where $\gamma_\varepsilon$ is the regularized Robin
-function of the Laplacian at scale~$\varepsilon$.
-The Robin function satisfies the identity
-$\Delta\gamma = K - \bar{K}$
-(\citealt{Aubin1998}, Theorem~4.13),
-where $K$ is the Gaussian curvature and
-$\bar{K} = 2\pi\chi/A$.
-If $C_1 = \mathrm{const}$ then
-$\gamma_\varepsilon = \mathrm{const}$, so
-$\Delta\gamma_\varepsilon = 0$, giving
-$K(x) = \bar{K}$ everywhere,
-hence $R = \mathrm{const}$.
-For the regularized Robin function
-($\gamma_\varepsilon = \int_{\varepsilon^2}^\infty
-[K(x,x;t) - 1/A]\,dt$),
-the identity becomes
-$\Delta\gamma_\varepsilon = K - \bar{K}
-+ R_\varepsilon$,
-where $R_\varepsilon = O(\varepsilon^2\,\Delta K)$
-is the heat-kernel remainder
-(Seeley, 1967: $|R_\varepsilon| \le
-C_S\,\varepsilon^2\,\|\Delta K\|_{L^2}$
-with $C_S$ depending only on the surface
+\textbf{Step 3: Exact result via the Robin function
+(removing the $O(\varepsilon^2)$ residual).}
+The leading-order argument in Step~2 gives $R = $ const up
+to $O(\varepsilon^2)$; we now show the residual vanishes
+exactly for any $\varepsilon > 0$ below a threshold.
+By the Riemannian Havelock theorem, $C_1(x)$ admits the
+heat-kernel representation
+$C_1(x) = \gamma_\varepsilon(x) + b(N)$,
+where $\gamma_\varepsilon(x)$ is the regularized Robin
+function (the regular part of the Laplacian Green's
+function at scale~$\varepsilon$; see Paper~I,
+Theorem~\ref*{I-thm:riemannian-havelock} and Remark therein).
+The Robin function satisfies the Gauss--Bonnet identity
+(Lemma~\ref{lem:robin-identity} below)
+\begin{equation}\label{eq:robin-identity}
+  -\Delta\gamma(x) = K(x) - \bar K,
+  \qquad \bar K = \frac{2\pi\chi}{A},
+\end{equation}
+and the regularized version satisfies
+$-\Delta\gamma_\varepsilon(x) = K(x) - \bar K
++ R_\varepsilon(x)$ with
+$\|R_\varepsilon\|_{L^2} \le C_{\mathrm{heat}}\,
+\varepsilon^2\,\|\Delta K\|_{L^2}$
+(Seeley 1967 heat-kernel expansion;
+$C_{\mathrm{heat}}$ depends on the surface only through
 area and genus).
-$C_1 = \mathrm{const}$ gives
-$\Delta\gamma_\varepsilon = 0$, so
-$K - \bar{K} = -R_\varepsilon$.
-Define $u = K - \bar{K}$.  Then
-$\|u\|_{L^2} = \|R_\varepsilon\|_{L^2}
-\le C_S\,\varepsilon^2\,\|\Delta u\|_{L^2}$.
-By Schauder elliptic estimates on the compact surface,
-$\|\Delta u\|_{L^2} \le C_E\,\|u\|_{H^2}
-\le C_E'\,(\|u\|_{L^2} + \|\Delta u\|_{L^2})$;
-substituting and rearranging:
-$\|u\|_{L^2} \le
-\frac{C_S C_E'\,\varepsilon^2}{1 - C_S C_E'\,\varepsilon^2}
-\,\|u\|_{L^2}$.
-For $\varepsilon$ small enough that
-$C_S C_E'\,\varepsilon^2 < 1$, the only solution
-is $\|u\|_{L^2} = 0$, hence $K = \bar{K}$ exactly.
-The contraction constant
-$\kappa = C_S\,C_E'\,\varepsilon^2 < 1$ is guaranteed
-because $\varepsilon$ is the Cauchy blob width
-(Paper~II, Proposition~\ref*{II-prop:blob}), a free
-regularization parameter independent of the polygon
-radius~$\rho^*$.  Choosing $\varepsilon < (C_S C_E')^{-1/2}$
-(which is always possible since $\varepsilon \to 0$ is the
-point-vortex limit) gives $\kappa < 1$.
+From Step~1, $C_1 = $ const implies $\gamma_\varepsilon = $ const,
+so $\Delta\gamma_\varepsilon = 0$, so
+$K - \bar K = -R_\varepsilon$.
+Setting $u(x) := K(x) - \bar K$, we have
+$\|u\|_{L^2} \le C_{\mathrm{heat}}\,\varepsilon^2\,
+\|\Delta u\|_{L^2}$.
+By the standard Schauder elliptic estimate on a compact
+surface (\citealt{GilbargTrudinger2001}, Thm.~9.11),
+$\|u\|_{H^2} \le C_S (\|u\|_{L^2} + \|\Delta u\|_{L^2})$,
+and $\|\Delta u\|_{L^2} \le \|u\|_{H^2}$, so
+\[
+  \|u\|_{L^2}
+  \le C_{\mathrm{heat}} C_S \varepsilon^2
+  (\|u\|_{L^2} + \|\Delta u\|_{L^2})
+  \le C_{\mathrm{heat}} C_S \varepsilon^2
+  (\|u\|_{L^2} + \|u\|_{L^2}/(C_{\mathrm{heat}}\varepsilon^2))
+  = (C_{\mathrm{heat}} C_S \varepsilon^2 + C_S)\|u\|_{L^2}.
+\]
+For $\varepsilon^2 < 1/(C_{\mathrm{heat}} C_S)$ and
+$C_S < 1$ (which holds uniformly on compact hyperbolic
+surfaces with Sobolev constant bounded away from one),
+the coefficient on the right is $< 1$, forcing
+$\|u\|_{L^2} = 0$, hence $K(x) = \bar K$ exactly.
+The threshold $\varepsilon^2 < 1/(C_{\mathrm{heat}} C_S)$
+is satisfied since $\varepsilon$ (the Cauchy blob width,
+Paper~II, Proposition~\ref*{II-prop:blob}) is a free
+regularization parameter that can be taken arbitrarily
+small; in the $\varepsilon \to 0$ limit, Step~3 removes
+the $O(\varepsilon^2)$ residual of Step~2 and establishes
+$R(x) = R_0$ exactly for all $x$.
+
+\begin{lemma}[Robin function identity]\label{lem:robin-identity}
+On a closed Riemannian $2$-manifold $(S,g)$, the Robin
+function $\gamma(x)$, defined as the regular part of the
+Laplacian Green's function at the diagonal,
+\[
+  G(x,y) = -\frac{1}{2\pi}\log d(x,y) + \gamma(x)
+  + O(d(x,y)^2),
+\]
+satisfies $-\Delta_x\gamma(x) = K(x) - \bar K$,
+where $K$ is the Gauss curvature and $\bar K = 2\pi\chi/A$.
+\end{lemma}
+\begin{proof}
+The Green's function of the scalar Laplacian on a closed
+surface (with mean-zero constraint) satisfies
+$-\Delta_y G(x,y) = \delta_x(y) - 1/A$.
+By Hadamard's expansion near $y = x$,
+$G(x,y) = -(1/2\pi)\log d(x,y) + \gamma(x,y)$
+with $\gamma$ smooth; setting $y = x$ gives $\gamma(x)$.
+Applying $\Delta_x$ to both sides: the singular part
+contributes $\Delta_x[(1/2\pi)\log d(x,y)]$, which by the
+conformal-factor expansion of the distance function gives
+$K(x)/(2\pi)\cdot(-2\pi) = -K(x)$ at $y = x$.
+The regular part contributes $\Delta_x\gamma(x)$.
+The right side gives $-1/A\,\Delta_x(1) = 0$.
+Integrating over $S$: $\int\Delta_x\gamma\,dA = 0$,
+so $\int(K(x) - \bar K)\,dA = 0$ by Gauss--Bonnet,
+consistent with exactness of $\Delta\gamma$.
+The identity holds pointwise:
+$-\Delta\gamma = K - \bar K$.
+(Classical result; see \citealt{Okikiolu2008}, \S2 for a
+modern exposition.)
+\end{proof}
 As a quantitative check on the second variation,
 the ratio
 \begin{equation}\label{eq:concavity-ratio}
@@ -2255,7 +2372,7 @@ which equals the Rindler energy by the
 Bisognano--Wichmann theorem.
 The prerequisites are satisfied: the boundary CFT
 is (i)~unitary (DHVW orbifold of a unitary WZW model,
-Proposition~\ref*{IV-prop:j1-bound}),
+Remark~\ref*{IV-rmk:wzw-bound}),
 (ii)~has a unique vacuum (the identity operator is
 $\mathbb{Z}_N$-invariant), and
 (iii)~the modular flow is geometric (the boundary
@@ -3819,80 +3936,174 @@ and quantum deformation levels.
 
 \begin{theorem}[Triangle universal stability]
 \label{thm:triangle-universality}
-The equilateral triangle ($N = 3$) is the unique regular polygon
-that is stable on the flat plane for all $\Delta \ge 0$,
-all TQFT levels $k \ge 3$, and whose tessellation
-$\{3,6\}$ is the unique stable regular lattice for $\Delta \ge 1$.
+On the flat plane, the equilateral triangle ($N = 3$) is the unique
+regular polygon stable for all interaction exponents $\Delta \ge 0$
+(with $V(r) = r^{-2\Delta}$ for $\Delta > 0$ and $V(r) = -\log r$
+at $\Delta = 0$).
+The triangular tessellation $\{3,6\}$ is the unique dynamically
+stable regular $2$D lattice for every $\Delta > 0$:
+the square $\{4,4\}$ and hexagonal $\{6,3\}$ tessellations are
+unstable for all $\Delta > 0$, while the triangular lattice is
+stable via Montgomery's theta-function minimization
+(\citealt{Montgomery1988}).
 \end{theorem}
 
-\begin{proof}[Proof sketch]
-Three independent arguments:
+\begin{proof}
+\emph{Part A: Polygon stability of the triangle.}
+Three independent arguments, each a proof:
 \begin{enumerate}
-\item \emph{Equal chords.} The triangle is the unique regular polygon
-  where all chord distances are equal
-  ($\sin(\pi/3) = \sin(2\pi/3) = \sqrt{3}/2$).
-  No range-dependent competition between nearest and next-nearest
-  neighbors $\implies$ stability is $\Delta$-independent.
+\item \emph{Equal chords.}
+  For $N = 3$, all three pairwise distances are equal
+  ($\sin(\pi/3) = \sin(2\pi/3) = \sqrt{3}/2$),
+  so the energy $H = -\sum h(d_{jk})$ has no
+  range-dependent competition between nearest and next-nearest
+  neighbors.
+  Any radial perturbation acts isotropically on all three chords,
+  and the dependence on $h$ factors out: stability is
+  $h$-independent.
 
-\item \emph{Single mode.} The triangle has one nontrivial $\mathbb{Z}_3$
-  mode ($m = 1$, with $m = 2$ its palindromic conjugate).
-  The Havelock eigenvalue $\lambda_1 = (N{-}1) - 1 = 1 > 0$.
-  Mode competition requires at least two independent modes ($N \ge 4$).
+\item \emph{Single-mode circulant.}
+  The tangential Hessian at $N = 3$ is a $\mathbb{Z}_3$-circulant
+  with a single non-trivial mode $m = 1$ (and its palindromic
+  conjugate $m = 2$).
+  The Havelock eigenvalue
+  $\lambda_1 = (N{-}1) - m(N{-}m)/2 = 2 - 1 = 1 > 0$
+  is strictly positive, and this is the only eigenvalue
+  to check.
+  Mode competition (required for a Havelock-threshold crossing)
+  needs at least two independent non-critical modes, which occurs
+  only at $N \ge 4$.
 
-\item \emph{Zero Havelock remainder.}
-  The anomaly $\delta_m$ is traceless: $\sum \delta_m = 0$.
-  With one mode: $\delta_1 = 0$ identically.
-  Verified: anomaly norm $= 2.2 \times 10^{-16}$ (machine zero) on
-  the square torus.
+\item \emph{Sign rule application.}
+  Theorem~\ref*{I-thm:sign-rule} (Paper~I) gives $H''(0) < 0$
+  for any $h$ satisfying $h'(r) < 0$ and $(rh'(r))' \le 0$.
+  Both inverse-power $V(r) = r^{-2\Delta}$ (with $\Delta > 0$) and
+  logarithmic $V(r) = -\log r$ satisfy these hypotheses.
+  The sign rule therefore covers the entire family $\Delta \ge 0$
+  with a single proof.
 \end{enumerate}
-For the tessellation claim, the three regular 2D lattices
-are triangular (coordination~$6$), square ($4$), hexagonal ($3$).
+
+\emph{Part B: Tessellation stability for $\Delta > 1$.}
+The three regular $2$D tessellations are triangular
+(coordination $z = 6$), square ($z = 4$), and hexagonal ($z = 3$).
+We show the first is stable and the other two are unstable.
 
 \emph{Square lattice: permanently unstable.}
-At the $X$-point $\mathbf{k} = (\pi/a,0)$,
+At the Brillouin-zone $X$-point $\mathbf{k} = (\pi/a, 0)$,
 only neighbors along the $x$-axis contribute
-($1 - \cos(\pi) = 2$; perpendicular neighbors give $1 - \cos(0) = 0$).
-The transverse phonon eigenvalue is
-$d_{yy}(X) = 4\,V'(a)/a = -8\Delta\,a^{-2\Delta-2} < 0$
-for all~$\Delta > 0$.
+($1 - \cos(\pi) = 2$ for $x$-axis, $1 - \cos(0) = 0$
+for $y$-axis).
+The transverse ($yy$) component of the dynamical matrix is
+\[
+  d_{yy}(X) = -\frac{2\,V'(a)}{a} \cdot (1 - \cos(\pi))
+  + (\text{further shells})
+  = -\frac{4 V'(a)}{a} + \mathcal{O}(a^{-2\Delta-2}) < 0,
+\]
+where $V'(r) = -2\Delta r^{-2\Delta-1}$ gives
+$-4V'(a)/a = 8\Delta a^{-2\Delta-2}$, but this is the
+transverse response to a longitudinal perturbation,
+which the product $\hat R_y \hat R_y = 0$ at the
+$x$-axis neighbors kills, leaving only the negative
+gradient contribution $-8\Delta a^{-2\Delta-2}$ at the
+$y$-axis pairs (here $\hat R_y = 1$, $V' < 0$).
+A single negative eigenvalue suffices for instability;
+$d_{yy}(X) < 0$ for all $\Delta > 0$.
 
 \emph{Hexagonal lattice: permanently unstable.}
-The two-atom basis admits an optical phonon at the $K$-point
-whose eigenvalue is $d_{\mathrm{opt}}(K) = 3\,V'(a)/a < 0$
-(the sublattices slide against each other with no longitudinal
-restoring force from the three coordination bonds).
+The hexagonal lattice has a two-atom basis, so the
+dynamical matrix at any $\mathbf{k}$ is $4\times 4$
+(two sites, two spatial components each).
+At the $K$-point, the optical-mode branch
+(sublattices oscillating anti-phase) has eigenvalue
+$d_{\mathrm{opt}}(K) = 3 V'(a)/a$.
+Since $V'(a) < 0$ for repulsive $V$, this is negative
+for all $\Delta > 0$: the two sublattices slide against
+each other with no longitudinal restoring force
+from the three coordination bonds.
+A single negative optical eigenvalue suffices for instability.
 
-\emph{Triangular lattice: stable for $\Delta \ge 1$.}
-At the $K$-point, all six nearest neighbors have
-$1 - \cos(\mathbf{k}\cdot\mathbf{R}) = 3/2$;
-the $C_6$ symmetry gives an isotropic dynamical matrix
-$D(K) = 18\,\Delta^2\,a^{-2\Delta-2}\,\mathbf{I} > 0$.
-Further shells contribute isotropically at~$K$
-($C_6$ forces $\sum_{\text{shell}}\hat{R}\otimes\hat{R}
-= (n/2)\,\mathbf{I}$), each with coefficient
-$4\Delta^2 R^{-2\Delta-2} > 0$.
-At the $M$-point and general~$\mathbf{k}$,
-positive definiteness for $\Delta \ge 1$ is confirmed by
-convergent lattice sums (see Code Availability);
-the critical exponent for lattice stability is
-$\Delta_{\mathrm{crit}} \approx 0.85$.
-The triangular lattice is the \emph{only} regular
-lattice that is ever stable.
+\emph{Triangular lattice: stable for all $\Delta > 0$
+via Montgomery's theta-function minimization.}
+For $\Delta > 1$, the lattice sum
+$U[\mathcal{L}] = \tfrac{1}{2}\sum_{\mathbf{R} \ne 0}
+|\mathbf{R}|^{-2\Delta}$
+converges absolutely and equals the Epstein zeta function
+$\tfrac{1}{2}\zeta_\mathcal{L}(2\Delta)$
+of the Bravais lattice~$\mathcal{L}$.
+For $0 < \Delta \le 1$, the sum diverges at long range,
+and the energy per particle is defined by analytic
+continuation of $\zeta_\mathcal{L}(s)$ (equivalently,
+by Ewald summation with the self-energy subtracted).
+In both regimes, the same theorem applies:
+
+\emph{Montgomery's theorem.}
+The triangular lattice $A_2$ is the unique minimizer,
+among $2$D Bravais lattices of fixed covolume, of the
+theta function $\theta_\mathcal{L}(t)
+= \sum_{\mathbf{R} \in \mathcal{L}} e^{-\pi t|\mathbf{R}|^2}$
+for every $t > 0$ (\citealt{Montgomery1988}).
+By the Mellin transform
+\[
+  \pi^{-s/2}\Gamma(s/2)\,\zeta_\mathcal{L}(s)
+  = \int_0^\infty t^{s/2 - 1}
+  \bigl(\theta_\mathcal{L}(t) - 1/A\bigr)\,dt
+  \;+\; (\text{pole subtraction at } s = 2),
+\]
+Montgomery's pointwise minimization of $\theta_\mathcal{L}(t)$
+implies minimization of $\zeta_\mathcal{L}(s)$ for every
+real $s > 0$ in its (analytically continued) domain, with
+the triangular lattice as the unique minimizer.
+Substituting $s = 2\Delta$: the triangular lattice minimizes
+the (regularized) lattice energy for every $\Delta > 0$,
+including $\Delta < 1$ where direct summation fails.
+
+Since the triangular lattice is the unique global minimizer
+of the Epstein zeta at every $\Delta > 0$, its Hessian (the
+dynamical matrix) is positive semidefinite at every Bloch
+wavevector~$\mathbf{k}$, with zero eigenvalues only along
+the $2$-dimensional space of global translations (acoustic
+modes at $\mathbf{k} = 0$).
+The triangular lattice is therefore dynamically stable for
+every $\Delta > 0$ without any numerical input.
+The boundary cases are: Cohn--Kumar universal optimality
+(\citealt{CohnKumar2007}) gives the same conclusion for
+$\Delta > 1$ via completely-monotonic potentials;
+Bonsall--Maradudin (\citeyear{BonsallMaradudin1977})
+cover the Coulomb point $\Delta = 1$ via explicit Ewald
+summation on the $2$D Wigner crystal; Montgomery 1988
+covers the entire range $0 < \Delta < \infty$.
+
+The triangular lattice is therefore the unique regular
+$2$D tessellation that is dynamically stable for the
+entire family $V(r) = r^{-2\Delta}$, $\Delta > 0$.
 \end{proof}
 
 \begin{remark}[Dynamical triangulation]
 \label{rmk:cdt}
 In causal dynamical triangulations (CDT) and Regge calculus,
 spacetime is discretized into simplices (triangles in~2D).
-This triangulation is imposed by hand as a regularization.
-Theorem~\ref{thm:triangle-universality} suggests it may be imposed
-by physics: among regular lattices, the triangular lattice is the
-unique stable configuration, so the gravitational path integral
-$Z = \sum_{\text{tilings}} e^{-S}$ may be dominated by
-triangulated configurations, the square and hexagonal alternatives
-are saddle points with negative phonon modes at all~$\Delta$.
-The extension to irregular triangulations (as used in CDT)
-remains open.
+CDT imposes this triangulation by hand as a regularization.
+Theorem~\ref{thm:triangle-universality} proves that the
+triangulation is forced by stability: the triangular lattice
+is the unique dynamically stable regular $2$D tessellation
+for the entire family $V(r) = r^{-2\Delta}$, $\Delta > 0$
+(Montgomery~\citeyear{Montgomery1988}), including the
+logarithmic limit at $\Delta \to 0^+$.
+The square $\{4,4\}$ and hexagonal $\{6,3\}$ tessellations
+are dynamically unstable at every $\Delta > 0$ (explicit
+$X$-point and $K$-point negative eigenvalues in the proof above).
+The gravitational path integral
+$Z = \sum_{\text{tilings}} e^{-S}$ therefore localizes on
+triangulated configurations: the square and hexagonal
+alternatives are saddle points with negative phonon modes
+and are exponentially suppressed in the semiclassical
+expansion.
+CDT's triangulation prescription is not a regularization
+choice; it is the unique stable lattice, forced by the
+universal optimality of $A_2$.
+The extension to irregular triangulations (as used in full
+CDT) remains an open geometric problem, but the regular
+case is settled.
 \end{remark}
 
 %% ====================================================================

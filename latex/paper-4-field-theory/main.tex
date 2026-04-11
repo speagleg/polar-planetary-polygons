@@ -143,7 +143,7 @@ in all three formalisms
 $c = 12\,b(N)$ where
 $b(N) = N(N{+}1)/12 - \ln 2 + (\ln N)/(N{-}1)$
 is the WDW ground-state energy
-(Paper~III, Theorem~\ref*{III-thm:central-charge}).
+(Paper~III, eq.~\ref*{III-eq:central-charge}).
 At $N = 7$: $b(7) = 4.298$, $c_7 = 51.57$.
 At $N = 11$: $b(11) = 10.55$, $c_{11} = 126.56$.
 
@@ -2923,25 +2923,35 @@ The Bernoulli instanton phases
 $\alpha_L = 1/7$, $\alpha_R = 5/42$, $\alpha_H = 2/21$
 enter each Yukawa entry through
 $\exp(2\pi i(\alpha_L m_L + \alpha_R m_R + \alpha_H m_H)/N)$.
-Predicted at $\sigma = 5$:
+Predicted at $\sigma = 5$
+(tree-level magnitudes, before the NLO instanton correction to $V_{ub}$):
 \begin{center}
 \small
-$|V| \approx \begin{pmatrix}
+$|V|_{\mathrm{tree}} \approx \begin{pmatrix}
   0.973 & 0.230 & 0.088 \\
   0.230 & 0.971 & 0.043 \\
   0.088 & 0.043 & 0.995
 \end{pmatrix}$
 \qquad
 Observed: $\begin{pmatrix}
-  0.974 & 0.224 & 0.004 \\
+  0.974 & 0.224 & 0.00365 \\
   0.224 & 0.974 & 0.042 \\
-  0.008 & 0.039 & 0.999
+  0.00854 & 0.041 & 0.999
 \end{pmatrix}$
 \end{center}
 \noindent
+The tree-level $|V_{ub}|_{\mathrm{tree}} = 0.088$ overshoots by
+a factor of~$\sim\!24$; the NLO instanton correction
+$|V_{ub}| = |V_{ub}|_{\mathrm{tree}} \cdot \mathcal{K}^{N-1}(1+\mathcal{K})
+= 0.0037$
+(Derivation~\ref{thm:instanton-vub} below) restores the match to $2\%$.
+The tree-level matrix is shown symmetric because it represents
+$|Y_u Y_u^\dagger|^{1/2}$ magnitudes before the non-perturbative
+$V_{ub}$ correction; the physical CKM has $|V_{ub}| \ll |V_{td}|$.
 The Cabibbo angle $\theta_C = 13.3^\circ$ (observed $13.0^\circ$,
 $2\%$ off).
-The hierarchy $|V_{us}| \gg |V_{cb}| \gg |V_{ub}|$ is predicted.
+The hierarchy $|V_{us}| \gg |V_{cb}| \gg |V_{ub}|$ is predicted
+after the NLO correction.
 
 \subsection{The CKM phase \textnormal{[exact]}}
 \label{sec:ckm-phase}
@@ -3273,7 +3283,7 @@ The hierarchy formula (Paper~VI, Theorem~\ref*{VI-thm:hierarchy})
     + \tfrac{1}{2}\ln\bigl(c_{11}/(24\pi^2)\bigr)
   = 38.459,
 \end{equation}
-where $S_{\mathrm{BO}}(7) = 18.27$ is the WKB tunneling action
+where $S_{\mathrm{BO}}(7) = 18.274$ is the WKB tunneling action
 of the $N = 7$ breathing mode (from $b(7)$ and $f(3,7)$),
 $\varepsilon_7 = 8 + 3\sqrt{7}$ is the fundamental unit of
 $\mathbb{Z}[\sqrt{7}]$ (from the Pell equation),
