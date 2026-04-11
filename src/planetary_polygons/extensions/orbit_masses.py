@@ -4,11 +4,15 @@ Two sigma scales:
   sigma_CKM = SIGMA_0 = 5 (determines CKM phases)
   sigma_mass = SIGMA_0 * sqrt(N) = 13.23 (determines mass hierarchy)
 
-Mass formulas at sigma_mass:
-  m_t = v (BF threshold, reference)
-  m_c = v * exp(-2*sigma/N) * K^2
-  m_u = v * exp(-6*sigma/N) (pure RS, instanton overshoots)
-  m_b = m_t * exp(-2*sigma/N) (isospin shift 1/N)
+Up-type masses (stability eigenvalues lambda = 0, 1, 3):
+  m_t = m_top (critical mode, BF threshold, reference)
+  m_c = m_t * exp(-2*sigma/N) * K^2   (first stable + instanton)
+  m_u = m_t * exp(-6*sigma/N)          (outermost mode, instanton-saturated)
+
+Down-type masses (isospin-shifted, nested exponential):
+  m_b = m_t * exp(-2*sigma/N)          (isospin shift 1/N, effective lambda = 1)
+  m_s = m_b * exp(-2*sigma/N)          (one generation deeper)
+  m_d = sin^2(theta_C) * m_s           (Gatto relation)
 """
 
 from math import pi, sqrt, exp, log
@@ -73,13 +77,19 @@ def mass_table(sigma_0=SIGMA_0):
     sig = sigma_mass(sigma_0)
     K = instanton_fugacity(N)
 
+    # Up-type: critical, first stable + instanton, outermost
     mc_mt = exp(-2 * sig / N) * K ** 2
     mu_mt = exp(-6 * sig / N)
-    mb_mt = exp(-2 * sig / N)  # isospin shift
 
-    # ms and md need generation-dependent isospin (not fully derived)
-    ms_mt = mc_mt * mb_mt
-    md_mt = mu_mt * mb_mt
+    # Down-type: nested exponential + Gatto
+    mb_mt = exp(-2 * sig / N)               # isospin shift from top
+    ms_mb = exp(-2 * sig / N)               # one generation deeper
+    ms_mt = mb_mt * ms_mb
+
+    # Cabibbo angle from derived |V_us| = 0.230 (tree level)
+    V_us = 0.230
+    sin2_theta_C = V_us ** 2
+    md_mt = sin2_theta_C * ms_mt            # Gatto: m_d = sin^2(theta_C) m_s
 
     return {
         't': {'pred': M_TOP, 'obs': 173.0, 'unit': 'GeV'},

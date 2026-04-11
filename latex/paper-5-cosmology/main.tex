@@ -424,17 +424,20 @@ is the regulator of the real quadratic field $\mathbb{Q}(\sqrt{7})$,
 arising from the Pell equation $8^2 - 7 \times 3^2 = 1$.
 The identity is verified to $0.00005\%$.
 \emph{Proof sketch.}
-The WKB integrand $\sqrt{2c|V(\rho)|}$ with
-$V = \ln(2\sinh\rho) + b - f$ has a zero at $\rho^*$
-satisfying $\cosh\rho^* = (N{+}1)/2$ at leading order.
-At $N = 7$: $\cosh\rho^* = 4$, giving
-$\rho^* = \operatorname{arccosh}(4) = \ln(4{+}\sqrt{15})$.
-The ratio $2S_{\mathrm{BO}}/\ln\varepsilon_7$ equals
-$2N - \sqrt{2/\pi} + O(1/c)$ because the harmonic
-oscillator frequency at the BO minimum matches the
-Pell regulator through $\varepsilon_7 = 8{+}3\sqrt{7}
-= (\cosh\rho^*)^2 + \sqrt{(\cosh\rho^*)^4 - 1}$
-(the Chebyshev duplication $T_2(\cosh\rho^*) = \cosh(2\rho^*)$).
+The Pell unit satisfies the exact algebraic identity
+$\varepsilon_7 = (N{+}1) + \sqrt{(N{+}1)^2 - 1}
+= 8 + \sqrt{63} = 8 + 3\sqrt{7}$,
+so $\ln\varepsilon_7 = \operatorname{arccosh}(N{+}1)
+= \operatorname{arccosh}(8) = 2.769$.
+The leading-order identity
+$2S_{\mathrm{BO}}(N)/\ln\varepsilon_7 = 2N - \sqrt{2/\pi} + O(1/c)$
+follows because the WKB integrand
+$\sqrt{2c\,|V(\rho)|}$ with $V = \ln(2\sinh\rho) + b - f$
+is dominated at large~$c$ by the harmonic
+frequency $\omega_0$ at the BO minimum,
+and the ratio of this harmonic action to the
+Pell regulator scales as $2N$ at leading order
+with a Gaussian tail correction~$\sqrt{2/\pi}$.
 Full proof in Supplement~S, \S\ref*{SP-sec:pell-proof}.
 
 \begin{proposition}[Pell uniqueness at $N = 7$]

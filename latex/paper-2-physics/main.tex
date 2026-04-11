@@ -26,7 +26,7 @@ normal form ($\alpha_0 = 45/14$), and the result extends to
 continuous vorticity via a profile-independent blob bridge
 at $O(\varepsilon^2)$.
 Saturn's oblateness ($f = 0.098$) reverses the hexagonal
-eigenvalue from $-0.12$ to $+0.01$, determining whether
+eigenvalue from $-0.12$ to $+0.04$, determining whether
 the hexagon exists.
 A constraint-intersection principle unifies the Rossby,
 Thomson, and packing bounds: energy monotonicity
@@ -1229,7 +1229,7 @@ it in the destabilizing regime relative to $-\ln r$.
 \includegraphics[width=0.75\textwidth]{../figures/fig_oblateness_signflip.pdf}
 \caption{The oblateness sign-flip: Saturn's oblateness
 ($f = 0.098$) reverses the $N = 6$ eigenvalue from
-$\lambda_3 = -0.12$ (unstable) to $+0.01$ (stable),
+$\lambda_3 = -0.12$ (unstable) to $+0.04$ (stable),
 determining whether the hexagon exists.}
 \label{fig:oblateness}
 \end{figure}
@@ -1270,11 +1270,11 @@ Model & $\lambda_3(N{=}6)$ & Stable? \\
 Mean sphere ($R_{\mathrm{mean}} = 58{,}300$\,km) &
   $-0.12$ & No \\
 Oblate spheroid at $78^\circ$N &
-  $+0.01$ & Marginally yes \\
+  $+0.04$ & Yes \\
 \bottomrule
 \end{tabular}
 \end{center}
-The oblateness flips $\lambda_3$ from $-0.12$ to $+0.01$.
+The oblateness flips $\lambda_3$ from $-0.12$ to $+0.04$.
 On a mean sphere, the hexagon is Thomson-unstable and
 should not exist; on the oblate spheroid, it is
 marginally stable.
@@ -1286,16 +1286,19 @@ eigenvalue $\lambda_3(N{=}6)$ at the pole exceeds its mean-sphere
 value by
 \begin{equation}\label{eq:oblateness-shift}
   \delta\lambda_3 \approx (N{-}1)\cdot
-  \frac{2\xi\, f\,(2{-}f)}{(1{+}\xi)^2}
+  \frac{6 f\,\xi}{(1{+}\xi)^2}
 \end{equation}
 at leading order in~$f$, where $\xi = K_{\mathrm{mean}} R^2$.
 For Saturn ($f = 0.098$, $\xi = K_{\mathrm{mean}} R^2
 \approx (15{,}000/58{,}300)^2 = 0.066$):
-the leading-order formula gives $\delta\lambda_3 \approx 0.11$;
-the full numerical computation (Code Availability) gives
-$\delta\lambda_3 = 0.13$, with the difference arising from
-higher-order terms in~$f$ and~$\xi$.
-This reverses the sign from $-0.12$ to $+0.01$.
+the leading-order formula gives $\delta\lambda_3 \approx 0.17$;
+the exact finite-difference computation
+$C_1(\xi{+}\delta\xi){-}C_1(\xi)$ with
+$\delta\xi = \xi[(1{-}f)^3{-}1]$
+gives $\delta\lambda_3 = 0.16$,
+the residual being $O(f^2)$ corrections.
+This reverses the sign from $-0.12$ to $+0.04$
+(comfortably positive, not a marginal flip).
 \end{proposition}
 
 \begin{proof}[Proof sketch]
@@ -1317,10 +1320,12 @@ Since the pole is flatter ($K_{\mathrm{pole}} < K_{\mathrm{eq}}$,
 hence $\delta\xi < 0$),
 $\delta C_1 > 0$: the eigenvalue increases.
 The leading-order approximation gives
-$\delta\lambda_3 \approx (N{-}1) \times 6f\xi/(1{+}\xi)^2$;
-the full formula~\eqref{eq:oblateness-shift} uses the
-exact $(1{-}f)^3$ expansion rather than the linearization,
-producing the $f(2{-}f)$ factor.
+$\delta\lambda_3 \approx (N{-}1) \times 6f\xi/(1{+}\xi)^2$,
+equation~\eqref{eq:oblateness-shift}.
+The exact expansion retains the $f^2$ and $f^3$ terms
+from $(1{-}f)^3 - 1 = -f(3 - 3f + f^2)$,
+giving
+$\delta\lambda_3 = (N{-}1) \cdot 2\xi f(3 - 3f + f^2)/(1{+}\xi)^2$.
 \end{proof}
 
 \noindent
@@ -1333,7 +1338,7 @@ At non-polar latitudes, the curvature gradient
 $\delta K/K \approx 4.2\%$ across the hexagon ring
 couples Fourier modes $m$ and $m \pm 2$.
 The coupling amplitude ($\sim 0.19$) exceeds the stability
-margin ($|\lambda_3| = 0.01$) by a factor of~$19$.
+margin ($|\lambda_3| = 0.04$) by a factor of~$5$.
 By the topological protection of the Morse index
 (Paper~I), this mode coupling cannot change the net spectral
 flow, the hexagon remains stable in the topological sense.
