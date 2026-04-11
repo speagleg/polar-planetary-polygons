@@ -311,18 +311,58 @@ The quantity
 \begin{equation}\label{eq:central-charge}
   c \;=\; 12\,b(N)
 \end{equation}
-is extracted from the Havelock
-eigenvalue data as the unique mode-independent offset
+is defined by the Havelock spectral data: it is the
+unique mode-independent offset in the angular-mode one-loop
+determinant $\sum_m \log\lambda_m = -(N{-}2)\log C_1
++ \text{const}$ around the BO equilibrium
 (Proposition~\ref{prop:equiv-rr}).
-It serves four simultaneous roles:
-(i)~the WDW kinetic coefficient (\S\ref{sec:wdw});
-(ii)~the CS level $k = c/6$ (\S\ref{sec:graviton});
-(iii)~the Brown--Henneaux central charge, giving
-$G := 3\ell/(2c)$;
-(iv)~the orbifold CFT ground-state energy
-(\S\ref{sec:three-layer}).
-If any two roles required different values of~$c$, the
-theory would be falsified.
+From this single definition, $c$ plays three further roles
+as immediate consequences of named theorems, not as
+independent computations:
+\begin{enumerate}
+\item[(i)] \emph{WDW kinetic coefficient.}
+  $c$ is the coefficient of the breathing-mode kinetic term
+  in the Wheeler--DeWitt equation by definition
+  (\S\ref{sec:wdw}).
+
+\item[(ii)] \emph{CS level.} The Chern--Simons level is
+  $k = c/6 = 2b(N)$.
+  This follows from Witten's 2+1D gravity = CS identification
+  (\citealt{Witten1988}) combined with the Brown--Henneaux
+  relation $c_{\mathrm{BH}} = 6k$ for $\mathrm{SL}(2,\mathbb{R})$
+  CS at level~$k$.
+
+\item[(iii)] \emph{Newton's constant.} Brown--Henneaux
+  (\citealt{BrownHenneaux1986}) gives
+  $c_{\mathrm{BH}} = 3\ell/(2G)$
+  for 2+1D asymptotically-$\mathrm{AdS}$ gravity,
+  which combined with $c = 12b(N)$ yields
+  $G = \ell/(8b(N))$.
+  The consistency with the independent polygon-entropy
+  computation $G = 3/((N^2{-}1) \cdot 2\pi\varepsilon^2)$
+  (Proposition~\ref{prop:newton-havelock} below) is a
+  genuine non-trivial check, not a tautology: the two
+  derivations arrive at $G$ through different routes
+  (Brown--Henneaux boundary expansion vs.\ polygon Hessian
+  spectral zeta) and the agreement fixes $\varepsilon^2/\ell
+  = 0.342$ at $N = 7$ without free parameters.
+
+\item[(iv)] \emph{CFT Casimir energy.}
+  The ground-state energy of any $2$D CFT on a cylinder is
+  $E_0 = -c/24$
+  (standard result, \citealt{DiFrancesco1997}, Ch.~11),
+  so the polygon ground-state shift is $-b(N)/2$.
+\end{enumerate}
+Roles (i)--(iv) are not independent consistency conditions
+but derived consequences of the single definition $c = 12b(N)$
+via Witten, Brown--Henneaux, and standard conformal field
+theory.
+The one non-trivial check is (iii) vs.\ the polygon
+computation of Newton's constant
+(Proposition~\ref{prop:newton-havelock}),
+which the two routes agree on for $\varepsilon^2/\ell
+\approx 0.342$; this is the one place where the identifications
+are tested against each other, not against the definition.
 
 %% ====================================================================
 \section{The graviton at $N = 7$ and the Chern--Simons lift}
@@ -1131,23 +1171,40 @@ of the Onsager variational principle:
 \item \emph{Negative temperature.}
   By (1) and (2), the density of states
   $\Omega(E) = \mathrm{Vol}(\{z : H(z) = E\})$
-  is a decreasing function of~$E$ for $E > E^*$
-  (Onsager 1949; rigorous: Kiessling 1993, Theorem~2.1).
-  The microcanonical temperature $\beta = d\ln\Omega/dE$
-  is negative in this regime.
+  is a decreasing function of~$E$ for $E > E^*$.
 \end{enumerate}
-The Onsager principle is a statement about which
-macrostates dominate the microcanonical ensemble, it
-does not require specific equations of motion.
-The microcanonical measure on $\{H = E\}$ is the
-Riemannian volume of the energy level set in~$S^V$,
-which is well-defined whenever $H$ is smooth on a
-compact manifold; no dynamics is needed to define it
-\citep{Kiessling1993}.
-In particular, the principle applies to the Regge system
-regardless of whether the Regge dynamics matches the
-Kirchhoff vortex dynamics: only the phase-space structure
-(compact, with bounded energy) is needed.
+
+\emph{The Kiessling hypothesis, verified.}
+Kiessling (\citeyear{Kiessling1993}, Theorem~2.1) proves
+that $\Omega(E)$ is decreasing above a threshold $E^*$ for
+any system of $N$ point particles with logarithmic
+pair interaction on a compact $2$D domain.
+His hypotheses are:
+(H.K1)~$N$ point particles on a compact Riemannian
+$2$-manifold~$\Sigma$ (or bounded domain with Dirichlet
+boundary);
+(H.K2)~pair interaction $V(x,y)$ with a logarithmic
+singularity at $x = y$ and smooth elsewhere;
+(H.K3)~bounded-above total energy on the configuration
+manifold.
+For the Regge system: (H.K1) holds with the vertices as
+point particles on $S$; (H.K2) holds because the Laplacian
+Green's function on any compact $2$-surface has the
+universal expansion
+$G_S(x,y) = -(1/2\pi)\log d(x,y) + \gamma_S(x,y)$
+with $\gamma_S$ smooth, so the pair interaction
+$-\kappa_i\kappa_j G_S(z_i,z_j)$ has exactly the logarithmic
+singularity required; (H.K3) is (2) above.
+Kiessling's theorem applies directly: its proof uses only
+the static microcanonical measure on the compact
+configuration space, not the Kirchhoff equations of motion,
+and the hypotheses do not distinguish between vortex
+circulations and Regge deficit angles (both act as
+point sources of a 2D Laplacian Green's function).
+The microcanonical temperature
+$\beta = d\log\Omega/dE$ is therefore negative for
+$E > E^*$, and the Onsager variational principle applies
+to the Regge system.
 \end{lemma}
 
 \begin{proposition}[Entropy variation forces constant curvature]

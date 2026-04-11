@@ -761,129 +761,93 @@ geodesic distance, so the hypothesis of the theorem is not
 satisfied.  The identity~\eqref{eq:riemannian-havelock}
 applies to the universal cover, not to the quotient.
 
-\emph{Step 3: Eigenvalue formula from conformal coordinates.}
-Steps~1--2 establish a necessary condition: the trace of
-each $2\times 2$ Fourier block is mode-independent.
-Step~3 proves the full result by direct computation:
-the tangential Hessian is exactly $m(N{-}m)/2$
-(from the $\csc^2$ DFT), and the radial sector contributes
-only to~$C_1$.
-On any surface satisfying the hypothesis,
-the Laplacian Green's function has a logarithmic singularity:
-$G(x,y) = -(2\pi)^{-1}\ln d(x,y) + \varphi(x,y)$, where $\varphi$
-is smooth at $x = y$.
-The tangential second derivative of $G$ at the $p$-th chord
-of the $N$-gon ring therefore separates as
-\begin{equation}\label{eq:angular-kernel}
-  M_{p,tt}
-  = \frac{1}{4\sin^2(\pi p/N)}\,\alpha(R, K)
-  \;+\; \beta_p(R, K),
-\end{equation}
-where $\alpha(R, K)$ depends on the ring radius and curvature
-but is independent of~$p$, and $\beta_p$ is the smooth-part
-contribution (bounded uniformly in~$p$).
-The $\csc^2$ factor arises because, on any constant-curvature
-surface, the chord distance satisfies
-$d_p = 2\ell(R)\,|\!\sin(\pi p/N)|$
-(with $\ell = R$, $R\sin(R/a)/\sin(\cdot)$, or
-$a\sinh(R/a)/\sinh(\cdot)$ on the plane, $\mathbf{S}^2$,
-$\mathbf{H}^2$ respectively), so
-$\ln d_p = \ln|\!\sin(\pi p/N)| + (\text{terms independent of } p)$.
+\emph{Step 3: Computation of the tangential Hessian
+in conformal coordinates.}
+Steps~1--2 are preliminary (the trace formula is a
+necessary condition, not sufficient to identify
+$f(m,N) = m(N{-}m)/2$).
+Step~3 proves the full result by direct computation,
+in four sub-steps.
 
-Substituting~\eqref{eq:angular-kernel} into the Fourier sum:
-\begin{align*}
-  H_{tt}^{(m)} &= \alpha \sum_{p=1}^{N-1}
-    \frac{1{-}\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
-    + \sum_p \beta_p\,(\cos(2\pi pm/N) {-} 1) \\
-  &= \alpha\,T_m + (\text{mode-independent remainder})
-  = \alpha\,\frac{m(N{-}m)}{2} + \tilde{C}_1,
-\end{align*}
-using $T_m = m(N{-}m)/2$ (Lemma~\ref{lem:havelock}).
-The second sum is mode independent by the following
-argument, which works simultaneously on all
-constant-curvature surfaces.
-
-In conformal coordinates (Poincar\'e disk for
-$\mathbf{H}^2$, stereographic for $\mathbf{S}^2$),
-the Hamiltonian of $N$ equal point vortices on
-\emph{any} constant curvature surface separates as
+\emph{3(a) Hamiltonian separation.}
+In conformal coordinates (Poincar\'e disk for $\mathbf{H}^2$,
+stereographic for $\mathbf{S}^2$, Cartesian for the plane),
+the Hamiltonian of $N$ equal point vortices separates as
 \begin{equation}\label{eq:H-separation}
   H = -\!\sum_{j<k}\!\ln|z_j {-} z_k|
     \;+\; V_{\mathrm{rad}}(\{|z_k|\}),
 \end{equation}
-where $V_{\mathrm{rad}}$ collects \emph{all}
-terms depending only on the radii~$|z_k|$.
-This includes the self energy
-(on $\mathbf{H}^2$: $(N{-}1)/2\sum_k \ln(a^2{-}|z_k|^2)$;
-on $\mathbf{S}^2$: $-(N{-}1)/2\sum_k \ln(1{+}|z_k|^2)$;
-on the plane: $0$)
-\emph{and} the cross image sum.
-The cross image terms
-$\sum_{p=1}^{N-1}\ln|a^2 - \bar{z}_0\,z_p|$
-at the $N$-gon ring telescope via the cyclotomic product
-$\prod_{p=1}^{N-1}(1 - \xi\,e^{2\pi ip/N}) = 1 - \xi^N$
-(the minimal polynomial of the $N$-th root of unity;
-see e.g.\ \citealt{Lang2002}, \S IV.1)
-(with $\xi = \rho^2/a^2$), giving
-$\ln|1 - \xi^N|$, a function of~$\rho$ alone.
-For tangential perturbations: the Hessian
-$H_{jk} = \partial^2 H/\partial\theta_j\partial\theta_k$
-at the $\mathbb{Z}_N$-symmetric equilibrium is a
-$\mathbb{Z}_N$-circulant (because $H$ is
-$\mathbb{Z}_N$-invariant at the equilibrium).
-A circulant matrix is exactly diagonalized by the
-discrete Fourier transform (standard linear algebra),
-with eigenvalues equal to the DFT of the first row.
-The Havelock identity (Lemma~\ref{lem:havelock-identity})
-evaluates these DFT eigenvalues as $T_m = m(N{-}m)/2$.
-No perturbative approximation is involved:
-the circulant structure is exact.
-Although the \emph{individual} image terms
-$\ln|a^2 - \rho^2\,e^{2\pi ip/N}|$ depend on the
-angular separation~$p/N$, their \emph{sum} does not.
-Under a tangential perturbation
-$z_k \mapsto \rho\,e^{i(\theta_k + \varepsilon\,a_k)}$,
-the radius $|z_k| = \rho$ is \emph{preserved},
-so the entire $V_{\mathrm{rad}}$
-(self-energy $+$ telescoped cross-images)
-has \emph{zero} tangential Hessian.
+where the \emph{log-chord term} is the flat-plane pairwise
+interaction and $V_{\mathrm{rad}}$ collects every contribution
+that depends only on the radii $|z_k|$.
+For $\mathbf{H}^2$ the self-energy contribution is
+$(N{-}1)/2\,\sum_k\ln(a^2{-}|z_k|^2)$;
+for $\mathbf{S}^2$ it is $-(N{-}1)/2\,\sum_k\ln(1{+}|z_k|^2)$;
+on the plane $V_{\mathrm{rad}} \equiv 0$.
 
-The constraint $J$ (the angular impulse / moment map)
-depends only on the radii:
-$J = \sum_k \kappa_k\,\Phi(|z_k|)$
-where $\Phi(\rho) = \ln(1 - \rho^2/a^2)$ on~$\mathbf{H}^2$,
-$\Phi(\rho) = -\ln(1 + \rho^2/a^2)$ on~$\mathbf{S}^2$,
-and $\Phi(\rho) = \rho^2$ on the plane.
-In every case $\partial^2 J/\partial\theta_j\partial\theta_k = 0$
-(the $\theta$-dependence cancels at the $\mathbb{Z}_N$-symmetric
-equilibrium because $|z_k| = \rho$ for all~$k$),
-so the Lagrange multiplier $\mu_L\,\partial^2 J/\partial\theta^2 = 0$
+\emph{3(b) Cross-image telescoping.}
+The image-charge contributions at the $N$-gon ring take the
+form $\sum_{p=1}^{N-1}\ln|a^2 - \bar z_0 z_p|$ with
+$z_p = \rho\,e^{2\pi i p/N}$.
+Using the cyclotomic product
+$\prod_{p=1}^{N-1}(1 - \xi\,e^{2\pi i p/N}) = \dfrac{1 - \xi^N}{1 - \xi}$
+\quad(the factorization of the $N$th cyclotomic polynomial,
+\citealt{Lang2002}, \S IV.1),
+the sum collapses to $\ln|1 - \xi^N|$ with
+$\xi = \rho^2/a^2$: a function of $\rho$ alone.
+Thus $V_{\mathrm{rad}}$ after telescoping is
+$\theta$-independent at the $\mathbb{Z}_N$-symmetric ring.
+
+\emph{3(c) $V_{\mathrm{rad}}$ has zero tangential Hessian.}
+Under a tangential perturbation
+$z_k \mapsto \rho\,e^{i(\theta_k + \varepsilon a_k)}$,
+the radii $|z_k| = \rho$ are \emph{preserved} to all orders
+in~$\varepsilon$.
+Since $V_{\mathrm{rad}}$ depends only on the radii,
+$\partial^2 V_{\mathrm{rad}}/\partial\theta_j\partial\theta_k
+= 0$ identically at the equilibrium.
+The angular-impulse constraint
+$J = \sum_k \kappa_k\,\Phi(|z_k|)$ with
+$\Phi(\rho) = \ln(1-\rho^2/a^2)$ on $\mathbf{H}^2$,
+$\Phi(\rho) = -\ln(1+\rho^2/a^2)$ on $\mathbf{S}^2$,
+or $\Phi(\rho) = \rho^2$ on the plane,
+also depends only on the radii, so
+$\partial^2 J/\partial\theta_j\partial\theta_k = 0$
+and the Lagrange multiplier term
+$\mu_L\,\partial^2 J/\partial\theta^2$
 contributes nothing to the tangential eigenvalue.
 
-The tangential Hessian of $-\sum\!\ln|z_j{-}z_k|$
-at the ring $z_p = \rho\,e^{2\pi ip/N}$ is a
-\emph{circulant} matrix with the $\csc^2$ kernel:
-the off-diagonal entry at pair~$(0, p)$ is
-$-\csc^2(\pi p/N)/(4\rho^2)$, and its
-$\mathbb{Z}_N$ Fourier eigenvalue is
+\emph{3(d) Circulant DFT of the log-chord term.}
+The only surviving contribution to $H_{tt}^{(m)}$ is the
+flat-plane log-chord Hessian $-\sum_{j<k}\ln|z_j - z_k|$.
+At the ring $z_p = \rho\,e^{2\pi i p/N}$, this Hessian is a
+$\mathbb{Z}_N$-circulant matrix with off-diagonal entry
+at pair~$(0,p)$ equal to $-\csc^2(\pi p/N)/(4\rho^2)$.
+The discrete Fourier transform diagonalizes any circulant
+exactly, giving
 \[
   H_{tt}^{(m)}
   = \frac{1}{\rho^2}\sum_{p=1}^{N-1}
-    \frac{1{-}\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
+    \frac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
   = \frac{m(N{-}m)}{2\rho^2}
 \]
 by the Havelock identity (Lemma~\ref{lem:havelock}).
+
+\emph{Assembly.}
+Sub-steps 3(a)--3(c) show that the only $\theta$-dependent
+contribution to the full tangential Hessian is the log-chord
+term; sub-step 3(d) evaluates that contribution exactly to
+$m(N{-}m)/(2\rho^2)$.
 In the geodesic normalization
 $\lambda_m r_E^2 = C_1 - m(N{-}m)/2$
-(with $r_E$ the Euclidean ring radius),
-the tangential sector contributes exactly $m(N{-}m)/2$,
-and $C_1$ comes entirely from the radial sector
-(the confining potential and equilibrium condition).
+(with $r_E$ the Euclidean ring radius in the conformal chart),
+the tangential sector contributes exactly $m(N{-}m)/2$ and
+$C_1$ comes entirely from the radial sector (the confining
+potential and equilibrium condition).
 Since none of the surface-dependent quantities
-($V_{\mathrm{rad}}$, $J$, or $\mu_L$) enter the
-tangential Hessian, the identity holds on
-\emph{every} constant-curvature surface simultaneously
-(verified numerically; see Code Availability).
+($V_{\mathrm{rad}}$, $J$, or $\mu_L$) enter the tangential
+Hessian, the identity~\eqref{eq:riemannian-havelock} holds
+on every constant-curvature surface simultaneously.
 \end{proof}
 
 \begin{remark}[Compact quotients]
