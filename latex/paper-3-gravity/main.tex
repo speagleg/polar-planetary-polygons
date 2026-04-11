@@ -285,25 +285,28 @@ The polygon configuration space requires a $2$D base
 $\mathrm{SL}(2,\mathbb{R})$, hence (by Steps~(i)--(ii))
 Chern--Simons at level~$k$.
 
-\emph{Bridge: quadratic Casimir on $\mathbb{Z}_N$ modes.}
-The Laplace--Beltrami operator on $\mathbf{H}^2$
-restricted to $\mathbb{Z}_N$-equivariant functions
-is the quadratic Casimir
-$\Omega_{\mathfrak{sl}(2,\mathbb{R})}$ on the
-discrete series $D_j^+$ with $j = m^*/2$
-(\citealt{Helgason1984}, Ch.~III, Thm~1.3:
-multiplicity-free Plancherel).
-By Helgason symmetric-space theorem,
-$\Omega|_{D_j^+} = j(j{-}1)$; translating to the
-vortex mode label via $j = (m + \text{const})/2$
-yields $m(N{-}m)/2$.
-On the $1$-dimensional irreducible $V_m$
-(Schur: a linear map $V_m \to V_m$ is a scalar),
-the quadratic Casimir determines the operator uniquely.
-Both the vortex side and the gravity side therefore give
-the same polynomial $T_m = m(N{-}m)/2$, and the identification
-is forced by Steps~(i), (ii), (iii), together with the
-vortex uniqueness above.
+\emph{Bridge: Schur's lemma on $\mathbb{Z}_N$ modes.}
+The vortex uniqueness argument above shows that the
+tangential eigenvalues $T_m$ are a polynomial of degree
+$\le 2$ in~$m$, and $T_m = m(N{-}m)/2$ is the unique such
+polynomial compatible with the Havelock sum rule
+(Paper~I, Lemma~\ref*{I-lem:havelock}).
+On the gravity side, each $\mathbb{Z}_N$ Fourier mode
+$V_m$ is a one-dimensional $\mathbb{Z}_N$-irreducible,
+and by Schur's lemma any $\mathbb{Z}_N$-equivariant
+scalar operator (including the quadratic Casimir of the
+$\mathfrak{sl}(2,\mathbb{R})$ Laplace--Beltrami on
+$\mathbf{H}^2$ restricted to $V_m$) is a multiple of the
+identity, determined entirely by its value at a single
+generator.
+Its value at the polygon generator is fixed by the
+Plancherel decomposition (\citealt{Helgason1984}, Ch.~III,
+Thm~1.3) to be polynomial of degree $\le 2$ in the mode
+label, and the Havelock sum rule forces this polynomial
+to be $m(N{-}m)/2$.
+Both sides therefore give the same $T_m = m(N{-}m)/2$,
+and the identification is forced by Steps~(i), (ii), (iii)
+together with the vortex uniqueness above.
 \end{proof}
 
 \paragraph{The central charge.}
@@ -1132,8 +1135,8 @@ are all well-defined for cone metrics.
 \item \emph{Onsager contraction (constructive, finite~$N$).}
   Corollary~\ref{cor:onsager-contraction}
   proves ${\ge}\,95\%$ variance reduction per iteration
-  at $N = 7$ (contraction factor $0.041$ via Sobolev bound,
-  or $0.049$ via cruder Hoeffding bound; explicit in both cases).
+  at $N = 7$ (contraction factor $0.041$ via the sharp Sobolev bound,
+  or $0.049$ via the coarser $L^\infty$ bound; explicit in both cases).
   No smooth-metric assumption.
 \end{enumerate}
 The Onsager principle
@@ -1398,22 +1401,18 @@ $\int \delta R\,dA = 0$, so the contraction
 operates on the zero-mean fluctuation field).
 The new curvature variance is $\mathrm{Var}(R') = \delta^2\,\mathrm{Var}(\rho)$.
 Expanding $\rho = \rho_0\,e^{\beta_{\mathrm{eff}}(V_1\delta R + V_2\delta R^2/2)}$
-to second order in~$\delta R$ and using the
-exponential-moment bound
-$\mathrm{Var}(e^{aX}) \le a^2 e^{2a^2 \mathrm{Var}(X)} \mathrm{Var}(X)$
-(on a compact surface, $\delta R$ is bounded:
-$|\delta R| \le \|R\|_{L^\infty} + |R_0|$;
-by Hoeffding's lemma, any bounded random variable
-is sub-Gaussian with parameter
-$\sigma^2 \le (\sup - \inf)^2/4$
-\citep{BoucheronLugosiMassart2013}, Theorem~2.1.
-On the Bolza surface with $|R_0| = 1$,
-the Sobolev embedding gives
-$\sup - \inf \le 2\|R - R_0\|_{L^\infty} \le 4C_S$;
-within the basin $\mathrm{Var}(R) \le 2$ and
-$\|\nabla R\|_{L^2}^2 \le 2$, the Hoeffding parameter
-satisfies $\sigma^2 \le 4C_S^2$,
-and the exponential-moment bound applies):
+to second order in~$\delta R$ and bounding the variance of
+the exponential by the elementary second-order Taylor estimate
+\[
+  \mathrm{Var}(e^{aY})
+  \;\le\; a^2\,e^{2|a|\,\|Y\|_{L^\infty}}\,\mathrm{Var}(Y),
+\]
+valid for any bounded random variable~$Y$ with $|Y| \le \|Y\|_{L^\infty}$
+(this is a direct consequence of $|e^{aY}-1-aY|\le\tfrac12 a^2 Y^2
+e^{|a||Y|}$; see \citealt{BoucheronLugosiMassart2013}, \S2.3).
+On a compact surface $\delta R = R - R_0$ is bounded with
+$\|\delta R\|_{L^\infty} \le 2C_S$ (Sobolev embedding;
+see below), so this bound applies:
 \[
   \mathrm{Var}(R') \;\le\;
   |\beta_{\mathrm{eff}}|^2 R_0^2\,\mathrm{Var}(R)
@@ -1451,8 +1450,8 @@ $\|\nabla R\|_{L^2}^2 \le 2$
 $\|R - R_0\|_{L^\infty}^2 \le 0.306 \times 2 + 0.096 \times 2
 = 0.803$, giving $\|R - R_0\|_\infty \le 0.90$
 and Sobolev constant $C_S = 0.45$.
-The Hoeffding sub-Gaussian parameter is then
-$\sigma^2 \le \|R - R_0\|_\infty^2 = 0.80$,
+The $L^\infty$ bound is then
+$\|\delta R\|_\infty^2 \le 0.80$,
 and the nonlinear factor becomes
 $(1 + 2|V_2/V_1|\sqrt{0.80})^2 = 1.48$,
 tightening the contraction to
@@ -2070,19 +2069,34 @@ and the Polyakov conformal anomaly of the boundary CFT gives
 the same $12\,b(N)$.)
 In the classical limit $c \to \infty$:
 $V(\rho^*) = 0$, giving $\Phi(\rho^*) = f(m^*,N)$ and hence
-$\Lambda = -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
+the $2$D scalar-curvature cosmological constant of the base
+$\mathbf{H}^2$ at the Onsager equilibrium is
+$\Lambda_{\mathrm{base}}
+= -4[f(m^*,N) - (N{-}1)]/[(N{-}1)\varepsilon^2]$.
+This is the $2$D curvature sourced by the polygon entropy
+maximization; it is \emph{distinct} from the $3$D effective
+cosmological constant $\Lambda_3 = (N^2{-}16)/16$ obtained by
+Kaluza--Klein reduction of the Seifert manifold
+(Paper~VI, Proposition~\ref*{VI-prop:lambda}),
+which includes the quantized flux $|F|^2/4 = N^2/16$ through
+the $S^1$ fiber on top of the base curvature $K = -1$.
 \end{proposition}
 
-\begin{corollary}[Sign of the cosmological constant from the polygon number]
+\begin{corollary}[Sign of the base-curvature cosmological
+constant from the polygon number]
 \label{cor:lambda-from-N}
-The sign of $\Lambda$ is fixed by the polygon:
-$N \le 6$: $f(m^*,N) < N{-}1$, so $\Lambda > 0$
+The sign of $\Lambda_{\mathrm{base}}$ (the $2$D scalar-curvature
+constant of the $\mathbf{H}^2$ base) is fixed by the polygon:
+$N \le 6$: $f(m^*,N) < N{-}1$, so $\Lambda_{\mathrm{base}} > 0$
 (positive curvature, $S^2$-like, surface curvature destabilizes);
-$N = 7$: $f(3,7) = 6 = N{-}1$, so $\Lambda = 0$ (flat);
-$N \ge 8$: $f(m^*,N) > N{-}1$, so $\Lambda < 0$
+$N = 7$: $f(3,7) = 6 = N{-}1$, so $\Lambda_{\mathrm{base}} = 0$
+(flat);
+$N \ge 8$: $f(m^*,N) > N{-}1$, so $\Lambda_{\mathrm{base}} < 0$
 (negative curvature, $\mathbf{H}^2$-like, surface curvature stabilizes).
-The flat threshold $N = 7$. Havelock's 1931
-stability boundary, sits exactly at $\Lambda = 0$.
+The flat threshold $N = 7$ (Havelock's 1931 stability boundary)
+sits exactly at $\Lambda_{\mathrm{base}} = 0$; the $3$D KK-reduced
+$\Lambda_3 = (N^2{-}16)/16$ (Paper~VI) is a different quantity
+and non-zero at $N = 7$.
 \end{corollary}
 
 \begin{remark}[Relation to Schur's lemma]

@@ -2127,7 +2127,21 @@ Hessian produces exactly the palindromic polynomials
 that define hyperbolic conjugacy classes;
 the algebraic-integer condition (Proposition~\ref{prop:alg-int})
 restricts the traces to the values $(N{-}7) | 16$.
-Each trace $c$ gives a primitive hyperbolic element. Indeed, $T_2(x) = 2x^2{-}1$ gives $T_2^{-1}(c) = \sqrt{(c{+}1)/2}$, which is irrational for all $c \in \{3, 4, 6, 10, 16\}$ (none of $(c{+}1)/2$ is a perfect square). No $T_k$ for $k \ge 3$ yields these values ($T_3(2) = 26 > 16$). All five are primitive.
+Each trace $c$ gives a primitive hyperbolic element.
+In $\mathrm{SL}(2,\mathbb{Z})$,
+$\mathrm{tr}(M^2) = \mathrm{tr}(M)^2 - 2$
+(from Cayley--Hamilton with $\det M = 1$),
+so if $c = \mathrm{tr}(M^2)$ for some $M$ with integer trace,
+then $\mathrm{tr}(M) = \sqrt{c+2}$ must be an integer.
+For $c \in \{3, 4, 6, 10, 16\}$,
+$\sqrt{c+2} \in \{\sqrt{5}, \sqrt{6}, \sqrt{8}, \sqrt{12}, \sqrt{18}\}$,
+all irrational, so none of these traces arises as the square of
+a primitive element.
+Higher powers $\mathrm{tr}(M^k)$ for $k \ge 3$ satisfy the
+recursion $\mathrm{tr}(M^{k+1}) = \mathrm{tr}(M)\mathrm{tr}(M^k) - \mathrm{tr}(M^{k-1})$
+and grow strictly beyond $16$ for any integer $|\mathrm{tr}(M)| \ge 2$,
+so none of the five traces is a higher power either.
+All five are primitive.
 \end{proof}
 
 \begin{remark}[Automorphic correction on quotient surfaces]
