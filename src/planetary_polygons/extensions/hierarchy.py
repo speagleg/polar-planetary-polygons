@@ -3,10 +3,10 @@ The electroweak hierarchy from the hybrid instanton.
 
 THEOREM: The Planck/electroweak hierarchy decomposes as
 
-  ln(M_P / M_EW) = 2S_BO(7) + √(2/π) × ln(ε₇) + (1/2) ln(c/(24π²))
-                  = [instanton] + [mass gap]       + [gravity prefactor]
-                  = 36.548      + 2.209            + (-0.313)
-                  = 38.444      (observed: 38.442, match 0.003%)
+  ln(M_P / M_EW) = 2S_BO(7) + Δε × ln(ε₇) + (1/2) ln(c/(24π²))
+                  = [instanton] + [mass gap]    + [gravity prefactor]
+                  = 36.548      + 2.224         + (-0.313)
+                  = 38.459      (observed: 38.442, log match 0.04%)
 
 The three components:
 
@@ -16,23 +16,18 @@ The three components:
    The bounce goes from ρ=0 (UV, flat plane) to ρ* (IR, threshold)
    and back: S_bounce = 2 × S_tunnel.
 
-2. MASS GAP (√(2/π) × ln ε₇): the WDW zero-point energy contribution.
-   √(2/π) = 0.7979 is the asymptotic mass gap ΔE of the WDW equation
-   (the mean of the half-normal distribution, proven in mass_gap.py).
+2. MASS GAP (Δε × ln ε₇): the WDW zero-point energy contribution.
+   Δε = 0.8031 is the exact WDW ground-state eigenvalue gap
+   (computed numerically in mass_gap.py; asymptotic value √(2/π) =
+   0.7979 differs by 0.65%).
    This is the QUANTUM correction to the classical instanton.
 
 3. GRAVITY PREFACTOR ((1/2)ln(c/(24π²))): the 4D Planck mass in polygon
    units from Brown-Henneaux (c = 3ℓ/(2G)) + KK reduction (G₄ = 2πRG₃).
 
-KEY IDENTITY (proven to 0.01%):
-  2S_BO(7) + √(2/π) × ln(ε₇) = 14 × ln(ε₇) = 2N_grav × ln(ε₇)
-
-The instanton accounts for (14 - √(2/π)) ≈ 13.2 Pell units (94.3%),
-the mass gap contributes √(2/π) ≈ 0.8 units (5.7%).
-
 PREDICTIONS:
-  M_P/M_EW = 4.964 × 10^16 (observed: 4.959 × 10^16, 0.11% off)
-  v = 245.9 GeV (observed: 246.2 GeV, 0.12% off)
+  v = 242.0 GeV (observed: 246.2 GeV, 1.7% off; residual is
+  the O(1/c²) Dunham correction)
 
 The hierarchy is ~10^17 because N_grav = 7 is the FIRST non-trivial
 solution of the Pell equation N² - 2(2j+1)² = -1. The next solution
@@ -45,7 +40,8 @@ from math import sqrt, log, exp, pi, sinh
 # Algebraic constants
 EPSILON_7 = 8 + 3 * sqrt(7)     # fundamental unit of Z[√7]
 EPSILON_2 = 1 + sqrt(2)          # fundamental unit of Z[√2]
-MASS_GAP_ASYMP = sqrt(2 / pi)    # = 0.79788... (WDW asymptotic mass gap)
+MASS_GAP_ASYMP = sqrt(2 / pi)    # = 0.79788... (WDW asymptotic)
+MASS_GAP_EXACT = 0.8031           # numerical WDW ground-state eigenvalue
 
 # Physical constants
 M_PLANCK = 1.22089e19   # GeV
@@ -116,8 +112,8 @@ def hierarchy_decomposition(N_grav=7, N_cosmo=11):
     S_tunnel = tunneling_action(N_grav, c_grav)
     S_bounce = 2 * S_tunnel
 
-    # Component 2: mass gap × ln(ε₇)
-    mass_gap_term = MASS_GAP_ASYMP * log(EPSILON_7)
+    # Component 2: mass gap × ln(ε₇) (exact WDW eigenvalue)
+    mass_gap_term = MASS_GAP_EXACT * log(EPSILON_7)
 
     # Component 3: gravitational prefactor
     gravity_term = 0.5 * log(c_cosmo / (24 * pi**2))
@@ -162,6 +158,7 @@ def hierarchy_decomposition(N_grav=7, N_cosmo=11):
         'N_cosmo': N_cosmo,
         'c_grav': c_grav,
         'c_cosmo': c_cosmo,
+        'mass_gap_exact': MASS_GAP_EXACT,
         'mass_gap_asymp': MASS_GAP_ASYMP,
         'epsilon_7': EPSILON_7,
     }
