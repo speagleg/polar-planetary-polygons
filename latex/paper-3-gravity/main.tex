@@ -285,26 +285,29 @@ The polygon configuration space requires a $2$D base
 $\mathrm{SL}(2,\mathbb{R})$, hence (by Steps~(i)--(ii))
 Chern--Simons at level~$k$.
 
-\emph{Bridge: Schur's lemma on $\mathbb{Z}_N$ modes.}
+\emph{Bridge: quadratic Casimir on $\mathbb{Z}_N$ modes.}
 The vortex uniqueness argument above shows that the
-tangential eigenvalues $T_m$ are a polynomial of degree
-$\le 2$ in~$m$, and $T_m = m(N{-}m)/2$ is the unique such
-polynomial compatible with the Havelock sum rule
+tangential eigenvalues $T_m$ are polynomial of degree
+$\le 2$ in~$m$ if and only if $\alpha = 2$ (the logarithmic
+Green's function), and $T_m = m(N{-}m)/2$ is the unique
+such polynomial compatible with the Havelock sum rule
 (Paper~I, Lemma~\ref*{I-lem:havelock}).
 On the gravity side, each $\mathbb{Z}_N$ Fourier mode
-$V_m$ is a one-dimensional $\mathbb{Z}_N$-irreducible,
-and by Schur's lemma any $\mathbb{Z}_N$-equivariant
-scalar operator (including the quadratic Casimir of the
-$\mathfrak{sl}(2,\mathbb{R})$ Laplace--Beltrami on
-$\mathbf{H}^2$ restricted to $V_m$) is a multiple of the
-identity, determined entirely by its value at a single
-generator.
-Its value at the polygon generator is fixed by the
-Plancherel decomposition (\citealt{Helgason1984}, Ch.~III,
-Thm~1.3) to be polynomial of degree $\le 2$ in the mode
-label, and the Havelock sum rule forces this polynomial
-to be $m(N{-}m)/2$.
-Both sides therefore give the same $T_m = m(N{-}m)/2$,
+$V_m$ is a one-dimensional $\mathbb{Z}_N$-irreducible.
+By Schur's lemma, any $\mathbb{Z}_N$-equivariant
+scalar operator on $V_m$ is a multiple of the identity.
+The quadratic Casimir
+$\Omega_{\mathfrak{sl}(2,\mathbb{R})}$ restricted to
+$\mathbb{Z}_N$-equivariant functions at the ring is
+precisely the $\alpha = 2$ Fourier sum
+$S_2(m) = \sum_{p=1}^{N-1}
+(1 - \cos(2\pi pm/N))/(4\sin^2(\pi p/N))$
+(the Laplace--Beltrami operator on $\mathbf{H}^2$ in
+conformal coordinates reduces to the $\csc^2$-weighted
+circulant; \citealt{Helgason1984}, Ch.~III).
+Vortex uniqueness then forces $\alpha = 2$, and the
+Havelock sum rule gives $T_m = m(N{-}m)/2$.
+Both sides therefore give the same polynomial,
 and the identification is forced by Steps~(i), (ii), (iii)
 together with the vortex uniqueness above.
 \end{proof}
@@ -1135,8 +1138,8 @@ are all well-defined for cone metrics.
 \item \emph{Onsager contraction (constructive, finite~$N$).}
   Corollary~\ref{cor:onsager-contraction}
   proves ${\ge}\,95\%$ variance reduction per iteration
-  at $N = 7$ (contraction factor $0.041$ via the sharp Sobolev bound,
-  or $0.049$ via the coarser $L^\infty$ bound; explicit in both cases).
+  at $N = 7$ (contraction factor $0.056$ via the sharp Sobolev bound,
+  or $0.068$ via the coarser $L^\infty$ bound; explicit in both cases).
   No smooth-metric assumption.
 \end{enumerate}
 The Onsager principle
@@ -1412,18 +1415,28 @@ valid for any bounded random variable~$Y$ with $|Y| \le \|Y\|_{L^\infty}$
 e^{|a||Y|}$; see \citealt{BoucheronLugosiMassart2013}, \S2.3).
 On a compact surface $\delta R = R - R_0$ is bounded with
 $\|\delta R\|_{L^\infty} \le 2C_S$ (Sobolev embedding;
-see below), so this bound applies:
+see below), so this bound applies.
+Setting $Y = V_1\,\delta R + \tfrac12 V_2\,\delta R^2$
+and $a = \beta_{\mathrm{eff}}$, and using
+$\mathrm{Var}(Y) \le V_1^2\,\mathrm{Var}(R)
+\bigl(1 + 2|V_2/V_1|\sqrt{\mathrm{Var}(R)}\bigr)^2$
+(Cauchy--Schwarz on the $V_2\,\delta R^2$ cross-term):
 \[
   \mathrm{Var}(R') \;\le\;
-  |\beta_{\mathrm{eff}}|^2 R_0^2\,\mathrm{Var}(R)
+  |\beta_{\mathrm{eff}}|^2 R_0^2\,
+  e^{2|\beta_{\mathrm{eff}}|\,\|Y\|_{L^\infty}}\,
+  \mathrm{Var}(R)
   \times \bigl(1 + 2|V_2/V_1|\sqrt{\mathrm{Var}(R)}\bigr)^2.
 \]
 At~$N = 7$: $|\beta_{\mathrm{eff}}| R_0 = 1/6$,
 $|V_2/V_1| = |\operatorname{csch}^2(\rho^*)/\coth(\rho^*)| = 0.12$.
+Within the basin ($\mathrm{Var} \le 2$, $\|\delta R\|_\infty \le 0.90$):
+$\|Y\|_{L^\infty} \le |V_1|\cdot 0.90 + \tfrac12|V_2|\cdot 0.81 \le 1.0$,
+so $e^{2|\beta_{\mathrm{eff}}|\,\|Y\|_\infty} \le e^{1/3} = 1.40$.
 The nonlinear factor
 $(1 + 0.24\sqrt{\mathrm{Var}})^2 \le 1.75$
 for $\mathrm{Var}(R) \le 2$, giving total contraction
-$(1/6)^2 \times 1.75 = 0.049 < 1$.
+$(1/6)^2 \times 1.40 \times 1.75 = 0.068 < 1$.
 The condition $|\beta_{\mathrm{eff}}| R_0 < 1$ is
 $f(m^*,N) > |R_0|$, which holds for all $N \ge 4$
 (since $f(m^*,N) \ge 2$ and $|R_0| = 1$ on the Bolza surface).
@@ -1452,10 +1465,12 @@ $\|R - R_0\|_{L^\infty}^2 \le 0.306 \times 2 + 0.096 \times 2
 and Sobolev constant $C_S = 0.45$.
 The $L^\infty$ bound is then
 $\|\delta R\|_\infty^2 \le 0.80$,
+$\|Y\|_\infty \le 0.90$,
 and the nonlinear factor becomes
 $(1 + 2|V_2/V_1|\sqrt{0.80})^2 = 1.48$,
 tightening the contraction to
-$(1/6)^2 \times 1.48 = 0.041 < 1$.
+$(1/6)^2 \times e^{0.30} \times 1.48
+= (1/6)^2 \times 1.35 \times 1.48 = 0.056 < 1$.
 The Poincar\'e-uniformized metric ($R = \mathrm{const}$) has
 $\mathrm{Var} = 0$, and the basin $\mathrm{Var} \le 2$
 contains a metrically thick $H^1$ neighborhood:

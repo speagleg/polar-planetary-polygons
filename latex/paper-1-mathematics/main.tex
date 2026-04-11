@@ -798,20 +798,39 @@ $\xi = \rho^2/a^2$: a function of $\rho$ alone.
 Thus $V_{\mathrm{rad}}$ after telescoping is
 $\theta$-independent at the $\mathbb{Z}_N$-symmetric ring.
 
-\emph{3(c) $V_{\mathrm{rad}}$ has zero tangential Hessian.}
-Under a tangential perturbation
-$z_k \mapsto \rho\,e^{i(\theta_k + \varepsilon a_k)}$,
-the radii $|z_k| = \rho$ are \emph{preserved} to all orders
-in~$\varepsilon$.
-Since $V_{\mathrm{rad}}$ depends only on the radii,
-$\partial^2 V_{\mathrm{rad}}/\partial\theta_j\partial\theta_k
-= 0$ identically at the equilibrium.
+\emph{3(c) The Robin function contributes zero to tangential eigenvalues.}
+On $\mathbf{H}^2$ or $\mathbf{S}^2$, the Green's function
+in conformal coordinates is
+$G(z,w) = -(1/2\pi)\ln|z{-}w| + R(z,w)$,
+where $R(z,w) = (1/2\pi)\ln|1 - \bar z w/a^2|$ ($\mathbf{H}^2$)
+or $R(z,w) = (1/2\pi)\ln|1 + \bar z w/a^2|$ ($\mathbf{S}^2$).
+At the ring, $R$ depends on the angle difference
+$\phi = \theta_k - \theta_j$ through
+$\bar z_j z_k = \rho^2 e^{i\phi}$.
+The cross-derivative
+$\partial^2 R/\partial\theta_j\partial\theta_k
+= -(1/2\pi)\operatorname{Re}\!\bigl[
+  i\,\xi e^{i\phi}/(1 - \xi e^{i\phi})^2\bigr]$
+with $\xi = \rho^2/a^2$.
+Expanding: $\xi e^{i\phi}/(1 - \xi e^{i\phi})^2
+= \sum_{n=1}^\infty n\,\xi^n e^{in\phi}$,
+so
+$\operatorname{Re}[i \cdot (\ldots)]
+= -\sum_{n=1}^\infty n\,\xi^n \sin(n\phi)$.
+The tangential eigenvalue from the Robin circulant is
+$\sum_{p=1}^{N-1} r(p)\,(1 - \cos(2\pi pm/N))$
+with $r(p) \propto \sum_n n\,\xi^n \sin(2\pi np/N)$.
+Both $\sum_p \sin(2\pi np/N) = 0$ and
+$\sum_p \sin(2\pi np/N)\cos(2\pi pm/N) = 0$ (the DFT
+of a sine over a complete period vanishes),
+so the Robin function contributes exactly zero
+to every tangential eigenvalue.
 The angular-impulse constraint
 $J = \sum_k \kappa_k\,\Phi(|z_k|)$ with
 $\Phi(\rho) = \ln(1-\rho^2/a^2)$ on $\mathbf{H}^2$,
 $\Phi(\rho) = -\ln(1+\rho^2/a^2)$ on $\mathbf{S}^2$,
 or $\Phi(\rho) = \rho^2$ on the plane,
-also depends only on the radii, so
+depends only on the radii, so
 $\partial^2 J/\partial\theta_j\partial\theta_k = 0$
 and the Lagrange multiplier term
 $\mu_L\,\partial^2 J/\partial\theta^2$
@@ -1003,7 +1022,7 @@ stability boundary}:
 $N$ & 3 & 4 & 5 & 6 & 7 & $\ge 8$ \\
 \midrule
 $\varphi_{\mathrm{crit}}$ & $60.0^\circ$ & $48.2^\circ$ &
-  $41.4^\circ$ & $25.8^\circ$ & $0^\circ$ & --- \\
+  $41.4^\circ$ & $25.8^\circ$ & $0^\circ$ & $\varnothing$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1076,7 +1095,7 @@ $N$ & $m(N{-}m)/2$ & $\cos\varphi_{\mathrm{crit}}$ & $\xi_{\mathrm{crit}}$ &
 6 & $9/2$ & $9/10$ & $1/19$ & $25.8^\circ$ & $\varphi_0 < 25.8^\circ$ \\
 7 & $6$ & $1$ & $0$ & $0^\circ$ &
   pole only (marginal) \\
-$\ge 8$ & $> N{-}1$ & $> 1$ & --- & --- & never \\
+$\ge 8$ & $> N{-}1$ & $> 1$ & $\varnothing$ & $\varnothing$ & never \\
 \bottomrule
 \end{tabular}
 \end{center}
