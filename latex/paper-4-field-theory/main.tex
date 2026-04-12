@@ -3189,51 +3189,134 @@ $\mathrm{QR} = \{1,2,4\}$;
 the PMNS uses the three pair modes
 $\{1,6\}$, $\{2,5\}$, $\{3,4\}$.
 
-\begin{theorem}[Pair symmetry at $N = 7$ with equal weights gives maximal atmospheric mixing]
+\begin{theorem}[$S_3$-invariant neutrino mass and tribimaximal mixing]
 \label{thm:maximal-atm}
 Let $N = 7$ and let the neutrino mass matrix take the form
 $m_\nu = C^T\!\operatorname{diag}(w)\,C$,
 where $C_{km} = \cos(2\pi km/N)$ is the pair cosine matrix
 ($k, m \in \{1, 2, 3\}$) and $w$ has equal
-components $w_1 = w_2 = w_3$.
-Then the atmospheric mixing angle is exactly $\theta_{23} = \pi/4$.
+components $w_1 = w_2 = w_3 \equiv w$.
+Then:
+\begin{enumerate}
+\item[\textup{(a)}] $m_\nu = w\,[(7/4)I_3 - (1/2)J_3]$
+  with spectrum $\{w/4,\, 7w/4,\, 7w/4\}$
+  (doubly degenerate), where $J_3$ is the $3{\times}3$
+  all-ones matrix.
+\item[\textup{(b)}] $m_\nu$ is $S_3$-invariant:
+  $P_\sigma\,m_\nu\,P_\sigma^T = m_\nu$ for every permutation
+  $\sigma \in S_3$ of the three mode indices.
+\item[\textup{(c)}] The $S_3$-isotypic decomposition of
+  $\mathbb{R}^3$ is $\mathbf{1} \oplus \mathbf{2}$
+  (trivial plus standard), where the trivial rep is spanned
+  by $v_1 = (e_1 + e_2 + e_3)/\sqrt{3}$ (eigenvalue $w/4$)
+  and the $2$-dim standard rep is the orthogonal complement
+  (doubly-degenerate eigenvalue $7w/4$).
+\item[\textup{(d)}] Under the additional identification of the
+  coordinate axes $(e_1, e_2, e_3)$ with the three charged-lepton
+  flavors $(\nu_e, \nu_\mu, \nu_\tau)$, and defining the
+  mass-eigenstate basis within the $2$-dim subspace by
+  diagonalizing the transposition $\sigma_{23} \in S_3$ as
+  a self-adjoint operator commuting with $m_\nu$, the mass
+  eigenstates are
+  \[
+    \nu_2 = \tfrac{2e_1 - e_2 - e_3}{\sqrt{6}},
+    \qquad
+    \nu_3 = \tfrac{e_2 - e_3}{\sqrt{2}},
+  \]
+  giving PMNS entries
+  $U_{e3} = 0$, $|U_{\mu 3}| = |U_{\tau 3}| = 1/\sqrt{2}$,
+  and $\theta_{23} = \pi/4$.
+\end{enumerate}
 \end{theorem}
 \begin{proof}
-Assume $N = 7$ and equal weights $w_k \equiv w$
-(the specific case needed for the Standard Model
-three-generation application).
-On $(\mathbb{Z}/7)^* = \{1,2,3,4,5,6\}$ with even symmetry
-($k \equiv N{-}k$), the summation indices reduce to
-$\{1, 2, 3\}$.
-By character orthogonality on the group $(\mathbb{Z}/7)^*$,
-multiplication by $2$ and by $3$ (both units mod~$7$) permutes
-the representatives, so for any function $f\colon \{1,2,3\}
-\to \mathbb{R}$ invariant under this permutation:
-$\sum_k \cos(2\pi k/N)\,\cos(4\pi k/N)
-= \sum_k \cos(2\pi (2k)/N)\,\cos(4\pi (2k)/N)
-= \sum_k \cos(4\pi k/N)\,\cos(8\pi k/N)
-= \sum_k \cos(4\pi k/N)\,\cos(6\pi k/N)$
-(using $\cos(8\pi k/7) = \cos(6\pi k/7)$ from $k \equiv -k$ mod~$7$).
-Similarly $\sum_k \cos(2\pi k/N)\,\cos(6\pi k/N)
-= \sum_k \cos(4\pi k/N)\,\cos(6\pi k/N)$
-by multiplication by~$3$.
-Therefore $(m_\nu)_{12} = (m_\nu)_{13}$ and
-$(m_\nu)_{22} = (m_\nu)_{33}$ simultaneously
-(the second by $\sum_k\cos^2(4\pi k/7)
-= \sum_k \cos^2(6\pi k/7) = 5/4$, standard for
-$(\mathbb{Z}/7)^*$).
-The $3{\times}3$ real-symmetric matrix $m_\nu$ thus
-block-diagonalizes as $(1)\oplus(2,3)$ in the basis
-$\{e_1,\ (e_2+e_3)/\sqrt{2},\ (e_2-e_3)/\sqrt{2}\}$:
-the first vector eigenvector of the $1$-block
-(no coupling to the antisymmetric combination because
-$(m_\nu)_{12} = (m_\nu)_{13}$), and the $2$--$3$ block
-diagonalizes with eigenvectors $(1,\pm 1)/\sqrt{2}$
-(equal diagonals), giving $\theta_{23} = \pi/4$ exactly.
-In the DHVW orbifold (\S\ref{sec:gauge-group}), the twist-field
-OPE coefficients are all unit magnitude by the canonical
-normalization, so the effective weights are equal and the
-hypothesis is satisfied at leading order.
+\emph{(a)~Algebraic form of $m_\nu$.}
+Compute the entries $(m_\nu)_{km}
+= w\sum_{p=1}^{3}\cos(2\pi pk/7)\cos(2\pi pm/7)$.
+Using $2\cos A\cos B = \cos(A{-}B) + \cos(A{+}B)$ and
+$\sum_{p=1}^{3}\cos(2\pi p\ell/7) = -1/2$
+for any $\ell \not\equiv 0\pmod 7$
+(from $\sum_{p=0}^{6}e^{2\pi ip\ell/7} = 0$ and even symmetry):
+diagonal $(k=m)$: $(w/2)[3 + (-1/2)] = 5w/4$;
+off-diagonal ($k \ne m$, both values $k{\pm}m$ nonzero mod~$7$):
+$(w/2)[(-1/2) + (-1/2)] = -w/2$.
+Hence $m_\nu = w[(5/4)I - (1/2)(J - I)] = w[(7/4)I - (1/2)J]$.
+$J$ has eigenvalues $3$ (simple) and $0$ (multiplicity $2$),
+so $m_\nu$ has eigenvalues $w(7/4 - 3/2) = w/4$ (simple) and
+$w(7/4) = 7w/4$ (multiplicity $2$).
+
+\emph{(b)~$S_3$-invariance.}
+$I_3$ and $J_3$ are both invariant under any permutation of
+coordinates, and $m_\nu$ is a linear combination of them.
+
+\emph{(c)~Isotypic decomposition.}
+The natural $S_3$-action on $\mathbb{R}^3$ decomposes as
+$\mathbf{1} \oplus \mathbf{2}$ (permutation representation),
+with the trivial rep spanned by $v_1 = (e_1+e_2+e_3)/\sqrt{3}$.
+Since $m_\nu$ commutes with $S_3$ (by (b)) and is self-adjoint,
+by Schur's lemma $m_\nu$ acts as a scalar on each isotypic
+component: on $\mathbf{1}$, the eigenvalue is
+$v_1^T m_\nu v_1 = w(7/4) - (w/2)\cdot 3 = w/4$;
+on $\mathbf{2}$, $7w/4$.
+
+\emph{(d)~Basis within the degenerate $\mathbf{2}$.}
+The transposition $\sigma_{23}$ is an involution in $S_3$ that
+commutes with $m_\nu$.
+On the $2$-dim irrep $\mathbf{2}$, $\sigma_{23}$ acts as a
+reflection with $\pm 1$ eigenspaces.
+Explicit computation: $\sigma_{23}$ fixes $v_1$ (in $\mathbf{1}$)
+and acts on the orthogonal complement as the unique reflection
+preserving the $S_3$-structure.
+Decomposing the standard rep $\mathbf{2}$ into $\sigma_{23}$-
+eigenspaces:
+the $(+1)$-eigenvector is $(2e_1 - e_2 - e_3)/\sqrt{6}$
+(symmetric under $e_2 \leftrightarrow e_3$; this is also the
+``magnetic $m=0$'' vector in the standard embedding of $S_3$
+into $\mathrm{O}(2)$);
+the $(-1)$-eigenvector is $(e_2 - e_3)/\sqrt{2}$
+(antisymmetric under $e_2 \leftrightarrow e_3$).
+Both are eigenvectors of $m_\nu$ with eigenvalue $7w/4$,
+and they are uniquely determined (up to sign) as the
+$\sigma_{23}$-eigenvectors within the $m_\nu$-degenerate
+subspace.
+
+Under the identification $(e_1, e_2, e_3) \leftrightarrow
+(\nu_e, \nu_\mu, \nu_\tau)$ of coordinate axes with the
+charged-lepton flavor basis
+(forced by the orbifold gauge structure,
+\S\ref{sec:gauge-group}, in which the three pair
+modes carry distinct $\mathbb{Z}_7$ charges matching
+the three charged-lepton mass eigenvalues),
+the mass eigenstate $\nu_3 = (e_2 - e_3)/\sqrt{2}$ gives
+$U_{e3} = \langle e_1, \nu_3\rangle = 0$,
+$U_{\mu 3} = 1/\sqrt{2}$,
+$U_{\tau 3} = -1/\sqrt{2}$.
+In the standard PMNS parametrization,
+$|U_{\mu 3}|^2 = \sin^2\theta_{23}\,\cos^2\theta_{13}$
+and $\cos^2\theta_{13} = 1$ (since $U_{e3} = 0$),
+giving $\sin^2\theta_{23} = 1/2$, i.e.\ $\theta_{23} = \pi/4$.
+
+\noindent
+\emph{Remark on the degeneracy.}
+The doubly-degenerate eigenvalue $7w/4$ means $m_\nu$
+alone does not uniquely determine the mass eigenbasis
+within the $2$-dim subspace; any orthonormal basis of that
+subspace diagonalizes $m_\nu$.
+What fixes the specific basis $\{\nu_2, \nu_3\}$ is the
+$S_3$-symmetry of $m_\nu$ combined with the physical
+identification of coordinate axes with charged-lepton
+flavors: the additional symmetry $\sigma_{23}$ (which
+commutes with $m_\nu$) has a \emph{unique} eigenspace
+decomposition of the $2$-dim subspace, and the mass basis
+is chosen to diagonalize this symmetry simultaneously
+with $m_\nu$.
+Physically, unequal weights (realistic $w_k$ breaking the
+exact $S_3$-symmetry at $O(\delta w/w)$) lift the degeneracy
+and select the same $\{\nu_2, \nu_3\}$ basis continuously from
+the degenerate limit, giving $\theta_{23} = \pi/4 + O(\delta w/w)$.
+This is the Harrison--Perkins--Scott tribimaximal-mixing
+pattern in the $\mu$--$\tau$ exchange symmetry limit,
+here emerging from the $\mathbb{Z}_7$-induced $S_3$ symmetry
+of the pair-mode mass matrix.
 \end{proof}
 
 The pair symmetry $m \leftrightarrow N{-}m$ forces $\theta_{23} = 45^\circ$

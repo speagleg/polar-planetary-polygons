@@ -1403,14 +1403,26 @@ If:
   - (N{-}1)\varepsilon^2 \|\delta R\|_\infty/4
   \ge c > 0$
   for sufficiently small~$\varepsilon$ on~$\mathcal{B}$.
-  On~$\mathcal{B}$, $S$~is \emph{strictly concave} in~$R(x)$:
+  On~$\mathcal{B}$ and for $\varepsilon < \varepsilon_0(N)$
+  (with $\varepsilon_0(N) = c^{1/2}/[(N{-}1)\|\delta R\|_\infty]^{1/2}$
+  chosen so the $O(\varepsilon^4)$ remainder stays within
+  the strict-concavity margin),
+  $S$~is \emph{strictly concave} in~$R(x)$:
   $S$ is strictly concave in~$C_1$
   ($d^2S/dC_1^2 = -\tfrac{1}{2}\sum 1/\lambda_m^2 < 0$,
   algebraic at finite~$N$),
   and $C_1(x) = (N{-}1)[1 - R(x)\varepsilon^2/4 + O(\varepsilon^4)]$
-  is affine in~$R(x)$
-  (Lemma~\ref{lem:log-interaction}),
-  so $S(C_1(R))$ is strictly concave in~$R$.
+  is affine in~$R(x)$ at leading order with
+  Taylor remainder uniformly bounded by
+  $|R(x)|^2 \varepsilon^4$ times a curvature-dependent
+  constant (Lemma~\ref{lem:log-interaction}).
+  The $O(\varepsilon^4)$ Taylor remainder shifts the
+  second derivative $d^2S/dR^2$ by at most
+  $(N{-}1)^2\varepsilon^4/16 \cdot (\text{const}_N)$,
+  which is absorbed into the strict-concavity margin
+  $\min_m 1/\lambda_m^2$ for $\varepsilon$ small enough.
+  Therefore $S(C_1(R))$ is strictly concave in~$R$ on
+  $\mathcal{B}$ for $\varepsilon < \varepsilon_0(N)$.
   Subject to the Gauss--Bonnet constraint
   $\int R\,dA = 4\pi\chi$ (scalar curvature convention,
   $R = 2K$),

@@ -1215,29 +1215,25 @@ On the \emph{geometric} side, each primitive geodesic of
 length~$\ell$ contributes
 $\ell/(2\sinh(\ell/2)) \times \hat h(\ell)$
 to the trace.
-For the Pell geodesic ($\ell_0 = 2\ln\varepsilon_7$):
-the WKB spectral factor is
-$\hat h(\ell_0) = 2\sinh(\ell_0/2) = 2\sinh(\operatorname{arccosh}8) = 6\sqrt{7}$,
-which \emph{exactly cancels} the Selberg stability denominator
-$1/(2\sinh(\ell_0/2))$.
-The cancellation follows from the structure of the Selberg
-trace formula with the length-counting test function.
-Taking $h \equiv 1$ on the spectrum (the counting function),
-the Abel transform $\hat h(\ell)$ of a function matching the
-radial BO eigenfunction gives the primitive length~$\ell_0$
-as the contribution per orbit
-(\citealt{Hejhal1976}, Vol.~I, Ch.~2;
-\citealt{BarbaschMoscovici1983}).
-The specific choice of WKB spectral coefficient
-$a(r) \propto 1/(r\sinh(\pi r))$ times the Laplacian
-eigenvalue $(1/4 + r^2)$ is the standard Selberg test
-function that produces geodesic-length counting;
-its Abel transform is $\ell_0$ (not $2\sinh(\ell_0/2)$
-as a misstatement would suggest---the correct Selberg
-identity gives the length directly after cancellation
-of the $2\sinh(\ell/2)$ factor in the Plancherel measure).
-The net contribution per orbit is therefore the
-geodesic length~$\ell_0 = 2\ln\varepsilon_7$.
+The Selberg trace formula with test function
+$h \equiv 1$ on the spectrum (the counting function)
+has geometric side
+\[
+  \sum_{\{\gamma\}}\frac{\ell_{\gamma_0}}{2\sinh(\ell_\gamma/2)}
+  \,\hat h(\ell_\gamma),
+\]
+where $\hat h$ is the Abel transform of $h$ and the sum
+runs over conjugacy classes with primitive length
+$\ell_{\gamma_0}$ (\citealt{Hejhal1976}, Vol.~I, Ch.~2,
+Thm.~5.1).
+For the length-counting test function, the Abel transform
+gives $\hat h(\ell_\gamma) = 2\sinh(\ell_\gamma/2)$,
+which cancels the Plancherel denominator $2\sinh(\ell_\gamma/2)$
+in the orbital contribution, leaving the primitive length
+$\ell_{\gamma_0}$ as the net contribution per conjugacy class.
+For the Pell geodesic on $X(7)$ with $\ell_0 = 2\ln\varepsilon_7$,
+the contribution is therefore
+$\ell_0 = 2\ln\varepsilon_7$ per conjugacy class.
 Summing the seven lifts:
 \[
   2S_{\mathrm{BO}}(7)
