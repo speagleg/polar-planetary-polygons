@@ -1622,17 +1622,22 @@ $-\Delta V = \delta R$ with $\int V\,dA = 0$
 Lemma~\ref{lem:robin-identity}).
 Then $R' = \delta\,\rho_0\,e^{\beta_{\mathrm{eff}} V}$
 with $\rho_0$ a normalization constant.
-On a compact hyperbolic surface with spectral gap
-$\lambda_1 > 0$, the $H^2$ elliptic estimate
-$\|V\|_{H^2} \le \|\delta R\|_{L^2}/\lambda_1$
-(standard; \citealt{GilbargTrudinger2001}, Ch.~6)
-composed with the Sobolev embedding
+On a compact hyperbolic surface, elliptic regularity
+(\citealt{GilbargTrudinger2001}, Ch.~6) gives
+$\|V\|_{H^2} \le C_\Sigma(\|V\|_{L^2} + \|\Delta V\|_{L^2})$
+with $C_\Sigma$ a surface-dependent constant.
+On mean-zero functions, Poincar\'e gives
+$\|V\|_{L^2} \le \lambda_1^{-1}\|\Delta V\|_{L^2}$, so
+$\|V\|_{H^2} \le C_\Sigma(1 + \lambda_1^{-1})\|\Delta V\|_{L^2}
+= C_\Sigma(1 + \lambda_1^{-1})\|\delta R\|_{L^2}$
+(using $-\Delta V = \delta R$).
+Composing with the Sobolev embedding
 $H^2(\Sigma) \hookrightarrow L^\infty(\Sigma)$
 (valid in dimension~$2$ with constant $C_{\mathrm{Sob}}$):
 \[
   \|V\|_{L^\infty}
   \le C_{\mathrm{Sob}}\,\|V\|_{H^2}
-  \le (C_{\mathrm{Sob}}/\lambda_1)\,\|\delta R\|_{L^2}.
+  \le C_{\mathrm{Sob}}\,C_\Sigma(1 + \lambda_1^{-1})\,\|\delta R\|_{L^2}.
 \]
 Taylor expansion of
 $R' = \delta\rho_0(1 + \beta_{\mathrm{eff}} V
@@ -1643,13 +1648,15 @@ with $C_{\mathrm{ell}} =
 |\beta_{\mathrm{eff}} R_0|\cdot C_{\mathrm{Sob}}/\lambda_1
 \cdot (1 + O(\|V\|_\infty))$.
 On the Bolza surface ($\lambda_1 = 3.839$,
-$C_{\mathrm{Sob}} \approx 1.5$ from the heat-kernel
-estimate~\eqref{eq:sobolev-heat} evaluated at
-$t = 1/\lambda_1$, $|\beta_{\mathrm{eff}} R_0| = 1/6$):
-$C_{\mathrm{ell}} \approx (1/6)(1.5/3.839) \cdot 1.12
-\le 0.64$.
+$C_\Sigma \approx 1$, $C_{\mathrm{Sob}} \approx 1.5$,
+$|\beta_{\mathrm{eff}} R_0| = 1/6$):
+$C_{\mathrm{ell}} \approx (1/6)\cdot 1.5
+\cdot (1 + 1/3.839)\cdot 1.12 \approx 0.32$,
+well below the threshold $C_{\mathrm{ell}} \le 0.64$
+required for basin invariance.
 On the basin $\mathrm{Var}(R) \le 2$,
-$\|\delta R'\|_{L^\infty} \le 0.64\sqrt{2} \le 0.90$.
+$\|\delta R'\|_{L^\infty} \le 0.32\sqrt{2} \approx 0.45
+< 0.90$.
 Therefore $T$ maps the $L^\infty$-basin
 $\mathcal{B}$ into itself, closing the iteration argument.
 By the Banach fixed-point theorem

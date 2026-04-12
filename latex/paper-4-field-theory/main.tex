@@ -3204,9 +3204,14 @@ More generally, the conclusion holds whenever~$w$ satisfies
 \end{equation}
 \end{theorem}
 \begin{proof}
-By character orthogonality,
+For odd $N$ with $\gcd(N, 6) = 1$, character orthogonality on
+$(\mathbb{Z}/N)^*$ gives
 $\sum_{k=1}^{(N-1)/2} \cos^2(4\pi k/N)
-= \sum_{k=1}^{(N-1)/2} \cos^2(6\pi k/N) = (N{-}2)/4$.
+= \sum_{k=1}^{(N-1)/2} \cos^2(6\pi k/N) = (N{-}2)/4$
+(both $2$ and $3$ are units mod~$N$, so the characters
+$k \mapsto 4k$ and $k \mapsto 6k$ are bijections on
+the quotient).
+This covers $N = 7$ (the case used below).
 For \emph{equal} weights $w_k = w$, this gives
 $(m_\nu)_{22} = (m_\nu)_{33}$ directly.
 For non-equal weights, the condition~\eqref{eq:weight-condition}

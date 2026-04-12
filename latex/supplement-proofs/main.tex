@@ -344,6 +344,25 @@ isomorphism for the trivial $\mathbb{Z}_N$-action:
 $K_0^{\mathbb{Z}_N}(C^*_r(\Gamma))
 \cong K_0(C^*_r(\Gamma)) \otimes R(\mathbb{Z}_N)$.
 
+\begin{lemma}[Compatibility of the two actions]
+\label{lem:trivial-action}
+The $\mathbb{Z}_N$ polygon symmetry acts trivially on
+$C^*_r(\Gamma)$: each polygon rotation permutes the
+ring vertices $z_k = z(e^{2\pi ik/N})$ but fixes the
+center $z_0$ and acts on the mode space by scalar
+multiplication by $\omega^m$ on $\rho_m$.
+The Fuchsian group $\Gamma$ acts on $\mathbf{H}^2$ as
+deck transformations; these commute with the polygon
+symmetry because the polygon is centered at the
+$\Gamma$-invariant point $z_0$ and $\Gamma$ acts on
+$\mathbf{H}^2$ away from $z_0$.
+Therefore the $\mathbb{Z}_N$-action on
+$\oplus_m \rho_m \otimes C^*_r(\Gamma)$
+factors through the $\rho_m$-decomposition with
+trivial action on each $C^*_r(\Gamma)$-summand,
+and the Green--Julg isomorphism applies.
+\end{lemma}
+
 \begin{proof}
 \emph{Part~(i).}
 The resolvent kernel on $\mathbf{H}^2$ at spectral parameter
@@ -482,7 +501,7 @@ This is the ``genuinely new information'' at the threshold:
 the scalar spectral flow produces integers, but the
 Kasparov product produces the \emph{fractional}
 $\tau(P_-)$ through the von~Neumann trace on~$C^*_r(\Gamma)$.
-On the Bolza surface: $\tau(P_-) = 0.644 \pm 0.004$
+On the Bolza surface: $\tau(P_-) = 0.644 \pm 0.010$
 (non-integer, Theorem~\ref{thm:fractional-morse}).
 \end{corollary}
 
@@ -577,14 +596,16 @@ $\|\tau(P_-(h)) - \tau(P_-(h_4))\| \le
 \|h - h_4\|_{\mathrm{op}} / \mathrm{gap}$,
 but since $\mathrm{gap} \to 0$ at the threshold,
 the empirical convergence rate ($0.012 \to 0.007$,
-geometric ratio $\approx 0.6$; a rigorous rate would
-require a spectral gap lower bound for~$h$, which is
-not available at the palindromic threshold)
-gives the more reliable bound:
-$\tau(P_-) = 0.644 \pm 0.004$
-(geometric tail extrapolation:
-$0.007 \times 0.6/(1 - 0.6) \approx 0.010$,
-combined with the observed stabilization).
+geometric ratio $\approx 0.6$) gives the geometric
+tail bound
+$0.007 \times 0.6/(1 - 0.6) \approx 0.010$.
+Reporting the more conservative value:
+$\tau(P_-) = 0.644 \pm 0.010$.
+A tighter bound of $\pm 0.004$ is obtained empirically
+from Richardson extrapolation of the word-length
+sequence, but is conditional on the geometric
+convergence rate remaining at $0.6$ beyond word length
+$L = 4$ (not proved).
 
 The operator $h$ commutes with $\mathrm{Aut}(\mathrm{Bolza})$
 (order~$48$) since $z_0$ is the Aut-fixed point.
@@ -593,7 +614,7 @@ $\tau(P_-)$ would be constrained to
 $\{{\textstyle\sum} d_\rho^2/48\}$ with irrep dimensions
 $1,1,2,2,2,3,3,4$; the achievable values near $0.64$
 are $30/48 = 0.625$ and $31/48 \approx 0.646$.
-The computed value $0.644 \pm 0.004$ is close to but
+The computed value $0.644 \pm 0.010$ is close to but
 distinguishable from both ($0.625$ is excluded;
 $0.646$ is marginal).
 Since the nearest isotypic sum $31/48$ is within
@@ -687,21 +708,24 @@ where $\theta_{jk}$ is the angle between the tangent at~$z_k$
 and the inter-vortex direction.
 The $m$-th Fourier coefficient of this kernel,
 $\delta_m = \sum_{j,k}h_{\mathrm{tang}}\cos(2\pi mk/M)$,
-satisfies $\delta_m \le 0$ for all $m \ge 1$:
-the kernel $\cos(2\theta)/d^2$ is negative semidefinite
-in the tangential Fourier basis when the source lies
-exterior to the ring (this is a consequence of the
-maximum principle for the biharmonic operator applied to
-the tangential component of the Green's function Hessian;
-see Code Availability for verification at all
-$M = 8,\ldots,99$, $N = 5,6,7$).
+satisfies $\delta_m \le 0$ for all $m \ge 1$
+in the range verified below:
+the kernel $\cos(2\theta)/d^2$ evaluates numerically
+to a negative-semidefinite Fourier transform in the
+tangential basis at the configurations considered
+(verified computationally at
+$M = 8,\ldots,99$, $N = 5,6,7$; see Code Availability).
 Since the inner $M$-gon ($M \ge 8$) has
 $\lambda_{m^*}^{\mathrm{inner}} < 0$ and
-$\delta_{m^*} \le 0$, the perturbed eigenvalue
+$\delta_{m^*} \le 0$ in this range,
 $\lambda_{m^*}^{\mathrm{inner}} + \delta_{m^*}
 \le \lambda_{m^*}^{\mathrm{inner}} < 0$.
 The two-ring system retains at least one negative
-eigenvalue for all $M \ge 8$, $N \le 7$.
+eigenvalue for all $M \in \{8, \ldots, 99\}$, $N \le 7$.
+Extension to $M > 99$ is conjectural; an analytic
+proof via the biharmonic maximum principle or a
+direct Fourier-kernel monotonicity argument is an
+open problem.
 
 \emph{Mechanism.}  A central vortex ($M = 0$, the $\mathbb{Z}_N$ fixed
 point) contributes a uniform eigenvalue shift $+\kappa_0/R^2$

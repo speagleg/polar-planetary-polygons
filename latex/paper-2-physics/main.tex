@@ -287,15 +287,19 @@ projection).  Setting the shifted eigenvalue to zero:
 
 \begin{proposition}[Critical central vortex strength]
 \label{prop:kappa-crit}
-For $N \ge 8$, the $N$-gon with central vortex is a constrained energy
-minimum if and only if $\kappa_0/\kappa \ge \kappa_{\mathrm{crit}}(N)$,
-where
+For every $N \ge 3$, the $N$-gon with central vortex is a
+constrained energy minimum if and only if
+$\kappa_0/\kappa \ge \kappa_{\mathrm{crit}}(N)$, where
 \begin{equation}\label{eq:kappa-crit}
   \kappa_{\mathrm{crit}}(N) = \begin{cases}
     (N^2 - 8N + 8)/16 & N \text{ even}, \\[3pt]
     (N{-}1)(N{-}7)/16 & N \text{ odd}.
   \end{cases}
 \end{equation}
+For $N \le 7$, $\kappa_{\mathrm{crit}}(N) \le 0$, and the
+pure ring (no central vortex, $\kappa_0 = 0$) satisfies the
+criterion; central augmentation becomes a strict requirement
+only at $N \ge 8$.
 \end{proposition}
 
 \begin{proof}
@@ -513,10 +517,22 @@ The proof splits into two cases.
 The Havelock eigenvalue $\lambda_{\lfloor N/2\rfloor}
 = (N{-}1) - \lfloor N/2\rfloor(N{-}\lfloor N/2\rfloor)/2 < 0$,
 so the outer $N$-ring alone has a negative constrained eigenvalue.
-Adding $M \ge 2$ inner vortices introduces new degrees of freedom
-but does not remove the existing instability: the negative outer
-mode persists (its eigenvalue is a continuous function of the
-coupling strength, starting negative at zero coupling).
+Adding $M \ge 2$ inner vortices introduces new degrees of freedom.
+The two-ring Hessian is block-structured: the outer-outer block
+is the unperturbed Havelock Hessian plus a correction from the
+inner ring, and the cross-block couples the rings.
+By standard min-max/interlacing
+(the Courant--Fischer theorem applied to a perturbed
+self-adjoint matrix), adding a block of rows and columns
+cannot increase the number of negative eigenvalues of the
+full matrix beyond the sum of negative eigenvalues of each
+block plus the rank of the coupling.
+Since the outer block retains its negative eigenvalue
+throughout the Fourier-decomposed system
+(the inner-ring coupling contributes only in off-diagonal
+blocks whose rank is bounded by $M-1$),
+the full two-ring system has at least one negative eigenvalue
+for every $M \ge 2$, $N \ge 8$.
 This proves~(ii).
 
 \emph{Case 2: $N \le 7$ (outer ring Thomson-stable).}

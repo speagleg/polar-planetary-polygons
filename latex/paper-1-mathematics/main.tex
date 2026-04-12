@@ -4050,7 +4050,7 @@ modes away from the palindromic line contribute integer
 spectral flows, but mode $m^*$ contributes the
 \emph{fractional} von Neumann trace
 $\tau(P_-^{(m^*)})$ on~$C^*_r(\Gamma)$.
-On the Bolza surface: $\tau(P_-^{(m^*)}) = 0.644 \pm 0.004$
+On the Bolza surface: $\tau(P_-^{(m^*)}) = 0.644 \pm 0.010$
 (non-integer, Theorem~\ref{thm:fractional-morse}).
 The specific value $0.644$ is evaluated computationally from
 the Bolza Fuchsian group generators.
@@ -4099,7 +4099,11 @@ $\tau(a^* a) = 0 \Rightarrow a = 0$.
 (v)~If $\mathrm{spectrum}(h) \subset [0, \infty)$: then
 $h \ge 0$, $\tau(h) = 0$, and faithfulness gives $h = 0$,
 contradicting~(iii).
-Similarly $\mathrm{spectrum}(h) \not\subset (-\infty, 0]$.
+Similarly, applying the same argument to $-h$:
+if $\mathrm{spectrum}(h) \subset (-\infty, 0]$, then
+$-h \ge 0$ with $\tau(-h) = -\tau(h) = 0$ (by (ii)),
+and faithfulness forces $-h = 0$, hence $h = 0$,
+contradicting~(iii).
 Therefore $h$ has both positive and negative spectrum,
 giving $0 < \tau(P_-) < 1$.
 \end{proof}
