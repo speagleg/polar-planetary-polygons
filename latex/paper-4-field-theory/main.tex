@@ -3218,12 +3218,23 @@ For non-equal weights, the condition~\eqref{eq:weight-condition}
 is required (an unweighted identity cannot force a weighted
 equality; for $N = 7$ and $w = (1,0,0)$, for instance,
 $(m_\nu)_{22} = 0.050$ while $(m_\nu)_{33} = 0.812$).
-When~\eqref{eq:weight-condition} holds, the $2$--$3$ block
-of~$m_\nu$ is real symmetric ($m_\nu = C^T\,\mathrm{diag}(w)\,C$
-with real cosine matrix~$C$ and real weights~$w$,
-hence all entries real) with equal diagonal entries,
-so its eigenvectors are $(1,\pm 1)/\sqrt{2}$, giving
-$\theta_{23} = \pi/4$ exactly.
+When~\eqref{eq:weight-condition} holds, the full $3{\times}3$
+matrix~$m_\nu = C^T\,\mathrm{diag}(w)\,C$ is real symmetric
+(real cosine matrix~$C$, real weights~$w$).
+The pair symmetry $k \leftrightarrow N{-}k$ further forces
+the $2$--$3$ block to decouple from the $1$-index:
+$(m_\nu)_{12}$ involves $\sum_k w_k \cos(2\pi k/N)\cos(4\pi k/N)$
+while $(m_\nu)_{13}$ involves $\sum_k w_k \cos(2\pi k/N)\cos(6\pi k/N)$,
+and the involution $k \mapsto N{-}k$ (which leaves each summand
+invariant since $\cos$ is even and $w$ is symmetric) makes these
+two sums equal.
+The $3{\times}3$ mass matrix therefore block-diagonalizes in the
+$(1)\oplus(2,3)$ basis after the orthogonal rotation
+sending the $(1,\pm 1)/\sqrt{2}$ combinations of rows $2, 3$
+to the eigenbasis.
+The remaining $2{\times}2$ block has equal diagonals
+$(m_\nu)_{22} = (m_\nu)_{33}$, so its eigenvectors are
+$(1,\pm 1)/\sqrt{2}$, giving $\theta_{23} = \pi/4$ exactly.
 In the DHVW orbifold (\S\ref{sec:gauge-group}), the twist-field
 OPE coefficients are all unit magnitude by the canonical
 normalization, so the effective weights are equal and the

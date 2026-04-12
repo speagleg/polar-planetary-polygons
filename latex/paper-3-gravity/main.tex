@@ -224,7 +224,18 @@ $w_p = C_0 / \sin^2(\pi p/N)$
 for some constant $C_0$ independent of~$p$.
 
 \emph{Step~2: ODE for $h$.}
-A direct chain-rule computation gives the circulant weight
+At the ring $z_p = R\,e^{2\pi i p/N}$, the tangential
+Hessian of $h(|z_j{-}z_k|)$ for pair $(0, p)$ is computed
+by chain rule: writing $D = |z_0{-}z_p|^2
+= 4R^2\sin^2(\pi p/N + \varepsilon(a_p{-}a_0)/2)$
+for tangential perturbation $\theta_k \mapsto \theta_k
++ \varepsilon a_k$, and using
+$\partial^2 h(\sqrt{D})/\partial\varepsilon^2\big|_0
+= h'(d_p)\cdot \tfrac{1}{2d_p}\cdot D''
++ (h''(d_p)/4d_p^2 - h'(d_p)/4d_p^3)\cdot (D')^2$,
+with $D' = 2R^2\sin(2\pi p/N)(a_p{-}a_0)$ and
+$D'' = 2R^2\cos(2\pi p/N)(a_p{-}a_0)^2$,
+simplification gives the circulant weight
 $w_p = \tfrac{1}{4}\bigl[
   -d_p\,h'(d_p) + d_p^2\,h''(d_p)\,
   \cot^2(\pi p/N)\bigr]$,
