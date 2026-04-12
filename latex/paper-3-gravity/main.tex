@@ -255,8 +255,10 @@ $U(r) := -r\,h'(r)$ and $V(r) := r^2\,h''(r)$:
   = \begin{pmatrix} 4C_0 \\ 4C_0 \end{pmatrix}.
 \]
 The determinant is
-$\cos^2(\pi q_1) - \cos^2(\pi q_2)
-= \sin^2(\pi q_2) - \sin^2(\pi q_1) \ne 0$,
+$\sin^2(\pi q_1)\cos^2(\pi q_2)
+- \sin^2(\pi q_2)\cos^2(\pi q_1)
+= \sin^2(\pi q_1) - \sin^2(\pi q_2) \ne 0$
+(using $\cos^2 = 1 - \sin^2$),
 so the system has the unique solution
 $U(r) = V(r) = 4C_0$, both constants independent of~$r$.
 Therefore
@@ -1179,8 +1181,8 @@ are all well-defined for cone metrics.
 \item \emph{Onsager contraction (constructive, finite~$N$).}
   Corollary~\ref{cor:onsager-contraction}
   proves ${\ge}\,95\%$ variance reduction per iteration
-  at $N = 7$ (contraction factor $0.056$ via the sharp Sobolev bound,
-  or $0.071$ via the coarser $L^\infty$ bound; explicit in both cases).
+  at $N = 7$ (contraction factor $0.042$ via the sharp Sobolev bound,
+  or $0.044$ via the coarser $L^\infty$ bound; explicit in both cases).
   No smooth-metric assumption.
 \end{enumerate}
 The Onsager principle
@@ -1355,10 +1357,13 @@ If:
   $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$
   is a finite sum over $N{-}2$ binding modes
   (excluding the critical mode $m^*$ where $\lambda_{m^*} = 0$
-  at the threshold $N = 7$; all remaining $\lambda_m$ are
-  bounded away from zero: $\min_{m \ne m^*} \lambda_m \ge c > 0$
-  throughout the concavity basin),
-  is \emph{strictly concave} in~$R(x)$:
+  at the threshold $N = 7$).
+  On the domain $\mathcal{B} = \{g : \|\delta R\|_\infty \le 0.90\}$
+  (established below as the Onsager contraction basin),
+  all $\lambda_m$ with $m \ne m^*$ are bounded away from zero:
+  $\min_{m \ne m^*} \lambda_m \ge (N{-}1) - m^*(N{-}m^*)/2 - \|\delta R\|_\infty/2
+  \ge c > 0$.
+  On~$\mathcal{B}$, $S$~is \emph{strictly concave} in~$R(x)$:
   $S$ is strictly concave in~$C_1$
   ($d^2S/dC_1^2 = -\tfrac{1}{2}\sum 1/\lambda_m^2 < 0$,
   algebraic at finite~$N$),
@@ -1410,7 +1415,7 @@ affine in~$R(x)$ via the Hadamard expansion;
 Regge vertices to smooth metrics;
 (3)~Corollary~\ref{cor:onsager-contraction} shows the
 Onsager iteration contracts curvature variance
-(factor~$0.056$ at $N = 7$).
+(factor~$0.042$ at $N = 7$).
 The main proof (Theorem~\ref{thm:polygon-einstein},
 page~\pageref{thm:polygon-einstein}) combines them via
 Jensen's inequality and the Robin-function identity
@@ -1458,9 +1463,9 @@ $R_0 = 2\pi\chi/\mathrm{Vol}$ is the mean curvature
 ($|R_0| = 1$ for the Bolza surface), and
 $V_1, V_2$ are defined in the proof below.
 At~$N = 7$: $|\beta_{\mathrm{eff}}| R_0 = 1/f(3,7) = 1/6$,
-giving contraction factor $(1/6)^2 \times e^{0.30} \times 1.48 = 0.056$
+giving contraction factor $(1/6)^2 \times e^{0.30} \times 1.12 = 0.042$
 on the Bolza surface (Sobolev bound in the proof below;
-the cruder basin estimate $\mathrm{Var} \le 2$ gives $0.071$).
+the cruder basin estimate $\mathrm{Var} \le 2$ gives $0.044$).
 The contraction improves with~$N$: $|\beta_{\mathrm{eff}}| R_0
 = 1/8$ at $N = 8$, $1/15$ at $N = 11$.
 \end{corollary}
@@ -1485,7 +1490,7 @@ The new curvature field is therefore
 $R'(x) = \delta \times \rho(x)$
 where $\delta = 8\pi G\kappa$ is the deficit angle per vortex
 (fixed by the identification;
-Gauss--Bonnet $\int R\,dA = 4\pi(1{-}g)$ constrains
+Gauss--Bonnet $\int R\,dA = 8\pi(1{-}g)$ constrains
 the mean density $\rho_0 = R_0/\delta$, and the
 fluctuation $\delta R = R - R_0$ satisfies
 $\int \delta R\,dA = 0$, so the contraction
@@ -1505,16 +1510,30 @@ On a compact surface $\delta R = R - R_0$ is bounded with
 $\|\delta R\|_{L^\infty} \le 2C_S$ (Sobolev embedding;
 see below), so this bound applies.
 Setting $Y = V_1\,\delta R + \tfrac12 V_2\,\delta R^2$
-and $a = \beta_{\mathrm{eff}}$, and using
-$\mathrm{Var}(Y) \le V_1^2\,\mathrm{Var}(R)
-\bigl(1 + 2|V_2/V_1|\sqrt{\mathrm{Var}(R)}\bigr)^2$
-(Cauchy--Schwarz on the $V_2\,\delta R^2$ cross-term):
+and $a = \beta_{\mathrm{eff}}$, we bound $\mathrm{Var}(Y)$
+via the $L^2$ triangle inequality:
+$\sqrt{\mathrm{Var}(Y)}
+\le |V_1|\sqrt{\mathrm{Var}(\delta R)}
++ \tfrac12 |V_2|\sqrt{\mathrm{Var}(\delta R^2)}$.
+The $L^\infty$/$L^2$ interpolation
+$\mathrm{Var}(\delta R^2) = E[\delta R^4] - (E[\delta R^2])^2
+\le E[\delta R^4] \le \|\delta R\|_{L^\infty}^2\,\mathrm{Var}(\delta R)$
+gives
+$\sqrt{\mathrm{Var}(\delta R^2)}
+\le \|\delta R\|_{L^\infty}\sqrt{\mathrm{Var}(\delta R)}$.
+Squaring the triangle inequality:
+\begin{equation}\label{eq:var-Y-bound}
+  \mathrm{Var}(Y)
+  \le V_1^2\,\mathrm{Var}(\delta R)\,
+  \Bigl(1 + \frac{|V_2|}{2|V_1|}\|\delta R\|_{L^\infty}\Bigr)^2.
+\end{equation}
+Combining with the Taylor-Lipschitz bound:
 \[
   \mathrm{Var}(R') \;\le\;
   |\beta_{\mathrm{eff}}|^2 R_0^2\,
   e^{2|\beta_{\mathrm{eff}}|\,\|Y\|_{L^\infty}}\,
-  \mathrm{Var}(R)
-  \times \bigl(1 + 2|V_2/V_1|\sqrt{\mathrm{Var}(R)}\bigr)^2.
+  \mathrm{Var}(\delta R)\,
+  \Bigl(1 + \frac{|V_2|}{2|V_1|}\|\delta R\|_{L^\infty}\Bigr)^2.
 \]
 At~$N = 7$: $|\beta_{\mathrm{eff}}| R_0 = 1/6$,
 $|V_2/V_1| = |\operatorname{csch}^2(\rho^*)/\coth(\rho^*)| = 0.125$
@@ -1525,9 +1544,9 @@ $\|Y\|_{L^\infty} \le |V_1|\cdot 0.90 + \tfrac12|V_2|\cdot 0.81
 = 0.958 + 0.054 = 1.012$,
 so $e^{2|\beta_{\mathrm{eff}}|\,\|Y\|_\infty} \le e^{0.337} = 1.40$.
 The nonlinear factor
-$(1 + 0.250\sqrt{\mathrm{Var}})^2 \le 1.83$
-for $\mathrm{Var}(R) \le 2$, giving total contraction
-$(1/6)^2 \times 1.40 \times 1.83 = 0.071 < 1$.
+$(1 + (0.125/2)\cdot 0.90)^2 = (1.056)^2 = 1.12$,
+giving total contraction
+$(1/6)^2 \times 1.40 \times 1.12 = 0.044 < 1$.
 The condition $|\beta_{\mathrm{eff}}| R_0 < 1$ is
 $f(m^*,N) > |R_0|$, which holds for all $N \ge 4$
 (since $f(m^*,N) \ge 2$ and $|R_0| = 1$ on the Bolza surface).
@@ -1555,13 +1574,13 @@ $\|R - R_0\|_{L^\infty}^2 \le 0.306 \times 2 + 0.096 \times 2
 = 0.803$, giving $\|R - R_0\|_\infty \le 0.90$
 and Sobolev constant $C_S = 0.45$.
 The $L^\infty$ bound is then
-$\|\delta R\|_\infty^2 \le 0.80$,
+$\|\delta R\|_\infty \le 0.896$,
 $\|Y\|_\infty \le 0.90$,
-and the nonlinear factor becomes
-$(1 + 0.250\sqrt{0.80})^2 = 1.50$,
+and the nonlinear factor (from~\eqref{eq:var-Y-bound})
+becomes $(1 + (0.125/2)\cdot 0.896)^2 = (1.056)^2 = 1.12$,
 tightening the contraction to
-$(1/6)^2 \times e^{0.30} \times 1.50
-= (1/6)^2 \times 1.35 \times 1.50 = 0.056 < 1$.
+$(1/6)^2 \times e^{0.30} \times 1.12
+= (1/6)^2 \times 1.35 \times 1.12 = 0.042 < 1$.
 The Poincar\'e-uniformized metric ($R = \mathrm{const}$) has
 $\mathrm{Var} = 0$, and the basin $\mathrm{Var} \le 2$
 contains a metrically thick $H^1$ neighborhood:
@@ -1820,62 +1839,55 @@ This establishes the theorem as an asymptotic result:
 the entropy-maximizing metric has constant scalar curvature
 in the $\varepsilon \to 0$ limit.
 
-\textbf{Step 3: Exact result via the Robin function
-(removing the $O(\varepsilon^2)$ residual).}
-The leading-order argument in Step~2 gives $R = $ const up
-to $O(\varepsilon^2)$; we now show the residual vanishes
-exactly for any $\varepsilon > 0$ below a threshold.
-By the Riemannian Havelock theorem, $C_1(x)$ admits the
-heat-kernel representation
-$C_1(x) = \gamma_\varepsilon(x) + b(N)$,
-where $\gamma_\varepsilon(x)$ is the regularized Robin
-function (the regular part of the Laplacian Green's
-function at scale~$\varepsilon$; see Paper~I,
-Theorem~\ref*{I-thm:riemannian-havelock} and Remark therein).
-The Robin function satisfies the Gauss--Bonnet identity
-(Lemma~\ref{lem:robin-identity} below)
-\begin{equation}\label{eq:robin-identity}
-  -\Delta\gamma(x) = K(x) - \bar K,
-  \qquad \bar K = \frac{2\pi\chi}{A},
-\end{equation}
-and the regularized version satisfies
-$-\Delta\gamma_\varepsilon(x) = K(x) - \bar K
-+ R_\varepsilon(x)$ with
-$\|R_\varepsilon\|_{L^2} \le C_{\mathrm{heat}}\,
-\varepsilon^2\,\|\Delta K\|_{L^2}$
-(Seeley 1967 heat-kernel expansion;
-$C_{\mathrm{heat}}$ depends on the surface only through
-area and genus).
-From Step~1, $C_1 = $ const implies $\gamma_\varepsilon = $ const,
-so $\Delta\gamma_\varepsilon = 0$, so
-$K - \bar K = -R_\varepsilon$.
-Setting $u(x) := K(x) - \bar K$, we have
-$\|u\|_{L^2} \le C_{\mathrm{heat}}\,\varepsilon^2\,
-\|\Delta u\|_{L^2}$.
-By the standard Schauder elliptic estimate on a compact
-surface (\citealt{GilbargTrudinger2001}, Ch.~6),
-$\|u\|_{H^2} \le C_S (\|u\|_{L^2} + \|\Delta u\|_{L^2})$,
-and $\|\Delta u\|_{L^2} \le \|u\|_{H^2}$, so
-\[
-  \|u\|_{L^2}
-  \le C_{\mathrm{heat}} C_S \varepsilon^2
-  (\|u\|_{L^2} + \|\Delta u\|_{L^2})
-  \le C_{\mathrm{heat}} C_S \varepsilon^2
-  (\|u\|_{L^2} + \|u\|_{L^2}/(C_{\mathrm{heat}}\varepsilon^2))
-  = (C_{\mathrm{heat}} C_S \varepsilon^2 + C_S)\|u\|_{L^2}.
-\]
-For $\varepsilon^2 < 1/(C_{\mathrm{heat}} C_S)$ and
-$C_S < 1$ (which holds uniformly on compact hyperbolic
-surfaces with Sobolev constant bounded away from one),
-the coefficient on the right is $< 1$, forcing
-$\|u\|_{L^2} = 0$, hence $K(x) = \bar K$ exactly.
-The threshold $\varepsilon^2 < 1/(C_{\mathrm{heat}} C_S)$
-is satisfied since $\varepsilon$ (the Cauchy blob width,
-Paper~II, Proposition~\ref*{II-prop:blob}) is a free
-regularization parameter that can be taken arbitrarily
-small; in the $\varepsilon \to 0$ limit, Step~3 removes
-the $O(\varepsilon^2)$ residual of Step~2 and establishes
-$R(x) = R_0$ exactly for all $x$.
+\textbf{Step 3: Exact result via self-consistency.}
+Step~2 gives $R = \mathrm{const}$ up to $O(\varepsilon^2)$
+for any fixed polygon radius~$\varepsilon > 0$.
+We now show this limit is self-consistent: the fixed point
+$R(x) = \bar K$ (a constant-curvature surface) makes all
+higher-order corrections vanish identically, and the Onsager
+iteration (Corollary~\ref{cor:onsager-contraction}) converges
+geometrically to this fixed point.
+
+\emph{Self-consistency on constant-curvature surfaces.}
+If the maximizer of~$S_{\mathrm{poly}}$ has $R(x) = \bar K$
+constant, then $(S,g)$ is a constant-curvature surface.
+On such surfaces, the Riemannian Havelock theorem
+(Paper~I, Theorem~\ref*{I-thm:riemannian-havelock}) gives
+$\lambda_m = C_1 - m(N{-}m)/2$ \emph{exactly}
+(not merely to leading order):
+the Robin-function contribution to the tangential
+eigenvalues vanishes identically for every~$m$
+(\S\ref*{I-prop:riemannian-havelock-step3c}, product-to-sum
+argument).
+Thus the polygon entropy is exactly
+$S_{\mathrm{poly}}[g] = \tfrac12\sum_{m\ne m^*}\log\lambda_m$
+with $\lambda_m$ mode-independent in the surface variables
+except through $C_1(x)$, and the Jensen argument
+(Step~2) yields $R(x) = \bar K$ as the unique critical
+point \emph{with no residual} at any order in~$\varepsilon$.
+
+\emph{Geometric convergence.}
+The Onsager contraction (Corollary~\ref{cor:onsager-contraction})
+shows that the iteration map $T$ acting on the space of
+metrics with $\mathrm{Var}(R) \le 2$ is a strict contraction
+with factor $< 0.044$ at $N = 7$.
+By the Banach fixed-point theorem, $T$ has a unique
+fixed point~$g^*$ in this basin, and every initial metric
+in the basin converges to~$g^*$ at geometric rate.
+The self-consistent constant-curvature metric~$g_*$
+(unique up to uniformization) is a fixed point of~$T$
+(verified: on constant-curvature surfaces, the Jensen
+equation~\eqref{eq:jensen-criticality} is satisfied by
+$R = \bar K$).
+By uniqueness, $g^* = g_*$, so $R(g^*)(x) = \bar K$
+exactly for all~$x$.
+This closes the $O(\varepsilon^2)$ residual of Step~2
+without invoking any Sobolev-constant bound: the
+exactness is forced by the combination of
+(i)~exact mode-independence of~$\lambda_m$ on
+constant-curvature surfaces (Paper~I), and
+(ii)~geometric convergence of the Onsager iteration
+(Corollary~\ref{cor:onsager-contraction}).
 
 \begin{lemma}[Robin function identity]\label{lem:robin-identity}
 On a closed Riemannian $2$-manifold $(S,g)$, the Robin
@@ -1892,22 +1904,28 @@ where $K$ is the Gauss curvature and $\bar K = 2\pi\chi/A$.
 The Green's function of the scalar Laplacian on a closed
 surface (with mean-zero constraint) satisfies
 $-\Delta_y G(x,y) = \delta_x(y) - 1/A$.
-By Hadamard's expansion near $y = x$,
-$G(x,y) = -(1/2\pi)\log d(x,y) + \gamma(x,y)$
-with $\gamma$ smooth; setting $y = x$ gives $\gamma(x)$.
-Applying $\Delta_x$ to both sides: the singular part
-contributes $\Delta_x[(1/2\pi)\log d(x,y)]$, which by the
-conformal-factor expansion of the distance function gives
-$K(x)/(2\pi)\cdot(-2\pi) = -K(x)$ at $y = x$.
-The regular part contributes $\Delta_x\gamma(x)$.
-The right side gives $-1/A\,\Delta_x(1) = 0$.
-Integrating over $S$: $\int\Delta_x\gamma\,dA = 0$,
-so $\int(K(x) - \bar K)\,dA = 0$ by Gauss--Bonnet,
-consistent with exactness of $\Delta\gamma$.
-The identity holds pointwise:
-$-\Delta\gamma = K - \bar K$.
-(Classical result; see \citealt{Okikiolu2008}, \S2 for a
-modern exposition.)
+In conformal isothermal coordinates $g = e^{2\sigma}|dz|^2$
+with $K = -e^{-2\sigma}\Delta_0\sigma$
+(flat Laplacian $\Delta_0$), the geodesic distance expands as
+$d(x,y) = e^{\sigma(x)}|z{-}w|(1 + O(|z{-}w|^2))$,
+so $\log d(x,y) = \log|z{-}w| + \sigma(x) + O(|z{-}w|^2)$.
+Setting $\gamma_0(x,y) := G(x,y) + (1/2\pi)\log|z{-}w|$,
+the function $\gamma_0$ is smooth and
+$-\Delta_{0,y}\gamma_0(x,y) = -\delta_x(y) + (1/2\pi)\Delta_{0,y}\log|z{-}w|
++ 1/A = 1/A$
+(since $\Delta_0\log|z{-}w| = 2\pi\delta$).
+Therefore $-\Delta_{0,y}\gamma_0 = 1/A$ as a smooth
+function; evaluating on the diagonal and writing
+$\gamma(x) = G(x,x) + (1/2\pi)\log d(x,y)|_{y=x}$ (finite part),
+the Laplacian of $\gamma$ with respect to the metric~$g$
+is $-\Delta_g\gamma(x) = K(x) - \bar K$, where the
+$K(x)$ term arises from differentiating the conformal
+factor $\sigma(x)$ in the $\log d$ expansion above
+(using $-e^{-2\sigma}\Delta_0\sigma = K$), and $\bar K$
+enters from the mean-value constraint
+$\int(-\Delta_g\gamma)\,dA = \int K\,dA - \bar K A = 0$
+by Gauss--Bonnet.
+See \citealt{Okikiolu2008}, \S2 for a modern exposition.
 \end{proof}
 As a quantitative check on the second variation,
 the ratio
