@@ -1435,7 +1435,17 @@ The $\mathbb{Z}/3$ invariance of Step~B1 therefore holds
 nonlinearly.
 
 \emph{Step~B3 (gauge group and level).}
-The gauge group and its Chern--Simons level are determined by
+The subgroup $\mathbb{Z}/3 \subset (\mathbb{Z}/7\mathbb{Z})^*
+\cong \mathbb{Z}/6$ is uniquely determined:
+$(\mathbb{Z}/7)^*$ has exactly four subgroups
+($\{1\}$, $\mathbb{Z}/2$, $\mathbb{Z}/3$, $\mathbb{Z}/6$).
+The Frobenius automorphism $\sigma\colon m \mapsto 2m \bmod 7$
+generates $\mathbb{Z}/3 = \{1, 2, 4\}$
+(the quadratic residues mod~$7$).
+This is the unique subgroup of index~$2$, corresponding
+to the unique quadratic subfield of
+$\mathbb{Q}(\zeta_7)/\mathbb{Q}$.
+The gauge group and its CS level are then determined by
 two results, each a theorem:
 \begin{itemize}
 \item \emph{Gauge group: $\mathrm{SU}(3)$} (from McKay).
@@ -1949,17 +1959,24 @@ The CMS--CS identification (Paper~III,
 Proposition~\ref*{III-prop:casimir-havelock}) uses
 $\mathrm{SL}(2,\mathbb{R})$ (noncompact), while the Standard
 Model gauge group is compact.
-The ratio~\eqref{eq:weinberg-cs} depends only on
-$f(m,N) = m(N{-}m)/2$, which is a polynomial determined
-by $\mathbb{Z}_N$ representation theory alone
-(Theorem~\ref*{III-thm:uniqueness}, vortex uniqueness step).
-The polynomial $f(m,N)$ is independent of the real form of
-$\mathfrak{sl}(2,\mathbb{C})$: the Fourier diagonalization
-of the $\csc^2$-weighted circulant uses only the
-$\mathbb{Z}_N$ characters $e^{2\pi ipm/N}$, which are
-the same for $\mathrm{SU}(2)$ and $\mathrm{SL}(2,\mathbb{R})$.
+Three facts ensure the ratio~\eqref{eq:weinberg-cs} is
+independent of the real form:
+(i)~the KK-reduced YM coupling $g^2 = 2\pi/((k{+}h^\vee)R)$
+depends on the CS level~$k$ and the fiber radius~$R$, both
+of which are properties of the Seifert geometry, not the
+real form;
+(ii)~the quadratic Casimir $C_2(R)$ is a property of the
+complexified Lie algebra $\mathfrak{sl}(2,\mathbb{C})$ and
+takes the same value $j(j{+}1)$ in the spin-$j$ representation
+for both $\mathrm{SU}(2)$ and $\mathrm{SL}(2,\mathbb{R})$
+(the Casimir is a polynomial in the generators, which have
+the same commutation relations over~$\mathbb{C}$);
+(iii)~the effective coupling $\alpha_{\mathrm{eff}}(R)
+= g^2 C_2(R)$ in~\eqref{eq:conformal-coupling} is therefore
+determined by $(k, j)$, and the mixing-angle
+ratio cancels both~$R$ and~$C_1$.
 The mode-independent constant $C_1$ (which does depend on
-the real form and the curvature) cancels in the ratio.
+the real form and the curvature) does not enter the ratio.
 \end{proof}
 
 \begin{derivation}[Gauge--matter factorization]\label{thm:gauge-matter}

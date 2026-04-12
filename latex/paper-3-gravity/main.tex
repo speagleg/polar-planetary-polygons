@@ -179,9 +179,12 @@ gravity is tested by the $28$~outputs of Papers~IV--VII.
 
 \begin{theorem}[Uniqueness of the polygon-gravity correspondence]
 \label{thm:uniqueness}
-The point vortex system on a constant-curvature surface
-is the unique $2$D Hamiltonian system whose tangential
-eigenvalues are polynomial in the mode number~$m$.
+Among all $2$D Hamiltonian systems with a $C^2$ radial
+pair interaction $h(r)$, the point vortex system
+($h = -\ln r$) on a constant-curvature surface
+is the unique one whose tangential eigenvalues
+are polynomial in the mode number~$m$
+for every polygon number $N \ge 3$ and every ring radius~$R$.
 The $\mathrm{SL}(2,\mathbb{R})$ CS boundary theory is the
 unique $2{+}1$D topological theory producing this
 polynomial structure.
@@ -1149,7 +1152,7 @@ are all well-defined for cone metrics.
   Corollary~\ref{cor:onsager-contraction}
   proves ${\ge}\,95\%$ variance reduction per iteration
   at $N = 7$ (contraction factor $0.056$ via the sharp Sobolev bound,
-  or $0.068$ via the coarser $L^\infty$ bound; explicit in both cases).
+  or $0.071$ via the coarser $L^\infty$ bound; explicit in both cases).
   No smooth-metric assumption.
 \end{enumerate}
 The Onsager principle
@@ -1266,17 +1269,52 @@ If:
 \item[\textup{(H1)}]
   \emph{Havelock structure} :
   the angular Hessian eigenvalues
-  have the form $\lambda_m = C_1(x,\varepsilon) - m(N{-}m)/2$
-  with $C_1$ independent of~$m$.
-  Proved on constant-curvature surfaces by
-  Theorem~\ref*{I-thm:riemannian-havelock}
-  (the Robin function contributes zero to the tangential
-  eigenvalues).
-  On a general surface, (H1) holds to leading order
-  in~$\varepsilon$ via the Hadamard parametrix:
-  $C_1 = (N{-}1)[1 + O(\varepsilon^2)]$ with the
-  $O(\varepsilon^2)$ correction mode-independent
-  at fixed~$x$.
+  have the form $\lambda_m = C_1(x,\varepsilon) - m(N{-}m)/2
+  + \delta_m(x,\varepsilon)$
+  with $C_1$ independent of~$m$ and
+  $\delta_m = 0$ for all interior modes $2 \le m \le N{-}2$.
+
+  \emph{Proof on general surfaces.}
+  On any $2$D Riemannian manifold, the Green's function in
+  normal coordinates at~$x$ has the Hadamard expansion
+  $G(z,w) = -(1/2\pi)\ln|z{-}w| + \gamma(x)
+  + (K(x)/12\pi)|z{-}w|^2 + O(|z{-}w|^4|\nabla K|)$,
+  where $K(x)$ is the Gaussian curvature.
+  The $-\ln|z{-}w|$ term gives $m(N{-}m)/2$
+  (Paper~I, Lemma~\ref*{I-lem:havelock}).
+  The constant $\gamma(x)$ has no tangential derivatives.
+  For the curvature term: $|z_j{-}z_k|^2 = 4\varepsilon^2
+  \sin^2(\pi(j{-}k)/N)$ at the ring, giving
+  a circulant with entries
+  $c_p = -(K\varepsilon^2/(6\pi))\cos(2\pi p/N)$.
+  The DFT eigenvalue at mode~$m$ is
+  \[
+    \delta T_m
+    = -\frac{K\varepsilon^2}{6\pi}
+    \sum_{p=1}^{N-1}\cos(2\pi p/N)\,
+    \bigl(1 - \cos(2\pi pm/N)\bigr).
+  \]
+  Expanding the product and using
+  $\sum_p \cos(2\pi(1{\pm}m)p/N) = -1$
+  for $2 \le m \le N{-}2$
+  (since $1{\pm}m$ is not divisible by~$N$):
+  $\delta T_m = 0$ for all $2 \le m \le N{-}2$.
+
+  The edge modes $m = 1$ and $m = N{-}1$ receive
+  $\delta T_1 = K(x) N\varepsilon^2/(12\pi)$,
+  which shifts $C_1$ at these two modes only.
+  Since $\lambda_1 = C_1 - (N{-}1)/2$ is the
+  largest eigenvalue ($\lambda_1 \ge (N{-}1)/2$ on the
+  flat plane), the fractional correction is
+  $O(K\varepsilon^2/C_1)$, negligible for small~$\varepsilon$.
+
+  The first \emph{mode-dependent} correction to the
+  interior eigenvalues enters at
+  $O(\varepsilon^4\,|\nabla K|)$, two orders beyond
+  the leading Havelock term.
+  On constant-curvature surfaces ($\nabla K = 0$),
+  $\delta_m = 0$ exactly for all~$m$
+  (Theorem~\ref*{I-thm:riemannian-havelock}).
 \item[\textup{(H2)}]
   \emph{Entropy maximization}
   \textbf{[strict concavity $+$ Jensen, finite~$N$]}:
@@ -1387,7 +1425,7 @@ $V_1, V_2$ are defined in the proof below.
 At~$N = 7$: $|\beta_{\mathrm{eff}}| R_0 = 1/f(3,7) = 1/6$,
 giving contraction factor $(1/6)^2 \times e^{0.30} \times 1.48 = 0.056$
 on the Bolza surface (Sobolev bound in the proof below;
-the cruder basin estimate $\mathrm{Var} \le 2$ gives $0.068$).
+the cruder basin estimate $\mathrm{Var} \le 2$ gives $0.071$).
 The contraction improves with~$N$: $|\beta_{\mathrm{eff}}| R_0
 = 1/8$ at $N = 8$, $1/15$ at $N = 11$.
 \end{corollary}
@@ -1444,14 +1482,16 @@ $\mathrm{Var}(Y) \le V_1^2\,\mathrm{Var}(R)
   \times \bigl(1 + 2|V_2/V_1|\sqrt{\mathrm{Var}(R)}\bigr)^2.
 \]
 At~$N = 7$: $|\beta_{\mathrm{eff}}| R_0 = 1/6$,
-$|V_2/V_1| = |\operatorname{csch}^2(\rho^*)/\coth(\rho^*)| = 0.12$.
+$|V_2/V_1| = |\operatorname{csch}^2(\rho^*)/\coth(\rho^*)| = 0.125$
+(with $\rho^* = 1.734$, the WDW turning point of
+Proposition~\ref*{III-prop:equiv-rr}).
 Within the basin ($\mathrm{Var} \le 2$, $\|\delta R\|_\infty \le 0.90$):
 $\|Y\|_{L^\infty} \le |V_1|\cdot 0.90 + \tfrac12|V_2|\cdot 0.81 \le 1.0$,
 so $e^{2|\beta_{\mathrm{eff}}|\,\|Y\|_\infty} \le e^{1/3} = 1.40$.
 The nonlinear factor
-$(1 + 0.24\sqrt{\mathrm{Var}})^2 \le 1.75$
+$(1 + 0.250\sqrt{\mathrm{Var}})^2 \le 1.83$
 for $\mathrm{Var}(R) \le 2$, giving total contraction
-$(1/6)^2 \times 1.40 \times 1.75 = 0.068 < 1$.
+$(1/6)^2 \times 1.40 \times 1.83 = 0.071 < 1$.
 The condition $|\beta_{\mathrm{eff}}| R_0 < 1$ is
 $f(m^*,N) > |R_0|$, which holds for all $N \ge 4$
 (since $f(m^*,N) \ge 2$ and $|R_0| = 1$ on the Bolza surface).
@@ -1482,10 +1522,10 @@ The $L^\infty$ bound is then
 $\|\delta R\|_\infty^2 \le 0.80$,
 $\|Y\|_\infty \le 0.90$,
 and the nonlinear factor becomes
-$(1 + 2|V_2/V_1|\sqrt{0.80})^2 = 1.48$,
+$(1 + 0.250\sqrt{0.80})^2 = 1.50$,
 tightening the contraction to
-$(1/6)^2 \times e^{0.30} \times 1.48
-= (1/6)^2 \times 1.35 \times 1.48 = 0.056 < 1$.
+$(1/6)^2 \times e^{0.30} \times 1.50
+= (1/6)^2 \times 1.35 \times 1.50 = 0.056 < 1$.
 The Poincar\'e-uniformized metric ($R = \mathrm{const}$) has
 $\mathrm{Var} = 0$, and the basin $\mathrm{Var} \le 2$
 contains a metrically thick $H^1$ neighborhood:
