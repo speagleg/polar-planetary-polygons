@@ -1468,13 +1468,22 @@ two results, each a theorem:
   \emph{(b)~Fusion ring.}
   The representation ring of
   $\mathbb{Z}/3 \subset \mathrm{SU}(2)$ is isomorphic to
-  the fusion ring of $\mathrm{SU}(3)_k$ \emph{only} at $k = 1$
-  (direct computation):
-  at $k = 1$ there are exactly three integrable representations
-  (trivial, fundamental, anti-fundamental), matching the three
-  irreducible representations of $\mathbb{Z}/3$; at $k \ge 2$
-  the fusion ring has additional representations with no
-  $\mathbb{Z}/3$ counterpart.
+  the fusion ring of $\mathrm{SU}(3)_k$ \emph{only} at $k = 1$.
+  The integrable representations of $\mathrm{SU}(3)$ at
+  level~$k$ are the highest weights $(\lambda_1, \lambda_2)$
+  with $\lambda_1 + \lambda_2 \le k$.
+  At $k = 1$: three representations
+  $(0,0)$, $(1,0)$, $(0,1)$
+  with cyclic fusion
+  $(1,0) \otimes (1,0) = (0,1)$,
+  $(1,0) \otimes (0,1) = (0,0)$,
+  isomorphic to $\mathbb{Z}/3$.
+  At $k = 2$: six representations
+  $\{(0,0),(1,0),(0,1),(2,0),(0,2),(1,1)\}$,
+  which cannot be isomorphic to $\mathbb{Z}/3$
+  (wrong cardinality).
+  At $k \ge 2$ the number of integrable representations
+  is $(k{+}1)(k{+}2)/2 \ge 6 > 3$.
   This singles out $k = 1$ uniquely.
 \end{itemize}
 \noindent
@@ -1935,6 +1944,22 @@ Substituting from Steps~1--2
   = \frac{1/4}{1/4 + 2/3}
   = \frac{3}{11}.
 \]
+\emph{Compact vs.\ noncompact.}
+The CMS--CS identification (Paper~III,
+Proposition~\ref*{III-prop:casimir-havelock}) uses
+$\mathrm{SL}(2,\mathbb{R})$ (noncompact), while the Standard
+Model gauge group is compact.
+The ratio~\eqref{eq:weinberg-cs} depends only on
+$f(m,N) = m(N{-}m)/2$, which is a polynomial determined
+by $\mathbb{Z}_N$ representation theory alone
+(Theorem~\ref*{III-thm:uniqueness}, vortex uniqueness step).
+The polynomial $f(m,N)$ is independent of the real form of
+$\mathfrak{sl}(2,\mathbb{C})$: the Fourier diagonalization
+of the $\csc^2$-weighted circulant uses only the
+$\mathbb{Z}_N$ characters $e^{2\pi ipm/N}$, which are
+the same for $\mathrm{SU}(2)$ and $\mathrm{SL}(2,\mathbb{R})$.
+The mode-independent constant $C_1$ (which does depend on
+the real form and the curvature) cancels in the ratio.
 \end{proof}
 
 \begin{derivation}[Gauge--matter factorization]\label{thm:gauge-matter}

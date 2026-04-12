@@ -189,49 +189,59 @@ polynomial structure.
 
 \begin{proof}
 \emph{Vortex uniqueness.}
-Consider the family of radial kernels $h_\alpha(r)
-= -r^{2-\alpha}/(2-\alpha)$ for $\alpha \ne 2$ and
-$h_2(r) = -\ln r$, which generate the Fourier sums
-\[
-  S_\alpha(m)
-  = \sum_{p=1}^{N-1}
-    \frac{1 - \cos(2\pi pm/N)}{\bigl(2\sin(\pi p/N)\bigr)^\alpha}.
-\]
-We show that $S_\alpha(m)$ is a polynomial in~$m$ of degree
-$\le 2$ if and only if $\alpha = 2$.
-The second forward difference of a cosine is
-\[
-  \Delta^2\!\cos(2\pi pm/N)
-  = 2\cos(2\pi pm/N)\bigl[\cos(2\pi p/N) - 1\bigr]
-  = -4\sin^2(\pi p/N)\cos(2\pi pm/N),
-\]
-so, substituting and cancelling,
+Let $h \in C^2(0,\infty)$ be any radial kernel, and let
+$N$ identical vortices sit at $z_p = R\,e^{2\pi ip/N}$
+on the flat plane.
+The tangential Hessian is a $\mathbb{Z}_N$-circulant
+with DFT eigenvalue
+$T_m = \sum_{p=1}^{N-1} w_p\,(1 - \cos(2\pi pm/N))$,
+where $w_p$ is the tangential curvature of $h$ at
+pair distance $d_p = 2R\sin(\pi p/N)$.
+We show that $T_m$ is polynomial of degree $\le 2$
+in~$m$ if and only if $h(r) = -C\ln r + B$
+(the $2$D logarithmic Green's function).
+
+\emph{Step~1: DFT reduction.}
+The second forward difference
+$\Delta^2\cos(2\pi pm/N) = -4\sin^2(\pi p/N)\cos(2\pi pm/N)$
+gives
 \begin{equation}\label{eq:delta2-Salpha}
-  \Delta^2 S_\alpha(m)
-  = 2^{2-\alpha}\sum_{p=1}^{N-1}
-    \sin^{2-\alpha}(\pi p/N)\,\cos(2\pi pm/N).
+  \Delta^2 T_m
+  = -\sum_{p=1}^{N-1}
+    4\sin^2(\pi p/N)\,w_p\,\cos(2\pi pm/N).
 \end{equation}
-$S_\alpha$ is a polynomial of degree $\le 2$ in~$m$
-if and only if $\Delta^2 S_\alpha(m)$ is independent of~$m$.
-The right-hand side of~\eqref{eq:delta2-Salpha} is a
-discrete cosine transform of the sequence
-$c_p = \sin^{2-\alpha}(\pi p/N)$, $p = 1, \ldots, N{-}1$.
-Since the discrete cosine transform is an invertible
-linear map on this index set, the transform is constant
-in~$m$ if and only if $c_p$ is \emph{constant in~$p$}.
-But $\sin(\pi p/N)$ takes distinct values for distinct
-$p \in \{1, \ldots, \lfloor N/2 \rfloor\}$, so
-$c_p = \sin^{2-\alpha}(\pi p/N)$ is constant in~$p$
-if and only if the exponent vanishes, i.e.\ $\alpha = 2$.
-At $\alpha = 2$, $c_p \equiv 1$, the transform reduces to
-$\sum_{p=1}^{N-1}\cos(2\pi pm/N) = -1$, and
-$\Delta^2 S_2(m) = -1$, consistent with the Havelock
-identity $S_2(m) = m(N{-}m)/2$ (Paper~I,
-Lemma~\ref*{I-lem:havelock}).
-Since $\alpha = 2$ corresponds precisely to the $2$D
-logarithmic Green's function
-($-\nabla^2 h_2 = 2\pi\delta$ in $\mathbb{R}^2$),
-no other spatial dimension produces polynomial
+$T_m$ is polynomial of degree~$\le 2$ if and only if
+$\Delta^2 T_m$ is independent of~$m$.
+The right-hand side is a discrete cosine transform
+of $c_p = 4\sin^2(\pi p/N)\,w_p$.
+By invertibility of the DCT on $p = 1, \ldots, N{-}1$,
+$\Delta^2 T_m$ is constant in~$m$ if and only if
+$c_p$ is constant in~$p$, i.e.\
+$w_p = C_0 / \sin^2(\pi p/N)$
+for some constant $C_0$ independent of~$p$.
+
+\emph{Step~2: ODE for $h$.}
+A direct chain-rule computation gives the circulant weight
+$w_p = \tfrac{1}{4}\bigl[
+  -d_p\,h'(d_p) + d_p^2\,h''(d_p)\,
+  \cot^2(\pi p/N)\bigr]$.
+The constancy condition $\sin^2(\pi p/N)\,w_p = C_0$
+must hold for every $N \ge 3$ and every ring radius $R > 0$.
+As $R \to \infty$ at fixed~$p$,
+$d_p = 2R\sin(\pi p/N) \to \infty$
+and $\cot^2(\pi p/N)$ stays fixed, so
+the leading term forces $d_p^2\,h''(d_p) = 4C_0$
+for all large~$d_p$.
+This is the ODE $r^2 h''(r) = 4C_0$,
+whose general solution is $h(r) = -C\ln r + Ar + B$
+with $C = 4C_0$.
+Substituting back and checking at finite~$R$:
+$\sin^2 w_p = C_0 - A\,d_p^3/(16R^2)$.
+For this to be independent of~$p$, $A = 0$,
+giving $h(r) = -C\ln r + B$.
+At $C > 0$ this is the Green's function of the
+$2$D Laplacian ($-\nabla^2 h = 2\pi C\,\delta$).
+No other radial kernel produces polynomial
 tangential eigenvalues.
 
 \emph{Gravity uniqueness.}
@@ -1258,10 +1268,15 @@ If:
   the angular Hessian eigenvalues
   have the form $\lambda_m = C_1(x,\varepsilon) - m(N{-}m)/2$
   with $C_1$ independent of~$m$.
-  Proved by the $\csc^2$ uniqueness
-  theorem (Paper~I): the Laplacian Green's function on any
-  surface has the $\csc^2$ angular kernel, whose $\mathbb{Z}_N$
-  Fourier transform is $m(N{-}m)/2$.
+  Proved on constant-curvature surfaces by
+  Theorem~\ref*{I-thm:riemannian-havelock}
+  (the Robin function contributes zero to the tangential
+  eigenvalues).
+  On a general surface, (H1) holds to leading order
+  in~$\varepsilon$ via the Hadamard parametrix:
+  $C_1 = (N{-}1)[1 + O(\varepsilon^2)]$ with the
+  $O(\varepsilon^2)$ correction mode-independent
+  at fixed~$x$.
 \item[\textup{(H2)}]
   \emph{Entropy maximization}
   \textbf{[strict concavity $+$ Jensen, finite~$N$]}:
