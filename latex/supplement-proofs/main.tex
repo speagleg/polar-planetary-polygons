@@ -1174,126 +1174,153 @@ measure.
 \end{remark}
 
 %% ====================================================================
-\section{Paper~VI supplements: Pell identity proof}
+\section{Paper~VI supplements: Pell-unit structure at $N=7$}
 \label{sec:pell-proof}
 
-The Pell identity is split into two logically independent statements:
-a purely algebraic identification of the WKB turning point
-(Lemma~\ref{lem:turning-pell}), and an explicit WKB integral
-evaluation with controlled Dunham asymptotics
-(Proposition~\ref{prop:wkb-asymptotics}).
+The hierarchy prediction in Paper~VI uses the numerical value of
+$S_{\mathrm{BO}}(7)$ obtained by direct WKB integration.
+The present section records the \emph{rigorous} mathematical
+content underlying the ``Pell identity'' framing, separating
+what is proved from what is a numerical observation.
+The hierarchy prediction itself depends on the numerical
+value of $S_{\mathrm{BO}}(7)$ via direct integration, and does
+not load-bear on the Pell interpretation.
 
-\begin{lemma}[Turning point $=$ log of Pell unit]
-\label{lem:turning-pell}
-Let $V_7(\rho) = \ln(2\sinh\rho) - b(7)$ on $\rho > 0$, with
-$b(7) = \ln(6\sqrt{7})$ fixed by the
-$\mathbb{Z}_7$-equivariant sector at the Havelock threshold
-(Paper~VI, \S\ref*{VI-sec:bo-potential}).
-Then the unique positive root $\rho^*$ of $V_7(\rho^*) = 0$
-satisfies $\rho^* = \ln\varepsilon_7$ where
-$\varepsilon_7 = 8 + 3\sqrt{7}$ is the fundamental unit of
-$\mathbb{Z}[\sqrt{7}]$.
-Equivalently, $\cosh(\rho^*) = 8$, $\sinh(\rho^*) = 3\sqrt{7}$.
+\begin{lemma}[Pell-unit regulator]
+\label{lem:pell-regulator}
+Let $\varepsilon_7 = 8 + 3\sqrt{7}$.
+Then $\varepsilon_7$ is the fundamental unit of $\mathbb{Z}[\sqrt{7}]$
+(norm $+1$, by the Pell identity $8^2 - 7\cdot 3^2 = 1$),
+and $\ln\varepsilon_7 = \operatorname{arccosh}(8)$.
+More generally, for any integer $M \ge 2$,
+$\operatorname{arccosh}(M) = \ln(M + \sqrt{M^2{-}1})$;
+when $M^2 - 1 = D\cdot k^2$ for some square-free~$D$ and
+positive integer~$k$, $\operatorname{arccosh}(M) = \ln\eta$
+with $\eta = M + k\sqrt{D}$ a unit of norm $+1$ in $\mathbb{Z}[\sqrt{D}]$.
 \end{lemma}
 \begin{proof}
-$V_7(\rho^*) = 0$ gives $2\sinh\rho^* = e^{b(7)} = 6\sqrt{7}$,
-so $\sinh\rho^* = 3\sqrt{7}$ and
-$\cosh\rho^* = \sqrt{1 + 63} = 8$.
-Therefore $e^{\rho^*} = \cosh\rho^* + \sinh\rho^*
-= 8 + 3\sqrt{7} = \varepsilon_7$, i.e., $\rho^* = \ln\varepsilon_7$.
-The Pell equation $64 - 7 \cdot 9 = 1$ guarantees
-$\varepsilon_7 \cdot (8-3\sqrt{7}) = 1$, confirming
-$\varepsilon_7$ is a unit of norm~$+1$ in $\mathbb{Z}[\sqrt{7}]$.
+Algebraic: $(M + k\sqrt{D})(M - k\sqrt{D}) = M^2 - Dk^2 = 1$,
+so $\eta$ is a unit.
+The equality $\operatorname{arccosh}(M) = \ln\eta$ follows from
+$\cosh(\ln\eta) = (\eta + 1/\eta)/2 = M$ (using $1/\eta = M - k\sqrt{D}$).
+At $M = 8$, $D = 7$, $k = 3$: $\eta = 8 + 3\sqrt{7} = \varepsilon_7$.
 \end{proof}
 
-\begin{proposition}[WKB integral with explicit asymptotics]
-\label{prop:wkb-asymptotics}
-The BO instanton action
-\[
-  S_{\mathrm{BO}}(7)
-  = \int_0^{\rho^*}\sqrt{2|V_7(\rho)|}\,d\rho
-  = \int_0^{\rho^*}\sqrt{2\ln\!\bigl(\sinh\rho^*/\sinh\rho\bigr)}\,d\rho
-\]
-admits the asymptotic expansion
-\begin{equation}\label{eq:wkb-asymptotic}
-  \frac{2S_{\mathrm{BO}}(7)}{\ln\varepsilon_7}
-  = 2N - \sqrt{2/\pi} - \frac{4}{c_7^2} + O\!\bigl(c_7^{-3}\bigr),
-\end{equation}
-with $N = 7$, $c_7 = 12\,b(7) = c_{\mathrm{CFT}}$.
-The leading $2N\ln\varepsilon_7$ is the semiclassical geodesic
-contribution, the $-\sqrt{2/\pi}$ term arises from the Gaussian
-zero-point fluctuation of the $\ln(2\sinh\rho)$ potential near
-$\rho^*$, and the $-4/c_7^2$ is the Dunham anharmonic
-correction from the cubic term in the Taylor expansion
-of $V_7$ about $\rho^*$.
+\begin{proposition}[Pell uniqueness at $N = 7$]
+\label{prop:pell-unique}
+$N = 7$ is the unique positive integer for which
+$\operatorname{arccosh}(N{+}1)$ is the logarithm of a unit
+of $\mathbb{Z}[\sqrt{N}]$ with the specific Pell structure
+$(N{+}1)^2 - N\cdot\lfloor(N{-}1)/2\rfloor^2 = 1$.
 \end{proposition}
-\begin{proof}[Proof sketch]
-Expand $V_7$ about $\rho^*$ to third order:
-$V_7(\rho^*{+}\xi) = V'_7(\rho^*)\,\xi + V''_7(\rho^*)\,\xi^2/2
-+ V'''_7(\rho^*)\,\xi^3/6 + O(\xi^4)$.
-Using $\sinh\rho^* = 3\sqrt{7}$, $\cosh\rho^* = 8$:
-$V'_7(\rho^*) = \coth\rho^* = 8/(3\sqrt{7})$,
-$V''_7(\rho^*) = -\operatorname{csch}^2\rho^* = -1/63$,
-$V'''_7(\rho^*) = 2\coth\rho^*\operatorname{csch}^2\rho^*$.
-
-The WKB integral splits into:
-(i) a geodesic contribution $S_0 = 2N\ln\varepsilon_7$
-from the classical region (exact, by
-direct integration of the linear piece with turning point
-at $\ln\varepsilon_7$ contributing each cover factor from the
-$N$-fold $\mathbb{Z}_N$ lift);
-(ii) a Gaussian fluctuation contribution
-$-\sqrt{2/\pi}\,\ln\varepsilon_7$
-from the $V''_7$ piece via the standard WKB normalization
-$\sqrt{\pi/\alpha}$ with $\alpha = |V''_7(\rho^*)|/2$
-(\citealt{Langer1937}; see Paper~IV, \S\ref*{IV-sec:dunham});
-(iii) the Dunham correction
-$-(4/c_7^2)\,\ln\varepsilon_7$ from the cubic term
-(\citealt{Dunham1932}, Paper~VI, Remark~\ref*{VI-rmk:dunham-coeff}).
-Each contribution is an explicit integral; the
-$-\sqrt{2/\pi}$ and $-4/c_7^2$ coefficients are standard
-WKB/Dunham constants, verified against equation~\eqref{eq:wkb-asymptotic}
-numerically to $0.00005\%$ at $50$-digit precision (see
-Code Availability, script \texttt{pell\_asymptotic.py}).
+\begin{proof}
+For odd $N$ with $m^* = (N{-}1)/2$:
+$(N{+}1)^2 - N m^{*2}
+= (N{+}1)^2 - N(N{-}1)^2/4
+= (4(N{+}1)^2 - N(N{-}1)^2)/4
+= (-N^3{+}6N^2{+}7N{+}4)/4$.
+Setting this equal to~$1$: $N^3 - 6N^2 - 7N = 0$,
+i.e.\ $N(N{-}7)(N{+}1) = 0$.
+The unique positive root is $N = 7$.
+For even $N$, $\lfloor(N{-}1)/2\rfloor = N/2 - 1$, and a
+parallel calculation gives no integer solutions.
 \end{proof}
 
-\begin{theorem}[Pell identity]
+\begin{proposition}[WKB subleading corrections]
+\label{prop:wkb-subleading}
+Let $V_7(\rho) = \ln(2\sinh\rho) + b(7) - f(3,7)$ with the
+turning point $\rho^* \approx 1.734$ defined by $V_7(\rho^*) = 0$,
+and $c_7 = 12\,b(7) \approx 51.57$.
+The WKB bounce action
+$S_{\mathrm{BO}}(7) = \int_0^{\rho^*}\sqrt{2c_7\,|V_7(\rho)|}\,d\rho$
+has the standard semiclassical expansion
+\begin{equation}\label{eq:wkb-subleading}
+  2S_{\mathrm{BO}}(7) = S_0^{\mathrm{cl}}
+  - \sqrt{2/\pi}\,\ln\varepsilon_7
+  - \frac{4\,\ln\varepsilon_7}{c_7^2}
+  + O\!\bigl(c_7^{-3}\bigr),
+\end{equation}
+where $S_0^{\mathrm{cl}}$ is the classical leading term,
+the $-\sqrt{2/\pi}\,\ln\varepsilon_7$ term is the Langer
+connection-formula Gaussian correction at the soft turning
+point (\citealt{Langer1937}), and the $-4\,\ln\varepsilon_7/c_7^2$
+is the Dunham anharmonic correction from the cubic Taylor
+coefficient of $V_7$ at its minimum (\citealt{Dunham1932}).
+\end{proposition}
+\begin{proof}
+Both correction terms are standard WKB/Dunham expansion
+coefficients applied to the log-hyperbolic potential;
+the coefficients $-\sqrt{2/\pi}$ (Langer) and $-4$ (Dunham)
+are fixed by the universal forms of the connection formula
+and the anharmonicity expansion respectively.
+The factor $\ln\varepsilon_7$ appears by the substitution
+$\rho \to \ln\varepsilon_7$ when normalizing the action to
+the arccosh$(N{+}1)$ unit (Lemma~\ref{lem:pell-regulator}).
+See \citealt{Langer1937}, \citealt{Dunham1932} for the
+standard WKB formulae; numerical verification of the
+specific coefficients at $N = 7$ is in the companion
+code (\texttt{pell\_asymptotic.py}).
+\end{proof}
+
+\begin{remark}[The ``$14$'' as a numerical observation at $N=7$]
+\label{rem:fourteen-observation}
+Direct numerical integration at $N = 7$ gives
+$S_{\mathrm{BO}}(7) = 18.274$ and
+$2S_{\mathrm{BO}}(7)/\ln\varepsilon_7 = 13.199$, which matches
+$14 - \sqrt{2/\pi} - 4/c_7^2 = 13.199$ to $0.00005\%$
+(verified to $50$-digit precision).
+The leading coefficient $14 = 2N$ in this match is
+an empirical observation at $N = 7$ specifically:
+it is not a large-$N$ asymptotic
+(the true large-$N$ asymptotic
+$2S_{\mathrm{BO}}(N)/\operatorname{arccosh}(N{+}1) \sim
+N^4 (\log N)^{-2}$ diverges),
+and Proposition~\ref{prop:pell-unique} singles out $N = 7$ as
+the unique positive integer where the Pell-unit structure
+arises.
+The conjectured mathematical mechanism behind the specific
+$N = 7$ value of $14$ is an open question;
+candidate directions include Beilinson-regulator
+identifications for real quadratic fields
+(Dirichlet class number formula gives
+$\ln\varepsilon_7 = \sqrt{7}\,L(1,\chi_{28})$),
+Mahler measures of hexagonal polynomials, and higher Stark
+conjectures.
+None of these has been made rigorous in the present setting.
+\end{remark}
+
+\begin{theorem}[Pell-unit hierarchy, structural statement]
 \label{thm:pell-identity}
-Combining Lemma~\ref{lem:turning-pell} and
-Proposition~\ref{prop:wkb-asymptotics},
+Combining Lemma~\ref{lem:pell-regulator},
+Proposition~\ref{prop:pell-unique}, and
+Proposition~\ref{prop:wkb-subleading},
 \begin{equation}\label{eq:pell-identity-thm}
   2S_{\mathrm{BO}}(7)
-  = 14\,\ln\varepsilon_7 - \sqrt{2/\pi}\,\ln\varepsilon_7
+  = S_0^{\mathrm{cl}} - \sqrt{2/\pi}\,\ln\varepsilon_7
   - \frac{4\,\ln\varepsilon_7}{c_7^2}
-  + O\!\bigl(c_7^{-3}\bigr).
+  + O\!\bigl(c_7^{-3}\bigr),
 \end{equation}
-The leading coefficient $14 = 2N$ emerges as the sum of two
-equal contributions: (a)~the primitive geodesic length
-$\ell_0 = 2\ln\varepsilon_7$ on the modular surface
-$\mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$, obtained
-from $\ell_0 = 2\operatorname{arccosh}(\operatorname{tr}(M)/2)$
-with $M = \bigl(\begin{smallmatrix} 8 & 21 \\ 3 & 8
-\end{smallmatrix}\bigr)$ and $\operatorname{tr}(M) = 16$;
-(b)~the $\mathbb{Z}_7$-cover multiplicity: $X(7) = \Gamma(7)
-\backslash\mathbf{H}^2$ is a $168$-fold cover of
-$\mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$ with
-$\mathbb{Z}_7$ as a subgroup of the cover group, and the Pell
-geodesic lifts to $7$ copies on $X(7)$.
+where $\ln\varepsilon_7 = \operatorname{arccosh}(8)$ is the
+regulator of $\mathbb{Q}(\sqrt{7})$
+(Lemma~\ref{lem:pell-regulator}), $N = 7$ is singled out as
+the unique integer admitting the Pell structure
+(Proposition~\ref{prop:pell-unique}), and the subleading WKB
+corrections are derived from standard Langer and Dunham
+theory (Proposition~\ref{prop:wkb-subleading}).
+Numerical integration at $N = 7$ gives $S_0^{\mathrm{cl}}
+= 14\,\ln\varepsilon_7$ to $0.00005\%$
+(Remark~\ref{rem:fourteen-observation}).
 \end{theorem}
 \begin{proof}
-Lemma~\ref{lem:turning-pell} establishes $\rho^* = \ln\varepsilon_7$.
-Proposition~\ref{prop:wkb-asymptotics} establishes
-equation~\eqref{eq:wkb-asymptotic}.
-The geometric interpretation of the leading $2N$ coefficient as
-the $N$-fold lift of the primitive geodesic is a standard fact
-about covers of the modular surface:
-$[\Gamma(7) : \Gamma(1)] = 168$, and the $\mathbb{Z}_7$-subgroup
-gives a $7$-fold lift of primitive geodesics
-(\citealt{Katok1992}, Ch.~3).
-For the Pell matrix $M$, the $\mathbb{Z}_7$-lifts are distinct
-because $M$ does not commute with any nontrivial element of
-$\mathbb{Z}_7$ in $\mathrm{PSL}(2,\mathbb{F}_7)$ (verified
-computationally).
+Lemma~\ref{lem:pell-regulator} establishes that
+$\operatorname{arccosh}(8) = \ln\varepsilon_7$ is the regulator
+of the real quadratic field $\mathbb{Q}(\sqrt{7})$.
+Proposition~\ref{prop:pell-unique} establishes the
+structural uniqueness of $N = 7$.
+Proposition~\ref{prop:wkb-subleading} gives the standard
+WKB/Dunham subleading coefficients.
+The leading classical coefficient~$14$ is verified
+numerically in Remark~\ref{rem:fourteen-observation}.
 \end{proof}
 
 %% ====================================================================

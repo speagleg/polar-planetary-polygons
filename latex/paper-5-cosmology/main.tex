@@ -412,33 +412,51 @@ the Planck mass is determined by the full spacetime geometry,
 which has total Chern class~$N = 11$
 (Theorem~\ref{thm:n-selection}).
 
-\paragraph{The Pell identity.}
-Components~1 and~2 satisfy
+\paragraph{The Pell-unit expansion.}
+Components~1 and~2 combine into the numerical expansion
 \begin{equation}\label{eq:pell-identity}
   \frac{2S_{\mathrm{BO}}(7)}{\ln\varepsilon_7}
-  = 2N_{\mathrm{grav}} - \sqrt{2/\pi}
+  = 14 - \sqrt{2/\pi}
   - \frac{4}{c_7^2} + O(1/c_7^3),
 \end{equation}
-where $\ln\varepsilon_7 = \operatorname{arccosh}(8) = \ln(8{+}3\sqrt{7}\,)$
-is the regulator of the real quadratic field $\mathbb{Q}(\sqrt{7})$,
-arising from the Pell equation $8^2 - 7 \times 3^2 = 1$.
-The identity is verified to $0.00005\%$.
-\emph{Proof sketch.}
-The Pell unit satisfies the exact algebraic identity
-$\varepsilon_7 = (N{+}1) + \sqrt{(N{+}1)^2 - 1}
-= 8 + \sqrt{63} = 8 + 3\sqrt{7}$,
-so $\ln\varepsilon_7 = \operatorname{arccosh}(N{+}1)
-= \operatorname{arccosh}(8) = 2.769$.
-The leading-order identity
-$2S_{\mathrm{BO}}(N)/\ln\varepsilon_7 = 2N - \sqrt{2/\pi} + O(1/c)$
-follows because the WKB integrand
-$\sqrt{2c\,|V(\rho)|}$ with $V = \ln(2\sinh\rho) + b - f$
-is dominated at large~$c$ by the harmonic
-frequency $\omega_0$ at the BO minimum,
-and the ratio of this harmonic action to the
-Pell regulator scales as $2N$ at leading order
-with a Gaussian tail correction~$\sqrt{2/\pi}$.
-Full proof in Supplement~S, \S\ref*{SP-sec:pell-proof}.
+verified to $0.00005\%$ at $50$-digit precision
+(Supplement~S, Theorem~\ref*{SP-thm:pell-identity}).
+Here $\ln\varepsilon_7 = \operatorname{arccosh}(8) = \ln(8{+}3\sqrt{7}\,)$
+is the regulator of the real quadratic field $\mathbb{Q}(\sqrt{7})$
+arising from the Pell equation $8^2 - 7 \cdot 3^2 = 1$
+(Supplement~S, Lemma~\ref*{SP-lem:pell-regulator}).
+The rigorous content of~\eqref{eq:pell-identity} is:
+\begin{itemize}
+\item \emph{Pell uniqueness} (Proposition~\ref{prop:pell-unique}):
+  $N = 7$ is the unique positive integer for which
+  $\operatorname{arccosh}(N{+}1) = \ln\eta$ with $\eta \in
+  \mathbb{Z}[\sqrt{N}]$ a unit of the specific Pell form
+  $(N{+}1)^2 - N m^{*2} = 1$.
+\item \emph{WKB subleading corrections}
+  (Supplement~S, Proposition~\ref*{SP-prop:wkb-subleading}):
+  the $-\sqrt{2/\pi}$ and $-4/c_7^2$ terms are standard
+  Langer-connection and Dunham-anharmonic coefficients,
+  applied to the log-hyperbolic potential $V_7$
+  (\citealt{Langer1937,Dunham1932}).
+\item \emph{Numerical leading coefficient $14$}
+  (Supplement~S, Remark~\ref*{SP-rem:fourteen-observation}):
+  the value $2S_{\mathrm{BO}}(7)/\ln\varepsilon_7 = 14$ at the
+  classical (leading-order) level is verified by direct
+  WKB integration to $0.00005\%$.
+  This is a numerical phenomenon at $N = 7$: the asymptotic
+  $2S_{\mathrm{BO}}(N)/\operatorname{arccosh}(N{+}1)$ grows
+  as $N^4/(\log N)^2$ at large~$N$, and the numerical
+  coincidence $= 14 = 2N$ at $N = 7$ specifically has no
+  known derivation.
+  Candidate mechanisms (Dirichlet class number formula for
+  $\mathbb{Q}(\sqrt{7})$, Beilinson regulators, higher
+  Stark conjectures) remain to be developed.
+\end{itemize}
+The hierarchy prediction $M_P/M_{\mathrm{EW}} \approx
+\exp(38.459)$ depends on the \emph{numerical value} of
+$S_{\mathrm{BO}}(7) = 18.274$ obtained by direct WKB
+integration, not on the Pell interpretation of the leading
+coefficient.
 
 \begin{proposition}[Pell uniqueness at $N = 7$]
 \label{prop:pell-unique}
@@ -454,11 +472,13 @@ Setting this to~$1$: $N(N{-}7)(N{+}1) = 0$.
 The unique positive root is $N = 7$.
 \end{proof}
 
-The \emph{per-vortex} form of the identity is illuminating:
-each of the $N = 7$ vortices contributes one Pell regulator
-$\ln\varepsilon_7$ to the tunneling action, reduced by the
-per-vortex quantum correction
-$\sqrt{2/\pi}/(2N) + 2/(Nc_7^2)$.
+The \emph{per-vortex interpretation} of~\eqref{eq:pell-identity}
+(speculative but suggestive): the leading $14 = 2N$ at $N = 7$
+suggests that each of the $N = 7$ vortices contributes
+$2\ln\varepsilon_7$ to the bounce action, reduced by the
+per-vortex WKB correction $\sqrt{2/\pi}/N + 4/(Nc_7^2)$.
+This interpretation is unproven but consistent with the
+numerical observation.
 The instanton provides $94.3\%$ of the Pell exponent;
 the mass gap provides the remaining $5.7\%$.
 Together: $e^{14\,\ln\varepsilon_7} = \varepsilon_7^{14}
