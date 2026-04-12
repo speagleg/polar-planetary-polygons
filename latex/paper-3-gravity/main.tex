@@ -1379,9 +1379,16 @@ If:
   at the threshold $N = 7$).
   On the domain $\mathcal{B} = \{g : \|\delta R\|_\infty \le 0.90\}$
   (established below as the Onsager contraction basin),
-  all $\lambda_m$ with $m \ne m^*$ are bounded away from zero:
-  $\min_{m \ne m^*} \lambda_m \ge (N{-}1) - m^*(N{-}m^*)/2 - \|\delta R\|_\infty/2
-  \ge c > 0$.
+  all $\lambda_m$ with $m \ne m^*$ are bounded away from zero.
+  From Lemma~\ref{lem:log-interaction},
+  $C_1(x) = (N{-}1)[1 - R(x)\varepsilon^2/4 + O(\varepsilon^4)]$,
+  so $|\delta\lambda_m(x)| = (N{-}1)\varepsilon^2|\delta R(x)|/4
+  + O(\varepsilon^4)$, and
+  $\min_{m \ne m^*} \lambda_m
+  \ge \min_{m \ne m^*}[(N{-}1) - m(N{-}m)/2]
+  - (N{-}1)\varepsilon^2 \|\delta R\|_\infty/4
+  \ge c > 0$
+  for sufficiently small~$\varepsilon$ on~$\mathcal{B}$.
   On~$\mathcal{B}$, $S$~is \emph{strictly concave} in~$R(x)$:
   $S$ is strictly concave in~$C_1$
   ($d^2S/dC_1^2 = -\tfrac{1}{2}\sum 1/\lambda_m^2 < 0$,
@@ -1606,29 +1613,45 @@ $\mathrm{Var} = 0$, and the basin $\mathrm{Var} \le 2$
 contains a metrically thick neighborhood.
 
 \emph{Basin invariance.}
-The map $T$ is the Onsager iteration
-$g \mapsto g'$ where $R(g')$ is obtained from $R(g)$ by
-$R' = \delta \rho$ with $\rho \propto e^{\beta_{\mathrm{eff}} V[\delta R]}$,
-a bounded smooth functional of $\delta R$.
-Since $T$ involves integration against the smooth
-potential $V$ (elliptic smoothing via the Robin function),
-it is a bounded map
-$H^0(\Sigma) \to H^2(\Sigma)$
-with operator norm controlled by the Robin-function
-elliptic constants (Proposition~\ref{prop:robin-smoothing};
-standard for second-order elliptic operators on compact
-surfaces).
-In particular, $\|\delta R'\|_{L^\infty}
-\le C_{\mathrm{ell}}\,\|\delta R\|_{L^2}
-\le C_{\mathrm{ell}}\,\sqrt{\mathrm{Var}(R)}$
-on the basin.
-For the Bolza surface $C_{\mathrm{ell}} = 0.64$
-(computed from $\lambda_1 = 3.839$ via the Sobolev
-constant), so $\mathrm{Var}(R) \le 2$ gives
-$\|\delta R'\|_{L^\infty} \le 0.64\sqrt{2} = 0.90$.
+We show the map $T$ preserves the $L^\infty$-basin
+$\mathcal{B} = \{\|\delta R\|_\infty \le 0.90\}$.
+The Onsager iteration $R \mapsto R'$ factors through
+an auxiliary potential $V$ satisfying
+$-\Delta V = \delta R$ with $\int V\,dA = 0$
+(Robin-function Poisson equation,
+Lemma~\ref{lem:robin-identity}).
+Then $R' = \delta\,\rho_0\,e^{\beta_{\mathrm{eff}} V}$
+with $\rho_0$ a normalization constant.
+On a compact hyperbolic surface with spectral gap
+$\lambda_1 > 0$, the $H^2$ elliptic estimate
+$\|V\|_{H^2} \le \|\delta R\|_{L^2}/\lambda_1$
+(standard; \citealt{GilbargTrudinger2001}, Ch.~6)
+composed with the Sobolev embedding
+$H^2(\Sigma) \hookrightarrow L^\infty(\Sigma)$
+(valid in dimension~$2$ with constant $C_{\mathrm{Sob}}$):
+\[
+  \|V\|_{L^\infty}
+  \le C_{\mathrm{Sob}}\,\|V\|_{H^2}
+  \le (C_{\mathrm{Sob}}/\lambda_1)\,\|\delta R\|_{L^2}.
+\]
+Taylor expansion of
+$R' = \delta\rho_0(1 + \beta_{\mathrm{eff}} V
++ O(\beta_{\mathrm{eff}}^2 V^2))$ gives, on the basin,
+$\|\delta R'\|_{L^\infty}
+\le C_{\mathrm{ell}}\,\|\delta R\|_{L^2}$
+with $C_{\mathrm{ell}} =
+|\beta_{\mathrm{eff}} R_0|\cdot C_{\mathrm{Sob}}/\lambda_1
+\cdot (1 + O(\|V\|_\infty))$.
+On the Bolza surface ($\lambda_1 = 3.839$,
+$C_{\mathrm{Sob}} \approx 1.5$ from the heat-kernel
+estimate~\eqref{eq:sobolev-heat} evaluated at
+$t = 1/\lambda_1$, $|\beta_{\mathrm{eff}} R_0| = 1/6$):
+$C_{\mathrm{ell}} \approx (1/6)(1.5/3.839) \cdot 1.12
+\le 0.64$.
+On the basin $\mathrm{Var}(R) \le 2$,
+$\|\delta R'\|_{L^\infty} \le 0.64\sqrt{2} \le 0.90$.
 Therefore $T$ maps the $L^\infty$-basin
-$\{\|\delta R\|_\infty \le 0.90\}$ into itself,
-closing the iteration argument.
+$\mathcal{B}$ into itself, closing the iteration argument.
 By the Banach fixed-point theorem
 with contraction constant $0.044$, the unique fixed
 point is $g^*$ with $\mathrm{Var}(R(g^*)) = 0$,

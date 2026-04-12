@@ -3828,53 +3828,44 @@ Local constancy follows from the continuity of
 $\lambda_m(\xi)$ and the fact that the projection changes only
 when an eigenvalue crosses zero.
 
-(b)~Since $\Gamma$ has the Haagerup property (it is a discrete subgroup
-of $\mathrm{SL}(2,\mathbb{R})$), the Baum--Connes assembly map is an
-isomorphism (\citealt{Kasparov1988}).
-We verify that $f_\xi$ defines a $\Gamma$-equivariant
-$K$-homology class $[f_\xi] \in K_0^\Gamma(\mathbf{H}^2)$ by
-constructing an even Fredholm module.
-Set $F = 2P_- - 1$ (the sign of $c_m + h_\xi^\Gamma$).
-\begin{itemize}
-\item \emph{$F^2 = 1$}: since $F = \mathrm{sgn}(c_m + h_\xi^\Gamma)$
-  and the spectrum avoids zero (away from palindromic thresholds),
-  $F$ is an involution.
-\item \emph{$[F, u_\gamma] = 0$ for all $\gamma \in \Gamma$}:
-  We define $h_\xi^\Gamma$ using the resolvent Green's
-  function $G_s$ with $s > 1$, i.e.\ the kernel of
-  $(-\Delta + s(s{-}1))^{-1}$ on $\mathbf{H}^2$.
-  The resolvent kernel satisfies
-  $|G_s(z_0, \gamma z_0)| = O(e^{-s\ell_\gamma})$
-  (\citealt{Helgason1984}, Ch.~IV, Legendre-function
-  asymptotics $Q_{s-1/2}(\cosh \ell_\gamma)$).
-  With orbit-counting $\#\{\gamma : \ell_\gamma \le L\}
-  = O(e^L)$ (ball-volume, \citealt{Buser1992}, \S 9):
-  $\sum_{\gamma \ne 1} e^{-s\ell_\gamma}
-  \le C/(s{-}1) < \infty$ for $s > 1$, so
-  $h_\xi^\Gamma \in \ell^1(\Gamma) \hookrightarrow
-  C^*_r(\Gamma)$ (Young's inequality).
-  The $\mathbb{Z}_N$ generator $z$ acts on the Havelock
-  mode $\rho_m$ by the scalar $\omega^m$ ($\omega =
-  e^{2\pi i/N}$).
-  Since $F|_{\rho_m} = \operatorname{sign}(c_m + h)$
-  is also a scalar on $\rho_m$ (functional calculus of a
-  self-adjoint element of $C^*_r(\Gamma)$ in its GNS
-  representation), the commutator $[F, \pi(z)]
-  = 0$ \emph{exactly} on each summand: two scalars
-  commute.
-  The commutator condition for Kasparov compactness is
-  thus trivially satisfied (stronger than compact: zero).
-  The $K$-theory class of $F$ is independent of the
-  regularization $s > 1$: the map $s \mapsto F_s$ is
-  norm-continuous, and $K$-theory is preserved under
-  norm-continuous homotopy of invertibles.
-\item \emph{$\Gamma$-equivariance}: $G(z, w)$ is
-  $\Gamma$-invariant, so $h_\xi^\Gamma$ commutes with the
-  $\Gamma$-action and $F$ is $\Gamma$-equivariant.
-\end{itemize}
-The assembly map sends $[f_\xi]$ to the spectral projection of the
-operator $c_m \cdot 1 + h_\xi^\Gamma$ in $C^*_r(\Gamma)$, which is
-precisely~$P_-$.
+(b)~Define $h_\xi^\Gamma \in C^*_r(\Gamma)$ using
+the resolvent Green's function $G_s$ with $s > 1$
+(the kernel of $(-\Delta + s(s{-}1))^{-1}$ on~$\mathbf{H}^2$):
+\[
+  h_\xi^\Gamma
+  = \sum_{\gamma \ne 1}
+    G_s(z_0, \gamma z_0)\, u_\gamma.
+\]
+The resolvent asymptotic
+$|G_s(z_0, \gamma z_0)| = O(e^{-s\ell_\gamma})$
+(\citealt{Helgason1984}, Ch.~IV, Legendre function
+$Q_{s-1/2}(\cosh\ell_\gamma)$) combined with
+ball-volume orbit growth
+$\#\{\gamma : \ell_\gamma \le L\} = O(e^L)$
+(\citealt{Buser1992}, \S 9) gives
+$\sum_{\gamma \ne 1} e^{-s\ell_\gamma} \le C/(s{-}1) < \infty$,
+so $h_\xi^\Gamma \in \ell^1(\Gamma) \hookrightarrow
+C^*_r(\Gamma)$.
+For each mode~$m$, the negative spectral projection
+$P_-^{(m)} = \chi_{(-\infty,0)}(c_m\cdot 1 + h_\xi^\Gamma)$
+defines a $K_0$-class
+$[P_-^{(m)}] \in K_0(C^*_r(\Gamma))$
+(away from palindromic thresholds the spectrum avoids
+zero, making $P_-^{(m)}$ a projection; at thresholds
+the spectrum does not accumulate at zero, verified on
+the Bolza surface in Supplement S).
+The $\mathbb{Z}_N$-equivariant index is the labeled family
+$\mu_N(\Gamma,\xi) = \sum_m \tau_*([P_-^{(m)}])\,[\rho_m]
+\in R(\mathbb{Z}_N) \otimes \mathbb{R}$
+via the Green--Julg isomorphism
+$K_0^{\mathbb{Z}_N}(C^*_r(\Gamma))
+\cong K_0(C^*_r(\Gamma)) \otimes R(\mathbb{Z}_N)$
+for the trivial $\mathbb{Z}_N$-action.
+The assembly map sends this class to the spectral
+projection $P_-^{(m)}$, which computes the Morse index
+mode-by-mode.
+The class is independent of the regularization $s > 1$
+by norm-continuous homotopy of invertibles.
 
 (c)~For each mode~$m$, the eigenvalue on $S$ is
 $\lambda_m(\Gamma,\xi) = c_m + \tau(h_\xi^\Gamma)
@@ -3992,76 +3983,75 @@ the full construction is in
 Supplement~S, \S\ref*{SP-sec:kasparov-construction}.
 The main results are:
 
-\begin{theorem}[Kasparov product identity]
+\begin{theorem}[$K_0$-valued Morse index]
 \label{thm:kk-product}
 Let $\Gamma$ be a cocompact torsion-free Fuchsian group,
-$S = \Gamma\backslash\mathbf{H}^2$.
+$S = \Gamma\backslash\mathbf{H}^2$, and fix $s > 1$.
+Let $G_s$ denote the resolvent kernel of
+$(-\Delta + s(s{-}1))^{-1}$ on $\mathbf{H}^2$.
 Define $h_\xi^\Gamma \in C^*_r(\Gamma)$ by
 \begin{equation}\label{eq:h-element}
   h_\xi^\Gamma
   = \sum_{\gamma \in \Gamma,\, \gamma \ne 1}
-    G_{\mathbf{H}^2}(z_0,\, \gamma z_0)\; u_\gamma
+    G_s(z_0,\, \gamma z_0)\; u_\gamma
 \end{equation}
-where $G_{\mathbf{H}^2}$ is the Green's function on
-$\mathbf{H}^2$ and $u_\gamma$ is the canonical unitary
-in $C^*_r(\Gamma)$.
+where $u_\gamma$ is the canonical unitary in $C^*_r(\Gamma)$.
 \begin{enumerate}
-  \item The element $h_\xi^\Gamma$ is well-defined in $C^*_r(\Gamma)$
-    with operator norm bounded by the $\ell^1$-norm:
+  \item $h_\xi^\Gamma$ is a self-adjoint element of
+    $C^*_r(\Gamma)$ with operator norm bounded by
     \begin{equation}\label{eq:op-norm-bound}
       \|h_\xi^\Gamma\|_{C^*_r}
-      \;\le\; \|h_\xi^\Gamma\|_{\ell^1(\Gamma)}
-      \;=\; \sum_{\gamma \ne 1} |G_{\mathbf{H}^2}(z_0, \gamma z_0)|,
+      \;\le\; \sum_{\gamma \ne 1} |G_s(z_0, \gamma z_0)|
+      \;\le\; C/(s{-}1) < \infty,
     \end{equation}
-    which converges by $|G(z_0,\gamma z_0)| = O(e^{-\ell_\gamma})$
-    and the prime geodesic theorem.
-  \item The Kasparov triple
-    $\alpha_N(\xi) = \bigl(C^*_r(\Gamma)^{N-1},\;
-    \pi_{\mathbb{Z}_N},\;F_\xi\bigr)$
-    with $F_\xi|_{\rho_m} =
-    \mathrm{sign}\bigl(c_m \cdot 1 + h_\xi^\Gamma\bigr)$
-    and $c_m = C_1(\mathbf{H}^2,\xi) - m(N{-}m)/2$
-    is a well-defined element of
-    $KK(C^*(\mathbb{Z}_N),\; C^*_r(\Gamma))$,
-    provided $\|h_\xi^\Gamma\|_{C^*_r} < \min_m |c_m|$
-    (the operator-norm gap condition).
-  \item Under this condition, the Kasparov product satisfies
+    converging by $|G_s(z_0,\gamma z_0)| = O(e^{-s\ell_\gamma})$
+    (resolvent asymptotics) plus orbit growth
+    $\#\{\gamma : \ell_\gamma \le L\} = O(e^L)$.
+  \item For each mode $m \in \{1, \ldots, N{-}1\}$, the
+    negative spectral projection
+    $P_-^{(m)} = \chi_{(-\infty,0)}(c_m \cdot 1 + h_\xi^\Gamma)$
+    with $c_m = C_1(\mathbf{H}^2,\xi) - m(N{-}m)/2$
+    defines a $K_0$-class
+    $[P_-^{(m)}] \in K_0(C^*_r(\Gamma))$.
+  \item The $\mathbb{Z}_N$-equivariant Morse index is
     \begin{equation}\label{eq:kasparov-product}
-      \tau_*\!\bigl(\alpha_N(\xi)
-      \;\otimes_{C^*_r(\Gamma)}\; [D_S]\bigr)
-      \;=\; [\mu_N(\Gamma, \xi)]
-      \;\in\; R(\mathbb{Z}_N),
+      \mu_N(\Gamma,\xi)
+      = \sum_{m=1}^{N-1} \tau_*([P_-^{(m)}])\,[\rho_m]
+      \;\in\; R(\mathbb{Z}_N) \otimes \mathbb{R},
     \end{equation}
-    where $[D_S] \in KK(C^*_r(\Gamma), \mathbb{C})$ is the
-    fundamental class and $\tau_*$ is the canonical trace.
+    where $[\rho_m]$ is the $\mathbb{Z}_N$-character
+    class and $\tau_*$ is induced by the canonical trace.
+    The values $\tau_*([P_-^{(m)}]) \in [0,1]$ are
+    integer in the gap case
+    ($\|h_\xi^\Gamma\|_{C^*_r} < |c_m|$) and fractional
+    at palindromic thresholds where $c_{m^*} = 0$.
 \end{enumerate}
 \end{theorem}
 
-\begin{corollary}[Kasparov product at the threshold]
+\begin{corollary}[Index at the threshold]
 \label{cor:kk-threshold}
 At the palindromic threshold $\xi = \xi^*(N, m^*)$
-where $c_{m^*} = 0$, the gap condition fails for
-mode~$m^*$.
-The Kasparov module remains well-defined with
-$F_{\xi^*}|_{\rho_{m^*}} = \mathrm{sign}(h_\xi^\Gamma)$
-(the sign of the full automorphic correction, not a scalar).
-Its trace gives
+where $c_{m^*} = 0$, modes $m \ne m^*$ contribute
+integer classes, while mode $m^*$ contributes the
+fractional value
+$\tau(P_-^{(m^*)}) = \tau(\chi_{(-\infty,0)}(h_\xi^\Gamma))
+\in (0, 1)$.
+The total index is
 \[
-  \tau_*(\alpha_N(\xi^*) \otimes [D_S])
-  = \!\sum_{m \ne m^*}\!\mathrm{sign}(c_m)\,[\rho_m]
-  \;+\; \tau(P_-(h))\,[\rho_{m^*}],
+  \mu_N(\Gamma, \xi^*)
+  = \!\sum_{m \ne m^*}\!\mathbb{1}_{c_m < 0}\,[\rho_m]
+  \;+\; \tau(P_-^{(m^*)})\,[\rho_{m^*}]
+  \;\in\; R(\mathbb{Z}_N) \otimes \mathbb{R},
 \]
-where $\tau(P_-(h)) \in (0, 1)$ is the fractional
+where $\tau(P_-^{(m^*)}) \in (0, 1)$ is the fractional
 $L^2$-Morse index (Theorem~\ref{thm:fractional-morse}).
-This is the ``genuinely new information'' at the threshold:
-the scalar spectral flow produces integers, but the
-Kasparov product produces the \emph{fractional}
-$\tau(P_-)$ through the von~Neumann trace on~$C^*_r(\Gamma)$.
-On the Bolza surface: $\tau(P_-) = 0.644 \pm 0.004$
+This is the genuinely new information at the threshold:
+modes away from the palindromic line contribute integer
+spectral flows, but mode $m^*$ contributes the
+\emph{fractional} von Neumann trace
+$\tau(P_-^{(m^*)})$ on~$C^*_r(\Gamma)$.
+On the Bolza surface: $\tau(P_-^{(m^*)}) = 0.644 \pm 0.004$
 (non-integer, Theorem~\ref{thm:fractional-morse}).
-The Baum--Connes assembly map for surface groups $\Gamma$
-is an isomorphism (\citealt{Kasparov1988}; surface groups
-are a-T-menable), so the Kasparov product is well-defined.
 The specific value $0.644$ is evaluated computationally from
 the Bolza Fuchsian group generators.
 \end{corollary}

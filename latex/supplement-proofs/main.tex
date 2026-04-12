@@ -263,7 +263,7 @@ The promotion to a $K_0$-level identity requires the
 which is strictly larger but still small on surfaces with
 large spectral gap.
 
-\begin{theorem}[Kasparov product identity]
+\begin{theorem}[$K_0$-valued Morse index]
 \label{thm:kk-product}
 Let $\Gamma$ be a cocompact torsion-free Fuchsian group,
 $S = \Gamma\backslash\mathbf{H}^2$.
@@ -278,42 +278,71 @@ Define $h_\xi^\Gamma \in C^*_r(\Gamma)$ by
 \end{equation}
 where $u_\gamma$ is the canonical unitary in $C^*_r(\Gamma)$.
 \begin{enumerate}
-  \item The element $h_\xi^\Gamma$ is well-defined in $C^*_r(\Gamma)$
-    with operator norm bounded by the $\ell^1$-norm:
+  \item The element $h_\xi^\Gamma$ is a self-adjoint element
+    of $C^*_r(\Gamma)$ with operator norm bounded by the $\ell^1$-norm:
     \begin{equation}\label{eq:op-norm-bound}
       \|h_\xi^\Gamma\|_{C^*_r}
       \;\le\; \|h_\xi^\Gamma\|_{\ell^1(\Gamma)}
-      \;=\; \sum_{\gamma \ne 1} |G_s(z_0, \gamma z_0)|,
+      \;=\; \sum_{\gamma \ne 1} |G_s(z_0, \gamma z_0)|
+      \;\le\; C/(s{-}1) < \infty
     \end{equation}
-    which converges by
-    $|G_s(z_0,\gamma z_0)| = O(e^{-s\ell_\gamma})$
-    (resolvent asymptotics,
-    \citealt{Helgason1984}, Ch.~IV)
-    combined with ball-volume orbit growth
-    $\#\{\gamma : \ell_\gamma \le L\} = O(e^L)$, giving
-    $\sum_{\gamma \ne 1} e^{-s\ell_\gamma}
-    \le C/(s{-}1) < \infty$.
-  \item The Kasparov triple
-    $\alpha_N(\xi) = \bigl(C^*_r(\Gamma)^{N-1},\;
-    \pi_{\mathbb{Z}_N},\;F_\xi\bigr)$
-    with $F_\xi|_{\rho_m} =
-    \mathrm{sign}\bigl(c_m \cdot 1 + h_\xi^\Gamma\bigr)$
-    and $c_m = C_1(\mathbf{H}^2,\xi) - m(N{-}m)/2$
-    is a well-defined element of
-    $KK(C^*(\mathbb{Z}_N),\; C^*_r(\Gamma))$,
-    provided $\|h_\xi^\Gamma\|_{C^*_r} < \min_m |c_m|$
-    (the operator-norm gap condition).
-  \item Under this condition, the Kasparov product satisfies
+    (resolvent asymptotics
+    $|G_s(z_0,\gamma z_0)| = O(e^{-s\ell_\gamma})$,
+    \citealt{Helgason1984}, Ch.~IV, combined with
+    ball-volume orbit growth
+    $\#\{\gamma : \ell_\gamma \le L\} = O(e^L)$).
+  \item For each mode $m \in \{1, \ldots, N{-}1\}$, the element
+    $c_m\cdot 1 + h_\xi^\Gamma$ with
+    $c_m = C_1(\mathbf{H}^2,\xi) - m(N{-}m)/2$
+    is self-adjoint in $C^*_r(\Gamma)$.
+    Its \emph{negative spectral projection}
+    $P_-^{(m)} := \chi_{(-\infty,0)}(c_m\cdot 1 + h_\xi^\Gamma)$,
+    defined by the Borel functional calculus,
+    lies in $C^*_r(\Gamma)$ provided $c_m + h_\xi^\Gamma$
+    is either invertible (gap case) or its spectrum does
+    not accumulate at~$0$ (threshold case);
+    $[P_-^{(m)}] \in K_0(C^*_r(\Gamma))$ gives a
+    well-defined $K$-theory class.
+  \item The \emph{$\mathbb{Z}_N$-equivariant Morse index}
+    is the family
     \begin{equation}\label{eq:kasparov-product}
-      \tau_*\!\bigl(\alpha_N(\xi)
-      \;\otimes_{C^*_r(\Gamma)}\; [D_S]\bigr)
-      \;=\; [\mu_N(\Gamma, \xi)]
-      \;\in\; R(\mathbb{Z}_N),
+      \mu_N(\Gamma,\xi)
+      = \sum_{m=1}^{N-1}
+        \tau_*\bigl([P_-^{(m)}]\bigr)\,[\rho_m]
+      \;\in\; R(\mathbb{Z}_N) \otimes \mathbb{R},
     \end{equation}
-    where $[D_S] \in KK(C^*_r(\Gamma), \mathbb{C})$ is the
-    fundamental class and $\tau_*$ is the canonical trace.
+    where $[\rho_m]$ is the class of the $\mathbb{Z}_N$-character
+    $z \mapsto \omega^m$ in the representation ring $R(\mathbb{Z}_N)$
+    and $\tau_* \colon K_0(C^*_r(\Gamma)) \to \mathbb{R}$ is induced
+    by the canonical trace.
+    For torsion-free $\Gamma$, $\tau_*([P_-^{(m)}]) \in [0,1]$,
+    and the value is integer in the gap case
+    ($\|h_\xi^\Gamma\|_{C^*_r} < |c_m|$)
+    and fractional otherwise.
 \end{enumerate}
 \end{theorem}
+
+\noindent
+\emph{Why the natural target is $K_0(C^*_r(\Gamma)) \otimes R(\mathbb{Z}_N)$
+rather than $KK(C^*(\mathbb{Z}_N), C^*_r(\Gamma))$.}
+The polygon symmetry decomposes the Havelock spectrum into
+$\mathbb{Z}_N$-characters $\rho_m$, each carrying an independent
+$K$-theory class $[P_-^{(m)}]$.
+Any $C^*(\mathbb{Z}_N)$-module structure on
+$\oplus_m \rho_m \otimes C^*_r(\Gamma)$ must act diagonally by the
+scalar $\omega^m$ on each $\rho_m$-summand (since
+$C^*(\mathbb{Z}_N)$ is abelian); the operator $F_\xi$ decomposes
+identically block-diagonally with block $\operatorname{sign}(c_m + h)$,
+and the commutator $[\pi(a), F_\xi]$ vanishes block-wise,
+producing a degenerate Kasparov module that represents
+zero in $KK(C^*(\mathbb{Z}_N), C^*_r(\Gamma))$.
+The correct framework is therefore the direct sum
+$\oplus_m K_0(C^*_r(\Gamma)) \otimes [\rho_m]$,
+equivalent to the equivariant $K$-theory
+$K_0^{\mathbb{Z}_N}(C^*_r(\Gamma))$ via the Green--Julg
+isomorphism for the trivial $\mathbb{Z}_N$-action:
+$K_0^{\mathbb{Z}_N}(C^*_r(\Gamma))
+\cong K_0(C^*_r(\Gamma)) \otimes R(\mathbb{Z}_N)$.
 
 \begin{proof}
 \emph{Part~(i).}
@@ -351,114 +380,103 @@ function on the mean-zero subspace where the
 zero-eigenvalue is excluded.
 
 \emph{Part~(ii).}
-We verify the three Kasparov module conditions for
-the bounded triple
-$\alpha_N = (E, \pi, F_\xi)$ with
-$E = C^*_r(\Gamma)^{N-1}$,
-$A = C^*(\mathbb{Z}_N)$,
-$B = C^*_r(\Gamma)$:
-\begin{itemize}
-\item \emph{$F_\xi = F_\xi^*$ (self-adjoint).}
-Each $c_m \cdot 1 + h$ is self-adjoint in
-$C^*_r(\Gamma)$
-(since $c_m \in \mathbb{R}$ and $h^* = h$
-by $\overline{G(z,w)} = G(z,w)$).
-The functional calculus gives
-$\mathrm{sign}(c_m + h)^* = \mathrm{sign}(c_m + h)$;
-hence $F_\xi = F_\xi^*$ on each summand.
-\item \emph{$F_\xi^2 - 1 \in \mathcal{K}_B(E)$ (spectral gap gives finite-rank).}
-For any self-adjoint invertible element $a$,
-$\mathrm{sign}(a)^2 = 1$ in the $C^*$-algebra.
-Under the gap condition, each $c_m + h$ is invertible,
-so $F_\xi^2 = 1$.
-In particular, $F_\xi^2 - 1 = 0 \in \mathcal{K}_B(E)$.
-\item \emph{$[\pi(a), F_\xi] \in \mathcal{K}_B(E)$
-for all $a \in A$.}
-Since $A = C^*(\mathbb{Z}_N)$ is finite-dimensional
-($\dim = N$), it suffices to check this on generators.
-The generator $z$ of $\mathbb{Z}_N$ acts on
-$E = \bigoplus_{m=1}^{N-1}\rho_m$ by cyclic permutation
-of characters, i.e.\ $\pi(z)|_{\rho_m}
-= \omega^m \cdot \mathrm{id}_{\rho_m}$ where
-$\omega = e^{2\pi i/N}$.
-Under this representation $\pi(z)$ is diagonal on the
-Fourier basis, so
-$[\pi(z), F_\xi]|_{\rho_m}
-= \omega^m F_\xi|_{\rho_m} - F_\xi|_{\rho_m}\omega^m = 0$
-on each summand separately
-(each $F_\xi|_{\rho_m} = \operatorname{sign}(c_m + h)$
-is a scalar operator on $\rho_m$,
-and $\pi(z)|_{\rho_m}$ is the scalar $\omega^m$).
-Thus $[\pi(z), F_\xi] = 0$ identically, which lies in
-$\mathcal{K}_B(E)$ trivially.
-For the general element $a = \sum_k a_k z^k \in A$,
-$[\pi(a), F_\xi] = \sum_k a_k [\pi(z^k), F_\xi] = 0$.
-The commutator condition is exact, not merely compact.
-\end{itemize}
-Therefore $\alpha_N(\xi) \in KK(A, B)$.
-On the flat plane, the index pairing reduces to the Morse index count. The $K$-theoretic framing adds content only for arithmetic surfaces where the gap condition fails.
+For each mode $m$, $c_m\cdot 1 + h_\xi^\Gamma$ is self-adjoint
+in $C^*_r(\Gamma)$ ($c_m \in \mathbb{R}$ and
+$(h_\xi^\Gamma)^* = h_\xi^\Gamma$ follows from the symmetry
+$G_s(z_0,\gamma z_0) = G_s(z_0, \gamma^{-1} z_0) \in \mathbb{R}$
+combined with $u_\gamma^* = u_{\gamma^{-1}}$).
+The negative spectral projection
+$P_-^{(m)} = \chi_{(-\infty,0)}(c_m\cdot 1 + h_\xi^\Gamma)$
+is defined by the Borel functional calculus.
+In the gap case ($\|h_\xi^\Gamma\|_{C^*_r} < |c_m|$):
+the operator $c_m\cdot 1 + h_\xi^\Gamma$ is invertible,
+$0$ is not in its spectrum, and
+$P_-^{(m)} \in C^*_r(\Gamma)$ with
+$\tau(P_-^{(m)}) \in \{0, 1\}$
+(indicator of $c_m < 0$, since the trace is multiplicative
+on projections and $\tau(1) = 1$ for the canonical
+trace on a torsion-free group).
+In the threshold case ($c_m$ at a palindromic
+boundary): the spectrum of $c_m + h_\xi^\Gamma$
+does not accumulate at zero provided
+$h_\xi^\Gamma$ has a spectral gap near zero
+(verified on the Bolza surface by direct computation,
+\S\ref{sec:bolza}), so $P_-^{(m)}$ is still a projection,
+now with potentially non-integer trace.
+The $K_0$-class $[P_-^{(m)}] \in K_0(C^*_r(\Gamma))$
+is well-defined.
+
+\emph{Continuity in $s$.}
+The map $s \mapsto h_\xi^\Gamma(s)$ is norm-continuous
+on $s > 1$ (dominated convergence with the uniform
+bound $|G_s(z_0,\gamma z_0)| \le G_{s_0}(z_0,\gamma z_0)$
+for $s \ge s_0 > 1$).
+Therefore $s \mapsto P_-^{(m)}(s)$ is norm-continuous
+wherever $0$ is not in the spectrum of $c_m + h_\xi^\Gamma(s)$,
+and $[P_-^{(m)}(s)]$ is locally constant in $K_0$
+(homotopy invariance).
 
 \emph{Part~(iii).}
-The fundamental class $[D_S] \in KK(C^*_r(\Gamma), \mathbb{C})$
-is the Mishchenko--Fomenko index element of the
-Dirac operator on $S = \Gamma\backslash\mathbf{H}^2$
-(using the canonical spin structure on~$\mathbf{H}^2$,
-which descends to~$S$ since $\Gamma$ is torsion-free).
-For torsion-free cocompact lattices in
-$\mathrm{SL}(2,\mathbb{R})$, the Baum--Connes
-assembly map
-$\mu\colon K_0^\Gamma(\underline{E}\Gamma)
-\to K_0(C^*_r(\Gamma))$
-is an isomorphism
-\citep{Kasparov1988}.
-(For orbifold surfaces with $\mathbb{Z}_N$ fixed points,
-the torsion-free hypothesis fails and the Kasparov
-product is replaced by the equivariant $KK^{\mathbb{Z}_N}$
-theory; the stability classification then reduces to
-the elementary representation-ring analysis of
-\S\ref*{I-sec:index-pairing}.)
+For each mode~$m$, the trace pairing
+$\tau_*\colon K_0(C^*_r(\Gamma)) \to \mathbb{R}$,
+induced by the canonical tracial state~$\tau$ on
+$C^*_r(\Gamma)$
+(well-defined and faithful for torsion-free surface
+groups, which are ICC: \citealt{Kasparov1988}),
+is a continuous homomorphism.
+Its value on $[P_-^{(m)}]$ is
+$\tau(P_-^{(m)}) = \tau(\chi_{(-\infty,0)}(c_m + h))$,
+a real number in $[0, 1]$ (since $P_-^{(m)}$ is a
+projection and $\tau(1) = 1$).
 
-Under the gap condition
-$\|h\|_{C^*_r} < \min_m |c_m|$,
-the straight line homotopy
-$F_t = \bigoplus_m \mathrm{sign}(c_m + t\,h)$
-for $t \in [0, 1]$ stays in the invertibles
-(since $\|t\,h\| \le \|h\| < |c_m|$ for all~$t$).
-Each $F_t$ satisfies the same Kasparov conditions
-as~$F_\xi$ (self-adjoint, $F_t^2 = 1$, commutators
-compact). By homotopy invariance of the Kasparov
-product \citep{Kasparov1980},
-$\alpha_N(\xi) \otimes_{C^*_r(\Gamma)} [D_S]
-= \alpha_N^{(0)}(\xi) \otimes_{C^*_r(\Gamma)} [D_S]$,
-where $\alpha_N^{(0)}$ has
-$F_0 = \bigoplus_m \mathrm{sign}(c_m) \cdot 1_{C^*_r(\Gamma)}$.
+In the gap case $\|h\|_{C^*_r} < |c_m|$:
+the operator $c_m + h$ is invertible with spectrum
+bounded away from~$0$, so $\chi_{(-\infty,0)}(c_m+h)$
+equals either $0$ or $1$ in $C^*_r(\Gamma)$ according to the
+sign of $c_m$, giving $\tau(P_-^{(m)}) \in \{0, 1\}$.
+Specifically, $\tau(P_-^{(m)}) = 1$ iff $c_m < 0$.
+Summing the gap contributions produces an integer
+$\mathbb{Z}_N$-representation class:
+$\mu_N^{\mathrm{gap}} = \sum_{m : c_m < 0} [\rho_m]
+\in R(\mathbb{Z}_N)$.
 
-In the trivial module $\alpha_N^{(0)}$, each
-summand carries the scalar $\mathrm{sign}(c_m) = \pm 1$.
-The product with $[D_S]$ reduces to the trace:
-$\tau_*(\alpha_N^{(0)} \otimes [D_S])
-= \sum_m \mathrm{sign}(c_m)\,[\rho_m]$,
-which is the $\mathbb{Z}_N$ representation class
-$[\mu_N(\mathbf{H}^2, \xi)]$.
-By Theorem~\ref{thm:spectral-flow},
-$[\mu_N(\mathbf{H}^2, \xi)] = [\mu_N(\Gamma, \xi)]$.
+At a palindromic threshold $c_{m^*} = 0$:
+the gap fails only for mode $m^*$; other modes still
+contribute integer classes.
+The threshold mode contributes
+$\tau(P_-^{(m^*)}) = \tau(\chi_{(-\infty,0)}(h_\xi^\Gamma))
+\in (0, 1)$
+by Theorem~\ref{thm:fractional-morse},
+producing a fractional class.
+The total index is
+$\mu_N(\Gamma, \xi) = \sum_m \tau(P_-^{(m)})[\rho_m]
+\in R(\mathbb{Z}_N) \otimes \mathbb{R}$.
+
+Consistency with the flat-plane limit: as $\xi \to 0$,
+$\Gamma$ degenerates to the trivial group and
+$C^*_r(\Gamma) \to \mathbb{C}$, reducing
+$\tau_*([P_-^{(m)}])$ to
+$\mathbb{1}_{c_m < 0}$ (indicator function), recovering
+the elementary $\mathbb{Z}_N$-Morse index of
+\S\ref*{I-sec:index-pairing}.
 \end{proof}
 
-\begin{corollary}[Kasparov product at the threshold]
+\begin{corollary}[$K_0$-valued index at the threshold]
 \label{cor:kk-threshold}
 At the palindromic threshold $\xi = \xi^*(N, m^*)$
 where $c_{m^*} = 0$, the gap condition fails for
 mode~$m^*$.
-The Kasparov module remains well-defined with
-$F_{\xi^*}|_{\rho_{m^*}} = \mathrm{sign}(h_\xi^\Gamma)$
-(the sign of the full automorphic correction, not a scalar).
-Its trace gives
+The modewise projection
+$P_-^{(m^*)} = \chi_{(-\infty,0)}(h_\xi^\Gamma)$
+is defined by the sign of the full automorphic
+correction (not a scalar).
+The total equivariant index is
 \[
-  \tau_*(\alpha_N(\xi^*) \otimes [D_S])
-  = \!\sum_{m \ne m^*}\!\mathrm{sign}(c_m)\,[\rho_m]
-  \;+\; \tau(P_-(h))\,[\rho_{m^*}],
+  \mu_N(\Gamma, \xi^*)
+  = \!\sum_{m \ne m^*}\!\mathbb{1}_{c_m < 0}\,[\rho_m]
+  \;+\; \tau(P_-^{(m^*)})\,[\rho_{m^*}],
 \]
-where $\tau(P_-(h)) \in (0, 1)$ is the fractional
+where $\tau(P_-^{(m^*)}) \in (0, 1)$ is the fractional
 $L^2$-Morse index (Theorem~\ref{thm:fractional-morse}).
 This is the ``genuinely new information'' at the threshold:
 the scalar spectral flow produces integers, but the
@@ -471,17 +489,16 @@ On the Bolza surface: $\tau(P_-) = 0.644 \pm 0.004$
 \begin{proof}
 For $m \ne m^*$, $c_m \ne 0$ (the thresholds are
 strictly ordered: Proposition~\ref{prop:ncrit-monotone}),
-so $\mathrm{sign}(c_m + h)$ deforms to
-$\mathrm{sign}(c_m) \cdot 1$ by the gap homotopy.
-For $m = m^*$, $c_{m^*} = 0$ and
-$F|_{\rho_{m^*}} = \mathrm{sign}(h)$.
-Since $h$ is self-adjoint with mixed spectrum
-(Theorem~\ref{thm:fractional-morse}),
-$\mathrm{sign}(h)$ is a non-trivial self-adjoint
-involution in~$C^*_r(\Gamma)$ with
-$\tau(\mathrm{sign}(h)) = 1 - 2\tau(P_-(h)) \ne \pm 1$.
-The product with $[D_S]$ extracts the trace, giving
-the fractional contribution.
+so $c_m + h$ has spectrum bounded away from zero
+and $\tau(P_-^{(m)}) = \mathbb{1}_{c_m < 0}$.
+For $m = m^*$, $c_{m^*} = 0$, so
+$P_-^{(m^*)} = \chi_{(-\infty,0)}(h_\xi^\Gamma)$,
+a projection with trace
+$\tau(P_-^{(m^*)}) \in (0, 1)$
+by Theorem~\ref{thm:fractional-morse}
+($h$ is self-adjoint with mixed spectrum:
+positive coefficients in the $\ell^1$-expansion
+but vanishing identity coefficient).
 \end{proof}
 
 \paragraph{Bolza and arithmetic surfaces.}
