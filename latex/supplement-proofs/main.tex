@@ -121,10 +121,23 @@ computation in exact arithmetic for $m = 2, \ldots, N{-}1$),
 giving index~$0$.
 For $N \ge 8$: the negative modes are
 $\{m : 2 \le m \le N{-}1,\; m(N{-}m) > 2(N{-}1)\}$.
-At $N = 8$: modes $\{3, 4, 5\}$, count~$3 = 8{-}5$.
-Each increment $N \to N{+}1$ adds one new negative mode
-(mode $m = N{-}2$ crosses from positive to negative),
-so the count is $N{-}5$ by induction.
+The quadratic inequality $m^2 - Nm + 2(N{-}1) < 0$
+has roots
+$m_{\pm} = \tfrac{1}{2}\bigl(N \pm \sqrt{(N{-}4)^2 - 8}\bigr)$,
+and the negative modes are the integers
+$m \in (m_-, m_+)$.
+For $N \ge 8$, $(N{-}4)^2 - 8 \ge 8$, so
+$\sqrt{(N{-}4)^2{-}8} = N - 4 - \delta_N$
+with $\delta_N = 8/(2(N{-}4)) + O(1/N^3) \in (0, 2)$.
+Thus $m_- \in (2, 3)$ and $m_+ = N - m_- \in (N{-}3, N{-}2)$,
+giving $\lceil m_- \rceil = 3$ and
+$\lfloor m_+ \rfloor = N - 3$.
+The count of integers $m \in (m_-, m_+)$ is
+$\lfloor m_+ \rfloor - \lceil m_- \rceil + 1
+= (N{-}3) - 3 + 1 = N - 5$.
+Verified at $N = 8$: $\sqrt{8} \approx 2.83$,
+$m_\pm = (8 \pm 2.83)/2 \in \{2.59, 5.41\}$,
+integer solutions $\{3, 4, 5\}$, count $= 3 = N - 5$.
 The complex Morse index is $N{-}5$; the real index is
 $2(N{-}5)$.
 \end{proof}

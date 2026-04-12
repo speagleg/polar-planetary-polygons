@@ -227,22 +227,44 @@ for some constant $C_0$ independent of~$p$.
 A direct chain-rule computation gives the circulant weight
 $w_p = \tfrac{1}{4}\bigl[
   -d_p\,h'(d_p) + d_p^2\,h''(d_p)\,
-  \cot^2(\pi p/N)\bigr]$.
-The constancy condition $\sin^2(\pi p/N)\,w_p = C_0$
-must hold for every $N \ge 3$ and every ring radius $R > 0$.
-As $R \to \infty$ at fixed~$p$,
-$d_p = 2R\sin(\pi p/N) \to \infty$
-and $\cot^2(\pi p/N)$ stays fixed, so
-the leading term forces $d_p^2\,h''(d_p) = 4C_0$
-for all large~$d_p$.
-This is the ODE $r^2 h''(r) = 4C_0$,
-whose general solution is $h(r) = -C\ln r + Ar + B$
-with $C = 4C_0$.
-Substituting back and checking at finite~$R$:
-$\sin^2 w_p = C_0 - A\,d_p^3/(16R^2)$.
-For this to be independent of~$p$, $A = 0$,
-giving $h(r) = -C\ln r + B$.
-At $C > 0$ this is the Green's function of the
+  \cot^2(\pi p/N)\bigr]$,
+with $d_p = 2R\sin(\pi p/N)$.
+The constancy condition
+$4\sin^2(\pi p/N)\,w_p = 4C_0$ becomes
+\begin{equation}\label{eq:uniq-ode}
+  -d_p\,h'(d_p)\sin^2(\pi p/N)
+  + d_p^2\,h''(d_p)\cos^2(\pi p/N)
+  = 4C_0,
+\end{equation}
+valid for every $N \ge 3$, every $R > 0$, every
+$p \in \{1, \ldots, N{-}1\}$.
+
+Pick two distinct rational angles
+$q_1 = p_1/N_1$, $q_2 = p_2/N_2$ with
+$\sin^2(\pi q_1) \ne \sin^2(\pi q_2)$,
+and adjust $R_1, R_2$ so that
+$d(R_1, q_1) = d(R_2, q_2) = r$.
+Equation~\eqref{eq:uniq-ode} at the two values of~$q$
+forms a $2 \times 2$ linear system in the unknowns
+$U(r) := -r\,h'(r)$ and $V(r) := r^2\,h''(r)$:
+\[
+  \begin{pmatrix} \sin^2(\pi q_1) & \cos^2(\pi q_1) \\
+                  \sin^2(\pi q_2) & \cos^2(\pi q_2)
+  \end{pmatrix}
+  \begin{pmatrix} U(r) \\ V(r) \end{pmatrix}
+  = \begin{pmatrix} 4C_0 \\ 4C_0 \end{pmatrix}.
+\]
+The determinant is
+$\cos^2(\pi q_1) - \cos^2(\pi q_2)
+= \sin^2(\pi q_2) - \sin^2(\pi q_1) \ne 0$,
+so the system has the unique solution
+$U(r) = V(r) = 4C_0$, both constants independent of~$r$.
+Therefore
+$r^2 h''(r) = 4C_0$ and $-r\,h'(r) = 4C_0$
+simultaneously.
+The first equation gives $h(r) = -C\ln r + Ar + B$
+with $C = 4C_0$; the second forces $A = 0$.
+Hence $h(r) = -C\ln r + B$, the Green's function of the
 $2$D Laplacian ($-\nabla^2 h = 2\pi C\,\delta$).
 No other radial kernel produces polynomial
 tangential eigenvalues.
