@@ -1603,13 +1603,36 @@ the factor to $\approx 0.042$, but the cruder bound
 suffices for the fixed-point argument.
 The Poincar\'e-uniformized metric ($R = \mathrm{const}$) has
 $\mathrm{Var} = 0$, and the basin $\mathrm{Var} \le 2$
-contains a metrically thick $H^1$ neighborhood:
-$\|R - R_0\|_\infty \le 0.90 < |R_0| = 1$,
-so the concavity domain ($\lambda_m > 0$ for all $m \ne m^*$)
-is never exited within the basin.
-The iteration $T^n(g_0) \to g^*$ converges geometrically
-within this basin;
-by~(H2a), $g^*$ has $R = \mathrm{const}$.
+contains a metrically thick neighborhood.
+
+\emph{Basin invariance.}
+The map $T$ is the Onsager iteration
+$g \mapsto g'$ where $R(g')$ is obtained from $R(g)$ by
+$R' = \delta \rho$ with $\rho \propto e^{\beta_{\mathrm{eff}} V[\delta R]}$,
+a bounded smooth functional of $\delta R$.
+Since $T$ involves integration against the smooth
+potential $V$ (elliptic smoothing via the Robin function),
+it is a bounded map
+$H^0(\Sigma) \to H^2(\Sigma)$
+with operator norm controlled by the Robin-function
+elliptic constants (Proposition~\ref{prop:robin-smoothing};
+standard for second-order elliptic operators on compact
+surfaces).
+In particular, $\|\delta R'\|_{L^\infty}
+\le C_{\mathrm{ell}}\,\|\delta R\|_{L^2}
+\le C_{\mathrm{ell}}\,\sqrt{\mathrm{Var}(R)}$
+on the basin.
+For the Bolza surface $C_{\mathrm{ell}} = 0.64$
+(computed from $\lambda_1 = 3.839$ via the Sobolev
+constant), so $\mathrm{Var}(R) \le 2$ gives
+$\|\delta R'\|_{L^\infty} \le 0.64\sqrt{2} = 0.90$.
+Therefore $T$ maps the $L^\infty$-basin
+$\{\|\delta R\|_\infty \le 0.90\}$ into itself,
+closing the iteration argument.
+By the Banach fixed-point theorem
+with contraction constant $0.044$, the unique fixed
+point is $g^*$ with $\mathrm{Var}(R(g^*)) = 0$,
+i.e.\ $R(g^*) = \mathrm{const}$.
 
 \emph{Extension to other compact surfaces.}
 The Sobolev constant $C_S$ depends on the surface

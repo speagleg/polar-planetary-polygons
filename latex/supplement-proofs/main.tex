@@ -267,25 +267,32 @@ large spectral gap.
 \label{thm:kk-product}
 Let $\Gamma$ be a cocompact torsion-free Fuchsian group,
 $S = \Gamma\backslash\mathbf{H}^2$.
+Fix a spectral parameter $s \in \mathbb{R}$ with $s > 1$
+and let $G_s$ denote the resolvent kernel of
+$(-\Delta + s(s{-}1))^{-1}$ on $\mathbf{H}^2$.
 Define $h_\xi^\Gamma \in C^*_r(\Gamma)$ by
 \begin{equation}\label{eq:h-element}
   h_\xi^\Gamma
   = \sum_{\gamma \in \Gamma,\, \gamma \ne 1}
-    G_{\mathbf{H}^2}(z_0,\, \gamma z_0)\; u_\gamma
+    G_s(z_0,\, \gamma z_0)\; u_\gamma
 \end{equation}
-where $G_{\mathbf{H}^2}$ is the Green's function on
-$\mathbf{H}^2$ and $u_\gamma$ is the canonical unitary
-in $C^*_r(\Gamma)$.
+where $u_\gamma$ is the canonical unitary in $C^*_r(\Gamma)$.
 \begin{enumerate}
   \item The element $h_\xi^\Gamma$ is well-defined in $C^*_r(\Gamma)$
     with operator norm bounded by the $\ell^1$-norm:
     \begin{equation}\label{eq:op-norm-bound}
       \|h_\xi^\Gamma\|_{C^*_r}
       \;\le\; \|h_\xi^\Gamma\|_{\ell^1(\Gamma)}
-      \;=\; \sum_{\gamma \ne 1} |G_{\mathbf{H}^2}(z_0, \gamma z_0)|,
+      \;=\; \sum_{\gamma \ne 1} |G_s(z_0, \gamma z_0)|,
     \end{equation}
-    which converges by $|G(z_0,\gamma z_0)| = O(e^{-\ell_\gamma})$
-    and the prime geodesic theorem.
+    which converges by
+    $|G_s(z_0,\gamma z_0)| = O(e^{-s\ell_\gamma})$
+    (resolvent asymptotics,
+    \citealt{Helgason1984}, Ch.~IV)
+    combined with ball-volume orbit growth
+    $\#\{\gamma : \ell_\gamma \le L\} = O(e^L)$, giving
+    $\sum_{\gamma \ne 1} e^{-s\ell_\gamma}
+    \le C/(s{-}1) < \infty$.
   \item The Kasparov triple
     $\alpha_N(\xi) = \bigl(C^*_r(\Gamma)^{N-1},\;
     \pi_{\mathbb{Z}_N},\;F_\xi\bigr)$
@@ -310,16 +317,38 @@ in $C^*_r(\Gamma)$.
 
 \begin{proof}
 \emph{Part~(i).}
-$|G_{\mathbf{H}^2}(z_0, \gamma z_0)| = O(e^{-\ell_\gamma})$
-where $\ell_\gamma = d(z_0, \gamma z_0)$ is the displacement
-length. The prime geodesic theorem gives
-$|\{\gamma : \ell_\gamma \le L\}| \sim e^L/L$,
-so $\sum_{\gamma \ne 1} e^{-\ell_\gamma} < \infty$.
+The resolvent kernel on $\mathbf{H}^2$ at spectral parameter
+$s$ satisfies
+$|G_s(z_0, \gamma z_0)| = O(e^{-s\ell_\gamma})$ at large
+displacement
+(\citealt{Helgason1984}, Ch.~IV;
+this is the asymptotic of the Legendre function
+$Q_{s-1/2}(\cosh \ell)$ at large $\ell$).
+The orbit-counting function for cocompact
+$\Gamma \subset \mathrm{SL}(2,\mathbb{R})$ satisfies
+$\#\{\gamma : \ell_\gamma \le L\} = O(e^L)$ by the
+standard ball-volume estimate
+(\citealt{Buser1992}, \S 9).
+Writing this as a Stieltjes integral:
+$\sum_{\gamma \ne 1} e^{-s\ell_\gamma}
+\le \int_0^\infty e^{-sL}\,d(\#\{\ell \le L\})
+\le s \int_0^\infty e^{-sL} \cdot C e^L\,dL
+= Cs/(s-1)$
+for $s > 1$, finite.
 By Young's inequality
 ($\|a\|_{C^*_r} \le \|a\|_{\ell^1}$ for any
 $a \in \ell^1(\Gamma)$), the element
 $h_\xi^\Gamma$ is well-defined in $C^*_r(\Gamma)$
 with the stated bound.
+The $K$-theoretic class below is independent of the
+regularization parameter $s > 1$: for $s, s' > 1$,
+the difference $h_s - h_{s'}$ is norm-continuous
+in $s$, and the spectral projection
+$P_-(c_m + h_s)$ depends continuously on $s$ in the
+norm topology, so its $K$-theory class is constant.
+The limit $s \to 1^+$ recovers the bare Green's
+function on the mean-zero subspace where the
+zero-eigenvalue is excluded.
 
 \emph{Part~(ii).}
 We verify the three Kasparov module conditions for
@@ -344,14 +373,27 @@ Under the gap condition, each $c_m + h$ is invertible,
 so $F_\xi^2 = 1$.
 In particular, $F_\xi^2 - 1 = 0 \in \mathcal{K}_B(E)$.
 \item \emph{$[\pi(a), F_\xi] \in \mathcal{K}_B(E)$
-for all $a \in A$ ($\mathbb{Z}_N$ action has finite orbits).}
+for all $a \in A$.}
 Since $A = C^*(\mathbb{Z}_N)$ is finite-dimensional
-($\dim = N$), every adjointable operator on the
-finitely generated module $E$ is compact:
-$\mathcal{K}_B(E) = \mathcal{L}_B(E)$
-(because $E$ is free of rank $N{-}1$ over the
-unital $C^*$-algebra~$B$).
-The condition is automatic.
+($\dim = N$), it suffices to check this on generators.
+The generator $z$ of $\mathbb{Z}_N$ acts on
+$E = \bigoplus_{m=1}^{N-1}\rho_m$ by cyclic permutation
+of characters, i.e.\ $\pi(z)|_{\rho_m}
+= \omega^m \cdot \mathrm{id}_{\rho_m}$ where
+$\omega = e^{2\pi i/N}$.
+Under this representation $\pi(z)$ is diagonal on the
+Fourier basis, so
+$[\pi(z), F_\xi]|_{\rho_m}
+= \omega^m F_\xi|_{\rho_m} - F_\xi|_{\rho_m}\omega^m = 0$
+on each summand separately
+(each $F_\xi|_{\rho_m} = \operatorname{sign}(c_m + h)$
+is a scalar operator on $\rho_m$,
+and $\pi(z)|_{\rho_m}$ is the scalar $\omega^m$).
+Thus $[\pi(z), F_\xi] = 0$ identically, which lies in
+$\mathcal{K}_B(E)$ trivially.
+For the general element $a = \sum_k a_k z^k \in A$,
+$[\pi(a), F_\xi] = \sum_k a_k [\pi(z^k), F_\xi] = 0$.
+The commutator condition is exact, not merely compact.
 \end{itemize}
 Therefore $\alpha_N(\xi) \in KK(A, B)$.
 On the flat plane, the index pairing reduces to the Morse index count. The $K$-theoretic framing adds content only for arithmetic surfaces where the gap condition fails.

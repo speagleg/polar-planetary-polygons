@@ -3839,20 +3839,35 @@ Set $F = 2P_- - 1$ (the sign of $c_m + h_\xi^\Gamma$).
 \item \emph{$F^2 = 1$}: since $F = \mathrm{sgn}(c_m + h_\xi^\Gamma)$
   and the spectrum avoids zero (away from palindromic thresholds),
   $F$ is an involution.
-\item \emph{$[F, u_\gamma]$ is compact for all $\gamma \in \Gamma$}:
-  the off-diagonal element $h_\xi^\Gamma
-  = \sum_{\gamma \ne 1} G(\cdot, \gamma\cdot)\, u_\gamma$
-  is trace-class in $C^*_r(\Gamma)$.  Indeed, the matrix elements
-  $|G(z_0, \gamma z_0)| = O(e^{-\ell_\gamma})$ decay
-  exponentially, and
-  $\sum_{\gamma \ne 1} e^{-\ell_\gamma} < \infty$ by the
-  prime geodesic theorem.
-  Since $h$ is trace-class, $[F, u_\gamma]
-  = [\mathrm{sgn}(c_m + h),\, u_\gamma]$ is compact:
-  the sign function of a trace-class perturbation of a
-  scalar differs from the unperturbed sign by a compact
-  operator (Birman--Solomyak trace-class scattering theory;
-  see \citealt{Kato1995}, Ch.~X).
+\item \emph{$[F, u_\gamma] = 0$ for all $\gamma \in \Gamma$}:
+  We define $h_\xi^\Gamma$ using the resolvent Green's
+  function $G_s$ with $s > 1$, i.e.\ the kernel of
+  $(-\Delta + s(s{-}1))^{-1}$ on $\mathbf{H}^2$.
+  The resolvent kernel satisfies
+  $|G_s(z_0, \gamma z_0)| = O(e^{-s\ell_\gamma})$
+  (\citealt{Helgason1984}, Ch.~IV, Legendre-function
+  asymptotics $Q_{s-1/2}(\cosh \ell_\gamma)$).
+  With orbit-counting $\#\{\gamma : \ell_\gamma \le L\}
+  = O(e^L)$ (ball-volume, \citealt{Buser1992}, \S 9):
+  $\sum_{\gamma \ne 1} e^{-s\ell_\gamma}
+  \le C/(s{-}1) < \infty$ for $s > 1$, so
+  $h_\xi^\Gamma \in \ell^1(\Gamma) \hookrightarrow
+  C^*_r(\Gamma)$ (Young's inequality).
+  The $\mathbb{Z}_N$ generator $z$ acts on the Havelock
+  mode $\rho_m$ by the scalar $\omega^m$ ($\omega =
+  e^{2\pi i/N}$).
+  Since $F|_{\rho_m} = \operatorname{sign}(c_m + h)$
+  is also a scalar on $\rho_m$ (functional calculus of a
+  self-adjoint element of $C^*_r(\Gamma)$ in its GNS
+  representation), the commutator $[F, \pi(z)]
+  = 0$ \emph{exactly} on each summand: two scalars
+  commute.
+  The commutator condition for Kasparov compactness is
+  thus trivially satisfied (stronger than compact: zero).
+  The $K$-theory class of $F$ is independent of the
+  regularization $s > 1$: the map $s \mapsto F_s$ is
+  norm-continuous, and $K$-theory is preserved under
+  norm-continuous homotopy of invertibles.
 \item \emph{$\Gamma$-equivariance}: $G(z, w)$ is
   $\Gamma$-invariant, so $h_\xi^\Gamma$ commutes with the
   $\Gamma$-action and $F$ is $\Gamma$-equivariant.
@@ -4061,25 +4076,27 @@ The following three results hold without the gap hypothesis.
 
 \begin{theorem}[Fractional $L^2$-Morse index]
 \label{thm:fractional-morse}
-Let $\Gamma$ be a torsion-free cocompact Fuchsian group and
-$h_\xi^\Gamma = \sum_{\gamma \ne 1} G_{\mathbf{H}^2}
-(z_0, \gamma z_0)\, u_\gamma \in C^*_r(\Gamma)$.
+Let $\Gamma$ be a torsion-free cocompact Fuchsian group,
+fix $s > 1$, and let
+$h_\xi^\Gamma = \sum_{\gamma \ne 1} G_s
+(z_0, \gamma z_0)\, u_\gamma \in C^*_r(\Gamma)$
+(the resolvent-regularized element, well-defined
+by Theorem~\ref*{S-thm:kk-product}(i)).
 Then
-$0 < \tau\bigl(P_-(h_\xi^\Gamma)\bigr) < 1$.
+$0 < \tau\bigl(P_-(h_\xi^\Gamma)\bigr) < 1$
+and the value is independent of $s > 1$.
 \end{theorem}
 
 \begin{proof}
 First, $h$ is self-adjoint:
 $(h_\xi^\Gamma)^* = \sum_{\gamma \ne 1}
-\overline{G(z_0, \gamma z_0)}\, u_{\gamma^{-1}}
-= \sum_{\gamma \ne 1} G(z_0, \gamma^{-1} z_0)\, u_{\gamma^{-1}}
+\overline{G_s(z_0, \gamma z_0)}\, u_{\gamma^{-1}}
+= \sum_{\gamma \ne 1} G_s(z_0, \gamma^{-1} z_0)\, u_{\gamma^{-1}}
 = h_\xi^\Gamma$,
-using $G(z_0, \gamma z_0) = G(z_0, \gamma^{-1} z_0) \in \mathbb{R}$
-(the Green's function is real and symmetric in the group:
-$G(z, \gamma w) = G(z, \gamma^{-1} w)$ follows from $G(x,y) = G(y,x)$
-and $G(\gamma x, \gamma y) = G(x,y)$).
+using $G_s(z_0, \gamma z_0) = G_s(z_0, \gamma^{-1} z_0) \in \mathbb{R}$
+(the resolvent kernel is real and $\Gamma$-invariant).
 
-(i)~$G_{\mathbf{H}^2}(d) > 0$ for all $d > 0$, so
+(i)~$G_s(d) > 0$ for all $d > 0$ and $s > 1$, so
 $h$ has all-positive coefficients.
 (ii)~$h$ has no identity coefficient ($\gamma \ne 1$), so
 $\tau(h) = 0$.
