@@ -1199,8 +1199,9 @@ are all well-defined for cone metrics.
 \item \emph{Onsager contraction (constructive, finite~$N$).}
   Corollary~\ref{cor:onsager-contraction}
   proves ${\ge}\,95\%$ variance reduction per iteration
-  at $N = 7$ (contraction factor $0.042$ via the sharp Sobolev bound,
-  or $0.044$ via the coarser $L^\infty$ bound; explicit in both cases).
+  at $N = 7$ (contraction factor $0.044$ via the $L^\infty$ bound;
+  the sharper Sobolev route gives $\approx 0.042$ but requires an
+  unproven $H^1$-propagation bound on the Onsager iteration).
   No smooth-metric assumption.
 \end{enumerate}
 The Onsager principle
@@ -1433,7 +1434,7 @@ affine in~$R(x)$ via the Hadamard expansion;
 Regge vertices to smooth metrics;
 (3)~Corollary~\ref{cor:onsager-contraction} shows the
 Onsager iteration contracts curvature variance
-(factor~$0.042$ at $N = 7$).
+(factor~$0.044$ at $N = 7$).
 The main proof (Theorem~\ref{thm:polygon-einstein},
 page~\pageref{thm:polygon-einstein}) combines them via
 Jensen's inequality and the Robin-function identity
@@ -1481,9 +1482,10 @@ $R_0 = 2\pi\chi/\mathrm{Vol}$ is the mean curvature
 ($|R_0| = 1$ for the Bolza surface), and
 $V_1, V_2$ are defined in the proof below.
 At~$N = 7$: $|\beta_{\mathrm{eff}}| R_0 = 1/f(3,7) = 1/6$,
-giving contraction factor $(1/6)^2 \times e^{0.30} \times 1.12 = 0.042$
-on the Bolza surface (Sobolev bound in the proof below;
-the cruder basin estimate $\mathrm{Var} \le 2$ gives $0.044$).
+giving contraction factor $(1/6)^2 \times e^{0.337} \times 1.12 = 0.044$
+on the Bolza surface (using the $L^\infty$ basin bound;
+a sharper Sobolev route would give $\approx 0.042$
+under an unproven $H^1$-propagation assumption).
 The contraction improves with~$N$: $|\beta_{\mathrm{eff}}| R_0
 = 1/8$ at $N = 8$, $1/15$ at $N = 11$.
 \end{corollary}
@@ -1585,20 +1587,20 @@ $u \in H^1(\Sigma)$:
   + \frac{1}{e\,\lambda_1}\,\|\nabla u\|_{L^2}^2
   = 0.306\,\|u\|_{L^2}^2 + 0.096\,\|\nabla u\|_{L^2}^2.
 \end{equation}
-Within the basin $\mathrm{Var}(R) \le 2$ and
-$\|\nabla R\|_{L^2}^2 \le 2$
-(both satisfied by metrics near the uniformized one):
-$\|R - R_0\|_{L^\infty}^2 \le 0.306 \times 2 + 0.096 \times 2
-= 0.803$, giving $\|R - R_0\|_\infty \le 0.90$
-and Sobolev constant $C_S = 0.45$.
-The $L^\infty$ bound is then
-$\|\delta R\|_\infty \le 0.896$,
-$\|Y\|_\infty \le 0.90$,
-and the nonlinear factor (from~\eqref{eq:var-Y-bound})
-becomes $(1 + (0.125/2)\cdot 0.896)^2 = (1.056)^2 = 1.12$,
-tightening the contraction to
-$(1/6)^2 \times e^{0.30} \times 1.12
-= (1/6)^2 \times 1.35 \times 1.12 = 0.042 < 1$.
+The Sobolev bound~\eqref{eq:sobolev-heat} refines the
+$L^\infty$ control if an $H^1$ bound
+$\|\nabla R\|_{L^2}^2 \le 2$ is imposed on the basin
+(in addition to the $L^2$ bound $\mathrm{Var}(R) \le 2$).
+However, the Onsager iteration is not shown to preserve
+such an $H^1$ bound under~$T$; the map $T$ contracts
+$\mathrm{Var}(R)$ (the $L^2$ norm squared) but does
+not directly control $\|\nabla R\|_{L^2}$.
+We therefore quote only the cruder $L^\infty$ bound
+($\|\delta R\|_\infty \le 0.90$ from basin definition)
+and conclude contraction at factor $0.044 < 1$.
+Establishing $H^1$-propagation of~$T$ would tighten
+the factor to $\approx 0.042$, but the cruder bound
+suffices for the fixed-point argument.
 The Poincar\'e-uniformized metric ($R = \mathrm{const}$) has
 $\mathrm{Var} = 0$, and the basin $\mathrm{Var} \le 2$
 contains a metrically thick $H^1$ neighborhood:

@@ -829,6 +829,10 @@ $\sin(2\pi np/N)\cos(2\pi pm/N)
 = \tfrac{1}{2}[\sin(2\pi(n{+}m)p/N)
 + \sin(2\pi(n{-}m)p/N)]$,
 and each sine sum vanishes by the same argument.
+The interchange of $\sum_n$ and the finite $\sum_p$ is
+justified by Fubini: for $\xi \in [0,1)$ the series
+$\sum_n n\xi^n$ converges absolutely, and the $p$-sum
+has only $N-1$ terms.
 Therefore $\sum_p r(p)(1 - \cos(2\pi pm/N)) = 0$
 for every $m \ge 1$: the Robin function contributes
 exactly zero to every tangential eigenvalue.
@@ -2168,9 +2172,17 @@ $\sqrt{c+2} \in \{\sqrt{5}, \sqrt{6}, \sqrt{8}, \sqrt{12}, \sqrt{18}\}$,
 all irrational, so none of these traces arises as the square of
 a primitive element.
 Higher powers $\mathrm{tr}(M^k)$ for $k \ge 3$ satisfy the
-recursion $\mathrm{tr}(M^{k+1}) = \mathrm{tr}(M)\mathrm{tr}(M^k) - \mathrm{tr}(M^{k-1})$
-and grow strictly beyond $16$ for any integer $|\mathrm{tr}(M)| \ge 2$,
-so none of the five traces is a higher power either.
+recursion $\mathrm{tr}(M^{k+1}) = \mathrm{tr}(M)\mathrm{tr}(M^k) - \mathrm{tr}(M^{k-1})$.
+Hyperbolic elements have $|\mathrm{tr}(M)| \ge 3$
+(since $|\mathrm{tr}| = 2$ is parabolic and $|\mathrm{tr}| < 2$
+is elliptic), so
+$|\mathrm{tr}(M^k)| = 2\cosh(k\ell/2)$ with $\ell > 0$
+grows strictly with~$k$ and exceeds~$16$ once
+$k \ge 3$ and $|\mathrm{tr}(M)| \ge 3$.
+Therefore none of the five traces
+$c \in \{3, 4, 6, 10, 16\}$ arises as $\mathrm{tr}(M^k)$
+for $k \ge 2$: each corresponds to a primitive
+hyperbolic element.
 All five are primitive.
 \end{proof}
 
