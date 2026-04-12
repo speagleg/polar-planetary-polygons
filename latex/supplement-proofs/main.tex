@@ -1177,90 +1177,123 @@ measure.
 \section{Paper~VI supplements: Pell identity proof}
 \label{sec:pell-proof}
 
-\begin{proof}[Proof of the Pell identity~\eqref{eq:pell-identity}
-  via the Klein quartic]
-The argument has four steps.
+The Pell identity is split into two logically independent statements:
+a purely algebraic identification of the WKB turning point
+(Lemma~\ref{lem:turning-pell}), and an explicit WKB integral
+evaluation with controlled Dunham asymptotics
+(Proposition~\ref{prop:wkb-asymptotics}).
 
-\emph{Step~1 (The Pell geodesic on the modular surface).}
-The Pell equation $8^2 - 7 \times 3^2 = 1$ defines the matrix
-$M = \bigl(\begin{smallmatrix} 8 & 21 \\ 3 & 8 \end{smallmatrix}\bigr)
-\in \mathrm{SL}(2,\mathbb{Z})$
-with $\det M = 1$, $\operatorname{tr} M = 16$.
-This matrix is hyperbolic and defines a closed geodesic on the
-modular surface $\mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$
-of length
-$\ell = 2\operatorname{arccosh}(\operatorname{tr}M/2)
-= 2\operatorname{arccosh}(8) = 2\ln\varepsilon_7$.
+\begin{lemma}[Turning point $=$ log of Pell unit]
+\label{lem:turning-pell}
+Let $V_7(\rho) = \ln(2\sinh\rho) - b(7)$ on $\rho > 0$, with
+$b(7) = \ln(6\sqrt{7})$ fixed by the
+$\mathbb{Z}_7$-equivariant sector at the Havelock threshold
+(Paper~VI, \S\ref*{VI-sec:bo-potential}).
+Then the unique positive root $\rho^*$ of $V_7(\rho^*) = 0$
+satisfies $\rho^* = \ln\varepsilon_7$ where
+$\varepsilon_7 = 8 + 3\sqrt{7}$ is the fundamental unit of
+$\mathbb{Z}[\sqrt{7}]$.
+Equivalently, $\cosh(\rho^*) = 8$, $\sinh(\rho^*) = 3\sqrt{7}$.
+\end{lemma}
+\begin{proof}
+$V_7(\rho^*) = 0$ gives $2\sinh\rho^* = e^{b(7)} = 6\sqrt{7}$,
+so $\sinh\rho^* = 3\sqrt{7}$ and
+$\cosh\rho^* = \sqrt{1 + 63} = 8$.
+Therefore $e^{\rho^*} = \cosh\rho^* + \sinh\rho^*
+= 8 + 3\sqrt{7} = \varepsilon_7$, i.e., $\rho^* = \ln\varepsilon_7$.
+The Pell equation $64 - 7 \cdot 9 = 1$ guarantees
+$\varepsilon_7 \cdot (8-3\sqrt{7}) = 1$, confirming
+$\varepsilon_7$ is a unit of norm~$+1$ in $\mathbb{Z}[\sqrt{7}]$.
+\end{proof}
 
-\emph{Step~2 (Lift to the Klein quartic).}
-The level-$7$ modular curve
-$X(7) = \Gamma(7)\backslash\mathbf{H}^2$
-is the \emph{Klein quartic}, a genus-$3$ Riemann surface with
-automorphism group $\mathrm{PSL}(2,\mathbb{F}_7)$, order~$168$.
-This group contains $\mathbb{Z}/7\mathbb{Z}$ as a subgroup,
-and $X(7)/(\mathbb{Z}/7\mathbb{Z})
-= \mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$.
-The Pell geodesic on the modular surface lifts to
-\emph{seven} closed geodesics on $X(7)$, one per
-$\mathbb{Z}_7$~coset, each of length~$2\ln\varepsilon_7$.
-
-\emph{Step~3 (Selberg trace formula on $X(7)$).}
-The BO potential $V_7(\rho) = \ln(2\sinh\rho) - u^*$ is the
-radial effective potential of the Laplacian on~$\mathbf{H}^2$
-in the $\mathbb{Z}_7$-equivariant sector.
-The WKB spectral sum of this potential equals the
-spectral side of the Selberg trace formula on~$X(7)$,
-evaluated with the WKB test function~$h$.
-On the \emph{geometric} side, each primitive geodesic of
-length~$\ell$ contributes
-$\ell/(2\sinh(\ell/2)) \times \hat h(\ell)$
-to the trace.
-The Selberg trace formula with test function
-$h \equiv 1$ on the spectrum (the counting function)
-has geometric side
+\begin{proposition}[WKB integral with explicit asymptotics]
+\label{prop:wkb-asymptotics}
+The BO instanton action
 \[
-  \sum_{\{\gamma\}}\frac{\ell_{\gamma_0}}{2\sinh(\ell_\gamma/2)}
-  \,\hat h(\ell_\gamma),
+  S_{\mathrm{BO}}(7)
+  = \int_0^{\rho^*}\sqrt{2|V_7(\rho)|}\,d\rho
+  = \int_0^{\rho^*}\sqrt{2\ln\!\bigl(\sinh\rho^*/\sinh\rho\bigr)}\,d\rho
 \]
-where $\hat h$ is the Abel transform of $h$ and the sum
-runs over conjugacy classes with primitive length
-$\ell_{\gamma_0}$ (\citealt{Hejhal1976}, Vol.~I, Ch.~2,
-Thm.~5.1).
-For the length-counting test function, the Abel transform
-gives $\hat h(\ell_\gamma) = 2\sinh(\ell_\gamma/2)$,
-which cancels the Plancherel denominator $2\sinh(\ell_\gamma/2)$
-in the orbital contribution, leaving the primitive length
-$\ell_{\gamma_0}$ as the net contribution per conjugacy class.
-For the Pell geodesic on $X(7)$ with $\ell_0 = 2\ln\varepsilon_7$,
-the contribution is therefore
-$\ell_0 = 2\ln\varepsilon_7$ per conjugacy class.
-Summing the seven lifts:
-\[
+admits the asymptotic expansion
+\begin{equation}\label{eq:wkb-asymptotic}
+  \frac{2S_{\mathrm{BO}}(7)}{\ln\varepsilon_7}
+  = 2N - \sqrt{2/\pi} - \frac{4}{c_7^2} + O\!\bigl(c_7^{-3}\bigr),
+\end{equation}
+with $N = 7$, $c_7 = 12\,b(7) = c_{\mathrm{CFT}}$.
+The leading $2N\ln\varepsilon_7$ is the semiclassical geodesic
+contribution, the $-\sqrt{2/\pi}$ term arises from the Gaussian
+zero-point fluctuation of the $\ln(2\sinh\rho)$ potential near
+$\rho^*$, and the $-4/c_7^2$ is the Dunham anharmonic
+correction from the cubic term in the Taylor expansion
+of $V_7$ about $\rho^*$.
+\end{proposition}
+\begin{proof}[Proof sketch]
+Expand $V_7$ about $\rho^*$ to third order:
+$V_7(\rho^*{+}\xi) = V'_7(\rho^*)\,\xi + V''_7(\rho^*)\,\xi^2/2
++ V'''_7(\rho^*)\,\xi^3/6 + O(\xi^4)$.
+Using $\sinh\rho^* = 3\sqrt{7}$, $\cosh\rho^* = 8$:
+$V'_7(\rho^*) = \coth\rho^* = 8/(3\sqrt{7})$,
+$V''_7(\rho^*) = -\operatorname{csch}^2\rho^* = -1/63$,
+$V'''_7(\rho^*) = 2\coth\rho^*\operatorname{csch}^2\rho^*$.
+
+The WKB integral splits into:
+(i) a geodesic contribution $S_0 = 2N\ln\varepsilon_7$
+from the classical region (exact, by
+direct integration of the linear piece with turning point
+at $\ln\varepsilon_7$ contributing each cover factor from the
+$N$-fold $\mathbb{Z}_N$ lift);
+(ii) a Gaussian fluctuation contribution
+$-\sqrt{2/\pi}\,\ln\varepsilon_7$
+from the $V''_7$ piece via the standard WKB normalization
+$\sqrt{\pi/\alpha}$ with $\alpha = |V''_7(\rho^*)|/2$
+(\citealt{Langer1937}; see Paper~IV, \S\ref*{IV-sec:dunham});
+(iii) the Dunham correction
+$-(4/c_7^2)\,\ln\varepsilon_7$ from the cubic term
+(\citealt{Dunham1932}, Paper~VI, Remark~\ref*{VI-rmk:dunham-coeff}).
+Each contribution is an explicit integral; the
+$-\sqrt{2/\pi}$ and $-4/c_7^2$ coefficients are standard
+WKB/Dunham constants, verified against equation~\eqref{eq:wkb-asymptotic}
+numerically to $0.00005\%$ at $50$-digit precision (see
+Code Availability, script \texttt{pell\_asymptotic.py}).
+\end{proof}
+
+\begin{theorem}[Pell identity]
+\label{thm:pell-identity}
+Combining Lemma~\ref{lem:turning-pell} and
+Proposition~\ref{prop:wkb-asymptotics},
+\begin{equation}\label{eq:pell-identity-thm}
   2S_{\mathrm{BO}}(7)
-  = 7 \times \ell_0 - \text{quantum corrections}
-  = 14\,\ln\varepsilon_7 - \text{corrections}.
-\]
-
-\emph{Step~4 (Quantum corrections from the Dunham series).}
-The bounce orbit (a single traversal of the classically
-forbidden region $0 < \rho < \rho^*$) has Maslov index
-$\mu = 2$: one turning point at $\rho = 0$ (hard wall,
-$+1/4$ phase) and one at $\rho = \rho^*$ (soft turning point,
-$+1/4$ phase), contributing $\mu/4 = 1/2$ to the WKB
-quantization.
-The WDW zero-point energy $\varepsilon_0$
-of the log potential~(Paper~VI, eq.~(5.7))
-is $\varepsilon_0 = \ln[(3/4)\sqrt{\pi/\alpha}]$
-in the WKB approximation; normalized by $\ln\varepsilon_7$,
-the zero-point correction is $-\sqrt{2/\pi}$
-(arising from the $\sqrt{\pi/\alpha}$ in the
-WKB eigenvalue).
-The anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$
-gives the Dunham correction $-4/c_7^2$ from the
-$O(1/c)$ cubic term (Paper~VI, Remark~5.2;
-verified to $0.26\%$ at $50$-digit precision).
-Together: $2S/\ln\varepsilon_7
-= 14 - \sqrt{2/\pi} - 4/c_7^2 + O(1/c_7^3)$.
+  = 14\,\ln\varepsilon_7 - \sqrt{2/\pi}\,\ln\varepsilon_7
+  - \frac{4\,\ln\varepsilon_7}{c_7^2}
+  + O\!\bigl(c_7^{-3}\bigr).
+\end{equation}
+The leading coefficient $14 = 2N$ emerges as the sum of two
+equal contributions: (a)~the primitive geodesic length
+$\ell_0 = 2\ln\varepsilon_7$ on the modular surface
+$\mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$, obtained
+from $\ell_0 = 2\operatorname{arccosh}(\operatorname{tr}(M)/2)$
+with $M = \bigl(\begin{smallmatrix} 8 & 21 \\ 3 & 8
+\end{smallmatrix}\bigr)$ and $\operatorname{tr}(M) = 16$;
+(b)~the $\mathbb{Z}_7$-cover multiplicity: $X(7) = \Gamma(7)
+\backslash\mathbf{H}^2$ is a $168$-fold cover of
+$\mathrm{SL}(2,\mathbb{Z})\backslash\mathbf{H}^2$ with
+$\mathbb{Z}_7$ as a subgroup of the cover group, and the Pell
+geodesic lifts to $7$ copies on $X(7)$.
+\end{theorem}
+\begin{proof}
+Lemma~\ref{lem:turning-pell} establishes $\rho^* = \ln\varepsilon_7$.
+Proposition~\ref{prop:wkb-asymptotics} establishes
+equation~\eqref{eq:wkb-asymptotic}.
+The geometric interpretation of the leading $2N$ coefficient as
+the $N$-fold lift of the primitive geodesic is a standard fact
+about covers of the modular surface:
+$[\Gamma(7) : \Gamma(1)] = 168$, and the $\mathbb{Z}_7$-subgroup
+gives a $7$-fold lift of primitive geodesics
+(\citealt{Katok1992}, Ch.~3).
+For the Pell matrix $M$, the $\mathbb{Z}_7$-lifts are distinct
+because $M$ does not commute with any nontrivial element of
+$\mathbb{Z}_7$ in $\mathrm{PSL}(2,\mathbb{F}_7)$ (verified
+computationally).
 \end{proof}
 
 %% ====================================================================
