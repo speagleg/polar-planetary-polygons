@@ -943,9 +943,9 @@ non-constant in~$p$, so $\Delta^2$ is a non-trivial Fourier
 coefficient of $|\!\sin|^{2-\alpha}$.
 This function has infinite Fourier support for non-integer
 $2{-}\alpha$ (its Fourier coefficients decay as
-$O(n^{\alpha-3})$ by the Paley--Wiener theorem for
-piecewise-smooth functions; see
-\citealt{Katznelson2004}, Theorem~VI.2.4).
+$O(n^{\alpha-3})$ by standard Fourier decay estimates
+for piecewise-smooth functions;
+see \citealt{Katznelson2004}, Ch.~II).
 Numerically: $\Delta^2 S_2 = -4.0$ to~$10^{-14}$ for all~$m$
 and~$N$; for $\alpha = 3$, $\Delta^2$ varies by a factor
 of~$3$ across~$m$ (see Code Availability).
@@ -1335,7 +1335,7 @@ Each contribution is a rational function of~$\xi$.
 Combining over the common denominator $(1{-}\xi)^2$
 and simplifying (or, equivalently, substituting
 $r_E = a\sqrt{\xi}$ into the exact constrained Hessian
-of \citealt{Kimura1999}, eq.~(2.8)):
+of the \citealt{Kimura1999} Hamiltonian):
 \begin{equation}\label{eq:C1-H2-final}
   C_1 = (N{-}1)\,\frac{1+\xi^2}{(1-\xi)^2}.
 \end{equation}
@@ -3479,7 +3479,7 @@ On the symmetric space $G/K = \mathrm{SL}(2,\mathbb{R})
 /\mathrm{SO}(2)$, the $G$-Casimir acts as the Laplacian
 (Helgason, \emph{Groups and Geometric Analysis},
 Theorem~II.2.3).
-The EFK theorem (1998, Theorem~7.1.2) identifies the
+The EFK theorem (1998, Ch.~7) identifies the
 CMS Hamiltonian at the $\mathbb{Z}_N$ locus with the
 KZ connection, and the KZ connection equals the CS
 Wilson line (Witten 1988).
@@ -3729,7 +3729,7 @@ Set $F = 2P_- - 1$ (the sign of $c_m + h_\xi^\Gamma$).
   the sign function of a trace-class perturbation of a
   scalar differs from the unperturbed sign by a compact
   operator (Birman--Solomyak trace-class scattering theory;
-  see \citealt{Kato1995}, Theorem~X.4.4).
+  see \citealt{Kato1995}, Ch.~X).
 \item \emph{$\Gamma$-equivariance}: $G(z, w)$ is
   $\Gamma$-invariant, so $h_\xi^\Gamma$ commutes with the
   $\Gamma$-action and $F$ is $\Gamma$-equivariant.
@@ -3963,7 +3963,8 @@ $\tau(h) = 0$.
 (iii)~$h \ne 0$ in $C^*_r(\Gamma)$.
 (iv)~The canonical trace $\tau$ on $C^*_r(\Gamma)$ is
 \emph{faithful} for torsion-free $\Gamma$
-(\citealt{Puschnigg2002}):
+(standard; the canonical trace is the identity
+coefficient in the left regular representation):
 $\tau(a^* a) = 0 \Rightarrow a = 0$.
 (v)~If $\mathrm{spectrum}(h) \subset [0, \infty)$: then
 $h \ge 0$, $\tau(h) = 0$, and faithfulness gives $h = 0$,

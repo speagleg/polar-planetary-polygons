@@ -106,7 +106,7 @@ This is a theorem, proved by composing three results:
   Conical singularities become punctures with fixed holonomy.
   This is an exact equivalence of actions, not an approximation.
 \item \emph{CS on punctured surface $\to$ KZ $\to$ CMS}
-  (Etingof--Frenkel--Kirillov, Theorem~7.1.2).
+  (Etingof--Frenkel--Kirillov, Ch.~7).
   The CS flatness constraint at the $\mathbb{Z}_N$-symmetric
   locus \emph{is} the CMS Hamiltonian.
   The operators are equal, not merely analogous.
@@ -262,8 +262,8 @@ Einstein gravity with cosmological constant $\Lambda$
 theory for the gauge group
 $\mathrm{SL}(2,\mathbb{R}) \times \mathrm{SL}(2,\mathbb{R})$
 (Lorentzian, $\Lambda < 0$) or
-$\mathrm{SU}(2) \times \mathrm{SL}(2,\mathbb{R})$
-(Euclidean, $\Lambda < 0$).
+$\mathrm{SL}(2,\mathbb{C})$
+(Euclidean, $\Lambda < 0$; \citealt{Witten1991}).
 The dreibein $e$ and spin connection $\omega$ combine
 into chiral CS connections $A_\pm = \omega \pm e/\ell$
 with independent $\mathrm{SL}(2,\mathbb{R})$ actions.
@@ -412,7 +412,7 @@ Three steps: Laplacian, Havelock, identification.
 \emph{Step 1 (Symmetric space theorem).}
 On a Riemannian symmetric space $G/K$, the quadratic Casimir
 of~$\mathfrak{g}$ acts as the Laplace--Beltrami operator
-(\citealt{Helgason1984}, Chapter~II, Theorem~2.3).
+(\citealt{Helgason1984}, Ch.~II).
 For $G = \mathrm{SL}(2,\mathbb{R})$, $K = \mathrm{SO}(2)$,
 $G/K = \mathbf{H}^2$:
 the $\mathfrak{sl}(2,\mathbb{R})$ Casimir
@@ -474,7 +474,7 @@ $\mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$
 and the CS gauge group acts on the same
 $\mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$ base manifold.
 The Etingof--Frenkel--Kirillov theorem
-(\citeyear{EtingofFrenkelKirillov1998}, Theorem~7.1.2)
+(\citeyear{EtingofFrenkelKirillov1998}, Ch.~7)
 makes this precise: the CMS Hamiltonian restricted to the
 $\mathbb{Z}_N$-symmetric locus of the configuration space
 \emph{is} the KZ connection (the flatness condition of
@@ -484,12 +484,12 @@ The chain is:
 \begin{enumerate}
 \item \emph{CMS $\to$ KZ.}
   At the $\mathbb{Z}_N$-symmetric point, the CMS Hamiltonian
-  $=$ the radial part of the KZ connection (EFK, Theorem~7.1.2).
+  $=$ the radial part of the KZ connection (EFK, Ch.~7).
 \item \emph{KZ $\to$ CS Wilson line.}
   CS Wilson line expectation values
   $\langle W_m\rangle = \mathrm{Tr}_{R_m}
   \mathcal{P}\exp\!\oint\! A$
-  satisfy the KZ equation \citep{Witten1988}.
+  satisfy the KZ equation \citep{Witten1989Jones}.
 \item \emph{No mode mixing.}
   At the $\mathbb{Z}_N$-fixed point, the KZ connection
   commutes with the $\mathbb{Z}_N$ action
@@ -529,7 +529,7 @@ Define:
   at the $\mathbb{Z}_N$-symmetric positions,
   at level $k = c/6 = 2\,b(N)$,
   computed via analytic continuation from the compact form
-  $\mathrm{SU}(2)$ (\citealt{Witten1991Analytic}).
+  $\mathrm{SU}(2)$ (\citealt{Witten1991}).
   (The Seifert manifold $\mathbf{H}^2 \times_N S^1$
   is not an independent hypothesis: it is uniquely
   determined by~$N$ through
@@ -682,16 +682,19 @@ Step~6 assembles the result.
   $\sum m_i = 0 \bmod N$ restricts the allowed
   quartic interactions).}
 
-\item[\emph{5b.}] \emph{CS is one-loop exact.}
-  For compact gauge groups, the CS partition function
-  around each flat connection equals the classical
+\item[\emph{5b.}] \emph{The CS partition function has no
+  higher-loop corrections at this saddle.}
+  For compact gauge groups, the one-loop CS partition function
+  around a flat connection equals the classical
   action times the Ray--Singer torsion times the
   level shift $k \to k{+}h^\vee$
-  (\citealt{Witten1989Jones}, \S2.3;
-  \citealt{AxelrodSinger1994}).
+  (\citealt{Witten1989Jones};
+  each perturbative coefficient is a finite topological
+  invariant, \citealt{AxelrodSinger1994}).
   For the non-compact group
-  $\mathrm{SL}(2,\mathbb{R})$,
-  the same structure holds for two reasons:
+  $\mathrm{SL}(2,\mathbb{R})$ at the
+  $\mathbb{Z}_N$-symmetric flat connection,
+  higher-loop corrections vanish for two reasons:
 
   \emph{(i)~No instantons.}
   $\pi_3(\mathrm{SL}(2,\mathbb{R})) = 0$
@@ -699,16 +702,18 @@ Step~6 assembles the result.
   onto $\mathrm{SO}(2) \simeq S^1$, so
   $\pi_3 = \pi_3(S^1) = 0$).
   Non-perturbative corrections to the CS path integral
-  require nontrivial $\pi_3$ (Witten 1989, \S3);
+  require nontrivial $\pi_3$
+  (\citealt{Witten1989Jones}, \S3);
   they vanish here.
 
-  \emph{(ii)~Perturbative expansion is local.}
-  The saddle-point expansion of the CS path integral
-  around the unique flat connection (Step~3) is a
-  formal power series in $1/k$.
-  Each coefficient is a Feynman integral on the
-  tangent space $\mathfrak{sl}(2,\mathbb{R})$
-  to the flat connection.
+  \emph{(ii)~Isolated saddle with local analyticity.}
+  The flat connection at the $\mathbb{Z}_N$-symmetric
+  locus is unique by Troyanov uniformization
+  (Step~3; \citealt{Troyanov1991}).
+  The saddle-point expansion around this isolated
+  flat connection is a formal power series in $1/k$
+  whose coefficients are Feynman integrals on the
+  tangent space $\mathfrak{sl}(2,\mathbb{R})$.
   Since $\mathfrak{sl}(2,\mathbb{R})$ and
   $\mathfrak{su}(2)$ are real forms of the
   same complexification $\mathfrak{sl}(2,\mathbb{C})$,
@@ -716,23 +721,18 @@ Step~6 assembles the result.
   structure constants $f^{abc}$ and the Killing form $g_{ab}$
   (both shared by the two real forms up to signs absorbed
   into the Euclidean continuation),
-  the vanishing of higher loops for $\mathrm{SU}(2)$
-  (Axelrod--Singer~1994) implies the same vanishing for
-  $\mathrm{SL}(2,\mathbb{R})$.
+  each higher-loop coefficient for $\mathrm{SL}(2,\mathbb{R})$
+  is the analytic continuation of the corresponding
+  $\mathrm{SU}(2)$ coefficient.
   The continuous Plancherel spectrum of
   $\mathrm{SL}(2,\mathbb{R})$
-  (principal series, $s \in \mathbb{R}$) contributes to
-  the global Plancherel decomposition of
-  $L^2(\mathrm{SL}(2,\mathbb{R}))$
-  but does not enter the perturbative expansion
+  does not enter the perturbative expansion
   around an isolated flat connection:
   the saddle-point expansion is
   a sum over fluctuations in a \emph{neighborhood}
   of the flat connection, where the tangent-space
   structure controls the answer.
-  The flat connection at the $\mathbb{Z}_N$-symmetric
-  locus is unique by Troyanov uniformization (Step~3).
-  Therefore $Z_{\mathrm{CS}}$ is exactly its one-loop
+  Therefore $Z_{\mathrm{CS}}$ equals its one-loop
   value at this saddle.
 
 \item[\emph{6.}] \emph{Assembly.}
@@ -1660,7 +1660,8 @@ The Szeg\H{o}--Toeplitz analysis sharpens the rate:
 the entropy $S_{\mathrm{Regge}}$ is a Toeplitz sum
 $\sum \log\lambda_m$ over the circulant eigenvalues,
 and Szeg\H{o}'s strong theorem
-(\citealt{GrenanderSzego1958}, Theorem~5.2)
+(Szeg\H{o}'s strong limit theorem;
+\citealt{GrenanderSzego1958})
 gives $|S_{\mathrm{Regge}} - S_{\mathrm{total}}[g]|
 = O(V^{-k})$ for every $k \ge 1$
 (exponential convergence of Toeplitz determinants
@@ -1761,7 +1762,7 @@ Setting $u(x) := K(x) - \bar K$, we have
 $\|u\|_{L^2} \le C_{\mathrm{heat}}\,\varepsilon^2\,
 \|\Delta u\|_{L^2}$.
 By the standard Schauder elliptic estimate on a compact
-surface (\citealt{GilbargTrudinger2001}, Thm.~9.11),
+surface (\citealt{GilbargTrudinger2001}, Ch.~6),
 $\|u\|_{H^2} \le C_S (\|u\|_{L^2} + \|\Delta u\|_{L^2})$,
 and $\|\Delta u\|_{L^2} \le \|u\|_{H^2}$, so
 \[
@@ -2272,7 +2273,7 @@ sense, with $g_2$ acquiring delta-function contributions
 at the cone points.
 The $\delta^2$ issue does not arise because the FG expansion
 terminates at order~$z^2$ for boundary dimension~$2$
-(\citealt{FeffermanGraham1985}, Theorem~1.2;
+(\citealt{FeffermanGraham1985};
 the $g_4$ coefficient, which would contain the $\delta^2$
 terms, appears only at order~$z^4$ and is absent).
 The $\mathbb{Z}_N$
