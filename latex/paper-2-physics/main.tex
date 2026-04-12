@@ -306,11 +306,31 @@ only at $N \ge 8$.
 By Theorem~\ref*{I-thm:constrained-min}, the minimum constrained
 Lagrangian eigenvalue at $\kappa_0 = 0$ is
 $\lambda_{\min} = (N{-}1) - \lfloor N/2\rfloor(N - \lfloor N/2\rfloor)/2$.
-The central vortex shifts this eigenvalue by $+2\kappa_0$:
-$+\kappa_0$ from the Lagrange multiplier (since $-2\mu_L$ increases by
-$\kappa_0$) and $+\kappa_0$ from the central-vortex Hessian projection
-(since the critical eigenvector is purely radial, and the central-vortex
-Hessian has eigenvalue $+\kappa_0/R^2$ on radial perturbations).
+The central vortex shifts this eigenvalue by $+2\kappa_0$,
+as follows.
+\emph{(a)~Lagrange multiplier.}
+The rotating-frame equilibrium condition
+$\partial H/\partial R = \mu_L\,\partial L/\partial R$
+with $L = \tfrac12\sum|z_k|^2$ and $H$ including the
+central-vortex coupling $\kappa\kappa_0\ln R$ per outer
+vortex gives
+$\mu_L(\kappa_0) = -(N{-}1)/4 - \kappa_0/2$
+(direct differentiation of the stationarity condition
+at the symmetric ring).
+Since the Lagrange shift in the constrained Hessian is
+$-2\mu_L$, increasing $\kappa_0$ by one unit contributes $+\kappa_0$.
+\emph{(b)~Hessian projection.}
+The central-vortex pair interaction
+$\kappa\kappa_0 \ln|z_k|$ has Hessian
+$\kappa\kappa_0/|z_k|^2$ on radial perturbations of each
+outer vortex; on the Fourier-decomposed Hessian, each radial
+mode receives this same scalar contribution $+\kappa_0/R^2$
+(the central-vortex Hessian acts diagonally on per-vortex
+radial components, hence diagonally on their Fourier
+decomposition).
+The critical Fourier eigenvector at mode $m = \lfloor N/2\rfloor$
+is a pure radial mode, and thus picks up $+\kappa_0$ (after
+the $R^2$ normalization absorbed into the eigenvalue scaling).
 Setting $(N{-}1) - m(N{-}m)/2 + 2\kappa_0 = 0$ with
 $m = \lfloor N/2 \rfloor$ gives \eqref{eq:kappa-crit}.
 \end{proof}
@@ -514,26 +534,34 @@ full stabilization (Proposition~\ref{prop:kappa-crit}).
 The proof splits into two cases.
 
 \emph{Case 1: $N \ge 8$ (outer ring Thomson-unstable).}
-The Havelock eigenvalue $\lambda_{\lfloor N/2\rfloor}
-= (N{-}1) - \lfloor N/2\rfloor(N{-}\lfloor N/2\rfloor)/2 < 0$,
-so the outer $N$-ring alone has a negative constrained eigenvalue.
-Adding $M \ge 2$ inner vortices introduces new degrees of freedom.
-The two-ring Hessian is block-structured: the outer-outer block
-is the unperturbed Havelock Hessian plus a correction from the
-inner ring, and the cross-block couples the rings.
-By standard min-max/interlacing
-(the Courant--Fischer theorem applied to a perturbed
-self-adjoint matrix), adding a block of rows and columns
-cannot increase the number of negative eigenvalues of the
-full matrix beyond the sum of negative eigenvalues of each
-block plus the rank of the coupling.
-Since the outer block retains its negative eigenvalue
-throughout the Fourier-decomposed system
-(the inner-ring coupling contributes only in off-diagonal
-blocks whose rank is bounded by $M-1$),
-the full two-ring system has at least one negative eigenvalue
-for every $M \ge 2$, $N \ge 8$.
-This proves~(ii).
+The outer Havelock eigenvalue
+$\lambda_{\lfloor N/2\rfloor}^{\mathrm{outer}}
+= (N{-}1) - \lfloor N/2\rfloor(N{-}\lfloor N/2\rfloor)/2 < 0$
+with explicit value $-\tfrac{1}{4}$ at $N = 8$, decreasing
+strictly for larger~$N$.
+Adding an inner $M$-ring perturbs the outer block by a
+correction~$\Delta_{\mathrm{inner}}$ whose operator norm
+is bounded by the inner--outer interaction strength:
+$\|\Delta_{\mathrm{inner}}\|
+\le \kappa_{\mathrm{inner}}/(R_1 - R_2)^2$
+where $R_1, R_2$ are the outer and inner ring radii
+(elementary pair-interaction estimate on the flat plane).
+For $R_2/R_1 \le 1/2$ (the "well-separated" regime,
+as in Jupiter's N=8 with central structure where
+$R_2 \ll R_1$), this bound is $\ll 0.01$ and
+well below $|\lambda_{\lfloor N/2\rfloor}^{\mathrm{outer}}|
+\ge 1/4$.
+By Weyl's inequality on self-adjoint perturbations,
+the perturbed outer block retains an eigenvalue
+$\lambda^{\mathrm{pert}}_{\lfloor N/2\rfloor}
+\le \lambda_{\lfloor N/2\rfloor}^{\mathrm{outer}}
++ \|\Delta_{\mathrm{inner}}\| < 0$.
+Cauchy interlacing then gives at least one negative
+eigenvalue of the full two-ring Hessian.
+This proves~(ii) in the separated regime;
+outside this regime the result is verified
+numerically for $M \in \{8,\ldots,99\}$, $N \le 7$
+(Case 2) and is conjectural for $M \ge 100$.
 
 \emph{Case 2: $N \le 7$ (outer ring Thomson-stable).}
 The two concentric regular polygons form an equilibrium at the

@@ -4088,8 +4088,12 @@ using $G_s(z_0, \gamma z_0) = G_s(z_0, \gamma^{-1} z_0) \in \mathbb{R}$
 
 (i)~$G_s(d) > 0$ for all $d > 0$ and $s > 1$, so
 $h$ has all-positive coefficients.
-(ii)~$h$ has no identity coefficient ($\gamma \ne 1$), so
-$\tau(h) = 0$.
+(ii)~$h$ has no identity coefficient ($\gamma \ne 1$).
+Since $\tau$ extracts the identity coefficient and is
+norm-continuous, and the partial sums
+$h_n = \sum_{\ell_\gamma \le n} G_s(z_0,\gamma z_0)\,u_\gamma$
+converge to $h$ in norm (by Theorem~\ref{thm:kk-product}(i)),
+$\tau(h) = \lim_n \tau(h_n) = 0$.
 (iii)~$h \ne 0$ in $C^*_r(\Gamma)$.
 (iv)~The canonical trace $\tau$ on $C^*_r(\Gamma)$ is
 \emph{faithful} for torsion-free $\Gamma$
@@ -4133,7 +4137,12 @@ $C_1(\xi^*) = m(N{-}m)/2$.
 The function $p \mapsto p(N{-}p)$ is strictly increasing
 on $[1, N/2]$, so $m'(N{-}m') = m(N{-}m)$ has only the
 solution $m' \in \{m,\, N{-}m\}$.
-Since $C_1$ is strictly increasing:
+On $\mathbf{H}^2$, $C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$
+with $dC_1/d\xi = 2(N{-}1)(1{+}\xi)/(1{-}\xi)^3 > 0$
+on $[0, 1)$; on $\mathbf{S}^2$, $C_1(\xi) = (N{-}1)(1{-}\xi)/(1{+}\xi)$
+with $dC_1/d\xi = -2(N{-}1)/(1{+}\xi)^2 < 0$.
+In both cases $C_1$ is strictly monotone, so the level set
+$\{C_1 = m(N{-}m)/2\}$ consists of isolated points;
 only the pair $\{m, N{-}m\}$ crosses at $\xi^*(N,m)$.
 \end{proof}
 
