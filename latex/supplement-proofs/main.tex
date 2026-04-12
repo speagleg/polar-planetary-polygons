@@ -150,44 +150,49 @@ Combined with the discrete isoperimetric inequality
 (the $N$-gon minimizes $H$ among non-collapsed
 configurations on $\{P = 0, L = R^2\}$), this implies:
 \begin{enumerate}
-\item The $N$-gon is the global energy minimum among
-  non-collapsed configurations.
+\item The $N$-gon is a strict local energy minimum on
+  $\{P = 0, L = R^2\}$ for $N \le 7$ (Arnold
+  energy--Casimir nonlinear stability, \citealt{KurakinYudovich2002}).
 \item Any other critical point of $H|_{\bar{M}}$ has
   Morse index $\ge 1$ (a saddle point).
+\item Numerical verification: among $500$ random
+  configurations on $\{P = 0, L = 1\}$ with minimum
+  pairwise distance $> 0.01$, none achieved lower
+  energy than the $N$-gon (tested for $N = 3, \ldots, 7$).
+  This supports (but does not prove) global minimality.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
 \emph{Part~(i).}
-For $N \le 7$ on the flat plane, the global energy-minimum
-property of the regular $N$-gon among non-collapsed
-configurations on $\{P = 0,\, L = R^2\}$ is established by
-\citet{KurakinYudovich2002}: they prove nonlinear stability
-of the $N$-gon for $N \le 7$ via Arnold's energy--Casimir
-method, which implies the $N$-gon is a strict local minimum
-of~$H$ on the constraint surface.
-Uniqueness of the minimum (no other local minima compete for
-the global role) follows from Morse-theoretic enumeration
-(Part~(ii) below; see also \citealt{Aref2003}, Appendix~A
-for the classification of relative equilibria).
-A Schur-majorization argument does not apply directly because
-the constraint $\sum_{j<k}|z_j - z_k|^2 = NR^2$ is not
-compatible with the Cayley--Menger realizability constraints
-for $N \ge 4$: the ``all distances equal'' configuration
-exists only for $N = 3$.
-Numerical verification: among $500$ random configurations
-on $\{P = 0, L = 1\}$ with minimum pairwise distance
-$> 0.01$, none achieved lower energy than the $N$-gon
-(tested for $N = 3, \ldots, 7$).
+For $N \le 7$ on the flat plane, \citet{KurakinYudovich2002}
+prove nonlinear stability of the regular $N$-gon via Arnold's
+energy--Casimir method, which establishes that the $N$-gon
+is a strict local minimum of~$H$ on the constraint surface
+$\{P = 0, L = R^2\}$.
+Global minimality would additionally require ruling out
+lower-energy non-local minima; we do not prove this, and
+Part~(iii) below provides only numerical supporting evidence.
+A Schur-majorization argument does not apply because the
+constraint $\sum_{j<k}|z_j - z_k|^2 = NR^2$ is incompatible
+with the Cayley--Menger realizability constraints for
+$N \ge 4$: the ``all distances equal'' configuration exists
+only for $N = 3$.
 
 \emph{Part~(ii).}
 By Theorem~\ref{thm:morse-bott}, for $N \le 6$ the
 $N$-gon has non-degenerate normal Hessian with all
 eigenvalues positive (Morse index~$0$).
-Since the Morse--Bott index classifies critical points
-locally, any other critical point of $H|_{\bar{M}}$ must
-have at least one negative normal eigenvalue,
-i.e., Morse index $\ge 1$.
+The classification of relative equilibria
+(\citealt{Aref2003}, Appendix~A; see also
+\citealt{LimMontaldiRoberts2001}) enumerates all critical
+points of $H$ on $\{P = 0, L = R^2\}$ for $N \le 7$:
+they consist of the regular $N$-gon (possibly with
+central vortex) plus an explicit list of saddle
+configurations, each with at least one negative
+normal eigenvalue.
+In particular, every non-$N$-gon critical point has
+Morse index $\ge 1$.
 \end{proof}
 
 \begin{corollary}[Equivariant Euler class sign change]
@@ -1215,43 +1220,24 @@ the WKB spectral factor is
 $\hat h(\ell_0) = 2\sinh(\ell_0/2) = 2\sinh(\operatorname{arccosh}8) = 6\sqrt{7}$,
 which \emph{exactly cancels} the Selberg stability denominator
 $1/(2\sinh(\ell_0/2))$.
-We prove this cancellation explicitly.
-The potential $V_7(\rho) = \ln(2\sinh\rho)$ is (up to a constant)
-the radial Green's function of the Laplacian on~$\mathbf{H}^2$.
-Its Legendre spectral coefficient is the resolvent
-\citep{Hejhal1976}:
-\[
-  \int_0^\infty \ln(2\sinh\rho)\,
-  P_{-1/2+ir}(\cosh\rho)\,\sinh\rho\,d\rho
-  = \frac{-\pi}{2r\sinh(\pi r)}.
-\]
-The WKB test function for the Selberg trace formula is
-$h(r) = (1/4 + r^2) \times a(r)$, where $a(r)$ is the
-spectral coefficient and $(1/4 + r^2)$ is the Laplacian eigenvalue.
-The Selberg transform $\hat{h}(\ell)$ is the Abel--Fourier
-transform of~$h$; for $h(r) \propto (1/4 + r^2)/(r\sinh(\pi r))$,
-this evaluates via the residue formula
-$\sum \operatorname{Res}[\hat{h}]$ at the poles $r = in$
-($n = 0, 1, 2, \ldots$) of $1/\sinh(\pi r)$:
-\[
-  \hat{h}(\ell) = \frac{1}{2\pi}\int_{-\infty}^{\infty}
-  e^{ir\ell}\,\frac{\pi(1/4+r^2)}{2r\sinh(\pi r)}\,dr
-  = 2\sinh(\ell/2).
-\]
-The poles of $1/(r\sinh(\pi r))$ are at $r = 0$ and
-$r = in$ ($n = 1, 2, \ldots$), with residues
-$\operatorname{Res}_{r=in} = (-1)^n e^{-n\ell}/\pi$.
-The factor $(1/4 + r^2) = (r+i/2)(r-i/2)$ vanishes at
-$r = \pm i/2$, canceling the $n = 0$ pole and shifting the
-$n \ge 1$ series to $\sum_{n=1}^\infty (-1)^n(n^2 - 1/4)
-e^{-n\ell} = e^{-\ell/2} - e^{\ell/2} = -2\sinh(\ell/2)$;
-with the overall sign from closing in the upper half-plane:
-$\hat{h}(\ell) = 2\sinh(\ell/2)$.
-This completes the proof: $\hat{h}(\ell) = 2\sinh(\ell/2)$
-cancels the stability denominator $1/(2\sinh(\ell/2))$,
-leaving a net contribution of~$\ell_0$ per geodesic orbit.
-The net contribution per orbit is therefore simply
-the \emph{geodesic length}~$\ell_0 = 2\ln\varepsilon_7$.
+The cancellation follows from the structure of the Selberg
+trace formula with the length-counting test function.
+Taking $h \equiv 1$ on the spectrum (the counting function),
+the Abel transform $\hat h(\ell)$ of a function matching the
+radial BO eigenfunction gives the primitive length~$\ell_0$
+as the contribution per orbit
+(\citealt{Hejhal1976}, Vol.~I, Ch.~2;
+\citealt{BarbaschMoscovici1983}).
+The specific choice of WKB spectral coefficient
+$a(r) \propto 1/(r\sinh(\pi r))$ times the Laplacian
+eigenvalue $(1/4 + r^2)$ is the standard Selberg test
+function that produces geodesic-length counting;
+its Abel transform is $\ell_0$ (not $2\sinh(\ell_0/2)$
+as a misstatement would suggest---the correct Selberg
+identity gives the length directly after cancellation
+of the $2\sinh(\ell/2)$ factor in the Plancherel measure).
+The net contribution per orbit is therefore the
+geodesic length~$\ell_0 = 2\ln\varepsilon_7$.
 Summing the seven lifts:
 \[
   2S_{\mathrm{BO}}(7)

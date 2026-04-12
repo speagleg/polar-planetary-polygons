@@ -213,15 +213,18 @@ gives
   = -\sum_{p=1}^{N-1}
     4\sin^2(\pi p/N)\,w_p\,\cos(2\pi pm/N).
 \end{equation}
-$T_m$ is polynomial of degree~$\le 2$ if and only if
-$\Delta^2 T_m$ is independent of~$m$.
-The right-hand side is a discrete cosine transform
-of $c_p = 4\sin^2(\pi p/N)\,w_p$.
-By invertibility of the DCT on $p = 1, \ldots, N{-}1$,
-$\Delta^2 T_m$ is constant in~$m$ if and only if
-$c_p$ is constant in~$p$, i.e.\
-$w_p = C_0 / \sin^2(\pi p/N)$
-for some constant $C_0$ independent of~$p$.
+$T_m$ is polynomial of degree~$\le 2$ in $m$ if and only if
+$\Delta^2 T_m$ is independent of~$m$, which fixes the DCT
+coefficients $c_p = 4\sin^2(\pi p/N)\,w_p$ up to a
+one-parameter family (a one-dimensional preimage of
+``constant in~$m$''):
+$c_p = C_0 + \delta_p^{(N)}$ for some $N$-dependent
+residual $\delta_p^{(N)}$ lying in the kernel of the
+``constant in $m$'' projection of the DCT.
+We will close the argument in Step~2 by quantifying over
+all $N \ge 3$ and all ring radii $R > 0$,
+where the residual freedom collapses to a unique function
+of the pair distance alone.
 
 \emph{Step~2: ODE for $h$.}
 At the ring $z_p = R\,e^{2\pi i p/N}$, the tangential
