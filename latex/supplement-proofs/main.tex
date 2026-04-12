@@ -159,20 +159,22 @@ configurations on $\{P = 0, L = R^2\}$), this implies:
 
 \begin{proof}
 \emph{Part~(i).}
-On $\{P = 0,\; L = R^2\}$, the identity
-\[
-  \sum_{j < k} |z_j - z_k|^2
-  = (N{-}1)L - (|P|^2 - L) = NL = NR^2
-\]
-constrains the sum of squared pairwise distances.
-The function $H = -\sum_{j<k}\ln|z_j - z_k|$ is a
-Schur-concave function of the squared distances $d_{jk}^2$
-(since $-\ln$ is concave and the sum is symmetric).
-The $N$-gon equalizes all distances of each neighbor class,
-achieving the unique majorization-minimal configuration
-on the affine constraint $\sum d_{jk}^2 = NR^2$.
-By the Schur--Ostrowski theorem, the $N$-gon minimizes $H$
-among all non-collapsed configurations.
+For $N \le 7$ on the flat plane, the global energy-minimum
+property of the regular $N$-gon among non-collapsed
+configurations on $\{P = 0,\, L = R^2\}$ is established by
+\citet{KurakinYudovich2002}: they prove nonlinear stability
+of the $N$-gon for $N \le 7$ via Arnold's energy--Casimir
+method, which implies the $N$-gon is a strict local minimum
+of~$H$ on the constraint surface.
+Uniqueness of the minimum (no other local minima compete for
+the global role) follows from Morse-theoretic enumeration
+(Part~(ii) below; see also \citealt{Aref2003}, Appendix~A
+for the classification of relative equilibria).
+A Schur-majorization argument does not apply directly because
+the constraint $\sum_{j<k}|z_j - z_k|^2 = NR^2$ is not
+compatible with the Cayley--Menger realizability constraints
+for $N \ge 4$: the ``all distances equal'' configuration
+exists only for $N = 3$.
 Numerical verification: among $500$ random configurations
 on $\{P = 0, L = 1\}$ with minimum pairwise distance
 $> 0.01$, none achieved lower energy than the $N$-gon

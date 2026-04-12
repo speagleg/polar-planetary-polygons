@@ -3195,46 +3195,41 @@ In a neutrino mass matrix of the form
 $m_\nu = C^T\!\operatorname{diag}(w)\,C$,
 where $C_{km} = \cos(2\pi km/N)$ is the pair cosine matrix
 ($k,m \in \{1,\ldots,(N{-}1)/2\}$) and $w$ has equal
-components $w_1 = w_2 = \ldots$,
+components $w_1 = w_2 = \cdots = w_{(N-1)/2}$,
 the atmospheric mixing angle is exactly $\theta_{23} = \pi/4$.
-More generally, the conclusion holds whenever~$w$ satisfies
-\begin{equation}\label{eq:weight-condition}
-  \sum_{k=1}^{(N-1)/2} w_k\bigl[\cos^2(4\pi k/N)
-  - \cos^2(6\pi k/N)\bigr] = 0.
-\end{equation}
 \end{theorem}
 \begin{proof}
-For odd $N$ with $\gcd(N, 6) = 1$, character orthogonality on
-$(\mathbb{Z}/N)^*$ gives
-$\sum_{k=1}^{(N-1)/2} \cos^2(4\pi k/N)
-= \sum_{k=1}^{(N-1)/2} \cos^2(6\pi k/N) = (N{-}2)/4$
-(both $2$ and $3$ are units mod~$N$, so the characters
-$k \mapsto 4k$ and $k \mapsto 6k$ are bijections on
-the quotient).
-This covers $N = 7$ (the case used below).
-For \emph{equal} weights $w_k = w$, this gives
-$(m_\nu)_{22} = (m_\nu)_{33}$ directly.
-For non-equal weights, the condition~\eqref{eq:weight-condition}
-is required (an unweighted identity cannot force a weighted
-equality; for $N = 7$ and $w = (1,0,0)$, for instance,
-$(m_\nu)_{22} = 0.050$ while $(m_\nu)_{33} = 0.812$).
-When~\eqref{eq:weight-condition} holds, the full $3{\times}3$
-matrix~$m_\nu = C^T\,\mathrm{diag}(w)\,C$ is real symmetric
-(real cosine matrix~$C$, real weights~$w$).
-The pair symmetry $k \leftrightarrow N{-}k$ further forces
-the $2$--$3$ block to decouple from the $1$-index:
-$(m_\nu)_{12}$ involves $\sum_k w_k \cos(2\pi k/N)\cos(4\pi k/N)$
-while $(m_\nu)_{13}$ involves $\sum_k w_k \cos(2\pi k/N)\cos(6\pi k/N)$,
-and the involution $k \mapsto N{-}k$ (which leaves each summand
-invariant since $\cos$ is even and $w$ is symmetric) makes these
-two sums equal.
-The $3{\times}3$ mass matrix therefore block-diagonalizes in the
-$(1)\oplus(2,3)$ basis after the orthogonal rotation
-sending the $(1,\pm 1)/\sqrt{2}$ combinations of rows $2, 3$
-to the eigenbasis.
-The remaining $2{\times}2$ block has equal diagonals
-$(m_\nu)_{22} = (m_\nu)_{33}$, so its eigenvectors are
-$(1,\pm 1)/\sqrt{2}$, giving $\theta_{23} = \pi/4$ exactly.
+Assume $N = 7$ and equal weights $w_k \equiv w$
+(the specific case needed for the Standard Model
+three-generation application).
+On $(\mathbb{Z}/7)^* = \{1,2,3,4,5,6\}$ with even symmetry
+($k \equiv N{-}k$), the summation indices reduce to
+$\{1, 2, 3\}$.
+By character orthogonality on the group $(\mathbb{Z}/7)^*$,
+multiplication by $2$ and by $3$ (both units mod~$7$) permutes
+the representatives, so for any function $f\colon \{1,2,3\}
+\to \mathbb{R}$ invariant under this permutation:
+$\sum_k \cos(2\pi k/N)\,\cos(4\pi k/N)
+= \sum_k \cos(2\pi (2k)/N)\,\cos(4\pi (2k)/N)
+= \sum_k \cos(4\pi k/N)\,\cos(8\pi k/N)
+= \sum_k \cos(4\pi k/N)\,\cos(6\pi k/N)$
+(using $\cos(8\pi k/7) = \cos(6\pi k/7)$ from $k \equiv -k$ mod~$7$).
+Similarly $\sum_k \cos(2\pi k/N)\,\cos(6\pi k/N)
+= \sum_k \cos(4\pi k/N)\,\cos(6\pi k/N)$
+by multiplication by~$3$.
+Therefore $(m_\nu)_{12} = (m_\nu)_{13}$ and
+$(m_\nu)_{22} = (m_\nu)_{33}$ simultaneously
+(the second by $\sum_k\cos^2(4\pi k/7)
+= \sum_k \cos^2(6\pi k/7) = 5/4$, standard for
+$(\mathbb{Z}/7)^*$).
+The $3{\times}3$ real-symmetric matrix $m_\nu$ thus
+block-diagonalizes as $(1)\oplus(2,3)$ in the basis
+$\{e_1,\ (e_2+e_3)/\sqrt{2},\ (e_2-e_3)/\sqrt{2}\}$:
+the first vector eigenvector of the $1$-block
+(no coupling to the antisymmetric combination because
+$(m_\nu)_{12} = (m_\nu)_{13}$), and the $2$--$3$ block
+diagonalizes with eigenvectors $(1,\pm 1)/\sqrt{2}$
+(equal diagonals), giving $\theta_{23} = \pi/4$ exactly.
 In the DHVW orbifold (\S\ref{sec:gauge-group}), the twist-field
 OPE coefficients are all unit magnitude by the canonical
 normalization, so the effective weights are equal and the
