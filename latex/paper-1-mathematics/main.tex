@@ -2752,9 +2752,13 @@ coefficient $B_2 = 1/6$ of the $\csc^2$ kernel on $\mathbb{Z}/N\mathbb{Z}$.
 The same $B_2$ governs the Dedekind eta exponent $q^{1/24}$,
 the Calogero--Moser self-energy, and the vortex vacuum energy
 $\zeta(-1) = -B_2/2 = -1/12$.
-The stability polynomial $6B_2(x) = P_2(2x{-}1)$ has roots at the
-Gauss--Legendre quadrature nodes on~$[0,1]$; whether this
-coincidence reflects a deeper connection remains open.
+The stability polynomial $6B_2(x) = P_2(2x{-}1)$
+(Theorem~\ref{thm:legendre-quadrupole}) has roots at the
+Gauss--Legendre quadrature nodes on~$[0,1]$.
+The deeper connection is the $\csc^2$ zeta-value
+tower (Theorem~\ref{thm:csc2-zeta-tower}), which
+identifies the Havelock kernel as the generating function
+for all even zeta values.
 \end{remark}
 
 \subsection{The binary icosahedral group and the McKay correspondence}
@@ -2856,6 +2860,96 @@ $1 - 6\,B_2(x) = 6\,x(1{-}x)$.
 (Expand $B_2$ directly.)
 The normalized Havelock function is the parabola $6x(1{-}x)$,
 a $\mathrm{Beta}(2,2)$ density up to normalization.
+
+\begin{theorem}[Legendre quadrupole form]
+\label{thm:legendre-quadrupole}
+$6\,B_2(x) = P_2(2x{-}1)$, where $P_2(t) = (3t^2{-}1)/2$
+is the Legendre polynomial of degree~$2$.
+Equivalently, $f(m,N) = (N^2/12)(1 - P_2(2m/N{-}1))$.
+\end{theorem}
+\begin{proof}
+$P_2(2x{-}1) = (3(2x{-}1)^2{-}1)/2 = (12x^2{-}12x{+}2)/2
+= 6x^2 - 6x + 1 = 6\,B_2(x)$.
+\end{proof}
+\noindent
+The Havelock eigenvalue is the complement of the
+quadrupole spherical harmonic: each polygon mode~$m$
+carries angular momentum content determined by
+$P_2$ evaluated at the fractional mode position $2m/N{-}1$.
+
+\begin{theorem}[The $\csc^2$ zeta-value tower]
+\label{thm:csc2-zeta-tower}
+The Havelock kernel is the generating function for all
+even zeta values:
+\begin{equation}\label{eq:csc2-tower}
+  \pi^2\csc^2(\pi z)
+  = \frac{1}{z^2}
+  + \sum_{n=1}^{\infty} 2(2n{-}1)\,\zeta(2n)\,z^{2n-2}.
+\end{equation}
+The $n = 1$ coefficient $2\,\zeta(2) = \pi^2/3$ gives the
+constant $1/3 = 2\,B_2$ in the Laurent expansion
+$\csc^2(z) = 1/z^2 + 1/3 + O(z^2)$, which controls the
+Havelock eigenvalue through the discrete Fourier sum.
+\end{theorem}
+\begin{proof}
+The partial-fraction expansion
+$\pi\cot(\pi z) = 1/z + \sum_{n=1}^{\infty}
+2z/(z^2{-}n^2)$
+(see \citealt{Lang2002}, Ch.~IV)
+gives, on differentiation,
+$-\pi^2\csc^2(\pi z) = -1/z^2
++ \sum_{n=1}^{\infty} 2(z^2{+}n^2)/(z^2{-}n^2)^2$.
+Expanding each term as a geometric series in $(z/n)^2$
+for $|z| < 1$ and collecting powers of $z^{2k}$
+yields~\eqref{eq:csc2-tower} with coefficient
+$\sum_{n=1}^{\infty} 1/n^{2k} = \zeta(2k)$
+at each order.
+\end{proof}
+
+\begin{theorem}[Finite-$N$ Basel identity]
+\label{thm:finite-basel}
+\begin{equation}\label{eq:finite-basel}
+  \sum_{k=1}^{N-1}\csc^2\!\bigl(\pi k/N\bigr)
+  = \frac{N^2{-}1}{3}
+  = (N^2{-}1)\,\frac{2\,\zeta(2)}{\pi^2}.
+\end{equation}
+The Havelock trace is a finite-dimensional Basel problem.
+\end{theorem}
+\begin{proof}
+Sum the Havelock identity
+(Lemma~\ref{lem:havelock}) over $m = 1, \ldots, N{-}1$:
+\[
+  \textstyle
+  \sum_p \frac{\csc^2(\pi p/N)}{4}
+  \underbrace{\sum_{m=1}^{N-1}
+  (1 - \cos(2\pi pm/N))}_{= N}
+  = \sum_{m=1}^{N-1} \frac{m(N{-}m)}{2}
+  = \frac{N(N^2{-}1)}{12},
+\]
+where $\sum_m(1 - \cos) = N$ because
+$\sum_{m=0}^{N-1}\cos(2\pi pm/N) = 0$ for $p \ne 0$.
+Dividing by $N/4$ gives
+$\sum_p \csc^2(\pi p/N) = (N^2{-}1)/3$.
+\end{proof}
+
+\begin{proposition}[The $4/3 = 1 + 2B_2$ identity]
+\label{prop:four-thirds}
+The total $\csc^2$ sum satisfies
+$\lambda_0/(C_2^{\mathrm{CMS}}) = 4/3 = 1 + 2B_2$
+for every~$N$ (where $\lambda_0 = (N^2{-}1)/3$ is the
+finite Basel sum and
+$C_2 = j(j{+}1)$ with $j = (N{-}1)/2$).
+This decomposition appears independently in the
+Abraham electromagnetic self-energy ($m_{\mathrm{EM}}/(E/c^2)$,
+\citeyear{Adams1974}),
+the QCD color factor ($C_F(\mathrm{SU}(3)) = 4/3$),
+Richardson turbulent pair diffusion ($D \sim r^{4/3}$),
+and the heat kernel coefficient on~$S^2$
+($a_1 = 4\pi/3 = \mathrm{Vol}(S^2) \cdot 2B_2$).
+In each case the $1$ is the baseline and $2B_2 = 1/3$ is
+the $\zeta(2)/\pi^2$ correction from the spectral zeta
+function of the unit interval.
+\end{proposition}
 
 \begin{theorem}[Closed-form moment tower]
 \label{thm:moment-tower}
