@@ -1155,7 +1155,7 @@ Its strict concavity in~$C_1$ is algebraic (H2a).
 The Hadamard expansion $C_1 = (N{-}1)[1 - R\varepsilon^2/4 + \cdots]$
 makes $S$ strictly concave in~$R$ (H1$+$H3).
 Jensen's inequality then gives: the unique maximum of
-$\int S(R(x))\,dA$ subject to $\int R\,dA = 2\pi\chi$
+$\int S(R(x))\,dA$ subject to $\int R\,dA = 4\pi\chi$
 (Gauss--Bonnet) is $R(x) = \mathrm{const}$.
 This argument works for \emph{any} Riemannian metric
 on a compact surface, including Regge metrics with $N$
@@ -1301,6 +1301,10 @@ If:
   + \delta_m(x,\varepsilon)$
   with $C_1$ independent of~$m$ and
   $\delta_m = 0$ for all interior modes $2 \le m \le N{-}2$.
+  The only mode-dependent corrections are confined to the
+  edge modes $m \in \{1, N{-}1\}$, where
+  $|\delta_m| = O(K\varepsilon^2/C_1) \to 0$ as
+  $\varepsilon \to 0$.
 
   \emph{Proof on general surfaces.}
   On any $2$D Riemannian manifold, the Green's function in
@@ -1351,7 +1355,9 @@ If:
   $S(x) = \tfrac{1}{2}\sum_{m \ne m^*}\log\lambda_m(x)$
   is a finite sum over $N{-}2$ binding modes
   (excluding the critical mode $m^*$ where $\lambda_{m^*} = 0$
-  at the threshold $N = 7$; all remaining $\lambda_m > 0$),
+  at the threshold $N = 7$; all remaining $\lambda_m$ are
+  bounded away from zero: $\min_{m \ne m^*} \lambda_m \ge c > 0$
+  throughout the concavity basin),
   is \emph{strictly concave} in~$R(x)$:
   $S$ is strictly concave in~$C_1$
   ($d^2S/dC_1^2 = -\tfrac{1}{2}\sum 1/\lambda_m^2 < 0$,
@@ -1361,7 +1367,8 @@ If:
   (Lemma~\ref{lem:log-interaction}),
   so $S(C_1(R))$ is strictly concave in~$R$.
   Subject to the Gauss--Bonnet constraint
-  $\int R\,dA = 2\pi\chi$,
+  $\int R\,dA = 4\pi\chi$ (scalar curvature convention,
+  $R = 2K$),
   the unique maximum is $R(x) = \mathrm{const}$
   (Jensen's inequality).
   This argument works for \emph{any} Riemannian metric,
@@ -1514,8 +1521,9 @@ $|V_2/V_1| = |\operatorname{csch}^2(\rho^*)/\coth(\rho^*)| = 0.125$
 (with $\rho^* = 1.734$, the WDW turning point of
 Proposition~\ref*{III-prop:equiv-rr}).
 Within the basin ($\mathrm{Var} \le 2$, $\|\delta R\|_\infty \le 0.90$):
-$\|Y\|_{L^\infty} \le |V_1|\cdot 0.90 + \tfrac12|V_2|\cdot 0.81 \le 1.0$,
-so $e^{2|\beta_{\mathrm{eff}}|\,\|Y\|_\infty} \le e^{1/3} = 1.40$.
+$\|Y\|_{L^\infty} \le |V_1|\cdot 0.90 + \tfrac12|V_2|\cdot 0.81
+= 0.958 + 0.054 = 1.012$,
+so $e^{2|\beta_{\mathrm{eff}}|\,\|Y\|_\infty} \le e^{0.337} = 1.40$.
 The nonlinear factor
 $(1 + 0.250\sqrt{\mathrm{Var}})^2 \le 1.83$
 for $\mathrm{Var}(R) \le 2$, giving total contraction
