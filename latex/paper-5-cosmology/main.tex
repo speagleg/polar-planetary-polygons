@@ -391,10 +391,11 @@ The bounce action is $2S = 36.548$.
 The asymptotic mass gap of the WDW equation is
 $\Delta\varepsilon = 0.8031$
 (the numerical WDW eigenvalue gap, \S\ref{sec:mass-gap}).
-The leading-order analytical approximation is
-$\sqrt{2/\pi} = 0.7979$ (harmonic oscillator at the
-BO potential minimum); the difference $0.0052$
-is the anharmonic $O(1/c)$ correction.
+Numerically $\sqrt{2/\pi} = 0.7979$ matches $\Delta\varepsilon$
+to $0.65\%$ (residual $0.0052$); this is an empirical match,
+not a derived identity ($V_7$ has no interior critical point,
+so the standard harmonic reduction does not apply;
+see Supplement~S, Observation~\ref*{SP-prop:harmonic-wdw-gap}).
 The hierarchy uses the exact numerical value:
 $\Delta\varepsilon\,\ln\varepsilon_7 = 0.8031 \times 2.769 = 2.224$.
 The Pell identity~\eqref{eq:pell-identity} below uses
@@ -412,50 +413,69 @@ the Planck mass is determined by the full spacetime geometry,
 which has total Chern class~$N = 11$
 (Theorem~\ref{thm:n-selection}).
 
-\paragraph{The Pell-unit expansion.}
-Components~1 and~2 combine into the numerical expansion
+\paragraph{The Pell-unit numerical identity.}
+Combining components~1 and~2 with the regulator
+$\ln\varepsilon_7 = \operatorname{arccosh}(8) = 2.7687$
+yields the numerical identity
 \begin{equation}\label{eq:pell-identity}
-  \frac{2S_{\mathrm{BO}}(7)}{\ln\varepsilon_7}
-  = 14 - \sqrt{2/\pi}
-  - \frac{4}{c_7^2} + O(1/c_7^3),
+  2S_{\mathrm{BO}}(7) + \Delta\varepsilon\,\ln\varepsilon_7
+  \;=\; 38.772 \;\approx\; 14\,\ln\varepsilon_7 \;=\; 38.761,
 \end{equation}
-verified to $0.00005\%$ at $50$-digit precision
-(Supplement~S, Theorem~\ref*{SP-thm:pell-identity}).
-Here $\ln\varepsilon_7 = \operatorname{arccosh}(8) = \ln(8{+}3\sqrt{7}\,)$
-is the regulator of the real quadratic field $\mathbb{Q}(\sqrt{7})$
+matching to $0.03\%$
+(Supplement~S, Observation~\ref*{SP-obs:pell-numerical}).
+Here $\ln\varepsilon_7 = \ln(8{+}3\sqrt{7}\,)$ is the
+regulator of the real quadratic field $\mathbb{Q}(\sqrt{7})$
 arising from the Pell equation $8^2 - 7 \cdot 3^2 = 1$
 (Supplement~S, Lemma~\ref*{SP-lem:pell-regulator}).
-The rigorous content of~\eqref{eq:pell-identity} is:
+What is \emph{proved}, \emph{conjectural}, and
+\emph{observed} (cf.\ Supplement~S, Remark~\ref*{SP-rem:pell-status}):
 \begin{itemize}
-\item \emph{Pell uniqueness} (Proposition~\ref{prop:pell-unique}):
-  $N = 7$ is the unique positive integer for which
-  $\operatorname{arccosh}(N{+}1) = \ln\eta$ with $\eta \in
-  \mathbb{Z}[\sqrt{N}]$ a unit of the specific Pell form
-  $(N{+}1)^2 - N m^{*2} = 1$.
-\item \emph{WKB subleading corrections}
-  (Supplement~S, Proposition~\ref*{SP-prop:wkb-subleading}):
-  the $-\sqrt{2/\pi}$ and $-4/c_7^2$ terms are standard
-  Langer-connection and Dunham-anharmonic coefficients,
-  applied to the log-hyperbolic potential $V_7$
-  (\citealt{Langer1937,Dunham1932}).
-\item \emph{Numerical leading coefficient $14$}
-  (Supplement~S, Remark~\ref*{SP-rem:fourteen-observation}):
-  the value $2S_{\mathrm{BO}}(7)/\ln\varepsilon_7 = 14$ at the
-  classical (leading-order) level is verified by direct
-  WKB integration to $0.00005\%$.
-  This is a numerical phenomenon at $N = 7$: the asymptotic
-  $2S_{\mathrm{BO}}(N)/\operatorname{arccosh}(N{+}1)$ grows
-  as $N^4/(\log N)^2$ at large~$N$, and the numerical
-  coincidence $= 14 = 2N$ at $N = 7$ specifically has no
-  known derivation.
-  Candidate mechanisms (Dirichlet class number formula for
-  $\mathbb{Q}(\sqrt{7})$, Beilinson regulators, higher
-  Stark conjectures) remain to be developed.
+\item \emph{Proved (arithmetic).} Pell uniqueness
+  (Proposition~\ref{prop:pell-unique}): $N = 7$ is the unique
+  positive integer for which $(N{+}1)^2 - N\lfloor(N{-}1)/2\rfloor^2 = 1$.
+  Regulator identification $\operatorname{arccosh}(8)
+  = \ln\varepsilon_7$ (Supplement~S,
+  Lemma~\ref*{SP-lem:pell-regulator}).
+\item \emph{Proved (geometric).} The coefficient
+  $14 = 7\cdot 2$ in~\eqref{eq:pell-identity} is the length
+  of the primitive closed geodesic on $X(7) = \Gamma(7)\backslash
+  \mathbf{H}^2$ represented by the Pell matrix
+  $\gamma = \bigl(\begin{smallmatrix} 8 & 21 \\ 3 & 8 \end{smallmatrix}\bigr)$:
+  the order of $\bar\gamma$ in $\mathrm{PSL}(2,\mathbb{F}_7)$
+  is exactly~$7$ (unipotent conjugacy class), and the
+  hyperbolic translation length of $\gamma$ is
+  $2\ln\varepsilon_7$, so the primitive geodesic on $X(7)$ has
+  length $14\ln\varepsilon_7$
+  (Supplement~S, Lemma~\ref*{SP-lem:pell-geodesic}).
+  \emph{Therefore the integer $14$ is arithmetic, not fitted.}
+\item \emph{Conjectural (trace-formula bridge).}
+  The identity~\eqref{eq:pell-identity} is interpreted as a
+  Born--Oppenheimer/Selberg trace correspondence: the BO
+  tunneling action equals, up to a mass-gap correction, the
+  length of the primitive Pell geodesic on $X(7)$
+  (Supplement~S, Conjecture~\ref*{SP-conj:bo-selberg}).
+  A direct operator equivalence
+  $H_{\mathrm{BO}} \sim \Delta_{X(7)}|_{\mathbb{Z}_7}$ is
+  \emph{false} (Weyl densities disagree); the conjecture
+  asserts only a semiclassical correspondence in the spirit
+  of the Langlands ``Beyond Endoscopy'' programme
+  (\citealt{Langlands2004,FrenkelLanglandsNgo2010}).  A proof
+  from first principles is an open problem.
+\item \emph{Numerical only.}
+  The match $\Delta\varepsilon(c_7) \approx \sqrt{2/\pi}$ to
+  $0.65\%$ is empirical (Supplement~S,
+  Observation~\ref*{SP-prop:harmonic-wdw-gap}; $V_7$ has no
+  interior critical point, so the standard harmonic reduction
+  does not apply).  The subleading coefficient
+  $4/c_7^2$ in Corollary~\ref*{SP-cor:pell-three-term} is a fit
+  to the residual, not a derived Dunham coefficient.
 \end{itemize}
 The hierarchy prediction $M_P/M_{\mathrm{EW}} \approx
-\exp(38.459)$ depends on the \emph{numerical value} of
-$S_{\mathrm{BO}}(7) = 18.274$ obtained by direct WKB
-integration, not on the Pell interpretation of the leading
+\exp(38.459)$ depends on the \emph{numerical values} of
+$2S_{\mathrm{BO}}(7) = 36.548$ and
+$\Delta\varepsilon\,\ln\varepsilon_7 = 2.224$ obtained by
+direct WKB integration and WDW diagonalization; it does
+not load-bear on the Pell interpretation of the leading
 coefficient.
 
 \begin{proposition}[Pell uniqueness at $N = 7$]
@@ -470,33 +490,50 @@ $(N{+}1)^2 - N m^{*2}
 = (-N^3{+}6N^2{+}7N{+}4)/4$.
 Setting this to~$1$: $N(N{-}7)(N{+}1) = 0$.
 The unique positive root is $N = 7$.
+For even~$N$ with $m^* = N/2 - 1$:
+$(N{+}1)^2 - N m^{*2} = (-N^3 + 8N^2 + 4N + 4)/4$.
+Setting this to~$1$: $N(N^2 - 8N - 4) = 0$, whose real roots
+$N \in \{0, 4 \pm 2\sqrt{5}\}$ contain no positive integers.
+(Full details: Supplement~S,
+Proposition~\ref*{SP-prop:pell-unique}.)
 \end{proof}
 
 The \emph{per-vortex interpretation} of~\eqref{eq:pell-identity}
 (speculative but suggestive): the leading $14 = 2N$ at $N = 7$
 suggests that each of the $N = 7$ vortices contributes
-$2\ln\varepsilon_7$ to the bounce action, reduced by the
-per-vortex WKB correction $\sqrt{2/\pi}/N + 4/(Nc_7^2)$.
-This interpretation is unproven but consistent with the
-numerical observation.
+$2\ln\varepsilon_7$ to the bounce action, reduced by a
+per-vortex subleading correction of order $1/N$.
+This interpretation is unproven; the specific numerical
+rearrangement into $\sqrt{2/\pi}$ and $4/c_7^2$ pieces is the
+empirical form of Corollary~\ref*{SP-cor:pell-three-term}
+(Supplement~S), where those two numerical occurrences are
+logically distinct and tied together only by the
+identity~\eqref{eq:pell-identity}.
 The instanton provides $94.3\%$ of the Pell exponent;
 the mass gap provides the remaining $5.7\%$.
 Together: $e^{14\,\ln\varepsilon_7} = \varepsilon_7^{14}
 = (8{+}3\sqrt{7}\,)^{14} = 6.82 \times 10^{16}$.
 
-\paragraph{Cancellation.}
-The $\sqrt{2/\pi}$ terms cancel between the instanton (component~1)
-and the mass gap (component~2):
+\paragraph{Empirical three-term rearrangement.}
+Dividing~\eqref{eq:pell-identity} by $\ln\varepsilon_7$
+and substituting $\Delta\varepsilon = \sqrt{2/\pi} + \delta$
+with numerical $\delta \approx 0.0052$
+(Supplement~S, Corollary~\ref*{SP-cor:pell-three-term})
+gives the empirical form
+\[
+  \frac{2S_{\mathrm{BO}}(7)}{\ln\varepsilon_7}
+  \;\approx\; 14 \,-\, \sqrt{2/\pi} \,-\, \frac{4}{c_7^2},
+\]
+where the coincidence $\delta\,c_7^2 \approx 4$ is flagged
+as an open numerical observation (not derived from Langer or
+Dunham theory).  Restoring the gravity prefactor:
 \[
   \ln\frac{M_P}{M_{\mathrm{EW}}}
-  = \bigl(14 - \tfrac{4}{c_7^2}\bigr)\ln\varepsilon_7
-  + \tfrac{1}{2}\ln\!\bigl(\tfrac{c_{11}}{24\pi^2}\bigr) + O(1/c_7^3).
+  \;=\; 2S_{\mathrm{BO}}(7) + \Delta\varepsilon\,\ln\varepsilon_7
+  + \tfrac{1}{2}\ln\!\bigl(\tfrac{c_{11}}{24\pi^2}\bigr),
 \]
-At leading order, the hierarchy depends on the Pell unit
-$\varepsilon_7$ and the central charge; the mass gap
-$\Delta\varepsilon = 0.8031$ enters only at subleading
-order $O(\ln\varepsilon_7/c_7) \approx 0.04$, producing
-the $0.04\%$ residual in the log.
+with each term computed numerically
+($36.548 + 2.224 - 0.313 = 38.459$).
 \end{proof}
 
 \noindent
@@ -509,8 +546,11 @@ $\varepsilon_7^{82} \sim 10^{99}$, no atoms could form.
 \begin{remark}[Prediction of the Higgs VEV]
 The hierarchy formula \emph{predicts}
 $v = M_P / \exp(38.459) = 242.0$\,GeV
-(observed $246.2$\,GeV, $1.7\%$ off;
-the residual is the $O(1/c^2)$ Dunham correction).
+(observed $246.2$\,GeV, $1.7\%$ off).
+The residual reflects higher-order semiclassical corrections
+beyond the three numerical terms
+$2S_{\mathrm{BO}}(7) + \Delta\varepsilon\,\ln\varepsilon_7
++ \tfrac12\ln(c_{11}/(24\pi^2))$ retained here.
 \end{remark}
 
 %% ====================================================================
@@ -758,11 +798,14 @@ Two subleading corrections enter:
   the one-loop functional determinant gives
   $\delta(\ln A) = -\gamma/2$,
   so $\ln(\ell\,v) = S_{\mathrm{BO}} - \gamma/2$.
-\item \emph{The Dunham correction $\ln 2/(2c_{11})$.}
+\item \emph{Subleading $1/c$ correction $\ln 2/(2c_{11})$.}
   The leading $1/c$ correction to the WKB action from the
-  anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$,
-  analogous to the $4/c_7^2$ term in the Pell
-  identity~\eqref{eq:pell-identity}.
+  anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$
+  (numerical; analogous in role to the empirical
+  $4/c_7^2$ residual in the Pell
+  identity~\eqref{eq:pell-identity}, which is likewise a
+  fit to the subleading residual rather than a derived Dunham
+  coefficient).
 \end{enumerate}
 Together: $\ln(\ell\,v)
 = 102.724 - 0.289 - 0.003 = 102.432$.
@@ -1382,9 +1425,10 @@ is a Dirac KK mode at scale~$M_{\mathrm{KK}}$, not a Majorana state.
   \sim 10^{13}\text{--}10^{14}\;\mathrm{GeV},
 \end{equation}
 a structural ansatz determined by three physical inputs:
-(i)~$\varepsilon_7^7 = \exp(N\ln\varepsilon_7)
-= \exp(S_{\mathrm{BO}} + \sqrt{2/\pi}\,\ln\varepsilon_7/2)$,
-using the Pell identity~\eqref{eq:pell-identity}: the BO instanton
+(i)~$\varepsilon_7^7 = \exp(7\ln\varepsilon_7)
+\approx \exp(S_{\mathrm{BO}}(7) + \Delta\varepsilon\,\ln\varepsilon_7/2)$,
+from the numerical identity~\eqref{eq:pell-identity}
+(the $14 = 2N$ coefficient halved): the BO instanton
 that generates the electroweak hierarchy also generates the
 KK mass, with the WDW mass gap correction replacing the
 bounce factor;

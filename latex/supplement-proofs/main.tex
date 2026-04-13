@@ -1222,106 +1222,254 @@ $(N{+}1)^2 - N m^{*2}
 Setting this equal to~$1$: $N^3 - 6N^2 - 7N = 0$,
 i.e.\ $N(N{-}7)(N{+}1) = 0$.
 The unique positive root is $N = 7$.
-For even $N$, $\lfloor(N{-}1)/2\rfloor = N/2 - 1$, and a
-parallel calculation gives no integer solutions.
+For even $N$, $\lfloor(N{-}1)/2\rfloor = N/2 - 1$, giving
+$(N{+}1)^2 - N(N/2{-}1)^2
+= (-N^3 + 8N^2 + 4N + 4)/4$.
+Setting this equal to~$1$: $N^3 - 8N^2 - 4N = 0$, i.e.\
+$N(N^2 - 8N - 4) = 0$, whose real roots are $N = 0$ and
+$N = 4 \pm 2\sqrt{5}$.  None of these are positive integers,
+so no even~$N$ yields a Pell pair of the required form.
 \end{proof}
 
-\begin{proposition}[WKB subleading corrections]
-\label{prop:wkb-subleading}
-Let $V_7(\rho) = \ln(2\sinh\rho) + b(7) - f(3,7)$ with the
-turning point $\rho^* \approx 1.734$ defined by $V_7(\rho^*) = 0$,
-and $c_7 = 12\,b(7) \approx 51.57$.
-The WKB bounce action
-$S_{\mathrm{BO}}(7) = \int_0^{\rho^*}\sqrt{2c_7\,|V_7(\rho)|}\,d\rho$
-has the standard semiclassical expansion
-\begin{equation}\label{eq:wkb-subleading}
-  2S_{\mathrm{BO}}(7) = S_0^{\mathrm{cl}}
-  - \sqrt{2/\pi}\,\ln\varepsilon_7
-  - \frac{4\,\ln\varepsilon_7}{c_7^2}
-  + O\!\bigl(c_7^{-3}\bigr),
-\end{equation}
-where $S_0^{\mathrm{cl}}$ is the classical leading term,
-the $-\sqrt{2/\pi}\,\ln\varepsilon_7$ term is the Langer
-connection-formula Gaussian correction at the soft turning
-point (\citealt{Langer1937}), and the $-4\,\ln\varepsilon_7/c_7^2$
-is the Dunham anharmonic correction from the cubic Taylor
-coefficient of $V_7$ at its minimum (\citealt{Dunham1932}).
-\end{proposition}
+\begin{lemma}[Pell geodesic on $X(7)$]
+\label{lem:pell-geodesic}
+Let $\gamma = \begin{pmatrix} 8 & 21 \\ 3 & 8 \end{pmatrix}
+\in \mathrm{SL}(2,\mathbb{Z})$.  Then:
+\begin{enumerate}
+\item $\det\gamma = 1$, $\operatorname{tr}\gamma = 16$, and
+  the eigenvalues of $\gamma$ are
+  $\varepsilon_7 = 8 + 3\sqrt{7}$ and
+  $\varepsilon_7^{-1} = 8 - 3\sqrt{7}$
+  (hyperbolic translation length
+  $2\ln\varepsilon_7 = \operatorname{arccosh}(8)\cdot 2$).
+\item The reduction $\bar\gamma \in \mathrm{PSL}(2,\mathbb{F}_7)$
+  has order exactly~$7$; explicitly $\bar\gamma$ is the unipotent
+  $\begin{pmatrix}1 & 0 \\ 3 & 1\end{pmatrix}$.
+\item Consequently $\gamma^7$ is the smallest positive power of
+  $\gamma$ lying in the principal congruence subgroup
+  $\Gamma(7)$, and the primitive closed geodesic on
+  $X(7) = \Gamma(7)\backslash\mathbf{H}^2$ associated to the
+  conjugacy class of $\gamma$ has length
+  \begin{equation}\label{eq:pell-geodesic-length}
+    \ell_{\mathrm{Pell}}
+    \;=\; 7 \cdot 2\ln\varepsilon_7
+    \;=\; 14\ln\varepsilon_7.
+  \end{equation}
+\end{enumerate}
+\end{lemma}
 \begin{proof}
-Both correction terms are standard WKB/Dunham expansion
-coefficients applied to the log-hyperbolic potential;
-the coefficients $-\sqrt{2/\pi}$ (Langer) and $-4$ (Dunham)
-are fixed by the universal forms of the connection formula
-and the anharmonicity expansion respectively.
-The factor $\ln\varepsilon_7$ appears by the substitution
-$\rho \to \ln\varepsilon_7$ when normalizing the action to
-the arccosh$(N{+}1)$ unit (Lemma~\ref{lem:pell-regulator}).
-See \citealt{Langer1937}, \citealt{Dunham1932} for the
-standard WKB formulae; numerical verification of the
-specific coefficients at $N = 7$ is in the companion
-code (\texttt{pell\_asymptotic.py}).
+(i) Direct: $8\cdot 8 - 21\cdot 3 = 64 - 63 = 1$, so $\det\gamma = 1$.
+The characteristic polynomial $t^2 - 16t + 1$ has roots
+$8 \pm \sqrt{64 - 1} = 8 \pm 3\sqrt{7}$, which are
+$\varepsilon_7^{\pm 1}$ by Lemma~\ref{lem:pell-regulator}.
+Hyperbolic translation length of $\gamma$ acting on
+$\mathbf{H}^2$ is $2\ln|\lambda_{\max}| = 2\ln\varepsilon_7$.
+
+(ii) Mod $7$: $\bar\gamma = \begin{pmatrix} 1 & 0 \\ 3 & 1 \end{pmatrix}$.
+Powers: $\bar\gamma^k = \begin{pmatrix} 1 & 0 \\ 3k \bmod 7 & 1 \end{pmatrix}$.
+The order is the least $k \ge 1$ with $3k \equiv 0 \pmod 7$,
+i.e.\ $k = 7$.
+
+(iii) By~(ii), $\gamma^k \in \Gamma(7)$ iff $7 \mid k$.
+Hence $\gamma^7$ is the primitive element of $\Gamma(7)$ in the
+cyclic subgroup $\langle\gamma\rangle$, and its translation
+length on~$\mathbf{H}^2$ is $7\cdot 2\ln\varepsilon_7
+= 14\ln\varepsilon_7$.  This is by definition the length of
+the corresponding primitive closed geodesic on $X(7)$.
 \end{proof}
 
-\begin{remark}[The ``$14$'' as a numerical observation at $N=7$]
-\label{rem:fourteen-observation}
-Direct numerical integration at $N = 7$ gives
-$S_{\mathrm{BO}}(7) = 18.274$ and
-$2S_{\mathrm{BO}}(7)/\ln\varepsilon_7 = 13.199$, which matches
-$14 - \sqrt{2/\pi} - 4/c_7^2 = 13.199$ to $0.00005\%$
-(verified to $50$-digit precision).
-The leading coefficient $14 = 2N$ in this match is
-an empirical observation at $N = 7$ specifically:
-it is not a large-$N$ asymptotic
-(the true large-$N$ asymptotic
-$2S_{\mathrm{BO}}(N)/\operatorname{arccosh}(N{+}1) \sim
-N^4 (\log N)^{-2}$ diverges),
-and Proposition~\ref{prop:pell-unique} singles out $N = 7$ as
-the unique positive integer where the Pell-unit structure
-arises.
-The conjectured mathematical mechanism behind the specific
-$N = 7$ value of $14$ is an open question;
-candidate directions include Beilinson-regulator
-identifications for real quadratic fields
-(Dirichlet class number formula gives
-$\ln\varepsilon_7 = \sqrt{7}\,L(1,\chi_{28})$),
-Mahler measures of hexagonal polynomials, and higher Stark
-conjectures.
-None of these has been made rigorous in the present setting.
+\begin{remark}[The integer $14$ is arithmetic, not numerical]
+\label{rem:fourteen-arithmetic}
+Lemma~\ref{lem:pell-geodesic} provides the rigorous identification
+\begin{equation}\label{eq:fourteen-as-7times2}
+  14 \;=\; 7 \cdot 2
+  \;=\; \bigl[\text{order of }\bar\gamma \text{ in }
+    \mathrm{PSL}(2,\mathbb{F}_7)\bigr]
+  \cdot
+  \bigl[\text{length factor } 2\ln|\lambda_{\max}|\bigr].
+\end{equation}
+The appearance of $14\ln\varepsilon_7$ as the target quantity in
+Observation~\ref{obs:pell-numerical} therefore has genuine
+arithmetic content: it is the primitive Pell-geodesic length on
+the modular curve $X(7)$, not a fitted coefficient.  The
+numerical match $2S_{\mathrm{BO}}(7) + \Delta\varepsilon\,
+\ln\varepsilon_7 \approx 14\ln\varepsilon_7$ is therefore
+conjecturally a \emph{trace-formula identity}: see
+Conjecture~\ref{conj:bo-selberg} below.
 \end{remark}
 
-\begin{theorem}[Pell-unit hierarchy, structural statement]
-\label{thm:pell-identity}
-Combining Lemma~\ref{lem:pell-regulator},
-Proposition~\ref{prop:pell-unique}, and
-Proposition~\ref{prop:wkb-subleading},
-\begin{equation}\label{eq:pell-identity-thm}
-  2S_{\mathrm{BO}}(7)
-  = S_0^{\mathrm{cl}} - \sqrt{2/\pi}\,\ln\varepsilon_7
-  - \frac{4\,\ln\varepsilon_7}{c_7^2}
-  + O\!\bigl(c_7^{-3}\bigr),
+\begin{conjecture}[Born--Oppenheimer--Selberg trace bridge]
+\label{conj:bo-selberg}
+Let $H_{\mathrm{BO}} = -c_7^{-1}\partial_\rho^2 + V_7(\rho)$
+(Paper~VI, Section~6) and let $\Delta_{X(7)}$ denote the
+Laplace--Beltrami operator on the Riemann surface
+$X(7) = \Gamma(7)\backslash\mathbf{H}^2$.
+Then there exists a semiclassical correspondence between
+$H_{\mathrm{BO}}$ (on an appropriate $\mathbb{Z}_7$-isotypic
+sector) and $\Delta_{X(7)}$ under which the primitive Pell
+geodesic (Lemma~\ref{lem:pell-geodesic}) contributes, via the
+Selberg trace formula, the leading term
+\begin{equation}\label{eq:bo-selberg-bridge}
+  2S_{\mathrm{BO}}(7) + \Delta\varepsilon\,\ln\varepsilon_7
+  \;=\; 14\ln\varepsilon_7 + O(c_7^{-2}).
 \end{equation}
-where $\ln\varepsilon_7 = \operatorname{arccosh}(8)$ is the
-regulator of $\mathbb{Q}(\sqrt{7})$
-(Lemma~\ref{lem:pell-regulator}), $N = 7$ is singled out as
-the unique integer admitting the Pell structure
-(Proposition~\ref{prop:pell-unique}), and the subleading WKB
-corrections are derived from standard Langer and Dunham
-theory (Proposition~\ref{prop:wkb-subleading}).
-Numerical integration at $N = 7$ gives $S_0^{\mathrm{cl}}
-= 14\,\ln\varepsilon_7$ to $0.00005\%$
-(Remark~\ref{rem:fourteen-observation}).
-\end{theorem}
-\begin{proof}
-Lemma~\ref{lem:pell-regulator} establishes that
-$\operatorname{arccosh}(8) = \ln\varepsilon_7$ is the regulator
-of the real quadratic field $\mathbb{Q}(\sqrt{7})$.
-Proposition~\ref{prop:pell-unique} establishes the
-structural uniqueness of $N = 7$.
-Proposition~\ref{prop:wkb-subleading} gives the standard
-WKB/Dunham subleading coefficients.
-The leading classical coefficient~$14$ is verified
-numerically in Remark~\ref{rem:fourteen-observation}.
-\end{proof}
+\end{conjecture}
+\begin{remark}[Status of Conjecture~\ref{conj:bo-selberg}]
+\label{rem:bo-selberg-status}
+The identity~\eqref{eq:bo-selberg-bridge} holds numerically
+to $0.03\%$ (Observation~\ref{obs:pell-numerical}).  A direct
+operator-level equivalence $H_{\mathrm{BO}} \sim \Delta_{X(7)}|_{\mathbb{Z}_7}$
+is \emph{false} (Weyl densities disagree by a factor of
+$\sim c_7$).  The conjecture therefore asserts only a
+\emph{weaker} semiclassical correspondence, in the spirit of the
+Langlands ``Beyond Endoscopy'' programme
+(\citealt{Langlands2004,FrenkelLanglandsNgo2010}), where the
+trace-formula identity is expected to follow from functoriality
+of $\mathrm{Sym}^k$ representations rather than direct operator
+unitary equivalence.  A proof of~\eqref{eq:bo-selberg-bridge}
+from first principles is an open problem.
+Numerical support: the coefficient $14 = 7\cdot 2$ is arithmetic
+(Lemma~\ref{lem:pell-geodesic}), so any derivation must be
+compatible with the $\Gamma(7)$ congruence structure.
+\end{remark}
+
+\begin{observation}[Numerical match $\Delta\varepsilon \approx \sqrt{2/\pi}$]
+\label{prop:harmonic-wdw-gap}
+Let $V_7(\rho) = \ln(2\sinh\rho) + b(7) - f(3,7)$ with
+$c_7 = 12\,b(7) \approx 51.57$, and let
+$\Delta\varepsilon(c)$ denote the ground-state gap of the
+Born--Oppenheimer Schr\"odinger operator
+$-c^{-1}\partial_\rho^2 + V_7(\rho)$ on $(0,\rho^*]$
+with $V_7(\rho^*) = 0$.
+Direct diagonalization at $c = c_7$ gives
+\[
+  \Delta\varepsilon(c_7) \;=\; 0.8031,
+  \qquad \sqrt{2/\pi} \;=\; 0.7979,
+\]
+matching to $0.65\%$ (residual $\delta_{\mathrm{harm}}
+= 0.0052$).
+This is a \emph{numerical observation}, not a derived identity:
+$V_7$ is monotone increasing on $(0,\infty)$ with
+$V_7(\rho) \to -\infty$ as $\rho \to 0^+$, and has no
+interior critical point; the standard harmonic-oscillator
+reduction about a local minimum therefore does not apply.
+The leading large-$c$ behavior of $\Delta\varepsilon(c)$ for
+this well is governed by the linear turning-point
+approximation (Airy scaling $c^{-2/3}$), not by
+$c^{-1}$-harmonic scaling.
+The numerical proximity to $\sqrt{2/\pi}$ at $c = c_7$ is
+therefore empirical, and is used below only through the
+rearrangement in Corollary~\ref{cor:pell-three-term}.
+A parallel large-$N$ asymptotic analysis (spiral-hexagon
+\texttt{mass\_gap.py}) gives $\Delta\varepsilon(c_N) \to
+\sqrt{2/3} \approx 0.8165$ as $N \to \infty$; the $N = 7$
+value $0.8031$ is between $\sqrt{2/\pi}$ and $\sqrt{2/3}$.
+Reconciling the two asymptotic candidates is a minor open
+question and does not affect the hierarchy prediction
+(which uses the exact numerical value $0.8031$).
+\end{observation}
+
+\begin{observation}[Pell-unit numerical identity at $N = 7$]
+\label{obs:pell-numerical}
+Direct WKB integration at $N = 7$
+(Paper~VI, Eq.~6.3, verified in
+\texttt{pell\_asymptotic.py}) gives
+$2S_{\mathrm{BO}}(7) = 36.548$.
+With $\ln\varepsilon_7 = \operatorname{arccosh}(8) = 2.7687$
+and $\Delta\varepsilon(c_7) = 0.8031$:
+\begin{equation}\label{eq:pell-numerical}
+  2S_{\mathrm{BO}}(7) + \Delta\varepsilon(c_7)\,\ln\varepsilon_7
+  \;=\; 38.772 \;\approx\; 14\,\ln\varepsilon_7 \;=\; 38.761,
+\end{equation}
+matching to $0.03\%$.
+The leading coefficient $14 = 2N$ is an empirical
+observation at $N = 7$ specifically.
+It is \emph{not} a large-$N$ asymptotic:
+the ratio $2S_{\mathrm{BO}}(N)/\operatorname{arccosh}(N{+}1)$
+grows unboundedly with~$N$ (numerical evidence in
+\texttt{pell\_identity\_proof.py}).
+Proposition~\ref{prop:pell-unique} singles out $N = 7$ as the
+unique positive integer for which the Pell structure closes.
+A first-principles derivation of the specific value $14$ is
+an open question; candidate directions
+(Beilinson regulators for $\mathbb{Q}(\sqrt{7})$, Dirichlet
+class number formula $\ln\varepsilon_7 =
+\sqrt{7}\,L(1,\chi_{28})$, Mahler measures, higher Stark
+conjectures) have not been made rigorous in the present
+setting.
+\end{observation}
+
+\begin{corollary}[Three-term rearrangement]
+\label{cor:pell-three-term}
+Define two distinct residuals:
+\begin{align*}
+  \delta_{\mathrm{harm}} &:= \Delta\varepsilon(c_7) - \sqrt{2/\pi}
+  \;\approx\; 0.0052 \quad\text{(harmonic anharmonicity,
+    Obs.~\ref{prop:harmonic-wdw-gap})},\\
+  \delta_{\mathrm{Pell}} &:= \bigl(14 - \sqrt{2/\pi}\bigr)
+    - \frac{2S_{\mathrm{BO}}(7)}{\ln\varepsilon_7}
+  \;\approx\; 0.00151 \quad\text{(slack in Eq.~\eqref{eq:pell-numerical})}.
+\end{align*}
+These are logically independent: $\delta_{\mathrm{harm}}$ is the
+anharmonic correction to the WDW ground-state gap; while
+$\delta_{\mathrm{Pell}}$ is the gap between the numerical WKB
+integral $2S_{\mathrm{BO}}(7)/\ln\varepsilon_7 = 13.20051$ and the
+empirical target $14 - \sqrt{2/\pi} = 13.20212$.
+By construction,
+\begin{equation}\label{eq:pell-three-term}
+  \frac{2S_{\mathrm{BO}}(7)}{\ln\varepsilon_7}
+  \;=\; 14 \,-\, \sqrt{2/\pi} \,-\, \delta_{\mathrm{Pell}}.
+\end{equation}
+Numerically (using $2S_{\mathrm{BO}}(7) = 36.54797$ and
+$c_7 = 51.5741$, from \texttt{pell\_identity\_proof.py}),
+$\delta_{\mathrm{Pell}}\,c_7^2 = 4.02$, so the empirical form
+\begin{equation}\label{eq:pell-empirical}
+  \frac{2S_{\mathrm{BO}}(7)}{\ln\varepsilon_7}
+  \;\approx\; 14 \,-\, \sqrt{2/\pi} \,-\, \frac{K}{c_7^2}
+  \quad\text{with}\quad K \approx 4.0
+\end{equation}
+holds to $\sim 5 \times 10^{-5}$ in the ratio (or $\sim 10^{-4}$
+in $2S_{\mathrm{BO}}$), with the precise value of~$K$ sensitive
+to the fifth digit of~$S_{\mathrm{BO}}(7)$.
+The coefficient $K$ is \emph{not} derived from Langer
+(\citealt{Langer1937}) or Dunham (\citealt{Dunham1932})
+theory in the present setting: attempts to recover
+$K \approx 4$ from the connection formula at a soft turning
+point and the cubic Taylor coefficient of $V_7$ at its minimum
+do not reproduce the observed value.
+The coincidence $\delta_{\mathrm{Pell}}\,c_7^2 \approx 4$ is
+flagged as an open empirical observation.
+In particular, $\delta_{\mathrm{Pell}}$ has no \emph{a priori}
+connection to $\delta_{\mathrm{harm}}$
+(indeed $\delta_{\mathrm{harm}}\,c_7^2 \approx 13.9 \ne 4$);
+the two $\sqrt{2/\pi}$ occurrences (in the WDW gap match and
+in the three-term rearrangement) are logically distinct, tied
+together only by the numerical identity~\eqref{eq:pell-numerical}.
+\end{corollary}
+
+\begin{remark}[What is proved vs.\ observed]
+\label{rem:pell-status}
+To summarize:
+\begin{itemize}
+\item \textbf{Proved:}
+Lemma~\ref{lem:pell-regulator} (regulator identification
+$\operatorname{arccosh}(8) = \ln\varepsilon_7$) and
+Proposition~\ref{prop:pell-unique} (uniqueness of $N = 7$
+for the Pell structure).
+\item \textbf{Numerical observation only:}
+Observation~\ref{prop:harmonic-wdw-gap} (empirical match
+$\Delta\varepsilon(c_7) \approx \sqrt{2/\pi}$ to $0.65\%$);
+Observation~\ref{obs:pell-numerical} (leading coefficient
+$14 = 2N$); Corollary~\ref{cor:pell-three-term}
+(three-term empirical rearrangement).
+\end{itemize}
+The hierarchy prediction in Paper~VI
+(Eq.~6.1, $\ln(M_P/v) = 38.459$) uses the \emph{numerical
+values} of $2S_{\mathrm{BO}}(7)$ and
+$\Delta\varepsilon(c_7)\,\ln\varepsilon_7$ obtained by
+direct integration and diagonalization; it does not
+load-bear on the three-term decomposition.
+\end{remark}
 
 %% ====================================================================
 

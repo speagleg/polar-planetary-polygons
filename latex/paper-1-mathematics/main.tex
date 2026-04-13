@@ -2442,33 +2442,75 @@ the topology of the surface or the arithmeticity of~$\Gamma$.
 \end{theorem}
 
 \begin{proof}
-We take the limit $\xi \to 0^+$.  As $\xi \to 0$,
-the ring radius $r_E = a\sqrt{\xi} \to 0$ and the $N$ vortex
-positions $z_k = r_E e^{2\pi ik/N} \to 0$ uniformly.
-For any $\gamma = \bigl[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\bigr]
-\in \Gamma$ with $\gamma \ne 1$:
-$\gamma(z_k) \to \gamma(0) = b/d$, a single point independent of
-the vortex index~$k$.  At finite $\xi > 0$ the Fourier-weighted
-automorphic correction for mode $m \ge 1$ is
+The automorphic correction is a sum over nontrivial images,
 \[
   \delta C_1(m, \xi)
-  = \sum_{k=0}^{N-1} H_{rr}(z_0, \gamma(z_k)) \cdot \cos(2\pi mk/N).
+  = \sum_{\gamma \in \Gamma \setminus \{1\}}
+  \sum_{k=0}^{N-1} H_{rr}(z_0, \gamma(z_k))\,\cos(2\pi mk/N),
 \]
-In the limit $\xi \to 0^+$, the factor
-$H_{rr}(z_0, \gamma(z_k)) \to H_{rr}(0, b/d)$ becomes
-$k$-independent (since all $z_k \to 0$), giving
+with the identity $\gamma = 1$ yielding the universal-cover
+Havelock contribution, which is subtracted.
+We show each $\gamma \ne 1$ summand vanishes as $\xi\to 0^+$.
+
+As $\xi \to 0$, $r_E = a\sqrt{\xi} \to 0$ and
+$z_k = r_E e^{2\pi ik/N} \to 0$ uniformly in~$k$.
+Fix $\gamma \ne 1$ and write
+$\gamma = \bigl[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\bigr]$.
+We consider two cases.
+
+\emph{Case 1: $d \ne 0$.} Then $\gamma(0) = b/d$ is a finite
+interior point of $\mathbf{H}^2$, and
+$\gamma(z_k) = (a z_k + b)/(c z_k + d) \to b/d$ as $z_k \to 0$,
+uniformly in~$k$ (the convergence is $O(r_E)$).
+Hence $H_{rr}(z_0, \gamma(z_k)) \to H_{rr}(z_0, b/d)$ with the
+limit independent of~$k$.
+
+\emph{Case 2: $d = 0$.} Then $c \ne 0$ (else $\gamma$ is
+singular), and $\gamma(z_k) = (a z_k + b)/(c z_k)
+= a/c + b/(c z_k)$, whose hyperbolic distance to any fixed
+interior point~$z_0$ diverges as $|z_k|\to 0$.
+The free logarithmic Green's function of $-\Delta$
+on~$\mathbf{H}^2$ in terms of the hyperbolic distance
+$d = d_{\mathbf{H}^2}$ is
+$H(z,w) = -(1/2\pi)\ln\tanh(d/2)$.
+Differentiating in~$d$:
+$H'(d) = -(1/2\pi)\operatorname{csch}(d)$,
+$H''(d) = (1/2\pi)\operatorname{csch}(d)\coth(d)$,
+both $O(e^{-d})$ as $d\to\infty$.
+In geodesic (Fermi) coordinates based at $z_0$, the radial
+second derivative $H_{rr}$ is a linear combination of $H'(d)$
+and $H''(d)$ with bounded coefficients, hence
+$H_{rr}(z_0,w) = O(e^{-d_{\mathbf{H}^2}(z_0,w)})$
+as $d\to\infty$
+(an elementary derivation; cf.\ \citealt{Buser1992}, Ch.~7
+for the general resolvent asymptotics).
+Hence $H_{rr}(z_0, \gamma(z_k)) \to 0$ uniformly in~$k$.
+
+In both cases the factor $H_{rr}(z_0, \gamma(z_k))$ tends to a
+$k$-independent limit $L(\gamma)$ (either $H_{rr}(z_0, b/d)$ or
+$0$), giving
 \[
-  \lim_{\xi \to 0^+}\delta C_1(m, \xi)
-  = H_{rr}(0, b/d) \cdot
+  \lim_{\xi \to 0^+}\sum_{k=0}^{N-1}
+  H_{rr}(z_0, \gamma(z_k))\cos(2\pi mk/N)
+  = L(\gamma) \cdot
   \underbrace{\sum_{k=0}^{N-1} \cos(2\pi mk/N)}_{= 0}
-  = 0.
+  = 0,
 \]
-The vanishing follows from $\mathbb{Z}_N$ character orthogonality
-alone; no property of $\Gamma$ beyond discreteness is used.
-Since $\delta C_1 \to 0$ for every $\gamma \in \Gamma$ and every
-mode, the Havelock eigenvalue at $\xi = 0$ on
-$\Gamma\backslash\mathbf{H}^2$ equals its universal-cover value
-$(N{-}1) - m(N{-}m)/2$ exactly.
+since $\sum_k \cos(2\pi mk/N) = 0$ for $1 \le m \le N-1$ by
+$\mathbb{Z}_N$ character orthogonality.
+Summing over $\gamma\in\Gamma\setminus\{1\}$:
+since $z_k\to 0$ uniformly in~$k$, for all sufficiently small
+$\xi$ the image points $\gamma(z_k)$ lie in a compact
+fundamental domain away from cusps (when cusps are present);
+the Poincar\'e series $\sum_{\gamma\ne 1} H_{rr}(z_0,\gamma w)$
+converges absolutely on such compact interior regions by the
+$O(e^{-d})$ decay combined with the lattice-point counting
+estimate $|\{\gamma : d(z_0,\gamma w) < R\}| = O(e^R)$
+(\citealt{Buser1992}, Thm.~9.2.10).
+Dominated convergence then gives $\delta C_1 \to 0$.
+The Havelock eigenvalue at $\xi = 0$ on
+$\Gamma\backslash\mathbf{H}^2$ therefore equals its
+universal-cover value $(N{-}1) - m(N{-}m)/2$ exactly.
 \end{proof}
 
 \begin{remark}[Topology as a curvature correction]

@@ -211,20 +211,27 @@ gives
 \begin{equation}\label{eq:delta2-Salpha}
   \Delta^2 T_m
   = -\sum_{p=1}^{N-1}
-    4\sin^2(\pi p/N)\,w_p\,\cos(2\pi pm/N).
+    c_p\,\cos(2\pi pm/N),
+  \qquad
+  c_p := 4\sin^2(\pi p/N)\,w_p.
 \end{equation}
-$T_m$ is polynomial of degree~$\le 2$ in $m$ if and only if
-$\Delta^2 T_m$ is independent of~$m$, which fixes the DCT
-coefficients $c_p = 4\sin^2(\pi p/N)\,w_p$ up to a
-one-parameter family (a one-dimensional preimage of
-``constant in~$m$''):
-$c_p = C_0 + \delta_p^{(N)}$ for some $N$-dependent
-residual $\delta_p^{(N)}$ lying in the kernel of the
-``constant in $m$'' projection of the DCT.
-We will close the argument in Step~2 by quantifying over
-all $N \ge 3$ and all ring radii $R > 0$,
-where the residual freedom collapses to a unique function
-of the pair distance alone.
+$T_m$ is a polynomial of degree $\le 2$ in~$m$ iff
+$\Delta^2 T_m$ is independent of~$m$.
+The family $\{\cos(2\pi pm/N) : p = 1,\dots,N-1\}$ is a
+$\mathbb{Z}_N$-DCT basis on mode space; a linear combination
+is constant in~$m$ iff every nonconstant basis vector has
+vanishing coefficient.  Since each $c_p$ multiplies a
+distinct nonconstant mode, this forces
+$c_p$ to be \emph{independent of $p$}: there exists
+$C_0 \in \mathbb{R}$ with
+\begin{equation}\label{eq:cp-const}
+  c_p = 4\sin^2(\pi p/N)\,w_p = 4C_0
+  \qquad\text{for all } p \in \{1,\ldots,N-1\}.
+\end{equation}
+(No residual one-parameter freedom: the only DCT coefficient
+compatible with ``constant in $m$'' is the $m = 0$ coefficient,
+and here it multiplies every $p$ equally.)
+Step~2 uses~\eqref{eq:cp-const} to extract an ODE for $h$.
 
 \emph{Step~2: ODE for $h$.}
 At the ring $z_p = R\,e^{2\pi i p/N}$, the tangential
@@ -322,19 +329,32 @@ This is a mathematical equivalence of Lagrangians,
 not an analogy.
 
 \emph{(iii) $\mathfrak{sl}(2,\mathbb{R})$ is the unique
-rank-$1$ non-compact simple Lie algebra whose symmetric
-space is $2$-dimensional.}
-Rank-$1$ symmetric spaces of the non-compact type are
-classified (\citealt{Helgason1978}, Ch.~X):
-$\mathbf{H}^n = \mathrm{SO}(n,1)/\mathrm{SO}(n)$ for
-$n = 2, 3, \ldots$,
-complex hyperbolic $\mathbf{H}^n_{\mathbb{C}}$, and so on.
-Among these, $\mathbf{H}^2 = \mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$
-is the unique $2$-dimensional case.
-The polygon configuration space requires a $2$D base
-(Step~(i)); this selects $\mathbf{H}^2$, hence
-$\mathrm{SL}(2,\mathbb{R})$, hence (by Steps~(i)--(ii))
-Chern--Simons at level~$k$.
+semisimple Lie algebra whose symmetric space of the
+\emph{non-compact} type is $2$-dimensional.}
+By Witten~(\citeyear{Witten1988}), $2{+}1$D Einstein gravity
+with cosmological constant $\Lambda$ is Chern--Simons theory
+for gauge group
+$\mathrm{SL}(2,\mathbb{R})\times\mathrm{SL}(2,\mathbb{R})$
+when $\Lambda < 0$, $\mathrm{SU}(2)\times\mathrm{SU}(2)$
+when $\Lambda > 0$, and $\mathrm{ISO}(2,1)$ when $\Lambda = 0$;
+the gauge group is determined by $\Lambda$.
+The polygon configuration space is
+$\mathbf{H}^2 = \mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$, the
+Poincar\'e disk with curvature $K = -1/\ell^2 < 0$:
+vortex circulation conservation and the logarithmic Green's
+function require a non-compact simply connected
+$2$-manifold with constant negative curvature, and $\mathbf{H}^2$
+is the unique such space (Killing--Hopf classification).
+Hence $\Lambda = -1/\ell^2 < 0$ in the polygon sector; the
+compact case $\Lambda > 0$ (gauge group $\mathrm{SU}(2)$,
+target $S^2$) is ruled out by the sign of the polygon
+curvature, and the flat case $\Lambda = 0$ is marginal
+(recovered as $\ell \to \infty$).
+Among non-compact rank-$1$ symmetric spaces
+(\citealt{Helgason1978}, Ch.~X), $\mathbf{H}^2$ is the unique
+two-dimensional case.
+This selects $\mathrm{SL}(2,\mathbb{R})$, hence (by
+Steps~(i)--(ii)) Chern--Simons at level~$k$.
 
 \emph{Bridge: quadratic Casimir on $\mathbb{Z}_N$ modes.}
 The vortex uniqueness argument above shows that the
@@ -2099,43 +2119,55 @@ it \emph{equals} the Einstein--Hilbert action.
 
 \begin{proposition}[Newton's constant from the polygon entropy]
 \label{prop:newton-havelock}
+Let $\ell$ be the $\mathbf{H}^2$ curvature radius, set by the
+AdS$_3$ bulk scale: $K = -1/\ell^2$.
+Let $\varepsilon := r_E/\ell$ denote the (dimensionless)
+Poincar\'e-disk polygon radius in units of~$\ell$.
 The polygon entropy functional~$S_{\mathrm{poly}}[g] = \int S(x)\,dA$,
-expanded to first order in~$R\varepsilon^2$, gives
+expanded to first order in~$R\ell^2\varepsilon^2$
+(both factors dimensionless; $R$ carries $[\text{length}]^{-2}$
+and $dA$ carries $[\text{length}]^2$), gives
 \begin{equation}\label{eq:spoly-expansion}
   S_{\mathrm{poly}} = S_0 \cdot \mathrm{Area}
-  - \frac{(N{-}1)\,\varepsilon^2}{8}\,Z_H(1)\,\int R\,dA
-  + O(R^2\varepsilon^4),
+  - \frac{(N{-}1)\,\varepsilon^2\,\ell^2}{8}\,Z_H(1)\,\int R\,dA
+  + O((R\ell^2)^2\varepsilon^4),
 \end{equation}
 where $Z_H(1) = \sum_{\lambda_m > 0} \lambda_m^{-1}$
-is the Havelock spectral zeta function at $s = 1$.
-This is the Einstein--Hilbert action
+is the (dimensionless) Havelock spectral zeta function at
+$s = 1$.
+This matches the Einstein--Hilbert action
 $S_{\mathrm{EH}} = -(16\pi G)^{-1}\int R\,dA$
-with Newton's constant
+with Newton's constant in 2+1D
+(dimension $[\text{length}]$)
 \begin{equation}\label{eq:newton-from-spectrum}
-  G = \frac{1}{2\pi(N{-}1)\,Z_H(1)\,\varepsilon^2}
-    = \frac{3}{(N^2{-}1)\cdot 2\pi\varepsilon^2}.
+  G \;=\; \frac{1}{2\pi(N{-}1)\,Z_H(1)\,\varepsilon^2\,\ell^{-1}}
+    \;=\; \frac{3\,\ell}{(N^2{-}1)\cdot 2\pi\varepsilon^2}.
 \end{equation}
 \end{proposition}
 
 \begin{proof}
-Expanding $\lambda_m = \lambda_m^{(0)} - (N{-}1)R\varepsilon^2/4 + O(R^2\varepsilon^4)$
-in the entropy
+Expanding
+$\lambda_m = \lambda_m^{(0)} - (N{-}1)R\ell^2\varepsilon^2/4 + O((R\ell^2)^2\varepsilon^4)$
+(dimensionless in both factors) in the entropy
 $S(x) = \tfrac{1}{2}\sum_{\lambda_m > 0}\log\lambda_m$ gives
 \[
   S(x) = S_0
-  - \frac{(N{-}1)\varepsilon^2}{8}\,R(x)\sum_{\lambda_m > 0}\frac{1}{\lambda_m^{(0)}}
-  + O(R^2\varepsilon^4).
+  - \frac{(N{-}1)\,\ell^2\varepsilon^2}{8}\,R(x)\sum_{\lambda_m > 0}\frac{1}{\lambda_m^{(0)}}
+  + O((R\ell^2)^2\varepsilon^4).
 \]
 Integrating and matching
-$-\alpha\int R\,dA = -(16\pi G)^{-1}\int R\,dA$
-gives $G = 1/(16\pi\alpha\varepsilon^2)$
+$-\alpha\,\ell^2\int R\,dA = -(16\pi G)^{-1}\int R\,dA$
+(both sides dimensionless, $\int R\,dA$ dimensionless)
+gives $G = \ell/(16\pi\alpha\varepsilon^2\,\ell^2\cdot\ell^{-1})
+      = \ell/(16\pi\alpha\varepsilon^2)$
 with $\alpha = (N{-}1)Z_H(1)/8$.
 
 At $N = 7$: the binding modes ($\lambda > 0$) are
 $m \in \{1,2,5,6\}$ with $\lambda = 3, 1, 1, 3$,
 so $Z_H(1) = \tfrac{8}{3}$.
 Then $(N{-}1)\,Z_H(1) = 6 \cdot \tfrac{8}{3} = 16 = (N^2{-}1)/3$,
-giving $G = 3/((N^2{-}1)\cdot 2\pi\varepsilon^2) = 1/(32\pi\varepsilon^2)$.
+giving $G = 3\ell/((N^2{-}1)\cdot 2\pi\varepsilon^2)
+       = \ell/(32\pi\varepsilon^2)$.
 \end{proof}
 
 \begin{remark}[Connection to $\alpha_s$ and the Bernoulli backbone]
@@ -2155,13 +2187,22 @@ with no dependence on the Havelock eigenvalues.
 
 \begin{remark}[Consistency check: Brown--Henneaux]
 \label{rem:brown-henneaux-check}
-The Brown--Henneaux formula gives $G_{\mathrm{BH}} = 3\ell/(2c)$
+The Brown--Henneaux formula gives
+$G_{\mathrm{BH}} = 3\ell/(2c)$ (dimension $[\text{length}]$)
 with $c = 12\,b(N) = 51.57$.
-Matching $G_{\mathrm{BH}} = G_{\mathrm{polygon}}$ requires
-$\varepsilon^2/\ell = 0.342$,
-consistent with the Poincar\'e disk parameter
+Matching $G_{\mathrm{BH}} = G_{\mathrm{polygon}}$ requires (both
+sides being multiples of~$\ell$) the dimensionless condition
+$\varepsilon^2 = c/(\pi(N^2{-}1)) \approx 0.342$,
+to be compared with the Poincar\'e disk parameter
 $\xi^* = \tanh^2(\rho^*/2) = 0.490$
 at the Born--Oppenheimer minimum $\rho^* = 1.734$.
+(The ratio $\varepsilon^2/\xi^* = 0.70$ is a finite
+$O(1)$ factor relating the two
+$\varepsilon$ conventions:
+$\varepsilon_{\mathrm{BH}} = r_E/\ell$ in Brown--Henneaux
+units vs.\ $\xi = \tanh^2(\rho/2)$ in Poincar\'e-disk radial
+coordinates; the two agree at leading order
+$\varepsilon \ll 1$.)
 The polygon radius $\varepsilon$ is not a free parameter:
 it is fixed by the BO turning point $\rho^* = 1.734$,
 the unique solution of $V_7(\rho^*) = 0$ with
