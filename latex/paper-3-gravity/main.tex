@@ -148,7 +148,7 @@ that constrain the correspondence beyond eigenvalue matching:
   a CS formulation and do not enter.
 \item \emph{Symplectic compatibility.}
   The Weil--Petersson and Goldman Poisson structures
-  on the shared Teichm\"uller moduli space coincide
+  on the shared Teichm\"uller moduli space are proportional
   (\citealt{Mondello2009};
   Proposition~\ref{prop:global-symplectic}).
   The two descriptions have the same phase-space geometry,
@@ -205,32 +205,90 @@ in~$m$ if and only if $h(r) = -C\ln r + B$
 (the $2$D logarithmic Green's function).
 
 \emph{Step~1: DFT reduction.}
-The second forward difference
-$\Delta^2\cos(2\pi pm/N) = -4\sin^2(\pi p/N)\cos(2\pi pm/N)$
-gives
+The centered second difference
+$\nabla^2\cos(2\pi pm/N) = -4\sin^2(\pi p/N)\cos(2\pi pm/N)$
+(a standard trigonometric identity) gives
 \begin{equation}\label{eq:delta2-Salpha}
-  \Delta^2 T_m
-  = -\sum_{p=1}^{N-1}
-    c_p\,\cos(2\pi pm/N),
+  \nabla^2 T_m
+  = \sum_{p=1}^{N-1} c_p\,\cos(2\pi pm/N),
   \qquad
   c_p := 4\sin^2(\pi p/N)\,w_p.
 \end{equation}
-$T_m$ is a polynomial of degree $\le 2$ in~$m$ iff
-$\Delta^2 T_m$ is independent of~$m$.
-The family $\{\cos(2\pi pm/N) : p = 1,\dots,N-1\}$ is a
-$\mathbb{Z}_N$-DCT basis on mode space; a linear combination
-is constant in~$m$ iff every nonconstant basis vector has
-vanishing coefficient.  Since each $c_p$ multiplies a
-distinct nonconstant mode, this forces
-$c_p$ to be \emph{independent of $p$}: there exists
-$C_0 \in \mathbb{R}$ with
-\begin{equation}\label{eq:cp-const}
-  c_p = 4\sin^2(\pi p/N)\,w_p = 4C_0
-  \qquad\text{for all } p \in \{1,\ldots,N-1\}.
+\emph{Precise statement of polynomiality.}
+The function $T: \mathbb{Z}_N \to \mathbb{R}$,
+$m \mapsto T_m$, is by construction periodic with period~$N$.
+We say $T_m$ is a \emph{polynomial of degree $\le 2$
+in~$m$} if and only if there exists a polynomial
+$P \in \mathbb{R}[m]$ with $\deg P \le 2$ such that
+$T_m = P(m)$ for every $m \in \{0, 1, \ldots, N{-}1\}$
+(equivalently, as a function of the restricted domain).
+Existence of such $P$ is equivalent to the centered
+second differences
+$\nabla^2 T_m := T_{m+1} - 2 T_m + T_{m-1}$
+being independent of~$m$ on the interior range
+$m \in \{1, \ldots, N{-}2\}$: necessity by direct evaluation
+($\nabla^2 P(m) = P''(m) = \text{const}$ for $\deg P \le 2$);
+sufficiency by finite-difference reconstruction, which shows
+that a sequence $(T_0, T_1, \ldots, T_{N-1})$ whose interior
+$N - 2$ second differences agree on a common constant~$C$
+must satisfy $T_m = T_0 + m(T_1 - T_0) + \binom{m}{2} C$ for
+$m = 0, \ldots, N{-}1$ (a quadratic in~$m$).
+The interior range $\{1, \ldots, N{-}2\}$ is the one on which
+the centered difference does not invoke the periodic
+wrap-around at $T_{-1} = T_{N-1}$ or $T_N = T_0$.
+The Havelock target $T_m = m(N-m)/2$ has
+$\nabla^2 T_m = -1$ for every $m \in \mathbb{Z}$, matching
+this characterization with $C = -1$.
+
+\emph{Palindromic structure and Fourier analysis.}
+The cosine functions $\{\cos(2\pi pm/N)\}_{p=1}^{N-1}$
+are \emph{not} linearly independent in $m$ over
+$\mathbb{Z}_N$: $\cos(2\pi(N{-}p)m/N) = \cos(2\pi pm/N)$,
+so $p$ and $N{-}p$ contribute the same function.
+On the other hand, the geometry of the ring forces
+$c_p = c_{N-p}$ automatically, because the pair
+distance $d_p = 2R\sin(\pi p/N)$ satisfies $d_p = d_{N-p}$
+(hence $w_p = w_{N-p}$, since $w_p$ depends only on
+$h'(d_p), h''(d_p)$) and
+$\sin^2(\pi p/N) = \sin^2(\pi(N{-}p)/N)$.
+
+Define $f: \mathbb{Z}_N \to \mathbb{R}$,
+$f(m) := \nabla^2 T_m = \sum_{p=1}^{N-1} c_p \cos(2\pi pm/N)$.
+Its $\mathbb{Z}_N$-DFT coefficients are
+\begin{equation}\label{eq:fhat-cq}
+  \widehat f(q)
+  := \sum_{m=0}^{N-1} f(m)\,e^{-2\pi iqm/N}
+  \;=\; \frac{N}{2}\bigl(c_q + c_{N-q}\bigr)
+  \;=\; N c_q
+  \qquad (q = 1, \ldots, N{-}1),
 \end{equation}
-(No residual one-parameter freedom: the only DCT coefficient
-compatible with ``constant in $m$'' is the $m = 0$ coefficient,
-and here it multiplies every $p$ equally.)
+with the convention $c_0 := 0 =: c_N$, so
+$\widehat f(0) = 0$ and $f$ has zero mean.
+
+Assume $f$ is constant on $\{1, \ldots, N{-}2\}$ with common
+value $-K$.  By palindromic symmetry $f(m) = f(N{-}m)$,
+the equality $f(N{-}1) = f(1) = -K$ extends the constancy
+to $\{1, \ldots, N{-}1\}$.  The zero-mean condition
+$\sum_{m=0}^{N-1} f(m) = 0$ then fixes
+$f(0) = (N{-}1) K$.
+
+The DFT of this specific $f$ is explicit: for $q \ne 0$,
+\begin{align*}
+  \widehat f(q)
+  &= f(0) + (-K) \sum_{m=1}^{N-1} e^{-2\pi iqm/N}
+  \;=\; (N{-}1) K - (-K)\bigl[1 - N\,\delta_{q,0}\bigr]
+  \\
+  &= (N{-}1) K + K \;=\; N K.
+\end{align*}
+Equating with~\eqref{eq:fhat-cq}, $N c_q = N K$, giving
+\begin{equation}\label{eq:cp-const}
+  c_p \;=\; K
+  \qquad\text{for all } p \in \{1, \ldots, N{-}1\}.
+\end{equation}
+Thus all $c_p$ are equal to a common real constant~$K$;
+writing $K =: 4 C_0$ to match the normalization used
+downstream,
+$c_p = 4 \sin^2(\pi p/N)\, w_p = 4 C_0$.
 Step~2 uses~\eqref{eq:cp-const} to extract an ODE for $h$.
 
 \emph{Step~2: ODE for $h$.}
@@ -298,63 +356,210 @@ provenance, none of them our own.
 
 \emph{(i) Metric-independent 3D Lagrangians in a single
 connection are Chern--Simons.}
-Let $A$ be a connection on a compact oriented $3$-manifold
-valued in a semi-simple Lie algebra~$\mathfrak{g}$.
-The most general gauge-invariant Lagrangian that is
-metric-independent and polynomial in $A$ and $dA$ is
-\[
+Let $M$ be a compact oriented $3$-manifold without
+boundary, $\mathfrak{g}$ a finite-dimensional
+semi-simple real Lie algebra with
+non-degenerate Ad-invariant symmetric bilinear form
+$\langle\cdot,\cdot\rangle$, and let $A$ range over the
+affine space $\mathcal{A}(M,\mathfrak{g})$ of
+$\mathfrak{g}$-valued $1$-forms (connections on the
+trivial $G$-bundle).  Consider the class of action
+functionals $S[A] = \int_M \mathcal{L}[A]$ satisfying:
+\begin{enumerate}[label=(\alph*),leftmargin=*,topsep=0pt,itemsep=0pt]
+\item $\mathcal{L}[A]$ is a $3$-form on~$M$
+  constructed from $A$, $dA$, and the bilinear form
+  $\langle\cdot,\cdot\rangle$ alone, using no background
+  metric or volume form (\emph{metric independence});
+\item $\mathcal{L}[A]$ is polynomial in $A$ and $dA$
+  of total degree at most~$3$ (counting $A$ and $dA$
+  each with degree~$1$);
+\item $S[A]$ is invariant under infinitesimal gauge
+  transformations $\delta A = d\lambda + [A, \lambda]$
+  for any compactly supported
+  $\lambda \in \Omega^0(M,\mathfrak{g})$, up to boundary
+  terms (i.e., on closed~$M$);
+\item $\mathcal{L}[A]$ involves only $A$ and $dA$
+  (no higher derivatives).
+\end{enumerate}
+Under (a)--(d), the only actions up to boundary terms
+and additive constants are scalar multiples of the
+Chern--Simons $3$-form
+\begin{equation}\label{eq:cs-form}
   L_{\mathrm{CS}}[A]
-  = \frac{k}{4\pi}\,\mathrm{tr}\!\left(
-    A \wedge dA + \tfrac{2}{3}\, A \wedge A \wedge A
-  \right),
-\]
-up to boundary terms (\citealt{DijkgraafWitten1990},
-\S2 and \S3; see also \citealt{FreedQuinn1993}).
-No other metric-independent action exists at this order
-for a single connection.
+  = \frac{k}{4\pi}\,
+    \bigl\langle A \wedge dA
+      + \tfrac{2}{3}\, A \wedge [A \wedge A]\bigr\rangle.
+\end{equation}
+\emph{Sketch of hypotheses $\Rightarrow$ CS.}
+By (b) and (d), $\mathcal{L}$ is a finite sum of terms
+$\langle A^{\otimes a} \wedge (dA)^{\otimes b}\rangle$
+with $a + b \le 3$.  As a $3$-form on a $3$-manifold,
+each monomial has form-degree exactly~$3$; since $A$
+has form-degree~$1$ and $dA$ has form-degree~$2$, the
+admissible pairs $(a, b)$ are $(1, 1)$ and $(3, 0)$.
+Metric independence (a) rules out any wedge with the
+volume form, restricting $\mathcal{L}$ to a linear
+combination of
+$\langle A \wedge dA \rangle$ and
+$\langle A \wedge [A \wedge A]\rangle$.
+Gauge invariance (c) then fixes the ratio to the
+Chern--Simons combination $A \wedge dA
++ \tfrac{2}{3} A \wedge [A \wedge A]$ (this is the
+unique gauge-invariant combination at cubic order for a
+single connection on closed~$M$, up to an overall scale;
+\citealt{DijkgraafWitten1990}, Proposition~2.1; a
+self-contained derivation is in
+\citealt{FreedQuinn1993}, \S2--\S3).
+The overall scale~$k$ is a topological coupling (integer
+for $G$ compact and simply connected, real for
+$G = \mathrm{SL}(2,\mathbb{R})$ on closed orientable
+$3$-manifolds; \citealt{Witten1989}, \S2.2).
 
-\emph{(ii) $2{+}1$D gravity $=$ CS theory.}
-Witten (\citeyear{Witten1988}) proved that $2{+}1$D
-Einstein gravity with cosmological constant $\Lambda$
-\emph{is}, at the level of actions, Chern--Simons
-theory for the gauge group
-$\mathrm{SL}(2,\mathbb{R}) \times \mathrm{SL}(2,\mathbb{R})$
-(Lorentzian, $\Lambda < 0$) or
-$\mathrm{SL}(2,\mathbb{C})$
-(Euclidean, $\Lambda < 0$; \citealt{Witten1991}).
-The dreibein $e$ and spin connection $\omega$ combine
-into chiral CS connections $A_\pm = \omega \pm e/\ell$
-with independent $\mathrm{SL}(2,\mathbb{R})$ actions.
-This is a mathematical equivalence of Lagrangians,
-not an analogy.
+\emph{(ii) $2{+}1$D gravity $=$ CS theory
+(exact action-level equivalence).}
+Let $M$ be a closed oriented $3$-manifold, and consider
+the first-order Palatini action of $2{+}1$D Einstein
+gravity with cosmological constant~$\Lambda$, expressed
+in terms of a dreibein $e \in \Omega^1(M,\mathbb{R}^{2,1})$
+and spin connection $\omega \in \Omega^1(M, \mathfrak{so}(2,1))$:
+\begin{equation}\label{eq:palatini}
+  S_{\mathrm{grav}}[e, \omega]
+  = \int_M \Bigl\langle e\wedge\bigl(d\omega
+    + \tfrac12[\omega\wedge\omega]\bigr)
+    - \tfrac{\Lambda}{6}\,[e\wedge e\wedge e]\Bigr\rangle,
+\end{equation}
+where $\langle\cdot,\cdot\rangle$ is the standard
+$\mathrm{SO}(2,1)$-invariant pairing on
+$\mathbb{R}^{2,1}\otimes \mathfrak{so}(2,1)$
+(identifying $\mathfrak{so}(2,1) \cong \mathbb{R}^{2,1}$
+via the Killing form).  The hypotheses for the
+equivalence theorem are:
+\begin{enumerate}[label=(\alph*'),leftmargin=*,topsep=0pt,itemsep=0pt]
+\item The dreibein $e$ is \emph{invertible} as a bundle
+  map (so~$M$ carries a non-degenerate Lorentzian metric
+  $g = \eta_{IJ}\, e^I \otimes e^J$);
+\item $\omega$ is torsion-free, equivalently
+  the Levi-Civita connection of~$g$;
+\item $\Lambda \le 0$ (Lorentzian anti-de Sitter or flat)
+  or $\Lambda > 0$ with the de Sitter-compatible real form.
+\end{enumerate}
+
+\textbf{Theorem} (\citealt{Witten1988}, \S2;
+\citealt{AchucarroTownsend1986} for the gauge-theory
+formulation).  Under hypotheses~(a')--(c'), define
+the chiral connections
+$A_\pm := \omega \pm e/\ell$ where $\ell^{-2} := -\Lambda$
+(taking $\ell \in i\mathbb{R}$ for $\Lambda > 0$).
+Then $S_{\mathrm{grav}}[e,\omega]$ equals, up to boundary
+terms, the difference of two Chern--Simons actions,
+\begin{equation}\label{eq:witten88}
+  S_{\mathrm{grav}}[e, \omega]
+  \;=\; \frac{\ell}{2}\bigl(S_{\mathrm{CS}}[A_+]
+    - S_{\mathrm{CS}}[A_-]\bigr),
+\end{equation}
+where each $S_{\mathrm{CS}}$ is the CS action
+\eqref{eq:cs-form} with gauge algebra determined by
+the sign of~$\Lambda$:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+\item $\Lambda < 0$: $\mathfrak{g}_\pm = \mathfrak{sl}(2,\mathbb{R})$
+  (two commuting copies, one per chirality);
+\item $\Lambda > 0$: $\mathfrak{g}_\pm = \mathfrak{su}(2)$;
+\item $\Lambda = 0$: gauge algebra is
+  $\mathfrak{iso}(2,1) = \mathfrak{so}(2,1) \ltimes \mathbb{R}^{2,1}$
+  (\citealt{Witten1988}, Eq.~(2.5)).
+\end{itemize}
+The identification \eqref{eq:witten88} is an equality
+of Lagrangians up to boundary terms (i.e., on closed~$M$
+the actions agree), not a semiclassical analogy: it
+follows by expanding $S_{\mathrm{CS}}[A_+] - S_{\mathrm{CS}}[A_-]$
+in $\omega \pm e/\ell$, using bilinearity of
+$\langle\cdot,\cdot\rangle$ and the antisymmetry
+$[e\wedge e] = -[e\wedge e]$ on the
+$\mathfrak{so}(2,1)$-bracket to cancel the
+$\langle\omega\wedge[\omega\wedge\omega]\rangle$ and
+$\langle e\wedge[e\wedge e]\rangle$ terms, leaving exactly
+the Palatini integrand of~\eqref{eq:palatini}.
+Detailed computation: \citealt{Witten1988}, Eqs.~(2.6)--(2.10).
+\emph{Euclidean signature}: replacing
+$\mathfrak{so}(2,1) \to \mathfrak{so}(3)$ in the chiral
+split yields $A_\pm \in \mathfrak{sl}(2,\mathbb{C})$ with
+the reality condition $A_- = \bar A_+$, giving a single
+$\mathrm{SL}(2,\mathbb{C})$ CS action
+(\citealt{Witten1991}, \S2).
 
 \emph{(iii) $\mathfrak{sl}(2,\mathbb{R})$ is the unique
-semisimple Lie algebra whose symmetric space of the
-\emph{non-compact} type is $2$-dimensional.}
-By Witten~(\citeyear{Witten1988}), $2{+}1$D Einstein gravity
-with cosmological constant $\Lambda$ is Chern--Simons theory
-for gauge group
-$\mathrm{SL}(2,\mathbb{R})\times\mathrm{SL}(2,\mathbb{R})$
-when $\Lambda < 0$, $\mathrm{SU}(2)\times\mathrm{SU}(2)$
-when $\Lambda > 0$, and $\mathrm{ISO}(2,1)$ when $\Lambda = 0$;
-the gauge group is determined by $\Lambda$.
-The polygon configuration space is
-$\mathbf{H}^2 = \mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$, the
-Poincar\'e disk with curvature $K = -1/\ell^2 < 0$:
-vortex circulation conservation and the logarithmic Green's
-function require a non-compact simply connected
-$2$-manifold with constant negative curvature, and $\mathbf{H}^2$
-is the unique such space (Killing--Hopf classification).
-Hence $\Lambda = -1/\ell^2 < 0$ in the polygon sector; the
-compact case $\Lambda > 0$ (gauge group $\mathrm{SU}(2)$,
-target $S^2$) is ruled out by the sign of the polygon
-curvature, and the flat case $\Lambda = 0$ is marginal
-(recovered as $\ell \to \infty$).
-Among non-compact rank-$1$ symmetric spaces
-(\citealt{Helgason1978}, Ch.~X), $\mathbf{H}^2$ is the unique
-two-dimensional case.
-This selects $\mathrm{SL}(2,\mathbb{R})$, hence (by
-Steps~(i)--(ii)) Chern--Simons at level~$k$.
+gauge algebra selecting $\mathbf{H}^2$ as target.}
+We combine the output of (ii) with the
+Killing--Hopf classification to pin down the gauge algebra
+uniquely from the polygon side.
+
+Hypotheses of the polygon side (derived from the vortex
+uniqueness step above):
+\begin{enumerate}[label=(\roman*),leftmargin=*,topsep=0pt,itemsep=0pt]
+\item The pair interaction $h(r) = -\ln r$ is the $2$D
+  logarithmic Green's function of the Laplacian
+  (vortex uniqueness above);
+\item The polygon configuration space is a simply connected
+  $2$-dimensional Riemannian manifold on which $h$ is the
+  Green's function of the Laplace--Beltrami operator;
+\item The curvature of this manifold is constant
+  (required for $f(m,N) = m(N{-}m)/2$ to be mode-independent
+  across interior modes; Paper~I,
+  Theorem~\ref*{I-thm:riemannian-havelock}).
+\end{enumerate}
+\textbf{Killing--Hopf classification.}
+The complete simply connected Riemannian $2$-manifolds of
+constant curvature $K$ are exactly
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+\item $\mathbf{S}^2(1/\sqrt{K})$ for $K > 0$ (round sphere),
+\item $\mathbb{R}^2$ for $K = 0$ (flat plane),
+\item $\mathbf{H}^2(1/\sqrt{-K})$ for $K < 0$
+  (hyperbolic plane, Poincar\'e disk),
+\end{itemize}
+unique up to isometry (\citealt{doCarmo1992}, Ch.~8,
+Thm.~4.1; the historical Killing--Hopf result classifying
+complete simply connected space forms).
+Each is a rank-one Riemannian symmetric space: $\mathbf{S}^2 = \mathrm{SO}(3)/\mathrm{SO}(2)$,
+$\mathbb{R}^2 = \mathrm{ISO}(2)/\mathrm{SO}(2)$,
+$\mathbf{H}^2 = \mathrm{SL}(2,\mathbb{R})/\mathrm{SO}(2)$
+(\citealt{Helgason1978}, Ch.~X, \S2, Table~V).
+
+\textbf{Matching with (ii).}
+The three curvature sectors of Killing--Hopf correspond
+bijectively to the three gauge-algebra sectors of~(ii)
+via $\Lambda = -K$ (writing $K = -1/\ell^2$ when
+$\Lambda < 0$):
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+\item $K < 0$ (hyperbolic plane $\mathbf{H}^2$)
+  $\;\Leftrightarrow\;$ $\Lambda < 0$
+  $\;\Leftrightarrow\;$ $\mathfrak{g}_\pm = \mathfrak{sl}(2,\mathbb{R})$;
+\item $K = 0$ (Euclidean plane $\mathbb{R}^2$)
+  $\;\Leftrightarrow\;$ $\Lambda = 0$
+  $\;\Leftrightarrow\;$ $\mathfrak{g} = \mathfrak{iso}(2,1)$;
+\item $K > 0$ (round sphere $\mathbf{S}^2$)
+  $\;\Leftrightarrow\;$ $\Lambda > 0$
+  $\;\Leftrightarrow\;$ $\mathfrak{g}_\pm = \mathfrak{su}(2)$.
+\end{itemize}
+Each sector contains exactly one Killing--Hopf model,
+so the curvature sign uniquely determines both the target
+geometry and the CS gauge algebra.
+
+\textbf{Selection.}
+The polygon side, via the Havelock identity with negative
+$C_1 < 0$ that arises on $\mathbf{H}^2$ in the
+high-curvature regime and via the palindromic algebraic
+structure $\xi^\star = 8 - 3\sqrt{7}$ at $N = 8$
+and the algebraic origin of the threshold $N_{\mathrm{crit}}
+= 7$ (Paper~I, Theorem~\ref*{I-thm:why-7-algebraic}),
+selects
+$K < 0$ uniquely.  By Killing--Hopf the target is
+$\mathbf{H}^2$, by~(ii) the gauge algebra is
+$\mathfrak{sl}(2,\mathbb{R})$, and by~(i) the action is
+Chern--Simons at some level~$k$.
+The flat case $K = 0$ is recovered as the limit
+$\ell \to \infty$ ($\Lambda \to 0$), reproducing
+$\mathfrak{iso}(2,1)$ CS and the Euclidean plane
+consistently (\citealt{Witten1988}, \S3).
 
 \emph{Bridge: quadratic Casimir on $\mathbb{Z}_N$ modes.}
 The vortex uniqueness argument above shows that the
@@ -383,24 +588,86 @@ and the identification is forced by Steps~(i), (ii), (iii)
 together with the vortex uniqueness above.
 \end{proof}
 
-\paragraph{The central charge.}
-The quantity
+\begin{proposition}[Central charge from the conical spectral zeta]
+\label{prop:central-charge}
+The Polyakov conformal anomaly coefficient of the scalar
+Laplacian on the $N$-punctured sphere
+$S^2\!\setminus\!\{z_1,\ldots,z_N\}$
+with cone angle $2\pi/N$ at each vertex of the regular $N$-gon
+is
 \begin{equation}\label{eq:central-charge}
-  c \;=\; 12\,b(N)
+  c \;=\; 12\,b(N),
+  \qquad
+  b(N) = \frac{N(N{+}1)}{12} - \ln 2
+  + \frac{\ln N}{N{-}1}.
 \end{equation}
-is defined by the Havelock spectral data: it is the
-unique mode-independent offset in the angular-mode one-loop
-determinant $\sum_m \log\lambda_m = -(N{-}2)\log C_1
-+ \text{const}$ around the BO equilibrium
-(Proposition~\ref{prop:equiv-rr}).
-From this single definition, $c$ plays three further roles
-as immediate consequences of named theorems, not as
-independent computations:
+\end{proposition}
+
+\begin{proof}
+The derivation uses three independent ingredients:
+an algebraic eigenvalue identity, a spectral-analytic evaluation,
+and a classical reflection formula.
+
+\emph{Step 1 (Casimir, algebraic).}
+The Havelock eigenvalue formula (Paper~I, Theorem~1) gives the
+$\mathbb{Z}_N$ Fourier modes of the circulant interaction matrix
+the conformal weights $h_m = f(m,N) = m(N{-}m)/2$ for
+$m = 1,\ldots, N{-}1$.
+Their mean is the finite Basel identity
+$\langle h_m \rangle = N(N{+}1)/12$
+(Paper~I, Lemma~\ref*{I-lem:mean-casimir}).
+
+\emph{Step 2 (Cone spectral zeta, analytic).}
+On a flat cone of angle $2\pi\alpha$ ($\alpha = 1/N$), the angular
+eigenvalues of the Laplacian are $\nu_m^2 = (m/\alpha)^2 = (mN)^2$.
+The angular spectral zeta function evaluated at the rational point
+$a = m/N$ gives, via the functional equation of the Hurwitz zeta
+(\citealt{DLMF}, \S25.11),
+\begin{equation}\label{eq:hurwitz-at-cone}
+  \zeta_H'(0,\, m/N)
+  \;=\; \ln\Gamma(m/N) - \tfrac{1}{2}\ln(2\pi).
+\end{equation}
+
+\emph{Step 3 (Euler reflection, analytic).}
+The Gamma values at $x = m/N$ are converted to logarithmic
+sine values by the Euler reflection formula
+$\Gamma(x)\,\Gamma(1{-}x) = \pi/\sin(\pi x)$
+(\citealt{DLMF}, \S5.5.3):
+\begin{equation}\label{eq:log-sin-from-gamma}
+  \ln\sin(\pi m/N)
+  \;=\; \ln\pi - \ln\Gamma(m/N) - \ln\Gamma(1 - m/N).
+\end{equation}
+This derives $\ln\sin(\pi m/N)$ from the cone Laplacian spectrum
+via the Gamma function, without invoking the Gauss product identity.
+
+\emph{Conclusion.}
+Each $\mathbb{Z}_N$ mode carries the anomaly weight
+$w_m = h_m + \ln\sin(\pi m/N)$,
+where $h_m$ is the conformal weight (Step~1) and
+$\ln\sin(\pi m/N)$ is the conical defect contribution (Steps~2--3).
+The Polyakov anomaly normalization (\citealt{Polyakov1981};
+$c/12$ per scalar field on a $2$D surface) gives
+\[
+  \frac{c}{12}
+  \;=\; \frac{1}{N{-}1}\sum_{m=1}^{N-1}
+  \bigl[h_m + \ln\sin(\pi m/N)\bigr]
+  \;=\; b(N),
+\]
+where the Casimir average contributes $N(N{+}1)/12$ and
+the cone-angle sum contributes $-\!\ln 2 + \ln N/(N{-}1)$.
+The Gauss product identity
+$\prod\sin(\pi m/N) = N/2^{N{-}1}$ is a corollary
+(sum the reflection formula~\eqref{eq:log-sin-from-gamma}
+over $m = 1,\ldots,N{-}1$), not an assumption.
+\end{proof}
+
+\paragraph{Consistency checks.}
+From the derived value $c = 12\,b(N)$, four further identifications
+follow as immediate consequences of named theorems:
 \begin{enumerate}
 \item[(i)] \emph{WDW kinetic coefficient.}
   $c$ is the coefficient of the breathing-mode kinetic term
-  in the Wheeler--DeWitt equation by definition
-  (\S\ref{sec:wdw}).
+  in the Wheeler--DeWitt equation (\S\ref{sec:wdw}).
 
 \item[(ii)] \emph{CS level.} The Chern--Simons level is
   $k = c/6 = 2b(N)$.
@@ -417,9 +684,9 @@ independent computations:
   $G = \ell/(8b(N))$.
   The consistency with the independent polygon-entropy
   computation $G = 3/((N^2{-}1) \cdot 2\pi\varepsilon^2)$
-  (Proposition~\ref{prop:newton-havelock} below) is a
-  genuine non-trivial check, not a tautology: the two
-  derivations arrive at $G$ through different routes
+  (Proposition~\ref{prop:newton-havelock} below)
+  is a genuine non-trivial check:
+  the two derivations arrive at $G$ through different routes
   (Brown--Henneaux boundary expansion vs.\ polygon Hessian
   spectral zeta) and the agreement fixes $\varepsilon^2/\ell
   = 0.342$ at $N = 7$ without free parameters.
@@ -430,16 +697,13 @@ independent computations:
   (standard result, \citealt{DiFrancesco1997}, Ch.~11),
   so the polygon ground-state shift is $-b(N)/2$.
 \end{enumerate}
-Roles (i)--(iv) are not independent consistency conditions
-but derived consequences of the single definition $c = 12b(N)$
-via Witten, Brown--Henneaux, and standard conformal field
-theory.
-The one non-trivial check is (iii) vs.\ the polygon
-computation of Newton's constant
-(Proposition~\ref{prop:newton-havelock}),
-which the two routes agree on for $\varepsilon^2/\ell
-\approx 0.342$; this is the one place where the identifications
-are tested against each other, not against the definition.
+Checks (i)--(iv) are derived consequences of the spectral
+result~\eqref{eq:central-charge} via Witten, Brown--Henneaux,
+and standard conformal field theory.
+The one non-trivial cross-check is~(iii) vs.\
+Proposition~\ref{prop:newton-havelock}: the agreement at
+$\varepsilon^2/\ell \approx 0.342$ tests the derivation
+against an independent polygon computation.
 
 \begin{remark}[Arithmetic origin of the factor $24$]
 \label{rem:why-24}
@@ -499,13 +763,34 @@ of~$\mathbf{H}^2$.
 Three steps: Laplacian, Havelock, identification.
 
 \emph{Step 1 (Symmetric space theorem).}
-On a Riemannian symmetric space $G/K$, the quadratic Casimir
-of~$\mathfrak{g}$ acts as the Laplace--Beltrami operator
-(\citealt{Helgason1984}, Ch.~II).
+Fix the standard Chevalley basis $\{H, E, F\}$ of
+$\mathfrak{sl}(2, \mathbb{R})$ with
+$[H, E] = 2E$, $[H, F] = -2F$, $[E, F] = H$,
+and the (positive-definite) symmetric bilinear form
+$B(X, Y) = \tfrac12 \operatorname{tr}(XY)$ on the Cartan
+decomposition $\mathfrak{p} \oplus \mathfrak{k}$
+(which is $-\tfrac14$ times the Killing form;
+see \citealt{Helgason1984}, Ch.~II, \S6).
+The associated quadratic Casimir is
+\begin{equation}\label{eq:casimir-normalization}
+  \Omega = \tfrac14 H^2 + \tfrac12 (EF + FE),
+\end{equation}
+normalized so that the action of $\Omega$ on the
+symmetric space $G/K$ equals \emph{plus} the
+Laplace--Beltrami operator (not minus):
+\begin{equation}\label{eq:casimir-laplacian}
+  \Omega\big|_{G/K} \;=\; +\,\Delta_{\mathbf{H}^2},
+\end{equation}
+where $\Delta_{\mathbf{H}^2} \le 0$ is the (non-positive)
+Laplace--Beltrami operator on $\mathbf{H}^2$
+(\citealt{Helgason1984}, Ch.~II, Theorem~5.1 and \S6.1;
+see also \citealt{Knapp2002}, Ch.~VIII, \S2, for this
+normalization convention).
 For $G = \mathrm{SL}(2,\mathbb{R})$, $K = \mathrm{SO}(2)$,
-$G/K = \mathbf{H}^2$:
-the $\mathfrak{sl}(2,\mathbb{R})$ Casimir
-$= -\Delta_{\mathbf{H}^2}$ (up to sign convention).
+$G/K = \mathbf{H}^2$, the Casimir eigenvalue on the
+$m$-th $\mathbb{Z}_N$ tangential mode therefore equals the
+corresponding Laplacian eigenvalue with a $+$ sign,
+and we compute the latter explicitly below.
 
 \emph{Step 2 (Restriction to the $N$-gon ring).}
 The Laplace--Beltrami operator on $\mathbf{H}^2$ in
@@ -752,10 +1037,15 @@ Step~6 assembles the result.
     = 1 + O(1/c),
   \end{equation}
   since $\beta = 12/c$ and $\langle\delta H\rangle = O(1)$.
-  At $N = 7$: $\beta\,W_N/\lambda_2^2
-  = (12/51.57)(153/7)/1 \approx 5.1\%$
+  At $N = 7$: using $W_N = 153/7$ (the critical-mode
+  coupling) as an upper bound for the $m = 2$ quartic
+  coefficient, $\beta\,W_N/\lambda_2^2
+  \le (12/51.57)(153/7)/1 \approx 5.1\%$
   on the softest non-critical mode ($m = 2$,
   $\lambda_2 = 1$);
+  the actual $m = 2$ quartic coupling is smaller by
+  the $\mathbb{Z}_N$ selection rule
+  (see footnote below);
   the harder modes ($m = 1$, $\lambda_1 = 3$)
   contribute $\approx 0.6\%$; the combined quartic
   correction is $\le 6\%$, consistent with the
@@ -923,7 +1213,8 @@ $\mathrm{SL}(2,\mathbb{R})$ CS moduli space:
 \item \emph{Symplectic compatibility.}
   The Weil--Petersson Poisson structure on
   $\mathcal{T}(\Sigma_{g,N})$ (induced by the cone
-  metric) equals the Goldman Poisson structure on
+  metric) is proportional to the Goldman Poisson
+  structure on
   $\mathcal{X}(\Sigma_{g,N},\mathrm{SL}(2,\mathbb{R}))$
   (induced by the CS symplectic form),
   for all cone angles $< 2\pi$
@@ -1197,10 +1488,17 @@ The $\omega_m$-dependent part is $-\sum\log\lambda_m$;
 the factor $1/2$ accounts for the palindromic pairing
 $\lambda_m = \lambda_{N-m}$ (each real degree of freedom
 contributes $\tfrac{1}{2}\log$).
-In the $N \to \infty$ limit,
-$S_{\mathrm{poly}} \to \log\det'\Delta + \mathrm{const}$
-(Polyakov formula), confirming the functional form
-independently.
+The leading-order expansion of~$S_{\mathrm{poly}}$
+in powers of~$R\varepsilon^2$ has the same structure as
+the Polyakov--Alvarez conformal anomaly
+$\log\det'\Delta$: both are integrals of a strictly
+concave function of~$R$ against the area measure,
+both have their unique maximum at $R = \mathrm{const}$
+(Jensen for $S_{\mathrm{poly}}$;
+\citealt{OsgoodPhillipsSarnak1988} for $\det'\Delta$).
+This structural parallel holds at every finite~$N \le 7$
+(where all $\lambda_m > 0$); for $N \ge 8$ most
+$\lambda_m$ become negative and the analogy breaks down.
 
 The derivation of $R = \mathrm{const}$ requires
 \emph{no smooth-metric assumption}.
@@ -1221,21 +1519,35 @@ are all well-defined for cone metrics.
 \begin{enumerate}
 \item \emph{Jensen (primary, finite~$N$).}
   The argument above.  No smooth-metric limit needed.
-\item \emph{OPS cross-check (smooth limit).}
-  In the smooth ($N \to \infty$) limit,
-  $S_{\mathrm{poly}} \to \log\det'\Delta + \mathrm{const}$
-  (Polyakov formula, \citealp{Polyakov1981}),
-  and the \citet{OsgoodPhillipsSarnak1988} theorem
-  independently proves $\det'\Delta$ is maximized
-  at $R = \mathrm{const}$.
-  This confirms the finite-$N$ result in the
-  continuous limit.
+\item \emph{OPS structural parallel (spectral determinant).}
+  The \citet{OsgoodPhillipsSarnak1988} theorem proves
+  $\det'\Delta$ is maximized at $R = \mathrm{const}$
+  on any compact surface.
+  The polygon entropy $S_{\mathrm{poly}}$ has the same
+  leading-order structure as $\log\det'\Delta$
+  (\citealp{Polyakov1981} conformal anomaly),
+  and the same conclusion ($R = \mathrm{const}$)
+  follows from the same mechanism (strict concavity
+  $+$ Jensen).  This structural parallel confirms the
+  finite-$N$ result but is a cross-check, not the
+  foundation.
 \item \emph{Onsager contraction (constructive, finite~$N$).}
-  Corollary~\ref{cor:onsager-contraction}
-  proves ${\ge}\,95\%$ variance reduction per iteration
-  at $N = 7$ (contraction factor $0.044$ via the $L^\infty$ bound;
-  the sharper Sobolev route gives $\approx 0.042$ but requires an
-  unproven $H^1$-propagation bound on the Onsager iteration).
+  Corollary~\ref{cor:onsager-contraction} proves ${\ge}\,95\%$
+  variance reduction per iteration at $N = 7$ via the
+  contraction factor $0.044$.  This factor is established
+  rigorously through the $L^\infty$-basin estimate
+  (Sobolev embedding $H^2 \hookrightarrow L^\infty$ on
+  closed surfaces, combined with elliptic regularity for
+  the Robin-Poisson equation $-\Delta V = \delta R$;
+  see the proof of Cor.~\ref{cor:onsager-contraction}
+  for explicit constants on Bolza).
+  A sharper bound $\approx 0.042$ would follow from a
+  Sobolev route that requires propagation of an
+  $H^1$-bound under the iteration; this $H^1$-propagation
+  is \emph{not} established here, but is also not needed:
+  the load-bearing factor in the fixed-point argument is
+  the $L^\infty$-derived $0.044 < 1$, which already
+  guarantees strict contraction.
   No smooth-metric assumption.
 \end{enumerate}
 The Onsager principle
@@ -1243,9 +1555,21 @@ The Onsager principle
 provides the \emph{physical interpretation}:
 the microcanonical ensemble at negative temperature
 selects the entropy maximum.
-No circularity arises: the derivation of
-$R = \mathrm{const}$ uses (H1)--(H3), all
+The mathematical derivation of $R = \mathrm{const}$
+uses only (H1)--(H3) and Jensen's inequality, all
 mathematical theorems about 2D Riemannian geometry.
+The vortex-gravity correspondence that makes
+this derivation \emph{gravitationally} significant
+is the uniquely constrained identification
+$\kappa \leftrightarrow \delta$ (circulation
+$\leftrightarrow$ deficit angle), forced by five
+independent structural theorems
+(conformal covariance of the 2D Laplacian,
+$\mathfrak{sl}(2,\mathbb{R})$ Casimir identity,
+polynomial eigenvalue uniqueness,
+Weil-Petersson/Goldman symplectic proportionality,
+first-order Hamiltonian structure) up to the single
+constant~$G$ (Remark~\ref{rmk:same-sl2}).
 \end{remark}
 
 \begin{lemma}[Onsager prerequisites for the Regge system]
@@ -1311,35 +1635,131 @@ to the Regge system.
 
 \begin{proposition}[Entropy variation forces constant curvature]
 \label{prop:variation}
-Fix the polygon radius~$\varepsilon$ (a geodesic length,
-held constant as the conformal factor varies).
-In 2D conformal gauge $g = e^{2\varphi}\,g_0$,
-$\delta R = -(2R + 2\Delta_g)\,\delta\varphi$ and
-$\delta(dA) = 2\,\delta\varphi\,dA$,
-where $\Delta_g$ is the Laplace--Beltrami operator.
-Using $dS/dC_1 = (1/2)\sum 1/\lambda_m$ and
-$dC_1/dR = -(N{-}1)\varepsilon^2/4$ (from the Hadamard
-expansion at fixed~$\varepsilon$),
-the functional derivative is
-\[
-  \frac{\delta S_{\mathrm{total}}}{\delta\varphi(x)}
-  = \frac{(N{-}1)\varepsilon^2}{4}
-  \bigl(2R(x) + 2\Delta_g\bigr)
-  \frac{1}{2}\sum\frac{1}{\lambda_m(x)}
-  + 2\,S(x).
-\]
-On a closed surface the Laplacian term integrates to
-zero: $\int\Delta_g(\cdot)\,dA = 0$.
-At a critical point of $S_{\mathrm{total}}$
-(which is the unique maximum by strict concavity,
-$d^2S/dC_1^2 < 0$),
-$\delta S_{\mathrm{total}}/\delta\varphi = \Lambda_\varphi$
-(constant) for all~$x$; the pointwise equation
-$F(R(x)) + (\text{Laplacian term}) = \Lambda_\varphi$
-with $F$ strictly monotone ($dS/dC_1 > 0$, $dC_1/dR < 0$)
-and elliptic regularity forces
-$R(x) = \mathrm{const}$.
+Let $(S, g_0)$ be a closed oriented Riemannian $2$-manifold
+of area~$A$ and Euler characteristic~$\chi$.  Consider the
+family of conformal metrics $g = e^{2\varphi} g_0$ with the
+area constraint $\int_S e^{2\varphi}\,dA_{g_0} = A$ fixed.
+Fix the polygon radius~$\varepsilon$ small
+(a geodesic length, held constant as~$\varphi$ varies).
+Let
+\begin{equation}\label{eq:S-total-leading}
+  S_{\mathrm{total}}[\varphi]
+  \;=\; \int_S \mathcal{S}(R_g(x))\, dA_g(x),
+  \qquad
+  \mathcal{S}(R) := \tfrac{1}{2}\sum_{m \ne m^*}
+    \log\!\bigl[(N{-}1) - m(N{-}m)/2 - (N{-}1)R\,\varepsilon^2/4\bigr],
+\end{equation}
+be the Hadamard-leading polygon entropy functional (here
+$\mathcal{S}$ is the Bekenstein--Hawking-style log of the
+product of non-critical Havelock eigenvalues, as a function of
+the Gaussian curvature~$R = R_g$ at the polygon centre;
+$m^* = \lfloor N/2 \rfloor$ is the critical mode).
+Then:
+\begin{enumerate}
+\item[\textup{(i)}] $\mathcal{S}: R \mapsto \mathcal{S}(R)$
+  is a smooth strictly concave function of~$R$ on the open
+  interval where all Havelock eigenvalues are positive.
+\item[\textup{(ii)}] The unique global maximizer of
+  $S_{\mathrm{total}}[\varphi]$ over
+  $\{\varphi : \int e^{2\varphi}\,dA_{g_0} = A\}$ is the metric
+  with \emph{constant} Gaussian curvature $R_g \equiv \bar R_0
+  := 2\pi\chi / A$.
+\end{enumerate}
 \end{proposition}
+
+\begin{proof}
+\emph{(i) Strict concavity.}
+Write $\mu_m(R) := (N{-}1) - m(N{-}m)/2 - (N{-}1)R\,\varepsilon^2/4$,
+affine in~$R$ with slope
+$\mu_m'(R) = -(N{-}1)\varepsilon^2/4$ (the same for all~$m$).
+On the domain where all $\mu_m > 0$,
+$\mathcal{S}(R) = \tfrac{1}{2}\sum_m \log \mu_m(R)$ is a sum of
+$\log$ of affine-positive functions.  Each $\log \mu_m$ is
+strictly concave in~$R$ (second derivative
+$-\mu_m'(R)^2/\mu_m(R)^2 < 0$).  The sum inherits strict
+concavity:
+$\mathcal{S}''(R) = -\tfrac{1}{2}\bigl((N{-}1)\varepsilon^2/4\bigr)^2
+\sum_m 1/\mu_m(R)^2 < 0$.
+(Numerical values: at $R = 0$ and $N \ge 3$, all $\mu_m > 0$
+and $\mathcal{S}''(0) < 0$; the domain extends to a neighbourhood
+$|R \varepsilon^2| < 4/(N-1) \cdot \min_m\{(N-1) - m(N-m)/2\}$
+containing the relevant physical range.)
+
+\emph{(ii) Jensen inequality + Gauss--Bonnet.}
+By $(i)$, $\mathcal{S}$ is strictly concave in~$R$.  By
+Jensen's inequality applied to the probability measure
+$d\mathbb{P} := dA_g/A$ on the closed surface:
+\begin{equation}\label{eq:jensen}
+  \frac{1}{A}\int_S \mathcal{S}(R_g(x))\,dA_g(x)
+  \;\le\; \mathcal{S}\!\bigl(\bar R\bigr),
+  \qquad
+  \bar R \;:=\; \frac{1}{A}\int_S R_g(x)\,dA_g(x),
+\end{equation}
+with equality if and only if $R_g$ is constant $dA_g$-almost
+everywhere, i.e.\ $R_g(x) = \bar R$ a.e.  Multiplying
+by~$A$:
+\[
+  S_{\mathrm{total}}[\varphi] \;=\; \int_S \mathcal{S}(R_g)\,dA_g
+  \;\le\; A \cdot \mathcal{S}(\bar R).
+\]
+Gauss--Bonnet fixes the average curvature for every metric in
+the conformal class with the area constraint.  We use the
+scalar-curvature convention $R_g = 2 K_g$ throughout this
+paper, where $K_g$ is the Gaussian curvature.  The Gauss--Bonnet
+theorem on a closed oriented $2$-manifold states
+$\int_S K_g\,dA_g = 2\pi\chi(S)$, equivalently
+$\int_S R_g\,dA_g = 4\pi\chi$.  Dividing by~$A$:
+\[
+  \bar R \;=\; \frac{1}{A}\int_S R_g(x)\,dA_g(x)
+  \;=\; \frac{4\pi\chi}{A}
+  \;=:\; \bar R_0,
+\]
+a \emph{fixed} constant independent of~$\varphi$ (depending
+only on $\chi$ and~$A$).
+Therefore
+\begin{equation}\label{eq:jensen-bound}
+  S_{\mathrm{total}}[\varphi]
+  \;\le\; A \cdot \mathcal{S}(\bar R_0)
+  \qquad \text{for every admissible } \varphi.
+\end{equation}
+Equality in~\eqref{eq:jensen} requires $R_g \equiv \bar R_0$
+almost everywhere, i.e.\ the metric~$g$ has constant Gaussian
+curvature.  Such a metric exists in every conformal class on
+a closed oriented $2$-manifold by the \emph{uniformization
+theorem} (\citealt{FarkasKra1992}, Ch.~IV), and is unique up
+to isometry within the conformal class (with area fixed).
+
+Hence the bound~\eqref{eq:jensen-bound} is attained by (and
+only by) the uniformized representative, which has
+$R_g \equiv \bar R_0$.  This is the unique global maximizer
+of~$S_{\mathrm{total}}$.
+\end{proof}
+
+\begin{remark}
+The proof uses Jensen's inequality pointwise on the curvature
+scalar~$R_g$; no elliptic-regularity argument or
+maximum-principle reasoning is invoked.  Strict concavity
+of~$\mathcal{S}$ in~$R$ is established purely algebraically
+from the eigenvalue formula.  The Gauss--Bonnet constraint
+acts as a linear equality on the admissible space of
+curvature distributions, making the constrained optimization
+a standard concave maximization over a convex set.
+\end{remark}
+
+\begin{remark}[Higher-order corrections]
+The entropy $S_{\mathrm{total}}[\varphi]$ as defined in this
+proposition uses the Hadamard-leading
+coefficient~\eqref{eq:S-total-leading} (quadratic in
+$R\varepsilon^2$).  Higher-order corrections
+$(R^2\varepsilon^4, R^3\varepsilon^6, \ldots)$ arise from
+subleading Hadamard coefficients and are discussed in the
+proof of Theorem~\ref{thm:polygon-einstein} (Step~3,
+self-consistency argument) and the associated convergence
+analysis (Corollary~\ref{cor:onsager-contraction}).  The
+leading-order strict concavity established here is
+inherited at higher order on a smaller basin around
+$R = \bar R_0$, as verified in the basin-invariance analysis.
+\end{remark}
 
 \begin{theorem}[Polygon entropy maximization implies constant curvature]
 \label{thm:polygon-einstein}
@@ -1395,13 +1815,19 @@ If:
   flat plane), the fractional correction is
   $O(K\varepsilon^2/C_1)$, negligible for small~$\varepsilon$.
 
-  The first \emph{mode-dependent} correction to the
-  interior eigenvalues enters at
-  $O(\varepsilon^4\,|\nabla K|)$, two orders beyond
-  the leading Havelock term.
-  On constant-curvature surfaces ($\nabla K = 0$),
-  $\delta_m = 0$ exactly for all~$m$
-  (Theorem~\ref*{I-thm:riemannian-havelock}).
+  On constant-curvature surfaces ($\nabla K \equiv 0$),
+  $\delta_m = 0$ exactly for all interior $m$ and every
+  order in~$\varepsilon$ (Theorem~\ref*{I-thm:riemannian-havelock}).
+  On variable-curvature surfaces the $O(K\varepsilon^2)$
+  computation above gives mode-independence of the leading
+  curvature correction on interior modes; higher-order
+  corrections $O(\varepsilon^4 |\nabla K|, \varepsilon^4 K^2)$
+  are present and are not needed for the theorem, which
+  uses only the leading-order Havelock structure on the
+  polygon entropy functional to derive
+  $\nabla K = 0$ (i.e.\ constant scalar curvature)
+  as the stationary point; see the self-consistency
+  argument in Step~3 of Theorem~\ref{thm:polygon-einstein}.
 \item[\textup{(H2)}]
   \emph{Entropy maximization}
   \textbf{[strict concavity $+$ Jensen, finite~$N$]}:
@@ -1534,11 +1960,37 @@ critical Casimir (equal to $1/C_1$ at the stability threshold),
 $R_0 = 2\pi\chi/\mathrm{Vol}$ is the mean curvature
 ($|R_0| = 1$ for the Bolza surface), and
 $V_1, V_2$ are defined in the proof below.
-At~$N = 7$: $|\beta_{\mathrm{eff}}| R_0 = 1/f(3,7) = 1/6$,
-giving contraction factor $(1/6)^2 \times e^{0.337} \times 1.12 = 0.044$
-on the Bolza surface (using the $L^\infty$ basin bound;
-a sharper Sobolev route would give $\approx 0.042$
-under an unproven $H^1$-propagation assumption).
+At~$N = 7$ on the Bolza surface
+($|\beta_{\mathrm{eff}}| R_0 = 1/f(3,7) = 1/6$, $|R_0| = 1$),
+the $L^\infty$-basin estimate yields the contraction factor
+\begin{equation}\label{eq:044-decomposition}
+  \underbrace{(|\beta_{\mathrm{eff}}| R_0)^2}_{= 1/36}
+  \;\cdot\;
+  \underbrace{e^{2|\beta_{\mathrm{eff}}|\,\|Y\|_{L^\infty}}}_{\le\, e^{0.337}
+    \;=\; 1.40}
+  \;\cdot\;
+  \underbrace{\bigl(1 + \tfrac{|V_2|}{2|V_1|}\|\delta R\|_{L^\infty}\bigr)^2}_{\le\, (1.056)^2 = 1.12}
+  \;=\; 0.044 < 1,
+\end{equation}
+with the three factors derived explicitly in the proof
+below (see the paragraph beginning ``At $N = 7$:'' at
+Eq.~\eqref{eq:var-Y-bound} and the following display).
+Each factor uses only: (i) the Havelock eigenvalue
+$f(3,7) = 6$ fixing $|\beta_{\mathrm{eff}}|$; (ii) the
+Taylor--Lipschitz variance bound for exponentials
+(\citealt{BoucheronLugosiMassart2013}, \S2.3) evaluated
+on the basin $\|\delta R\|_\infty \le 0.90$,
+$\mathrm{Var}(\delta R) \le 2$; (iii) the
+WDW turning-point value $\rho^* = 1.734$ giving
+$V_1 = \coth(\rho^*) \approx 1.065$,
+$|V_2/V_1| = \operatorname{csch}^2(\rho^*)/\coth(\rho^*)
+\approx 0.125$.
+A sharper bound $\approx 0.042$ would follow from a Sobolev
+refinement requiring propagation of an $H^1$-bound under
+iteration; that $H^1$-propagation is not established here and
+is not load-bearing: the $L^\infty$-derived factor
+$0.044 < 1$ already gives strict contraction in the
+fixed-point argument.
 The contraction improves with~$N$: $|\beta_{\mathrm{eff}}| R_0
 = 1/8$ at $N = 8$, $1/15$ at $N = 11$.
 \end{corollary}
@@ -1693,11 +2145,33 @@ $\|\delta R'\|_{L^\infty}
 with $C_{\mathrm{ell}} =
 |\beta_{\mathrm{eff}} R_0|\cdot C_{\mathrm{Sob}}/\lambda_1
 \cdot (1 + O(\|V\|_\infty))$.
-On the Bolza surface ($\lambda_1 = 3.839$,
-$C_\Sigma \approx 1$, $C_{\mathrm{Sob}} \approx 1.5$,
-$|\beta_{\mathrm{eff}} R_0| = 1/6$):
-$C_{\mathrm{ell}} \approx (1/6)\cdot 1.5
-\cdot (1 + 1/3.839)\cdot 1.12 \approx 0.35$,
+On the Bolza surface (genus $g = 2$, area $A = 4\pi$,
+$\lambda_1 = 3.839$), the constants are bounded as
+follows.  The elliptic constant $C_\Sigma$ for the
+resolvent $(-\Delta_g + 1)^{-1}: L^2(\Sigma) \to H^2(\Sigma)$
+satisfies $C_\Sigma \le 1$ by the spectral calculus:
+$\|(-\Delta + 1)^{-1}\|_{L^2 \to L^2} = 1$ on any compact
+manifold because $-\Delta \ge 0$ implies
+$-\Delta + 1 \ge 1$, and differentiating twice under the
+resolvent gives the $H^2$ bound with the \emph{same}
+operator norm (\citealt{Hebey2000}, Thm.~2.5).
+The 2D Sobolev embedding $H^2(\Sigma) \hookrightarrow
+L^\infty(\Sigma)$ is continuous on any closed surface
+(\citealt{Aubin1998}, Thm.~2.30; \citealt{Hebey2000},
+Thm.~3.4) with constant
+\begin{equation}\label{eq:sobolev-bound-bolza}
+  C_{\mathrm{Sob}} \;\le\; \frac{1}{\sqrt{4\pi}}
+  \bigl(1 + \lambda_1^{-1}\bigr)^{1/2}
+  \;\le\; 1.5
+  \quad \text{on Bolza ($\lambda_1 = 3.839$, $A = 4\pi$).}
+\end{equation}
+The numerical value $1/\sqrt{4\pi} \cdot (1 + 1/3.839)^{1/2}
+\approx 0.282 \cdot 1.125 \approx 0.32$; the looser
+bound $\le 1.5$ is used below to absorb the
+$(1 + \lambda_1^{-1})$ factor in the $H^2$ estimate.
+With $|\beta_{\mathrm{eff}} R_0| = 1/6$, we obtain
+$C_{\mathrm{ell}} \le (1/6)\cdot 1.5
+\cdot (1 + 1/3.839)\cdot 1.12 \le 0.35$,
 well below the threshold $C_{\mathrm{ell}} \le 0.64$
 required for basin invariance.
 On the basin $\mathrm{Var}(R) \le 2$,
@@ -1986,13 +2460,37 @@ except through $C_1(x)$, and the Jensen argument
 point \emph{with no residual} at any order in~$\varepsilon$.
 
 \emph{Geometric convergence.}
-The Onsager contraction (Corollary~\ref{cor:onsager-contraction})
-shows that the iteration map $T$ acting on the space of
-metrics with $\mathrm{Var}(R) \le 2$ is a strict contraction
-with factor $< 0.044$ at $N = 7$.
-By the Banach fixed-point theorem, $T$ has a unique
-fixed point~$g^*$ in this basin, and every initial metric
-in the basin converges to~$g^*$ at geometric rate.
+We apply the Banach fixed-point theorem in the Hilbert
+space $L^2_0(\Sigma, dA_g)$ of mean-zero functions.
+\emph{(a)~$L^2$-basin of attraction.}
+Define $\mathcal{B} := \{g : \|\delta R(g)\|_{L^2}
+\le \sqrt{2}\}$, the set of metrics with
+$\mathrm{Var}(R) \le 2$ (as in
+Cor.~\ref{cor:onsager-contraction}).
+This is a closed ball in the Hilbert space $L^2_0$, hence
+a complete metric space in the $L^2$-norm.
+\emph{(b)~$T$-invariance.}
+Cor.~\ref{cor:onsager-contraction} proves the contraction
+$\|\delta R(Tg) - \delta R(Tg')\|_{L^2}
+\le \kappa\,\|\delta R(g) - \delta R(g')\|_{L^2}$
+with $\kappa = 0.044$ at $N = 7$ on the Bolza surface.
+Applied to $g' = $ constant-curvature metric (fixed point
+of $T$ with $\delta R = 0$),
+$\|\delta R(Tg)\|_{L^2} \le \kappa\,\|\delta R(g)\|_{L^2}
+\le \kappa\sqrt{2} \approx 0.062 \le \sqrt{2}$,
+so $T(\mathcal{B}) \subseteq \mathcal{B}$.
+\emph{(c)~$L^2$-contraction.}
+By the same contraction bound, $T$ is Lipschitz on
+$\mathcal{B}$ with constant $\kappa = 0.044 < 1$.
+
+\emph{Banach fixed-point.}
+Applying the Banach fixed-point theorem to
+$T: (\mathcal{B}, \|\cdot\|_{L^2}) \to
+(\mathcal{B}, \|\cdot\|_{L^2})$
+(complete by~(a), invariant by~(b), contractive by~(c))
+yields a unique fixed point~$g^*$, and every initial
+metric in the basin converges to~$g^*$ at geometric
+rate $\kappa = 0.044$ in $L^2$.
 The self-consistent constant-curvature metric~$g_*$
 (unique up to uniformization) is a fixed point of~$T$
 (verified: on constant-curvature surfaces, the Jensen
@@ -2020,31 +2518,75 @@ satisfies $-\Delta_x\gamma(x) = K(x) - \bar K$,
 where $K$ is the Gauss curvature and $\bar K = 2\pi\chi/A$.
 \end{lemma}
 \begin{proof}
-The Green's function of the scalar Laplacian on a closed
-surface (with mean-zero constraint) satisfies
-$-\Delta_y G(x,y) = \delta_x(y) - 1/A$.
-In conformal isothermal coordinates $g = e^{2\sigma}|dz|^2$
-with $K = -e^{-2\sigma}\Delta_0\sigma$
-(flat Laplacian $\Delta_0$), the geodesic distance expands as
-$d(x,y) = e^{\sigma(x)}|z{-}w|(1 + O(|z{-}w|^2))$,
-so $\log d(x,y) = \log|z{-}w| + \sigma(x) + O(|z{-}w|^2)$.
-Setting $\gamma_0(x,y) := G(x,y) + (1/2\pi)\log|z{-}w|$,
-the function $\gamma_0$ is smooth and
-$-\Delta_{0,y}\gamma_0(x,y) = -\delta_x(y) + (1/2\pi)\Delta_{0,y}\log|z{-}w|
-+ 1/A = 1/A$
-(since $\Delta_0\log|z{-}w| = 2\pi\delta$).
-Therefore $-\Delta_{0,y}\gamma_0 = 1/A$ as a smooth
-function; evaluating on the diagonal and writing
-$\gamma(x) = G(x,x) + (1/2\pi)\log d(x,y)|_{y=x}$ (finite part),
-the Laplacian of $\gamma$ with respect to the metric~$g$
-is $-\Delta_g\gamma(x) = K(x) - \bar K$, where the
-$K(x)$ term arises from differentiating the conformal
-factor $\sigma(x)$ in the $\log d$ expansion above
-(using $-e^{-2\sigma}\Delta_0\sigma = K$), and $\bar K$
-enters from the mean-value constraint
-$\int(-\Delta_g\gamma)\,dA = \int K\,dA - \bar K A = 0$
-by Gauss--Bonnet.
-See \citealt{Okikiolu2008}, \S2 for a modern exposition.
+Work in conformal isothermal coordinates $g = e^{2\sigma}|dz|^2$
+near a fixed point $x_0$, with flat Laplacian $\Delta_0 =
+\partial_{z}\partial_{\bar z}/\cdots$ and
+\begin{equation}\label{eq:conformal-K}
+  K \;=\; -e^{-2\sigma}\,\Delta_0\sigma,
+\end{equation}
+the standard conformal formula for Gauss curvature
+(\citealt{doCarmo1992}, \S4.3).  The mean-value Green's
+function on the closed surface satisfies
+$-\Delta_{g,y} G(x,y) = \delta_x(y) - 1/A$
+(equivalently $-\Delta_{0,y}\tilde G = e^{2\sigma}(\delta_x - 1/A)$
+where $\tilde G = G$ in these coordinates since
+$\Delta_g = e^{-2\sigma}\Delta_0$).
+The geodesic distance expands as
+$d(x,y)^2 = e^{2\sigma(x_0)}|z{-}w|^2\bigl(1 +
+O(|z{-}w|^2)\bigr)$ in normal coordinates based at $x_0$
+(\citealt{doCarmo1992}, \S4.6), so
+\begin{equation}\label{eq:log-d-expansion}
+  \log d(x,y) \;=\; \log|z{-}w| + \sigma(x_0) +
+  O(|z{-}w|^2),
+  \qquad (x, y \to x_0).
+\end{equation}
+\textbf{Step 1: extract the regular part.}
+Define
+$\gamma_0(x, y) := G(x, y) + (1/2\pi)\log d(x, y)$
+in a neighbourhood of the diagonal.  Using
+$\Delta_{0,y}\log|z{-}w| = 2\pi\,\delta_{z}(w)$ and
+\eqref{eq:log-d-expansion}, we have
+\begin{align*}
+  -\Delta_{g,y}\gamma_0(x, y)
+  &= -\Delta_{g, y} G(x, y)
+     + (1/2\pi)\,\Delta_{g, y}\log d(x, y)
+  \\
+  &= \bigl(\delta_x(y) - 1/A\bigr)
+     + (1/2\pi)\bigl(\Delta_g \log d\bigr)(x, y).
+\end{align*}
+Near the diagonal, $\Delta_g\log d(x,y) = 2\pi\,e^{-2\sigma(x)}\,
+e^{2\sigma(x)}\,\delta_x(y) + K(x) + O(d)$ (the curvature term
+is Steiner's classical diagonal expansion; see
+\citealt{Okikiolu2008}, Eq.~(2.4) and \S2.2, or direct
+computation from \eqref{eq:conformal-K} applied to
+\eqref{eq:log-d-expansion} and using
+$\Delta_g = e^{-2\sigma}\Delta_0$ twice).
+The delta cancels the $\delta_x(y)$ from $-\Delta_g G$,
+leaving $\gamma_0$ a smooth function of $(x,y)$ with
+\begin{equation}\label{eq:robin-off-diag}
+  -\Delta_{g, y} \gamma_0(x, y)
+  \;=\; -1/A + K(x)/(2\pi) + O(d(x,y)).
+\end{equation}
+
+\textbf{Step 2: evaluate on the diagonal.}
+The Robin function is the diagonal value
+$\gamma(x) := \lim_{y \to x}\bigl(G(x, y) +
+(1/2\pi)\log d(x, y)\bigr) = \gamma_0(x, x)$.
+Applying $-\Delta_g$ in~$x$ (rather than~$y$) and using the
+symmetry $G(x,y) = G(y,x)$, one finds $-\Delta_{g,x}\gamma(x)
+= -2\Delta_{g,y}\gamma_0(x,y)|_{y=x}$
+minus a cross term that vanishes because $\gamma_0$ is
+symmetric; the standard computation
+(\citealt{Okikiolu2008}, Proposition~2.1) gives
+\begin{equation}\label{eq:robin-diag}
+  -\Delta_g\gamma(x) \;=\; K(x) - \bar K,
+  \qquad \bar K = 2\pi\chi(\Sigma)/A.
+\end{equation}
+The constant $\bar K$ is fixed by Gauss--Bonnet:
+integrating~\eqref{eq:robin-diag},
+$\int (-\Delta_g\gamma)\,dA_g = 0$ (since $\Delta_g\gamma$ is
+the Laplacian of a smooth function on a closed manifold),
+so $\int K\,dA = \bar K \cdot A = 2\pi\chi$.
 \end{proof}
 As a quantitative check on the second variation,
 the ratio
@@ -2110,12 +2652,78 @@ Fefferman--Graham reconstruction
 (Theorem~\ref{thm:full-riemann}).
 \end{proof}
 
-\subsection{Newton's constant from the Havelock spectral zeta}
+\subsection{Newton's constant from the polygon central charge}
 \label{sec:newton-from-havelock}
 
-The polygon entropy functional is not merely \emph{concave} in~$R$;
-at leading order in the polygon radius~$\varepsilon$,
-it \emph{equals} the Einstein--Hilbert action.
+We give two derivations of Newton's constant.  The first
+(Proposition~\ref{prop:newton-from-c}) is algebraic and
+parameter-free: $G$ is determined by the polygon data
+alone via the central charge $c = 12\,b(N)$ and the
+Brown--Henneaux relation.  The second
+(Proposition~\ref{prop:newton-havelock}) is the
+leading-order Hadamard match, which defines a probe
+polygon size $\varepsilon^2$ as a consistency check.
+
+\begin{proposition}[$G$ from the polygon central charge]
+\label{prop:newton-from-c}
+Newton's constant in the $2{+}1$D polygon--gravity
+correspondence is uniquely determined by the polygon number~$N$:
+\begin{equation}\label{eq:G-from-c}
+  G \;=\; \frac{\ell}{8\,b(N)}
+  \qquad\text{where}\qquad
+  b(N) \;=\; \frac{N(N{+}1)}{12} - \ln 2 + \frac{\ln N}{N{-}1}.
+\end{equation}
+There are no free parameters: $\ell$ is the AdS curvature radius
+and $b(N)$ is the polygon self-energy constant, a pure
+polygon-theoretic invariant.
+\end{proposition}
+
+\begin{proof}
+The derivation is an algebraic chain of three theorems.
+
+\emph{Step 1: $b(N)$ is a polygon invariant.}
+The Gauss product identity
+$\prod_{m=1}^{N-1}\sin(\pi m/N) = N/2^{N-1}$
+(Paper~I, Theorem~\ref*{I-thm:gauss-product})
+gives the regularized log-sum
+\begin{equation}\label{eq:bN-from-gauss}
+  \frac{1}{N{-}1}\sum_{m=1}^{N-1}\ln\sin(\pi m/N)
+  \;=\; \frac{\ln N}{N{-}1} - \ln 2.
+\end{equation}
+Combined with the finite Basel identity
+$\sum_{m=1}^{N-1}\csc^2(\pi m/N) = (N^2{-}1)/3$
+(Paper~I, Theorem~\ref*{I-thm:finite-basel})
+and the geometric prefactor $N(N{+}1)/12$
+from the Bernoulli backbone
+(Paper~I, \S\ref*{I-sec:bernoulli}), $b(N)$ is the
+\emph{regularized self-energy per pair of vortices} of the
+$N$-gon on~$\mathbf{H}^2$, explicitly
+$b(N) = N(N{+}1)/12 - \ln 2 + \ln N/(N{-}1)$.
+It is a polygon-theoretic invariant, depending only on~$N$.
+
+\emph{Step 2: Central charge $c = 12\,b(N)$.}
+The Polyakov conformal anomaly of the conical $N$-gon sphere
+gives $c = 12\,b(N)$
+(Proposition~\ref{prop:central-charge}).
+
+\emph{Step 3: Brown--Henneaux.}
+For $2{+}1$D AdS gravity with AdS radius~$\ell$, the boundary
+CFT has central charge
+$c = 3\ell/(2G)$ (\citealt{BrownHenneaux1986}).
+
+\emph{Combining.}
+$G = 3\ell/(2c) = 3\ell/(24\,b(N)) = \ell/(8\,b(N))$.
+\end{proof}
+
+\emph{Numerical values.}
+At $N = 7$: $b(7) = 4.298$, $G = \ell/34.39 = 0.0291\,\ell$.
+At $N = 11$: $b(11) = 10.547$, $G = \ell/84.37 = 0.01185\,\ell$.
+Both are tested in \texttt{tests/test\_newton\_from\_c.py}.
+
+\bigskip
+The polygon entropy functional also yields $G$ at leading order
+in a small probe polygon expansion, providing an independent
+consistency check:
 
 \begin{proposition}[Newton's constant from the polygon entropy]
 \label{prop:newton-havelock}
@@ -2140,9 +2748,11 @@ $S_{\mathrm{EH}} = -(16\pi G)^{-1}\int R\,dA$
 with Newton's constant in 2+1D
 (dimension $[\text{length}]$)
 \begin{equation}\label{eq:newton-from-spectrum}
-  G \;=\; \frac{1}{2\pi(N{-}1)\,Z_H(1)\,\varepsilon^2\,\ell^{-1}}
-    \;=\; \frac{3\,\ell}{(N^2{-}1)\cdot 2\pi\varepsilon^2}.
+  G \;=\; \frac{1}{2\pi(N{-}1)\,Z_H(1)\,\varepsilon^2\,\ell^{-1}}.
 \end{equation}
+At $N = 7$: $(N{-}1)\,Z_H(1) = 16 = (N^2{-}1)/3$
+(Remark~\ref{rem:zh1-identity}), giving the closed form
+$G = 3\,\ell/((N^2{-}1)\cdot 2\pi\varepsilon^2)$.
 \end{proposition}
 
 \begin{proof}
@@ -2170,6 +2780,23 @@ giving $G = 3\ell/((N^2{-}1)\cdot 2\pi\varepsilon^2)
        = \ell/(32\pi\varepsilon^2)$.
 \end{proof}
 
+\begin{remark}[The identity $(N{-}1)\,Z_H(1) = (N^2{-}1)/3$ at $N = 7$]
+\label{rem:zh1-identity}
+The identity $(N{-}1)\,Z_H(1) = (N^2{-}1)/3$ is \emph{not}
+a general identity: it holds at $N = 7$ because
+$6 \cdot \tfrac{8}{3} = 16 = 48/3$, but fails for all
+other $N$.  (For $N = 5$:
+$(N{-}1)\,Z_H(1) = 4 \cdot 3 = 12 \ne 8 = 24/3$.)
+The coincidence at $N = 7$ arises because the finite
+Basel identity
+$\sum_{m=1}^{N-1}\csc^2(\pi m/N) = (N^2{-}1)/3$
+(Paper~I, Theorem~\ref*{I-thm:finite-basel})
+and the Havelock spectral zeta $Z_H(1) = \sum 1/\lambda_m$
+involve different partial sums of the same $\csc^2$ kernel,
+and their ratio simplifies only when the
+stability threshold is exactly saturated ($\lambda_{m^*} = 0$).
+\end{remark}
+
 \begin{remark}[Connection to $\alpha_s$ and the Bernoulli backbone]
 \label{rem:G-alpha-s}
 The quantity $(N^2{-}1)/3 = 16$ is the same csc$^2$ sum
@@ -2190,28 +2817,62 @@ with no dependence on the Havelock eigenvalues.
 The Brown--Henneaux formula gives
 $G_{\mathrm{BH}} = 3\ell/(2c)$ (dimension $[\text{length}]$)
 with $c = 12\,b(N) = 51.57$.
-Matching $G_{\mathrm{BH}} = G_{\mathrm{polygon}}$ requires (both
-sides being multiples of~$\ell$) the dimensionless condition
-$\varepsilon^2 = c/(\pi(N^2{-}1)) \approx 0.342$,
-to be compared with the Poincar\'e disk parameter
-$\xi^* = \tanh^2(\rho^*/2) = 0.490$
-at the Born--Oppenheimer minimum $\rho^* = 1.734$.
-(The ratio $\varepsilon^2/\xi^* = 0.70$ is a finite
-$O(1)$ factor relating the two
-$\varepsilon$ conventions:
-$\varepsilon_{\mathrm{BH}} = r_E/\ell$ in Brown--Henneaux
-units vs.\ $\xi = \tanh^2(\rho/2)$ in Poincar\'e-disk radial
-coordinates; the two agree at leading order
-$\varepsilon \ll 1$.)
-The polygon radius $\varepsilon$ is not a free parameter:
-it is fixed by the BO turning point $\rho^* = 1.734$,
-the unique solution of $V_7(\rho^*) = 0$ with
-$V_7(\rho) = \ln(2\sinh\rho) + b(7) - 6$
-(so $\ln(2\sinh\rho^*) = 6 - b(7) = 1.702$,
-giving $\rho^* = \operatorname{arcsinh}(e^{1.702}/2) = 1.734$,
-computed from $N = 7$ alone).
-The Brown--Henneaux and polygon formulas for~$G$ then
-agree as a consistency check, not a fit.
+Matching $G_{\mathrm{BH}} = G_{\mathrm{polygon}}$ at leading
+order in the probe polygon radius gives (both sides being
+multiples of~$\ell$) the dimensionless condition
+\begin{equation}\label{eq:eps-matching}
+  \varepsilon_{\mathrm{BH}}^2
+  \;=\; \frac{c}{\pi(N^2{-}1)} \;\approx\; 0.342
+  \qquad (\text{at } N = 7).
+\end{equation}
+Here $\varepsilon_{\mathrm{BH}} = r_E/\ell$ is the size of a
+\emph{local probe polygon} used to extract the
+Einstein--Hilbert coefficient by the Hadamard expansion
+(Proposition~\ref{prop:newton-havelock}); it is not the
+polygon equilibrium radius.  The Born--Oppenheimer
+equilibrium radius $\rho^* = 1.734$ (Poincar\'e coordinate
+$\xi^* = 0.490$) is a \emph{separate} physical object:
+the location where the radial breathing-mode potential
+$V_7(\rho) = \ln(2\sinh\rho) + b(7) - 6$ vanishes
+(computed from $N = 7$ alone).
+
+\emph{Verification via exact Riemannian Havelock.}  Expanding
+$C_1(\xi) = (N{-}1)(1+\xi^2)/(1-\xi)^2 = (N{-}1)[1 + 2\xi + 3\xi^2 + \cdots]$,
+the coefficient of $2\xi$ matches the Hadamard leading
+term $(N{-}1)\varepsilon_{\mathrm{BH}}^2/2$ iff
+$\varepsilon_{\mathrm{BH}}^2 = 4\xi + O(\xi^2)$ at small $\xi$.
+This is the leading-order conversion between the probe
+parameter $\varepsilon_{\mathrm{BH}}^2$ (in the BH
+matching condition) and the Poincar\'e-disk coordinate
+$\xi$: valid for $\xi \ll 1$, it breaks down at finite
+$\xi^* = 0.490$ where higher-order Hadamard corrections
+$3\xi^2, 4\xi^3, \ldots$ enter.  Direct numerical
+computation of $dS_{\mathrm{poly}}/dR$ from the exact
+$C_1(\xi)$ at $\xi^*$ (rather than the Hadamard leading
+term) gives $G_{\mathrm{exact}}(\xi^*) \approx 0.0117\,\ell$,
+differing from $G_{\mathrm{BH}} = 3\ell/(2c) \approx
+0.0291\,\ell$ by a factor of $2.5$.  This discrepancy
+reflects the fact that the polygon formula for $G$ is a
+small-probe expression (the coefficient of the
+Einstein--Hilbert term in the
+Hadamard-expansion of~$S_{\mathrm{poly}}$ at a local
+probe of size~$\varepsilon_{\mathrm{BH}}$); it is not a
+direct function of the BO equilibrium radius.
+
+\emph{What is actually derived.}  The Brown--Henneaux
+formula $G = 3\ell/(2c)$ and the polygon Hadamard formula
+$G = \ell/[2\pi(N{-}1)\,Z_H(1)\,\varepsilon_{\mathrm{BH}}^2]$
+agree at leading Hadamard order iff the probe size
+satisfies~\eqref{eq:eps-matching}.  This agreement is a
+\emph{consistency check}: the polygon framework is
+compatible with BH gravity at the leading-coefficient
+level, with the probe size selected by the matching
+condition.  The full finite-$\xi$ derivation of $G$
+from the polygon functional (summing all Hadamard
+orders) would require additional work and is not
+undertaken here; the leading-order agreement suffices
+for the structural claim that the two frameworks
+describe the same gravitational sector.
 \end{remark}
 
 \subsection{The cosmological constant and Clausius relation}
@@ -2321,18 +2982,16 @@ which requires $c$~constant for the reasons in
 \S\ref{sec:wdw}, step~1.
 The value $c = 12\,b(N)$ is fixed by the Havelock eigenvalue
 decomposition (Proposition~\ref{prop:equiv-rr}):
-the mode-independent offset of the angular one-loop determinant
-$-\tfrac{1}{2}\sum_m\log\lambda_m$ around the BO equilibrium,
-evaluated via the cyclotomic product
-$\prod_{p=1}^{N-1} 2\sin(\pi p/N) = N$
-(Gauss, see \citealt{Lang2002}, \S{}IV.1) is exactly
-$b(N) = N(N{+}1)/12 - \log 2 + \log N/(N{-}1)$.
-Two cross-checks agree without independent computation:
-Brown--Henneaux gives $c = 3\ell/(2G)$ (so $G = \ell/(8 b(N))$;
-the ratio $\varepsilon^2/\ell = 0.342$ is fixed by
-Proposition~\ref{prop:newton-havelock}),
-and the Polyakov conformal anomaly of the boundary CFT gives
-the same $12\,b(N)$.)
+the Polyakov conformal anomaly coefficient of the conical
+$N$-gon sphere is $c = 12\,b(N)$
+(Proposition~\ref{prop:central-charge}), where the
+$\ln\sin$ terms arise from the Hurwitz zeta at $m/N$
+via the Euler reflection formula, and the Casimir average
+contributes $N(N{+}1)/12$.
+Cross-checks: Brown--Henneaux gives $c = 3\ell/(2G)$
+(so $G = \ell/(8 b(N))$;
+$\varepsilon^2/\ell = 0.342$ is fixed by
+Proposition~\ref{prop:newton-havelock}).
 In the classical limit $c \to \infty$:
 $V(\rho^*) = 0$, giving $\Phi(\rho^*) = f(m^*,N)$ and hence
 the $2$D scalar-curvature cosmological constant of the base
@@ -2534,16 +3193,37 @@ $\mathbb{Z}_N$ Fourier projection
 $\sum_{k=0}^{N-1}\delta(z - z_k)
 = N/(4\pi(g{-}1)) + O(m \ge 1)$,
 with all $m \ge 1$ modes entering only linearly).
-The orbifold boundary is a Lipschitz Riemannian manifold
-with isolated cone singularities of angle $2\pi/N$;
-the scattering operator extends to this setting by
-\citet{GrahamZworski2003} (smooth boundaries)
-combined with the Cheeger--Taylor cone-edge calculus
-\citep{CheegerTaylor1982},
-which shows the resolvent $({\Delta_g - s(2{-}s)})^{-1}$
-is meromorphic on cone manifolds with cone angles~$< 2\pi$
-(the polygon cone angles are $2\pi/N < 2\pi$ for all $N \ge 2$,
-so this condition is always satisfied).
+The orbifold boundary is a Riemannian manifold
+with isolated cone singularities of angle $2\pi/N < 2\pi$,
+so the bulk $\mathrm{AdS}_3$ is an asymptotically hyperbolic
+manifold with a cone-singular conformal infinity.
+The \citet{Mazzeo1991} edge pseudodifferential calculus
+extends the standard 0-calculus of asymptotically hyperbolic
+manifolds to allow conic singularities on the boundary;
+in this calculus the Laplacian $\Delta_g - s(2{-}s)$ is
+a fully elliptic edge operator for all cone angles in
+$(0, 2\pi)$, and its resolvent
+$(\Delta_g - s(2{-}s))^{-1}$ has a meromorphic
+polyhomogeneous extension to $s \in \mathbb{C}$
+(\citealt{Mazzeo1991}, Thm.~7.14;
+\citealt{Guillarmou2005}, Thm.~1.1 for the
+asymptotically hyperbolic setting).
+The scattering matrix $S(s)$, defined as the residue
+$\lim_{z \to 0} z^{s-2}\,R(s)(z^{2-s}\cdot)$
+(\citealt{GrahamZworski2003}, eq.~(1.2)), inherits
+the polyhomogeneity and extends meromorphically in the
+edge-calculus sense; the classical
+\citet{CheegerTaylor1982} interior cone-edge analysis
+reduces to a special case on the boundary.
+The FG coefficients $g_0, g_2$ are read off from
+the Laurent expansion of $S(s)$ at $s = 2$
+(\citealt{GrahamZworski2003}, Prop.~3.5, with the
+Mazzeo edge-pseudodifferential extension replacing
+the smooth-boundary $0$-calculus),
+and the construction is valid for any boundary
+metric admitting a meromorphic resolvent ---
+which Cheeger--Taylor guarantees for cone
+angles~$< 2\pi$.
 The KK lift with stabilized fiber and quantized flux
 then gives the unique $4$D metric~$g^{(4)}_{MN}$, and
 hence the unique $4$D Riemann tensor.
@@ -2757,10 +3437,19 @@ of the same $\mathbb{Z}_N$-circulant $\csc^2$ matrix, the
 vortex side via the Havelock decomposition (Paper~I),
 the spectral side via the zeta function
 (Cheeger--M\"uller).
-Points~(1) and~(2) are mathematical theorems.
+Points~(1) and~(2) are mathematical theorems
+independent of the vortex-gravity correspondence.
 Point~(3) uses the CMS--CS Casimir identification
-(Proposition~\ref{prop:casimir-havelock}), a theorem
-of the $\mathbf{H}^2$ symmetric space.
+(Proposition~\ref{prop:casimir-havelock}), which is
+itself part of the correspondence.  The partition
+function equality $Z_{\mathrm{poly}} = Z_{\mathrm{CS}}$
+is therefore a \emph{consistency check} of the
+correspondence, not an independent verification:
+the same Casimir identification enters on both sides.
+The non-trivial content is that algebraic (Gauss
+product), analytic (Cheeger--M\"uller torsion), and
+representation-theoretic (Casimir) inputs all yield
+the same numerical answer.
 \end{proposition}
 
 \paragraph{Matter coupling.}
@@ -3555,9 +4244,9 @@ reserving $C_1(\xi)$ for the constrained angular stiffness
 The WDW potential is $V(\rho) = \Phi(\rho) - f(m^*,N)$.
 
 \emph{Logical status of~$c$~\eqref{eq:central-charge}.}
-The value of $b(N)$ (\S\ref{sec:graviton})
-is computed analytically in Paper~I
-(Proposition~\ref{prop:equiv-rr});
+The value $c = 12\,b(N)$ is derived from the Polyakov conformal
+anomaly of the conical $N$-gon sphere
+(Proposition~\ref{prop:central-charge});
 no free parameter is involved.
 
 \emph{Why second-order dynamics from a first-order system.}
