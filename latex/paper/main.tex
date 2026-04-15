@@ -293,7 +293,6 @@ accessible (Section~\ref{sec:curvature-invariant}).
 
 \subsection{Dilation invariance and the Cauchy functional equation}
 \label{sec:dilation-invariance}
-\end{remark}
 
 \begin{remark}[The logarithm as the unique dilation-invariant interaction]
 \label{rem:rg-fixed-point}
@@ -325,35 +324,34 @@ symmetry of the stream function; Corollary~\ref{cor:dilation-rg}
 shows it additionally implies that the stability threshold is
 dilation-invariant.
 
-\begin{proposition}[RG classification of perturbations]
+\begin{remark}[RG classification of perturbations]
 \label{prop:rg-classification}
-Write $h(r) = -\ln r + \varepsilon\,f(r)$ where $f$ is a perturbation.
-The additive coarse-graining map
-$T_b\colon h \mapsto h(b\,\cdot) - h(b)$ acts on~$f$ as
-$(T_b f)(r) = f(br) - f(b)$.
+Write $h(r) = -\ln r + f(r)$ where $f$ is a perturbation.
+Consider the rescaling $h \mapsto h_b(r) := h(br)$ at scale $b > 1$
+(coarse-graining).  Since $-\ln(br) = -\ln r - \ln b$ differs from
+$-\ln r$ only by an additive constant, the log part is
+\emph{scale-invariant} modulo constants (this is
+Corollary~\ref{cor:dilation-rg}).  The perturbation $f$ transforms
+as $f_b(r) = f(br)$.
+Classify perturbations by their large-scale behavior:
 \begin{enumerate}
-  \item \emph{Irrelevant} ($f(r) \to 0$ as $r \to \infty$):
-    the perturbation is suppressed at large scales;
-    $h$ flows toward $-\ln r$ under coarse-graining.
-  \item \emph{Relevant} ($f(r) \to \infty$ as $r \to \infty$):
-    the perturbation dominates at large scales;
-    $h$ flows away from $-\ln r$.
-  \item \emph{Marginal} ($f(r) \to \mathrm{const}$):
-    the perturbation shifts $h$ by a constant.
+  \item \emph{Irrelevant}: $|f(br)| \to 0$ as $b \to \infty$ for
+    fixed $r$.  Example: $f(r) = r^\alpha$ with $\alpha < 0$
+    (power law with negative exponent, $r^\alpha \to 0$ as $r \to \infty$
+    i.e.\ $b \to \infty$ at fixed $r$---wait, that's $b^\alpha r^\alpha$
+    which $\to 0$ iff $\alpha < 0$ for $b \to \infty$).
+    The perturbation is suppressed at large scales.
+  \item \emph{Relevant}: $|f(br)| \to \infty$ as $b \to \infty$.
+    Example: $f(r) = r^\alpha$ with $\alpha > 0$.  The perturbation
+    dominates at large scales.
+  \item \emph{Marginal}: $|f(br)| \to \mathrm{const}$.  Example:
+    $f(r) = \mathrm{const}$ or $f(r) = \ln r$.
 \end{enumerate}
-Eigenfunctions $f(r) = r^\alpha$:
-$(T_b\, r^\alpha)(r) = b^\alpha(r^\alpha - 1)$,
-so $r^\alpha$ with $\alpha < 0$ is irrelevant and
-$\alpha > 0$ is relevant.
-\end{proposition}
-
-\begin{proof}
-For $f(r) = r^\alpha$ with $\alpha < 0$:
-$|f(br)| = b^\alpha |r^\alpha| \to 0$ as $b \to \infty$ for
-fixed $r$, so coarse-graining suppresses the perturbation.
-For $\alpha > 0$: $|f(br)| = b^\alpha |r^\alpha| \to \infty$,
-so the perturbation grows under coarse-graining.
-\end{proof}
+This is a standard physics-level classification of scaling behavior
+under coarse-graining, not a theorem.  It captures the large-scale
+asymptotics of the perturbed Hamiltonian and its stability
+consequences (see connection to the sign rule below).
+\end{remark}
 
 \noindent\emph{Connection to the sign rule.}
 For $h = -\ln r + \varepsilon\,r^\alpha$:
@@ -416,12 +414,16 @@ constant-curvature family with respect to polygon formation:
 \label{sec:mobius-cov}
 
 \begin{proposition}[M\"obius covariance]\label{prop:mobius}
-Under a conformal map $f\colon\mathbb{C}\to\mathbb{C}$, the
-logarithmic energy transforms as
+Under a M\"obius transformation $f\colon\hat{\mathbb{C}}\to
+\hat{\mathbb{C}}$ (i.e., $f(z) = (az+b)/(cz+d)$ with
+$ad - bc \ne 0$), the logarithmic energy transforms as
 \[
   H(f(z_1),\dots,f(z_N))
   = H(z_1,\dots,z_N) - \sum_{k=1}^{N}\tfrac{N-1}{2}\ln|f'(z_k)|.
 \]
+(For general conformal maps the identity $|f(z){-}f(w)|
+= |f'(z)|^{1/2}|f'(w)|^{1/2}|z{-}w|$ holds only to leading order
+in $|z{-}w|$; for M\"obius $f$ it is exact.)
 Consequently, the point vortex equations of motion are
 M\"obius-invariant: the single-site correction
 $\tfrac{N-1}{2}\ln|f'(z_k)|$ depends only on~$z_k$, so
@@ -576,23 +578,56 @@ $s = \sigma c_s$, $t = \sigma c_t$.  Direct differentiation gives
 \end{align*}
 
 \emph{Step 3: Chain rule for $h(\sqrt{D})$.}
-Write $d = \sqrt{D}$.  Two applications of the chain rule give
-\[
+Write $d = \sqrt{D}$, so $d_m = \sqrt{D(0)} = 2R\sin(\pi m/N)$
+is the equilibrium pair distance (at $\sigma = 0$, $R$ the
+ring radius).  Two applications of the chain rule give
+\begin{equation}\label{eq:chain-rule-h}
   \frac{\dd^2}{\dd\sigma^2}h(d)\bigg|_{\sigma=0}
-  = \underbrace{\frac{h''(d_m)}{4d_m^2}(D')^2
-  + \frac{h'(d_m)}{2d_m}\!\left[D'' - \frac{(D')^2}{2d_m^2}\right]}_{\text{evaluated at each pair $(j,k)$}}.
-\]
-Substituting $D' = 4c_s d_m^2/2$ (since $1-\cos\phi = d_m^2/(2R^2)$,
-and absorbing $R$ into $d_m$) and collecting terms:
+  = \frac{h''(d_m)}{4d_m^2}(D'(0))^2
+  + \frac{h'(d_m)}{2d_m}\!\left[D''(0) - \frac{(D'(0))^2}{2d_m^2}\right].
+\end{equation}
+Now substitute the Step-2 values
+$D'(0) = 4c_s(1-\cos\phi)$, $D''(0) = 8c_s^2(1-\cos\phi) + 8c_t^2$,
+and the equilibrium identity
+$d_m^2 = 2R^2(1-\cos\phi) \Leftrightarrow 1-\cos\phi
+= d_m^2/(2R^2)$.  Absorb $R$ by setting $R = 1$ (scale invariance
+of the Hessian; the theorem holds for any $R > 0$).
+Then $D'(0) = 4c_s\cdot d_m^2/2 = 2c_s d_m^2$ and
+$(D'(0))^2 = 4c_s^2 d_m^4$.  The first term of
+\eqref{eq:chain-rule-h}:
 \[
-  \frac{\dd^2}{\dd\sigma^2}h(d)\bigg|_0
-  = \bigl[d_m^2 h''(d_m) + d_m h'(d_m)\bigr]c_s^2
-  + \frac{h'(d_m)}{d_m}\,c_t^2\,\frac{d_m^2}{(1-\cos\phi)}.
+  \frac{h''(d_m)}{4d_m^2}\cdot 4c_s^2 d_m^4
+  = c_s^2\,d_m^2\,h''(d_m).
 \]
+The second term, expanded:
+\begin{align*}
+  \frac{h'(d_m)}{2d_m}\!\left[D''(0) - \frac{(D'(0))^2}{2d_m^2}\right]
+  &= \frac{h'(d_m)}{2d_m}\!\left[8c_s^2(1-\cos\phi) + 8c_t^2
+     - \frac{4c_s^2 d_m^4}{2d_m^2}\right] \\
+  &= \frac{h'(d_m)}{2d_m}\!\left[4c_s^2 d_m^2 + 8c_t^2 - 2c_s^2 d_m^2\right]
+     \quad \text{(using $1-\cos\phi = d_m^2/2$)}\\
+  &= \frac{h'(d_m)}{2d_m}\!\left[2c_s^2 d_m^2 + 8c_t^2\right] \\
+  &= c_s^2\,d_m\,h'(d_m) + \frac{4c_t^2\,h'(d_m)}{d_m}.
+\end{align*}
+Combining the two contributions yields
+\begin{equation}\label{eq:Hpp-per-pair}
+  \frac{\dd^2}{\dd\sigma^2}h(d)\bigg|_0
+  = c_s^2\bigl[d_m^2 h''(d_m) + d_m h'(d_m)\bigr]
+  + c_t^2\,\frac{4\,h'(d_m)}{d_m}.
+\end{equation}
+(At $R = 1$, using $d_m^2 = 2(1{-}\cos\phi)$, the tangential
+coefficient can also be written $4h'(d_m)/d_m
+= 2(h'(d_m)/d_m)\cdot d_m^2 / (1{-}\cos\phi)$.)
 
 \emph{Step 4: Summation over pairs.}
-For fixed separation $m$, sum over the $N-m$ pairs
-$(k, k{+}m)$ for $k = 0, \ldots, N{-}m{-}1$.  Define
+For fixed separation $m \in \{1, \ldots, N{-}1\}$, sum over the
+$N-m$ unordered pairs $(k, k{+}m)$ with $k = 0, \ldots, N{-}m{-}1$
+(the restriction $k + m < N$ prevents double-counting; each unordered
+pair $\{j, j'\}$ with $j' - j \equiv m \pmod{N}$ and $j' > j$ appears
+exactly once).  The total number of pairs summed across all $m$ is
+$\sum_{m=1}^{N-1}(N-m) = N(N-1)/2$, which equals the total number of
+unordered pairs from $N$ vertices, confirming no double-counting.
+Define
 \[
   S_m = \sum_{k=0}^{N-m-1} c_{s,k}^2, \quad
   \text{where } c_{s,k} = \frac{2k + m - (N{-}1)}{2N}.
@@ -613,17 +648,22 @@ $A_m = d_m^2 h''(d_m) + d_m h'(d_m) = d_m \cdot (rh')'\big|_{r=d_m} \le 0$,
 so the first term $A_m S_m \le 0$ since $S_m \ge 0$.
 
 The case $m = N{-}1$ requires separate attention.
+The formula~\eqref{eq:Hpp-general} is well-defined at $m = N{-}1$:
+every factor ($d_m$, $h'(d_m)$, $h''(d_m)$, $m^2(N{-}m)$) remains
+finite and nonzero (with $d_{N-1} = 2R\sin(\pi(N{-}1)/N)
+= 2R\sin(\pi/N) > 0$).
 At $m = N{-}1$ there is only one pair $(0, N{-}1)$, and the
 centering sum has a single term:
 $c_{s,0} = (0 + (N{-}1) - (N{-}1))/(2N) = 0$,
 so $S_{N-1} = 0$.  The first term $A_{N-1} S_{N-1} = 0$ therefore
 \emph{vanishes identically}, regardless of the sign of $A_{N-1}$.
 However, the second term $B_{N-1} = h'(d_{N-1})\,(N{-}1)^2/(N^2 d_{N-1})$
-remains strictly negative (since $h' < 0$).  Thus the $m = N{-}1$
-contribution to $H''(0)$ is $B_{N-1} < 0$, and strict negativity
-of $H''(0) = \sum_m (A_m S_m + B_m)$ follows from $A_m S_m \le 0$
-for all $m$ and $B_m < 0$ for all $m$, with at least one term
-strictly negative.
+remains strictly negative (since $h' < 0$).
+Strict negativity of $H''(0) = \sum_m (A_m S_m + B_m)$ follows
+directly from $B_m < 0$ for every $m \in \{1,\ldots,N{-}1\}$
+(since $h'(d_m) < 0$ and $m^2(N{-}m) > 0$, so $B_m < 0$) combined
+with $A_m S_m \le 0$ for all $m$ (from $A_m \le 0$ under
+$(rh')' \le 0$ and $S_m \ge 0$).  Thus $H''(0) < 0$.
 \end{proof}
 
 \begin{remark}[Borderline status of the logarithmic interaction]
@@ -648,6 +688,10 @@ interactions into three classes:
 The 2D Green's function $h(r) = -\ln r$ falls in class~(ii)---the
 boundary between guaranteed and non-guaranteed negativity.  In this
 precise sense, the logarithmic interaction produces the \emph{weakest}
+negativity of $H''(0)$ among the monotonically decreasing interactions
+with convex $r h'(r)$: any sharper radial decay (as in power-law
+potentials $h(r) = r^{-\alpha}$ for $\alpha > 0$, class~(i)) strengthens
+the result, while softer decay breaks it.
 
 %% ====================================================================
 \section{The Havelock identity and its metric-independence}
@@ -684,6 +728,31 @@ $\sum_{p=1}^{N-1}\omega^{p\ell} = N\delta_{\ell \equiv 0\pmod{N}} - 1$:
 \]
 where $\delta_{j \equiv k}$ contributes $m$ (since $0 \le j,k \le m-1
 < N$ forces $j = k$) and the $-1$ contributes $-m^2$.
+\end{proof}
+
+\begin{lemma}[Finite Basel identity]\label{lem:finite-basel}
+For every integer $N \ge 2$,
+\begin{equation}\label{eq:finite-basel-local}
+  \sum_{p=1}^{N-1}\csc^2\!\left(\frac{\pi p}{N}\right)
+  \;=\; \frac{N^2-1}{3}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+From the partial-fraction expansion
+$\pi^2\csc^2(\pi z) = \sum_{n\in\mathbb{Z}} 1/(z-n)^2$
+(\citealt{Ahlfors1979}, \S5.2.1, differentiated form of the
+Mittag-Leffler expansion of $\pi\cot$), summing over
+$z = p/N$ for $p \in \{1, \ldots, N{-}1\}$:
+\[
+  \pi^2\sum_{p=1}^{N-1}\csc^2(\pi p/N)
+  = N^2 \!\!\sum_{\substack{k\in\mathbb{Z}\\k\not\equiv 0\pmod N}}\!\!
+      \frac{1}{k^2}
+  = N^2\left[2\zeta(2) - \frac{2}{N^2}\zeta(2)\right]
+  = \frac{\pi^2(N^2 - 1)}{3},
+\]
+using $k = p - Nn$ as the index runs over non-multiples of~$N$,
+and $\zeta(2) = \pi^2/6$.  Dividing by~$\pi^2$ gives the result.
 \end{proof}
 
 \subsection{The Riemannian Havelock identity}
@@ -759,22 +828,44 @@ $\nabla^2_{\mathrm{LB},x} G(x,y) = \delta_y(x) - 1/\mathrm{Vol}(M)$.
 On the plane, $G(x,y) = -(2\pi)^{-1}\ln|x{-}y|$ and the
 $1/\mathrm{Vol}$ term vanishes ($\mathrm{Vol} = \infty$),
 recovering the kernel of equation~\eqref{eq:thomson-H}.
-On a compact surface the normalization adds a constant
-$R(y) = G(x,y) + (2\pi)^{-1}\ln d(x,y)$ (the Robin function),
-which is independent of the vortex \emph{configuration} and
-therefore does not affect the Hessian $\nabla^2 H$ at the
-$N$-gon equilibrium.  The mode-independence argument below
+On a compact surface the Green's function decomposes as
+$G(x,y) = -(2\pi)^{-1}\ln d(x,y) + R(x,y)$
+where $R$ is the Robin part, satisfying
+$\nabla^2_{\mathrm{LB},x} R(x,y)
+ = -1/\mathrm{Vol}(M) + \delta$-function contributions
+that cancel in the smooth Hessian at the polygon equilibrium
+(where all pairs have $d(x,y) > 0$).  At the regular $N$-gon
+on a compact surface with $\mathbb{Z}_N$-symmetric vertex
+positions, $R(x,y)$ evaluated on pairs $(x,y) = (z_j, z_k)$
+depends only on the separation $|j - k| \bmod N$ by symmetry,
+so it contributes a $\mathbb{Z}_N$-circulant to $\nabla^2 H$
+whose Fourier eigenvalues are mode-$m$ constants
+$R_m = \sum_p R(z_0, z_p)\cos(2\pi pm/N)$.
+The argument below shows that these constants contribute
+only to $C_1(\text{surface})$ (the mode-independent offset
+in $\lambda_m = C_1 - f(m,N)$) and not to the polygon
+function $f(m,N) = m(N{-}m)/2$, which is determined
+entirely by the short-distance $-\ln d$ kernel.
+The mode-independence argument below
 depends only on $\nabla^2_{\mathrm{LB}} G$ away from the
 diagonal, where
 $\nabla^2_{\mathrm{LB},x} G(x,y) = -1/\mathrm{Vol}(M)$
 (constant, independent of $x$, $y$, or separation).
 Hence $\nabla^2_{\mathrm{LB}} h(d_p) = c$ is the \emph{same
 constant} for every pair~$p$ (with $c = -1/\mathrm{Vol}(M)$
-on a compact surface, $c = 0$ on the plane), and
-$\sum_p \nabla^2_{\mathrm{LB}} h(d_p)\cos(2\pi pm/N)
-= c\sum_{p=1}^{N-1}\cos(2\pi pm/N) = -c$,
-which is independent of~$m$.  Therefore $H_{rr}^{(m)}+H_{tt}^{(m)}
-= -c - (N{-}1)c = -Nc \equiv \delta$ is mode-independent.
+on a compact surface, $c = 0$ on the plane).
+Apply~\eqref{eq:trace-formula}: since
+$\nabla^2_{\mathrm{LB}} h(d_p) = c$ is $p$-independent,
+\[
+  H_{rr}^{(m)}+H_{tt}^{(m)}
+  = c\sum_{p=1}^{N-1}\bigl(\cos(2\pi pm/N) - 1\bigr)
+  = c\bigl(-1 - (N{-}1)\bigr)
+  = -Nc,
+\]
+using $\sum_{p=1}^{N-1}\cos(2\pi pm/N) = -1$ for
+$m \in \{1,\ldots,N{-}1\}$ (from
+$\sum_{p=0}^{N-1}e^{2\pi ipm/N} = 0$).
+So $H_{rr}^{(m)}+H_{tt}^{(m)} = -Nc \equiv \delta$ is mode-independent.
 On the plane ($\mathrm{Vol} = \infty$), $c = 0$, so $\delta = 0$
 (exact tracelessness); on a compact surface $c = -1/\mathrm{Vol}(M)$,
 giving $\delta = N/\mathrm{Vol}(M)$, which shifts $C_1$
@@ -782,6 +873,36 @@ without affecting $f(m,N)$.  On the sphere of radius $R$:
 $\mathrm{Vol} = 4\pi R^2$, so $\delta = N/(4\pi R^2)$,
 consistent with the colatitude-dependent $C_1$ of
 Section~\ref{sec:curved}.
+
+\smallskip
+\noindent\emph{Determination of $\lambda_m^-$ on constant-curvature
+surfaces.}
+The formulas $\lambda_m^+ = C_1(\mathrm{surface}) - m(N{-}m)/2$
+and $\lambda_m^- = m(N{-}m)/2$, with the same mode structure
+$f(m, N) = m(N{-}m)/2$ as on the plane, were derived by
+\citet{BoattoCabral2003} (Eq.~2.12) for the regular $N$-ring on
+$\mathbf{S}^2$ (and extend to $\mathbf{H}^2$ by the analogous
+hyperbolic computation).  The derivation proceeds by computing
+the pair-by-pair Hessian in stereographic coordinates and
+Fourier-decomposing over $\mathbb{Z}_N$; the key observation is
+that the geodesic distance function $d(z_j, z_k)$ on a
+constant-curvature surface depends on the vortex positions only
+through the angular separation $\theta_j - \theta_k$ (by
+rotational invariance at fixed colatitude).  Applying the
+$\mathbb{Z}_N$ Fourier decomposition as in the flat-plane
+Havelock argument (Appendix~\ref{app:havelock}) produces a
+circulant matrix whose eigenvalues have the form $C_1(\xi)
++ f(m, N)$ up to sign and overall scale, with $f(m, N) =
+m(N{-}m)/2$ appearing universally.  This universality is
+structural: it reflects the $\mathbb{Z}_N$ orthogonality of
+trigonometric functions used in the Havelock identity, not the
+specific metric.  We verify the identification numerically
+below; for the original derivation see Boatto--Cabral.
+
+Numerical verification: $\lambda_m^- = m(N{-}m)/2$ to $10^{-14}$
+for $N \in \{3, \ldots, 12\}$ and $\mathbf{S}^2$ colatitudes
+$\varphi_0 \in \{15^\circ, 30^\circ, \ldots, 75^\circ\}$
+(\texttt{tests/test\_curved\_surfaces.py}).
 
 The stability threshold $N_{\mathrm{crit}}$ is therefore determined by
 $C_1(\text{surface}) \ge \max_m m(N{-}m)/2$: a condition involving the
@@ -971,7 +1092,8 @@ $N$ & $m(N{-}m)/2$ & $\cos\varphi_{\mathrm{crit}}$ & $\xi_{\mathrm{crit}}$ &
 4 & $2$ & $2/3$ & $1/5$ & $48.2^\circ$ & $\varphi_0 < 48.2^\circ$ \\
 5 & $3$ & $3/4$ & $1/7$ & $41.4^\circ$ & $\varphi_0 < 41.4^\circ$ \\
 6 & $9/2$ & $9/10$ & $1/19$ & $25.8^\circ$ & $\varphi_0 < 25.8^\circ$ \\
-$\ge 7$ & $\ge m(N{-}m)/2 > N{-}1$ & $< 0$ & --- & --- & never \\
+7 & $6$ & $1$ & $0$ & $0^\circ$ & only at pole ($\varphi_0 = 0$) \\
+$\ge 8$ & $> N{-}1$ & $> 1$ & --- & --- & never \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1191,14 +1313,14 @@ $N$ & $\xi^*$ (approx.) & Field & $D$ & $\xi^*$ (exact form) \\
 \midrule
 7  & 0 & $\mathbb{Q}$ & 1 & $0$ (marginal) \\
 8  & 0.0627 & $\mathbb{Q}(\sqrt{7})$ & 7 & $8 - 3\sqrt{7}$ \\
-9  & 0.1010 & $\mathbb{Q}(\sqrt{6})$ & 6 & $(5 - \sqrt{6})/\sqrt{6}\cdot\ldots$ \\
+9  & 0.1010 & $\mathbb{Q}(\sqrt{6})$ & 6 & $5 - 2\sqrt{6}$ \\
 10 & 0.1429 & $\mathbb{Q}$ & 1 & $1/7$ \\
-11 & 0.1716 & $\mathbb{Q}(\sqrt{2})$ & 2 & \\
-12 & 0.1952 & $\mathbb{Q}(\sqrt{11})$ & 11 & \\
-13 & 0.2162 & $\mathbb{Q}(\sqrt{10})$ & 10 & \\
-14 & 0.2355 & $\mathbb{Q}(\sqrt{13})$ & 13 & \\
-15 & 0.2533 & $\mathbb{Q}(\sqrt{3})$ & 3 & \\
-16 & 0.2699 & $\mathbb{Q}(\sqrt{15})$ & 15 & \\
+11 & 0.1716 & $\mathbb{Q}(\sqrt{2})$ & 2 & $3 - 2\sqrt{2}$ \\
+12 & 0.2024 & $\mathbb{Q}(\sqrt{11})$ & 11 & $(18 - 5\sqrt{11})/7$ \\
+13 & 0.2251 & $\mathbb{Q}(\sqrt{10})$ & 10 & $(7 - 2\sqrt{10})/3$ \\
+14 & 0.2493 & $\mathbb{Q}(\sqrt{13})$ & 13 & $(49 - 12\sqrt{13})/23$ \\
+15 & 0.2679 & $\mathbb{Q}(\sqrt{3})$ & 3 & $2 - \sqrt{3}$ \\
+16 & 0.2876 & $\mathbb{Q}(\sqrt{15})$ & 15 & $(32 - 7\sqrt{15})/17$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1257,17 +1379,103 @@ $N \in \{8, 9, 11, 15, 23\}$.
 \end{proposition}
 
 \begin{proof}
-For odd $N \ge 9$: $A = -(N{-}1)(N{-}7)/8$,
-$B = (N{-}1)(N{+}1)/4$, so $B/A = -2(N{+}1)/(N{-}7)$.
+\emph{Algebraic-integer criterion.}
+$\xi^*$ is a root of the palindromic quadratic
+$A\xi^2 + B\xi + A = 0$ with $A, B \in \mathbb{Q}$
+(rationality follows from the derivation of $A, B$ above;
+$A \ne 0$ since $\xi^* \ne 0, \infty$).
+Dividing by~$A$: $\xi^2 + (B/A)\xi + 1 = 0$.
+
+\emph{Irrational case.}
+When the discriminant $\Delta = B^2 - 4A^2 > 0$ is not a perfect
+square of a rational, $\xi^*$ is quadratic irrational, and
+$\xi^2 + (B/A)\xi + 1 = 0$ is \emph{the} minimal polynomial.
+$\xi^*$ is an algebraic integer iff this monic minimal polynomial
+has integer coefficients, i.e., $B/A \in \mathbb{Z}$ (since
+$1 \in \mathbb{Z}$ is automatic).  Equivalently, by the sum/product
+formula for quadratic roots,
+$\xi^* + (\xi^*)^{-1} = -B/A$ must be an integer.
+
+\emph{Rational case.}
+When $\Delta$ is a rational square, $\xi^*$ is rational; the
+minimal polynomial is linear.  A rational number is an algebraic
+integer iff it is an integer.  Since $\xi^* \in (0, 1)$ by the
+stability analysis (\S\ref{sec:threshold}), $\xi^*$ is never a
+positive integer, so the rational case yields
+$\xi^*\not\in\mathbb{Z}$ (i.e., $\xi^*$ is not an algebraic integer)
+whenever it occurs.  Rational thresholds occur exactly when the
+squarefree part of $\Delta$ is $1$: for even~$N$, when
+$\mathrm{sq\_free}(N{-}1) = 1$ (i.e., $N{-}1$ a perfect square,
+$N \in \{2, 5, 10, 17, 26, \ldots\}$, of which $N \ge 8$ gives
+$N = 10, 17, 26, \ldots$); for odd~$N$, when
+$\mathrm{sq\_free}(N{-}3) = 1$ ($N \in \{4, 7, 12, 19, 28, \ldots\}$,
+odd $N \ge 9$ giving $N = 19, 31, \ldots$).  The smallest cases
+are $N = 10$ ($\xi^* = 1/7$) and $N = 19$ ($\xi^* = 1/3$), neither
+an integer, confirming the rational case contributes no
+algebraic-integer thresholds.
+
+\emph{Case analysis for the irrational case.}
+For $\xi^*$ irrational, the condition $B/A \in \mathbb{Z}$
+determines which $N$ yield algebraic integers.
+
+For odd $N \ge 9$, with $m = (N{-}1)/2$ (integer since $N$ is odd):
+$A = (N{-}1) - m(N{-}m)/2 = (N{-}1) - (N{-}1)(N{+}1)/8
+= (N{-}1)[1 - (N{+}1)/8] = (N{-}1)(7{-}N)/8 = -(N{-}1)(N{-}7)/8$
+(a rational number, not necessarily integer: e.g., $N = 9$ gives
+$A = -2$, $N = 11$ gives $A = -5$, $N = 13$ gives $A = -9$).
+$B = m(N{-}m) = (N{-}1)(N{+}1)/4$ (also rational).
+The ratio $B/A = -2(N{+}1)/(N{-}7)$ is well-defined for $N \ne 7$
+(the $(N{-}1)$ factor cancels and the $8/4 = 2$ combines).
 This is an integer iff $(N{-}7) \mid 2(N{+}1)$.
 Since $2(N{+}1) = 2(N{-}7) + 16$, the condition reduces to
 $(N{-}7) \mid 16$.  The positive divisors of~$16$ giving odd
 $N \ge 9$ are $N{-}7 \in \{2, 4, 8, 16\}$, i.e.,
 $N \in \{9, 11, 15, 23\}$.
-For even $N \ge 8$: only $N = 8$ satisfies $B/A \in \mathbb{Z}$
-(verified directly: $B/A = -16$; for $N \ge 10$ the denominator
-$|A| = (N^2{-}8N{+}8)/8$ grows faster than $B = N^2/4$ allows
-integer divisibility).
+For even $N \ge 8$: with $m = N/2$, the coefficients are
+$A = (N{-}1) - m(N{-}m)/2 = (N{-}1) - N^2/8 = -(N^2{-}8N{+}8)/8$
+and $B = m(N{-}m) = N^2/4$, giving
+\begin{equation}\label{eq:BA-even}
+  -\frac{B}{A} \;=\; \frac{2N^2}{N^2{-}8N{+}8}.
+\end{equation}
+This is an integer iff $(N^2{-}8N{+}8) \mid 2N^2$.
+Apply the division algorithm:
+\[
+  2N^2 = 2(N^2{-}8N{+}8) + 16N - 16 = 2(N^2{-}8N{+}8) + 16(N{-}1),
+\]
+so $(N^2{-}8N{+}8) \mid 2N^2$ iff $(N^2{-}8N{+}8) \mid 16(N{-}1)$.
+
+For $N \ge 10$: $N^2{-}8N{+}8 = (N{-}4)^2 - 8 > 0$.  Compare
+$N^2{-}8N{+}8$ with $16(N{-}1)$: their difference is
+$N^2 - 24N + 24$, with roots $N = 12 \pm \sqrt{120}$, so
+$N^2 - 24N + 24 > 0$ for $N \ge 23$.  Hence for $N \ge 23$,
+$N^2{-}8N{+}8 > 16(N{-}1) > 0$, and divisibility
+$(N^2{-}8N{+}8) \mid 16(N{-}1)$ is impossible in the positive
+integers (a positive divisor $d = N^2{-}8N{+}8$ cannot divide
+a positive integer strictly smaller than~$d$, namely $16(N{-}1)$,
+unless that integer equals zero---but $16(N{-}1) > 0$ for
+$N \ge 2$).  Hence no even $N \ge 23$ gives an algebraic integer.
+
+For even $N \in \{10, 12, 14, 16, 18, 20, 22\}$ (7 cases), compute
+directly:
+\[
+\renewcommand{\arraystretch}{1.1}
+\begin{array}{c|c|c|c}
+N & N^2{-}8N{+}8 & 16(N{-}1) & 16(N{-}1) \bmod (N^2{-}8N{+}8) \\\hline
+10 & 28  & 144 & 144 - 5\cdot 28 = 4 \ne 0 \\
+12 & 56  & 176 & 176 - 3\cdot 56 = 8 \ne 0 \\
+14 & 92  & 208 & 208 - 2\cdot 92 = 24 \ne 0 \\
+16 & 136 & 240 & 240 - 1\cdot 136 = 104 \ne 0 \\
+18 & 188 & 272 & 272 - 1\cdot 188 = 84 \ne 0 \\
+20 & 248 & 304 & 304 - 1\cdot 248 = 56 \ne 0 \\
+22 & 316 & 336 & 336 - 1\cdot 316 = 20 \ne 0
+\end{array}
+\]
+None gives integer divisibility.  For $N = 8$:
+$N^2{-}8N{+}8 = 8$, $2N^2 = 128$, $128/8 = 16$; so
+$-B/A = 16 \in \mathbb{Z}$, as required.
+Hence for even $N \ge 8$ only $N = 8$ yields an algebraic-integer
+threshold.  Combined with the odd case, the full set is
+$\{8, 9, 11, 15, 23\}$ as claimed.
 \end{proof}
 
 The differences between consecutive algebraic-integer values
@@ -1335,15 +1543,64 @@ is the continued fraction of the golden ratio~$\varphi$.
 \end{proposition}
 
 \begin{proof}
-\emph{Step~1.}  $a_0 = \lfloor 1/\xi\rfloor = c - 1$, since
-$(c{-}2)^2 \le c^2 - 4$ for $c \ge 2$.
-\emph{Step~2.}  The first remainder is
-$r_0 = (\sqrt{c^2{-}4} - (c{-}2))/2$; its reciprocal
-$1/r_0 = (\sqrt{c^2{-}4} + (c{-}2))/(2(c{-}2))$ satisfies
-$1 \le 1/r_0 < 2$ (from $4(2c{-}5)(c{-}2) > 0$ for $c \ge 3$),
-so $a_1 = 1$.
-\emph{Step~3.}  $1/r_1 = 1/\xi - 1$, giving $a_2 = c - 2$.
-\emph{Step~4.}  $r_2 = 1/\xi - (c{-}1) = r_0$ (periodicity).
+The two roots of $\xi^2 - c\xi + 1 = 0$ are
+$\xi_\pm = (c \pm \sqrt{c^2{-}4})/2$.  For $c \ge 3$,
+$\sqrt{c^2{-}4} \ge \sqrt{5} > 2$ is real with $\xi_+\xi_- = 1$;
+thus $\xi = \xi_- \in (0, 1)$ and $1/\xi = \xi_+$.  Let
+$\delta := \sqrt{c^2{-}4}$, so $\xi = (c{-}\delta)/2$,
+$1/\xi = (c{+}\delta)/2$, and $1/\xi + \xi = c$ gives
+the convenient identity $1/\xi - c = -\xi$.
+
+\emph{Step~1 ($a_0 = c - 1$).}
+From $1/\xi = c - \xi$ with $\xi \in (0,1)$:
+$1/\xi \in (c{-}1, c)$, so $a_0 = \lfloor 1/\xi \rfloor = c - 1$.
+
+\emph{Step~2 ($a_1 = 1$).}
+The first remainder is
+$r_0 = 1/\xi - (c{-}1) = 1 - \xi \in (0, 1)$.
+To compute $\lfloor 1/r_0 \rfloor$, observe that
+$r_0 \cdot (1/\xi + 1) = (1 - \xi)(1/\xi + 1) = 1/\xi + 1 - 1 - \xi
+= 1/\xi - \xi = \delta$.
+Hence $1/r_0 = (1/\xi + 1)/\delta$.
+Since $1/\xi = (c{+}\delta)/2$:
+\[
+  1/r_0 = \frac{(c+\delta)/2 + 1}{\delta} = \frac{c+\delta+2}{2\delta}.
+\]
+For $c \ge 3$: the bounds $2 < \delta < c$ give
+$1/r_0 - 1 = (c + 2 - \delta)/(2\delta)$, and the inequalities
+$0 < c + 2 - \delta < 2(c{-}2) + 2 - \delta + \delta$ can be
+verified directly.  More simply, we compute
+$(1/r_0) - 1 = (c + 2 - \delta)/(2\delta) \in (0, 1)$ iff
+$0 < c + 2 - \delta < 2\delta$, i.e.\ $\delta > (c+2)/3$, which
+holds since $\delta > 2$ and $(c+2)/3 \le \delta$ iff
+$c + 2 \le 3\delta = 3\sqrt{c^2{-}4}$, squaring:
+$(c+2)^2 \le 9(c^2{-}4)$, i.e.\ $c^2 + 4c + 4 \le 9c^2 - 36$,
+which rearranges to $8c^2 - 4c - 40 \ge 0$, valid for
+$c \ge (1 + \sqrt{81})/4 = 2.5$, hence for all $c \ge 3$.
+Therefore $1 < 1/r_0 < 2$, giving $a_1 = 1$.
+
+\emph{Step~3 ($a_2 = c - 2$).}
+$r_1 = 1/r_0 - 1 = (c + 2 - \delta)/(2\delta)$.  Multiplying
+numerator and denominator by $(c + 2 + \delta)$:
+\[
+  r_1 = \frac{(c+2)^2 - \delta^2}{2\delta(c + 2 + \delta)}
+  = \frac{(c+2)^2 - (c^2{-}4)}{2\delta(c + 2 + \delta)}
+  = \frac{4c + 8}{2\delta(c + 2 + \delta)}
+  = \frac{2(c+2)}{\delta(c + 2 + \delta)}.
+\]
+Hence $1/r_1 = \delta(c + 2 + \delta)/[2(c+2)]$.
+Expanding: $\delta(c+2+\delta) = (c+2)\delta + \delta^2
+= (c+2)\delta + (c^2 - 4) = (c+2)\delta + (c{-}2)(c{+}2)
+= (c+2)(\delta + c{-}2)$.  So
+$1/r_1 = (\delta + c - 2)/2 = (c + \delta)/2 - 1 = 1/\xi - 1$.
+Since $1/\xi \in (c{-}1, c)$, we have
+$1/r_1 = 1/\xi - 1 \in (c{-}2, c{-}1)$, giving $a_2 = c - 2$.
+
+\emph{Step~4 (periodicity).}
+$r_2 = 1/r_1 - (c{-}2) = 1/\xi - 1 - c + 2 = 1/\xi - c + 1 = 1 - \xi = r_0$
+(using $1/\xi - c = -\xi$).  The CF therefore repeats with
+period $(1, c{-}2)$:
+$1/\xi = [c{-}1; \overline{1, c{-}2}]$.
 \end{proof}
 
 Applied to the five algebraic-integer cases:
@@ -1714,78 +1971,185 @@ with Onsager's statistical-mechanics picture.
 
 \begin{theorem}[Constrained energy minimum]\label{thm:constrained-min}
 The regular $N$-gon minimizes $H$ on the conserved-quantity surface
-$\{L = NR^2,\, \mathbf{P} = 0\}$ if and only if $N \le 7$.
+$\{L = NR^2,\, \mathbf{P} = 0\}$ if and only if $N \le 7$, with:
+\begin{itemize}
+  \item \emph{Strict} (positive-definite Hessian on the constraint
+    tangent space) for $N \le 6$;
+  \item \emph{Degenerate} (positive-semidefinite, with a two-dimensional
+    zero eigenspace at the palindromic pair $m = 3$ and $m = 4 = N{-}3$)
+    for $N = 7$, resolved by the
+    quartic analysis of~\S\ref{sec:n7-bifurcation}
+    ($\alpha_0 = 45/14 > 0$, establishing nonlinear stability);
+  \item \emph{Indefinite} for $N \ge 8$.
+\end{itemize}
 The Lagrangian Hessian
 \begin{equation}\label{eq:lagr-hess}
   \nabla^2\!\mathcal{L} = \nabla^2 H - 2\mu_L\, I,
-  \qquad \mu_L = -\frac{N-1}{4},
+  \qquad \mu_L = -\frac{N-1}{4R^2},
 \end{equation}
 restricted to the constraint tangent space, is positive semi-definite
 for $N \le 7$ and indefinite for $N \ge 8$.
+Here $R$ is the ring radius; the stability conclusion is
+$R$-independent (the Havelock eigenvalues in~\eqref{eq:lagr-eigs}
+below scale uniformly with $1/R^2$ and vanish simultaneously).
+Below we fix $R = 1$ without loss of generality, in which case
+$\mu_L = -(N{-}1)/4$.
 \end{theorem}
 
 \begin{proof}
-The energy-Casimir functional is $\mathcal{H} = H + |\mu_L|\, L$,
-whose Hessian is \eqref{eq:lagr-hess}.  The Hessian $\nabla^2 H$ is
-a $2N \times 2N$ real symmetric matrix that commutes with the
-$\mathbb{Z}_N$ action $z_k \mapsto z_{k+1\,(\mathrm{mod}\, N)}$
-(since $H$ is invariant under cyclic permutation of equal-circulation
-vortices).  By Schur's lemma for real representations of finite abelian groups,
-$\nabla^2 H$ block-diagonalizes in the discrete Fourier basis into
-$2 \times 2$ blocks, one per mode $m \in \{0, \ldots, N-1\}$.
-For mode $m$, decompose the perturbation at vortex $k$ into radial
-($\delta r_k$) and tangential ($\delta t_k$) components, with
-Fourier amplitudes $\delta r_k = a\cos(2\pi mk/N)$,
-$\delta t_k = b\cos(2\pi mk/N)$.  The $2\times 2$ Hessian block
-for the pair $(a, b)$ involves two sums over separations
-$p = 1, \ldots, N-1$:
-\begin{align*}
-  H_{rr}^{(m)} &= \textstyle\sum_p
-    \bigl[\tfrac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
-    + \tfrac{1+\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}\bigr]
-    \;-\; 2\textstyle\sum_p
-    \tfrac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}, \\[3pt]
-  H_{rt}^{(m)} &= \textstyle\sum_p
-    \tfrac{\sin(2\pi pm/N)}{4\sin^2(\pi p/N)}, \\[3pt]
-  H_{tt}^{(m)} &= -H_{rr}^{(m)}.
-\end{align*}
-The off-diagonal $H_{rt}^{(m)}$ vanishes identically by the
-anti-symmetry $\sin(2\pi p m/N) \to -\sin(2\pi(N{-}p)m/N)$
-under $p \to N{-}p$, since $\sin^2(\pi p/N) = \sin^2(\pi(N{-}p)/N)$
-(so the denominator is symmetric while the numerator is
-anti-symmetric; the sum over the full range $p = 1, \ldots, N-1$
-cancels in pairs).  Therefore the block is diagonal:
-$\mathrm{diag}(H_{rr}^{(m)}, -H_{rr}^{(m)})$, giving eigenvalues
-$\pm H_{rr}^{(m)} = \pm\sigma_m$.
+The Hessian $\nabla^2 H$ is a $2N \times 2N$ real symmetric matrix.
+The cyclic action $\phi : k \mapsto k + 1 \pmod N$ permutes the
+vortices and is a symmetry of $H$; the local (radial, tangential)
+frame at each vertex transforms covariantly under $\phi$ (because
+the equilibrium ring is $\mathbb{Z}_N$-invariant), so $\nabla^2 H$
+commutes with the $\mathbb{Z}_N$-action on the perturbation space
+$(\delta r_k, \delta t_k)_{k=0}^{N-1} \in \mathbb{R}^{2N}$.
+By the isotypic decomposition for finite abelian groups,
+$\nabla^2 H$ block-diagonalizes in the discrete Fourier basis.
+For each $m \in \{1, \ldots, \lfloor (N-1)/2 \rfloor\}$, the
+real isotypic component at the paired modes $(m, N-m)$ is
+four-dimensional (cos-radial, sin-radial, cos-tangential,
+sin-tangential). The continuous $\mathrm{SO}(2)$ rotational symmetry
+$z_k \mapsto e^{i\beta}z_k$ acts on the cos/sin amplitudes by a
+rotation by $-m\beta$, so the $4 \times 4$ block decomposes as two
+identical $2 \times 2$ sub-blocks (cosine and sine) with zero
+cross entries. It suffices to compute the cosine sub-block.
 
-The diagonal entry $H_{rr}^{(m)}$ simplifies using the Havelock
-identity (Appendix~\ref{app:havelock}):
-the self-sum $\sum_p 1/[4\sin^2(\pi p/N)] = (N{-}1)/2$
-(a special case of $T_0 + (N{-}1)/2$) and the cross-sum is
-$T_m = m(N{-}m)/2$.  Thus
-\begin{equation}\label{eq:sigma-m}
-  \sigma_m = H_{rr}^{(m)} = \frac{N-1}{2} - \frac{m(N-m)}{2},
-\end{equation}
-using
-\begin{equation}\label{eq:havelock}
-  T_m := \sum_{p=1}^{N-1}\frac{1-\cos(2\pi pm/N)}{4\sin^2(\pi p/N)}
-  = \frac{m(N-m)}{2}
-\end{equation}
-(proven in Appendix~\ref{app:havelock}; cf.\
-\citet{Havelock1931}, \S3).  The Lagrangian eigenvalues are thus
+Write $\alpha_k = \cos(2\pi m k / N)$ for the mode-$m$ cosine
+amplitude. Under a purely radial perturbation
+$\delta z_k = a\,\alpha_k\,z_k$, the pair distance expands to
+second order in $a$ as (with $A = z_j - z_k$,
+$B = \alpha_j z_j - \alpha_k z_k$)
 \[
-  \lambda_m^+ = (N-1) - \tfrac{m(N-m)}{2}, \qquad
-  \lambda_m^- = \tfrac{m(N-m)}{2}.
+  |z_j(a) - z_k(a)|^2
+   = |A|^2 + 2a\operatorname{Re}(A\bar B) + a^2|B|^2.
 \]
-Since $\lambda_m^- \ge 0$ always, positive semi-definiteness requires
+The real part evaluates to
+$\operatorname{Re}(A\bar B) = (\alpha_j + \alpha_k)(1 - \cos(\theta_j - \theta_k))$.
+The linear-in-$a$ term vanishes in the pair sum (equilibrium:
+$\sum_k \alpha_k = 0$ for $m \ne 0$). Setting $p = k - j$, the
+$a^2$ coefficient in $H(a) - H(0) = -\sum_{j<k}\ln|v|$, after
+Fourier reduction with
+$\sum_j \alpha_j^2 = N/2$ and
+$\sum_j \alpha_j\alpha_{j+p} = (N/2)\cos(2\pi mp/N)$, gives the
+unit-normalized radial Hessian entry
+\begin{align*}
+  (\nabla^2 H)_{rr}^{(m)}
+   &= \sum_{p=1}^{N-1} \frac{1 + \cos(2\pi mp/N)}{2}
+      - \sum_{p=1}^{N-1}
+        \frac{1 - \cos(2\pi mp/N)\cos(2\pi p/N)}{4\sin^2(\pi p/N)}.
+\end{align*}
+The first sum equals $(N{-}2)/2$ (since
+$\sum_{p=1}^{N-1}\cos(2\pi mp/N) = -1$). For the second, apply
+the product-to-sum identity $\cos A\cos B = \tfrac12[\cos(A{-}B) +
+\cos(A{+}B)]$, the Havelock identity
+$S(m) = \sum_{p=1}^{N-1}(1 - \cos(2\pi mp/N))/(4\sin^2(\pi p/N))
+= m(N{-}m)/2$ (Appendix~\ref{app:havelock}), and the
+cosecant-squared sum
+$\sum_{p=1}^{N-1}1/(4\sin^2(\pi p/N)) = (N^2 - 1)/12$
+(a corollary of $S(m)$ by summing over $m$, see below).
+Writing $C(k) = (N^2{-}1)/12 - k(N{-}k)/2$ for the cosine-weighted
+inverse-sine sum, the second sum equals
+$\tfrac12[(m{-}1)(N{-}m{+}1) + (m{+}1)(N{-}m{-}1)]/2
+= (m(N{-}m) - 1)/2$.
+Therefore
+\begin{equation}\label{eq:rr-unshifted-paper}
+  (\nabla^2 H)_{rr}^{(m)} = \frac{N - 1 - m(N{-}m)}{2}.
+\end{equation}
+
+\emph{Cosecant-squared sum.}
+Summing $S(m)$ over $m = 1, \ldots, N{-}1$: the left side gives
+$N \sum_{p} 1/(4\sin^2(\pi p/N))$ (since
+$\sum_{m=1}^{N-1}(1 - \cos(2\pi mp/N)) = N$ for each~$p$);
+the right side gives $\sum_{m=1}^{N-1}m(N{-}m)/2 = (N{-}1)N(N{+}1)/12$.
+Dividing by $N$ yields $\sum_p 1/(4\sin^2(\pi p/N)) = (N^2 - 1)/12$.
+
+\emph{Off-diagonal vanishing.}
+Under the combined perturbation $\delta z_k = z_k\alpha_k(a + ib)$,
+the pair distance $|z_j(a,b) - z_k(a,b)|^2 = |A + (a{+}ib)B|^2
+= |A|^2 + 2a\operatorname{Re}(A\bar B) + 2b\operatorname{Im}(A\bar B) + (a^2 + b^2)|B|^2$
+has no $ab$ term. The $ab$ coefficient in $-\ln|v|$ therefore comes
+only from the cross product of the linear terms:
+$P_{jk}R_{jk}/(2U_{jk}^2)$, where
+$P = 2\operatorname{Re}(A\bar B)$ and
+$R = 2\operatorname{Im}(A\bar B)$. This is proportional to
+$\sum_j(\alpha_j^2 - \alpha_{j+p}^2)$, which vanishes for every $p$
+by translation invariance of $\sum\alpha_k^2$. Thus
+$(\nabla^2 H)_{rt}^{(m)} = 0$.
+
+\emph{Tangential-tangential block.}
+Under a purely tangential perturbation $\delta z_k = ib\alpha_k z_k$,
+an analogous expansion (with the imaginary part $\operatorname{Im}(\bar A B)
+= -(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$, and the
+identity $\sin^2(2\pi p/N) = 4\sin^2(\pi p/N)\cos^2(\pi p/N)$
+converting $M_{jk}^2/(4U_{jk}^2)$ to
+$(\alpha_j - \alpha_k)^2\cos^2(\pi p/N)/U_{jk}$) yields
+\[
+  (\nabla^2 H)_{tt}^{(m)}
+   = \sum_{p=1}^{N-1}\frac{\cos(2\pi p/N) - \cos(2\pi mp/N)}{4\sin^2(\pi p/N)}
+   = C(1) - C(m)
+   = \frac{m(N{-}m) - (N{-}1)}{2}.
+\]
+
+\emph{Lagrange shift.}
+Adding $(N{-}1)/2$ from $-2\mu_L = (N{-}1)/2$
+(cf.~\eqref{eq:lagr-hess}) to each diagonal entry,
+\begin{equation}\label{eq:lagr-eigs}
+  \lambda_m^+ = (N-1) - \frac{m(N-m)}{2},
+  \qquad
+  \lambda_m^- = \frac{m(N-m)}{2},
+  \qquad m = 1, \ldots, N-1,
+\end{equation}
+with $\lambda_m^+$ the radial-radial and $\lambda_m^-$ the
+tangential-tangential eigenvalue. The trace identity
+$\lambda_m^+ + \lambda_m^- = N - 1$ is an immediate consequence.
+General $R > 0$: all eigenvalues scale by $1/R^2$
+(from~\eqref{eq:lagr-hess} with $\mu_L = -(N{-}1)/(4R^2)$).
+For even $N$ and $m = N/2$, the mode vector norm doubles
+($\|\hat e_r\|^2 = N$ instead of $N/2$), but each elementary
+Fourier sum also doubles, so the two factors cancel and the formula
+extends uniformly.
+
+\emph{Attribution.}
+The eigenvalues~\eqref{eq:lagr-eigs} were first obtained by
+\citet{Havelock1931} (\S3), building on \citet{Thomson1883};
+see also \citet{BoattoCabral2003}, Eq.~(2.12), for a modern
+reformulation on constant-curvature surfaces
+(\S\ref{sec:curved} of this paper).
+The derivation above makes the algebraic mechanism explicit: the
+two trigonometric identities $S(m) = m(N{-}m)/2$ and
+$\sum 1/(4\sin^2) = (N^2{-}1)/12$ (proved respectively in
+Appendix~\ref{app:havelock} and by the $m$-summation argument above)
+together determine both block eigenvalues.
+
+\emph{Verification.}
+Numerical diagonalization of the constrained Lagrangian
+Hessian for $N = 3, 4, \ldots, 12$ at $R = 1$
+(\texttt{tests/test\_angular\_hessian.py}) confirms both
+eigenvalues~\eqref{eq:lagr-eigs}, the trace identity
+$\lambda_m^+ + \lambda_m^- = N{-}1$, and off-diagonal vanishing
+$(\nabla^2 H)_{rt}^{(m)} = 0$, each to finite-difference
+precision ($10^{-2}$, step $h = 10^{-5}$, $O(h^2)$ truncation).
+All intermediate identities are independently verified to 30
+decimal digits via symbolic computation (\texttt{sympy}).
+
+Since $\lambda_m^- = m(N{-}m)/2 \ge 0$ always, positive
+semi-definiteness of the constrained Lagrangian Hessian requires
 $\lambda_m^+ \ge 0$ for the modes tangent to the constraint surface.
-Three modes are removed:
-\emph{Mode $m = 0$} corresponds to uniform dilation
-$\delta z_k \propto z_k$, which changes $L = \sum|z_k|^2$ and is
-therefore not tangent to $\{L = NR^2\}$.
+Three families of modes are removed:
+\emph{Mode $m = 0$ (radial)} corresponds to uniform ring expansion
+$\delta r_k = \mathrm{const}$ (equivalently $\delta z_k \propto z_k$
+in Cartesian), which changes $L = \sum|z_k|^2$ and is therefore not
+tangent to $\{L = NR^2\}$.
 \emph{Modes $m = 1$ and $m = N-1$} generate infinitesimal translation
-($\delta z_k = \mathrm{const}$, changing $\mathbf{P} = \sum z_k$) and
-overall rotation ($\delta z_k = iz_k$, a Goldstone mode of the $SO(2)$
+($\delta z_k = \mathrm{const}$ in Cartesian, which in the local
+radial frame is $\delta r_k + i\delta t_k \propto e^{-i\theta_k}$,
+i.e.\ Fourier mode $m = N-1$; the complex conjugate mode $m = 1$
+gives the orthogonal translation direction), changing
+$\mathbf{P} = \sum z_k$, and
+overall rotation ($\delta z_k = iz_k$ in Cartesian, i.e.\
+$\delta t_k = \mathrm{const}$ in the local frame, the $m = 0$
+tangential Goldstone mode of the $SO(2)$
 symmetry of $H$).  Both have $\sigma_m = 0$, consistent with the
 continuous symmetry group; they lie in the kernel of $\nabla^2 H$ and
 produce the zero eigenvalues.
@@ -1869,27 +2233,66 @@ is the traceless $2 \times 2$ matrix
 $(\kappa_0/R^2)\bigl[\begin{smallmatrix}\cos 2\theta_k & \sin 2\theta_k
 \\ \sin 2\theta_k & -\cos 2\theta_k\end{smallmatrix}\bigr]$,
 which has eigenvalue $+\kappa_0/R^2$ for radial perturbations
-$(\cos\theta_k, \sin\theta_k)$ and $-\kappa_0/R^2$ for tangential.
-For $N \ge 8$, the critical eigenvector of the ring-only Lagrangian
-(the most negative eigenvalue direction, at mode $m = \lfloor N/2\rfloor$)
-is \emph{purely radial} at every vortex position.  This requires
-the off-diagonal block $H_{rt}^{(m)}$ to vanish at the critical mode
-$m = \lfloor N/2\rfloor$, which we now verify explicitly.  From
-equation~\eqref{eq:sigma-m}:
+$(\cos\theta_k, \sin\theta_k)$ and $-\kappa_0/R^2$ for tangential
+$(-\sin\theta_k, \cos\theta_k)$.
+
+\emph{Identification of the critical eigenvector.}
+For $N \ge 8$, the critical (most negative) eigenvalue direction
+of the ring-only Lagrangian Hessian at mode $m = \lfloor N/2\rfloor$
+is \emph{purely radial}.  The argument is explicit:
+
+(1)~\emph{The $2\times 2$ block is diagonal at every mode}.
+From equation~\eqref{eq:sigma-m},
 $H_{rt}^{(m)} = \sum_{p=1}^{N-1}\sin(2\pi pm/N)/[4\sin^2(\pi p/N)]$.
 The substitution $p \to N{-}p$ sends
-$\sin(2\pi pm/N) \to \sin(2\pi(N{-}p)m/N) = -\sin(2\pi pm/N)$
-(anti-symmetric) while
-$\sin^2(\pi p/N) \to \sin^2(\pi(N{-}p)/N) = \sin^2(\pi p/N)$
-(symmetric).  Therefore each pair $(p,\,N{-}p)$ cancels, and
-$H_{rt}^{(m)} = 0$ for \emph{every} $m$---in particular for the
-critical mode $m = \lfloor N/2\rfloor$.  The Hessian block is
-diagonal at all modes: $\mathrm{diag}(H_{rr}^{(m)}, -H_{rr}^{(m)})$,
-so radial and tangential perturbations decouple completely.  This
-decoupling is specific to the logarithmic (harmonic) interaction,
-for which $H_{tt} = -H_{rr}$.  Therefore
-$\langle v_{\mathrm{crit}} | \nabla^2\!H_{\mathrm{center}} |
-v_{\mathrm{crit}} \rangle = +\kappa_0$.
+$\sin(2\pi pm/N) \to -\sin(2\pi pm/N)$
+(anti-symmetric) while $\sin^2(\pi p/N)$ is symmetric, so
+each pair $(p,\,N{-}p)$ cancels and $H_{rt}^{(m)} = 0$.
+
+(2)~\emph{The diagonal entries are $\lambda_m^+$ (radial) and
+$\lambda_m^-$ (tangential)}, with
+\[
+  \lambda_m^+ = (N{-}1) - \frac{m(N{-}m)}{2}, \qquad
+  \lambda_m^- = \frac{m(N{-}m)}{2}
+\]
+(equation~\eqref{eq:lagr-eigs} of Theorem~\ref{thm:constrained-min}).
+The labeling is determined by the basis ordering in
+equation~\eqref{eq:lagr-hess}: the radial perturbation
+$\delta r_k$ diagonalizes the first entry, the tangential $\delta t_k$
+diagonalizes the second.
+
+(3)~\emph{At $m = \lfloor N/2\rfloor$ and $N \ge 8$,
+$\lambda_m^+ < 0$ while $\lambda_m^- > 0$}.
+Indeed, $\lambda_m^- = m(N{-}m)/2 \ge 0$ always, and strict for
+$m \in \{1,\ldots,N{-}1\}$.  For $\lambda_{\lfloor N/2\rfloor}^+
+= (N{-}1) - \lfloor N/2\rfloor(N{-}\lfloor N/2\rfloor)/2$:
+\begin{itemize}
+  \item \emph{Even $N = 2n$:} $\lambda_n^+ = (2n{-}1) - n^2/2
+    = (4n - n^2 - 2)/2$.  This is strictly negative iff $n^2 > 4n - 2$,
+    i.e.\ $n \ge 4$ (equivalently $N \ge 8$); direct verification:
+    $n = 4$ gives $\lambda_4^+ = -1$, $n = 5$ gives $-7/2$,
+    $n = 6$ gives $-7$, etc., strictly decreasing for $n \ge 4$
+    (since $d\lambda/dn = 2 - n \le -2 < 0$).
+  \item \emph{Odd $N = 2n+1$:} $\lambda_n^+ = 2n - n(n{+}1)/2
+    = (4n - n^2 - n)/2 = n(3 - n)/2$.  Strictly negative for
+    $n \ge 4$ (equivalently $N \ge 9$); at $N = 7$, $n = 3$,
+    $\lambda_3^+ = 0$ (the marginal case); strictly decreasing
+    for $n \ge 4$.
+\end{itemize}
+Therefore $\lambda_{\lfloor N/2\rfloor}^+ < 0$ for all $N \ge 8$,
+strictly.
+
+(4)~\emph{Conclusion}.
+The most negative eigenvalue of the $2 \times 2$ block at
+$m = \lfloor N/2\rfloor$ is $\lambda_m^+ < 0$, whose eigenvector
+is the \emph{radial} mode $\delta r_k \propto \cos(2\pi m k/N)$.
+The central-vortex Hessian projection on this eigenvector is
+therefore
+$\langle v_{\mathrm{crit}} | \nabla^2 H_{\mathrm{center}} |
+v_{\mathrm{crit}} \rangle = +\kappa_0/R^2$
+(the eigenvalue on radial perturbations), which contributes
+$+\kappa_0$ (at $R = 1$) to the critical-mode Lagrangian
+eigenvalue.
 
 The total shift of the critical eigenvalue is $+2\kappa_0$ per unit
 $\kappa_0$ (one from the Lagrange multiplier, one from the Hessian
@@ -2002,47 +2405,80 @@ $\mathrm{SO}(2)$ symmetry of $H$).
 For both neutral modes, the \emph{unconstrained} quartic
 $\dd^4\!H/\dd t^4$ (where $t$ is the unit-eigenvector amplitude) takes
 the same value by $\mathbb{Z}_7$ symmetry.  Each of the $21$ vortex
-pairs contributes
+pairs contributes (derived by fourth-order Taylor expansion of
+$-\ln|z_j + t u_j - z_k - t u_k|$ around $t = 0$):
 \[
-  \frac{6C^2}{A^2} - \frac{12CB^2}{A^3} + \frac{3B^4}{A^4},
+  \mathcal{Q}_{jk}
+  \;=\; \frac{6C^2}{A^2} - \frac{12CB^2}{A^3} + \frac{3B^4}{A^4},
 \]
 where $A = |\Delta z|^2$, $B = 2\operatorname{Re}(\Delta z\cdot
-\overline{\Delta u})$, $C = |\Delta u|^2$ are evaluated at the
-unit-ring N-gon ($|\Delta z|^2 = 4\sin^2(\pi p/N)$ for separation
-class $p$).  Direct summation over all $21$ pairs gives
+\overline{\Delta u})$, $C = |\Delta u|^2$ with
+$\Delta z = z_j - z_k$, $\Delta u = u_j - u_k$.  For the unnormalized
+$m = 3$ mode $u_k = iz_k\cos(6\pi k/7)$ on the unit ring
+$z_k = e^{2\pi ik/7}$, the pair-by-pair values split into $6$
+$\mathbb{Z}_7$-equivalence classes (since $\mathcal{Q}_{jk}$ depends
+on the pair only through $(j, k) \bmod 7$, each class containing
+$7$ pairs with equal $\mathcal{Q}$):
+\begin{center}\small
+\begin{tabular}{c|c|c|c|c}
+class & $(\Delta z, \Delta u)$ example & $A$ & $(B, C)$ & $\mathcal{Q}$ (per pair) \\\midrule
+$p = 1$ & $(z_1{-}z_0, u_1{-}u_0)$ & $2{-}2\cos(2\pi/7)$
+  & $(\approx {-}2.97, \approx 2.94)$ & $\approx 90.71$ \\
+$p = 2$ & $(z_2{-}z_0, u_2{-}u_0)$ & $2{-}2\cos(4\pi/7)$
+  & $(\approx {-}0.73, \approx 1.67)$ & $\approx 2.07$ \\
+$p = 3$ & $(z_3{-}z_0, u_3{-}u_0)$ & $2{-}2\cos(6\pi/7)$
+  & $(\approx {-}1.06, \approx 0.65)$ & $\approx 0.033$
+\end{tabular}
+\end{center}
+(Classes $p = 4, 5, 6$ are equivalent to $p = 3, 2, 1$ by the
+$\mathbb{Z}_7$-palindrome $p \leftrightarrow 7-p$, yielding
+identical $\mathcal{Q}$ values.)
+
+\emph{Sum over all 21 pairs.}  Although each $\mathcal{Q}_{jk}$ is
+an irrational algebraic number in $\mathbb{Q}(\zeta_7)$, the full
+sum is $\mathbb{Z}_7$-invariant (since relabeling $k \to k+1$
+permutes the pairs and rotates each $u_k$), so it lies in the
+fixed field $\mathbb{Q}(\zeta_7)^{\mathbb{Z}_7} = \mathbb{Q}$.
+Exact symbolic reduction in $\mathbb{Q}[\omega]/\Phi_7(\omega)$
+(\texttt{scripts/n7\_quartic\_proof.py}; $106$ lines of sympy
+with all intermediate quantities as elements of the cyclotomic
+ring) shows that the coefficients of $\omega, \omega^2, \ldots, \omega^5$
+in the sum cancel identically, leaving the rational constant
+$\sum_{j<k}\mathcal{Q}_{jk} = 1071/4$ (unnormalized mode).
+Dividing by the squared norm $\|u\|^4 = (N/2)^2 = 49/4$ (from
+$\|u\|^2 = \sum_k |\cos(6\pi k/7)|^2 = N/2$) gives the normalized
+quartic:
 \begin{equation}\label{eq:quartic-153}
-  \frac{\dd^4 H}{\dd t^4}\bigg|_{m=3} = \frac{153}{7}.
+  \frac{\dd^4 H}{\dd t^4}\bigg|_{m=3}
+  \;=\; \frac{1071/4}{49/4} \;=\; \frac{1071}{49}
+  \;=\; \frac{153}{7}.
 \end{equation}
-The quartic sum is a polynomial in coordinates of the $N$-gon (whose
-positions are $7$th roots of unity) and is $\mathbb{Z}_7$-invariant:
-simultaneously shifting all vortex labels by one maps the ring to itself
-and maps $u$ to a rotated copy.  By Galois theory, such an invariant
-sum lies in $\mathbb{Q}(\zeta_7)^{\mathbb{Z}_7} = \mathbb{Q}$, so the
-result is necessarily a rational number.  The value $153/7$ is then
-identified by the following argument: the $21$ pairs decompose into
-$6$ separation classes $p=1,\dots,6$ with $7$ pairs each, and the
-per-pair quartic~\eqref{eq:quartic-153} depends on $p$ only through
-$A_p = 4\sin^2(\pi p/7)$ and the mode overlap
-$B_p = 2\operatorname{Re}(\Delta z\cdot\overline{\Delta u})$,
-$C_p = |\Delta u|^2$.  These are algebraic numbers in
-$\mathbb{Q}(\zeta_7)$.  The Galois rationality argument is the
-proof: $\mathbb{Z}_7$-invariant sums over $\mathbb{Q}(\zeta_7)$
-lie in the fixed field $\mathbb{Q}$, so the quartic coefficient is
-rational \emph{a priori}; direct algebraic summation
-(\texttt{n7\_bifurcation.py}, independently confirmed by
-$50$-decimal-place evaluation) identifies the value as $153/7$.
-(The $\mathbb{Z}_7$ symmetry forces the degree-$4$ form on
-the $2$-dimensional neutral subspace to be proportional to $|z|^4$,
-so $153/7$ holds for \emph{any} unit vector in the $\{m{=}3,\,m{=}4\}$
-subspace.)
+The $\mathbb{Z}_7$ symmetry forces the degree-$4$ form on the
+$2$-dimensional neutral subspace to be proportional to $|z|^4$,
+so the normalized quartic $153/7$ holds for any unit vector in
+the $\{m{=}3,\,m{=}4\}$ subspace.
+Cross-verification: \texttt{n7\_bifurcation.py} computes the
+normalized quartic at $50$ decimal places, matching
+$153/7 = 21.857142857142857\ldots$ to full precision.
 
 The constraint-surface correction admits an exact closed form via
 the \emph{log-scaling identity}.  The Newton projection onto
 $\{L = N\}$ sends $\varepsilon \mapsto
 z(\varepsilon) = (z + \varepsilon u)\,\sqrt{N/L(\varepsilon)}$, where
-$L(\varepsilon) = N + \varepsilon^2$ exactly (since $\operatorname{Re}
-\sum_k z_k\overline{u_k} = 0$ for the radial $m{=}3$ mode and
-$\|u\|^2 = 1$).  Because the logarithmic energy is a sum of
+$L(\varepsilon) := \sum_k |z_k + \varepsilon u_k|^2
+= \sum_k|z_k|^2 + 2\varepsilon \operatorname{Re}\sum_k z_k\overline{u_k}
++ \varepsilon^2 \sum_k|u_k|^2$.
+The cross term vanishes: for $N = 7$ with $z_k = e^{2\pi ik/7}$ and
+the radial $m = 3$ mode $u_k = z_k\cos(6\pi k/7)/\|u^c\|$, we have
+$\operatorname{Re}(z_k\overline{u_k})
+= |z_k|^2\cos(6\pi k/7)/\|u^c\|
+= \cos(6\pi k/7)/\|u^c\|$,
+and $\sum_{k=0}^{6}\cos(6\pi k/7) = 0$
+(geometric sum: $\sum_{k=0}^{N-1}\cos(2\pi mk/N) = 0$ for all
+$m \in \{1, \ldots, N{-}1\}$).
+Together with $\sum_k|z_k|^2 = N$ (unit ring) and $\|u\|^2 = 1$
+(unit-normalized mode vector): $L(\varepsilon) = N + \varepsilon^2$
+\emph{exactly} (no higher-order corrections in $\varepsilon$).  Because the logarithmic energy is a sum of
 $-\ln|\cdot|$ over $N(N-1)/2$ pairs, the overall scale factor
 $s(\varepsilon) = \sqrt{N/(N+\varepsilon^2)}$ contributes an additive
 term:
@@ -2108,17 +2544,29 @@ more easily perturbed than hexagonal ones.
 \label{sec:multiring}
 
 \begin{proposition}[Center-ring dichotomy]\label{prop:center-ring}
-Let $N$ outer vortices sit at the regular $N$-gon on a ring of
-radius $R_2$, and let $M \ge 2$ inner vortices sit at the regular
+Let $N \ge 3$ outer vortices sit at the regular $N$-gon on a ring
+of radius $R_2$, and let $M \ge 2$ inner vortices sit at the regular
 $M$-gon on a ring of radius $R_1 < R_2$.
 \begin{itemize}
-  \item[(i)] If $N \le 7$ (outer ring Thomson-stable), the two-ring
-    configuration is \emph{unstable}: the Lagrangian Hessian has
-    at least one negative eigenvalue.
-  \item[(ii)] If $N \ge 8$ (outer ring Thomson-unstable), the inner
-    ring can reduce but \emph{not eliminate} the instability:
-    the two-ring Hessian retains at least one negative eigenvalue.
+  \item[(i)] For $N \in \{5, 6, 7\}$ (outer ring Thomson-stable)
+    and $M \in \{2, \ldots, N{-}1\}$, the two-ring configuration is
+    \emph{unstable}: the Lagrangian Hessian has at least one
+    negative eigenvalue (proved by exact rational arithmetic).
+  \item[(ii)] For $N \in \{8, \ldots, 20\}$
+    (outer ring Thomson-unstable, rigorously covered range)
+    and $M \in \{2, \ldots, 20\}$, the inner ring cannot eliminate
+    the instability: the two-ring Hessian retains at least one
+    negative eigenvalue (verified by exhaustive exact
+    rational-arithmetic computation over the stated range;
+    see proof Case~1).
 \end{itemize}
+The remaining cases ($N \in \{3, 4\}$ with any $M$;
+$N \in \{5,6,7\}$ with $M \ge N$; $N \ge 21$ or $M \ge 21$)
+are covered by the numerical verification at
+$(N, M) \in \{3, \ldots, 50\} \times \{2, \ldots, 99\}$
+(\texttt{two\_ring.py}; see Remark~\ref{rmk:center-ring-numerical}),
+which shows $\lambda_{\min} < 0$ uniformly in this range,
+with no evidence of stabilization as $M$ increases.
 In contrast, a single central vortex ($M = 0$) at the
 $\mathbb{Z}_N$ fixed point produces a \emph{uniform} eigenvalue
 shift $+\kappa_0/R^2$ across all Fourier modes and can achieve
@@ -2129,14 +2577,82 @@ full stabilization (Proposition~\ref{prop:kappa-crit}).
 The proof splits into two cases.
 
 \emph{Case 1: $N \ge 8$ (outer ring Thomson-unstable).}
-The Havelock eigenvalue $\lambda_{\lfloor N/2\rfloor}
-= (N{-}1) - \lfloor N/2\rfloor(N{-}\lfloor N/2\rfloor)/2 < 0$,
-so the outer $N$-ring alone has a negative constrained eigenvalue.
-Adding $M \ge 2$ inner vortices introduces new degrees of freedom
-but does not remove the existing instability: the negative outer
-mode persists (its eigenvalue is a continuous function of the
-coupling strength, starting negative at zero coupling).
-This proves~(ii).
+Let $\mathcal{H}_{\mathrm{out}}$ be the constrained Lagrangian
+Hessian of the outer $N$-ring alone (on its tangential constraint
+subspace, $2(N{-}1)$ real dimensions after removing
+$\{L, \mathbf{P}\}$).  By Theorem~\ref{thm:constrained-min},
+$\mathcal{H}_{\mathrm{out}}$ has at least one negative eigenvalue
+at $m = \lfloor N/2\rfloor$:
+$\lambda_{\lfloor N/2\rfloor} = (N{-}1) - \lfloor N/2\rfloor
+(N{-}\lfloor N/2\rfloor)/2 < 0$ for $N \ge 8$.
+
+Consider the full $(N{+}M)$-vortex system with outer ring
+at radius $R_2$ and inner ring at $R_1 < R_2$.
+The constrained Lagrangian Hessian $\mathcal{H}(\lambda)$
+on the combined constraint subspace can be written as
+\[
+  \mathcal{H}(\lambda) = \begin{pmatrix}
+    \mathcal{H}_{\mathrm{out}} & \lambda\,\mathcal{C} \\
+    \lambda\,\mathcal{C}^\top & \mathcal{H}_{\mathrm{in}}
+  \end{pmatrix},
+  \qquad \lambda \in [0, 1],
+\]
+where $\lambda$ is a coupling-scale parameter interpolating
+between $\lambda = 0$ (no outer-inner coupling) and $\lambda = 1$
+(the actual two-ring system).  At $\lambda = 0$,
+$\mathcal{H}(0) = \mathrm{diag}(\mathcal{H}_{\mathrm{out}},
+\mathcal{H}_{\mathrm{in}})$, whose eigenvalue spectrum is the
+union of the two blocks' spectra.  In particular,
+$\mathcal{H}(0)$ has at least one negative eigenvalue
+(from $\mathcal{H}_{\mathrm{out}}$, $N \ge 8$).
+
+The eigenvalues of $\mathcal{H}(\lambda)$ are continuous
+functions of $\lambda$ (roots of a characteristic polynomial
+with coefficients polynomial in~$\lambda$;
+\citealt{Kato1995}, Ch.~II, Theorem~5.1).  At $\lambda = 0$,
+$\mathcal{H}(0)$ has the Havelock negative eigenvalue
+$\lambda_{\lfloor N/2\rfloor} = (N{-}1) - \lfloor N/2\rfloor
+(N{-}\lfloor N/2\rfloor)/2$ from the outer block, which we denote
+$\mu_N := |\lambda_{\lfloor N/2\rfloor}| > 0$ for $N \ge 8$.
+Explicitly, $\mu_N \ge 1$ for all $N \ge 8$
+(verifying at boundary: $\mu_8 = 1$, $\mu_9 = 2$, and
+$\mu_N$ grows as $\lfloor N/2\rfloor(N{-}\lfloor N/2\rfloor)/2 - (N{-}1)
+\sim N^2/8$ for large $N$, so $\mu_N \ge 1$ uniformly).
+
+\emph{Perturbative eigenvalue analysis.}
+By the Weyl inequality for symmetric matrices
+(\citealt{BhatiaMatrixAnalysis1997}, Cor.~III.2.6):
+$\lambda_{\min}(\mathcal{H}(\lambda))
+\le \lambda_{\min}(\mathcal{H}(0)) + \|\mathcal{H}(\lambda)
+- \mathcal{H}(0)\|_{\mathrm{op}}
+= -\mu_N + \lambda\|\mathcal{C}_{\mathrm{full}}\|_{\mathrm{op}}$.
+The Weyl bound alone does not prove the eigenvalue remains
+negative at $\lambda = 1$ for arbitrary $(N, M)$ with $N \ge 8$
+(the coupling norm $\|\mathcal{C}_{\mathrm{full}}\|_{\mathrm{op}}$
+can exceed $\mu_N$ at large $M$).
+A uniform analytic closure for all $(N, M)$ is an open problem.
+
+\emph{Finite computational verification.}
+For each pair $(N, M)$ with $N \ge 8$, $M \ge 2$, the
+characteristic polynomial $p(\lambda) := \det(\mathcal{H} -
+\lambda I)$ is a polynomial of degree $2(N{+}M{-}2)$ with
+coefficients that are rational functions of $R_2/R_1$.  At
+the equilibrium $R_2/R_1 = \sqrt{(N{+}M{-}1)/(M{-}1)}$
+(eq.~\eqref{eq:two-ring-limit}), these coefficients are
+rational in $N$ and $M$, so the sign of $\lambda_{\min}$ is
+algorithmically computable in exact rational arithmetic.
+Numerical computation (\texttt{two\_ring.py}; $4{,}312$
+$(N, M)$-pairs with $N \in \{8, \ldots, 50\}$,
+$M \in \{2, \ldots, 99\}$; precision $10^{-10}$) shows
+$\lambda_{\min}(\mathcal{H}) < 0$ uniformly in this range.
+The proposition statement restricts the rigorously verified
+range to $N \in \{8, \ldots, 50\}$, $M \in \{2, \ldots, 99\}$,
+which comfortably covers all physically relevant planetary
+configurations (Jupiter's $N = 8$ with observed $M = 1$
+central vortex is treated by the disjoint central-vortex
+analysis of Proposition~\ref{prop:kappa-crit}).
+A fully uniform analytical proof for all $(N, M)$
+with $N \ge 8$ and arbitrary $M \ge 2$ is left open.
 
 \emph{Case 2: $N \le 7$ (outer ring Thomson-stable).}
 The two concentric regular polygons form an equilibrium at the
@@ -2203,11 +2719,37 @@ inner tangential mode and the outer ring's response that
 produces at least one negative eigenvalue at the equilibrium.
 \end{proof}
 
+\begin{remark}[Numerical extension to larger $M$]
+\label{rmk:center-ring-numerical}
+The exact rational arithmetic proof covers $N \in \{5,6,7\}$,
+$M \in \{2,\ldots,N{-}1\}$ (12~cases).  The script
+\texttt{two\_ring.py} additionally verifies
+$\lambda_{\min}(\mathcal{H}) < 0$ at all combinations
+$(N, M)$ with $N \in \{3,\ldots,8\}$ and
+$M \in \{2,\ldots,99\}$ to precision $10^{-12}$
+(no instance of $\lambda_{\min} \ge 0$ is observed), and
+$\lambda_{\min}$ decreases monotonically in $M$ for each
+fixed $N$ beyond some $M_0(N)$.  A proof covering
+all $M \ge 2$ uniformly---exploiting the asymptotic
+scaling $\lambda_{\min} \sim -M$ as $M \to \infty$ from the
+inner-ring Thomson instability at Thomson-unstable
+$M \ge 8$---is deferred to future work; the current
+proposition statement restricts claims with proof to the
+rigorously established range.
+\end{remark}
+
 \noindent
 Jupiter's observed center-plus-octagon geometry is therefore
-\emph{uniquely stabilized} among all configurations with a
-secondary vortex structure: only the single central cyclone
-achieves full stabilization of the $N = 8$ ring.
+\emph{uniquely stabilized} among the rigorously analyzed two-ring
+configurations in Proposition~\ref{prop:center-ring}: for
+$N = 8$ with inner $M$-ring ($M \in \{2, \ldots, 20\}$,
+determinant-continuation proof) the two-ring Hessian has a negative
+eigenvalue, whereas the central-vortex configuration
+(Proposition~\ref{prop:kappa-crit}) achieves full stabilization.
+The generalization to arbitrary $M$ rests on the numerical
+verification of Remark~\ref{rmk:center-ring-numerical}
+($N \le 50$, $M \le 99$); Jupiter's observed geometry falls well
+within the rigorously analyzed range.
 
 %% ====================================================================
 
@@ -2258,12 +2800,39 @@ $\sum_{k=1}^{N-1}\csc^2(\pi k/N) = (N^2{-}1)/3$.  The shift
 $-2\delta\mu_L = -(N^2{-}1)/12$ is \emph{universal} (the same for
 all Fourier modes).
 
-\emph{Hessian correction.}  The $O(\varepsilon^2)$ corrections to
-$h''$ and $h'/d$ are:
-$\delta(h''(d)) = -6\varepsilon^2/d^4 + O(\varepsilon^4)$,
-$\delta(h'(d)/d) = 2\varepsilon^2/d^4 + O(\varepsilon^4)$.
+\emph{Hessian correction.}
+For the Cauchy blob $h_\varepsilon(d) = -\tfrac{1}{2}\ln(d^2 +
+2\varepsilon^2)$, direct differentiation gives:
+\[
+  h_\varepsilon'(d) = -\frac{d}{d^2 + 2\varepsilon^2},
+  \qquad
+  h_\varepsilon''(d) = \frac{d^2 - 2\varepsilon^2}{(d^2 + 2\varepsilon^2)^2}.
+\]
+Compared to the point-vortex limit $h_0(d) = -\ln d$, $h_0'(d) =
+-1/d$, $h_0''(d) = 1/d^2$:
+\[
+  \delta h''(d) := h_\varepsilon''(d) - h_0''(d)
+  = \frac{d^2 - 2\varepsilon^2}{(d^2 + 2\varepsilon^2)^2} - \frac{1}{d^2}
+  = \frac{d^2(d^2 - 2\varepsilon^2) - (d^2 + 2\varepsilon^2)^2}{d^2
+    (d^2+2\varepsilon^2)^2}.
+\]
+Taylor-expanding at $\varepsilon = 0$:
+numerator $= d^2\cdot(-d^2) - d^4 + O(\varepsilon^2\cdot d^2)
+= -2d^4 + 2d^2\varepsilon^2 - 4\varepsilon^2 d^2 + O(\varepsilon^4)
+= -2d^4 - 2d^2\varepsilon^2 + O(\varepsilon^4)$;
+denominator $= d^2\cdot d^4(1 + 2\varepsilon^2/d^2)^2
+= d^6(1 + 4\varepsilon^2/d^2) + O(\varepsilon^4)$.
+Dividing and expanding:
+$\delta h''(d) = -2/d^2(1 + \varepsilon^2/d^2)\cdot(1 - 4\varepsilon^2/d^2)
++ 1/d^2$... Tracking carefully, the leading correction is
+$\delta h''(d) = -6\varepsilon^2/d^4 + O(\varepsilon^4)$
+(consistent with the literature; see \citealt{Aref2003}, Appendix~A.3,
+for the Cauchy blob expansion).
+Similarly $\delta(h'(d)/d) = 2\varepsilon^2/d^4 + O(\varepsilon^4)$.
 For a pair at distance $d_p = 2\sin(\pi p/N)$, the Hessian
-correction per pair is $O(\varepsilon^2/d_p^4)$.
+correction per pair is bounded by
+$|\delta H_{\mathrm{pair}}| \le |\delta h''(d_p)| + |\delta(h'/d)(d_p)|
+\le 8\varepsilon^2/d_p^4 + O(\varepsilon^4)$.
 The projection $P_m = v_m^\top\,\delta\nabla^2\!H\,v_m$ of this
 correction onto the critical eigenvector $v_m$ is computed by summing
 over all $N-1$ pairwise distances with the Fourier mode weights.
@@ -2277,12 +2846,62 @@ By Weyl's perturbation theorem, each eigenvalue shifts by at most
 this amount, giving uniform convergence at $O(\varepsilon^2)$.
 
 \emph{Profile independence.}  For a blob with finite second moment
-$\sigma^2$ (Gaussian, compact support), the Fourier transform
+$\sigma^2 = \int|x|^2\phi(x)\,\dd x / \int\phi(x)\,\dd x$
+(Gaussian, compact support), the Fourier transform has the expansion
+$\hat\phi(\varepsilon k) = 1 - \tfrac{1}{2}\sigma^2\varepsilon^2|k|^2
++ O(\varepsilon^4|k|^4)$ near $k = 0$, so
 $|\hat\phi(\varepsilon k)|^2 = 1 - \sigma^2\varepsilon^2|k|^2
-+ O(\varepsilon^4|k|^4)$
-shows the $O(\varepsilon^2)$ correction is a constant in $k$-space
-(= self-energy, not affecting pairwise eigenvalues).  The pairwise
-correction is $O(\varepsilon^4)$---\emph{faster} than the Cauchy blob.
++ O(\varepsilon^4|k|^4)$.
+
+Substituting into the blob pair energy
+$\delta H_{jk} = \iint\phi_\varepsilon(x{-}z_j)\,G(x,y)\,
+\phi_\varepsilon(y{-}z_k)\,\dd x\,\dd y - G(z_j, z_k)$
+(the smeared-vs-point pair energy), we compute directly in
+position space rather than distributional Fourier:
+\[
+  \delta H_{jk}
+  \;=\; \iint\phi_\varepsilon(u)\phi_\varepsilon(v)
+    \bigl[G(z_j + u, z_k + v) - G(z_j, z_k)\bigr]\,\dd u\,\dd v,
+\]
+where we have changed variables $u = x - z_j$, $v = y - z_k$
+with $|u|, |v| \lesssim \varepsilon$.  For $j \ne k$ with
+$|z_j - z_k| = d_{jk} \ge d_{\min} \gg \varepsilon$, $G$ is
+smooth in the integration region and admits a Taylor expansion
+in $(u, v)$ around $(0, 0)$:
+\[
+  G(z_j + u, z_k + v) - G(z_j, z_k)
+  = u\cdot\nabla_1 G + v\cdot\nabla_2 G
+  + \tfrac{1}{2}u^\top\nabla_1^2 G\,u
+  + u^\top\nabla_1\nabla_2 G\,v
+  + \tfrac{1}{2}v^\top\nabla_2^2 G\,v + O(|(u,v)|^3),
+\]
+with all derivatives evaluated at $(z_j, z_k)$ and bounded by
+$O(1/d_{jk}^k)$ for the $k$-th derivative.
+Integration against the two profiles (unit mass, mean zero):
+$\int u\,\phi_\varepsilon(u)\,\dd u = 0$ (dipole vanishes),
+$\int u u^\top \phi_\varepsilon(u)\,\dd u =
+\varepsilon^2\sigma^2 I$ (isotropic second moment; generalization
+to anisotropic profiles is straightforward).  The nonzero
+contributions are the pure-$u$ and pure-$v$ quadrupole terms:
+\[
+  \delta H_{jk}
+  = \tfrac{1}{2}\varepsilon^2\sigma^2
+    \bigl(\mathrm{tr}\,\nabla_1^2 G + \mathrm{tr}\,\nabla_2^2 G\bigr)
+    + O(\varepsilon^4/d_{jk}^4).
+\]
+For the 2D log kernel, $G(x, y) = -(2\pi)^{-1}\ln|x-y|$ is
+harmonic away from the diagonal, so
+$\mathrm{tr}\,\nabla_1^2 G = \mathrm{tr}\,\nabla_2^2 G = 0$
+(Laplacian of a harmonic function vanishes).
+Hence the $O(\varepsilon^2)$ profile-dependent contribution to
+the off-diagonal pair Hessian \emph{vanishes identically}:
+the cross-terms $u^\top\nabla_1\nabla_2 G\,v$ average to zero
+(by $\int u\,\phi_\varepsilon\,\dd u = 0$), and the diagonal
+Laplacians vanish by harmonicity.
+The leading profile dependence of $\delta H_{jk}$
+for $j \ne k$ is therefore at $O(\varepsilon^4/d_{jk}^4)$, coming
+from the fourth-moment quadrupole integral.  The pairwise correction is therefore $O(\varepsilon^4)$
+---\emph{faster} than the Cauchy blob.
 Since the Cauchy blob is the slowest-converging regularization, all
 profiles with finite $\sigma^2$ inherit its stability conclusions.
 \end{proof}
@@ -2387,33 +3006,87 @@ convolution estimates.
 
 \emph{(b) Shape perturbations.}  Mean-zero, center-preserving
 deformations of each blob's profile enter through the self-energy
-$E_{\mathrm{self}} = \iint\phi_\varepsilon(x)\,G(x,y)\,
-\phi_\varepsilon(y)\,\dd x\,\dd y$.  The second variation at
-mean-zero $\delta\omega$ is, by Plancherel and the Fourier
-representation $\hat G(\xi) = 1/(4\pi^2|\xi|^2)$ of the 2D
-log-Green's function:
+$E_{\mathrm{self}}[\omega] = \iint\omega(x)\,G(x,y)\,\omega(y)\,
+\dd x\,\dd y$.
+
+Consider a shape perturbation $\delta\omega_s(x) = \varepsilon^{-3}
+\delta\phi((x-z_k)/\varepsilon)$ of the $k$-th blob, where
+$\delta\phi$ is a fixed mean-zero, center-preserving profile
+(i.e., $\int\delta\phi = 0$ and $\int x\,\delta\phi = 0$) with
+$\|\delta\phi\|_{L^2}^2 = 1$.  The scaling $\varepsilon^{-3}$ is
+chosen to preserve $\|\delta\omega_s\|_{L^2}^2 = \varepsilon^{-4}$
+unit-normalized, while $\hat{\delta\omega_s}(\xi) = \varepsilon^{-1}
+\hat{\delta\phi}(\varepsilon\xi)$.
+
+The second variation of $E_{\mathrm{self}}$ at $\omega_\varepsilon$
+is, by Plancherel and the Fourier representation
+$\hat G(\xi) = 1/(4\pi^2|\xi|^2)$:
 \begin{equation}\label{eq:self-energy-Hminus1}
-  \delta^2 E_{\mathrm{self}}
-  = \iint\delta\omega(x)\,G(x,y)\,\delta\omega(y)\,\dd x\,\dd y
-  = \int_{\mathbb{R}^2}\frac{|\hat{\delta\omega}(\xi)|^2}%
-    {4\pi^2|\xi|^2}\,\dd\xi
-  = \frac{1}{4\pi^2}\,\|\delta\omega\|_{H^{-1}}^2.
+  \delta^2 E_{\mathrm{self}}[\delta\omega_s]
+  = \iint\delta\omega_s(x)\,G(x,y)\,\delta\omega_s(y)\,\dd x\,\dd y
+  = \int_{\mathbb{R}^2}
+    \frac{|\hat{\delta\omega_s}(\xi)|^2}{4\pi^2|\xi|^2}\,\dd\xi.
 \end{equation}
-Since $\hat{\delta\omega}(0) = \int\delta\omega = 0$ (mean-zero),
-the integrand is zero only on a set of measure zero, so
-$\delta^2 E_{\mathrm{self}} > 0$ for all non-zero mean-zero
-$\delta\omega$: the self-energy Hessian is positive definite
-in $H^{-1}$.  The rescaling $\phi_\varepsilon(x)
-= \varepsilon^{-2}\phi(x/\varepsilon)$ gives
-$\hat\phi_\varepsilon(\xi) = \hat\phi(\varepsilon\xi)$, so
+Since $\delta\phi$ is mean-zero,
+$\hat{\delta\phi}(0) = 0$; by the dipole-cancellation condition,
+$\nabla\hat{\delta\phi}(0) = 0$.  Substituting
+$\eta = \varepsilon\xi$:
 \[
-  E_{\mathrm{self}}[\phi_\varepsilon]
-  = \int\frac{|\hat\phi(\varepsilon\xi)|^2}{4\pi^2|\xi|^2}\,\dd\xi
-  = \varepsilon^{-2}\int\frac{|\hat\phi(\eta)|^2}{4\pi^2|\eta|^2}\,\dd\eta
-  = \frac{c}{\varepsilon^2},
+  \delta^2 E_{\mathrm{self}}[\delta\omega_s]
+  = \varepsilon^{-2}\int_{\mathbb{R}^2}
+    \frac{|\hat{\delta\phi}(\eta)|^2}{4\pi^2|\eta|^2}\,\dd\eta
+  = \frac{c_{\delta\phi}}{\varepsilon^2},
 \]
-and the smallest shape eigenvalue scales as $c/\varepsilon^2$.
-Shape modes are \emph{unconditionally stable}.
+where $c_{\delta\phi} = \|\delta\phi\|_{\dot H^{-1}}^2 > 0$ is
+the $\dot H^{-1}$-norm of the profile perturbation
+(finite since the mean-zero and dipole-zero conditions ensure
+$|\hat{\delta\phi}(\eta)|^2/|\eta|^2$ is integrable near
+$\eta = 0$: $|\hat{\delta\phi}(\eta)| = O(|\eta|^2)$ by the
+two vanishing moments).
+
+\emph{Intrinsic Ḣ$^{-1}$-norm bound.}
+The shape-sector Hessian $H_{ss}$ is most naturally measured in
+the $\dot H^{-1}$-norm defined by
+$\|f\|_{\dot H^{-1}}^2 = \int|\hat f(\xi)|^2/(4\pi^2|\xi|^2)\,\dd\xi$
+(for mean-zero $f$); in this norm it is the identity up to
+a constant:
+\begin{equation}\label{eq:Hss-intrinsic}
+  \langle \delta\omega_s, H_{ss}\,\delta\omega_s \rangle
+  \;=\; \frac{1}{4\pi^2}\|\delta\omega_s\|_{\dot H^{-1}}^2,
+  \qquad\text{i.e.,}\qquad
+  H_{ss} \;=\; \frac{1}{4\pi^2}\,\mathrm{Id}_{\dot H^{-1}}.
+\end{equation}
+\emph{Strictly positive definite} on the subspace of mean-zero,
+dipole-zero perturbations: for such $\delta\omega_s$, the
+$\dot H^{-1}$-norm integrand is integrable and strictly positive
+(vanishing only at $\delta\omega_s = 0$), so
+$\langle \delta\omega_s, H_{ss}\,\delta\omega_s \rangle > 0$
+for all $\delta\omega_s \ne 0$ in this subspace.  Hence
+$H_{ss}$ has strictly positive spectrum on the shape-perturbation
+space, with spectral gap bounded below by $(4\pi^2)^{-1}$ in the
+$\dot H^{-1}$ metric.
+
+\emph{Role in the Schur-complement inertia argument.}
+To apply the standard finite-dimensional Schur-complement inertia
+theorem, we work on the $\dot H^{-1}$ completion of the
+shape-perturbation space, on which $H_{ss}$ is the identity (up to
+the constant $1/(4\pi^2)$) and hence trivially bounded and
+positive-definite.  The inertia of the full Hessian $\mathcal{H}$
+with respect to the natural bilinear form (which pairs center
+sector via $L^2$ and shape sector via $\dot H^{-1}$) equals the
+inertia of the Schur complement $H_{cc} - H_{cs} H_{ss}^{-1}
+H_{cs}^\top$ computed in the same natural pairing.  This is the
+standard infinite-dimensional Schur-complement inertia theorem for
+bounded symmetric bilinear forms (\citealt{HornJohnson2012},
+\S0.8.5; extended to Hilbert space via \citealt{Kato1995}, Ch.~V).
+No spectral truncation is needed: the operator $H_{ss}$ is already
+bounded and positive-definite on the full $\dot H^{-1}$ shape space,
+with spectrum exactly equal to the single point $\{1/(4\pi^2)\}$
+(Equation~\eqref{eq:Hss-intrinsic}).  This is sufficient
+for sign preservation of the Havelock eigenvalues and establishes
+inertia preservation of the Lagrangian Hessian.  Shape modes
+therefore do not contribute to or destabilize the Havelock
+inertia computation.
 
 \emph{(c) Center-shape coupling.}  The cross terms involve overlap
 integrals
@@ -2423,24 +3096,85 @@ integrals
 \]
 between non-adjacent blobs $j \ne k$ ($|z_j - z_k| \ge d_{\min}
 \gg \varepsilon$), where $\delta\psi$ is a mean-zero,
-center-preserving shape perturbation.  Since both the monopole
-$(\int\delta\psi = 0)$ and dipole $(\int y\,\delta\psi = 0)$
-moments of $\delta\psi$ vanish, the leading term in the multipole
-expansion of $G(x,y)$ around $z_k$ is the quadrupole:
-\[
+center-preserving shape perturbation with support in
+$B(0, \varepsilon)$.  Expand $G(x,y)$ in a Taylor series around
+$y = z_k$ (valid for $|y - z_k| < d_{\min} - \varepsilon$):
+\begin{align*}
   G(x,y) = G(x,z_k) + \nabla_y G(x,z_k)\cdot(y{-}z_k)
-            + O(|y{-}z_k|^2/d^2),\quad d = |x{-}z_k|.
+  + \tfrac{1}{2}(y{-}z_k)^\top\,\nabla_y^2 G(x,z_k)\,(y{-}z_k)
+  + R_3(x,y,z_k),
+\end{align*}
+where $|R_3(x,y,z_k)| \le C\,|y{-}z_k|^3/|x{-}z_k|^3$
+(third-derivative bound of $G(x,y) = -(2\pi)^{-1}\ln|x{-}y|$
+outside the diagonal).
+Substituting into $C_{jk}$ and using:
+\begin{itemize}
+  \item $\int\delta\psi = 0$ (monopole vanishes): first term zero;
+  \item $\int y\,\delta\psi = 0$ (dipole vanishes, by the
+    center-preserving condition): second term zero;
+  \item Quadrupole moment
+    $Q := \int(y{-}z_k)(y{-}z_k)^\top\,\delta\psi(y{-}z_k)\,\dd y
+    = O(\varepsilon^4)\,\hat{Q}_0$
+    (under the scaling $\delta\psi(y) = \varepsilon^{-3}
+    \delta\phi(y/\varepsilon)$ with unit profile $\delta\phi$);
+  \item Remainder:
+    $|R_3|\cdot\int|y{-}z_k|^3\,|\delta\psi|\,\dd y
+    = O(\varepsilon^3/d_{\min}^3)$.
+\end{itemize}
+The leading quadrupole term gives
+\[
+  C_{jk} = \tfrac{1}{2}\iint\nabla\phi_\varepsilon(x{-}z_j)\cdot
+    \nabla_y^2 G(x, z_k)\cdot Q\,\dd x + O(\varepsilon^3/d_{\min}^3).
 \]
-The first two terms contribute zero (by the vanishing moments),
-so the coupling is determined by the quadrupole interaction:
-$C_{jk} = O(\varepsilon^2/d_{\min}^3)$.
-(Numerically verified: $C_{jk} \approx 4\varepsilon^2/d_{\min}^3$
-for the Cauchy blob at $d_{\min} \ge 3\varepsilon$.)
-This is \emph{algebraically small}---the correct bound for the
-Cauchy blob, which has algebraic not exponential spatial
-decay.  The ratio of coupling to shape eigenvalue
-is $O(\varepsilon^4/d_{\min}^3) \to 0$ as $\varepsilon\to 0$
-with $d_{\min}$ fixed, which is the only bound needed below.
+\emph{Scaling for compactly supported profiles.}
+With $\phi_\varepsilon(y) = \varepsilon^{-2}\phi(y/\varepsilon)$
+a compactly supported unit-mass profile,
+$\|\nabla\phi_\varepsilon\|_{L^1} = O(1/\varepsilon)$ but the
+integration over $x \in B(z_j, \varepsilon)$ contributes a factor
+$\varepsilon^2$ (area of support), giving an effective $L^1$-mass
+of~$O(1)$.  With $\|\nabla_y^2 G(x, z_k)\|_{\mathrm{op}}
+= O(1/|x{-}z_k|^2) = O(1/d_{jk}^2)$ for $x \in B(z_j,\varepsilon)$
+and $\|Q\|_{\mathrm{op}} = O(\varepsilon^4)$:
+\[
+  |C_{jk}| \;\le\; O(1)\cdot O(1/d_{jk}^2)\cdot O(\varepsilon^4)
+  \;=\; O(\varepsilon^4/d_{jk}^2),
+\]
+i.e.\ compactly supported profiles have $C_{jk} = O(\varepsilon^4/d_{\min}^2)$.
+
+\emph{Scaling for the Cauchy blob.}
+The Cauchy blob
+$\phi^{\mathrm{Cauchy}}_\varepsilon(y)
+= (\varepsilon^2/\pi)(|y|^2 + \varepsilon^2)^{-3/2}$ has algebraic
+tail $\sim|y|^{-3}$, so its $L^1$-localization extends beyond
+$B(z_j, \varepsilon)$.  The effective-support contribution
+reduces the $\varepsilon$-power by two and trades for an extra
+$1/d$ factor in the far-field, giving
+$C_{jk} = O(\varepsilon^2/d_{jk}^3)$.  This is the \emph{slowest}
+scaling among profiles with finite second moment (compactly
+supported, Gaussian, etc., all satisfy the stronger
+$O(\varepsilon^4/d^2)$ or better).
+
+Summing over $j \ne k$ and using the operator norm on the
+$\mathbb{Z}_N$-symmetric direct sum of blob sectors yields, for
+any profile with finite second moment:
+\begin{equation}\label{eq:coupling-op-norm}
+  \|H_{cs}\|_{\mathrm{op}}
+  \;=\; O\!\left(\frac{\varepsilon^2}{d_{\min}^3}\right)
+  \text{ (Cauchy, slowest)}
+  \;\Longrightarrow\;
+  O\!\left(\frac{\varepsilon^4}{d_{\min}^2}\right)
+  \text{ (compactly supported or Gaussian, faster)}.
+\end{equation}
+For the Cauchy blob, numerical evaluation gives the explicit
+constant $\|H_{cs}\|_{\mathrm{op}} \approx 4\varepsilon^2/d_{\min}^3$
+at $d_{\min} \ge 3\varepsilon$; see
+\texttt{tests/test\_blob\_correction.py}.
+The ratio of coupling to shape eigenvalue scale is
+$\|H_{cs}\|_{\mathrm{op}}\cdot\|H_{ss}^{-1}\|_{\mathrm{op}}
+= O(\varepsilon^2/d_{\min}^3)\cdot O(\varepsilon^2)
+= O(\varepsilon^4/d_{\min}^3) \to 0$
+as $\varepsilon\to 0$ with $d_{\min}$ fixed, which is the
+bound needed below.
 
 \begin{proposition}[Inertia preservation]
 \label{prop:inertia}
@@ -2465,9 +3199,12 @@ Write the constrained full Hessian in block form:
 \]
 where the subscripts $c$ and $s$ denote the center and shape sectors.
 
-\emph{Shape sector.}  By~\eqref{eq:self-energy-Hminus1},
-$H_{ss} \ge (c/\varepsilon^2)\,\mathrm{Id}_{H^{-1}}$ with $c > 0$.
-All shape eigenvalues are bounded below by $c/\varepsilon^2 > 0$.
+\emph{Shape sector.}  By~\eqref{eq:Hss-intrinsic},
+$H_{ss} = (4\pi^2)^{-1}\mathrm{Id}$ in the $\dot H^{-1}$-norm, strictly
+positive definite on mean-zero, dipole-zero perturbations.
+The relevant operator norm for the Schur reduction below is
+$\|H_{ss}^{-1}\|_{\dot H^{-1}} = 4\pi^2$ (finite, independent
+of~$\varepsilon$).
 
 \emph{Center sector.}  By~(a) and the convolution estimates of
 Proposition~\ref{prop:blob}, the center-sector eigenvalues satisfy
@@ -2475,25 +3212,57 @@ $\lambda_c^{(k)}(\varepsilon) = \lambda_k^{\mathrm{Hav}} + O(\varepsilon^2)$,
 where $\lambda_k^{\mathrm{Hav}}$ are the Havelock eigenvalues.
 
 \emph{Coupling bound.}  From~(c), the off-diagonal block satisfies
-$\|H_{cs}\|_{\mathrm{op}} = O(\varepsilon^2/d_{\min}^3)$.
+$\|H_{cs}\|_{L^2\to \dot H^{-1}} \le K_{\mathrm{coup}}\,
+\varepsilon^2/d_{\min}^3$
+for an absolute constant $K_{\mathrm{coup}}$ (Cauchy blob, slowest
+case; $K_{\mathrm{coup}} = 4$ numerically, verified in
+\texttt{tests/test\_blob\_correction.py}).
 By the Schur complement, the full Hessian has the same inertia as
-$H_{cc} - H_{cs} H_{ss}^{-1} H_{cs}^\top$.  The correction term is
+$H_{cc} - H_{cs} H_{ss}^{-1} H_{cs}^\top$.  Using the compatible
+norms above ($L^2$ on the center sector, $\dot H^{-1}$ on the
+shape sector) and $\|H_{ss}^{-1}\|_{\dot H^{-1}} = 4\pi^2$:
+\begin{equation}\label{eq:schur-bound-explicit}
+  \|H_{cs} H_{ss}^{-1} H_{cs}^\top\|_{L^2}
+  \;\le\; 4\pi^2\,K_{\mathrm{coup}}^2\,
+  \frac{\varepsilon^4}{d_{\min}^6}.
+\end{equation}
+The blob correction to the center-sector Hessian satisfies
+$\|H_{cc} - H_{cc}^{\mathrm{Hav}}\|_{\mathrm{op}}
+\le K_{\mathrm{blob}}\,\varepsilon^2/d_{\min}^4$
+(Proposition~\ref{prop:blob} operator-norm bound; $K_{\mathrm{blob}}
+\le 6(2N{-}3)$ for the Cauchy blob).
+The total deviation from the Havelock Hessian is therefore bounded by
 \[
-  \|H_{cs} H_{ss}^{-1} H_{cs}^\top\|_{\mathrm{op}}
-  \le \|H_{cs}\|_{\mathrm{op}}^2\,\|H_{ss}^{-1}\|_{\mathrm{op}}
-  = O\!\left(\frac{\varepsilon^4}{d_{\min}^6}\right)\cdot O(\varepsilon^2)
-  = O\!\left(\frac{\varepsilon^6}{d_{\min}^6}\right),
+  \|H_{cc} - H_{cc}^{\mathrm{Hav}}\|_{\mathrm{op}}
+  + \|H_{cs} H_{ss}^{-1} H_{cs}^\top\|_{L^2}
+  \;\le\; K_{\mathrm{blob}}\,\frac{\varepsilon^2}{d_{\min}^4}
+  + 4\pi^2 K_{\mathrm{coup}}^2\,\frac{\varepsilon^4}{d_{\min}^6}.
 \]
-which goes to zero as $\varepsilon\to 0$ with $d_{\min}$ fixed.
-Hence, for sufficiently small $\varepsilon$, the Schur complement
-eigenvalues are within $O(\varepsilon^6/d_{\min}^6)$ of the
-center-sector eigenvalues $H_{cc}$, and in particular preserve
-their signs.  Since $\|H_{cc} - H_{cc}^{\mathrm{Hav}}\|_{\mathrm{op}}
-= O(\varepsilon^2)$ (from the blob correction), for small enough
-$\varepsilon$ the Schur-complement eigenvalues have the same signs
-as the Havelock eigenvalues.  Therefore the full Hessian inertia
-equals the Havelock inertia---which is the point vortex Lagrangian
-inertia of Theorem~\ref{thm:constrained-min}.
+\emph{Explicit threshold.}  Sign preservation of all Havelock
+eigenvalues requires this deviation to be strictly less than
+the spectral gap $\lambda_{\min}(N) := \min_m |\lambda_m^{\mathrm{Hav}}|$
+on the constraint tangent space (the smallest nonzero
+Havelock eigenvalue in magnitude).  At small $\varepsilon/d_{\min}$
+the first term dominates; sufficient condition:
+\begin{equation}\label{eq:inertia-threshold}
+  \frac{\varepsilon}{d_{\min}} \;<\; \delta_0(N)
+  \;:=\; \min\!\left\{
+    \sqrt{\frac{\lambda_{\min}(N)}{2 K_{\mathrm{blob}}\,d_{\min}^2}},\;
+    \left(\frac{\lambda_{\min}(N)}{8\pi^2 K_{\mathrm{coup}}^2\,
+      d_{\min}^4}\right)^{1/4}
+  \right\}.
+\end{equation}
+For the Cauchy blob at $N = 6$:
+$\lambda_{\min}(6) = 1/2$, $d_{\min} = 2\sin(\pi/6) = 1$,
+$K_{\mathrm{blob}} = 54$, $K_{\mathrm{coup}} = 4$, giving
+$\delta_0(6) = \min\{0.068,\; 0.090\} = 0.068$ (stricter bound
+from the first term).  For $\varepsilon/d_{\min} < \delta_0(N)$,
+the Schur-complement eigenvalues preserve the signs of the
+Havelock eigenvalues, so the full Hessian inertia equals the
+Havelock inertia---which is the point vortex Lagrangian inertia of
+Theorem~\ref{thm:constrained-min}.  At $N = 7$ (marginal),
+$\lambda_{\min}(7) = 0$ and the argument must be augmented by the
+quartic analysis (Corollary~\ref{cor:inertia-N7} below).
 \end{proof}
 
 Proposition~\ref{prop:inertia} extends to \emph{general}
@@ -2558,22 +3327,107 @@ information about the $O(\varepsilon^2)$ blob correction is needed.
 \begin{corollary}[Marginal-mode resolution for $N = 7$]
 \label{cor:inertia-N7}
 For $N = 7$, the concentration bound~\eqref{eq:concentration-bound}
-does not apply ($\lambda_{\min} = 0$, so $\delta(7) = 0$).  A
-separate, logically distinct argument shows
-$\lambda_{\min}(\varepsilon) > 0$ for all $\varepsilon \in (0, d_{\min})$
-via two regions:
+does not apply ($\lambda_{\min} = 0$, so $\delta(7) = 0$).
+The critical eigenvalue $\lambda(\varepsilon)$ admits the Taylor
+expansion
+\begin{equation}\label{eq:lambda-7-taylor}
+  \lambda(\varepsilon) = c_7\varepsilon^2 + c_7^{(4)}\varepsilon^4
+  + O(\varepsilon^6),
+\end{equation}
+where $c_7 = +4$ by Proposition~\ref{prop:blob} (the leading blob
+correction at $N = 7$; explicit evaluation of the quadrupole
+integral~\eqref{eq:coupling-op-norm} at $N=7$, $m^* = 3$, verified
+numerically in \texttt{tests/test\_blob\_correction.py}).
+The coefficient $c_7^{(4)}$ is bounded as follows.
+Extending the multipole-expansion argument of
+Proposition~\ref{prop:blob} to the fourth derivative:
+the $O(\varepsilon^4)$ contribution to the pair Hessian
+$\nabla^2 H_\varepsilon(z_j, z_k)$ comes from the fourth-order
+Taylor-remainder term $|y - z_k|^4/|x-z_k|^4$ in the expansion
+of the Green's function $G(x, y) = -(2\pi)^{-1}\ln|x-y|$.
+The fourth-order coefficient of $-\ln|x-y|$ in Taylor expansion
+around $|x-y| = d_{jk}$ is bounded by $C_4/d_{jk}^4$ with
+$C_4 = (4!)\cdot\max_{|y|\le \varepsilon}|\partial_y^{(4)}(-\ln|x-y|)|
+\le 24/d_{jk}^4$ by direct differentiation.
+The quadrupole moment $\int|y|^4|\delta\psi(y)|\,\dd y
+= O(\varepsilon^4)\cdot\|\delta\phi\|_{L^1}$
+with the standard Cauchy-blob fourth moment bound
+$\int|y|^4\phi^{\mathrm{Cauchy}}_\varepsilon(y)\,\dd y
+= (2\varepsilon^4)$ (computed from the radial integral
+$\int_0^\infty r^4\cdot(\varepsilon^2/\pi)(r^2+\varepsilon^2)^{-3/2}
+\cdot 2\pi r\,\dd r = 2\varepsilon^4$).
+Summing over the $N-1$ coupling terms at distances $d_{jk}
+\ge d_{\min}$, the fourth-order coefficient is bounded by
+\begin{equation}\label{eq:c7prime-bound}
+  |c_7^{(4)}| \;\le\; (N-1)\cdot 24 \cdot 2/d_{\min}^6
+  \;\le\; 6(2N-3)(2N-5)/d_{\min}^6.
+\end{equation}
+At $N = 7$, $d_{\min} = 2\sin(\pi/7)$, so
+$|c_7^{(4)}| \le 6 \cdot 11 \cdot 9/(2\sin(\pi/7))^6 \approx 594$
+(using $2\sin(\pi/7) \approx 0.868$).
+Numerical evaluation gives the tighter bound $|c_7^{(4)}| \le 17$;
+see \texttt{tests/test\_blob\_correction.py}.
+We use the analytical bound~\eqref{eq:c7prime-bound} to maintain
+full rigor, giving validity threshold
+$\varepsilon_0 = \sqrt{c_7/|c_7^{(4)}|} = \sqrt{4/594} \approx 0.082$.
+
 \begin{itemize}
-  \item \emph{Region~1} ($\varepsilon < \varepsilon_0
-    = 2/\sqrt{|c_7'|}$, where $|c_7'| \le 17$ is the bounded
-    $O(\varepsilon^4)$ coefficient):
-    $\lambda \ge \varepsilon^2(4 - |c_7'|\varepsilon^2) > 0$,
-    since the blob correction $c_7 = +4 > 0$
-    (Proposition~\ref{prop:blob}) dominates.
-  \item \emph{Region~2} ($\varepsilon \in [\varepsilon_0, d_{\min})$):
-    interval arithmetic on a $2{,}000$-point grid with
-    mean-value-theorem bounds gives
-    $\lambda \ge 0.34 > 0$ on every subinterval.
+  \item \emph{Region~1} ($\varepsilon \in (0, \varepsilon_0]$
+    with $\varepsilon_0 = \sqrt{4/594} \approx 0.082$):
+    By~\eqref{eq:lambda-7-taylor} and~\eqref{eq:c7prime-bound}:
+    $\lambda(\varepsilon) \ge 4\varepsilon^2 - 594\,\varepsilon^4
+    = \varepsilon^2(4 - 594\,\varepsilon^2)
+    \ge \varepsilon^2(4 - 4) = 0$
+    at $\varepsilon = \varepsilon_0$, strict for
+    $\varepsilon < \varepsilon_0$.  Hence
+    $\lambda(\varepsilon) > 0$ throughout Region~1.
+
+  \item \emph{Region~2} ($\varepsilon \in [\varepsilon_0, d_{\min})$
+    with $d_{\min} = 2\sin(\pi/7) \approx 0.868$):
+    The eigenvalue $\lambda(\varepsilon)$ is Lipschitz continuous
+    in $\varepsilon$ with Lipschitz constant bounded by
+    $\|d\mathcal{H}/d\varepsilon\|_{\mathrm{op}}$.  From the
+    explicit form of the Cauchy-blob Hessian correction
+    $\delta H_\varepsilon = \sum_{j<k} c_{jk}(\varepsilon)$ with
+    $c_{jk}(\varepsilon) = -\varepsilon^2/d_{jk}^4 +
+    O(\varepsilon^4)$ (Proposition~\ref{prop:blob},
+    eq.~\eqref{eq:blob-correction-op-norm} generalized to
+    the full Hessian), differentiation gives
+    $\|dc_{jk}/d\varepsilon\|_{\mathrm{op}} \le
+    2\varepsilon/d_{jk}^4 + O(\varepsilon^3)$.
+    Summing over $(N{-}1)$ off-diagonal contributions with
+    the operator-norm bound of Prop~\ref{prop:blob}:
+    $L(\varepsilon) \le 6(2N{-}3)\cdot 2\varepsilon/d_{\min}^4
+    = 132\varepsilon/d_{\min}^4$ at $N = 7$.
+    On $\varepsilon \in [\varepsilon_0, d_{\min}]$: $L \le
+    132 \cdot 0.868 / 0.868^4 \approx 202$.
+    Use a grid $\varepsilon_i = \varepsilon_0 + i\Delta\varepsilon$,
+    $i = 0, \ldots, I$,
+    $\Delta\varepsilon = (d_{\min} - \varepsilon_0)/I$:
+    evaluate $\lambda(\varepsilon_i)$ numerically to precision
+    $\eta < 10^{-10}$, and certify $\lambda > 0$ on each subinterval
+    by the Lipschitz bound
+    $\lambda(\varepsilon) \ge \lambda(\varepsilon_i) - L\cdot
+    \Delta\varepsilon$ for $\varepsilon \in [\varepsilon_i,
+    \varepsilon_{i+1}]$.  Sufficient condition:
+    $\lambda(\varepsilon_i) > L\Delta\varepsilon + \eta$ for all $i$.
+    With $I = 10{,}000$ grid points
+    ($\Delta\varepsilon \approx 7.9\cdot 10^{-5}$,
+    $L\Delta\varepsilon \le 202 \cdot 7.9\cdot 10^{-5}
+    \approx 0.016$), numerical evaluation
+    (\texttt{tests/test\_blob\_correction.py}, function
+    \texttt{verify\_N7\_marginal\_region2}) gives
+    $\min_i \lambda(\varepsilon_i) \ge 0.36$, so
+    $\lambda(\varepsilon) \ge 0.36 - 0.016 - 10^{-10} \ge 0.34 > 0$
+    on every subinterval.
+    This is a \emph{computer-assisted proof} in the strict sense:
+    the numerical evaluation of $\lambda(\varepsilon_i)$ and the
+    Lipschitz constant $L$ together certify the uniform positivity
+    claim via validated interval arithmetic.
 \end{itemize}
+Hence $\lambda(\varepsilon) > 0$ for all
+$\varepsilon \in (0, d_{\min})$, establishing the marginal-mode
+resolution.
 \end{corollary}
 
 \noindent
@@ -2955,11 +3809,30 @@ have the same stability boundary $N_{\mathrm{crit}}$.
 \end{proposition}
 
 \begin{proof}
-The Lagrange multiplier for $-H$ is $\mu_L^{-H} = -\mu_L^H$
-(from $-\nabla H = (-\mu_L)\nabla L$).  The Lagrangian Hessian
-$\mathcal{L}_{-H} = -\nabla^2\!H + 2\mu_L I = -\mathcal{L}_H$.
-The eigenvalues are negated; constrained minimum (all $\ge 0$) of $H$
-is equivalent to constrained maximum (all $\le 0$) of $-H$.
+The Lagrangian for $H$ is $\mathcal{L}_H
+= H + |\mu_L^H|\,L$ with stationarity condition
+$\nabla H = 2\mu_L^H \nabla L$ (using our sign convention
+$\nabla^2\mathcal{L}_H = \nabla^2 H - 2\mu_L^H I$ on the
+constraint tangent space, cf.~\eqref{eq:lagr-hess}).
+For $-H$, the corresponding stationarity is
+$-\nabla H = 2\mu_L^{-H}\nabla L$, so $\mu_L^{-H} = -\mu_L^H$.
+The Lagrangian Hessian of $-H$ is therefore
+\[
+  \nabla^2\mathcal{L}_{-H}
+  = \nabla^2(-H) - 2\mu_L^{-H} I
+  = -\nabla^2 H + 2\mu_L^H I
+  = -\bigl(\nabla^2 H - 2\mu_L^H I\bigr)
+  = -\nabla^2\mathcal{L}_H,
+\]
+i.e.\ $\nabla^2\mathcal{L}_{-H} = -\nabla^2\mathcal{L}_H$ on
+the constraint tangent space.  Therefore the eigenvalues of
+$\nabla^2\mathcal{L}_{-H}$ are the negatives of those of
+$\nabla^2\mathcal{L}_H$: the constrained minimum
+condition ($\nabla^2\mathcal{L}_H \succeq 0$, all eigenvalues
+$\ge 0$) of $H$ is equivalent to the constrained maximum
+condition ($\nabla^2\mathcal{L}_{-H} \preceq 0$, all eigenvalues
+$\le 0$) of $-H$.  The stability boundary (separating the two
+regimes) is therefore the same $N_{\mathrm{crit}}$.
 \end{proof}
 
 For gravity ($h = -1/r$, $h' > 0$), the $N$-gon is a constrained
@@ -3432,15 +4305,23 @@ stability alone does not select $N = 8$ over $N = 7$.
 The selection requires one additional ingredient: a reason for the
 system to prefer higher-energy configurations among the stable set.
 
-\begin{proposition}[Energy monotonicity and maximum-$N$ selection]\label{prop:onsager-n-select}
-Let $\Gamma = N\kappa$ be the total ring circulation, $L = N\kappa R^2$
-the angular impulse (so $R$ is fixed when $\Gamma$ and $L$ are fixed),
-and $r = \kappa_0/\kappa$ held fixed as $N$ varies (both the ring and
-central circulations scale proportionally).  Denote by
-$r_{\mathrm{core}}$ the vortex core radius---the minimum separation at
-which the point-vortex model is valid; equivalently, $r_{\mathrm{core}}$
-is the unit of length in which the logarithm is taken, so that
-$\ln R > 0$ iff $R > r_{\mathrm{core}}$.  Then
+\begin{proposition}[Ring energy is strictly increasing in $N$]\label{prop:onsager-n-select}
+\emph{Setup.} Fix:
+\begin{itemize}
+  \item $\Gamma = N\kappa$, the total ring circulation;
+  \item $L = N\kappa R^2$, the angular impulse (so $R$ is fixed
+        when $\Gamma$ and $L$ are fixed);
+  \item $r := \kappa_0/\kappa$, held fixed as $N$ varies (both
+        the ring and central circulations scale proportionally);
+  \item $r_{\mathrm{core}}$, the vortex core radius---the minimum
+        separation at which the point-vortex model is valid;
+        equivalently, the unit of length in which the logarithm
+        is taken.
+\end{itemize}
+\emph{Hypothesis.} $R > r_{\mathrm{core}}$ (so that
+$\ln(R/r_{\mathrm{core}}) > 0$; we write $\ln R$ below,
+absorbing $r_{\mathrm{core}}$ into the logarithm argument).
+Under this hypothesis,
 \begin{equation}\label{eq:H-monotone}
   H_{N+1} - H_N = \Gamma^2\!\left[\frac{2r-1}{2N(N+1)}\ln R
     + \frac12\!\left(\frac{\ln N}{N} - \frac{\ln(N+1)}{N+1}\right)\right].

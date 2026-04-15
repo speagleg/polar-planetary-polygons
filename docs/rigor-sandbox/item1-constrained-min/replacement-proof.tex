@@ -1,0 +1,182 @@
+% Replacement for \begin{proof}...\end{proof} of Theorem thm:constrained-min
+% in latex/paper/main.tex, lines 1999-2121.
+%
+% Labels preserved: eq:lagr-eigs (eigenvalue formula).
+% Labels referenced: eq:lagr-hess (theorem statement), app:havelock (appendix),
+%                    sec:curved, sec:n7.
+% Test reference: tests/test_angular_hessian.py (now exists).
+
+\begin{proof}
+The Hessian $\nabla^2 H$ is a $2N \times 2N$ real symmetric matrix.
+The cyclic action $\phi : k \mapsto k + 1 \pmod N$ permutes the
+vortices and is a symmetry of $H$; the local (radial, tangential)
+frame at each vertex transforms covariantly under $\phi$ (because
+the equilibrium ring is $\mathbb{Z}_N$-invariant), so $\nabla^2 H$
+commutes with the $\mathbb{Z}_N$-action on the perturbation space
+$(\delta r_k, \delta t_k)_{k=0}^{N-1} \in \mathbb{R}^{2N}$.
+By the isotypic decomposition for finite abelian groups,
+$\nabla^2 H$ block-diagonalizes in the discrete Fourier basis.
+For each $m \in \{1, \ldots, \lfloor (N-1)/2 \rfloor\}$, the
+real isotypic component at the paired modes $(m, N-m)$ is
+four-dimensional (cos-radial, sin-radial, cos-tangential,
+sin-tangential). The continuous $\mathrm{SO}(2)$ rotational symmetry
+$z_k \mapsto e^{i\beta}z_k$ acts on the cos/sin amplitudes by a
+rotation by $-m\beta$, so the $4 \times 4$ block decomposes as two
+identical $2 \times 2$ sub-blocks (cosine and sine) with zero
+cross entries. It suffices to compute the cosine sub-block.
+
+Write $\alpha_k = \cos(2\pi m k / N)$ for the mode-$m$ cosine
+amplitude. Under a purely radial perturbation
+$\delta z_k = a\,\alpha_k\,z_k$, the pair distance expands to
+second order in $a$ as (with $A = z_j - z_k$,
+$B = \alpha_j z_j - \alpha_k z_k$)
+\[
+  |z_j(a) - z_k(a)|^2
+   = |A|^2 + 2a\operatorname{Re}(A\bar B) + a^2|B|^2.
+\]
+The real part evaluates to
+$\operatorname{Re}(A\bar B) = (\alpha_j + \alpha_k)(1 - \cos(\theta_j - \theta_k))$.
+The linear-in-$a$ term vanishes in the pair sum (equilibrium:
+$\sum_k \alpha_k = 0$ for $m \ne 0$). Setting $p = k - j$, the
+$a^2$ coefficient in $H(a) - H(0) = -\sum_{j<k}\ln|v|$, after
+Fourier reduction with
+$\sum_j \alpha_j^2 = N/2$ and
+$\sum_j \alpha_j\alpha_{j+p} = (N/2)\cos(2\pi mp/N)$, gives the
+unit-normalized radial Hessian entry
+\begin{align*}
+  (\nabla^2 H)_{rr}^{(m)}
+   &= \sum_{p=1}^{N-1} \frac{1 + \cos(2\pi mp/N)}{2}
+      - \sum_{p=1}^{N-1}
+        \frac{1 - \cos(2\pi mp/N)\cos(2\pi p/N)}{4\sin^2(\pi p/N)}.
+\end{align*}
+The first sum equals $(N{-}2)/2$ (since
+$\sum_{p=1}^{N-1}\cos(2\pi mp/N) = -1$). For the second, apply
+the product-to-sum identity $\cos A\cos B = \tfrac12[\cos(A{-}B) +
+\cos(A{+}B)]$, the Havelock identity
+$S(m) = \sum_{p=1}^{N-1}(1 - \cos(2\pi mp/N))/(4\sin^2(\pi p/N))
+= m(N{-}m)/2$ (Appendix~\ref{app:havelock}), and the
+cosecant-squared sum
+$\sum_{p=1}^{N-1}1/(4\sin^2(\pi p/N)) = (N^2 - 1)/12$
+(a corollary of $S(m)$ by summing over $m$, see below).
+Writing $C(k) = (N^2{-}1)/12 - k(N{-}k)/2$ for the cosine-weighted
+inverse-sine sum, the second sum equals
+$\tfrac12[(m{-}1)(N{-}m{+}1) + (m{+}1)(N{-}m{-}1)]/2
+= (m(N{-}m) - 1)/2$.
+Therefore
+\begin{equation}\label{eq:rr-unshifted-paper}
+  (\nabla^2 H)_{rr}^{(m)} = \frac{N - 1 - m(N{-}m)}{2}.
+\end{equation}
+
+\emph{Cosecant-squared sum.}
+Summing $S(m)$ over $m = 1, \ldots, N{-}1$: the left side gives
+$N \sum_{p} 1/(4\sin^2(\pi p/N))$ (since
+$\sum_{m=1}^{N-1}(1 - \cos(2\pi mp/N)) = N$ for each~$p$);
+the right side gives $\sum_{m=1}^{N-1}m(N{-}m)/2 = (N{-}1)N(N{+}1)/12$.
+Dividing by $N$ yields $\sum_p 1/(4\sin^2(\pi p/N)) = (N^2 - 1)/12$.
+
+\emph{Off-diagonal vanishing.}
+Under the combined perturbation $\delta z_k = z_k\alpha_k(a + ib)$,
+the pair distance $|z_j(a,b) - z_k(a,b)|^2 = |A + (a{+}ib)B|^2
+= |A|^2 + 2a\operatorname{Re}(A\bar B) + 2b\operatorname{Im}(A\bar B) + (a^2 + b^2)|B|^2$
+has no $ab$ term. The $ab$ coefficient in $-\ln|v|$ therefore comes
+only from the cross product of the linear terms:
+$P_{jk}R_{jk}/(2U_{jk}^2)$, where
+$P = 2\operatorname{Re}(A\bar B)$ and
+$R = 2\operatorname{Im}(A\bar B)$. This is proportional to
+$\sum_j(\alpha_j^2 - \alpha_{j+p}^2)$, which vanishes for every $p$
+by translation invariance of $\sum\alpha_k^2$. Thus
+$(\nabla^2 H)_{rt}^{(m)} = 0$.
+
+\emph{Tangential-tangential block.}
+Under a purely tangential perturbation $\delta z_k = ib\alpha_k z_k$,
+an analogous expansion (with the imaginary part $\operatorname{Im}(\bar A B)
+= -(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$, and the
+identity $\sin^2(2\pi p/N) = 4\sin^2(\pi p/N)\cos^2(\pi p/N)$
+converting $L_{jk}^2/(4U_{jk}^2)$ to
+$(\alpha_j - \alpha_k)^2\cos^2(\pi p/N)/U_{jk}$) yields
+\[
+  (\nabla^2 H)_{tt}^{(m)}
+   = \sum_{p=1}^{N-1}\frac{\cos(2\pi p/N) - \cos(2\pi mp/N)}{4\sin^2(\pi p/N)}
+   = C(1) - C(m)
+   = \frac{m(N{-}m) - (N{-}1)}{2}.
+\]
+
+\emph{Lagrange shift.}
+Adding $(N{-}1)/2$ from $-2\mu_L = (N{-}1)/2$
+(cf.~\eqref{eq:lagr-hess}) to each diagonal entry,
+\begin{equation}\label{eq:lagr-eigs}
+  \lambda_m^+ = (N-1) - \frac{m(N-m)}{2},
+  \qquad
+  \lambda_m^- = \frac{m(N-m)}{2},
+  \qquad m = 1, \ldots, N-1,
+\end{equation}
+with $\lambda_m^+$ the radial-radial and $\lambda_m^-$ the
+tangential-tangential eigenvalue. The trace identity
+$\lambda_m^+ + \lambda_m^- = N - 1$ is an immediate consequence.
+General $R > 0$: all eigenvalues scale by $1/R^2$
+(from~\eqref{eq:lagr-hess} with $\mu_L = -(N{-}1)/(4R^2)$).
+For even $N$ and $m = N/2$, the mode vector norm doubles
+($\|\hat e_r\|^2 = N$ instead of $N/2$), but each elementary
+Fourier sum also doubles, so the two factors cancel and the formula
+extends uniformly.
+
+\emph{Attribution.}
+The eigenvalues~\eqref{eq:lagr-eigs} were first obtained by
+\citet{Havelock1931} (\S3), building on \citet{Thomson1883};
+see also \citet{BoattoCabral2003}, Eq.~(2.12), for a modern
+reformulation on constant-curvature surfaces
+(\S\ref{sec:curved} of this paper).
+The derivation above makes the algebraic mechanism explicit: the
+two trigonometric identities $S(m) = m(N{-}m)/2$ and
+$\sum 1/(4\sin^2) = (N^2{-}1)/12$ (proved respectively in
+Appendix~\ref{app:havelock} and by the $m$-summation argument above)
+together determine both block eigenvalues.
+
+\emph{Verification.}
+Numerical diagonalization of the constrained Lagrangian
+Hessian for $N = 3, 4, \ldots, 12$ at $R = 1$
+(\texttt{tests/test\_angular\_hessian.py}) confirms both
+eigenvalues~\eqref{eq:lagr-eigs}, the trace identity
+$\lambda_m^+ + \lambda_m^- = N{-}1$, and off-diagonal vanishing
+$(\nabla^2 H)_{rt}^{(m)} = 0$, each to finite-difference
+precision ($10^{-2}$, step $h = 10^{-5}$, $O(h^2)$ truncation).
+All intermediate identities are independently verified to 30
+decimal digits via symbolic computation (\texttt{sympy}).
+
+Since $\lambda_m^- = m(N{-}m)/2 \ge 0$ always, positive
+semi-definiteness of the constrained Lagrangian Hessian requires
+$\lambda_m^+ \ge 0$ for the modes tangent to the constraint surface.
+Three families of modes are removed:
+\emph{Mode $m = 0$ (radial)} corresponds to uniform ring expansion
+$\delta r_k = \mathrm{const}$ (equivalently $\delta z_k \propto z_k$
+in Cartesian), which changes $L = \sum|z_k|^2$ and is therefore not
+tangent to $\{L = NR^2\}$.
+\emph{Modes $m = 1$ and $m = N-1$} generate infinitesimal translation
+($\delta z_k = \mathrm{const}$ in Cartesian, which in the local
+radial frame is $\delta r_k + i\delta t_k \propto e^{-i\theta_k}$,
+i.e.\ Fourier mode $m = N-1$; the complex conjugate mode $m = 1$
+gives the orthogonal translation direction), changing
+$\mathbf{P} = \sum z_k$, and
+overall rotation ($\delta z_k = iz_k$ in Cartesian, i.e.\
+$\delta t_k = \mathrm{const}$ in the local frame, the $m = 0$
+tangential Goldstone mode of the $SO(2)$
+symmetry of $H$).  Both have $\sigma_m = 0$, consistent with the
+continuous symmetry group; they lie in the kernel of $\nabla^2 H$ and
+produce the zero eigenvalues.
+The remaining modes $m = 2, \ldots, N-2$ are tangent to the constraint
+surface and carry the stability information.  The minimum of
+$\lambda_m^+$ over $m$ occurs at $m = \lfloor N/2 \rfloor$:
+\[
+  \min_m \lambda_m^+ = \begin{cases}
+    (N{-}1)(7{-}N)/8 & N \text{ odd}, \\
+    (N{-}1) - N^2/8 & N \text{ even}.
+  \end{cases}
+\]
+Both expressions are $> 0$ for $N \le 6$, equal to zero at $N = 7$,
+and $< 0$ for $N \ge 8$.  Thus $N \le 6$ is \emph{strictly} stable
+(positive definite Lagrangian), $N = 7$ is \emph{neutrally} stable
+(positive semi-definite, with a zero eigenvalue at $m = 3$),
+consistent with \citet{Havelock1931}, and $N \ge 8$ is unstable.
+(The $N = 7$ marginal case is further analyzed in
+Section~\ref{sec:n7}.)
+\end{proof}
