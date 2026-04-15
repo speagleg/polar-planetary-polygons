@@ -2994,9 +2994,13 @@ known closed form.
 \begin{proposition}[Curvature-stability dichotomy]
 \label{prop:curvature-dichotomy}
 On a constant-curvature surface with Gaussian curvature $K$,
-for a ring of $N$ vortices at any nonzero geodesic radius:
+for a ring of $N$ vortices at stereographic parameter
+$\xi \in (0, \xi^*(N))$ (where $\xi^*(N)$ is the threshold
+from~\eqref{eq:xi_crit_S2}; on $\mathbf{S}^2$ this restricts
+to the region poleward of the critical colatitude, excluding the
+equator):
 \begin{itemize}
-\item $K > 0$ ($S^2$): $N_{\mathrm{crit}} < 7$
+\item $K > 0$ ($\mathbf{S}^2$): $N_{\mathrm{crit}} < 7$
   (curvature destabilizes);
 \item $K = 0$ (flat): $N_{\mathrm{crit}} = 7$ (marginal);
 \item $K < 0$ ($\mathbf{H}^2$): $N_{\mathrm{crit}} \ge 7$,
@@ -3006,8 +3010,9 @@ for a ring of $N$ vortices at any nonzero geodesic radius:
 \end{proposition}
 
 \begin{proof}
-On $\mathbf{S}^2$: $C_1 = (N{-}1)\cos\varphi < N{-}1$ for
-$\varphi > 0$, so $C_1 < f_{\max}(N)$ is violated at smaller~$N$.
+On $\mathbf{S}^2$: $C_1 = (N{-}1)(1{+}\xi^2)/(1{+}\xi)^2 < N{-}1$
+for $\xi > 0$ (the numerator $1{+}\xi^2 < (1{+}\xi)^2 = 1{+}2\xi{+}\xi^2$),
+so $C_1 < f_{\max}(N)$ is violated at smaller~$N$.
 On $\mathbf{H}^2$: $C_1 = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2 > N{-}1$
 for $\xi > 0$, so $C_1 \ge f_{\max}(N)$ holds at larger~$N$.
 Both are monotone in their curvature parameter.
