@@ -215,19 +215,23 @@ $z_k(b) = z_k(1 + i\,b\,\alpha_k)$. A direct computation yields
 \begin{equation}\label{eq:tt-pair-expand}
   |z_j(b) - z_k(b)|^2
    = |z_j - z_k|^2
-     - 2b\,(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)
+     + 2b\,(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)
      + b^2\,Q_{jk} + O(b^3),
 \end{equation}
-with the same $Q_{jk}$ as in~\eqref{eq:pair-expand}. The imaginary part
-that produces the linear-in-$b$ coefficient is
-$\operatorname{Im}\!\bigl[\overline{(z_j - z_k)}(\alpha_j z_j - \alpha_k z_k)\bigr]
- = (\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$,
-obtained from
-$\operatorname{Im}[\alpha_j + \alpha_k - \alpha_k e^{i(\theta_j - \theta_k)} - \alpha_j e^{-i(\theta_j - \theta_k)}]
- = (\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$.
+with the same $Q_{jk}$ as in~\eqref{eq:pair-expand}. With
+$A = z_j - z_k$ and $B = \alpha_j z_j - \alpha_k z_k$,
+\[
+  |z_j(b) - z_k(b)|^2 = |A + ibB|^2
+    = |A|^2 - 2b\,\operatorname{Im}(\bar{A} B) + b^2 |B|^2,
+\]
+and $\operatorname{Im}(\bar{A} B)
+ = \operatorname{Im}\!\bigl[(z_j - z_k)^{\!*}(\alpha_j z_j - \alpha_k z_k)\bigr]
+ = -(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$
+(from $\operatorname{Im}[\alpha_j + \alpha_k - \alpha_k e^{i(\theta_k - \theta_j)} - \alpha_j e^{i(\theta_j - \theta_k)}]$).
+The sign in \eqref{eq:tt-pair-expand} follows: $-2b \cdot [-(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)] = +2b(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$.
 
 Expanding $-\tfrac12 \ln|z_j(b) - z_k(b)|^2$ to second order in~$b$
-(with $L_{jk} = -2(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$
+(with $L_{jk} = 2(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$
 and $U_{jk} = |z_j - z_k|^2$),
 \[
   -\ln|z_j(b) - z_k(b)|
@@ -236,11 +240,10 @@ and $U_{jk} = |z_j - z_k|^2$),
      + b^2\!\left[\frac{L_{jk}^2}{4 U_{jk}^2}
                    - \frac{Q_{jk}}{2 U_{jk}}\right] + O(b^3).
 \]
-The linear term, summed over pairs, vanishes by the same Fourier
-argument as in \S\ref{sec:rr}: $\sum_{j<k}(\alpha_j - \alpha_k)
-\sin(\theta_j - \theta_k)$ is the $m$-th Fourier mode of an
-antisymmetric sum that vanishes at $m \in \{1, \ldots, N-1\}$
-by cyclic symmetry.
+The linear term, summed over pairs, vanishes: setting $p = k - j$ and
+pairing $p$ with $N - p$, the factor $\sin(\theta_j - \theta_k) = -\sin(2\pi p / N)$
+is odd in $p$ while $(\alpha_j - \alpha_k)/U_{jk}$ is even in $p$, so
+$\sum_{j<k} L_{jk}/U_{jk} = 0$ term by term.
 
 With $p = k - j \pmod N$ and $\theta_j - \theta_k = -2\pi p / N$,
 \[
@@ -292,6 +295,71 @@ at $m \in \{1, N-1\}$, so $(\nabla^2 H)_{tt}^{(m)} \ge 0$ with equality
 at the translation modes (consistent with the translation Goldstone
 structure: modes $m = 1$ and $m = N - 1$ generate infinitesimal
 rigid translations, which lie in the kernel of $\nabla^2 H$).
+
+\section{Off-diagonal vanishing and trace identity}\label{sec:offdiag-trace}
+
+\begin{lemma}[Off-diagonal vanishing]\label{lem:offdiag}
+For every $N \ge 2$ and every $m \in \{1, \ldots, N-1\}$ the
+radial-tangential cross entry of $\nabla^2 H$ in the
+mode-$m$ normalized Fourier basis vanishes:
+\[
+  (\nabla^2 H)_{rt}^{(m)} = 0.
+\]
+\end{lemma}
+
+\begin{proof}
+Under the combined perturbation
+$\delta z_k = z_k\,\alpha_k(a + ib)$ with $\alpha_k = \cos(2\pi m k/N)$,
+write $A = z_j - z_k$ and $B = \alpha_j z_j - \alpha_k z_k$. Then
+$z_j(a,b) - z_k(a,b) = A + (a + ib)B$, so
+\[
+  |z_j(a,b) - z_k(a,b)|^2
+   = |A|^2 + 2a\,\operatorname{Re}(A\bar B) + 2b\,\operatorname{Im}(A\bar B)
+     + (a^2 + b^2)\,|B|^2.
+\]
+Crucially, there is \emph{no} $ab$ term in $|v(a,b)|^2$ itself.
+The $ab$ term in $-\tfrac12 \ln|v(a,b)|^2$ therefore comes entirely
+from the cross product of the two linear terms in the expansion
+$-\tfrac12 \ln(1 + x) = -x/2 + x^2/4 - \cdots$, namely
+\[
+  \text{coeff of } ab \text{ in } -\tfrac12\ln|v(a,b)|^2
+   = \frac{P_{jk} R_{jk}}{2\,U_{jk}^2},
+\]
+with $P_{jk} = 2\operatorname{Re}(A\bar B)
+            = 2(\alpha_j + \alpha_k)(1 - \cos(\theta_j - \theta_k))$
+and $R_{jk} = 2\operatorname{Im}(A\bar B)
+            = 2(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$.
+Multiplying and using $1 - \cos(\theta_j - \theta_k) = U_{jk}/2$,
+\[
+  \frac{P_{jk} R_{jk}}{2\,U_{jk}^2}
+   = \frac{2(\alpha_j^2 - \alpha_k^2)\sin(\theta_j - \theta_k)}{U_{jk}}.
+\]
+Summing over pairs with $p = k - j$ and fixing $p$, the dependence
+on $j$ is only through $\alpha_j^2 - \alpha_{j+p}^2$. But
+$\sum_{j=0}^{N-1} \alpha_j^2 = N/2 = \sum_{j=0}^{N-1} \alpha_{j+p}^2$
+(the second sum is a cyclic shift of the first), so
+\[
+  \sum_{j=0}^{N-1} \bigl(\alpha_j^2 - \alpha_{j+p}^2\bigr) = 0
+  \quad \text{for every } p \in \{1, \ldots, N-1\}.
+\]
+Therefore the $ab$ coefficient in $H(a, b)$ vanishes, which
+(after unit normalization of $\hat e_r, \hat e_t$) gives
+$(\nabla^2 H)_{rt}^{(m)} = 0$.
+\end{proof}
+
+\begin{lemma}[Trace identity]\label{lem:trace}
+$\lambda_m^+ + \lambda_m^- = N - 1$ for every $m \in \{1, \ldots, N-1\}$.
+\end{lemma}
+
+\begin{proof}
+Direct from \eqref{eq:final-eigs}:
+$\bigl[(N-1) - m(N-m)/2\bigr] + \bigl[m(N-m)/2\bigr] = N - 1$.
+Equivalently, $\lambda_m^+ + \lambda_m^- = (\nabla^2 H)_{rr}^{(m)}
++ (\nabla^2 H)_{tt}^{(m)} + 2 \cdot (N-1)/2$, and the two
+unshifted sums telescope via \eqref{eq:rr-unshifted} and
+\eqref{eq:tt-unshifted}:
+$(N - 1 - m(N-m))/2 + (m(N-m) - (N-1))/2 = 0$, leaving $N - 1$.
+\end{proof}
 
 \section{Lagrange shift and eigenvalues}\label{sec:lag-shift}
 

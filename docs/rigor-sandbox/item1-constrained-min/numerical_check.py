@@ -198,6 +198,80 @@ def check_full_formula_against_oracle() -> int:
     return failed
 
 
+def check_off_diagonal_vanishing() -> int:
+    """The rt block entry vanishes: (∇²H)_rt^(m) = 0 because the mixed-ab
+       coefficient in -(1/2)log|v(a,b)|² is PR/(2U²), and
+       Σ_j (α_j² - α_{j+p}²) = 0 for every p ∈ {1,...,N-1}.
+
+       We verify this directly via the oracle: for every (N, m), we compute
+       ê_r^T L_lagr ê_t (after Lagrange shift — same as ê_r^T (∇²H) ê_t since
+       the shift is a multiple of identity and cross terms don't see it)
+       and assert it is numerically zero."""
+    import numpy as np
+    failed = 0
+    for N in range(3, 13):
+        for m in range(1, N):
+            theta = 2.0 * np.pi * np.arange(N) / N
+            pos = ngon_positions(N, 1.0)
+            H_full = numerical_hessian(thomson_energy, pos)
+            dim = 2 * N
+            mu_L = -(N - 1) / 4.0
+            L_lagr = H_full - 2.0 * mu_L * np.eye(dim)
+            amp = np.cos(2.0 * np.pi * m * np.arange(N) / N)
+            e_r = np.zeros(dim)
+            e_r[:N] = amp * np.cos(theta)
+            e_r[N:] = amp * np.sin(theta)
+            e_t = np.zeros(dim)
+            e_t[:N] = -amp * np.sin(theta)
+            e_t[N:] = amp * np.cos(theta)
+            e_r = e_r / np.linalg.norm(e_r)
+            e_t = e_t / np.linalg.norm(e_t)
+            cross = float(e_r @ L_lagr @ e_t)
+            if abs(cross) > 1e-3:
+                failed += 1
+                print(f"  FAIL N={N} m={m}: H_rt = {cross}")
+    if failed == 0:
+        print("  Off-diagonal H_rt^(m) = 0 verified numerically for N in [3,12]")
+    return failed
+
+
+def check_alpha_squared_translation_identity() -> int:
+    """The structural identity behind off-diagonal vanishing:
+       Σ_j (α_j² - α_{j+p}²) = 0 for every (N, m, p)."""
+    import sympy as sp
+    failed = 0
+    for N in range(3, 11):
+        for m in range(1, N):
+            for p in range(1, N):
+                total = sp.Rational(0)
+                for j in range(N):
+                    aj = sp.cos(2 * sp.pi * m * j / N)
+                    ajp = sp.cos(2 * sp.pi * m * (j + p) / N)
+                    total += aj**2 - ajp**2
+                simplified = sp.simplify(total)
+                diff = sp.Abs(simplified).evalf(30)
+                if diff > sp.Float("1e-25"):
+                    failed += 1
+                    print(f"  FAIL N={N} m={m} p={p}: Σ (α_j² - α_{{j+p}}²) = {simplified}")
+    if failed == 0:
+        print("  Σ_j (α_j² - α_{j+p}²) = 0 verified symbolically for N in [3,10]")
+    return failed
+
+
+def check_trace_identity() -> int:
+    """λ_m^+ + λ_m^- = N - 1 for every mode."""
+    failed = 0
+    for N in range(3, 13):
+        for m in range(1, N):
+            lo, hi = havelock_block_eigenvalues(N, m)
+            if abs((lo + hi) - (N - 1)) > 1e-3:
+                failed += 1
+                print(f"  FAIL N={N} m={m}: trace = {lo + hi}, expected {N-1}")
+    if failed == 0:
+        print("  Trace λ^+ + λ^- = N-1 verified numerically for N in [3,12]")
+    return failed
+
+
 def check_canonical_cases() -> int:
     """Spec's three canonical test cases (Item #1 spec, 'Key correctness checks')."""
     cases = [
@@ -248,6 +322,21 @@ def main() -> int:
     print("== Full formula vs oracle (after Lagrange shift) ==")
     if check_full_formula_against_oracle():
         print("FAILED full formula")
+        return 1
+
+    print("== Off-diagonal H_rt^(m) = 0 ==")
+    if check_off_diagonal_vanishing():
+        print("FAILED off-diagonal")
+        return 1
+
+    print("== α² translation identity ==")
+    if check_alpha_squared_translation_identity():
+        print("FAILED α² identity")
+        return 1
+
+    print("== Trace identity ==")
+    if check_trace_identity():
+        print("FAILED trace")
         return 1
 
     print("All checks pass.")
