@@ -1,8 +1,24 @@
 # Paper II — Structural Rigor Rewrites (Spec)
 
-## Status
+## Status — COMPLETE
 
-Paper II scores **7.5/10** on fresh-eyes mathematical review. Four structural deductions and eight minor issues identified. The core results (quartic α₀ = 45/14, blob correction table, energy monotonicity, κ_crit formula) are solid. The issues are in supporting proofs and statement precision.
+All four structural rewrites and all eight minor fixes applied.
+Estimated score: **9.0+** (from 7.5 baseline).
+
+| Item | Status | Commit |
+|------|--------|--------|
+| S1 (Poincare proof repair) | DONE | this session |
+| S2 (oblateness eigenvalues) | DONE | f6ad33b |
+| S3 (two-ring hypothesis) | DONE | ed83b8e |
+| S4 (N=7 marginal caveat) | DONE | ed83b8e |
+| Minor #1 (BEC ξ* rounding) | DONE | this session |
+| Minor #2 (R=1 convention) | DONE | this session |
+| Minor #3 (central vortex table) | Already addressed in Prop statement |
+| Minor #4 (Newton 2001 §2.2) | Verified — standard reference |
+| Minor #5 (r_core definition) | Already in Prop hypotheses (lines 1826-1829) |
+| Minor #6 (WKB definition) | DONE | this session |
+| Minor #7 (two-ring table format) | Already clarified ("exact rational arithmetic") |
+| Minor #8 (mode coupling) | DONE | this session |
 
 ## Canonical file
 

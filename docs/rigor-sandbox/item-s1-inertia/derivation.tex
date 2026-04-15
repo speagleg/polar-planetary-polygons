@@ -1,0 +1,290 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{remark}{Remark}
+
+\title{S1: Corrected Proof of Inertia Preservation\\(Proposition~17 of Paper~II)}
+\author{Sandbox derivation — v3 (v2 fixes + reviewer Issues 1--7)}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Statement}
+
+\begin{proposition}[Inertia preservation]
+\label{prop:inertia}
+Let $\delta(N) := \sqrt{\lambda_{\min}(N)/\bigl(6(2N{-}3)\bigr)}$
+where $\lambda_{\min}(N)$ is the smallest positive Havelock eigenvalue
+($\lambda_m = (N{-}1) - m(N{-}m)/2$; for $N \le 6$, $\lambda_{\min} > 0$).
+For $N \le 6$ and $\varepsilon/d_{\min} < \delta(N)$, the constrained
+Hessian of the blob energy $E[\omega_\varepsilon] + \mu_L\,L[\omega_\varepsilon]$
+on $\mathbb{Z}_N$-symmetric vorticity perturbations has the same inertia
+as the point vortex Havelock Hessian.
+\end{proposition}
+
+\begin{remark}[N = 7 marginal case]
+At $N = 7$, $\lambda_{\min} = 0$ (marginal mode $m = 3$), so
+$\delta(7) = 0$ and Proposition~\ref{prop:inertia} is vacuous.
+Strict minimality for $N = 7$ requires the quartic normal form
+($\alpha_0 = 45/14 > 0$); see Corollary~2 in the main text.
+\end{remark}
+
+\section{Block decomposition}
+
+The perturbation space decomposes into:
+\begin{itemize}
+  \item \textbf{Centers} ($2N$-dimensional): displacements $\delta z_k$ of
+    blob centroids.
+  \item \textbf{Shapes} (infinite-dimensional): mean-zero, center-preserving
+    deformations $\delta\omega_k \in L^2_0(D_\varepsilon(z_k))$
+    (i.e., $\int \delta\omega_k\,d\xi = 0$ and
+    $\int \delta\omega_k(\xi)\,\xi_i\,d\xi = 0$ for $i = 1,2$).
+\end{itemize}
+
+The angular impulse $L[\omega] = \int \omega(x)\,|x|^2\,dx$ is
+\emph{linear} in $\omega$, so $\delta^2 L = 0$ as a functional of
+$\omega$.  Under the center-shape parameterization, however,
+$L = \sum_k |z_k|^2 + O(\varepsilon^2)$ (the $O(\varepsilon^2)$ term
+is the self-moment, independent of center positions).  Therefore:
+\begin{itemize}
+  \item $\nabla^2_{cc} L = 2\,I_{2N}$ \quad (diagonal on centers),
+  \item $\nabla^2_{cs} L = 0$ \quad (center--shape coupling vanishes
+    for symmetric blobs),
+  \item $\nabla^2_{ss} L = 0$ \quad ($L$ is linear in $\omega$ at fixed support).
+\end{itemize}
+The Lagrange multiplier $\mu_L$ (determined by
+$\nabla E + \mu_L \nabla L = 0$ at the $N$-gon) therefore enters
+\textbf{only} the center--center block:
+\[
+  \mathcal{H} = \begin{pmatrix}
+    H_{cc} + 2\mu_L\,I & H_{cs} \\[3pt]
+    H_{cs}^\top & H_{ss}
+  \end{pmatrix},
+\]
+where $H_{cc}$ is the unconstrained energy Hessian on centers,
+$H_{cs}$ is the center--shape coupling, and $H_{ss}$ is the
+shape--shape Hessian (unaffected by $\mu_L$).
+
+The constrained Hessian acts on the tangent space
+$\ker(\nabla L) \cap \{\text{$\mathbb{Z}_N$-symmetric}\}$,
+which removes the radial breathing mode from the center subspace.
+After this projection, $H_{cc} + 2\mu_L\,I$ restricted to
+$\ker(\nabla L)$ gives the standard Havelock constrained eigenvalues
+$\lambda_k^{\mathrm{Hav}}$.
+
+\section{Step 1: $H_{ss}$ is positive definite}
+
+$H_{ss}$ is the second variation of the interaction energy
+restricted to shape perturbations.  For mean-zero perturbations
+$\delta\omega = \sum_k \delta\omega_k$ with each
+$\delta\omega_k \in L^2_0(D_\varepsilon(z_k))$, the quadratic form is:
+\[
+  \langle \delta\omega, H_{ss}\,\delta\omega \rangle
+  = \iint_{\mathbb{R}^2 \times \mathbb{R}^2}
+    \delta\omega(x)\,G(x,y)\,\delta\omega(y)\,dx\,dy,
+\]
+where $G(x,y) = -\frac{1}{2\pi}\ln|x - y|$ is the 2D Green's function.
+This includes \emph{all} pairwise interactions: self-energy within each
+blob \emph{and} inter-blob shape--shape coupling.
+
+\textbf{Positivity.}
+For any nonzero $f \in L^2_0(\mathbb{R}^2)$ with compact support,
+define $u = G * f$ (so $-\Delta u = f$ on $\mathbb{R}^2$).
+Since $f$ is mean-zero, $u(x) = O(|x|^{-1})$ as $|x| \to \infty$
+and $\nabla u \in L^2(\mathbb{R}^2)$.  Integration by parts gives:
+\[
+  \iint f(x)\,G(x,y)\,f(y)\,dx\,dy
+  = \int f\,u\,dx
+  = -\int u\,\Delta u\,dx
+  = \|\nabla u\|_{L^2(\mathbb{R}^2)}^2
+  > 0.
+\]
+Therefore $H_{ss}$ is positive definite on the (infinite-dimensional)
+shape perturbation space.  \textbf{No Poincar\'e inequality is needed.}
+
+\section{Step 2: Haynsworth inertia additivity}
+
+Since $H_{ss}$ is positive definite, the Haynsworth inertia additivity
+formula \cite{Haynsworth1968} gives:
+\[
+  \mathrm{In}(\mathcal{H})
+  = \mathrm{In}(H_{ss}) + \mathrm{In}(S),
+  \qquad
+  S = (H_{cc} + 2\mu_L I) - H_{cs}\,H_{ss}^{-1}\,H_{cs}^\top.
+\]
+The Schur complement $S$ is well-defined as a finite-dimensional
+($2N \times 2N$) matrix: for any $v \in \mathbb{R}^{2N}$,
+the vector $H_{cs}^\top v$ has mode-$m$ coefficients
+$O((\varepsilon/d_{\min})^{m+1})$ that decay geometrically
+(Lemma~\ref{lem:mode-estimates}(a)), while $H_{ss}^{-1}$
+eigenvalues grow as $O(\varepsilon^{-2})$
+(Lemma~\ref{lem:mode-estimates}(b)), so
+$H_{ss}^{-1} H_{cs}^\top v$ converges in $L^2$.
+
+Since $H_{ss}$ is positive definite,
+inertia preservation reduces to showing
+$\mathrm{In}(S) = \mathrm{In}(H_{cc}^{\mathrm{Hav}})$
+on $\ker(\nabla L)$.
+
+\section{Step 3: Mode-resolved bound on the Schur correction}
+
+The Schur correction $\Delta = H_{cs}\,H_{ss}^{-1}\,H_{cs}^\top$
+is a $2N \times 2N$ matrix.  We bound it by decomposing the shape
+space into angular Fourier modes $m = 2, 3, 4, \ldots$ on each
+blob disk $D_\varepsilon(z_k)$.  (Modes $m = 0$ and $m = 1$ are excluded:
+$m = 0$ is the mean, $m = 1$ is the dipole/center shift.)
+
+\begin{lemma}[Mode-$m$ estimates]
+\label{lem:mode-estimates}
+For the $m$-th angular Fourier mode on $D_\varepsilon$:
+\begin{enumerate}
+  \item[(a)] \textbf{Coupling:} $\|(H_{cs})_m\|_{\mathrm{op}}
+    = O(\varepsilon^{m+1}/d_{\min}^{m+1})$.
+
+    The multipole expansion of $\nabla G(z_j, z_k + \xi)$ about
+    $\xi = 0$ yields the $m$-th angular harmonic at
+    $O(|\xi|^m/d_{\min}^{m+1})$.  The $L^2$-normalized mode is
+    $f_m(\xi) = \cos(m\theta)\,/\,
+    \|{\cos(m\theta)}\|_{L^2(D_\varepsilon)}$
+    with $\|\cos(m\theta)\|_{L^2(D_\varepsilon)}
+    = \sqrt{\pi\varepsilon^2/2}$.
+    Integrating the $m$-th multipole against $f_m$ over
+    $D_\varepsilon$:
+    \[
+      (H_{cs})_m
+      = \int_{D_\varepsilon} \nabla G \cdot f_m\,d\xi
+      \sim \frac{1}{d_{\min}^{m+1}} \cdot
+        \frac{\int_0^\varepsilon r^{m+1}\,dr}
+             {\sqrt{\pi\varepsilon^2/2}}
+      = \frac{1}{d_{\min}^{m+1}} \cdot
+        \frac{\varepsilon^{m+2}/(m{+}2)}
+             {\varepsilon\sqrt{\pi/2}}
+      = O\!\left(\frac{\varepsilon^{m+1}}{d_{\min}^{m+1}}\right).
+    \]
+
+  \item[(b)] \textbf{Self-energy eigenvalue:}
+    $\lambda_m^{ss} = c_m\,\varepsilon^2$, where
+    $c_m = \langle g_m, G_1\,g_m \rangle_{L^2(D_1)} > 0$
+    is the unit-disk Green's operator eigenvalue.
+
+    \emph{Scaling argument:}
+    For $\delta\omega(x) = \varepsilon^{-2}f(x/\varepsilon)$
+    with $f$ supported on $D_1$ and $\int f = 0$:
+    \begin{align*}
+      \|\delta\omega\|_{H^{-1}}^2
+      &= \iint f(u)\,G_1(u,v)\,f(v)\,du\,dv
+        = \|f\|_{H^{-1}(D_1)}^2
+        & &\text{(scale-invariant for mean-zero $f$)},\\
+      \|\delta\omega\|_{L^2(D_\varepsilon)}^2
+      &= \varepsilon^{-2}\,\|f\|_{L^2(D_1)}^2.
+    \end{align*}
+    The Rayleigh quotient
+    $\lambda_m^{ss} = \|\delta\omega\|_{H^{-1}}^2 / \|\delta\omega\|_{L^2}^2
+    = \varepsilon^2\,\|f\|_{H^{-1}}^2/\|f\|_{L^2}^2
+    = \varepsilon^2\,c_m$.
+
+  \item[(c)] \textbf{Schur contribution per mode:}
+    $\|\Delta_m\| \le N\,\|(H_{cs})_m\|^2 / \lambda_m^{ss}
+    = O(\varepsilon^{2m+2}/d_{\min}^{2m+2}) / O(\varepsilon^2)
+    = O(\varepsilon^{2m}/d_{\min}^{2m+2})$.
+
+    (The factor $N(N{-}1)$ accounts for summing over all
+    ordered blob pairs; this constant is absorbed into $C_0$ below.)
+\end{enumerate}
+\end{lemma}
+
+The inter-blob shape--shape coupling modifies $c_m$ by a factor
+$(1 + O(\rho^2))$ where $\rho = \varepsilon/d_{\min}$; under
+$\rho \ll 1$, this is a small perturbation absorbed into $C_0$.
+
+The leading contribution is $m = 2$ (quadrupole):
+$\|\Delta\| = O(\varepsilon^4/d_{\min}^6)$.
+
+\textbf{Numerical verification} (scaling\_analysis.py, $N = 4, 5, 6$):
+\begin{center}
+\begin{tabular}{cccc}
+  $m$ & coupling scaling & $\lambda_m^{ss}$ scaling & contribution scaling \\
+  \hline
+  2 & $\varepsilon^{2.95}$ & $\varepsilon^{2.00}$ & $\varepsilon^{3.90}$ \\
+  3 & $\varepsilon^{3.90}$ & $\varepsilon^{2.00}$ & $\varepsilon^{5.80}$ \\
+  4 & $\varepsilon^{4.94}$ & $\varepsilon^{2.00}$ & $\varepsilon^{7.88}$ \\
+\end{tabular}
+\end{center}
+Consistent with $\varepsilon^{m+1}$, $\varepsilon^2$, $\varepsilon^{2m}$
+respectively.  The total Schur correction scales as $\varepsilon^{3.99}$
+(dominated by $m = 2$), confirming $O(\varepsilon^4/d_{\min}^6)$.
+
+\section{Step 4: Inertia preservation}
+
+By Proposition~[blob], the center-block eigenvalues satisfy
+$\lambda_k(H_{cc}(\varepsilon)) = \lambda_k^{\mathrm{Hav}} + O(\varepsilon^2)$.
+The concentration bound $\varepsilon/d_{\min} < \delta(N)$
+ensures the $O(\varepsilon^2)$ blob corrections preserve all
+eigenvalue signs.
+
+The Schur correction satisfies $\|\Delta\| = O(\varepsilon^4/d_{\min}^6)$.
+Writing $\rho = \varepsilon/d_{\min}$:
+\[
+  \|\Delta\| \le C_0\,\frac{\rho^4}{d_{\min}^2},
+\]
+where $C_0$ depends on the blob profile and $N$ (for the Cauchy
+blob and $N \le 7$, the numerical oracle gives $C_0 < 15$).
+Under $\rho < \delta(N) < 1$,
+the blob correction controls
+$\rho^2 < \lambda_{\min}/(6(2N{-}3))$, so:
+\[
+  \|\Delta\| \le C_0\,\frac{\rho^2 \cdot \rho^2}{d_{\min}^2}
+  < C_0\,\frac{\lambda_{\min}\,\rho^2}{6(2N{-}3)\,d_{\min}^2}
+  \ll \lambda_{\min},
+\]
+since $\rho^2/(d_{\min}^2 \cdot (2N{-}3)) \ll 1$ under the
+concentration bound.  Therefore the Schur correction is
+negligible compared to $\lambda_{\min}$: no eigenvalue sign is
+changed by the shape degrees of freedom.
+
+This gives $\mathrm{In}(S) = \mathrm{In}(H_{cc}^{\mathrm{Hav}})$
+on $\ker(\nabla L)$, and inertia is preserved.  \qed
+
+\section{Summary of corrections to the paper proof}
+
+\begin{enumerate}
+  \item \textbf{Removed:} the incorrect Poincar\'e inequality
+    $\|\delta\omega\|_{H^{-1}} \ge (c_P/\varepsilon)\|\delta\omega\|_{L^2}$.
+    The $H^{-1}$ norm is \emph{weaker} than $L^2$, not stronger.
+
+  \item \textbf{Replaced with:} direct positivity of $H_{ss}$
+    from $\|\nabla u\|_{L^2}^2 > 0$ where $-\Delta u = \delta\omega$.
+    This covers inter-blob shape coupling as well as self-energy.
+
+  \item \textbf{Made explicit:} the Lagrange multiplier $\mu_L$
+    enters only $H_{cc}$ (since $L$ is linear in $\omega$),
+    leaving $H_{cs}$ and $H_{ss}$ unchanged.
+
+  \item \textbf{Updated Schur bound:} from $O(\varepsilon^6/d_{\min}^6)$
+    to the correct $O(\varepsilon^4/d_{\min}^6)$, dominated by the
+    quadrupole ($m = 2$) coupling.
+
+  \item \textbf{Key simplification:} the Schur correction ($O(\varepsilon^4)$)
+    is higher order than the blob correction ($O(\varepsilon^2)$),
+    so no separate threshold is needed beyond $\delta(N)$.
+
+  \item \textbf{Unchanged:} the concentration bound
+    $\delta(N) = \sqrt{\lambda_{\min}/(6(2N{-}3))}$ and its numerical
+    values $\delta(4) = 0.18$, $\delta(5) = 0.15$, $\delta(6) = 0.096$.
+    These are determined by the $O(\varepsilon^2)$ blob correction, not
+    the Schur complement.
+
+  \item \textbf{N = 7 caveat:} $\lambda_{\min}(7) = 0$, so
+    $\delta(7) = 0$ and the proposition is vacuous.  The $N = 7$
+    case requires the quartic normal form (Corollary~2).
+\end{enumerate}
+
+\begin{thebibliography}{9}
+\bibitem{Haynsworth1968}
+E.~V.~Haynsworth, Determination of the inertia of a partitioned Hermitian matrix,
+\emph{Linear Algebra Appl.}\ \textbf{1} (1968), 73--81.
+\end{thebibliography}
+
+\end{document}
