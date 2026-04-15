@@ -573,10 +573,12 @@ constraint rescues stability:
 
 \begin{theorem}[Constrained energy minimum]
 \label{thm:constrained-min}
-The Lagrangian eigenvalue of the $N$-gon on the
-angular-impulse surface $\{L = L_0\}$ is
-$\lambda_m = (N{-}1) - m(N{-}m)/2$.
-This is nonnegative for all binding modes $m = 2,\ldots,N{-}2$
+The Lagrangian eigenvalues of the $N$-gon on the
+angular-impulse surface $\{L = L_0\}$ are
+$\lambda_m^r = (N{-}1) - m(N{-}m)/2$ (radial) and
+$\lambda_m^t = m(N{-}m)/2$ (tangential).
+The radial eigenvalue controls stability and is nonnegative
+for all binding modes $m = 2,\ldots,N{-}2$
 if and only if $N \le 7$.
 The $N$-gon is a strict local energy minimum for $N \le 6$
 (all $\lambda_m > 0$);
@@ -659,7 +661,9 @@ the constraints become:
 The surviving binding modes are therefore
 $m \in \{2, \ldots, N-2\}$ in the radial sector and the same
 range in the tangential sector (plus the $m = 1$ mode in one
-direction — the ``spiral'' mode, separately analysed).
+direction --- the ``spiral'' mode, which has $H''(0) < 0$
+by the sign rule but is stabilized by the Lagrange shift;
+see Remark~\ref{rem:signrule-to-stability}).
 
 \emph{Step 3 (Bordered-Hessian reduction and block decomposition).}
 On the level set $\{L = L_0, P = 0\}/\mathrm{SO}(2)$, the
@@ -771,12 +775,29 @@ just $\mathrm{Hess}(H)|_{V_m} - 2\mu_L\,I|_{V_m}$, with
 eigenvalues that are the additive shift of the unconstrained
 Fourier-block eigenvalues.
 
-The unconstrained Fourier-block eigenvalues of
-$\operatorname{Hess}(H)$ at the $N$-gon are, per the Havelock
-identity (Lemma~\ref{lem:havelock}): radial $\sigma_m^{r}
-= (N-1)/2 - m(N-m)/2$; tangential $\sigma_m^{t}
-= -(N-1)/2 + m(N-m)/2$.  Adding $-2\mu_L = (N-1)/2$
-to both:
+We derive the unconstrained Fourier-block eigenvalues of
+$\operatorname{Hess}(H)$ at the $N$-gon.
+Write $\alpha_k = \cos(2\pi mk/N)$ for the mode-$m$ amplitude,
+$A = z_j - z_k$, $B = \alpha_j z_j - \alpha_k z_k$.
+Under a purely radial perturbation $\delta z_k = a\alpha_k z_k$,
+the pair distance expands as
+$|z_j(a) - z_k(a)|^2 = |A|^2 + 2a\operatorname{Re}(A\bar B) + a^2|B|^2$
+with $\operatorname{Re}(A\bar B) = (\alpha_j + \alpha_k)(1 - \cos(\theta_j - \theta_k))$.
+Fourier reduction (using
+$\sum_j \alpha_j\alpha_{j+p} = (N/2)\cos(2\pi mp/N)$ and the
+product-to-sum identity $\cos A\cos B = \tfrac12[\cos(A{-}B) + \cos(A{+}B)]$)
+gives the radial entry via the Havelock identity
+(Lemma~\ref{lem:havelock}) and the cosecant-squared sum
+$\sum 1/(4\sin^2) = (N^2{-}1)/12$ (a corollary of the Havelock
+identity by summing over $m$):
+$\sigma_m^r = (N{-}1)/2 - m(N{-}m)/2$.
+The off-diagonal entry vanishes (the $ab$ coefficient
+is proportional to $\sum_j(\alpha_j^2 - \alpha_{j+p}^2) = 0$),
+so the tangential entry follows from the trace formula:
+$\sigma_m^t = -(N{-}1)/2 + m(N{-}m)/2$
+(full derivation in the companion sandbox
+\texttt{docs/rigor-sandbox/item1-constrained-min/derivation.tex}).
+Adding $-2\mu_L = (N{-}1)/2$ to both:
 \begin{align*}
   \lambda_m^r &= \sigma_m^r + \tfrac{N-1}{2}
     \;=\; (N-1) - m(N-m)/2, \\

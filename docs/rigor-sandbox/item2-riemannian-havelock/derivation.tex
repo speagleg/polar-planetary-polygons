@@ -135,13 +135,19 @@ Adding the curvature-plus-constraint contribution $(N-1)/(2\xi)$:
 \]
 
 \textbf{Hyperbolic case.}
-On $\mathbf{H}^2$ with $W = -(N-1)/2\sum_k\ln(1-|z_k|^2)$ and
+On $\mathbf{H}^2$ with $W = +(N{-}1)/2\sum_k\ln(1-|z_k|^2)$ and
 $J = \sum_k(1+|z_k|^2)/(1-|z_k|^2)$ (the Poincar\'e-disk
 formulation), the same tangential-projection argument gives
-$\hat e_t^T\nabla^2 W\,\hat e_t = (N-1)/(1-\xi)$ and
-$\hat e_t^T\nabla^2 J\,\hat e_t = -4/(1-\xi)^2$, and with
-$\Omega_{\mathbf{H}^2} = -(N-1)(1+\xi)/(8\xi)(1-\xi)$ the
-combination again equals $(N-1)/(2\xi)$.
+$\hat e_t^T\nabla^2 W\,\hat e_t = -(N{-}1)/(1-\xi)$ and
+$\hat e_t^T\nabla^2 J\,\hat e_t = +4/(1-\xi)^2$, and with
+$\Omega_{\mathbf{H}^2} = -(N{-}1)(1+\xi)(1-\xi)/(8\xi)$ the
+combination gives
+\[
+  -\frac{N{-}1}{1{-}\xi}
+  + \frac{(N{-}1)(1{+}\xi)(1{-}\xi)}{8\xi}\cdot\frac{4}{(1{-}\xi)^2}
+  = -\frac{N{-}1}{1{-}\xi} + \frac{(N{-}1)(1{+}\xi)}{2\xi(1{-}\xi)}
+  = \frac{N{-}1}{2\xi}.
+\]
 \end{proof}
 
 \section{Numerical verification}
