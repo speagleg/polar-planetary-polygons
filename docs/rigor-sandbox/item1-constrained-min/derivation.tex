@@ -4,6 +4,7 @@
 \geometry{margin=1in}
 \newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
 
 \title{Havelock Lagrangian Eigenvalues:\\ First-Principles Derivation}
 \author{Sandbox for Paper~I, Item~\#1}
@@ -203,5 +204,118 @@ Combining,
 This is the radial-radial block eigenvalue of the \emph{unshifted}
 energy Hessian $\nabla^2 H$. The Lagrange shift is applied in
 \S\ref{sec:lag-shift}.
+
+\section{Tangential-tangential block}\label{sec:tt}
+
+Under a purely tangential mode-$m$ perturbation
+$\delta t_k = b\,\alpha_k$ with $\alpha_k = \cos(2\pi m k / N)$
+(and $a = 0$ in \eqref{eq:mode-m}), the perturbation is
+$\delta z_k = i z_k\,b\,\alpha_k$, so
+$z_k(b) = z_k(1 + i\,b\,\alpha_k)$. A direct computation yields
+\begin{equation}\label{eq:tt-pair-expand}
+  |z_j(b) - z_k(b)|^2
+   = |z_j - z_k|^2
+     - 2b\,(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)
+     + b^2\,Q_{jk} + O(b^3),
+\end{equation}
+with the same $Q_{jk}$ as in~\eqref{eq:pair-expand}. The imaginary part
+that produces the linear-in-$b$ coefficient is
+$\operatorname{Im}\!\bigl[\overline{(z_j - z_k)}(\alpha_j z_j - \alpha_k z_k)\bigr]
+ = (\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$,
+obtained from
+$\operatorname{Im}[\alpha_j + \alpha_k - \alpha_k e^{i(\theta_j - \theta_k)} - \alpha_j e^{-i(\theta_j - \theta_k)}]
+ = (\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$.
+
+Expanding $-\tfrac12 \ln|z_j(b) - z_k(b)|^2$ to second order in~$b$
+(with $L_{jk} = -2(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$
+and $U_{jk} = |z_j - z_k|^2$),
+\[
+  -\ln|z_j(b) - z_k(b)|
+   = -\ln|z_j - z_k|
+     - \frac{b L_{jk}}{2 U_{jk}}
+     + b^2\!\left[\frac{L_{jk}^2}{4 U_{jk}^2}
+                   - \frac{Q_{jk}}{2 U_{jk}}\right] + O(b^3).
+\]
+The linear term, summed over pairs, vanishes by the same Fourier
+argument as in \S\ref{sec:rr}: $\sum_{j<k}(\alpha_j - \alpha_k)
+\sin(\theta_j - \theta_k)$ is the $m$-th Fourier mode of an
+antisymmetric sum that vanishes at $m \in \{1, \ldots, N-1\}$
+by cyclic symmetry.
+
+With $p = k - j \pmod N$ and $\theta_j - \theta_k = -2\pi p / N$,
+\[
+  U_{jk} = 4 \sin^2(\pi p / N),
+  \qquad
+  L_{jk}^2 = 4(\alpha_j - \alpha_k)^2 \sin^2(2\pi p / N)
+           = 4(\alpha_j - \alpha_k)^2 \cdot U_{jk} \cos^2(\pi p / N),
+\]
+using $\sin^2(2\pi p / N) = 4 \sin^2(\pi p / N) \cos^2(\pi p / N)$.
+Therefore $L_{jk}^2 / (4 U_{jk}^2) = (\alpha_j - \alpha_k)^2
+\cos^2(\pi p / N) / U_{jk}$.
+
+Proceeding as in \S\ref{sec:rr}, applying
+$\sum_j (\alpha_j - \alpha_{j+p})^2 = N(1 - \cos(2\pi m p / N))$
+and $\sum_j Q_{j, j+p} = N(1 - \cos(2\pi m p / N)\cos(2\pi p / N))$,
+the tangential-tangential block entry is
+\begin{equation}\label{eq:tt-intermediate}
+  (\nabla^2 H)_{tt}^{(m)}
+   = \sum_{p=1}^{N-1}
+     \frac{-\bigl(1 - \cos(2\pi m p / N)\cos(2\pi p / N)\bigr)
+           + 2\bigl(1 - \cos(2\pi m p / N)\bigr)\cos^2(\pi p / N)}
+          {4 \sin^2(\pi p / N)}.
+\end{equation}
+The bracketed numerator simplifies via
+$2\cos^2(\pi p / N) = 1 + \cos(2\pi p / N)$:
+\begin{align*}
+  &-\bigl(1 - \cos(2\pi m p / N)\cos(2\pi p / N)\bigr)
+     + \bigl(1 - \cos(2\pi m p / N)\bigr)\bigl(1 + \cos(2\pi p / N)\bigr) \\
+  &\qquad = \cos(2\pi p / N) - \cos(2\pi m p / N).
+\end{align*}
+(The $\cos(2\pi m p / N)\cos(2\pi p / N)$ cross terms cancel,
+$-1 + 1 = 0$, and the remaining terms are as stated.)
+
+Thus
+\begin{equation}\label{eq:tt-diff-C}
+  (\nabla^2 H)_{tt}^{(m)}
+   = \sum_{p=1}^{N-1}\frac{\cos(2\pi p / N) - \cos(2\pi m p / N)}
+                          {4 \sin^2(\pi p / N)}
+   = C(1) - C(m),
+\end{equation}
+where $C(k)$ is as in Corollary~\ref{cor:cos-over-sin}. Substituting,
+\begin{equation}\label{eq:tt-unshifted}
+  (\nabla^2 H)_{tt}^{(m)}
+   = \frac{m(N-m)}{2} - \frac{N-1}{2}
+   = \frac{m(N-m) - (N-1)}{2}.
+\end{equation}
+For $m \in \{1, \ldots, N-1\}$, $m(N-m) \ge N-1$ with equality exactly
+at $m \in \{1, N-1\}$, so $(\nabla^2 H)_{tt}^{(m)} \ge 0$ with equality
+at the translation modes (consistent with the translation Goldstone
+structure: modes $m = 1$ and $m = N - 1$ generate infinitesimal
+rigid translations, which lie in the kernel of $\nabla^2 H$).
+
+\section{Lagrange shift and eigenvalues}\label{sec:lag-shift}
+
+The Lagrangian is $\mathcal{L} = H - \mu_L L$ with angular impulse
+$L = \sum_k |z_k|^2$ and $\mu_L = -(N-1)/4$ at the unit-ring equilibrium.
+Since $\nabla^2 L = 2 I$, the Lagrangian Hessian is
+\begin{equation}\label{eq:lag-shift}
+  \nabla^2 \mathcal{L}
+   = \nabla^2 H - 2\mu_L I
+   = \nabla^2 H + \frac{N-1}{2}\,I.
+\end{equation}
+Adding $(N-1)/2$ to each of \eqref{eq:rr-unshifted} and
+\eqref{eq:tt-unshifted} yields
+\begin{equation}\label{eq:final-eigs}
+  \boxed{\;
+  \lambda_m^+ = \frac{N-1 - m(N-m)}{2} + \frac{N-1}{2}
+             = (N-1) - \frac{m(N-m)}{2},
+  \qquad
+  \lambda_m^- = \frac{m(N-m) - (N-1)}{2} + \frac{N-1}{2}
+             = \frac{m(N-m)}{2}.
+  \;}
+\end{equation}
+The trace identity $\lambda_m^+ + \lambda_m^- = N - 1$ falls out
+automatically — it is not an independent check but a consequence of
+the $(N-1)/2$ shift doubling across the two diagonal entries.
 
 \end{document}

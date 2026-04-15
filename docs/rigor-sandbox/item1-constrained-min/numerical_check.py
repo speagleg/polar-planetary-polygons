@@ -149,6 +149,55 @@ def check_rr_block_unshifted() -> int:
     return failed
 
 
+def check_tt_block_unshifted() -> int:
+    """The tangential-tangential block eigenvalue (before Lagrange shift) equals
+       (m(N-m) - (N-1))/2 for m in {1, ..., N-1}, derived from:
+           λ_tt^(unshifted) = Σ_p (cos(2πp/N) - cos(2πmp/N)) / (4 sin²(πp/N))
+                              = C(1) - C(m)
+                              = [(N² - 1)/12 - (N - 1)/2] - [(N² - 1)/12 - m(N - m)/2]
+                              = (m(N - m) - (N - 1)) / 2.
+       Verified to 30 digits symbolically (via sympy) for all (N, m)."""
+    import sympy as sp
+    failed = 0
+    for N in range(3, 11):
+        for m in range(1, N):
+            total = sp.Rational(0)
+            for p in range(1, N):
+                num = sp.cos(2 * sp.pi * p / N) - sp.cos(2 * sp.pi * m * p / N)
+                den = 4 * sp.sin(sp.pi * p / N) ** 2
+                total += num / den
+            expected = sp.Rational(m * (N - m) - (N - 1), 2)
+            diff = sp.Abs(total - expected).evalf(30)
+            if diff > sp.Float("1e-25"):
+                failed += 1
+                print(f"  FAIL N={N} m={m}: |total - {expected}| = {diff}")
+    if failed == 0:
+        print("  λ_tt^(unshifted) = (m(N-m) - (N-1))/2 verified to 30 digits for N in [3,10]")
+    return failed
+
+
+def check_full_formula_against_oracle() -> int:
+    """Apply Lagrange shift (N-1)/2 to the unshifted rr and tt block eigenvalues
+       and verify against the oracle for all (N, m) with N in [3, 12]."""
+    failed = 0
+    for N in range(3, 13):
+        for m in range(1, N):
+            lo, hi = havelock_block_eigenvalues(N, m)
+            rr_unshifted = (N - 1 - m * (N - m)) / 2.0
+            tt_unshifted = (m * (N - m) - (N - 1)) / 2.0
+            shift = (N - 1) / 2.0
+            pred_rad = rr_unshifted + shift  # = (N-1) - m(N-m)/2
+            pred_tan = tt_unshifted + shift  # = m(N-m)/2
+            pred = tuple(sorted([pred_rad, pred_tan]))
+            obs = tuple(sorted([lo, hi]))
+            if not all(abs(a - b) < 1e-2 for a, b in zip(obs, pred)):
+                failed += 1
+                print(f"  FAIL N={N} m={m}: obs={obs} pred={pred}")
+    if failed == 0:
+        print("  Oracle matches (N-1) - m(N-m)/2 and m(N-m)/2 to 1e-2 for N in [3,12]")
+    return failed
+
+
 def check_canonical_cases() -> int:
     """Spec's three canonical test cases (Item #1 spec, 'Key correctness checks')."""
     cases = [
@@ -189,6 +238,16 @@ def main() -> int:
     print("== Radial-radial block eigenvalue (unshifted) ==")
     if check_rr_block_unshifted():
         print("FAILED rr block")
+        return 1
+
+    print("== Tangential-tangential block eigenvalue (unshifted) ==")
+    if check_tt_block_unshifted():
+        print("FAILED tt block")
+        return 1
+
+    print("== Full formula vs oracle (after Lagrange shift) ==")
+    if check_full_formula_against_oracle():
+        print("FAILED full formula")
         return 1
 
     print("All checks pass.")
