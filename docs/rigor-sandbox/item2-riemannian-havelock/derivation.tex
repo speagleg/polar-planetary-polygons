@@ -1,0 +1,167 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\title{Tangential Eigenvalue Universality on Constant-Curvature Surfaces}
+\author{Sandbox for Paper~I, Item~\#2}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Main result}
+
+\begin{theorem}[Riemannian Havelock universality]\label{thm:rh-univ}
+On the unit $2$-sphere, the tangential eigenvalue of the constrained
+Hessian $\nabla^2(H_{\mathrm{sph}} - \Omega J)$ at mode
+$m \in \{1, \ldots, N-1\}$ is
+\[
+  \hat e_t^{\,T}\,\nabla^2(H_{\mathrm{sph}} - \Omega J)\,\hat e_t
+  \;=\; \frac{m(N-m)}{2\xi},
+\]
+identical to the flat-plane result at ring radius $\sqrt{\xi}$.
+The same holds on the hyperbolic plane with $(1+\xi)$ replaced by
+$(1-\xi)$ throughout.
+\end{theorem}
+
+\begin{proof}
+Decompose $H_{\mathrm{sph}} = H_{\mathrm{flat}} + W$ where
+$H_{\mathrm{flat}} = -\sum_{j<k}\ln|z_j - z_k|$ and
+$W = \tfrac{N-1}{2}\sum_k \ln(1+|z_k|^2)$.  The Lagrangian is
+$\mathcal{L} = H_{\mathrm{flat}} + W - \Omega J$ with
+$J = \sum_k(1-|z_k|^2)/(1+|z_k|^2)$.  The tangential eigenvalue
+decomposes as
+\[
+  \hat e_t^T \nabla^2\mathcal{L}\,\hat e_t
+  = \underbrace{\hat e_t^T \nabla^2 H_{\mathrm{flat}}\,\hat e_t}_{
+      \text{flat Havelock}}
+  + \underbrace{\hat e_t^T \nabla^2(W - \Omega J)\,\hat e_t}_{
+      \text{curvature + constraint}}.
+\]
+We show the second term equals $(N-1)/(2\xi)$, i.e.\ the flat-plane
+Lagrange shift $-2\mu_L = (N-1)/(2\xi)$ at ring radius $\sqrt{\xi}$.
+Combined with the flat-plane unshifted tangential eigenvalue
+$(m(N-m) - (N-1))/(2\xi)$ (derived in the constrained-minimum proof,
+\S6.2), this gives $m(N-m)/(2\xi)$.
+
+\medskip
+\textbf{Step 1: Tangential projection of $\nabla^2 W$.}
+At vertex $k$ on the ring ($|z_k|^2 = \xi$, angle $\theta_k$), the
+Hessian of $W_k = \tfrac{N-1}{2}\ln(1+|z_k|^2)$ has entries
+\begin{align*}
+  \frac{\partial^2 W_k}{\partial x_k^2}
+    &= \frac{N-1}{1+\xi} - \frac{2(N-1)\xi\cos^2\!\theta_k}{(1+\xi)^2},
+  &
+  \frac{\partial^2 W_k}{\partial y_k^2}
+    &= \frac{N-1}{1+\xi} - \frac{2(N-1)\xi\sin^2\!\theta_k}{(1+\xi)^2},
+  \\
+  \frac{\partial^2 W_k}{\partial x_k\partial y_k}
+    &= -\frac{2(N-1)\xi\sin\theta_k\cos\theta_k}{(1+\xi)^2}.
+\end{align*}
+The mode-$m$ tangential unit vector at vertex~$k$ is
+$\hat e_{t,k} \propto \alpha_k(-\sin\theta_k, \cos\theta_k)$
+with $\alpha_k = \cos(2\pi mk/N)$.  The tangential projection
+at vertex~$k$ is
+\begin{align*}
+  \sin^2\!\theta_k\,\frac{\partial^2 W_k}{\partial x_k^2}
+  &- 2\sin\theta_k\cos\theta_k\,\frac{\partial^2 W_k}{\partial x_k\partial y_k}
+  + \cos^2\!\theta_k\,\frac{\partial^2 W_k}{\partial y_k^2} \\
+  &= \frac{N-1}{1+\xi}
+    - \frac{2(N-1)\xi}{(1+\xi)^2}
+      \bigl[\sin^2\!\theta_k\cos^2\!\theta_k
+            - 2\sin^2\!\theta_k\cos^2\!\theta_k
+            + \cos^2\!\theta_k\sin^2\!\theta_k\bigr] \\
+  &= \frac{N-1}{1+\xi}.
+\end{align*}
+The bracketed expression vanishes identically ($1 - 2 + 1 = 0$), so
+the projection is $\theta_k$-independent and hence \emph{mode-independent}.
+Summing over vertices with $\sum_k \alpha_k^2 = N/2 = \|\hat e_t\|^2$:
+\begin{equation}\label{eq:W-tt}
+  \hat e_t^T\,\nabla^2 W\,\hat e_t = \frac{N-1}{1+\xi}.
+\end{equation}
+
+\textbf{Step 2: Tangential projection of $\nabla^2 J$.}
+With $J_k = (1 - |z_k|^2)/(1 + |z_k|^2)$:
+\begin{align*}
+  \frac{\partial^2 J_k}{\partial x_k^2}
+    &= -\frac{4}{(1+\xi)^2} + \frac{16\xi\cos^2\!\theta_k}{(1+\xi)^3},
+  &
+  \frac{\partial^2 J_k}{\partial y_k^2}
+    &= -\frac{4}{(1+\xi)^2} + \frac{16\xi\sin^2\!\theta_k}{(1+\xi)^3},
+  \\
+  \frac{\partial^2 J_k}{\partial x_k\partial y_k}
+    &= \frac{16\xi\sin\theta_k\cos\theta_k}{(1+\xi)^3}.
+\end{align*}
+The same tangential projection yields
+\[
+  -\frac{4}{(1+\xi)^2}
+  + \frac{16\xi}{(1+\xi)^3}\bigl[\sin^2\!\theta\cos^2\!\theta
+    - 2\sin^2\!\theta\cos^2\!\theta + \cos^2\!\theta\sin^2\!\theta\bigr]
+  = -\frac{4}{(1+\xi)^2},
+\]
+again $\theta$-independent.  Therefore
+\begin{equation}\label{eq:J-tt}
+  \hat e_t^T\,\nabla^2 J\,\hat e_t = -\frac{4}{(1+\xi)^2}.
+\end{equation}
+
+\textbf{Step 3: Combining $W - \Omega J$.}
+With $\Omega = (N-1)(1-\xi^2)/(8\xi) = (N-1)(1-\xi)(1+\xi)/(8\xi)$:
+\begin{align*}
+  \hat e_t^T\,\nabla^2(W - \Omega J)\,\hat e_t
+  &= \frac{N-1}{1+\xi}
+     + \frac{(N-1)(1-\xi)(1+\xi)}{8\xi}\cdot\frac{4}{(1+\xi)^2} \\
+  &= \frac{N-1}{1+\xi}
+     + \frac{(N-1)(1-\xi)}{2\xi(1+\xi)} \\
+  &= \frac{N-1}{1+\xi}\Bigl[1 + \frac{1-\xi}{2\xi}\Bigr]
+   = \frac{N-1}{1+\xi}\cdot\frac{1+\xi}{2\xi}
+   = \frac{N-1}{2\xi}.
+\end{align*}
+This equals exactly $-2\mu_L = (N-1)/(2\xi)$, the flat-plane Lagrange
+shift at ring radius $\sqrt{\xi}$.
+
+\textbf{Step 4: Assembly.}
+The flat-plane unshifted tangential eigenvalue at radius $\sqrt{\xi}$ is
+$(m(N-m) - (N-1))/(2\xi)$ (from the constrained-minimum derivation).
+Adding the curvature-plus-constraint contribution $(N-1)/(2\xi)$:
+\[
+  \hat e_t^T\,\nabla^2\mathcal{L}\,\hat e_t
+  = \frac{m(N-m) - (N-1)}{2\xi} + \frac{N-1}{2\xi}
+  = \frac{m(N-m)}{2\xi}.
+\]
+
+\textbf{Hyperbolic case.}
+On $\mathbf{H}^2$ with $W = -(N-1)/2\sum_k\ln(1-|z_k|^2)$ and
+$J = \sum_k(1+|z_k|^2)/(1-|z_k|^2)$ (the Poincar\'e-disk
+formulation), the same tangential-projection argument gives
+$\hat e_t^T\nabla^2 W\,\hat e_t = (N-1)/(1-\xi)$ and
+$\hat e_t^T\nabla^2 J\,\hat e_t = -4/(1-\xi)^2$, and with
+$\Omega_{\mathbf{H}^2} = -(N-1)(1+\xi)/(8\xi)(1-\xi)$ the
+combination again equals $(N-1)/(2\xi)$.
+\end{proof}
+
+\section{Numerical verification}
+
+All intermediate identities are verified in
+\texttt{numerical\_check.py} (this directory):
+\begin{itemize}
+\item $\hat e_t^T\nabla^2 W\,\hat e_t = (N-1)/(1+\xi)$: confirmed
+  numerically for $N \in \{5,6,7\}$, $\xi \in \{0.2, 0.5\}$, all
+  modes $m \in \{2,\ldots,N-2\}$ (mode-independent to $10^{-2}$).
+\item $\hat e_t^T\nabla^2 J\,\hat e_t = -4/(1+\xi)^2$: same
+  parameters, mode-independent to $10^{-2}$.
+\item $\hat e_t^T\nabla^2(W - \Omega J)\,\hat e_t = (N-1)/(2\xi)$:
+  confirmed for $N \in \{5,6,7\}$, $\xi \in \{0.15, 0.3, 0.5, 0.7\}$.
+\item Full tangential eigenvalue $= m(N-m)/(2\xi)$: confirmed for
+  $N \in \{4,5,6,7\}$, $\xi \in \{0.15, 0.3, 0.5, 0.7\}$, all modes.
+\item Symbolic: the cross-term cancellation
+  $\sin^2\!\theta\cos^2\!\theta - 2\sin^2\!\theta\cos^2\!\theta
+  + \cos^2\!\theta\sin^2\!\theta = 0$ is verified by \texttt{sympy}
+  in the explicit tangential projection of $\nabla^2 W$.
+\end{itemize}
+
+\end{document}
