@@ -12,6 +12,196 @@
 \begin{document}
 \maketitle
 
-% Content added in later tasks.
+\section{Setup}\label{sec:setup}
+
+Let $z_k = e^{i\theta_k}$, $\theta_k = 2\pi k / N$, $k = 0, \ldots, N-1$,
+be the regular $N$-gon of unit-circulation point vortices on the unit
+circle. The Thomson energy is
+\begin{equation}\label{eq:thomson}
+  H = -\sum_{j<k} \ln |z_j - z_k|.
+\end{equation}
+We perturb each vortex in its \emph{local} (radial, tangential) frame:
+\begin{equation}\label{eq:perturb}
+  z_k \;\longmapsto\; z_k\bigl(1 + \delta r_k\bigr) + i\,z_k\,\delta t_k,
+\end{equation}
+with $\delta r_k, \delta t_k \in \mathbb{R}$ small. The $\mathbb{Z}_N$
+cyclic symmetry $k \mapsto k+1 \pmod N$ permutes the vortices and
+commutes with~$\nabla^2 H$, so the Hessian block-diagonalizes in the
+discrete Fourier basis. The mode-$m$ cosine sector is parametrized by
+\begin{equation}\label{eq:mode-m}
+  \delta r_k = a\,\cos(2\pi m k / N), \qquad
+  \delta t_k = b\,\cos(2\pi m k / N),
+  \quad m \in \{1, \ldots, N-1\},
+\end{equation}
+(modes $m$ and $N-m$ yield identical blocks — the palindromic pair).
+The corresponding $2 \times 2$ Hessian block in the $(a, b)$ basis is
+what we compute.
+
+\section{Two auxiliary identities}\label{sec:aux}
+
+Two closed-form trigonometric sums enter the block computation and are
+recorded here. Both are verified to 30 decimal digits in
+\texttt{numerical\_check.py} (\texttt{check\_havelock\_identity\_rr},
+\texttt{check\_cosecant\_squared\_sum}).
+
+\begin{lemma}[Havelock identity]\label{lem:havelock}
+For all integers $N \ge 2$ and $m \in \{1, \ldots, N-1\}$,
+\begin{equation}\label{eq:havelock}
+  S(m) \;:=\; \sum_{p=1}^{N-1} \frac{1 - \cos(2\pi m p / N)}{4 \sin^2(\pi p / N)}
+  \;=\; \frac{m(N-m)}{2}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Using $1 - \cos(2\pi m p / N) = 2 \sin^2(\pi m p / N)$,
+\[
+  S(m) = \sum_{p=1}^{N-1} \frac{\sin^2(\pi m p / N)}{2 \sin^2(\pi p / N)}.
+\]
+The Dirichlet-kernel identity
+$\sum_{p=1}^{N-1} \sin^2(\pi m p / N) / \sin^2(\pi p / N) = m(N - m)$
+for $1 \le m \le N - 1$ (provable via the Chebyshev expansion
+$\sin(m x) / \sin(x) = U_{m-1}(\cos x)$ and orthogonality of the
+$U$-polynomials; see e.g.\ Gradshteyn and Ryzhik, Formula 1.342)
+yields the claim.
+\end{proof}
+
+\begin{lemma}[Cosecant-squared sum]\label{lem:csc}
+For $N \ge 2$,
+\begin{equation}\label{eq:csc}
+  \sum_{p=1}^{N-1} \frac{1}{4 \sin^2(\pi p / N)}
+     \;=\; \frac{N^2 - 1}{12}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Standard; follows from partial-fraction expansion of $\cot(N z)$ and
+taking the limit $z \to 0$, or equivalently from differentiating
+$\prod_{p=1}^{N-1} \sin(\pi p / N) = N / 2^{N-1}$.
+\end{proof}
+
+\begin{corollary}[Cosine-weighted inverse-sine sum]\label{cor:cos-over-sin}
+For $N \ge 2$ and any integer $k$,
+\begin{equation}\label{eq:cos-over-sin}
+  C(k) \;:=\; \sum_{p=1}^{N-1} \frac{\cos(2\pi k p / N)}{4 \sin^2(\pi p / N)}
+       \;=\; \frac{N^2 - 1}{12} - \frac{k(N-k)}{2}
+       \quad \text{for } 0 \le k \le N.
+\end{equation}
+The expression is periodic in $k$ modulo $N$, i.e.\ $C(k + N) = C(k)$.
+\end{corollary}
+
+\begin{proof}
+Subtract \eqref{eq:havelock} from \eqref{eq:csc}:
+$C(k) = (N^2-1)/12 - S(k) = (N^2-1)/12 - k(N-k)/2$.
+Periodicity is immediate from the integrand.
+\end{proof}
+
+\section{Radial-radial block}\label{sec:rr}
+
+Under a purely radial mode-$m$ perturbation
+$\delta r_k = a\,\alpha_k$ with $\alpha_k = \cos(2\pi m k / N)$
+(and $b = 0$ in \eqref{eq:mode-m}), the squared pair distance expands as
+\begin{equation}\label{eq:pair-expand}
+  |z_j(a) - z_k(a)|^2
+  = |z_j - z_k|^2 \bigl[1 + a(\alpha_j + \alpha_k)\bigr]
+    + a^2\,Q_{jk} + O(a^3),
+\end{equation}
+with
+\[
+  Q_{jk} := \alpha_j^2 + \alpha_k^2
+            - 2 \alpha_j \alpha_k \cos(\theta_j - \theta_k),
+  \qquad
+  |z_j - z_k|^2 = 4 \sin^2\!\bigl(\pi(j-k)/N\bigr).
+\]
+(To see this, write $z_k(a) = z_k(1 + a\alpha_k)$, compute
+$|z_j(a) - z_k(a)|^2 = |z_j - z_k|^2 + 2 a \operatorname{Re}\bigl[\overline{(z_j-z_k)}(\alpha_j z_j - \alpha_k z_k)\bigr] + a^2 |\alpha_j z_j - \alpha_k z_k|^2$,
+and simplify the real part using
+$\operatorname{Re}[(e^{-i\theta_j} - e^{-i\theta_k})(\alpha_j e^{i\theta_j} - \alpha_k e^{i\theta_k})]
+ = (\alpha_j + \alpha_k)(1 - \cos(\theta_j - \theta_k))$.)
+
+Expanding $-\ln|z_j(a) - z_k(a)| = -\tfrac12 \ln(|z_j(a) - z_k(a)|^2)$ to
+second order in $a$ via $\ln(1 + x) = x - x^2/2 + O(x^3)$,
+\begin{equation}\label{eq:log-expand}
+  -\ln|z_j(a) - z_k(a)|
+   = -\ln|z_j - z_k|
+     - \tfrac{a}{2}(\alpha_j + \alpha_k)
+     + a^2\!\left[\tfrac{(\alpha_j + \alpha_k)^2}{4}
+                  - \tfrac{Q_{jk}}{2 |z_j - z_k|^2}\right] + O(a^3).
+\end{equation}
+The linear term, summed over pairs $j < k$, gives
+$-(a/2)(N-1)\sum_k \alpha_k = 0$ since $\sum_k \cos(2\pi m k/N) = 0$ for
+$m \in \{1, \ldots, N-1\}$ (equilibrium).
+
+Write $\beta_m$ for the coefficient of $a^2$ in $H(a) - H(0)$:
+\[
+  \beta_m = \sum_{j<k}\!\left[\frac{(\alpha_j + \alpha_k)^2}{4}
+                              - \frac{Q_{jk}}{2 |z_j - z_k|^2}\right].
+\]
+The unit-normalized radial Fourier mode vector $\hat{e}_r$ (in the
+$2N$-dimensional Cartesian basis) has squared norm
+$\|\hat{e}_r\|^2 = \sum_k \alpha_k^2 = N/2$ (valid for
+$1 \le m \le N-1$, $m \ne N/2$; the case $m = N/2$ is handled
+symmetrically and gives the same final formula by continuity).
+The Hessian entry in this normalized direction is
+\begin{equation}\label{eq:rr-norm}
+  (\nabla^2 H)_{rr}^{(m)}
+     = \frac{2\,\beta_m}{\|\hat{e}_r\|^2}
+     = \frac{4\,\beta_m}{N}
+     = \frac{2}{N}\sum_{j \ne k}\!\left[\frac{(\alpha_j + \alpha_k)^2}{4}
+                                        - \frac{Q_{jk}}{2 |z_j - z_k|^2}\right].
+\end{equation}
+(The factor $2$ comes from $H''(0) = 2 \cdot (\text{coefficient of }a^2)$;
+the factor $2$ converting $\sum_{j<k}$ to $\sum_{j \ne k}$ cancels half of it.)
+
+Parametrize pairs by $p = k - j \pmod N$ with $p \in \{1, \ldots, N-1\}$
+and apply the $N$-fold cyclic symmetry. Two elementary sums are needed:
+\[
+  \sum_{j=0}^{N-1} \alpha_j^2 = \frac{N}{2},
+  \qquad
+  \sum_{j=0}^{N-1} \alpha_j \alpha_{j+p} = \frac{N}{2}\cos(2\pi m p / N).
+\]
+From these,
+\[
+  \sum_{j=0}^{N-1} (\alpha_j + \alpha_{j+p})^2
+     = N \bigl(1 + \cos(2\pi m p / N)\bigr),
+  \qquad
+  \sum_{j=0}^{N-1} Q_{j, j+p}
+     = N \bigl(1 - \cos(2\pi m p / N) \cos(2\pi p / N)\bigr).
+\]
+Substituting into \eqref{eq:rr-norm},
+\begin{equation}\label{eq:rr-intermediate}
+  (\nabla^2 H)_{rr}^{(m)}
+     = \sum_{p=1}^{N-1} \frac{1 + \cos(2\pi m p / N)}{2}
+       \;-\; \sum_{p=1}^{N-1} \frac{1 - \cos(2\pi m p / N)\cos(2\pi p / N)}
+                                   {4 \sin^2(\pi p / N)}.
+\end{equation}
+
+The first sum is elementary:
+$\sum_{p=1}^{N-1} (1 + \cos(2\pi m p / N))/2 = (N-1)/2 - 1/2 = (N-2)/2$,
+since $\sum_{p=1}^{N-1} \cos(2\pi m p / N) = -1$ for $m \in \{1, \ldots, N-1\}$.
+
+The second sum reduces via the product-to-sum identity
+$\cos A \cos B = \tfrac12[\cos(A-B) + \cos(A+B)]$:
+\[
+  1 - \cos(2\pi m p / N)\cos(2\pi p / N)
+     = 1 - \tfrac12 \cos(2\pi(m-1) p / N) - \tfrac12 \cos(2\pi(m+1) p / N).
+\]
+Applying Lemma~\ref{lem:csc} and Corollary~\ref{cor:cos-over-sin},
+\begin{align*}
+  \sum_{p=1}^{N-1}\!\frac{1 - \cos(2\pi m p / N)\cos(2\pi p / N)}{4 \sin^2(\pi p / N)}
+  &= \frac{N^2 - 1}{12}
+     - \frac{1}{2}\Bigl[\frac{N^2 - 1}{12} - \frac{(m-1)(N-m+1)}{2}\Bigr] \\
+  &\phantom{=} - \frac{1}{2}\Bigl[\frac{N^2 - 1}{12} - \frac{(m+1)(N-m-1)}{2}\Bigr] \\
+  &= \frac{(m-1)(N-m+1) + (m+1)(N-m-1)}{4}
+   = \frac{m(N-m) - 1}{2}.
+\end{align*}
+Combining,
+\begin{equation}\label{eq:rr-unshifted}
+  (\nabla^2 H)_{rr}^{(m)}
+     = \frac{N - 2}{2} - \frac{m(N-m) - 1}{2}
+     = \frac{N - 1 - m(N-m)}{2}.
+\end{equation}
+This is the radial-radial block eigenvalue of the \emph{unshifted}
+energy Hessian $\nabla^2 H$. The Lagrange shift is applied in
+\S\ref{sec:lag-shift}.
 
 \end{document}
