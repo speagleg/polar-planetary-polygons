@@ -67,12 +67,12 @@ def effective_radius(phi, a, b):
 
 def C1_sphere(N, xi):
     """
-    C₁ on a sphere: (N-1)(1-ξ)/(1+ξ) where ξ = K·R².
+    C₁ on a sphere: (N-1)(1+ξ²)/(1+ξ)² where ξ = K·R².
 
     This is the constant-curvature formula used as a local approximation
     on the spheroid.
     """
-    return (N - 1) * (1 - xi) / (1 + xi)
+    return (N - 1) * (1 + xi**2) / (1 + xi)**2
 
 
 def havelock_eigenvalue_spheroid(N, m, phi, R_ring, a, b):

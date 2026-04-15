@@ -148,21 +148,28 @@ def C1_sphere(N, xi):
     """
     Exact C₁ coefficient for N-vortex ring on S².
 
-    C₁(S², ξ) = (N-1)(1-ξ)/(1+ξ)
+    C₁(S², ξ) = (N-1)(1+ξ²)/(1+ξ)²
+
+    Confirmed by LMR05 (Laurent-Polz, Montaldi, Roberts 2005, Thm 4.2)
+    and by numerical diagonalization of the constrained Lagrangian Hessian
+    (docs/rigor-sandbox/item6-c1-sphere/numerical_check.py).
+
+    H²/S² duality: C₁(S²,ξ) = C₁(H²,-ξ), i.e.
+    (1+ξ²)/(1+ξ)² vs (1+ξ²)/(1-ξ)².
 
     Parameters
     ----------
     N : int
         Ring size.
     xi : float
-        ξ = KR² = R²/a², where R is Euclidean ring radius, a is sphere radius.
+        ξ = tan²(φ₀/2), stereographic parameter at colatitude φ₀.
 
     Returns
     -------
     float
-        C₁ value. For ξ→0: C₁→N-1 (flat limit). Decreases toward 0 as ξ→1.
+        C₁ value. For ξ→0: C₁→N-1 (flat limit). C₁→(N-1)/2 as ξ→∞.
     """
-    return (N - 1) * (1 - xi) / (1 + xi)
+    return (N - 1) * (1 + xi**2) / (1 + xi)**2
 
 
 def riemannian_havelock_eigenvalue(N, m, xi, surface='hyperbolic', r_E=1.0):

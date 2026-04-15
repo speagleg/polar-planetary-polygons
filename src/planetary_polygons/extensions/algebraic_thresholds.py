@@ -143,33 +143,39 @@ def sphere_stability_threshold(N):
     """
     Exact destabilization threshold ξ_crit for the N-ring on S².
 
-    On S², C₁(S², ξ) = (N-1)(1-ξ)/(1+ξ) decreases with ξ, so curvature
-    gradually destabilizes the ring. The ring loses stability at:
+    On S², C₁(S², ξ) = (N-1)(1+ξ²)/(1+ξ)² decreases with ξ, so curvature
+    gradually destabilizes the ring. Marginal stability at C₁ = T:
 
-        ξ_crit = [(N-1) - m(N-m)/2] / [(N-1) + m(N-m)/2],  m = floor(N/2)
+        (N-1-T) ξ² - 2T ξ + (N-1-T) = 0,   T = m(N-m)/2,  m = floor(N/2)
 
-    Explicit closed forms:
-        Even N:  ξ_crit = (8N-8-N²) / (N²+8N-8)
-        Odd  N:  ξ_crit = (7-N) / (N+9)
+    Solution: ξ_crit = (T - √(T² - (N-1-T)²)) / (N-1-T).
+
+    These are Pell-equation fundamental units in quadratic fields:
+        N=3: ξ*=1, N=4: ξ*=2-√3, N=5: ξ*=3-2√2, N=6: ξ*=9-4√5.
 
     Returns
     -------
-    Fraction or None
-        Exact rational threshold, or None if ξ_crit ≤ 0 (N ≥ 7 on S²).
+    float or None
+        Exact threshold (as float), or None if N ≥ 7 (unstable at all ξ>0).
     """
+    import math
     m = N // 2
-    T = Fraction(m * (N - m), 2)
-    numer = Fraction(N - 1) - T
-    denom = Fraction(N - 1) + T
-    xi_crit = numer / denom
-    return None if xi_crit <= 0 else xi_crit
+    T = m * (N - m) / 2.0
+    A = (N - 1) - T
+    if A <= 0:
+        return None
+    disc = T * T - A * A
+    if disc < 0:
+        return None
+    xi_crit = (T - math.sqrt(disc)) / A
+    return xi_crit if xi_crit > 0 else None
 
 
 def sphere_threshold_table(N_max=12):
     """
     Table of S² destabilization thresholds for N = 3, ..., N_max.
 
-    Returns list of dicts with keys: N, xi_crit (Fraction or None).
+    Returns list of dicts with keys: N, xi_crit (float or None).
     Only N ≤ 6 return non-None values.
     """
     return [{'N': N, 'xi_crit': sphere_stability_threshold(N)}

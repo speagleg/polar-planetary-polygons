@@ -145,8 +145,8 @@ def curvature_fourier_coefficients(phi_ring, a, b, n_max=6):
 # ============================================================
 
 def C1_sphere_formula(N, xi):
-    """C₁ on a sphere: (N-1)(1-ξ)/(1+ξ)."""
-    return (N - 1) * (1 - xi) / (1 + xi)
+    """C₁ on a sphere: (N-1)(1+ξ²)/(1+ξ)²."""
+    return (N - 1) * (1 + xi**2) / (1 + xi)**2
 
 
 def C1_h2_formula(N, xi):
