@@ -54,15 +54,15 @@ skipped/errored; that is expected. Do not attempt to install packages.
 # H² curvature coefficient
 C1_H2(N, xi) = (N-1)*(1 + xi**2) / (1 - xi)**2   # ξ = r_E²/a²
 
-# S² curvature coefficient
-C1_S2(N, xi) = (N-1)*(1 - xi) / (1 + xi)          # = (N-1)*cos(φ)
+# S² curvature coefficient (H²/S² duality: ξ → -ξ)
+C1_S2(N, xi) = (N-1)*(1 + xi**2) / (1 + xi)**2
 
 # 7→8 transition threshold (THE key algebraic result)
 XI_STAR_78 = 8 - 3*sqrt(7)   # = ε⁻¹, inverse fundamental unit of Z[√7]
 # ε = 8 + 3√7,  ε·ε⁻¹ = 64-63 = 1
 
-# S² exact thresholds (all rational)
-# N=3: 1/3,  N=4: 1/5,  N=5: 1/7,  N=6: 1/19,  N≥7: None
+# S² exact thresholds (Pell units in quadratic fields, same structure as H²)
+# N=3: 1,  N=4: 2-√3,  N=5: 3-2√2,  N=6: 9-4√5,  N≥7: None
 
 # H² field extensions (N≥8):
 # even N → Q(√sq_free(N-1)),  odd N → Q(√sq_free(N-3))

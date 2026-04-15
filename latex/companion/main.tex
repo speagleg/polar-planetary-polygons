@@ -648,22 +648,24 @@ $\cos\varphi_0 = 1$ and you recover the flat result $C_1 = N - 1$.
 As the polygon moves toward the equator, $\cos\varphi_0$ decreases,
 $C_1$ drops, and the polygon destabilizes at smaller $N$.
 
-The thresholds are all rational numbers. For a triangle ($N = 3$):
-the critical colatitude is $60^\circ$, corresponding to
-$\xi_{\mathrm{crit}} = 1/3$. For a square ($N = 4$): $48.2^\circ$,
-$\xi_{\mathrm{crit}} = 1/5$. For a pentagon ($N = 5$): $41.4^\circ$,
-$\xi_{\mathrm{crit}} = 1/7$. For a hexagon ($N = 6$): $25.8^\circ$,
-$\xi_{\mathrm{crit}} = 1/19$. For a heptagon ($N = 7$): $0^\circ$, the
-exact pole, and only marginally stable there. For $N \ge 8$: no
-stable latitude exists on the sphere, at all.
+The thresholds are Pell-equation fundamental units in quadratic
+number fields.  For a triangle ($N = 3$): the critical colatitude is
+$90^\circ$ (the equator), with $\xi_{\mathrm{crit}} = 1$. For a
+square ($N = 4$): $54.7^\circ$, $\xi_{\mathrm{crit}} = 2 - \sqrt{3}$.
+For a pentagon ($N = 5$): $45.0^\circ$,
+$\xi_{\mathrm{crit}} = 3 - 2\sqrt{2}$. For a hexagon ($N = 6$):
+$26.6^\circ$, $\xi_{\mathrm{crit}} = 9 - 4\sqrt{5}$. For a heptagon
+($N = 7$): $0^\circ$, the exact pole, and only marginally stable
+there. For $N \ge 8$: no stable latitude exists on the sphere, at all.
 
-The rationality of these thresholds is not obvious, and it stopped me
-cold the first time I computed them. The Green's function on the sphere
-involves transcendental functions (logarithms of sines), so why should
-the thresholds come out rational? Because $C_1$ on the sphere depends
-linearly on $\cos\varphi_0$, and the marginal condition
-$C_1 = m(N-m)/2$ produces a rational equation. Transcendental
-interaction, rational threshold.
+These algebraic thresholds have the same Pell-unit structure as the
+hyperbolic-plane thresholds (described below), reflecting a deeper
+duality between positive and negative curvature: the sphere formula
+$C_1 = (N{-}1)(1+\xi^2)/(1+\xi)^2$ and the hyperbolic formula
+$C_1 = (N{-}1)(1+\xi^2)/(1-\xi)^2$ are related by $\xi \to -\xi$
+(a sign flip of the curvature).  The marginal-stability equation is
+a palindromic quadratic in both cases, producing solutions in
+$\mathbb{Q}(\sqrt{D})$ for an $N$-dependent discriminant $D$.
 
 \subsection*{The hyperbolic plane: curvature stabilizes}
 
@@ -3092,12 +3094,31 @@ the $7 \to 8$ stability threshold on the hyperbolic plane (the
 palindromic equation $\xi^2 - 16\xi + 1 = 0$, whose smaller root
 is $8 - 3\sqrt{7}$). The Pell identity
 $8^2 - 7 \times 3^2 = 1$ that generates the stability threshold also
-generates the hierarchy exponent. The connection is forced by the
-Selberg trace formula on the Klein quartic: the instanton action
-$S_{\mathrm{BO}}(7)$ satisfies
-$2S/({\ln\varepsilon_7}) = 2N - \sqrt{2/\pi} - 4/c_7^2 + O(1/c_7^3)$,
-verified to $0.00005\%$. Each of the seven vortices contributes
-one Pell regulator $\ln\varepsilon_7$ to the tunneling exponent.
+generates the hierarchy exponent. Concretely, the numerical identity
+$2S_{\mathrm{BO}}(7) + \Delta\varepsilon\,\ln\varepsilon_7
+\approx 14\,\ln\varepsilon_7$ holds to $0.03\%$.
+
+The integer $14$ in front of $\ln\varepsilon_7$ is arithmetic, not
+fitted: the Pell matrix
+$\gamma = \bigl(\begin{smallmatrix} 8 & 21 \\ 3 & 8 \end{smallmatrix}\bigr)$
+reduces mod~$7$ to a unipotent element of order exactly~$7$ in
+$\mathrm{PSL}(2,\mathbb{F}_7)$, while $\gamma$ itself has hyperbolic
+translation length $2\ln\varepsilon_7$. The primitive closed geodesic
+on the Klein quartic $X(7) = \Gamma(7)\backslash\mathbf{H}^2$
+represented by $\gamma$ therefore has length $14\ln\varepsilon_7
+= 7 \cdot (2\ln\varepsilon_7)$ (Paper~VI, Lemma; Supplement~S).
+The factor of seven comes from the order of $\gamma$ in level~$7$;
+the factor of two is the eigenvalue-log multiplicity.
+
+What remains conjectural is the \emph{interpretation}: that the
+Born--Oppenheimer tunneling action $2S_{\mathrm{BO}}(7)$ equals,
+up to the mass-gap correction $\Delta\varepsilon\,\ln\varepsilon_7$,
+the length of this primitive Pell geodesic. A direct operator
+identification $H_{\mathrm{BO}} \sim \Delta_{X(7)}|_{\mathbb{Z}_7}$
+is \emph{false} (the Weyl densities disagree by a factor $\sim 50$);
+what is conjectured is a semiclassical Selberg-type correspondence
+in the spirit of the Langlands ``Beyond Endoscopy'' program.
+Proving it from first principles is open.
 
 \subsection*{Prediction of the Higgs vacuum expectation value}
 
