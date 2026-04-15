@@ -1,6 +1,30 @@
 # Rigor Rewrite Workflow Template
 
-Proven through Items #1 and #6. Apply to each structural rewrite across the series.
+Proven through Paper I (Items #1, #2, #6 + minor fixes). Apply to every structural rewrite across the entire series.
+
+## Canonical Paper Files
+
+**Always edit the canonical file. Never edit standalone copies.**
+
+| Paper | Canonical file |
+|-------|---------------|
+| Paper I — Mathematics | `latex/paper-1-mathematics/main.tex` |
+| Paper II — Physics | `latex/paper-2-physics/main.tex` |
+| Paper III — Gravity | `latex/paper-3-gravity/main.tex` |
+| Paper IV — Field Theory | `latex/paper-4-field-theory/main.tex` |
+| Paper V — Cosmology | `latex/paper-5-cosmology/main.tex` |
+| Paper V — S³ Framework | `latex/paper-5-s3-framework/main.tex` |
+| Paper VI — Discussion | `latex/paper-6-discussion/main.tex` |
+| Overview | `latex/paper-0-overview/main.tex` |
+| Appendices | `latex/paper-A-appendices/main.tex` |
+| Supplement (Proofs) | `latex/supplement-proofs/main.tex` |
+| Companion | `latex/companion/main.tex` |
+| Readers Guide | `latex/readers-guide/main.tex` |
+| Shared preamble | `latex/shared/preamble.tex` |
+| Shared bibliography | `latex/shared/refs.bib` |
+
+**NOT canonical (do not edit):**
+- `latex/paper/main.tex` — standalone copy of Paper I. Historical artifact. All work goes in `paper-1-mathematics/` instead.
 
 ## Per-Item Workflow
 
@@ -31,24 +55,25 @@ Proven through Items #1 and #6. Apply to each structural rewrite across the seri
 7. Commit each round
 
 ### Phase 5: Integration
-1. Identify ALL downstream references (use Explore agent, very thorough)
-2. Build replacement text for the canonical paper (`paper-1-mathematics/` for Paper I)
+1. Identify ALL downstream references across ALL canonical files (use Explore agent, very thorough)
+2. Build replacement text for the canonical paper where the result lives
 3. Present diff to user for approval
-4. Apply to canonical paper + ALL series papers that reference the result
+4. Apply to canonical paper + every other series paper that references the result
 5. Update CLAUDE.md if formula is referenced there
 6. Run full test suite (4447+ pass, zero regression)
-7. Commit
+7. Final sweep: grep all canonical files for old formula/values, confirm zero remaining
+8. Commit
 
-## Key Principles (learned from Items #1 and #6)
+## Key Principles (learned from Paper I)
 
 - **Oracle first:** Build numerical verification BEFORE attempting algebra. The oracle catches errors in real time.
 - **No frame assumptions:** Verify which coordinate frame the formula applies in (Item #6: stereographic vs geodesic vs canonical).
 - **Check the cited result:** Don't assume cited formulas are correct. Verify against oracle. (Item #6: BC2003 citation was wrong.)
-- **Series-wide sweep:** After fixing one paper, sweep ALL series papers for the same formula/values. Use Explore agent with "very thorough" setting.
-- **No meta-commentary:** State what IS, not what was wrong in earlier versions (Gordon's feedback).
-- **Canonical file:** `paper-1-mathematics/main.tex` is Paper I. `paper/main.tex` is a standalone copy — keep in sync but work on the series version.
-- **American English:** All paper text (feedback_american_english memory).
-- **Language protocol:** Present language options to Gordon, never edit prose autonomously (feedback_language_protocol memory).
+- **Compare existing proofs:** Before writing a new proof, check if the canonical paper already has one (Item #2: paper-1-mathematics already had the full proof that paper/main.tex lacked).
+- **Series-wide sweep:** After fixing one paper, sweep ALL canonical files for the same formula/values. Use Explore agent with "very thorough" setting. A fix is not done until grep returns zero matches for old values across the entire `latex/` directory.
+- **No meta-commentary:** State what IS, not what was wrong in earlier versions.
+- **American English:** All paper text.
+- **Language protocol:** Present language options to Gordon, never edit prose autonomously.
 
 ## Gate Criteria
 
@@ -56,4 +81,4 @@ Proven through Items #1 and #6. Apply to each structural rewrite across the seri
 - **math-reviewer:** ≥ 9.0, zero structural deductions
 - **User approval:** Diff shown and approved before any paper edit
 - **Test suite:** Full suite passes after integration
-- **Sweep:** Zero remaining references to old formula/values in any file
+- **Sweep:** Zero remaining references to old formula/values in any canonical file
