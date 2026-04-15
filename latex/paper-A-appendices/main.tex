@@ -319,10 +319,12 @@ flipping the sign of the Gaussian curvature):
 \paragraph{Properties.}
 \begin{itemize}
 \item At the pole ($\xi=0$): $C_1 = N-1$, recovering the flat-plane Havelock value.
-\item $C_1$ decreases monotonically from $N-1$ at the pole ($\xi = 0$)
-  to $(N-1)/2$ as $\xi \to \infty$.  At the equator
-  ($\xi = 1$): $C_1 = (N-1)/2$.  This is opposite to
-  $\mathbf{H}^2$ where $C_1$ increases with~$\xi$.
+\item $C_1$ decreases from $N-1$ at the pole ($\xi = 0$) to a
+  minimum of $(N-1)/2$ at the equator ($\xi = 1$), then increases
+  back toward $N-1$ as $\xi \to \infty$.  The symmetry
+  $C_1(\xi) = C_1(1/\xi)$ reflects the north-south equivalence
+  on $\mathbf{S}^2$.  Stability analysis uses $\xi \le 1$
+  (northern hemisphere).
 \item The threshold equation $C_1 = m(N{-}m)/2$ yields a quadratic
   in $\xi$: $(N{-}1{-}T)\xi^2 - 2T\xi + (N{-}1{-}T) = 0$ with
   $T = m(N{-}m)/2$, $m = \lfloor N/2\rfloor$.  The smaller root
@@ -332,12 +334,15 @@ flipping the sign of the Gaussian curvature):
   $\xi^*(4) = 2 - \sqrt{3}$,\;
   $\xi^*(5) = 3 - 2\sqrt{2}$,\;
   $\xi^*(6) = 9 - 4\sqrt{5}$.
-  These are fundamental units (Pell solutions) in the quadratic
-  fields $\mathbb{Q}$, $\mathbb{Q}(\sqrt{3})$,
-  $\mathbb{Q}(\sqrt{2})$, $\mathbb{Q}(\sqrt{5})$---the same
-  algebraic structure as the $\mathbf{H}^2$ thresholds.
-\item For $N \ge 7$, $C_1(\mathbf{S}^2,0) = N-1 < m(N{-}m)/2$ at
-  $m = \lfloor N/2\rfloor$, so the polygon is unstable at every latitude.
+  These are algebraic units (Pell solutions: $\xi^2 - 2b\xi + 1 = 0$
+  for appropriate $b$) in the quadratic fields
+  $\mathbb{Q}(\sqrt{3})$, $\mathbb{Q}(\sqrt{2})$,
+  $\mathbb{Q}(\sqrt{5})$---the same algebraic structure as the
+  $\mathbf{H}^2$ thresholds.
+\item For $N = 7$, $C_1(\mathbf{S}^2,0) = 6 = m(N{-}m)/2$ at $m = 3$:
+  marginally stable only at the pole ($\xi = 0$).
+  For $N \ge 8$, $C_1(\mathbf{S}^2,0) = N-1 < m(N{-}m)/2$,
+  so the polygon is unstable at every latitude.
 \end{itemize}
 
 
