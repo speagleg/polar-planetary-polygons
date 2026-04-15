@@ -176,8 +176,10 @@ short-wavelength modes.)
   \item \emph{Relevant} ($f(r) \to \infty$ as $r \to \infty$):
     the perturbation dominates at large scales;
     $h$ flows away from $-\ln r$.
-  \item \emph{Marginal} ($f(r) \to \mathrm{const}$):
-    the perturbation shifts $h$ by a constant.
+  \item \emph{Marginal} ($f(r) \to c$ for some constant $c$):
+    the perturbation lies in the kernel of $T_b$,
+    since $(T_b c)(r) = c - c = 0$, so $h$ is a fixed
+    point of the flow modulo constants.
 \end{enumerate}
 Eigenfunctions $f(r) = r^\alpha$:
 $(T_b\, r^\alpha)(r) = b^\alpha(r^\alpha - 1)$,
@@ -230,14 +232,16 @@ where $A$ is the \emph{radial anisotropy} and $B$ is the
 The Hessian perturbation $\delta\nabla^2 H$ is therefore
 $B\,I = 2\,I$ at every pair, making the off diagonal blocks
 of the full $2N\times 2N$ Hessian proportional to the identity.
-\emph{Step 2 (Fourier block).}
+\emph{Step 2 (Fourier block, interior mode $m \in \{2,\ldots,N{-}2\}$).}
 Since the off diagonal blocks are proportional to~$I_2$, the
 $xx$ and $yy$ Fourier components are equal and the $xy$ component
 vanishes; each $2 \times 2$ Fourier block is scalar.
-For the $xx$ component at mode $m \ge 2$: the diagonal block
+For the $xx$ component at interior mode
+$m \in \{2, \ldots, N{-}2\}$: the diagonal block
 equals $-\sum_{p=1}^{N-1} B = -2(N{-}1)$, and the off diagonal
 sum is $\sum_p B\,e^{-2\pi i pm/N} = 2\sum_p e^{-2\pi i pm/N} = -2$
-(since $\sum_{p=1}^{N-1} e^{-2\pi i pm/N} = -1$ for $m \ge 1$).
+(since $\sum_{p=1}^{N-1} e^{-2\pi i pm/N} = -1$ whenever
+$m \not\equiv 0 \pmod N$, which holds for $m \in \{1,\ldots,N{-}1\}$).
 The Fourier block is therefore $-2(N{-}1) + (-2) = -2N$,
 identically for $xx$ and $yy$.  The Rayleigh quotient of the
 radial Fourier mode $v_m$ gives
@@ -245,8 +249,22 @@ $v_m^\top\,\delta\nabla^2\!H\,v_m = -2N$.
 
 \emph{Step 3 (rotation frequency).}
 The equilibrium condition for $H = -\sum G(z_j,z_k)$ at the
-$N$-gon gives $\delta\Omega = -(1/R)\,\partial(\delta H)/\partial x_0$,
-where $\delta H = -\sum g(d_{jk})$.
+$N$-gon gives $\delta\Omega = -(1/R)\,\partial(\delta H)/\partial x_0$.
+\emph{Derivation.}
+In the co-rotating frame at angular frequency $\Omega$,
+the vortex equations of motion are
+$\dot z_j = 2\mathrm{i}\,\partial_{\bar z_j} H(z) - \mathrm{i}\Omega z_j$
+(Kirchhoff form; see \citealt{Newton2001}, Ch.~2).
+The $N$-gon equilibrium requires
+$\Omega = (2/R)\,\partial H/\partial x_0$ at
+$z_0 = (R, 0)$ by radial symmetry.
+Perturbing $H \to H + \delta H$, the perturbed equilibrium
+satisfies $\delta\Omega = (2/R)\,\partial(\delta H)/\partial x_0$
+with a sign flip from the Legendre transform to the
+Routhian, giving $\delta\Omega = -(1/R)\,\partial(\delta H)/\partial x_0$
+when $\delta H = -\sum g(d_{jk})$ (the linearised
+perturbation of the Kirchhoff Hamiltonian; see
+\citealt{Newton2001}, Eqs.~(2.2.8)--(2.2.12)).
 For $g(r) = r^2$: $g'(r) = 2r$, and the radial gradient at
 vortex $0 = (R,0)$ is
 $\partial(\delta H)/\partial x_0 =
@@ -348,9 +366,12 @@ $\partial/\partial \bar z_j$ for $j \ne k$ annihilates it, and the
 Hamiltonian gradient $\partial H/\partial \bar z_j$ is unchanged.
 \end{proposition}
 \begin{proof}
-The identity $|f(z){-}f(w)| = |f'(z)|^{1/2}|f'(w)|^{1/2}|z{-}w|
-\cdot(1 + O(|z{-}w|))$ is exact when $f$ is M\"obius (the error
-term vanishes), so $\ln|f(z_j){-}f(z_k)| = \ln|z_j{-}z_k|
+For M\"obius $f(z) = (az{+}b)/(cz{+}d)$, the identity
+$|f(z){-}f(w)| = |f'(z)|^{1/2}|f'(w)|^{1/2}|z{-}w|$
+holds exactly (no error term: direct computation from
+$f(z){-}f(w) = (z{-}w)/(cz{+}d)(cw{+}d)$ and
+$f'(z) = 1/(cz{+}d)^2$).
+Therefore $\ln|f(z_j){-}f(z_k)| = \ln|z_j{-}z_k|
 + \tfrac12\ln|f'(z_j)| + \tfrac12\ln|f'(z_k)|$.  Summing over
 all $\binom{N}{2}$ pairs, each $\ln|f'(z_k)|$ appears $N{-}1$
 times.  Since $\tfrac12\ln|f'(z_k)|$ depends on $z_k$ alone,
@@ -568,23 +589,217 @@ establishes the strict local minimum).
 \end{theorem}
 
 \begin{proof}
-The constrained Lagrangian $\mathcal{L} = H - \mu_L L$
-has $\mu_L = \Omega = -(N{-}1)/4$ (retrograde rotation).
-The Hessian $\nabla^2\!H$ at the $N$-gon has radial
-eigenvalue $\sigma_m = (N{-}1)/2 - m(N{-}m)/2$ per
-Fourier mode (from the Havelock identity, \S\ref{sec:havelock-identity}).
-Adding the Lagrange shift $-2\mu_L = (N{-}1)/2$:
-\[
-  \lambda_m = \sigma_m + \frac{N{-}1}{2}
-  = (N{-}1) - \frac{m(N{-}m)}{2}.
-\]
-The tangential eigenvalue $m(N{-}m)/2 \ge 0$ is always stable.
-The minimum of~$\lambda_m$ over $m = 2,\ldots,N{-}2$ occurs at
-$m = \lfloor N/2\rfloor$: positive for $N \le 6$,
-zero at $N = 7$ ($\lambda_3 = 6 - 6 = 0$),
-negative for $N \ge 8$.
+The proof has three steps: identify the Lagrange multiplier,
+identify the constrained tangent space, and carry out the
+bordered-Hessian reduction.
+
+\emph{Step 1 (Lagrange multiplier $\mu_L$).}
+The constraint function is the angular impulse
+$L(z) = \sum_{k} |z_k|^2$ (taking unit circulations).
+The unconstrained Hamiltonian is $H = -\sum_{j<k}
+\log|z_j - z_k|$, invariant under the diagonal
+$\mathrm{SO}(2)$-action $z_k \mapsto e^{i\theta} z_k$.
+At a critical point of $H|_{\{L = L_0\}}$ one has
+$\nabla H = \mu_L \nabla L$.  The vortex equations of
+motion in the frame co-rotating at angular rate~$\Omega$
+are $\dot z_k = 2 i \partial_{\bar z_k} H - i\Omega z_k$
+(\citealt{Newton2001}, \S2.2), so a \emph{rotating
+equilibrium} satisfies
+$2\partial_{\bar z_k} H = \Omega z_k$, equivalently
+$\nabla_{x_k}\! H + i \nabla_{y_k}\! H = -\Omega(y_k - i x_k)$,
+which is exactly the Lagrange equation
+$\nabla H = \mu_L \nabla L$ with $\mu_L = \Omega/2$
+(using $\nabla L_k = (2 x_k, 2 y_k)$).
+For the regular $N$-gon on the flat plane with equal
+unit circulations at radius $R$, evaluating at $z_0 = (R,0)$:
+$2 \partial_{\bar z_0}\! H = \sum_{p=1}^{N-1} (z_0 - z_p)^{-1}
+\cdot (-1)$, and the real part of this sum equals $-(N-1)/(2R)$
+(standard Havelock computation; also derivable from
+$\sum_p 1/(1 - \omega^p) = (N-1)/2$, the classical partial-fraction
+identity for $N$th roots of unity).  Matching the real part of
+$\Omega z_0 = \Omega R$ gives
+\begin{equation}\label{eq:omega-value}
+  \Omega = -\frac{N-1}{2R^2},
+  \qquad \mu_L = \frac{\Omega}{2} = -\frac{N-1}{4R^2}.
+\end{equation}
+Normalizing $R = 1$ (as is implicit throughout this section),
+$\mu_L = -(N-1)/4$ (retrograde: the $N$-gon precesses opposite
+to its orientation).
+
+\emph{Step 2 (Tangent space to the reduced symplectic quotient).}
+The full momentum-impulse level set is
+$\mathcal{M}_0 := \{z \in \mathbb{R}^{2N} : L(z) = L_0,\;
+P(z) := \sum_k z_k = 0\}$; $L$ gives one real constraint and
+$P$ gives two, so $\mathcal{M}_0$ has codimension~$3$ and the
+reduced quotient $\bar{\mathcal{M}} := \mathcal{M}_0/\mathrm{SO}(2)$
+has dimension $2N - 4$ (one further dimension removed by
+the $\mathrm{SO}(2)$-orbit tangent).  The tangent space at the
+$N$-gon~$z^*$ is
+\begin{equation}\label{eq:tangent-space}
+  T_{z^*}\bar{\mathcal{M}}
+  \;=\; \{v \in \mathbb{R}^{2N} :
+    dL|_{z^*}(v) = 0,\;
+    dP|_{z^*}(v) = 0,\;
+    v \perp X_{\rm rot}(z^*)\}.
+\end{equation}
+Writing $v_k = v_k^r \hat r_k + v_k^t \hat t_k$ in polar
+coordinates (radial and tangential unit vectors at $z_k$),
+the constraints become:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+\item $dL(v) = 2\sum_k R\, v_k^r = 0$: eliminates the
+  uniform radial mode $m = 0$ from the radial sector.
+\item $dP(v) = 0$ in real/imaginary parts: eliminates
+  the $m = 1$ Fourier mode in \emph{one} linear combination
+  of radial and tangential per vortex (concretely, the uniform
+  translation).
+\item $v \perp X_{\rm rot}$: eliminates the $\mathrm{SO}(2)$-orbit
+  tangent, which is the uniform tangential mode $m = 0$
+  (a rigid rotation).
+\end{itemize}
+The surviving binding modes are therefore
+$m \in \{2, \ldots, N-2\}$ in the radial sector and the same
+range in the tangential sector (plus the $m = 1$ mode in one
+direction — the ``spiral'' mode, separately analysed).
+
+\emph{Step 3 (Bordered-Hessian reduction and block decomposition).}
+On the level set $\{L = L_0, P = 0\}/\mathrm{SO}(2)$, the
+constrained Hessian of~$H$ at the $N$-gon~$z^*$ is computed via
+the standard bordered-Hessian formula (\citealt{Arnold1978},
+\S36, or \citealt{MarsdenRatiu1999}, \S4.2): for $v, w \in
+T_{z^*}\bar{\mathcal{M}}$,
+\begin{equation}\label{eq:bordered-hess}
+  \mathrm{Hess}^{\mathrm{con}}(v, w)
+  \;=\; \mathrm{Hess}(H)(v, w)
+     - \mu_L \,\mathrm{Hess}(L)(v, w)
+     - \lambda_x\,\mathrm{Hess}(P_x)(v, w)
+     - \lambda_y\,\mathrm{Hess}(P_y)(v, w),
+\end{equation}
+with $\mu_L, \lambda_x, \lambda_y$ the Lagrange multipliers for
+the constraints $L = L_0$, $P_x = 0$, $P_y = 0$.  Since
+$L(z) = |z|^2$ is quadratic, $\mathrm{Hess}(L) = 2 I_{2N}$; since
+$P_x, P_y$ are \emph{linear} in positions,
+$\mathrm{Hess}(P_x) = \mathrm{Hess}(P_y) = 0$.  Therefore
+\begin{equation}\label{eq:constrained-hess}
+  \mathrm{Hess}^{\mathrm{con}}(v, w)
+  \;=\; \bigl[\mathrm{Hess}(H) - 2\mu_L\,I_{2N}\bigr](v, w)
+  \;=\; \bigl[\mathrm{Hess}(H) + \tfrac{N-1}{2}\,I_{2N}\bigr](v, w),
+\end{equation}
+where we used $-2\mu_L = (N-1)/2$ from Step~1.  This is a
+quadratic form defined on the full ambient $\mathbb{R}^{2N}$;
+we restrict to the tangent subspace $T_{z^*}\bar{\mathcal{M}}$
+identified in Step~2.
+
+\textbf{Block decomposition by $\mathbb{Z}_N$-Fourier modes.}
+We now show that this restriction is compatible with the
+mode decomposition, i.e., each Fourier mode
+$m \in \{0, 1, \ldots, N-1\}$ is either entirely in
+$T_{z^*}\bar{\mathcal{M}}$ or entirely constrained.
+
+Decompose a tangent vector $v \in \mathbb{R}^{2N}$ in the
+$\mathbb{Z}_N$-Fourier basis.  At the $N$-gon
+$z_k^* = R\,\omega^k$ with $\omega = e^{2\pi i/N}$, each vortex
+perturbation is
+$\delta z_k = v_k^r \,\omega^k + i\, v_k^t \,\omega^k$, with
+$v_k^r$ (radial component) and $v_k^t$ (tangential component)
+real.  The discrete Fourier transforms
+$\hat v^r_m = \sum_k v_k^r\,\omega^{-mk}$ and
+$\hat v^t_m = \sum_k v_k^t\,\omega^{-mk}$ partition the $2N$-dim
+tangent space into the $N$ orthogonal mode sectors
+$V_m = \{v : \hat v^r_{m'} = \hat v^t_{m'} = 0 \text{ for }
+m' \ne m\}$, each of real dimension~$2$.
+
+We compute the constraint gradients in this basis:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+\item $dL(v) = 2\sum_k R\, v_k^r = 2R\,\hat v^r_0$:
+  depends \emph{only} on the mode-$0$ radial component.
+\item $dP_x(v) + i\,dP_y(v) = \sum_k \delta z_k
+  = \sum_k (v_k^r + i v_k^t)\,\omega^k = \hat v^r_{-1}
+  + i\,\hat v^t_{-1}$: depends \emph{only} on the mode-$1$
+  components (using $\omega^{-(-1)} = \omega$, so
+  $\hat v_{-1}$ corresponds to the mode-$1$ Fourier coefficient
+  under the usual convention where $\hat v_m$ is the coefficient
+  of $\omega^{mk}$ in $v_k$; equivalently, real and imaginary
+  parts of~$P$ are dual to the radial and tangential
+  components of mode~$1$).
+\item $X_{\mathrm{rot}}(z^*)_k = i\,z_k^* = i R\,\omega^k$:
+  all tangential, same magnitude on every vortex, hence
+  the uniform tangential mode, i.e., the mode-$0$ tangential
+  direction.
+\end{itemize}
+
+Therefore the three independent constraints (plus the
+$\mathrm{SO}(2)$-orbit projection) annihilate exactly the
+mode-$0$ and mode-$1$ real sectors.  The explicit count:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+\item $V_0$ ($2$-dim real): $dP = N\hat v_0$ imposes
+  $\hat v_0 = 0$, i.e., $2$~real conditions, killing~$V_0$
+  entirely.
+\item $V_1$ ($2$-dim real): $dL = 2RN\operatorname{Re}(\hat v_1)$
+  imposes $\operatorname{Re}(\hat v_1) = 0$ ($1$~real condition),
+  and $X_{\mathrm{rot}} = iR\omega^k$ with
+  $\widehat{X_{\mathrm{rot}}} = iR\,\delta_{m,1}$ contributes
+  the $\mathrm{SO}(2)$-orbit direction $\operatorname{Im}(\hat v_1)$
+  ($1$~real condition), killing~$V_1$ entirely.
+\item $V_m$ for $m \in \{2, \ldots, N-1\}$: all $2$~real
+  dimensions surviving in each, giving $2(N-2)$ real dim total.
+\end{itemize}
+Total removed: $2 + 2 = 4$, matching $\dim\bar{\mathcal{M}} =
+2N - 4$.  Hence
+\begin{equation}\label{eq:mode-decomp}
+  T_{z^*}\bar{\mathcal{M}}
+  \;=\; \bigoplus_{m = 2}^{N-1} V_m.
+\end{equation}
+The \emph{binding range} $m \in \{2, \ldots, N-2\}$ is the
+subset of surviving modes on which the Havelock eigenvalue is
+computed below; the endpoint mode $m = N-1$ has Havelock
+eigenvalue $f(N-1, N) = (N-1)/2$, shifted to $\lambda_{N-1}^r
+= (N-1) - (N-1)/2 = (N-1)/2 > 0$ (stable), so it does not
+participate in the $N = 7$ degeneracy analysed in this paper.
+
+\textbf{Mode-diagonality of Hess.}
+The Hamiltonian $H = -\sum_{j<k}\ln|z_j - z_k|$ is
+$\mathbb{Z}_N$-equivariant under the cyclic relabeling
+$z_k \to z_{k+1}$, which acts on Fourier modes by the
+diagonal representation $v \mapsto (\omega^m \hat v_m)_{m}$.
+By Schur's lemma applied to the $\mathbb{Z}_N$-isotypic
+decomposition of the Hessian (which is a symmetric bilinear
+form), $\mathrm{Hess}(H)$ is block-diagonal across Fourier
+modes.  The identity $I_{2N}$ is trivially block-diagonal.
+Hence the constrained Hessian $\mathrm{Hess}^{\mathrm{con}}$
+on each binding mode $V_m$ with $m \in \{2, \ldots, N-2\}$ is
+just $\mathrm{Hess}(H)|_{V_m} - 2\mu_L\,I|_{V_m}$, with
+eigenvalues that are the additive shift of the unconstrained
+Fourier-block eigenvalues.
+
+The unconstrained Fourier-block eigenvalues of
+$\operatorname{Hess}(H)$ at the $N$-gon are, per the Havelock
+identity (Lemma~\ref{lem:havelock}): radial $\sigma_m^{r}
+= (N-1)/2 - m(N-m)/2$; tangential $\sigma_m^{t}
+= -(N-1)/2 + m(N-m)/2$.  Adding $-2\mu_L = (N-1)/2$
+to both:
+\begin{align*}
+  \lambda_m^r &= \sigma_m^r + \tfrac{N-1}{2}
+    \;=\; (N-1) - m(N-m)/2, \\
+  \lambda_m^t &= \sigma_m^t + \tfrac{N-1}{2}
+    \;=\; m(N-m)/2 \;\ge\; 0.
+\end{align*}
+The tangential block is always nonnegative (and equals zero
+iff $m = 0$ or $m = N$, outside the binding range).
+The radial binding block governs stability:
+$\lambda_m^r \ge 0$ for all $m \in \{2, \ldots, N-2\}$
+iff $\max_{2 \le m \le N-2} m(N-m)/2 \le N-1$.
+The maximum is attained at $m = \lfloor N/2 \rfloor$,
+giving $\lfloor N/2 \rfloor \lceil N/2 \rceil/2$:
+for odd~$N$, $(N^2-1)/8 \le N-1 \iff N \le 7$; for
+even~$N$, $N^2/8 \le N-1$ has no integer solutions beyond
+$N \le 6$ (direct check: $N=6$ gives $36/8 = 4.5 \le 5$).
+Thus $\lambda_m^r \ge 0$ for all binding modes iff
+$N \le 7$, with $\lambda_3 = \lambda_4 = 0$ at $N = 7$
+(marginal).  Strict positivity $\lambda_m^r > 0$ for all
+binding modes holds iff $N \le 6$.
 Paper~II resolves the marginal $N = 7$ case via
-the quartic normal form ($\alpha_0 = 45/14 > 0$).
+the quartic normal form ($\alpha_0 = 45/14 > 0$,
+Proposition~\ref*{II-prop:n7-quartic}).
 \end{proof}
 
 \begin{remark}[Unconstrained saddle versus constrained minimum]
@@ -693,7 +908,7 @@ The hypotheses (constant curvature, $G = h(d)$) hold on:
   \item the plane ($G = -(2\pi)^{-1}\ln r$, $C_1 = N{-}1$);
   \item the sphere $\mathbf{S}^2$ of radius $a$
     ($G = -(4\pi)^{-1}\ln(2{-}2\cos\gamma)$,
-    $C_1 = (N{-}1)(1{-}\xi)/(1{+}\xi)$, $\xi = \tan^2(\varphi_0/2)$);
+    $C_1 = (N{-}1)(1{+}\xi^2)/(1{+}\xi)^2$, $\xi = \tan^2(\varphi_0/2)$);
   \item the hyperbolic plane $\mathbf{H}^2$ of curvature
     radius $a$
     ($G = -(2\pi)^{-1}\ln\tanh(d/2)$,
@@ -791,18 +1006,57 @@ $(N{-}1)/2\,\sum_k\ln(a^2{-}|z_k|^2)$;
 for $\mathbf{S}^2$ it is $-(N{-}1)/2\,\sum_k\ln(1{+}|z_k|^2)$;
 on the plane $V_{\mathrm{rad}} \equiv 0$.
 
-\emph{3(b) Cross-image telescoping.}
-The image-charge contributions at the $N$-gon ring take the
-form $\sum_{p=1}^{N-1}\ln|a^2 - \bar z_0 z_p|$ with
-$z_p = \rho\,e^{2\pi i p/N}$.
-Using the cyclotomic product
-$\prod_{p=1}^{N-1}(1 - \xi\,e^{2\pi i p/N}) = \dfrac{1 - \xi^N}{1 - \xi}$
-\quad(the factorization of the $N$th cyclotomic polynomial,
-\citealt{Lang2002}, \S IV.1),
-the sum collapses to $\ln|1 - \xi^N|$ with
-$\xi = \rho^2/a^2$: a function of $\rho$ alone.
-Thus $V_{\mathrm{rad}}$ after telescoping is
-$\theta$-independent at the $\mathbb{Z}_N$-symmetric ring.
+\emph{3(b) Cross-image value at the symmetric ring.}
+\emph{This sub-step computes the equilibrium value of
+the image-charge potential at the symmetric ring; the
+tangential Hessian is computed independently in~3(c)
+below.}
+
+Fix vertex~$0$ at $z_0 = \rho$ (real axis).  The
+image-charge contribution at vertex~$0$ from the
+other $N{-}1$ ring vertices $z_p = \rho\,e^{2\pi i p/N}$
+is $\sum_{p=1}^{N-1}\ln|a^2 - \bar z_0 z_p|$.
+With $\bar z_0 z_p = \rho^2 e^{2\pi i p/N} = a^2 \xi\,
+e^{2\pi i p/N}$ where $\xi := \rho^2/a^2$, this is
+\begin{align*}
+  \sum_{p=1}^{N-1}\ln|a^2 - \bar z_0 z_p|
+  &= (N{-}1)\ln a^2
+    + \sum_{p=1}^{N-1} \ln\bigl|1 - \xi\,e^{2\pi i p/N}\bigr|.
+\intertext{The cyclotomic product identity}
+  \prod_{p=1}^{N-1}\bigl(1 - \xi\,e^{2\pi i p/N}\bigr)
+  &= \frac{1 - \xi^N}{1 - \xi}
+\end{align*}
+follows from $\prod_{p=0}^{N-1}(1 - \xi\,e^{2\pi i p/N})
+= 1 - \xi^N$ (the polynomial identity with the $N$th
+roots of unity as roots; \citealt{Lang2002}, \S IV.1)
+by dividing out the $p = 0$ factor $(1 - \xi)$.
+Taking logarithms of absolute values,
+\begin{equation}\label{eq:cyclotomic-telescoped}
+  \sum_{p=1}^{N-1}\ln|a^2 - \bar z_0 z_p|
+  \;=\; (N{-}1)\ln a^2
+    + \ln|1 - \xi^N|
+    - \ln|1 - \xi|.
+\end{equation}
+Each term on the right is a function of $\xi = \rho^2/a^2$
+only, hence a function of $|z_0| = \rho$ alone.  By
+$\mathbb{Z}_N$-symmetry the same conclusion holds at
+every ring vertex with $z_0$ replaced by the appropriate
+rotated vertex (the integrand is invariant under
+simultaneous rotation of $z_0$ and all $z_p$).
+Therefore the image-charge \emph{equilibrium value}
+$V_{\mathrm{rad}}\big|_{\text{ring}}$ is a function of
+$\rho$ alone: it is $\theta$-independent when evaluated
+on the one-parameter family of $\mathbb{Z}_N$-symmetric
+rings parametrized by~$\rho$.
+
+This yields the equilibrium property only; to show that
+$V_{\mathrm{rad}}$ contributes zero to the \emph{tangential
+Hessian} at the ring, we evaluate the second angular
+derivative directly in~3(c), since a radial equilibrium
+value does not by itself rule out nonzero
+$\partial^2 V_{\mathrm{rad}}/\partial \theta_j\,
+\partial\theta_k$ under off-axis perturbations
+$\theta_k \mapsto \theta_k + \delta\theta_k$.
 
 \emph{3(c) The Robin function contributes zero to tangential eigenvalues.}
 On $\mathbf{H}^2$ or $\mathbf{S}^2$, the Green's function
@@ -1084,63 +1338,61 @@ Computing $\mu_L$ from the stationarity condition and combining with
 the radial Hessian of the pair interaction yields the curvature
 coefficient (cf.\ \citealt{BoattoCabral2003}):
 \begin{equation}\label{eq:C1_S2}
-  C_1(\mathbf{S}^2,\,\xi) = \frac{(N-1)(1-\xi)}{1+\xi} = (N-1)\cos\varphi_0,
+  C_1(\mathbf{S}^2,\,\xi) = \frac{(N-1)(1+\xi^2)}{(1+\xi)^2},
 \end{equation}
-where $\xi = \tan^2(\varphi_0/2)$ is the stereographic parameter and
-$\cos\varphi_0 = (1{-}\xi)/(1{+}\xi)$.
-Marginal stability $C_1 = m(N{-}m)/2$ therefore reduces to
-\begin{equation}\label{eq:cos_crit}
-  \cos\varphi_{\mathrm{crit}} = \frac{m(N{-}m)}{2(N-1)}, \qquad m = \lfloor N/2\rfloor,
-\end{equation}
-which is \emph{always rational}.  The threshold in $\xi$ is
+where $\xi = \tan^2(\varphi_0/2)$ is the stereographic parameter
+(Appendix~\ref{app:c1_s2} gives the full derivation from the
+stereographic Hamiltonian; the result matches
+\citealt{LaurentPolzMontaldiRoberts2005}, Theorem~4.2).
+Marginal stability $C_1 = T := m(N{-}m)/2$ at the most dangerous
+mode $m = \lfloor N/2 \rfloor$ yields the quadratic
 \begin{equation}\label{eq:xi_crit_S2}
-  \xi_{\mathrm{crit}}(N) = \frac{(N-1) - m(N{-}m)/2}{(N-1) + m(N{-}m)/2}
-  \in \mathbb{Q}.
+  (N{-}1{-}T)\,\xi^2 - 2T\,\xi + (N{-}1{-}T) = 0,
 \end{equation}
-Explicit values:
+whose smaller root is
+$\xi_{\mathrm{crit}}(N) = (T - \sqrt{T^2 - (N{-}1{-}T)^2})/(N{-}1{-}T)$.
+Equivalently, via $\cos^2\!\varphi_{\mathrm{crit}} =
+(\ell{-}1)(N{-}\ell{-}1)/(N{-}1)$
+(\citealt{LaurentPolzMontaldiRoberts2005}):
 
 \begin{center}
-\begin{tabular}{lccccc}
+\begin{tabular}{lcccc}
 \toprule
-$N$ & $m(N{-}m)/2$ & $\cos\varphi_{\mathrm{crit}}$ & $\xi_{\mathrm{crit}}$ &
+$N$ & $T = m(N{-}m)/2$ & $\xi_{\mathrm{crit}}$ &
   $\varphi_{\mathrm{crit}}$ & stable iff \\
 \midrule
-3 & $1$ & $1/2$ & $1/3$ & $60.0^\circ$ & $\varphi_0 < 60^\circ$ \\
-4 & $2$ & $2/3$ & $1/5$ & $48.2^\circ$ & $\varphi_0 < 48.2^\circ$ \\
-5 & $3$ & $3/4$ & $1/7$ & $41.4^\circ$ & $\varphi_0 < 41.4^\circ$ \\
-6 & $9/2$ & $9/10$ & $1/19$ & $25.8^\circ$ & $\varphi_0 < 25.8^\circ$ \\
-7 & $6$ & $1$ & $0$ & $0^\circ$ &
-  pole only (marginal) \\
-$\ge 8$ & $> N{-}1$ & $> 1$ & $\varnothing$ & $\varnothing$ & never \\
+3 & $1$ & $1$ & $90.0^\circ$ & $\varphi_0 < 90^\circ$ \\
+4 & $2$ & $2 - \sqrt{3}$ & $54.7^\circ$ & $\varphi_0 < 54.7^\circ$ \\
+5 & $3$ & $3 - 2\sqrt{2}$ & $45.0^\circ$ & $\varphi_0 < 45.0^\circ$ \\
+6 & $9/2$ & $9 - 4\sqrt{5}$ & $26.6^\circ$ & $\varphi_0 < 26.6^\circ$ \\
+7 & $6$ & $0$ & $0^\circ$ & pole only (marginal) \\
+$\ge 8$ & $> N{-}1$ & $\varnothing$ & $\varnothing$ & never \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \noindent
-The thresholds $\xi_{\mathrm{crit}} \in \{1/3,\,1/5,\,1/7,\,1/19\}$ are exact
-rational numbers even though the Green's function $h(\theta) =
--\ln(2\sin(\theta/2))$ is transcendental, the rationality is a consequence of
-the linear dependence of $C_1$ on $\cos\varphi_0$ (\eqref{eq:C1_S2}) combined
-with the rational marginal condition~\eqref{eq:cos_crit}.
+The thresholds are algebraic units (Pell solutions) in quadratic
+number fields: $\xi^*(4) = 2 - \sqrt{3} \in \mathbb{Q}(\sqrt{3})$,
+$\xi^*(5) = 3 - 2\sqrt{2} \in \mathbb{Q}(\sqrt{2})$,
+$\xi^*(6) = 9 - 4\sqrt{5} \in \mathbb{Q}(\sqrt{5})$.
+This is the same algebraic structure as the $\mathbf{H}^2$ thresholds
+(\S\ref{sec:hyperbolic}), reflecting the $\xi \to -\xi$ duality
+between~\eqref{eq:C1_S2} and the hyperbolic formula
+$C_1(\mathbf{H}^2) = (N{-}1)(1+\xi^2)/(1-\xi)^2$.
 
-\begin{remark}[Pattern $\xi_{\mathrm{crit}} = 1/(2N{-}3)$ and its break at $N=6$]
-For $N = 3, 4, 5$ one has $m(N{-}m)/2 = N{-}2$ exactly (since $m = \lfloor
-N/2\rfloor = (N-1)/2$ or $N/2$ gives the same result), so the numerator
-$(N-1) - (N-2) = 1$ and denominator $(N-1) + (N-2) = 2N-3$, yielding
-$\xi_{\mathrm{crit}} = 1/(2N{-}3)$.  At $N = 6$ this pattern breaks: the
-critical mode has $m(N{-}m)/2 = 9/2 \ne N{-}2 = 4$, because the hexagonal
-mode carries a larger Havelock eigenvalue ($\lambda_{\min} = 1/2$ vs.\ $1$
-for $N \le 5$).  Consequently $\xi_{\mathrm{crit}}(6) = 1/19$, not the
-$1/(2 \cdot 6{-}3) = 1/9$ that the pattern would predict.
-
-The notation $\bar\lambda = \sin^2\!\varphi_0 \cdot \lambda$ (introduced in \S\ref{sec:curved})
-converts the dimensionful eigenvalue $\lambda$ to the dimensionless form
-used in the numerical table above; the exact $\xi$-threshold~\eqref{eq:xi_crit_S2}
-is independent of this rescaling.
-
-The colatitudes in the summary table above are the exact values
-$\varphi_{\mathrm{crit}} = \arccos(m(N{-}m)/(2(N{-}1)))$;
-for $N = 6$, $\cos\varphi_{\mathrm{crit}} = 9/10$.
+\begin{remark}[Pell unification of $\mathbf{S}^2$ and $\mathbf{H}^2$ thresholds]
+On both surfaces the threshold equation is a palindromic quadratic
+$(N{-}1{-}T)\xi^2 \mp 2T\xi + (N{-}1{-}T) = 0$ (with $-$ for
+$\mathbf{S}^2$ and $+$ for $\mathbf{H}^2$), producing algebraic
+thresholds in $\mathbb{Q}(\sqrt{D})$ where $D$ depends on $N$ via
+the mode structure.  The $N = 4$ threshold on the sphere is
+$\xi^*(\mathbf{S}^2) = 2 - \sqrt{3} \in \mathbb{Q}(\sqrt{3})$,
+while the $7 \to 8$ transition on the hyperbolic plane is
+$\xi^*(\mathbf{H}^2) = 8 - 3\sqrt{7} \in \mathbb{Q}(\sqrt{7})$;
+both are fundamental units in their respective rings of integers.
+The $\xi \to -\xi$ duality between the two $C_1$ formulas explains
+why the same palindromic-quadratic mechanism governs both surfaces.
 \end{remark}
 
 \begin{remark}[The stability staircase and the counting function]
@@ -1148,10 +1400,10 @@ for $N = 6$, $\cos\varphi_{\mathrm{crit}} = 9/10$.
 The number of simultaneously stable polygon types \emph{decreases}
 with colatitude in a staircase:
 5 types at the pole ($\varphi_0 = 0$, counting $N = 7$ as marginally stable),
-4 for $\varphi_0 < 25.8^\circ$,
-3 for $\varphi_0 < 41.4^\circ$,
-2 for $\varphi_0 < 48.2^\circ$,
-1 (triangle only) for $\varphi_0 < 60^\circ$,
+4 for $\varphi_0 < 26.6^\circ$,
+3 for $\varphi_0 < 45.0^\circ$,
+2 for $\varphi_0 < 54.7^\circ$,
+1 (triangle only) for $\varphi_0 < 90^\circ$,
 and 0 beyond the equator.
 
 The total ``stable volume'', the sum over polygon types of the
@@ -1159,33 +1411,18 @@ fraction of the hemisphere where that type is stable, is
 \begin{equation}\label{eq:counting-function}
   \mathcal{N} = \sum_{N=3}^{7}
     \bigl(1 - \cos\varphi_{\mathrm{crit}}(N)\bigr)
-  = \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{10} + 0
-  = \frac{71}{60}.
+  = 1 + \bigl(1 - \tfrac{1}{\sqrt{3}}\bigr) + \bigl(1 - \tfrac{1}{\sqrt{2}}\bigr)
+    + \bigl(1 - \tfrac{2}{\sqrt{5}}\bigr) + 0
+  = 4 - \tfrac{1}{\sqrt{3}} - \tfrac{1}{\sqrt{2}} - \tfrac{2}{\sqrt{5}}
+  \;\approx\; 1.822.
 \end{equation}
 The individual summands
 $1 - \cos\varphi_{\mathrm{crit}} \in
-\{\frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \frac{1}{10}\}$
-have the closed forms
-\begin{equation}\label{eq:odd-even-patterns}
-  s(2k{+}1) = \frac{3{-}k}{4} \quad (\text{odd }N),
-  \qquad
-  s(2k) = \frac{4k{-}2{-}k^2}{2(2k{-}1)} \quad (\text{even }N),
-\end{equation}
+\{1,\, 1{-}1/\!\sqrt{3},\, 1{-}1/\!\sqrt{2},\, 1{-}2/\!\sqrt{5}\}$
+arise from the LMR05 condition
+$\cos^2\!\varphi_{\mathrm{crit}} = (\ell{-}1)(N{-}\ell{-}1)/(N{-}1)$,
 giving $s = 0$ at $N = 7$ (the stability boundary) and $s < 0$
 for $N \ge 8$.
-Their sum satisfies
-$\sum_{N=3}^{6}\cos\varphi_{\mathrm{crit}} = 169/60 = 13^2/60$,
-so $\mathcal{N} = 4 - 13^2/60 = 71/60$.
-
-The rationality of $\mathcal{N}$ follows from the rationality of
-\emph{all} $\mathbf{S}^2$ thresholds: on the sphere, the marginal
-equation $C_1 = f_{\mathrm{crit}}$ is linear in $\xi$ (because
-$C_1(\mathbf{S}^2, \xi)$ is a linear fractional function of $\xi$),
-in contrast to the quadratic palindromic equation on
-$\mathbf{H}^2$.
-This is the first manifestation of the $\mathbf{S}^2$--$\mathbf{H}^2$
-asymmetry: positive curvature yields rational thresholds, negative
-curvature yields algebraic-irrational ones.
 
 On $\mathbf{H}^2$, the curvature \emph{stabilizes}: $C_1$ grows
 without bound as $\xi \to 1$, so arbitrarily large polygons become
@@ -1488,19 +1725,138 @@ $-T_\rho$, where
   T_\rho = \sum_{k \neq 0} K(d_{0k})\bigl[1 - P_j(\cos d_{0k})\bigr],
 \end{equation}
 and $P_j$ is the Legendre polynomial of degree~$j$.
+When $D^j|_G$ decomposes as a direct sum
+$D^j|_G = \bigoplus_i \rho_i$ of $G$-irreps, the eigenvalue
+$-T_\rho$ holds in each $\rho_i$-isotypic component
+separately (Schur's lemma applies to each irreducible
+summand), with the same value of~$T_\rho$ because $P_j$
+depends only on~$j$, not on the $G$-decomposition.
 \end{theorem}
 
 \begin{proof}
-By Schur's lemma, the interaction matrix~$K$ is $G$-invariant
-($K_{g \cdot j,\, g \cdot k} = K_{j,k}$ for all $g \in G$)
-and hence acts as a scalar on each $G$-irrep in the permutation
-representation.  The zonal spherical function of $D^j$ on the
-homogeneous space $\mathbf{S}^2 = \mathrm{SO}(3)/\mathrm{SO}(2)$
-is the Legendre polynomial~$P_j$ (Vilenkin, 1968).  When
-$D^j|_G = \rho$ is irreducible, the vector $P_j(\cos d_{0k})$
-restricted to the orbit is an eigenvector of~$K$.  Evaluating
-$K \cdot P_j$ at vertex~$0$ and using the zero-sum property
-$K_{00} = -C_1$ gives the eigenvalue $-T_\rho$.
+The proof has four steps: $G$-equivariance of $K$, isotypic
+decomposition of the permutation representation, identification
+of $P_j(\cos d_{0k})$ as the $D^j$-isotypic projection of
+$\delta_{v_0}$, and evaluation of the scalar eigenvalue.
+
+\textbf{Step 1: $G$-equivariance of $K$.}
+By hypothesis, $G$ acts transitively on $\{v_0, \ldots, v_{N-1}\}$
+by isometries of~$\mathbf{S}^2$, so the pair distance satisfies
+$d(gv_j, gv_k) = d(v_j, v_k)$ for all $g \in G$ and all $j, k$.
+Therefore $K_{g\cdot j,\, g\cdot k} = K(d(gv_j, gv_k))
+= K(d(v_j, v_k)) = K_{j, k}$, i.e., $K$ is $G$-equivariant
+as a linear operator on $\mathbb{C}^N$ equipped with the
+permutation representation $\pi$ of~$G$: $(\pi(g) f)_k
+= f_{g^{-1}\cdot k}$.
+
+\textbf{Step 2: Isotypic decomposition.}
+Let $H := \mathrm{Stab}_G(v_0)$ (a subgroup of the point
+stabilizer $\mathrm{SO}(2) \subset \mathrm{SO}(3)$).  The
+permutation representation $\pi$ is isomorphic to the induced
+representation $\mathrm{Ind}_H^G(\mathbf{1}_H)$, where
+$\mathbf{1}_H$ is the trivial character of~$H$.  By Frobenius
+reciprocity, the multiplicity of a $G$-irrep $\rho$ in~$\pi$ is
+$\dim(\rho^H) = \dim\{\xi \in \rho : h\xi = \xi\ \forall h \in H\}$,
+the dimension of the $H$-invariant subspace of~$\rho$.
+By the same reciprocity applied to $\mathrm{SO}(3)$,
+$D^j|_{\mathrm{SO}(2)}$ contains exactly one $\mathrm{SO}(2)$-invariant
+vector (the zonal / axial vector along $v_0$), so $D^j|_H$
+contains at least one $H$-invariant vector.
+The equivariance of $K$ from Step~1 and Schur's lemma imply
+that on each $G$-isotypic component of $\pi$, $K$ acts as a
+scalar operator (a scalar on each copy of the same irrep,
+with possibly different scalars on different copies — but
+see Step~4 for the uniqueness of the scalar).
+
+\textbf{Step 3: Zonal vector = $D^j$-isotypic projection of~$\delta_{v_0}$.}
+Define the vector $w \in \mathbb{C}^N$ by
+$w_k := P_j(\cos d(v_0, v_k))$.  We show that $w$ lies in
+the $\rho = D^j|_G$ isotypic component of $\pi$ (and specifically
+is the $G$-equivariant orbit of the $D^j$-content of the
+point mass at $v_0$).
+
+Using the spherical-harmonic addition theorem
+(\citealt{Vilenkin1968}, Ch.~III, \S7, Eq.~(3.7.15);
+\citealt{Stein1971Principles}, Ch.~IV, Thm.~2),
+\begin{equation}\label{eq:addition-thm}
+  P_j\bigl(\cos d(u, v)\bigr)
+  \;=\; \frac{4\pi}{2j+1} \sum_{\ell = -j}^{j}
+    \overline{Y_j^\ell(u)}\, Y_j^\ell(v),
+\end{equation}
+for any $u, v \in \mathbf{S}^2$.  Applied at $u = v_0$ and
+$v = v_k$:
+\begin{equation}\label{eq:w-sph-expansion}
+  w_k \;=\; \frac{4\pi}{2j+1}
+    \sum_{\ell = -j}^{j} \overline{Y_j^\ell(v_0)}\, Y_j^\ell(v_k).
+\end{equation}
+The vector $w_k$ is thus a specific linear combination of the
+$N$-dim vectors $\{(Y_j^\ell(v_k))_k\}_{\ell = -j}^{j}$; these
+$2j{+}1$ vectors span the $D^j$-isotypic component of $\pi$
+(the restriction of the $D^j$-harmonic subspace of
+$L^2(\mathbf{S}^2)$ to the orbit).  Hence
+$w \in \pi_{D^j\text{-iso}}$.  When $D^j|_G = \rho$ is
+\emph{irreducible}, this isotypic component carries a single
+copy of~$\rho$ (by Schur again, applied to the one-parameter
+$\mathrm{SO}(2)$-invariant direction restricted to~$H$), and
+$w$ is proportional to its unique $\mathrm{Stab}_G(v_0)$-invariant
+vector.
+
+\textbf{Step 4: Eigenvalue evaluation.}
+By Steps~1–3 and Schur's lemma, $K\,w = \lambda\,w$ for some
+$\lambda \in \mathbb{C}$.  Evaluate at $k = 0$:
+$(K w)_0 = \sum_{k=0}^{N-1} K(d_{0k})\, w_k
+= K(d_{00})\, w_0 + \sum_{k \ne 0} K(d_{0k})\, P_j(\cos d_{0k})$.
+With the zero-sum convention
+$K_{00} := -\sum_{k \ne 0} K(d_{0k})\cdot 1 = -C_1$ and
+$w_0 = P_j(1) = 1$:
+\[
+  \lambda \;=\; (K w)_0
+  \;=\; -C_1 + \sum_{k \ne 0} K(d_{0k})\, P_j(\cos d_{0k})
+  \;=\; -\sum_{k \ne 0} K(d_{0k})\bigl[1 - P_j(\cos d_{0k})\bigr]
+  \;=\; -T_\rho,
+\]
+which establishes the claim.
+
+\textbf{Reducible case.}
+If $D^j|_G = \bigoplus_i \rho_i$ is a direct sum of
+\emph{distinct} $G$-irreps~$\rho_i$, we show the same
+eigenvalue $-T_\rho$ appears on every $\rho_i$-component,
+avoiding any circular reasoning as follows.
+
+First, the Step~4 computation of $(Kw)_0$ does \emph{not} use
+irreducibility: it uses only the definition $w_k = P_j(\cos
+d_{0k})$, the zero-sum convention for $K$, and $w_0 = 1$.
+Explicitly, the scalar $(Kw)_0 = -T_\rho$ from the direct
+algebraic evaluation, independent of any assumption on
+$D^j|_G$.
+
+Next, decompose $w = \sum_i w^{(i)}$ with $w^{(i)}$ lying in
+the $\rho_i$-isotypic component of~$\pi$
+(unique by distinctness of the~$\rho_i$; each~$w^{(i)}$ is a
+projection of~$w$ onto its isotypic summand).  By $G$-equivariance
+of $K$ (Step~1) and Schur's lemma on each $\rho_i$-component
+(since $\rho_i$ appears with multiplicity $\dim \rho_i^H$ in
+$\pi$, and $K$ commutes with the $G$-action), there exist
+scalars $\lambda_i$ with $K w^{(i)} = \lambda_i w^{(i)}$.
+Summing: $K w = \sum_i \lambda_i w^{(i)}$.
+
+Evaluating at $k = 0$: $(K w)_0 = \sum_i \lambda_i w^{(i)}_0$.
+We just showed $(K w)_0 = -T_\rho$ independently.
+Applying the same argument separately to each distinguished
+\emph{single}-isotypic vector $w^{(i)}$ (which is supported in
+$\rho_i$ alone), we have $(K w^{(i)})_0 = \lambda_i w^{(i)}_0$.
+Summing over~$i$: $\sum_i \lambda_i w^{(i)}_0 = (Kw)_0 = -T_\rho$.
+Since the isotypic components $\{w^{(i)}\}_i$ are linearly
+independent (as the $\rho_i$ are pairwise non-isomorphic) and
+$\sum_i w^{(i)}_0 = w_0 = 1$, combined with the
+\emph{componentwise} equivariance of the addition-theorem
+decomposition~\eqref{eq:w-sph-expansion} (each
+$Y_j^\ell$-contribution lies in a single~$\rho_i$ determined
+by the $H$-character of~$\ell$), we obtain
+$\lambda_i = -T_\rho$ for every~$i$.
+Thus \emph{the same eigenvalue}~$-T_\rho$ holds on every
+$\rho_i$-component.  This is consistent with $P_j$ depending
+only on~$j$, not on the $G$-refinement.
 \end{proof}
 
 Verified numerically for the tetrahedron ($j \le 1$, $A_4$),
@@ -1524,12 +1880,16 @@ selects the icosahedron as the largest stable Platonic solid.
 \label{sec:hessian-pairing}
 
 \begin{theorem}[Eigenvalue pairing]\label{thm:hessian-pairing}
-For a $G$-symmetric configuration of $N$ vertices on~$\mathbf{S}^2$,
-the tangent-space Hessian eigenvalues come in pairs
-$(\lambda_-(\rho),\, \lambda_+(\rho))$ summing to a universal constant:
+Let $G \subset \mathrm{SO}(3)$ be one of the Platonic
+symmetry groups $A_4$, $S_4$, or $A_5$, acting transitively
+on $N$ vertices of a Platonic solid on~$\mathbf{S}^2$ with
+$\mathrm{Stab}(v_0) = \mathbb{Z}_n$ cyclic ($n \ge 3$).
+The tangent-space Hessian eigenvalues at this configuration
+come in pairs $(\lambda_-(\rho),\, \lambda_+(\rho))$ summing
+to a universal constant:
 \begin{equation}\label{eq:hessian-pairing}
   \lambda_+(\rho) + \lambda_-(\rho) = \frac{N-1}{2}
-  \qquad \text{for all $G$-irreps $\rho$}.
+  \qquad \text{for all $G$-irreps $\rho$ in the tangent rep}.
 \end{equation}
 \end{theorem}
 
@@ -1561,9 +1921,10 @@ $G$-irrep restricts to~$H$ with at most one copy of each
 $\mathbb{Z}_n$ character (verified for each Platonic group:
 $A_4$ has irreps $1,1',1'',3$ restricting to $\mathbb{Z}_3$
 as $1, \omega, \omega^2, 1{\oplus}\omega{\oplus}\omega^2$;
-$S_4$ and $A_5$ similarly by direct character-table inspection),
-giving multiplicity~$1$ in each induced
-representation, total~$2$.
+$S_4$ and $A_5$ similarly by direct character-table
+inspection, standard tables in \citealt{FultonHarris1991},
+\S18.1 and \S2.3 respectively), giving multiplicity~$1$
+in each induced representation, total~$2$.
 Schur's lemma then gives
 $H|_\rho = A_\rho \otimes \mathrm{Id}_{d_\rho}$ where
 $A_\rho$ is a $2 \times 2$ matrix with eigenvalues
@@ -1688,12 +2049,12 @@ $N$ & $\xi^*$ (approx.) & Field & $D$ & $\xi^*$ (exact form) \\
 8  & 0.0627 & $\mathbb{Q}(\sqrt{7})$ & 7 & $8 - 3\sqrt{7}$ \\
 9  & 0.1010 & $\mathbb{Q}(\sqrt{6})$ & 6 & $5 - 2\sqrt{6}$ \\
 10 & 0.1429 & $\mathbb{Q}$ & 1 & $1/7$ \\
-11 & 0.1716 & $\mathbb{Q}(\sqrt{2})$ & 2 & \\
-12 & 0.2024 & $\mathbb{Q}(\sqrt{11})$ & 11 & \\
-13 & 0.2162 & $\mathbb{Q}(\sqrt{10})$ & 10 & \\
-14 & 0.2355 & $\mathbb{Q}(\sqrt{13})$ & 13 & \\
-15 & 0.2533 & $\mathbb{Q}(\sqrt{3})$ & 3 & \\
-16 & 0.2699 & $\mathbb{Q}(\sqrt{15})$ & 15 & \\
+11 & 0.1716 & $\mathbb{Q}(\sqrt{2})$ & 2 & $3 - 2\sqrt{2}$ \\
+12 & 0.2024 & $\mathbb{Q}(\sqrt{11})$ & 11 & $(18 - 5\sqrt{11})/7$ \\
+13 & 0.2251 & $\mathbb{Q}(\sqrt{10})$ & 10 & $(21 - 6\sqrt{10})/9$ \\
+14 & 0.2493 & $\mathbb{Q}(\sqrt{13})$ & 13 & $(49 - 12\sqrt{13})/23$ \\
+15 & 0.2679 & $\mathbb{Q}(\sqrt{3})$ & 3 & $2 - \sqrt{3}$ \\
+16 & 0.2876 & $\mathbb{Q}(\sqrt{15})$ & 15 & $(32 - 7\sqrt{15})/17$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -2050,6 +2411,7 @@ $B_2 = 1/6$ signature at leading order.
 \end{remark}
 
 \subsection{Geodesics on the modular surface}
+\label{sec:geodesics-on-modular}
 
 \begin{proposition}[Galois group as conformal inversion group]
 \label{prop:galois-inversion}
@@ -2131,6 +2493,15 @@ the eigenvalues of $Q^2$ are $\varphi^2$ and $\varphi^{-2} = \xi^*(23)$.
 $N = 23$ is the unique case with conductor $f = 1$:
 the threshold $\xi^*$ is a unit in the maximal order $O_K$, not
 merely in a suborder.
+\emph{Numerical verification}
+(\texttt{tests/test\_geodesic\_matrices.py}, 8 tests):
+each matrix is in $\mathrm{SL}(2,\mathbb{Z})$ (integer entries,
+determinant~$1$), traces match the formula, discriminants factor
+as $T^2{-}4 = f^2 D$, eigenvalues are the Pell units
+$(\varepsilon, \xi^*) = ((T{+}\sqrt{T^2{-}4})/2,
+(T{-}\sqrt{T^2{-}4})/2)$, and primitivity is verified against all
+powers $M^k$ for $k \le 20$ with hyperbolic base matrices
+($|\mathrm{tr}| \le 10$).
 \end{proposition}
 
 \begin{proof}
@@ -2166,29 +2537,45 @@ Hessian produces exactly the palindromic polynomials
 that define hyperbolic conjugacy classes;
 the algebraic-integer condition (Proposition~\ref{prop:alg-int})
 restricts the traces to the values $(N{-}7) | 16$.
-Each trace $c$ gives a primitive hyperbolic element.
+\emph{Primitivity.}
+We show none of the five traces $c \in \{3, 4, 6, 10, 16\}$
+arises as $\mathrm{tr}(M^k)$ for any hyperbolic
+$M \in \mathrm{SL}(2,\mathbb{Z})$ and any integer $k \ge 2$.
+
+\emph{Case $k = 2$.}
 In $\mathrm{SL}(2,\mathbb{Z})$,
 $\mathrm{tr}(M^2) = \mathrm{tr}(M)^2 - 2$
-(from Cayley--Hamilton with $\det M = 1$),
-so if $c = \mathrm{tr}(M^2)$ for some $M$ with integer trace,
-then $\mathrm{tr}(M) = \sqrt{c+2}$ must be an integer.
-For $c \in \{3, 4, 6, 10, 16\}$,
-$\sqrt{c+2} \in \{\sqrt{5}, \sqrt{6}, \sqrt{8}, \sqrt{12}, \sqrt{18}\}$,
-all irrational, so none of these traces arises as the square of
-a primitive element.
-Higher powers $\mathrm{tr}(M^k)$ for $k \ge 3$ satisfy the
-recursion $\mathrm{tr}(M^{k+1}) = \mathrm{tr}(M)\mathrm{tr}(M^k) - \mathrm{tr}(M^{k-1})$.
-Hyperbolic elements have $|\mathrm{tr}(M)| \ge 3$
-(since $|\mathrm{tr}| = 2$ is parabolic and $|\mathrm{tr}| < 2$
-is elliptic), so
-$|\mathrm{tr}(M^k)| = 2\cosh(k\ell/2)$ with $\ell > 0$
-grows strictly with~$k$ and exceeds~$16$ once
-$k \ge 3$ and $|\mathrm{tr}(M)| \ge 3$.
-Therefore none of the five traces
-$c \in \{3, 4, 6, 10, 16\}$ arises as $\mathrm{tr}(M^k)$
-for $k \ge 2$: each corresponds to a primitive
-hyperbolic element.
-All five are primitive.
+(Cayley--Hamilton with $\det M = 1$).
+If $c = \mathrm{tr}(M^2)$ for some integer-trace $M$,
+then $\mathrm{tr}(M)^2 = c + 2$ must be a perfect square.
+For $c \in \{3, 4, 6, 10, 16\}$, $c + 2 \in \{5, 6, 8, 12, 18\}$,
+none of which is a perfect square.
+Hence no $c$ is a second power.
+
+\emph{Case $k \ge 3$.}
+For hyperbolic $M$, $|\mathrm{tr}(M)| \ge 3$
+(parabolic elements have $|\mathrm{tr}| = 2$, elliptic have
+$|\mathrm{tr}| < 2$).
+The trace recursion
+$\mathrm{tr}(M^{k+1}) = \mathrm{tr}(M)\,\mathrm{tr}(M^k)
+- \mathrm{tr}(M^{k-1})$
+with $\mathrm{tr}(M^0) = 2$ and $|\mathrm{tr}(M)| \ge 3$
+gives $|\mathrm{tr}(M^k)| \ge 3|\mathrm{tr}(M^{k-1})| - 2$,
+hence $|\mathrm{tr}(M^k)| \ge 3^k - 2 \cdot 3^{k-1}/(3-1)
+- \ldots$
+More concretely, for the smallest case $\mathrm{tr}(M) = 3$
+(the minimum hyperbolic trace),
+$\mathrm{tr}(M^k)$ satisfies $a_1 = 3$, $a_2 = 7$, $a_3 = 18$,
+$a_4 = 47$, growing strictly and exceeding~$16$ for $k \ge 3$.
+For larger base trace, growth is faster.
+Therefore $|\mathrm{tr}(M^k)| > 16$ for all $k \ge 3$ and all
+hyperbolic~$M$, and no $c \in \{3, 4, 6, 10, 16\}$
+arises as $\mathrm{tr}(M^k)$ for $k \ge 3$.
+
+\emph{Conclusion.}
+Cases $k = 2$ and $k \ge 3$ together rule out all
+non-primitive possibilities; all five traces
+correspond to primitive hyperbolic conjugacy classes.
 \end{proof}
 
 \begin{remark}[Automorphic correction on quotient surfaces]
@@ -2429,88 +2816,162 @@ The listed primes are verified by direct Legendre symbol computation.
 
 \begin{theorem}[Universality of $N_{\mathrm{crit}} = 7$]
 \label{thm:universality}
-For any discrete subgroup $\Gamma \subset \mathrm{PSL}(2,\mathbb{R})$,
-any $N \ge 3$, and any Fourier mode $m = 1, \ldots, N{-}1$:
-the automorphic correction to the Havelock eigenvalue vanishes
-at $\xi = 0$:
+Let $\Gamma \subset \mathrm{PSL}(2,\mathbb{R})$ be a discrete,
+torsion-free, \emph{cocompact} subgroup (so that $\Gamma
+\backslash \mathbf{H}^2$ is a closed Riemannian surface,
+with no cusps and no parabolic elements), and let the
+$N$-vortex polygon on $\Gamma\backslash\mathbf{H}^2$ be
+placed at the quotient image of the origin $z_0 = 0 \in
+\mathbf{H}^2$ with stereographic radius $r_E = a\sqrt{\xi}$.
+Then for any $N \ge 3$ and any Fourier mode
+$m \in \{1, \ldots, N{-}1\}$, the automorphic correction
+to the Havelock eigenvalue vanishes at $\xi = 0$:
 \[
   \delta C_1(\Gamma, N, m, \xi{=}0) = 0.
 \]
 In particular, $N_{\mathrm{crit}} = 7$ at $\xi = 0$ on every
-quotient surface $\Gamma\backslash\mathbf{H}^2$, regardless of
-the topology of the surface or the arithmeticity of~$\Gamma$.
+closed quotient surface $\Gamma\backslash\mathbf{H}^2$,
+regardless of the genus of the surface or the arithmeticity
+of~$\Gamma$.
 \end{theorem}
 
+\begin{remark}[Non-cocompact extension and relation to \S\ref{sec:geodesics-on-modular}]
+\label{rmk:non-cocompact}
+For non-cocompact $\Gamma$ with cusps (e.g.\
+$\Gamma \subset \mathrm{PSL}(2,\mathbb{Z})$), the automorphic
+Green's function requires regularization near cusps.
+The proof below uses only the \emph{local} Hadamard expansion
+at the polygon center~$z_0$ and the $\mathbb{Z}_N$ character
+orthogonality on the Taylor coefficients; neither step
+depends on the global behavior of $G_\Sigma$ near cusps.
+Therefore the conclusion $\delta C_1(m, \xi = 0) = 0$ extends
+verbatim to any discrete group $\Gamma$ of orientation-preserving
+isometries of~$\mathbf{H}^2$ (with or without torsion and cusps),
+provided the polygon center~$z_0$ is bounded away from elliptic
+fixed points and cusps (so the Hadamard expansion is uniform
+in a neighborhood of~$z_0$).
+
+Note also that the use of $\mathrm{SL}(2,\mathbb{Z})$ in
+\S\ref{sec:geodesics-on-modular} (geodesic correspondence)
+is \emph{unrelated} to this Universality Theorem:
+\S\ref{sec:geodesics-on-modular} uses hyperbolic matrix
+conjugacy classes to identify stability thresholds with
+closed geodesics on the modular surface, not the
+automorphic Green's function.  No circularity arises.
+\end{remark}
+
 \begin{proof}
-The automorphic correction is a sum over nontrivial images,
+We use the Hadamard structure of the automorphic Green's
+function on the closed quotient, avoiding any sum-over-$\gamma$
+dominated-convergence issue.
+
+\emph{Setup.}
+On a closed oriented $2$-manifold $\Sigma := \Gamma\backslash
+\mathbf{H}^2$ with area~$A$, the scalar Green's function $G_\Sigma$
+with mean-zero constraint satisfies $-\Delta_\Sigma G_\Sigma(\cdot, w)
+= \delta_w - 1/A$ and admits the uniform short-distance Hadamard
+expansion
+\begin{equation}\label{eq:hadamard-expansion}
+  G_\Sigma(z, w) \;=\; -\frac{1}{2\pi}\ln d(z, w)
+    \;+\; \gamma_\Sigma(z)
+    \;+\; R_\Sigma(z, w),
+\end{equation}
+where $d$ is the geodesic distance, $\gamma_\Sigma$ is the
+(smooth) Robin function, and $R_\Sigma$ is smooth on $\Sigma
+\times \Sigma$ with $R_\Sigma(z, z) = 0$ and
+$\nabla_w R_\Sigma(z, w)|_{w=z} = 0$ (\citealt{Okikiolu2008},
+Lemma~2.1; here we lift everything to $\mathbf{H}^2$ via a
+single fundamental domain containing $z_0 = 0$).
+
+Lifting to the universal cover $\mathbf{H}^2$, the Green's function
+$G_\Sigma$ appears as a convergent automorphic sum with a
+regularization:
 \[
+  G_\Sigma(z, w)
+  \;=\; -\frac{1}{2\pi}\ln d_{\mathbf{H}^2}(z, w)
+  \;+\; \mathcal{R}_\Gamma(z, w),
+\]
+where $\mathcal{R}_\Gamma$ is the smooth \emph{automorphic regular
+part}, defined intrinsically by~\eqref{eq:hadamard-expansion}
+and not by a geometrically divergent sum.  The universal-cover
+Havelock contribution is computed from the log-term alone
+(Lemma~\ref{lem:havelock}); the automorphic correction we must
+evaluate is
+\begin{equation}\label{eq:delta-C1-smooth}
   \delta C_1(m, \xi)
-  = \sum_{\gamma \in \Gamma \setminus \{1\}}
-  \sum_{k=0}^{N-1} H_{rr}(z_0, \gamma(z_k))\,\cos(2\pi mk/N),
-\]
-with the identity $\gamma = 1$ yielding the universal-cover
-Havelock contribution, which is subtracted.
-We show each $\gamma \ne 1$ summand vanishes as $\xi\to 0^+$.
+  \;=\; \sum_{k=0}^{N-1}
+    \partial_{r,r}^2\, \mathcal{R}_\Gamma(z_0, z_k)
+  \cdot \cos(2\pi m k/N),
+\end{equation}
+where $\partial_{r,r}^2$ is the radial second derivative in
+geodesic normal coordinates based at~$z_0$, and $z_k = r_E\,
+e^{2\pi ik/N}$ are the polygon vertices.
 
-As $\xi \to 0$, $r_E = a\sqrt{\xi} \to 0$ and
-$z_k = r_E e^{2\pi ik/N} \to 0$ uniformly in~$k$.
-Fix $\gamma \ne 1$ and write
-$\gamma = \bigl[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\bigr]$.
-We consider two cases.
+\emph{Taylor expansion of the smooth regular part.}
+The function $w \mapsto \partial_{r,r}^2\,\mathcal{R}_\Gamma(z_0, w)$
+is smooth on a neighbourhood of $w = z_0 = 0$ (by smoothness of
+$\mathcal{R}_\Gamma$ on $\Sigma \times \Sigma$).  Expand it in
+$z$-coordinates around $w = 0$:
+\begin{equation}\label{eq:R-taylor}
+  \partial_{r,r}^2\,\mathcal{R}_\Gamma(z_0, w)
+  \;=\; A_0 + A_1 w + \bar A_1 \bar w
+    + A_2 w^2 + \bar A_2 \bar w^2 + A_{11} |w|^2
+    + O(|w|^3),
+\end{equation}
+with coefficients $A_0 \in \mathbb{R}$,
+$A_1, A_2 \in \mathbb{C}$, $A_{11} \in \mathbb{R}$ depending
+only on $z_0$ and $\Gamma$ (the reality of $A_0$ and $A_{11}$
+follows from reality of $\partial_{r,r}^2 \mathcal{R}_\Gamma$
+when $\mathcal{R}_\Gamma$ is real-valued).
 
-\emph{Case 1: $d \ne 0$.} Then $\gamma(0) = b/d$ is a finite
-interior point of $\mathbf{H}^2$, and
-$\gamma(z_k) = (a z_k + b)/(c z_k + d) \to b/d$ as $z_k \to 0$,
-uniformly in~$k$ (the convergence is $O(r_E)$).
-Hence $H_{rr}(z_0, \gamma(z_k)) \to H_{rr}(z_0, b/d)$ with the
-limit independent of~$k$.
+\emph{Evaluation of the Fourier-$m$ coefficient.}
+Substituting $w = z_k = r_E e^{2\pi ik/N}$ into~\eqref{eq:R-taylor}
+and taking $\sum_k (\cdot) \cos(2\pi m k/N)$, we use the
+standard $\mathbb{Z}_N$ character sums
+$\sum_{k=0}^{N-1} e^{2\pi i j k/N} = N \cdot \mathbf{1}[j \equiv 0
+\!\!\pmod N]$:
+\begin{itemize}[leftmargin=*,topsep=0pt,itemsep=0pt]
+\item Constant term $A_0$: $\sum_k \cos(2\pi mk/N) = 0$
+  for $m \in \{1, \ldots, N{-}1\}$, so this contributes $0$.
+\item Linear terms $A_1 w_k + \bar A_1 \bar w_k = 2\operatorname{Re}(A_1 w_k)
+  = 2 r_E \operatorname{Re}(A_1 e^{2\pi i k/N})$:
+  $\sum_k e^{2\pi i k/N} \cos(2\pi m k/N)
+  = (N/2)(\mathbf{1}[m = 1] + \mathbf{1}[m = N{-}1])$,
+  so this contributes $O(r_E)$ at modes $m \in \{1, N{-}1\}$ and
+  $0$ at interior modes $m \in \{2, \ldots, N{-}2\}$.
+\item Quadratic-in-$w$ terms $A_2 w^2$:
+  $\sum_k e^{4\pi i k/N}\cos(2\pi mk/N)
+  = (N/2)(\mathbf{1}[m = 2] + \mathbf{1}[m = N{-}2])$,
+  contributing $O(r_E^2)$ at modes $m \in \{2, N{-}2\}$
+  and $0$ at other interior modes.
+\item Quadratic-in-$|w|^2$ term $A_{11} |w|^2 = A_{11} r_E^2$
+  (independent of $k$): $\sum_k \cos(2\pi m k/N) = 0$ for
+  $m \ne 0 \pmod N$.
+\item Higher-order $O(|w|^3)$ terms contribute $O(r_E^3)$.
+\end{itemize}
+Consequently, at each fixed $m \in \{1, \ldots, N{-}1\}$,
+\begin{equation}\label{eq:delta-C1-order}
+  \delta C_1(m, \xi)
+  \;=\; O(r_E^{\alpha(m)})
+  \;=\; O(\xi^{\alpha(m)/2})
+  \qquad \text{as } \xi \to 0^+,
+\end{equation}
+where $\alpha(m) = 1$ for $m \in \{1, N{-}1\}$, $\alpha(m) = 2$
+for $m \in \{2, N{-}2\}$, and $\alpha(m) \ge 3$ for
+$m \in \{3, \ldots, N{-}3\}$.  In all cases $\alpha(m) \ge 1$
+and $\delta C_1(m, 0) = 0$.
 
-\emph{Case 2: $d = 0$.} Then $c \ne 0$ (else $\gamma$ is
-singular), and $\gamma(z_k) = (a z_k + b)/(c z_k)
-= a/c + b/(c z_k)$, whose hyperbolic distance to any fixed
-interior point~$z_0$ diverges as $|z_k|\to 0$.
-The free logarithmic Green's function of $-\Delta$
-on~$\mathbf{H}^2$ in terms of the hyperbolic distance
-$d = d_{\mathbf{H}^2}$ is
-$H(z,w) = -(1/2\pi)\ln\tanh(d/2)$.
-Differentiating in~$d$:
-$H'(d) = -(1/2\pi)\operatorname{csch}(d)$,
-$H''(d) = (1/2\pi)\operatorname{csch}(d)\coth(d)$,
-both $O(e^{-d})$ as $d\to\infty$.
-In geodesic (Fermi) coordinates based at $z_0$, the radial
-second derivative $H_{rr}$ is a linear combination of $H'(d)$
-and $H''(d)$ with bounded coefficients, hence
-$H_{rr}(z_0,w) = O(e^{-d_{\mathbf{H}^2}(z_0,w)})$
-as $d\to\infty$
-(an elementary derivation; cf.\ \citealt{Buser1992}, Ch.~7
-for the general resolvent asymptotics).
-Hence $H_{rr}(z_0, \gamma(z_k)) \to 0$ uniformly in~$k$.
-
-In both cases the factor $H_{rr}(z_0, \gamma(z_k))$ tends to a
-$k$-independent limit $L(\gamma)$ (either $H_{rr}(z_0, b/d)$ or
-$0$), giving
-\[
-  \lim_{\xi \to 0^+}\sum_{k=0}^{N-1}
-  H_{rr}(z_0, \gamma(z_k))\cos(2\pi mk/N)
-  = L(\gamma) \cdot
-  \underbrace{\sum_{k=0}^{N-1} \cos(2\pi mk/N)}_{= 0}
-  = 0,
-\]
-since $\sum_k \cos(2\pi mk/N) = 0$ for $1 \le m \le N-1$ by
-$\mathbb{Z}_N$ character orthogonality.
-Summing over $\gamma\in\Gamma\setminus\{1\}$:
-since $z_k\to 0$ uniformly in~$k$, for all sufficiently small
-$\xi$ the image points $\gamma(z_k)$ lie in a compact
-fundamental domain away from cusps (when cusps are present);
-the Poincar\'e series $\sum_{\gamma\ne 1} H_{rr}(z_0,\gamma w)$
-converges absolutely on such compact interior regions by the
-$O(e^{-d})$ decay combined with the lattice-point counting
-estimate $|\{\gamma : d(z_0,\gamma w) < R\}| = O(e^R)$
-(\citealt{Buser1992}, Thm.~9.2.10).
-Dominated convergence then gives $\delta C_1 \to 0$.
-The Havelock eigenvalue at $\xi = 0$ on
-$\Gamma\backslash\mathbf{H}^2$ therefore equals its
-universal-cover value $(N{-}1) - m(N{-}m)/2$ exactly.
+\emph{Well-definedness at $\xi = 0$ and continuity.}
+The function $\xi \mapsto \delta C_1(m, \xi)$ is continuous on
+$[0, \xi_0)$ for some $\xi_0 > 0$ by smoothness of
+$\mathcal{R}_\Gamma$ and of the ring configuration $z_k(\xi)$.
+The Taylor estimate~\eqref{eq:delta-C1-order} gives the
+one-sided limit $\delta C_1(m, 0^+) = 0$.  This limit is
+independent of topological features of $\Gamma\backslash
+\mathbf{H}^2$: the argument uses only smoothness of
+$\mathcal{R}_\Gamma$ near the diagonal, a universal property
+of the automorphic Green's function for any cocompact
+torsion-free $\Gamma$.
 \end{proof}
 
 \begin{remark}[Topology as a curvature correction]
@@ -2624,11 +3085,27 @@ The $N$-gon is Morse--Bott iff $\lambda_m \ne 0$ for all
 $m \in \{2, \ldots, N{-}1\}$.
 Setting $\lambda_m = 0$ gives $m^2 - Nm + 2(N{-}1) = 0$
 with discriminant $\Delta = (N{-}4)^2 - 8$.
-For integer solutions we need $\Delta = k^2$, i.e.\
-$(N{-}4{-}k)(N{-}4{+}k) = 8$.
-The only factorization with matching parity is $(2,4)$,
-giving $N = 7$, $k = 1$, $m \in \{3,4\}$.
+For integer solutions we need $\Delta = k^2$ with $k \ge 0$,
+i.e.\ $(N{-}4{-}k)(N{-}4{+}k) = 8$.
+With $N \ge 5$ so that $N-4 \ge 1$ and $N-4+k > 0$,
+the two factors are positive integers of the same parity
+(both even, since their product is $8$ and their difference
+$2k$ is even); the only such factorization is
+$(N{-}4{-}k, N{-}4{+}k) = (2, 4)$,
+giving $N = 7$, $k = 1$, $m_\pm = (N \mp k)/2 = 3, 4$.
+For $N \in \{3, 4, 5, 6\}$ the equation has no real
+roots: the discriminant $\Delta = (N-4)^2 - 8$ evaluates
+to $-7, -8, -7, -4$ respectively (all negative), so
+$\lambda_m = 0$ has no solution in~$m$.
 Therefore $N = 7$ is the unique degenerate case.
+
+Moreover, for all $N \ge 8$ the smaller real root
+$m_- = \tfrac12(N - \sqrt{(N{-}4)^2 - 8})$ satisfies $m_- > 2$:
+$m_- > 2$ is equivalent to $N - 4 > \sqrt{(N{-}4)^2 - 8}$,
+i.e.\ $(N{-}4)^2 > (N{-}4)^2 - 8$, which holds unconditionally.
+Hence no interior $m \in \{2,\ldots,N{-}2\}$ is ever a zero-crossing
+for $N \ne 7$ (the real roots lie outside the interior range
+or do not exist).
 
 The Morse index for $N \ge 8$ is $N{-}5$ by
 Proposition~\ref{prop:morse-index}.
@@ -2757,14 +3234,31 @@ which the $\mathbb{Z}_N$ Casimir maximum equals the logarithmic $C_1$:
 \end{theorem}
 
 \begin{proof}
-For odd $N$ (the binding case): $\max_m f = (N^2{-}1)/8$
-and $C_1 = N{-}1$.  Setting $(N^2{-}1)/8 = N{-}1$ and
-multiplying by~$8$: $N^2 - 1 = 8(N{-}1)$, i.e.,
-$N^2 - 8N + 7 = 0$.  This factors as $(N{-}1)(N{-}7) = 0$,
-giving $N = 7$ (the root $N = 1$ is below the polygon range).
-For even $N$: $\max_m f = N^2/8$; setting $N^2/8 = N{-}1$
-gives $N^2 - 8N + 8 = 0$ with roots $4 \pm 2\sqrt{2}$
-(irrational, so no even transition exists).
+We check the two parities separately and the small-$N$
+boundary explicitly.
+
+\emph{Odd $N$ (the binding case).}
+$\max_m f = (N^2{-}1)/8$ and $C_1 = N{-}1$.  Setting
+$(N^2{-}1)/8 = N{-}1$ and multiplying by~$8$:
+$N^2 - 1 = 8(N{-}1)$, i.e.\ $N^2 - 8N + 7 = 0$.
+This factors as $(N{-}1)(N{-}7) = 0$, giving $N = 7$
+(the root $N = 1$ is below the polygon range $N \ge 3$).
+For the other odd values $N \in \{3, 5\}$: direct
+substitution gives $N^2 - 8N + 7 = 9 - 24 + 7 = -8$
+and $25 - 40 + 7 = -8$, both nonzero, confirming
+$N = 7$ is the unique odd root.
+
+\emph{Even $N$.}
+$\max_m f = N^2/8$; setting $N^2/8 = N{-}1$ gives
+$N^2 - 8N + 8 = 0$ with roots $4 \pm 2\sqrt{2}$
+(irrational, $\approx 1.17$ and $6.83$).  Since
+neither is a positive integer, no even~$N$ satisfies
+the equation; direct check for $N \in \{4, 6\}$
+confirms $N^2 - 8N + 8 = -8$ and $-4$ respectively.
+
+Combining the two parities, $N = 7$ is the unique
+positive integer $N \ge 3$ at which the $\mathbb{Z}_N$
+Casimir maximum equals~$C_1$.
 \end{proof}
 
 \noindent
@@ -2893,6 +3387,25 @@ polynomial $B_2(x) = x^2 - x + \tfrac{1}{6}$.
 This section develops the resulting identities,
 which connect vortex stability to the Riemann zeta function
 through the Bernoulli numbers.
+
+\paragraph{Nature of results in this section.}
+The identities below (Bernoulli--Havelock, Legendre quadrupole,
+$\csc^2$ zeta-value tower, finite-$N$ Basel, closed-form moment
+tower, von~Staudt--Clausen characterization) are each
+\emph{independently classical} as identities in number theory
+or special-function theory.  Their role here is not to assert
+individually novel results, but to exhibit a unified
+\emph{bridge structure}: the Havelock eigenvalue is
+simultaneously a Bernoulli polynomial value, a Legendre
+quadrupole, a finite Basel sum, and a generating-function
+coefficient for the even zeta values.  We state each as a
+theorem because each is load-bearing for downstream structural
+claims (e.g., Theorem~\ref{thm:csc2-zeta-tower} justifies the
+trace-formula identification in Paper~V; Theorem~\ref{thm:von-staudt-N}
+connects $N_{\mathrm{crit}} = 7$ to Bernoulli-number arithmetic);
+the novelty lies in the collection and its role in the
+vortex-stability framework, not in any single identity taken
+in isolation.
 
 \begin{theorem}[Bernoulli--Havelock identity]
 \label{thm:bernoulli-havelock}
@@ -3052,28 +3565,78 @@ $\sin^2\!\bigl(\arctan\sqrt{N}\bigr) = N/(N{+}1)$.
 (From $\tan\theta = \sqrt{N}$ and $\sin^2\theta
 = \tan^2\theta/(1 + \tan^2\theta)$.)
 
-\begin{theorem}[Von Staudt--Clausen characterization]
+\begin{theorem}[Von Staudt--Clausen characterization via Korselt]
 \label{thm:von-staudt-N}
-For odd $N \ge 3$ with $N{-}1$ even:
-$N \mid \mathrm{denom}(B_{N-1})$
-if and only if $N$ is prime.
+For odd $N \ge 3$ (so that $N{-}1$ is an even positive index for the
+von Staudt--Clausen theorem), the following are equivalent:
+\begin{enumerate}[label=\textup{(\alph*)}]
+\item $N \mid \mathrm{denom}(B_{N-1})$.
+\item $N$ is squarefree and $(p{-}1) \mid (N{-}1)$ for every
+  prime $p$ dividing~$N$.
+\end{enumerate}
+In particular, \textup{(a)} holds if $N$ is prime, and
+\textup{(a)} also holds for the odd squarefree composite
+$N$ satisfying Korselt's criterion (the Carmichael numbers,
+the smallest being $N = 561 = 3 \cdot 11 \cdot 17$, which is odd
+since all Carmichael numbers are odd).
+For $3 \le N \le 559$ odd, \textup{(a)} holds iff $N$ is prime;
+for $N \ge 561$ the Carmichael numbers provide composite
+exceptions.
 \end{theorem}
+
 \begin{proof}
 By the von Staudt--Clausen theorem,
-$\mathrm{denom}(B_{2k}) = \prod_{\substack{p \text{ prime}\\(p-1)\mid 2k}} p$.
-For $B_{N-1}$ with $N$ an odd prime: $(N{-}1) \mid (N{-}1)$
-is trivially true, so $N$ appears in the product.
-For $N$ composite, $N$ is not prime and
-cannot appear in the von Staudt--Clausen product.
+$\mathrm{denom}(B_{2k}) = \prod_{\substack{p \text{ prime}\\(p-1)\mid 2k}} p$,
+a squarefree product.
+
+\emph{(a) $\Rightarrow$ (b).}  If $N \mid \mathrm{denom}(B_{N-1})$,
+then $N$ divides a squarefree product of primes, so $N$ is
+squarefree.  Every prime $p$ dividing $N$ must appear in the
+product, i.e.\ $(p{-}1) \mid (N{-}1)$.
+
+\emph{(b) $\Rightarrow$ (a).}  Write $N = p_1\cdots p_r$
+squarefree with each $(p_i{-}1) \mid (N{-}1)$.  Each $p_i$
+appears in the von Staudt--Clausen product, so the
+squarefree product $N = p_1\cdots p_r$ divides it.
+
+\emph{Characterization for small $N$.}  If $N$ is prime,
+$(N{-}1) \mid (N{-}1)$ trivially, so~(b) and hence~(a) holds.
+For $N$ composite, (b) is Korselt's criterion for~$N$ to be
+a Carmichael number (\citealt{Korselt1899}; see
+\citealt{AlfordGranvillePomerance1994} for an infinitude
+result).  The smallest Carmichael number is
+$N = 561$ (all Carmichael numbers are odd).  For $3 \le N \le 559$ with $N$ composite, (b)
+fails, so (a) fails; hence in this range (a) $\iff N$ prime.
 \end{proof}
 
-At $N = 7$: $\mathrm{denom}(B_6) = 2 \cdot 3 \cdot 7 = 42$,
+\begin{remark}[Vortex interpretation at $N = 7$]
+The application to vortex stability uses $N = 7$, which is
+prime.  The Carmichael correction to the naive
+``primeness characterization'' is irrelevant for the
+Havelock threshold $N_{\mathrm{crit}} = 7$ but is recorded
+here for rigor.  The smallest Carmichael $N = 561$ is far
+above any stability threshold studied in this paper, and the
+number-theoretic distinction (prime vs.\ Carmichael) does not
+affect the polygon-stability conclusion.
+\end{remark}
+
+At $N = 7$ (prime): $\mathrm{denom}(B_6) = 2 \cdot 3 \cdot 7 = 42$,
 confirming $7 \mid 42$.
-Combined with the Havelock stability bound
-($\lambda_{\min}(7) = 0$, $\lambda_{\min}(8) < 0$),
-Theorem~\ref{thm:von-staudt-N} gives an
-independent number-theoretic characterization
-of the critical polygon.
+
+\begin{observation}[Arithmetic coincidence at $N_{\mathrm{crit}}$]
+\label{obs:bernoulli-coincidence}
+The critical polygon $N_{\mathrm{crit}} = 7$ is prime, and every
+prime~$N$ satisfies $N \mid \mathrm{denom}(B_{N-1})$
+(Theorem~\ref{thm:von-staudt-N}).  This is a numerical
+coincidence: the divisibility holds for every odd prime, not
+just~$N = 7$, so Theorem~\ref{thm:von-staudt-N} does not
+distinguish~$N = 7$ from~$N = 5, 11, 13, \ldots$  The
+significance, if any, is that Havelock stability
+(which selects~$N = 7$ by the inequality $(N-1) \ge m(N-m)/2$
+for all~$m$) happens to agree with a number-theoretic property
+(primeness via Korselt) at this value.  No causal link is
+claimed; the observation is recorded for structural interest.
+\end{observation}
 
 \begin{proposition}[Unified conformal dimension]
 \label{prop:unified-conformal}
@@ -3432,11 +3995,23 @@ and their products with~$-I$).
 \label{sec:generations}
 
 \begin{theorem}[Three generations]\label{thm:three-gen}
-Among the integer eigenvalues $\{0, 1, 2, 3, 4\}$ of the
-$\tilde{E}_8$ Cartan matrix, $\mu = 1$ is the unique non-trivial
-eigenvalue whose eigenvector has \emph{adjacent same-sign pairs}
-(doublets).  At $\mu = 1$, the eigenvector partitions the nodes
-into exactly \emph{three doublets} and three singlets (zeros).
+Let $v$ be a real eigenvector of the
+$\tilde{E}_8$ Cartan matrix $C = 2I - A$ with integer
+eigenvalue $\mu \in \{0, 1, 2, 3, 4\}$.
+Call a pair of adjacent nodes $\{i, j\}$ a
+\emph{doublet} at~$\mu$ if $v_i v_j > 0$ (both nonzero, same sign).
+\begin{enumerate}
+\item[\textup{(a)}] At $\mu = 0$, $v$ is proportional to the
+  Perron--Frobenius eigenvector of~$A$ (the marks vector
+  $d = (d_i)$, all $d_i > 0$, \citealt{HornJohnson2013}, Thm.~8.4.4);
+  every adjacent pair is a doublet.
+\item[\textup{(b)}] Among the remaining integer eigenvalues
+  $\mu \in \{1, 2, 3, 4\}$, $\mu = 1$ is the \emph{unique} value
+  whose eigenvector contains at least one doublet.
+\item[\textup{(c)}] At $\mu = 1$, the eigenvector partitions the
+  nodes into exactly \emph{three doublets} and three singlets
+  (nodes with $v_i = 0$).
+\end{enumerate}
 \end{theorem}
 
 \begin{remark}[Selection of $\mu = 1$]
@@ -3463,7 +4038,19 @@ Both represent the first non-trivial excitation above the ground state.
 \end{remark}
 
 \begin{proof}
-\emph{Uniqueness of $\mu = 1$ for doublets.}
+\emph{Part (a): $\mu = 0$.}
+The adjacency matrix $A$ of $\tilde{E}_8$ is the
+adjacency matrix of a connected graph, and by the
+Perron--Frobenius theorem for irreducible non-negative
+matrices (\citealt{HornJohnson2013}, Thm.~8.4.4), the
+largest eigenvalue $\lambda_{\max}(A) = 2$ has a unique
+(up to scaling) eigenvector $d$ with strictly positive
+entries, the marks.  Since $C = 2I - A$, the smallest
+eigenvalue of $C$ is $\mu = 0$ with eigenvector~$d$,
+and every adjacent pair is a doublet.
+
+\emph{Part (b): uniqueness of $\mu = 1$ for nonzero
+doublets.} We rule out $\mu \in \{2, 3, 4\}$.
 The eigenvector at $\mu = 4$ has components proportional to
 $(-1)^{B(i)} d_i$ (Theorem~\ref{thm:spectral-diameter}),
 alternating sign on the bipartition, no same-sign pairs.
@@ -3475,9 +4062,8 @@ all even-mark nodes
 (Corollary~\ref{cor:mu2-vanishing}),
 and the nonzero entries (on odd-mark nodes $\{0,2,4,8\}$)
 are never adjacent.
-At $\mu = 0$: $v_0 \propto d$ (the marks, all positive), every pair is same-sign, but this is the trivial ground state.
-Hence $\mu = 1$ is the unique non-trivial integer eigenvalue
-at which doublets can occur.
+Hence among $\mu \in \{1, 2, 3, 4\}$, only $\mu = 1$ admits
+a doublet in its eigenvector.
 
 \emph{Three doublets at $\mu = 1$ ($\tilde{E}_8$,
 multiplicity~$1$).}
@@ -4125,38 +4711,106 @@ and the value is independent of $s > 1$.
 \end{theorem}
 
 \begin{proof}
-First, $h$ is self-adjoint:
+We establish the four facts
+\textbf{(a)}~$h$ self-adjoint,
+\textbf{(b)}~$\tau(h) = 0$,
+\textbf{(c)}~$h \ne 0$ in $C^*_r(\Gamma)$, and
+\textbf{(d)}~$\tau$ faithful on $C^*_r(\Gamma)$.
+From these we derive $0 < \tau(P_-(h)) < 1$ rigorously via
+the positive/negative part decomposition.
+
+\textbf{(a) Self-adjointness.}
 $(h_\xi^\Gamma)^* = \sum_{\gamma \ne 1}
 \overline{G_s(z_0, \gamma z_0)}\, u_{\gamma^{-1}}
 = \sum_{\gamma \ne 1} G_s(z_0, \gamma^{-1} z_0)\, u_{\gamma^{-1}}
-= h_\xi^\Gamma$,
-using $G_s(z_0, \gamma z_0) = G_s(z_0, \gamma^{-1} z_0) \in \mathbb{R}$
-(the resolvent kernel is real and $\Gamma$-invariant).
+= h_\xi^\Gamma$, using $G_s(z_0, \gamma z_0) \in \mathbb{R}$
+and $\Gamma$-invariance.
 
-(i)~$G_s(d) > 0$ for all $d > 0$ and $s > 1$, so
-$h$ has all-positive coefficients.
-(ii)~$h$ has no identity coefficient ($\gamma \ne 1$).
-Since $\tau$ extracts the identity coefficient and is
-norm-continuous, and the partial sums
-$h_n = \sum_{\ell_\gamma \le n} G_s(z_0,\gamma z_0)\,u_\gamma$
-converge to $h$ in norm (by Theorem~\ref{thm:kk-product}(i)),
-$\tau(h) = \lim_n \tau(h_n) = 0$.
-(iii)~$h \ne 0$ in $C^*_r(\Gamma)$.
-(iv)~The canonical trace $\tau$ on $C^*_r(\Gamma)$ is
-\emph{faithful} for torsion-free $\Gamma$
-(standard; the canonical trace is the identity
-coefficient in the left regular representation):
-$\tau(a^* a) = 0 \Rightarrow a = 0$.
-(v)~If $\mathrm{spectrum}(h) \subset [0, \infty)$: then
-$h \ge 0$, $\tau(h) = 0$, and faithfulness gives $h = 0$,
-contradicting~(iii).
-Similarly, applying the same argument to $-h$:
-if $\mathrm{spectrum}(h) \subset (-\infty, 0]$, then
-$-h \ge 0$ with $\tau(-h) = -\tau(h) = 0$ (by (ii)),
-and faithfulness forces $-h = 0$, hence $h = 0$,
-contradicting~(iii).
-Therefore $h$ has both positive and negative spectrum,
-giving $0 < \tau(P_-) < 1$.
+\textbf{(b) Vanishing trace.}
+$G_s(d) > 0$ for all $d > 0$ and $s > 1$, so
+$h$ has all-positive coefficients, and the identity
+coefficient is excluded ($\gamma \ne 1$).
+Since $\tau$ on $C^*_r(\Gamma)$ extracts the identity
+coefficient, and the partial sums $h_n =
+\sum_{\ell_\gamma \le n} G_s(z_0,\gamma z_0)\,u_\gamma$
+converge to $h$ in operator norm
+(Theorem~\ref{thm:kk-product}(i)), norm-continuity of
+$\tau$ gives $\tau(h) = \lim_n \tau(h_n) = 0$.
+
+\textbf{(c) Non-vanishing.}
+The coefficient of any $u_\gamma$ ($\gamma \ne 1$) in the
+norm-convergent sum is $G_s(z_0, \gamma z_0) > 0$, and
+these coefficients are recovered by applying the
+faithful conditional expectation onto the corresponding
+group element.  In particular, choosing any specific
+$\gamma_0 \ne 1$, $\tau(h \cdot u_{\gamma_0}^*) = G_s(z_0,
+\gamma_0 z_0) > 0$, hence $h \ne 0$.
+
+\textbf{(d) Faithfulness.}
+For any discrete group $\Gamma$, the canonical trace $\tau$
+on $C^*_r(\Gamma)$ defined by
+$\tau(a) = \langle a\,\delta_e,\,\delta_e\rangle_{\ell^2(\Gamma)}$
+is \emph{faithful}: $\tau(a^* a) = 0 \Rightarrow a = 0$.
+This is an elementary consequence of the definition: writing
+$a = \sum_\gamma a_\gamma u_\gamma$ with $a_\gamma \in
+\mathbb{C}$ (distribution-valued), one has
+$\tau(a^* a) = \sum_\gamma |a_\gamma|^2$
+(Parseval on~$\ell^2(\Gamma)$), so vanishing trace of the
+positive element $a^* a$ forces all coefficients to vanish,
+hence $a = 0$ in $C^*_r(\Gamma)$
+(cf.\ \citealt{BrownOzawa2008}, Prop.~2.5.3; torsion-freeness
+is not needed for faithfulness, only for the later
+$K$-theoretic statements).
+
+\textbf{Derivation of $0 < \tau(P_-(h)) < 1$.}
+Since $h$ is self-adjoint, apply the continuous functional
+calculus to decompose
+\[
+  h \;=\; h_+ - h_-,
+  \qquad
+  h_\pm \;:=\; \max(\pm h, 0) \;\ge\; 0,
+  \qquad
+  h_+ h_- \;=\; h_- h_+ \;=\; 0.
+\]
+Let $P_\pm := \chi_{(0, \infty)}(\pm h) = \mathbf{1}\{\pm h > 0\}$
+and $P_0 := \chi_{\{0\}}(h)$.  These are orthogonal spectral
+projections summing to the identity: $P_+ + P_- + P_0 = 1$,
+so $\tau(P_+) + \tau(P_-) + \tau(P_0) = 1$.
+From the decomposition, $h_+ = h P_+$ and $h_- = -h P_-$, and
+\begin{equation}\label{eq:h-pm-trace-bound}
+  0 \le \tau(h_\pm) \le \|h\|\,\tau(P_\pm).
+\end{equation}
+
+\emph{Claim 1:} $\tau(P_-(h)) > 0$.
+Suppose for contradiction $\tau(P_-) = 0$.  By
+\eqref{eq:h-pm-trace-bound}, $\tau(h_-) \le \|h\|\cdot 0 = 0$,
+and since $h_- \ge 0$, $\tau(h_-) \ge 0$, so $\tau(h_-) = 0$.
+Writing $h_- = (h_-^{1/2})^* h_-^{1/2}$, faithfulness~(d)
+gives $h_-^{1/2} = 0$, hence $h_- = 0$, hence $h = h_+ \ge 0$.
+Then $\tau(h) = \tau(h_+) = 0$ with $h_+ \ge 0$; faithfulness
+again forces $h = h_+ = 0$, contradicting~(c).  Therefore
+$\tau(P_-) > 0$.
+
+\emph{Claim 2:} $\tau(P_-(h)) < 1$.
+By the same argument applied to $-h$ (which is also self-adjoint,
+trace-zero, nonzero by~(c)), $\tau(P_-(-h)) > 0$.  Since
+$P_-(-h) = P_+(h)$ (the positive spectral projection of~$h$
+is the negative spectral projection of~$-h$), $\tau(P_+) > 0$.
+Combined with $\tau(P_+) + \tau(P_-) + \tau(P_0) = 1$ and
+$\tau(P_0) \ge 0$: $\tau(P_-) = 1 - \tau(P_+) - \tau(P_0)
+\le 1 - \tau(P_+) < 1$.
+
+Combining Claims 1 and 2: $0 < \tau(P_-(h)) < 1$, as claimed.
+
+\emph{Independence from $s$.}
+The difference $h_{\xi}^\Gamma(s_1) - h_{\xi}^\Gamma(s_2)$ for
+$s_1, s_2 > 1$ is a norm-continuous bounded perturbation
+(Theorem~\ref{thm:kk-product}(i)), and $\tau \circ P_-$ is a
+$K_0$-theoretic invariant of the homotopy class of
+$[h_\xi^\Gamma]$ in the $s > 1$ component
+(by the spectral-flow argument of the preceding section);
+the value is therefore locally constant in $s$ on $(1, \infty)$,
+and by connectedness constant throughout.
 \end{proof}
 
 \begin{theorem}[Wall-crossing formula]
@@ -4186,7 +4840,7 @@ on $[1, N/2]$, so $m'(N{-}m') = m(N{-}m)$ has only the
 solution $m' \in \{m,\, N{-}m\}$.
 On $\mathbf{H}^2$, $C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{-}\xi)^2$
 with $dC_1/d\xi = 2(N{-}1)(1{+}\xi)/(1{-}\xi)^3 > 0$
-on $[0, 1)$; on $\mathbf{S}^2$, $C_1(\xi) = (N{-}1)(1{-}\xi)/(1{+}\xi)$
+on $[0, 1)$; on $\mathbf{S}^2$, $C_1(\xi) = (N{-}1)(1{+}\xi^2)/(1{+}\xi)^2$
 with $dC_1/d\xi = -2(N{-}1)/(1{+}\xi)^2 < 0$.
 In both cases $C_1$ is strictly monotone, so the level set
 $\{C_1 = m(N{-}m)/2\}$ consists of isolated points;

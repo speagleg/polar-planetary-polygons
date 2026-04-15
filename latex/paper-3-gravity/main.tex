@@ -588,78 +588,103 @@ and the identification is forced by Steps~(i), (ii), (iii)
 together with the vortex uniqueness above.
 \end{proof}
 
-\begin{proposition}[Central charge from the conical spectral zeta]
-\label{prop:central-charge}
-The Polyakov conformal anomaly coefficient of the scalar
-Laplacian on the $N$-punctured sphere
-$S^2\!\setminus\!\{z_1,\ldots,z_N\}$
-with cone angle $2\pi/N$ at each vertex of the regular $N$-gon
-is
-\begin{equation}\label{eq:central-charge}
-  c \;=\; 12\,b(N),
-  \qquad
-  b(N) = \frac{N(N{+}1)}{12} - \ln 2
+\begin{definition}[Polygon self-energy invariant]
+\label{def:polygon-self-energy}
+Let $f(m,N) = m(N{-}m)/2$ denote the Havelock Casimirs.
+The \emph{polygon self-energy invariant} is the closed-form
+$\mathbb{Z}_N$-averaged sum
+\begin{equation}\label{eq:b-definition}
+  b(N) \;:=\; \frac{1}{N{-}1}\sum_{m=1}^{N-1}
+  \bigl[f(m,N) + \ln\sin(\pi m/N)\bigr]
+  \;=\; \frac{N(N{+}1)}{12} - \ln 2
   + \frac{\ln N}{N{-}1}.
+\end{equation}
+\end{definition}
+
+\begin{lemma}[Closed form for $b(N)$]
+\label{lem:bN-closed-form}
+The polygon self-energy invariant admits the closed form
+in~\eqref{eq:b-definition}.
+\end{lemma}
+
+\begin{proof}
+The mean of the Havelock Casimirs is
+\begin{equation}\label{eq:mean-casimir}
+  \frac{1}{N{-}1}\sum_{m=1}^{N-1} f(m,N)
+  \;=\; \frac{N(N{+}1)}{12}
+\end{equation}
+(Paper~I, Lemma~\ref*{I-lem:mean-casimir}, proved by
+Bernoulli's finite Basel identity).
+The Gauss product
+\begin{equation}\label{eq:gauss-product}
+  \prod_{m=1}^{N-1}\sin(\pi m/N)
+  \;=\; \frac{N}{2^{N-1}},
+\end{equation}
+proved via the Hurwitz zeta derivative
+$\zeta_H'(0, m/N) = \ln\Gamma(m/N) - \tfrac{1}{2}\ln(2\pi)$
+(\citealt{DLMF}, \S25.11) and the Euler reflection formula
+$\Gamma(x)\Gamma(1{-}x) = \pi/\sin(\pi x)$
+(\citealt{DLMF}, \S5.5.3), gives
+\begin{equation}\label{eq:log-sin-mean}
+  \frac{1}{N{-}1}\sum_{m=1}^{N-1}\ln\sin(\pi m/N)
+  \;=\; \frac{\ln N}{N{-}1} - \ln 2.
+\end{equation}
+Adding \eqref{eq:mean-casimir} and \eqref{eq:log-sin-mean}
+yields~\eqref{eq:b-definition}.
+\end{proof}
+
+\begin{proposition}[Polygon central charge under Brown--Henneaux]
+\label{prop:central-charge}
+Assume (i)~the CMS--CS Casimir identification
+(Proposition~\ref{prop:casimir-havelock}), which establishes
+the polygon on $\mathbf{H}^2$ as the boundary theory of
+$\mathrm{SL}(2,\mathbb{R})$ Chern--Simons gravity on
+$\mathrm{AdS}_3$, and (ii)~the Brown--Henneaux theorem
+(\citealt{BrownHenneaux1986}), giving the asymptotic
+Virasoro central charge $c = 3\ell/(2G)$ for
+asymptotically $\mathrm{AdS}_3$ gravity with curvature
+radius~$\ell$ and Newton's constant~$G$.
+If Newton's constant of the polygon--gravity correspondence
+is $G = \ell/(8\,b(N))$, then the asymptotic central charge is
+\begin{equation}\label{eq:central-charge}
+  c \;=\; 12\,b(N).
 \end{equation}
 \end{proposition}
 
 \begin{proof}
-The derivation uses three independent ingredients:
-an algebraic eigenvalue identity, a spectral-analytic evaluation,
-and a classical reflection formula.
-
-\emph{Step 1 (Casimir, algebraic).}
-The Havelock eigenvalue formula (Paper~I, Theorem~1) gives the
-$\mathbb{Z}_N$ Fourier modes of the circulant interaction matrix
-the conformal weights $h_m = f(m,N) = m(N{-}m)/2$ for
-$m = 1,\ldots, N{-}1$.
-Their mean is the finite Basel identity
-$\langle h_m \rangle = N(N{+}1)/12$
-(Paper~I, Lemma~\ref*{I-lem:mean-casimir}).
-
-\emph{Step 2 (Cone spectral zeta, analytic).}
-On a flat cone of angle $2\pi\alpha$ ($\alpha = 1/N$), the angular
-eigenvalues of the Laplacian are $\nu_m^2 = (m/\alpha)^2 = (mN)^2$.
-The angular spectral zeta function evaluated at the rational point
-$a = m/N$ gives, via the functional equation of the Hurwitz zeta
-(\citealt{DLMF}, \S25.11),
-\begin{equation}\label{eq:hurwitz-at-cone}
-  \zeta_H'(0,\, m/N)
-  \;=\; \ln\Gamma(m/N) - \tfrac{1}{2}\ln(2\pi).
-\end{equation}
-
-\emph{Step 3 (Euler reflection, analytic).}
-The Gamma values at $x = m/N$ are converted to logarithmic
-sine values by the Euler reflection formula
-$\Gamma(x)\,\Gamma(1{-}x) = \pi/\sin(\pi x)$
-(\citealt{DLMF}, \S5.5.3):
-\begin{equation}\label{eq:log-sin-from-gamma}
-  \ln\sin(\pi m/N)
-  \;=\; \ln\pi - \ln\Gamma(m/N) - \ln\Gamma(1 - m/N).
-\end{equation}
-This derives $\ln\sin(\pi m/N)$ from the cone Laplacian spectrum
-via the Gamma function, without invoking the Gauss product identity.
-
-\emph{Conclusion.}
-Each $\mathbb{Z}_N$ mode carries the anomaly weight
-$w_m = h_m + \ln\sin(\pi m/N)$,
-where $h_m$ is the conformal weight (Step~1) and
-$\ln\sin(\pi m/N)$ is the conical defect contribution (Steps~2--3).
-The Polyakov anomaly normalization (\citealt{Polyakov1981};
-$c/12$ per scalar field on a $2$D surface) gives
-\[
-  \frac{c}{12}
-  \;=\; \frac{1}{N{-}1}\sum_{m=1}^{N-1}
-  \bigl[h_m + \ln\sin(\pi m/N)\bigr]
-  \;=\; b(N),
-\]
-where the Casimir average contributes $N(N{+}1)/12$ and
-the cone-angle sum contributes $-\!\ln 2 + \ln N/(N{-}1)$.
-The Gauss product identity
-$\prod\sin(\pi m/N) = N/2^{N{-}1}$ is a corollary
-(sum the reflection formula~\eqref{eq:log-sin-from-gamma}
-over $m = 1,\ldots,N{-}1$), not an assumption.
+Substituting $G = \ell/(8\,b(N))$ into
+$c = 3\ell/(2G)$ gives $c = 3\ell/(2\cdot\ell/(8\,b(N))) = 12\,b(N)$.
 \end{proof}
+
+\begin{remark}[Status of the normalization $G = \ell/(8\,b(N))$]
+\label{rmk:central-charge-open}
+The polygon Hadamard match
+(Proposition~\ref{prop:newton-havelock}) gives
+$G = 3\ell/((N^2{-}1)\cdot 2\pi\,\varepsilon^2)$ at leading
+order in a small probe polygon radius~$\varepsilon$, with
+$\varepsilon$ an undetermined free parameter of the match.
+Requiring consistency with Brown--Henneaux and the
+identification $c = 12\,b(N)$ fixes
+$\varepsilon^2 = 12\,b(N)/(\pi(N^2{-}1))$
+(numerically $\varepsilon^2 \approx 0.342$ at $N = 7$;
+verified in~\texttt{tests/test\_newton\_from\_c.py}).
+An independent polygon-side determination of~$\varepsilon^2$
+(equivalently, of~$G$) that does not invoke Brown--Henneaux
+is not known; without it, the identification
+$c = 12\,b(N)$ is conditional on the input
+$G = \ell/(8\,b(N))$, which in turn is conditional on
+Brown--Henneaux.  Closing this loop---deriving the
+normalization of the polygon self-energy to the
+Einstein--Hilbert coupling from polygon data alone---is an
+open problem.  All downstream results in this paper use
+$c = 12\,b(N)$ as the working normalization; the
+consistency of the framework under this normalization is
+tested extensively
+(WDW ground state, BTZ entropy, Cardy asymptotics,
+instanton action), but the value $c = 12\,b(N)$ itself is
+not derived from polygon data alone in the present work.
+\end{remark}
+
 
 \paragraph{Consistency checks.}
 From the derived value $c = 12\,b(N)$, four further identifications
@@ -670,11 +695,10 @@ follow as immediate consequences of named theorems:
   in the Wheeler--DeWitt equation (\S\ref{sec:wdw}).
 
 \item[(ii)] \emph{CS level.} The Chern--Simons level is
-  $k = c/6 = 2b(N)$.
-  This follows from Witten's 2+1D gravity = CS identification
-  (\citealt{Witten1988}) combined with the Brown--Henneaux
-  relation $c_{\mathrm{BH}} = 6k$ for $\mathrm{SL}(2,\mathbb{R})$
-  CS at level~$k$.
+  $k = c/6 = 2b(N)$ (eq.~\eqref{eq:cs-level}),
+  non-integer for most~$N$, consistent with
+  $\pi_3(\mathrm{SL}(2,\mathbb{R})) = 0$ (no level
+  quantization for the non-compact gauge group).
 
 \item[(iii)] \emph{Newton's constant.} Brown--Henneaux
   (\citealt{BrownHenneaux1986}) gives
@@ -2265,7 +2289,7 @@ so its expansion inherits this property at every order.
 The coefficient $1/4$ is verified on the three model surfaces:
 $\mathbf{H}^2$ ($R = -2$, $C_1/(N{-}1) = (1{+}\xi^2)/(1{-}\xi)^2$
 with $\xi \approx \varepsilon^2/4$),
-$\mathbf{S}^2$ ($R = +2$, $(1{-}\xi)/(1{+}\xi)$),
+$\mathbf{S}^2$ ($R = +2$, $(1{+}\xi^2)/(1{+}\xi)^2$),
 and the plane ($R = 0$, $C_1 = N{-}1$).
 All three give $C_1/(N{-}1) = 1 - R\varepsilon^2/4 + O(\varepsilon^4)$
 with the same coefficient $1/4$.
@@ -2982,8 +3006,9 @@ which requires $c$~constant for the reasons in
 \S\ref{sec:wdw}, step~1.
 The value $c = 12\,b(N)$ is fixed by the Havelock eigenvalue
 decomposition (Proposition~\ref{prop:equiv-rr}):
-the Polyakov conformal anomaly coefficient of the conical
-$N$-gon sphere is $c = 12\,b(N)$
+the Brown--Henneaux central charge of the
+$\mathrm{SL}(2,\mathbb{R})$ CS theory at the
+$\mathbb{Z}_N$-symmetric flat connection is $c = 12\,b(N)$
 (Proposition~\ref{prop:central-charge}), where the
 $\ln\sin$ terms arise from the Hurwitz zeta at $m/N$
 via the Euler reflection formula, and the Casimir average
@@ -4244,10 +4269,21 @@ reserving $C_1(\xi)$ for the constrained angular stiffness
 The WDW potential is $V(\rho) = \Phi(\rho) - f(m^*,N)$.
 
 \emph{Logical status of~$c$~\eqref{eq:central-charge}.}
-The value $c = 12\,b(N)$ is derived from the Polyakov conformal
-anomaly of the conical $N$-gon sphere
-(Proposition~\ref{prop:central-charge});
-no free parameter is involved.
+The identification $c = 12\,b(N)$ is used as the working
+normalization of the breathing-mode kinetic term.
+It is conditional on Brown--Henneaux
+(Proposition~\ref{prop:central-charge},
+Remark~\ref{rmk:central-charge-open}):
+deriving the polygon-side normalization
+$G = \ell/(8\,b(N))$ from polygon data alone, without
+invoking Brown--Henneaux, is an open problem.
+All quantitative results that follow use this
+normalization; their internal consistency
+(\S\ref{sec:btz} BTZ matching,
+\S\ref{sec:qm-gr-bridge} Cardy asymptotics,
+Paper~V instanton action at $N=11$) is tested
+extensively but the value itself is not derived from
+polygon data alone in the present work.
 
 \emph{Why second-order dynamics from a first-order system.}
 The Kirchhoff equations are first-order, but the WDW equation
