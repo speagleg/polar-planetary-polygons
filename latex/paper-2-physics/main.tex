@@ -391,60 +391,199 @@ of two modes: the radial Fourier modes at $m = 3$ and $m = 4 = N{-}3$
 perturbations), plus the rotation mode (trivially neutral by the
 $\mathrm{SO}(2)$ symmetry of $H$).
 
-For both neutral modes, the \emph{unconstrained} quartic
-$\dd^4\!H/\dd t^4$ (where $t$ is the unit-eigenvector amplitude) takes
-the same value by $\mathbb{Z}_7$ symmetry.  Each of the $21$ vortex
-pairs contributes
+\textbf{Setup.}
+Let $\omega = e^{2\pi i/7}$ and place the seven vortices
+at $z_k = \omega^k$ ($k = 0, \ldots, 6$) on the unit ring.
+The two neutral Havelock modes are $m = 3$ and $m = 4 = 7 - 3$
+(complex conjugate pair, both with eigenvalue $\lambda_3 =
+\lambda_4 = 0$).  Their real span is the two-dimensional
+neutral subspace; its real basis is the cosine direction
+$u_k^c := i\,z_k \cos(6\pi k/7)$ (tangential displacement
+with the $m = 3$ Fourier profile) and the sine direction
+$u_k^s := -i\,z_k \sin(6\pi k/7)$.  Equivalently,
+parameterize the subspace by a complex amplitude $\sigma
+\in \mathbb{C}$:
+\begin{equation}\label{eq:m3-parameterization}
+  u_k(\sigma) := \tfrac{1}{2}i\,z_k\bigl(\sigma\,\omega^{3k}
+    + \bar\sigma\,\omega^{-3k}\bigr).
+\end{equation}
+Real $\sigma = 1$ recovers $u_k^c$.  Each unordered vortex
+pair $(j, k)$ with $j < k$ contributes to the fourth
+$\sigma$-derivative of $H = -\sum_{j<k} \ln|z_j + u_j -
+z_k - u_k|$ at $\sigma = 0$ the standard logarithmic
+quartic
+\begin{equation}\label{eq:per-pair-quartic}
+  \mathcal{Q}_{jk}
+  \;=\; \frac{6\,C_{jk}^2}{A_{jk}^2}
+    - \frac{12\,C_{jk}\,B_{jk}^2}{A_{jk}^3}
+    + \frac{3\,B_{jk}^4}{A_{jk}^4},
+\end{equation}
+where $A_{jk} = |z_j - z_k|^2$, $B_{jk} = 2\operatorname{Re}\bigl(
+(z_j - z_k)\overline{(u_j - u_k)}\bigr)$, $C_{jk} = |u_j - u_k|^2$.
+This expression is the standard expansion of
+$-\tfrac12 \log(A + \varepsilon B + \varepsilon^2 C)$ to
+$O(\varepsilon^4)$ (cf.\ \citealt{Newton2001}, \S2.2).
+The unconstrained quartic is
+\begin{equation}\label{eq:quartic-21pair-sum}
+  \frac{d^4 H}{d\sigma^4}\bigg|_{\sigma = 0,\ \sigma\in\mathbb{R}}
+  \;=\; \sum_{0\le j<k\le 6} \mathcal{Q}_{jk}.
+\end{equation}
+Note that $u_k$ depends on $k$ through both $z_k$ and the
+mode profile $\omega^{\pm 3k}$, so the per-pair $B_{jk}, C_{jk}$
+do \emph{not} depend only on the separation class $|k - j|$:
+the seven pairs in each class give different contributions.
+
+\textbf{Geometric isotropy (forces $\lambda |\sigma|^4$ form).}
+The cyclic relabeling $k \mapsto k + 1 \pmod 7$ is a
+permutation of vortex labels (it does \emph{not} act on the
+algebraic number $\omega$, which remains fixed).  Under this
+relabeling $z_k \to z_{k+1}$ and, by~\eqref{eq:m3-parameterization},
+$u_k(\sigma) \to u_{k+1}(\omega^3 \sigma)$.  Since the sum
+\eqref{eq:quartic-21pair-sum} runs over all unordered pairs
+of $\{0, \ldots, 6\}$ it is invariant under any relabeling,
+so $\sum_{j<k}\mathcal{Q}_{jk}(\sigma) =
+\sum_{j<k}\mathcal{Q}_{jk}(\omega^3 \sigma)$.
+At fixed degree~$4$ in $(\sigma, \bar\sigma)$, the only
+monomials $\sigma^a\bar\sigma^b$ with $a + b = 4$ that are
+invariant under $\sigma \mapsto \omega^3 \sigma$ satisfy
+$3(a-b) \equiv 0 \pmod 7$, forcing $a = b = 2$.  Therefore
+\begin{equation}\label{eq:isotropic-quartic}
+  \sum_{j<k} \mathcal{Q}_{jk}
+  \;=\; \lambda \cdot |\sigma|^4
+  \qquad \text{for a unique constant } \lambda \in \mathbb{R},
+\end{equation}
+and substituting $\sigma = 1$ gives the sum equal to~$\lambda$.
+
+\textbf{Galois rationality (forces $\lambda \in \mathbb{Q}$).}
+This is a separate argument; it acts on the algebraic value
+of the sum, not on labels.  Each $\mathcal{Q}_{jk}$ at
+$\sigma = 1$ is a rational function of $\omega$ with
+denominator a power of $|1 - \omega^{k-j}|^2$; hence the total
+sum lies in the cyclotomic field $\mathbb{Q}(\omega)$ over
+$\mathbb{Q}$.  The Galois group
+$\mathrm{Gal}(\mathbb{Q}(\omega)/\mathbb{Q}) \cong (\mathbb{Z}/7)^*
+\cong \mathbb{Z}/6$ acts on $\mathbb{Q}(\omega)$ by
+$\sigma_a: \omega \mapsto \omega^a$ for $a \in \{1, 2, 3, 4, 5, 6\}$.
+Under $\sigma_a$, the position $z_k = \omega^k$ maps to
+$\omega^{ak} = z_{ak \bmod 7}$ — i.e., $\sigma_a$ acts on
+$\{z_0, \ldots, z_6\}$ as the bijection $k \mapsto ak \bmod 7$
+(a permutation, since $a \in (\mathbb{Z}/7)^*$).
+For $\sigma = 1$ the perturbation $u_k(1) = i z_k \cos(6\pi k/7)$
+maps under $\sigma_a$ to $i\, z_{ak} \cos(6\pi (ak)/7) =
+u_{ak}(1)$ (the cosine character is invariant under any
+permutation of the $7$th-root indices, since
+$\{6\pi k/7 \bmod 2\pi : k = 0, \ldots, 6\}$ is a permutation
+of itself under $k \mapsto ak$).
+Hence $\sigma_a$ permutes both $\{z_k\}$ and $\{u_k\}$
+simultaneously by the same bijection, and the sum
+\eqref{eq:quartic-21pair-sum} (which runs over all unordered
+pairs) is invariant under $\sigma_a$.  Therefore
+\begin{equation}\label{eq:lambda-rational}
+  \lambda \in \mathbb{Q}(\omega)^{\mathrm{Gal}(\mathbb{Q}(\omega)/\mathbb{Q})}
+  \;=\; \mathbb{Q}.
+\end{equation}
+
+\textbf{Explicit evaluation: $\lambda = 1071/4$.}
+The computation is finite but lengthy; it reduces to algebraic
+manipulation in the totally real cubic field
+$K := \mathbb{Q}(\cos(2\pi/7)) \subset \mathbb{R}$, of degree
+$3$ over $\mathbb{Q}$, with $\cos(2\pi/7)$ a root of the
+minimal polynomial
+\begin{equation}\label{eq:minpoly-cos2pi7}
+  8x^3 + 4x^2 - 4x - 1 \;=\; 0,
+\end{equation}
+whose three real roots are
+$\{\cos(2\pi/7),\, \cos(4\pi/7),\, \cos(6\pi/7)\}$
+(equivalently $\{b, -c, -a\}$ in the abbreviations
+$a := \cos(\pi/7)$, $b := \cos(2\pi/7)$, $c := \cos(3\pi/7)$).
+By Vieta, $a + c - b = 1/2$ and $8abc = 1$.
+
+\textbf{Representative reduction for a single pair.}
+As a concrete illustration of the reduction in~$K$,
+consider the pair $(j, k) = (0, 1)$ at $\sigma = 1$.
+Using $\Delta z = 1 - \omega$ and $\Delta u = i(1 + a\omega)$
+(since $c_1 = \cos(6\pi/7) = -a$), direct computation gives
 \[
-  \frac{6C^2}{A^2} - \frac{12CB^2}{A^3} + \frac{3B^4}{A^4},
+  A_{01} = |1 - \omega|^2 = 2 - 2b,
+  \qquad
+  C_{01} = |1 + a\omega|^2 = 1 + 2ab + a^2,
 \]
-where $A = |\Delta z|^2$, $B = 2\operatorname{Re}(\Delta z\cdot
-\overline{\Delta u})$, $C = |\Delta u|^2$ are evaluated at the
-unit-ring N-gon ($|\Delta z|^2 = 4\sin^2(\pi p/N)$ for separation
-class $p$).  Direct summation over all $21$ pairs gives
+and $B_{01}^2/A_{01} = (1+a)^2 \cdot 2(1-b)$ via the identity
+$2\operatorname{Re}((1-\omega)\overline{(i(1+a\omega))})
+= -2(1+a)\sin(2\pi/7)$.  Substituting into the per-pair
+formula~\eqref{eq:per-pair-quartic} and simplifying using
+$1 - b = 2\sin^2(\pi/7) = 2(1 - a^2)/(1+\cos(2\pi/7))$ and
+further reducing in the ring $\mathbb{Q}[a]/(8a^3 - 4a^2
+- 4a + 1)$ (the minimal polynomial of $\cos(\pi/7)$,
+which is the companion of~\eqref{eq:minpoly-cos2pi7}
+via $x \mapsto -x$), one obtains after clearing denominators:
+\begin{equation}\label{eq:Q01-reduced}
+  \mathcal{Q}_{01}
+  \;=\; \frac{3\bigl(8a^8 + 8a^5 + 4a^3 - 8a^6 +
+    9a^4 - 2a^2 - 4a + 1\bigr)}
+    {8\,(1 - a^2)^2}
+  \;\approx\; 90.706,
+\end{equation}
+numerically verified.  Analogous closed-form expressions hold
+for the other $20$ unordered pairs, each a rational function
+of~$\omega$ in~$K$.
+
+\textbf{Value of $\lambda$.}
+Two pieces determine $\lambda$ uniquely.  First, by the Galois
+argument~\eqref{eq:lambda-rational}, $\lambda$ is a rational
+number.  Second, exact rational arithmetic in
+$\mathbb{Q}(\omega)$ (computed symbolically; the whole sum
+collapses to a single element of~$K$ whose coefficients on
+$\{1, a, a^2\}$ in the reduced basis are
+$1071/4$, $0$, $0$ respectively) gives
+\begin{equation}\label{eq:lambda-1071}
+  \lambda \;=\; \frac{1071}{4}.
+\end{equation}
+The computation is carried out symbolically in
+$\mathbb{Q}(\omega)/\Phi_7(\omega)$: each of the $21$ pair
+contributions $\mathcal{Q}_{jk}$ is an element of
+$\mathbb{Q}(\omega)$ (involving non-trivial $\omega$-terms),
+but the full sum is verified to have vanishing coefficient
+on $\omega, \omega^2, \ldots, \omega^5$, leaving the rational
+constant $1071/4$
+(\texttt{scripts/n7\_quartic\_proof.py}; independently
+cross-checked by \texttt{n7\_bifurcation.py} at $50$ decimal
+places).
+
+\textbf{Normalization to the unit-eigenvector amplitude.}
+The squared norm of the cosine eigenvector $u^c$ is
+\begin{equation}\label{eq:uc-norm}
+  \|u^c\|^2
+  \;=\; \sum_{k=0}^{6} \cos^2(6\pi k/7)
+  \;=\; 1 + 2\sum_{j=1}^{3}\cos^2(j\pi/7)
+  \;=\; 1 + 2 \cdot \tfrac{5}{4}
+  \;=\; \tfrac{7}{2},
+\end{equation}
+where $\sum_{j=1}^{3}\cos^2(j\pi/7) = 5/4$ follows from
+$2(a^2 + b^2 + c^2) = 3 + \cos(2\pi/7) + \cos(4\pi/7) +
+\cos(6\pi/7) = 3 + (b - c - a) = 3 - 1/2 = 5/2$ via the
+double-angle identity and Vieta on~\eqref{eq:minpoly-cos2pi7}.
+
+Let $t$ denote the amplitude in unit-Euclidean coordinates,
+so that the perturbation at amplitude~$t$ is
+$t \cdot u^c/\|u^c\|$.  In terms of the
+$\sigma$-parameterization \eqref{eq:m3-parameterization},
+this corresponds to $\sigma = t/\|u^c\|$.  By the chain rule
+(applied four times to the linear substitution $\sigma =
+t/\|u^c\|$),
 \begin{equation}\label{eq:quartic-153}
-  \frac{\dd^4 H}{\dd t^4}\bigg|_{m=3} = \frac{153}{7}.
+  \frac{d^4 H}{dt^4}\bigg|_{t = 0}
+  \;=\; \biggl(\frac{d\sigma}{dt}\biggr)^{4}
+    \frac{d^4 H}{d\sigma^4}\bigg|_{\sigma = 0}
+  \;=\; \frac{\lambda}{\|u^c\|^4}
+  \;=\; \frac{1071/4}{(7/2)^2}
+  \;=\; \frac{1071}{49}
+  \;=\; \frac{153}{7}.
 \end{equation}
-The quartic sum is a polynomial in coordinates of the $N$-gon (whose
-positions are $7$th roots of unity) and is $\mathbb{Z}_7$-invariant:
-simultaneously shifting all vortex labels by one maps the ring to itself
-and maps $u$ to a rotated copy.  By Galois theory, such an invariant
-sum lies in $\mathbb{Q}(\zeta_7)^{\mathbb{Z}_7} = \mathbb{Q}$, so the
-result is necessarily a rational number.  The value $153/7$ is then
-identified by the following argument: the $21$ pairs decompose into
-$6$ separation classes $p=1,\dots,6$ with $7$ pairs each, and the
-per-pair quartic~\eqref{eq:quartic-153} depends on $p$ only through
-$A_p = 4\sin^2(\pi p/7)$ and the mode overlap
-$B_p = 2\operatorname{Re}(\Delta z\cdot\overline{\Delta u})$,
-$C_p = |\Delta u|^2$.  These are algebraic numbers in
-$\mathbb{Q}(\zeta_7)$; the Galois rationality above forces
-a rational result.
-The per-pair quartic
-$6C_p^2/A_p^2 - 12C_p B_p^2/A_p^3 + 3B_p^4/A_p^4$,
-with $A_p = |z_0{-}z_p|^2 = 4\sin^2(\pi p/7)$,
-$C_p = |u_0{-}u_p|^2$, $B_p = 2\operatorname{Re}(\overline{\Delta z}\,\Delta u)$,
-is a rational function of $\omega = e^{2\pi i/7}$
-(the perturbation $u_k = z_k\cos(6\pi k/7)$
-is algebraic over~$\mathbb{Q}(\zeta_7)$).
-Summing over the $6$ separation classes $p = 1,\ldots,6$
-(each contributing $7$ ordered pairs, divided by $2$ for
-unordered), the total decomposes as
-\begin{equation}\label{eq:quartic-decomposition}
-  \frac{d^4 H}{dt^4}\bigg|_{m=3}
-  = 7 \sum_{p=1}^{6}
-    \frac{6C_p^2 - 12 C_p B_p^2/A_p + 3 B_p^4/A_p^2}{2A_p^2}.
-\end{equation}
-Each summand lies in $\mathbb{Q}(\zeta_7)$; the $\mathbb{Z}_7$
-Galois rationality collapses the sum to~$\mathbb{Q}$.
-Direct evaluation in exact rational arithmetic
-(symbolic computation over $\mathbb{Q}(\zeta_7)$
-with the Galois sum collapsing to~$\mathbb{Q}$)
-gives~$153/7$, cross-checked numerically to $50$~decimal
-places (see Code Availability).
-(The $\mathbb{Z}_7$ symmetry forces the degree-$4$ form on
-the $2$-dimensional neutral subspace to be proportional to $|z|^4$,
-so $153/7$ holds for \emph{any} unit vector in the $\{m{=}3,\,m{=}4\}$
-subspace.)
+
+The $\mathbb{Z}_7$-isotropy~\eqref{eq:isotropic-quartic} guarantees
+that the same value $153/7$ is obtained for any unit vector in
+the $\{m = 3,\, m = 4\}$ neutral subspace.
 
 The constraint-surface correction admits an exact closed form via
 the \emph{log-scaling identity}.  The Newton projection onto
@@ -522,9 +661,13 @@ $M$-gon on a ring of radius $R_1 < R_2$.
   \item[(i)] If $N \le 7$ (outer ring Thomson-stable), the two-ring
     configuration is \emph{unstable}: the Lagrangian Hessian has
     at least one negative eigenvalue.
-  \item[(ii)] If $N \ge 8$ (outer ring Thomson-unstable), the inner
-    ring can reduce but \emph{not eliminate} the instability:
-    the two-ring Hessian retains at least one negative eigenvalue.
+  \item[(ii)] If $N \ge 8$ (outer ring Thomson-unstable) and
+    $R_{\mathrm{in}}/R_{\mathrm{out}} \le 1/2$ (the
+    well-separated regime), the inner ring can reduce but
+    \emph{not eliminate} the instability: the two-ring
+    Hessian retains at least one negative eigenvalue.
+    (The non-separated regime is an open problem; see the
+    remark in the proof.)
 \end{itemize}
 In contrast, a single central vortex ($M = 0$) at the
 $\mathbb{Z}_N$ fixed point produces a \emph{uniform} eigenvalue
@@ -535,7 +678,8 @@ full stabilization (Proposition~\ref{prop:kappa-crit}).
 \begin{proof}
 The proof splits into two cases.
 
-\emph{Case 1: $N \ge 8$ (outer ring Thomson-unstable).}
+\emph{Case 1: $N \ge 8$ (outer ring Thomson-unstable),
+well-separated regime $R_{\mathrm{in}}/R_{\mathrm{out}} \le 1/2$.}
 The outer Havelock eigenvalue
 $\lambda_{\lfloor N/2\rfloor}^{\mathrm{outer}}
 = (N{-}1) - \lfloor N/2\rfloor(N{-}\lfloor N/2\rfloor)/2 < 0$
@@ -546,13 +690,27 @@ correction~$\Delta_{\mathrm{inner}}$ whose operator norm
 is bounded by the inner--outer interaction strength:
 $\|\Delta_{\mathrm{inner}}\|
 \le \kappa_{\mathrm{inner}}/(R_{\mathrm{out}} - R_{\mathrm{in}})^2$
-where $R_{\mathrm{out}}, R_{\mathrm{in}}$ are the outer
-and inner ring radii
 (elementary pair-interaction estimate on the flat plane).
 For $R_{\mathrm{in}}/R_{\mathrm{out}} \le 1/2$
-(the "well-separated" regime, as in Jupiter's N=8 with
-central structure where $R_{\mathrm{in}} \ll R_{\mathrm{out}}$),
-this bound is $\ll 0.01$ and
+(as in Jupiter's $N = 8$ with central structure where
+$R_{\mathrm{in}} \ll R_{\mathrm{out}}$), this bound
+specializes to $\|\Delta_{\mathrm{inner}}\|
+\le 4\,\kappa_{\mathrm{inner}}/R_{\mathrm{out}}^2$,
+and we take as the working hypothesis of this case
+the weak-inner-ring normalization
+\begin{equation}\label{eq:weak-inner-hypothesis}
+  \kappa_{\mathrm{inner}} / R_{\mathrm{out}}^2
+  \;\le\; 10^{-2} \cdot
+  |\lambda_{\lfloor N/2\rfloor}^{\mathrm{outer}}|,
+\end{equation}
+which bounds the physical regime of applicability
+(for Jupiter's observed core circulation this is
+satisfied with room to spare; configurations outside
+this regime are not covered by the present proposition).
+The perturbation bound is then
+$\|\Delta_{\mathrm{inner}}\|
+\le 4 \cdot 10^{-2} \cdot
+|\lambda_{\lfloor N/2\rfloor}^{\mathrm{outer}}|$,
 well below $|\lambda_{\lfloor N/2\rfloor}^{\mathrm{outer}}|
 \ge 1/4$.
 By Weyl's inequality on self-adjoint perturbations,
@@ -561,11 +719,25 @@ $\lambda^{\mathrm{pert}}_{\lfloor N/2\rfloor}
 \le \lambda_{\lfloor N/2\rfloor}^{\mathrm{outer}}
 + \|\Delta_{\mathrm{inner}}\| < 0$.
 Cauchy interlacing then gives at least one negative
-eigenvalue of the full two-ring Hessian.
-This proves~(ii) in the separated regime;
-outside this regime the result is verified
-numerically for $M \in \{8,\ldots,99\}$, $N \le 7$
-(Case 2) and is conjectural for $M \ge 100$.
+eigenvalue of the full two-ring Hessian, proving~(ii)
+in the well-separated regime.
+
+\emph{Remark on the non-separated regime.}
+The Weyl bound above requires
+$R_{\mathrm{in}}/R_{\mathrm{out}} \le 1/2$
+to certify $\|\Delta_{\mathrm{inner}}\| <
+|\lambda_{\lfloor N/2\rfloor}^{\mathrm{outer}}|$.
+A closed-form analytic extension to
+$R_{\mathrm{in}}/R_{\mathrm{out}} > 1/2$, $N \ge 8$,
+is an open problem; the physical expectation is that
+the outer ring's intrinsic Thomson instability at
+$N \ge 8$ cannot be removed by a bounded inner
+perturbation respecting $\mathbb{Z}_N$ symmetry, but
+this is not established rigorously in this paper.
+The result (ii) is therefore stated for the
+well-separated regime only; the load-bearing
+application (Jupiter's $N = 8$ with $R_{\mathrm{in}}
+\ll R_{\mathrm{out}}$) lies inside this regime.
 
 \emph{Case 2: $N \le 7$ (outer ring Thomson-stable).}
 The two concentric regular polygons form an equilibrium at the
@@ -1341,12 +1513,12 @@ value by
 at leading order in~$f$, where $\xi = K_{\mathrm{mean}} R^2$.
 For Saturn ($f = 0.098$, $\xi = K_{\mathrm{mean}} R^2
 \approx (15{,}000/58{,}300)^2 = 0.066$):
-the leading-order formula gives $\delta\lambda_3 \approx 0.17$;
+the leading-order formula gives $\delta\lambda_3 \approx 0.171$;
 the exact finite-difference computation
 $C_1(\xi{+}\delta\xi){-}C_1(\xi)$ with
 $\delta\xi = \xi[(1{-}f)^3{-}1]$
-gives $\delta\lambda_3 = 0.16$,
-the residual being $O(f^2)$ corrections.
+gives $\delta\lambda_3 = 0.158$,
+the residual $0.013$ being $O(f^2)$ corrections.
 This reverses the sign from $-0.12$ to $+0.04$
 (comfortably positive, not a marginal flip).
 \end{proposition}
@@ -1358,7 +1530,7 @@ is $K_{\mathrm{pole}} = b^2/a^4
 (since $K_{\mathrm{mean}} \approx 1/(ab)$
 and $b/a = 1{-}f$).
 The sphere threshold formula
-$C_1^{S^2}(\xi) = (N{-}1)(1{-}\xi)/(1{+}\xi)$
+$C_1^{S^2}(\xi) = (N{-}1)(1{+}\xi^2)/(1{+}\xi)^2$
 evaluated at $\xi_{\mathrm{pole}} = K_{\mathrm{pole}} R^2$
 gives, relative to $\xi_{\mathrm{mean}}$:
 $\delta C_1 = -(N{-}1) \times 2\,\delta\xi/(1{+}\xi)^2
