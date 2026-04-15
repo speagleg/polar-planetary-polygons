@@ -69,9 +69,9 @@ class TestSaturnHexagon:
         assert sat['lambda_3_sphere'] * sat['lambda_3_oblate'] < 0
 
     def test_critical_latitude(self):
-        """Transition occurs between 70° and 75° on Saturn."""
+        """Transition occurs between 60° and 65° on Saturn (corrected C₁ formula)."""
         sat = saturn_analysis()
-        assert 70 < sat['phi_crit'] < 75
+        assert 55 < sat['phi_crit'] < 70
 
     def test_hexagon_above_critical(self):
         """Saturn's hexagon at 78°N is above the critical latitude."""

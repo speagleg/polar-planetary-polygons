@@ -168,22 +168,25 @@ def test_h2_threshold_table_odd_field_pattern():
 
 def test_sphere_threshold_n3():
     xi = sphere_stability_threshold(3)
-    assert xi == Fraction(1, 3), f"N=3: expected 1/3, got {xi}"
+    assert abs(xi - 1.0) < 1e-12, f"N=3: expected 1, got {xi}"
 
 
 def test_sphere_threshold_n4():
     xi = sphere_stability_threshold(4)
-    assert xi == Fraction(1, 5), f"N=4: expected 1/5, got {xi}"
+    import math
+    assert abs(xi - (2 - math.sqrt(3))) < 1e-12, f"N=4: expected 2-sqrt(3), got {xi}"
 
 
 def test_sphere_threshold_n5():
     xi = sphere_stability_threshold(5)
-    assert xi == Fraction(1, 7), f"N=5: expected 1/7, got {xi}"
+    import math
+    assert abs(xi - (3 - 2 * math.sqrt(2))) < 1e-12, f"N=5: expected 3-2sqrt(2), got {xi}"
 
 
 def test_sphere_threshold_n6():
     xi = sphere_stability_threshold(6)
-    assert xi == Fraction(1, 19), f"N=6: expected 1/19, got {xi}"
+    import math
+    assert abs(xi - (9 - 4 * math.sqrt(5))) < 1e-12, f"N=6: expected 9-4sqrt(5), got {xi}"
 
 
 def test_sphere_threshold_n7_none():
@@ -198,17 +201,16 @@ def test_sphere_threshold_n8_none():
 
 def test_sphere_threshold_satisfies_C1_condition():
     """
-    For N ≤ 6, at ξ_crit on S², C₁(S², ξ_crit) = m(N-m)/2 exactly.
-    C₁(S², ξ) = (N-1)(1-ξ)/(1+ξ).
+    For N ≤ 6, at ξ_crit on S², C₁(S², ξ_crit) = m(N-m)/2.
+    C₁(S², ξ) = (N-1)(1+ξ²)/(1+ξ)².
     """
-    from fractions import Fraction as F
     for N in range(3, 7):
         xi = sphere_stability_threshold(N)
         assert xi is not None
         m = N // 2
-        T_half = F(m * (N - m), 2)
-        C1 = F(N - 1) * (1 - xi) / (1 + xi)
-        assert C1 == T_half, f"N={N}: C1={C1} != T_half={T_half}"
+        T_half = m * (N - m) / 2.0
+        C1 = (N - 1) * (1 + xi**2) / (1 + xi)**2
+        assert abs(C1 - T_half) < 1e-10, f"N={N}: C1={C1} != T_half={T_half}"
 
 
 def test_sphere_table_only_le6_positive():

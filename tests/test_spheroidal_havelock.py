@@ -49,13 +49,13 @@ class TestSpheroidGeometry:
 
 class TestC1Spheroid:
     def test_sphere_limit(self):
-        """On a sphere (a=b): C₁ = (N-1)(1-ξ)/(1+ξ)."""
+        """On a sphere (a=b): C₁ = (N-1)(1+ξ²)/(1+ξ)²."""
         a = 60000.0
         R = 10000.0
         for N in [5, 6, 8]:
             C1 = C1_spheroid_pole(N, a, a, R)
             xi = R**2 / a**2
-            expected = (N - 1) * (1 - xi) / (1 + xi)
+            expected = (N - 1) * (1 + xi**2) / (1 + xi)**2
             assert abs(C1 - expected) < 1e-6
 
     def test_oblate_pole_less_curved(self):
