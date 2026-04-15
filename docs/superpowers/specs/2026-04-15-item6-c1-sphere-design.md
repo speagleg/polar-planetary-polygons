@@ -1,77 +1,85 @@
-# Item #6 — C₁(S²) Geodesic Derivation Design
+# Item #6 (REVISED) — C₁(S²) Bugfix + Pell Unification
 
-**Date:** 2026-04-15
+**Date:** 2026-04-15 (revised from initial design)
 **Input:** `docs/PAPER1_RIGOR_REWRITE_SPEC.md`, Structural Rewrite #6
-**Problem:** The boxed C₁(S²,ξ) = (N-1)(1-ξ)/(1+ξ) formula — on which the entire §4.2 threshold table depends — is cited from Boatto-Cabral 2003 but not derived in the paper. Reviewer: "not actually derived in the paper."
-**Goal:** Full first-principles derivation from the geodesic Green's function on S², following the same sandbox workflow as Item #1.
+**Discovery:** The formula C₁(S²) = (N-1)(1-ξ)/(1+ξ) cited from BC2003 is **wrong**. The correct formula is C₁(S²) = (N-1)(1+ξ²)/(1+ξ)² — which the appendix already derives as "C₁^eucl" but then incorrectly dismisses as a "limitation of the stereographic derivation."
 
-## Sandbox structure
+## Evidence
 
-```
-docs/rigor-sandbox/item6-c1-sphere/
-├── derivation.tex       # standalone LaTeX (~3-4 pages)
-├── numerical_check.py   # symbolic + numerical verification
-├── review-notes.md      # math-reviewer feedback rounds
-└── replacement-proof.tex # approved appendix replacement
-```
+1. **Stereographic oracle** confirms C₁^eucl to 10⁻⁷ for N ∈ {4,5,6,7}, ξ ∈ {0.15, 0.3, 0.5, 0.7} using the full S² Hamiltonian H_sph with angular momentum constraint J
+2. **Tangential eigenvalue** universally equals m(N-m)/(2ξ), confirming Riemannian Havelock identity
+3. **LMR05** (Laurent-Polz, Montaldi, Roberts 2005, Theorem 4.2) gives the stability condition cos²θ₀ > (ℓ-1)(N-ℓ-1)/(N-1), which translates to C₁ = (N-1)(1+ξ²)/(1+ξ)²
+4. **Polvani-Dritschel 1993** confirms N=4 threshold at θ = arccos(1/√3) = 54.74°, matching ξ* = 2-√3 (the C₁^eucl threshold), NOT 1/5 (the old C₁(S²) threshold)
+5. At the paper's claimed threshold ξ = 1/19 for N=6, the actual eigenvalue is **+0.475** (still stable), not zero
 
-## Derivation strategy
+## What was wrong
 
-The appendix (`latex/paper-A-appendices/main.tex`, lines 178-336) already contains:
+The appendix derives C₁^eucl = (N-1)(1+ξ²)/(1+ξ)² correctly (lines 262-275). Then a "Limitation" paragraph (lines 277-294) claims this is only the "Euclidean stereographic frame" result and cites BC2003 for a different "geodesic-metric" formula C₁(S²) = (N-1)(1-ξ)/(1+ξ). This citation is incorrect — LMR05 (the standard reference) gives the same formula as C₁^eucl.
 
-- The S² Hamiltonian in stereographic coordinates: H_sph = -Σ log|z_j - z_k| + (N-1)/2 Σ log(1+|z_k|²) (eq:H_sph)
-- The equilibrium rotation rate Ω = (N-1)(1-ξ²)/(8ξ) (eq:Omega_S2)
-- Three Euclidean-frame second-variation terms yielding C₁^eucl = (N-1)(1+ξ²)/(1+ξ)² (eq:C1-eucl-frame)
-- A "Limitation" paragraph correctly noting that C₁^eucl is NOT the geodesic-frame result
-- A citation of BC2003 for C₁(S²) = (N-1)(1-ξ)/(1+ξ) (eq:C1_S2, the boxed formula)
+## What the fix looks like
 
-**What's missing:** The derivation that converts the Euclidean-frame computation to the geodesic-frame result, or equivalently a direct computation using the geodesic pair interaction.
+### Conceptual changes
+- C₁^eucl IS the correct C₁(S²). Rename it and promote to the boxed formula.
+- Remove the "Limitation" paragraph and the BC2003 citation for the wrong formula.
+- S² thresholds change from rational {1/3, 1/5, 1/7, 1/19} to Pell units {1, 2-√3, 3-2√2, 9-4√5}.
+- The "rational vs irrational" S²/H² asymmetry narrative becomes a **Pell unification**: both surfaces produce thresholds from fundamental units in Q(√d).
 
-### Key mathematical content
+### The H²/S² duality (new, cleaner)
+- H²: C₁ = (N-1)(1+ξ²)/(1-ξ)²
+- S²: C₁ = (N-1)(1+ξ²)/(1+ξ)²
+- Related by ξ → -ξ (curvature sign flip). Perfect duality.
 
-The geodesic Green's function on S² in stereographic coordinates is:
-```
-h_geo(z_j, z_k) = -log|z_j - z_k| + (1/2)log(1+|z_j|²) + (1/2)log(1+|z_k|²) - log 2
-```
-
-The derivation will:
-1. Start from h_geo and compute the mode-m radial second variation directly
-2. The pairwise correction terms `(1/2)log(1+|z_j|²) + (1/2)log(1+|z_k|²)` contribute additional second-variation terms beyond those in the Euclidean computation
-3. The constraint on S² is angular momentum J = Σ cos θ_k (not Euclidean L = Σ|z_k|²), which changes the Lagrange multiplier structure
-4. Geodesic-frame normalization: at the ring with |z| = r_E, the stereographic conformal factor σ = 2/(1+ξ) rescales perturbation distances
-5. Combining all corrections yields C₁(S²) = (N-1)(1-ξ)/(1+ξ)
-
-### Numerical verification
-
-`numerical_check.py` will verify:
-- C₁(S²,ξ) = (N-1)(1-ξ)/(1+ξ) matches `riemannian_havelock.C1_sphere(N, ξ)` for N ∈ [3,10], ξ ∈ {0.1, 0.2, ..., 0.9}
-- C₁(S²,ξ) matches `curved_surfaces.sphere_constrained_eigenvalues()` oracle for sampled (N, colatitude) pairs
-- Each intermediate algebraic step verified symbolically (sympy) to 30 digits
-- Boundary cases: ξ→0 gives N-1 (flat limit), ξ=1 gives 0 (equator)
-
-## Gates (same as Item #1)
-
-1. **Numerical gate:** `numerical_check.py` exits 0
-2. **math-reviewer gate:** Score ≥ 9.0 AND zero structural deductions on sandbox only
-3. **Diff approval gate:** User approves the exact appendix replacement before it lands
-4. **Regression gate:** Paper builds cleanly, full test suite passes (4447+ tests)
+### New threshold table
+| N | m | Old ξ* (wrong) | New ξ* (correct) | Field |
+|---|---|----------------|-------------------|-------|
+| 3 | 1 | 1/3 | 1 | Q |
+| 4 | 2 | 1/5 | 2-√3 | Q(√3) |
+| 5 | 2 | 1/7 | 3-2√2 | Q(√2) |
+| 6 | 3 | 1/19 | 9-4√5 | Q(√5) |
+| ≥7 | — | None | None | — |
 
 ## Scope
 
-- Replace appendix §2 (lines 178-336 of `latex/paper-A-appendices/main.tex`) with the full geodesic derivation
-- Preserve: `eq:C1_S2` label, `app:c1_s2` section label, "Properties" items
-- The existing Euclidean-frame derivation (terms 1-3) may be kept as intermediate steps if useful, or replaced if cleaner
-- No changes to any other paper section or any other appendix section
+### Phase 1: Sandbox verification (same workflow as Item #1)
+- Verify the correct formula against the stereographic oracle (DONE — Task 2)
+- Verify the new thresholds are Pell units (new check)
+- Verify H²/S² duality ξ → -ξ (new check)
+- math-reviewer gate on the corrected appendix section
+
+### Phase 2: Code fixes (4 source files)
+- `riemannian_havelock.py`: `C1_sphere()` → use `(1+xi**2)/(1+xi)**2`
+- `algebraic_thresholds.py`: `sphere_stability_threshold()` → solve quadratic, return algebraic surd
+- `oblate_spheroid.py`: `C1_sphere()` → same fix
+- `spheroidal_havelock.py`: `C1_sphere_formula()` → same fix
+
+### Phase 3: Test fixes (3+ test files)
+- `test_algebraic_thresholds.py`: update threshold assertions {1/3,...} → {1, 2-√3,...}
+- `test_riemannian_havelock.py`, `test_spheroidal_havelock.py`, `test_oblate_spheroid.py`: update expected values
+
+### Phase 4: Paper fixes (8 LaTeX files)
+- `paper-A-appendices/main.tex`: remove "Limitation" paragraph, promote C₁^eucl to boxed formula, update threshold list and Properties
+- `paper/main.tex` (= paper-1-mathematics): update §4.2 threshold table, replace "rational" claims with Pell-unit structure, update ξ → -ξ duality discussion
+- `paper-2-physics/main.tex`: update formula reference
+- `paper-3-gravity/main.tex`: update table entry
+- `paper-4-field-theory/main.tex`: update formula reference
+- `companion/main.tex`: rewrite threshold explanation, update rationality claim
+- `CLAUDE.md`: update formula
+
+### Phase 5: Diff approval + verification (same gates as Item #1)
+
+## Gates (same as Item #1)
+1. **Numerical:** All oracle checks pass, new threshold values verified
+2. **math-reviewer:** ≥9.0, zero structural deductions on corrected appendix
+3. **Test suite:** All 4447+ tests pass after code+test updates
+4. **Diff approval:** User approves each paper diff before application
 
 ## Non-goals
-
-- No changes to `latex/paper/main.tex`
-- No changes to §4.2 threshold table (it's already correct, just needs the appendix formula derived)
-- No physics-reviewer pass (pure math)
+- Not changing the H² formula or thresholds (those are already correct)
+- Not touching Item #2 (Riemannian Havelock universality) — the tangential eigenvalue IS universal, confirmed by oracle
+- Not changing the Havelock identity proof (Item #1, already done)
 
 ## References
-
-- Existing tests: `tests/test_curved_surfaces.py`
-- Source of truth: `src/planetary_polygons/extensions/riemannian_havelock.py:C1_sphere()`
-- Spec: `docs/PAPER1_RIGOR_REWRITE_SPEC.md`, Item #6
+- LMR05: Laurent-Polz, Montaldi, Roberts 2005, Theorem 4.2
+- Polvani-Dritschel 1993 (N=4 threshold confirmation)
+- Oracle verification: `docs/rigor-sandbox/item6-c1-sphere/numerical_check.py`
 - Item #1 workflow: `docs/superpowers/specs/2026-04-14-paper1-rigor-sandbox-design.md`

@@ -199,6 +199,71 @@ def check_c1_equals_cos_phi() -> int:
     return 0
 
 
+def check_geodesic_second_variation() -> int:
+    """Direct mpmath computation of d²(H_geo - ΩJ)/da² at the N-gon on S².
+
+    Perturbation: δφ_k = a cos(2πmk/N).
+    h_geo = -(1/2) log((1 - cos d)/2).
+    d²h/da² = (1/2)(d²c/da²)/(1-c) + (1/2)(dc/da)²/(1-c)²
+
+    Uses 50-digit mpmath to handle the massive cancellation in per-pair sums.
+    Verifies eigenvalue = (N-1)cos φ₀ - m(N-m)/2.
+    """
+    from mpmath import mp, mpf, cos, sin, tan, pi, fabs, log
+    mp.dps = 50
+    failed = 0
+
+    for phi0_deg in [20, 45, 70]:
+        phi0 = mpf(phi0_deg) * pi / 180
+        S = sin(phi0)
+        C = cos(phi0)
+        xi = tan(phi0 / 2) ** 2
+
+        for N in [5, 6]:
+            for m in [2, 3] if N > 5 else [2]:
+                total_H = mpf(0)
+
+                for p in range(1, N):
+                    Dth = 2 * pi * p / N
+                    cosDth = cos(Dth)
+                    c0 = C ** 2 + S ** 2 * cosDth
+                    omc = 1 - c0  # = 2 S² sin²(πp/N)
+
+                    cosmp = cos(2 * pi * m * p / N)
+
+                    # Fourier-reduced second derivatives summed over j
+                    d2c_sum = -c0 * N + 2 * (mpf(N) / 2) * cosmp * (S ** 2 - C ** 2 * cosDth)
+                    dc_sq_sum = S ** 2 * C ** 2 * (1 - cosDth) ** 2 * N * (1 + cosmp)
+
+                    # d²h summed over j for fixed p
+                    t1 = d2c_sum / (2 * omc)
+                    t2 = dc_sq_sum / (2 * omc ** 2)
+                    total_H += (t1 + t2) / 2  # (1/2) Σ_p for Σ_{j<k}
+
+                # d²J/da² = -(N/2) cos φ₀
+                d2J = -mpf(N) / 2 * C
+
+                # Ω = (N-1)(1-ξ²)/(8ξ)
+                Omega = (N - 1) * (1 - xi ** 2) / (8 * xi)
+
+                eigenvalue = (total_H - Omega * d2J) / (mpf(N) / 2)
+                expected = (N - 1) * C - mpf(m * (N - m)) / 2
+
+                diff = fabs(eigenvalue - expected)
+                ok = diff < mpf("1e-10")
+                status = "OK" if ok else "FAIL"
+                print(f"  N={N} m={m} phi0={phi0_deg}deg: "
+                      f"eigenvalue={float(eigenvalue):.8f} "
+                      f"expected={float(expected):.8f} "
+                      f"delta={float(diff):.2e} [{status}]")
+                if not ok:
+                    failed += 1
+
+    if failed == 0:
+        print("  Geodesic second variation matches (N-1)cos(phi0) - m(N-m)/2")
+    return failed
+
+
 def check_conversion_factor_meaning() -> int:
     """The conversion (1-ξ²)/(1+ξ²) = cos(2 arctan(√ξ)) = cos φ₀ ... no.
     Let's verify: (1-ξ²)/(1+ξ²) with ξ = tan²(φ₀/2).
@@ -236,6 +301,11 @@ def main() -> int:
     print("== C1(S2)/C1^eucl ratio identity ==")
     if check_eucl_to_geo_ratio():
         print("FAILED ratio")
+        return 1
+
+    print("== Geodesic second variation (direct sympy) ==")
+    if check_geodesic_second_variation():
+        print("FAILED geodesic variation")
         return 1
 
     print("== Conversion factor analysis ==")
