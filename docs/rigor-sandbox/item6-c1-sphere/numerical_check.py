@@ -1,8 +1,8 @@
-"""Numerical + symbolic validator for the C₁(S²) geodesic derivation.
+"""Numerical + symbolic validator for the C₁(S²) formula.
 
-Strategy: The appendix already derives C₁^eucl = (N-1)(1+ξ²)/(1+ξ)².
-We verify this numerically, then derive and verify the algebraic
-conversion C₁^eucl → C₁(S²) = (N-1)(1-ξ)/(1+ξ).
+Verifies: C₁(S²,ξ) = (N-1)(1+ξ²)/(1+ξ)² against full Hessian
+diagonalization of H_sph (geodesic Green's function in stereographic
+coords) with angular momentum constraint J.
 
 Run: python3 docs/rigor-sandbox/item6-c1-sphere/numerical_check.py
 Exit 0 = all claims verified. Non-zero = derivation is wrong.
