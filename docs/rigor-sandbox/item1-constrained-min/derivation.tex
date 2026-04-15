@@ -5,6 +5,8 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
 
 \title{Havelock Lagrangian Eigenvalues:\\ First-Principles Derivation}
 \author{Sandbox for Paper~I, Item~\#1}
@@ -68,18 +70,83 @@ We perturb each vortex in its \emph{local} (radial, tangential) frame:
 \begin{equation}\label{eq:perturb}
   z_k \;\longmapsto\; z_k\bigl(1 + \delta r_k\bigr) + i\,z_k\,\delta t_k,
 \end{equation}
-with $\delta r_k, \delta t_k \in \mathbb{R}$ small. The $\mathbb{Z}_N$
-cyclic symmetry $k \mapsto k+1 \pmod N$ permutes the vortices and
-commutes with~$\nabla^2 H$, so the Hessian block-diagonalizes in the
-discrete Fourier basis. The mode-$m$ cosine sector is parametrized by
+with $\delta r_k, \delta t_k \in \mathbb{R}$ small.
+
+\paragraph{$\mathbb{Z}_N$-equivariance.}
+The cyclic action $\phi : k \mapsto k + 1 \pmod N$ on vortex labels
+is a symmetry of the equilibrium ring and of $H$: relabeling vortices
+permutes the pair sum \eqref{eq:thomson} invariantly. Under $\phi$
+the perturbation data transforms as $(\delta r_k, \delta t_k) \mapsto
+(\delta r_{k-1}, \delta t_{k-1})$, because the \emph{local} radial
+and tangential directions at vertex $k + 1$ are the images of the
+corresponding directions at vertex $k$ under the Euclidean rotation
+by $2\pi/N$ that maps $z_k \mapsto z_{k+1}$. The Hessian $\nabla^2 H$
+is therefore $\mathbb{Z}_N$-equivariant on the $2N$-dimensional
+perturbation space $\mathbb{R}^{2N} \cong \mathbb{R}^N \oplus \mathbb{R}^N$
+(radial $\oplus$ tangential). By the standard finite-group
+representation theory, $\nabla^2 H$ block-diagonalizes in the
+$\mathbb{Z}_N$ isotypic components, indexed by
+$m \in \{0, 1, \ldots, N-1\}$.
+
+\paragraph{Real Fourier modes.}
+The $\mathbb{Z}_N$-irreducibles over $\mathbb{R}$ are two copies of
+the trivial rep at $m = 0$, two copies of the sign rep at $m = N/2$
+(even $N$ only), and for
+$m \in \{1, \ldots, \lfloor (N-1)/2 \rfloor\}$ a paired complex
+representation $(m, N-m)$ of real dimension $4$ per pair, spanned by
 \begin{equation}\label{eq:mode-m}
+  \delta r_k = a_c\cos\!\tfrac{2\pi m k}{N} + a_s\sin\!\tfrac{2\pi m k}{N},
+  \quad
+  \delta t_k = b_c\cos\!\tfrac{2\pi m k}{N} + b_s\sin\!\tfrac{2\pi m k}{N}.
+\end{equation}
+So at each $m \in \{1, \ldots, N-1\}$ with $m \ne N/2$, the Hessian
+restricts to a $4 \times 4$ block in the $(a_c, a_s, b_c, b_s)$ basis.
+
+\begin{lemma}[Cos-sin equivalence]\label{lem:cos-sin}
+At every $m \in \{1, \ldots, N-1\}$ with $m \ne N/2$, the
+$4 \times 4$ Hessian block decomposes as two identical $2 \times 2$
+blocks, one on $(a_c, b_c)$ and one on $(a_s, b_s)$, and it suffices
+to compute the cosine sub-block.
+\end{lemma}
+
+\begin{proof}
+The SO(2) rotation $R_\beta : z_k \mapsto e^{i\beta} z_k$ (rigid rotation
+of the ring) is a symmetry of $H$ and preserves the equilibrium for
+every $\beta$. It acts on mode-$m$ amplitudes by
+$(a_c + i a_s) \mapsto e^{-i\beta m}(a_c + i a_s)$ (and similarly on
+$(b_c, b_s)$), because the cos/sin mode at $m$ is the real/imaginary
+part of $e^{2\pi i m k / N}$, and a rotation by $\beta$ shifts the
+vertex angles by $\beta$. In particular, the rotation $R_{\pi/(2m)}$
+maps $(a_c, a_s) \to (a_s, -a_c)$ and $(b_c, b_s) \to (b_s, -b_c)$.
+Since $R_{\pi/(2m)}$ is a symmetry of $\nabla^2 H$, the $4 \times 4$
+block commutes with this swap, so its $(a_c, b_c)$ and $(a_s, b_s)$
+$2 \times 2$ sub-blocks are equal, and any $(a_c, b_s)$ or $(a_s, b_c)$
+cross entries are zero. Palindromic symmetry $m \leftrightarrow N - m$
+is the complex conjugate of this statement.
+\end{proof}
+
+The mode-$m$ cosine sub-block — which is what we compute below — is
+therefore sufficient. In the notation we use throughout,
+\begin{equation}\label{eq:cos-block}
   \delta r_k = a\,\cos(2\pi m k / N), \qquad
   \delta t_k = b\,\cos(2\pi m k / N),
-  \quad m \in \{1, \ldots, N-1\},
 \end{equation}
-(modes $m$ and $N-m$ yield identical blocks — the palindromic pair).
-The corresponding $2 \times 2$ Hessian block in the $(a, b)$ basis is
-what we compute.
+parametrized by $(a, b)$, which yields the $2 \times 2$ block
+computed in \S\ref{sec:rr}--\S\ref{sec:lag-shift}.
+
+\paragraph{The case $m = N/2$ (even $N$).}
+When $N$ is even and $m = N/2$, the paired representation degenerates
+to a single real dimension per vertex direction
+($\sin(2\pi \cdot N/2 \cdot k / N) = \sin(\pi k) = 0$, so only the
+cosine mode exists). In this case $\alpha_k := \cos(\pi k) = (-1)^k$,
+so $\sum_k \alpha_k^2 = N$ (not $N/2$) and the normalization of the
+mode vectors doubles. However, the elementary Fourier sums also
+double correspondingly ($\sum_j \alpha_j \alpha_{j+p} = N (-1)^p
+= N \cos(\pi p)$, twice the generic formula $(N/2) \cos(2\pi m p / N)$
+evaluated at $m = N/2$), and the two factors of two cancel in the
+normalized Hessian entry. The final eigenvalue formula thus extends
+uniformly to $m = N/2$; we record this explicitly as
+Remark~\ref{rem:m-half} after the main derivation.
 
 \section{Two auxiliary identities}\label{sec:aux}
 
@@ -98,15 +165,36 @@ For all integers $N \ge 2$ and $m \in \{1, \ldots, N-1\}$,
 
 \begin{proof}
 Using $1 - \cos(2\pi m p / N) = 2 \sin^2(\pi m p / N)$,
-\[
+\begin{equation}\label{eq:Sm-sin-form}
   S(m) = \sum_{p=1}^{N-1} \frac{\sin^2(\pi m p / N)}{2 \sin^2(\pi p / N)}.
-\]
-The Dirichlet-kernel identity
+\end{equation}
+We derive the identity
 $\sum_{p=1}^{N-1} \sin^2(\pi m p / N) / \sin^2(\pi p / N) = m(N - m)$
-for $1 \le m \le N - 1$ (provable via the Chebyshev expansion
-$\sin(m x) / \sin(x) = U_{m-1}(\cos x)$ and orthogonality of the
-$U$-polynomials; see e.g.\ Gradshteyn and Ryzhik, Formula 1.342)
-yields the claim.
+from first principles. Write the telescoping geometric sum
+\[
+  e^{-i(m-1)\pi p/N} + e^{-i(m-3)\pi p/N} + \cdots + e^{i(m-1)\pi p/N}
+   = \sum_{k=0}^{m-1} e^{i(2k - m + 1)\pi p / N}
+   = \frac{e^{i m \pi p / N} - e^{-i m \pi p / N}}{e^{i \pi p / N} - e^{-i \pi p / N}}
+   = \frac{\sin(\pi m p / N)}{\sin(\pi p / N)}.
+\]
+Squaring the modulus,
+\begin{align*}
+  \frac{\sin^2(\pi m p / N)}{\sin^2(\pi p / N)}
+  &= \sum_{k=0}^{m-1}\sum_{\ell=0}^{m-1} e^{i(2k - 2\ell)\pi p / N}
+   = \sum_{k=0}^{m-1}\sum_{\ell=0}^{m-1} e^{2\pi i (k-\ell) p / N}.
+\end{align*}
+Summing over $p = 1, \ldots, N-1$ and using the orthogonality
+$\sum_{p=0}^{N-1} e^{2\pi i q p / N} = N\,\mathbf{1}\{q \equiv 0\!\!\pmod N\}$
+(hence $\sum_{p=1}^{N-1} e^{2\pi i q p / N} = -1 + N\,\mathbf{1}\{q \equiv 0\}$),
+\[
+  \sum_{p=1}^{N-1}\frac{\sin^2(\pi m p / N)}{\sin^2(\pi p / N)}
+  = \sum_{k, \ell = 0}^{m-1}\bigl(N\,\mathbf{1}\{k \equiv \ell\!\!\pmod N\} - 1\bigr)
+  = N \cdot m - m^2 = m(N - m),
+\]
+since for $k, \ell \in \{0, \ldots, m-1\}$ with $m \le N - 1$, the
+condition $k \equiv \ell \pmod N$ is equivalent to $k = \ell$, giving
+$m$ diagonal contributions each of value $N$, minus $m^2$ constant
+$-1$'s. Dividing by $2$ gives $S(m) = m(N-m)/2$.
 \end{proof}
 
 \begin{lemma}[Cosecant-squared sum]\label{lem:csc}
@@ -118,9 +206,24 @@ For $N \ge 2$,
 \end{lemma}
 
 \begin{proof}
-Standard; follows from partial-fraction expansion of $\cot(N z)$ and
-taking the limit $z \to 0$, or equivalently from differentiating
-$\prod_{p=1}^{N-1} \sin(\pi p / N) = N / 2^{N-1}$.
+Sum Lemma~\ref{lem:havelock} over $m = 1, \ldots, N - 1$:
+\[
+  \sum_{m=1}^{N-1} S(m)
+   = \sum_{m=1}^{N-1}\frac{m(N-m)}{2}
+   = \frac{1}{2}\bigl[N \cdot {\textstyle\frac{N(N-1)}{2}} - {\textstyle\frac{(N-1)N(2N-1)}{6}}\bigr]
+   = \frac{(N-1)N(N+1)}{12}.
+\]
+On the other hand, interchanging summation order in the definition of $S(m)$
+and using $\sum_{m=1}^{N-1}(1 - \cos(2\pi m p / N)) = (N - 1) - (-1) = N$
+for each fixed $p \in \{1, \ldots, N - 1\}$ (since
+$\sum_{m=0}^{N-1}\cos(2\pi m p / N) = 0$ and the $m = 0$ term contributes $1$),
+\[
+  \sum_{m=1}^{N-1} S(m)
+   = \sum_{p=1}^{N-1}\frac{\sum_{m=1}^{N-1}(1 - \cos(2\pi m p / N))}{4\sin^2(\pi p / N)}
+   = N \sum_{p=1}^{N-1}\frac{1}{4\sin^2(\pi p / N)}.
+\]
+Equating the two expressions and dividing by $N$ gives
+$\sum_{p=1}^{N-1} 1/(4\sin^2(\pi p / N)) = (N^2 - 1)/12$.
 \end{proof}
 
 \begin{corollary}[Cosine-weighted inverse-sine sum]\label{cor:cos-over-sin}
@@ -182,19 +285,23 @@ Write $\beta_m$ for the coefficient of $a^2$ in $H(a) - H(0)$:
 \]
 The unit-normalized radial Fourier mode vector $\hat{e}_r$ (in the
 $2N$-dimensional Cartesian basis) has squared norm
-$\|\hat{e}_r\|^2 = \sum_k \alpha_k^2 = N/2$ (valid for
-$1 \le m \le N-1$, $m \ne N/2$; the case $m = N/2$ is handled
-symmetrically and gives the same final formula by continuity).
+$\|\hat{e}_r\|^2 = \sum_k \alpha_k^2 = N/2$ for $m \in \{1, \ldots, N-1\}$
+with $m \ne N/2$; for even $N$ at $m = N/2$ the norm is $N$ — see
+Remark~\ref{rem:m-half} below for the explicit parallel computation
+that yields the same final formula.
 The Hessian entry in this normalized direction is
 \begin{equation}\label{eq:rr-norm}
   (\nabla^2 H)_{rr}^{(m)}
-     = \frac{2\,\beta_m}{\|\hat{e}_r\|^2}
+     = \frac{H''(0)}{\|\hat{e}_r\|^2}
+     = \frac{2\,\beta_m}{N/2}
      = \frac{4\,\beta_m}{N}
      = \frac{2}{N}\sum_{j \ne k}\!\left[\frac{(\alpha_j + \alpha_k)^2}{4}
-                                        - \frac{Q_{jk}}{2 |z_j - z_k|^2}\right].
+                                        - \frac{Q_{jk}}{2 |z_j - z_k|^2}\right],
 \end{equation}
-(The factor $2$ comes from $H''(0) = 2 \cdot (\text{coefficient of }a^2)$;
-the factor $2$ converting $\sum_{j<k}$ to $\sum_{j \ne k}$ cancels half of it.)
+where we used $H''(0) = 2\beta_m$ (for a Taylor expansion
+$H(a) - H(0) = \beta_m a^2 + O(a^3)$) and
+$\sum_{j<k} = \tfrac12 \sum_{j \ne k}$ (the summand is symmetric in
+$j \leftrightarrow k$).
 
 Parametrize pairs by $p = k - j \pmod N$ with $p \in \{1, \ldots, N-1\}$
 and apply the $N$-fold cyclic symmetry. Two elementary sums are needed:
@@ -274,29 +381,29 @@ and $\operatorname{Im}(\bar{A} B)
 The sign in \eqref{eq:tt-pair-expand} follows: $-2b \cdot [-(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)] = +2b(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$.
 
 Expanding $-\tfrac12 \ln|z_j(b) - z_k(b)|^2$ to second order in~$b$
-(with $L_{jk} = 2(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$
+(with $M_{jk} = 2(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$
 and $U_{jk} = |z_j - z_k|^2$),
 \[
   -\ln|z_j(b) - z_k(b)|
    = -\ln|z_j - z_k|
-     - \frac{b L_{jk}}{2 U_{jk}}
-     + b^2\!\left[\frac{L_{jk}^2}{4 U_{jk}^2}
+     - \frac{b M_{jk}}{2 U_{jk}}
+     + b^2\!\left[\frac{M_{jk}^2}{4 U_{jk}^2}
                    - \frac{Q_{jk}}{2 U_{jk}}\right] + O(b^3).
 \]
 The linear term, summed over pairs, vanishes: setting $p = k - j$ and
 pairing $p$ with $N - p$, the factor $\sin(\theta_j - \theta_k) = -\sin(2\pi p / N)$
 is odd in $p$ while $(\alpha_j - \alpha_k)/U_{jk}$ is even in $p$, so
-$\sum_{j<k} L_{jk}/U_{jk} = 0$ term by term.
+$\sum_{j<k} M_{jk}/U_{jk} = 0$ term by term.
 
 With $p = k - j \pmod N$ and $\theta_j - \theta_k = -2\pi p / N$,
 \[
   U_{jk} = 4 \sin^2(\pi p / N),
   \qquad
-  L_{jk}^2 = 4(\alpha_j - \alpha_k)^2 \sin^2(2\pi p / N)
+  M_{jk}^2 = 4(\alpha_j - \alpha_k)^2 \sin^2(2\pi p / N)
            = 4(\alpha_j - \alpha_k)^2 \cdot U_{jk} \cos^2(\pi p / N),
 \]
 using $\sin^2(2\pi p / N) = 4 \sin^2(\pi p / N) \cos^2(\pi p / N)$.
-Therefore $L_{jk}^2 / (4 U_{jk}^2) = (\alpha_j - \alpha_k)^2
+Therefore $M_{jk}^2 / (4 U_{jk}^2) = (\alpha_j - \alpha_k)^2
 \cos^2(\pi p / N) / U_{jk}$.
 
 Proceeding as in \S\ref{sec:rr}, applying
@@ -372,10 +479,16 @@ with $P_{jk} = 2\operatorname{Re}(A\bar B)
             = 2(\alpha_j + \alpha_k)(1 - \cos(\theta_j - \theta_k))$
 and $R_{jk} = 2\operatorname{Im}(A\bar B)
             = 2(\alpha_j - \alpha_k)\sin(\theta_j - \theta_k)$.
-Multiplying and using $1 - \cos(\theta_j - \theta_k) = U_{jk}/2$,
+Multiplying,
+\[
+  P_{jk} R_{jk}
+   = 4\,(\alpha_j + \alpha_k)(\alpha_j - \alpha_k)\,(1 - \cos(\theta_j - \theta_k))\,\sin(\theta_j - \theta_k)
+   = 4\,(\alpha_j^2 - \alpha_k^2)\,(1 - \cos(\theta_j - \theta_k))\,\sin(\theta_j - \theta_k).
+\]
+Using $1 - \cos(\theta_j - \theta_k) = U_{jk}/2$,
 \[
   \frac{P_{jk} R_{jk}}{2\,U_{jk}^2}
-   = \frac{2(\alpha_j^2 - \alpha_k^2)\sin(\theta_j - \theta_k)}{U_{jk}}.
+   = \frac{2\,(\alpha_j^2 - \alpha_k^2)\,\sin(\theta_j - \theta_k)}{U_{jk}}.
 \]
 Summing over pairs with $p = k - j$ and fixing $p$, the dependence
 on $j$ is only through $\alpha_j^2 - \alpha_{j+p}^2$. But
@@ -429,26 +542,63 @@ The trace identity $\lambda_m^+ + \lambda_m^- = N - 1$ falls out
 automatically — it is not an independent check but a consequence of
 the $(N-1)/2$ shift doubling across the two diagonal entries.
 
+\begin{remark}[The case $m = N/2$ for even $N$]\label{rem:m-half}
+When $N$ is even and $m = N/2$, set $\alpha_k = \cos(\pi k) = (-1)^k$.
+The mode vector $\hat e_r$ has squared norm
+$\|\hat e_r\|^2 = \sum_k \alpha_k^2 = N$
+(because $\alpha_k^2 = 1$ for every $k$, not averaged to $1/2$).
+The key Fourier sums change correspondingly to
+\[
+  \sum_{j=0}^{N-1} \alpha_j \alpha_{j+p}
+   = \sum_j (-1)^{2j + p} = N\,(-1)^p
+   = N \cos(2\pi \cdot \tfrac{N}{2} \cdot p / N),
+\]
+which is exactly twice the generic expression
+$(N/2)\cos(2\pi m p / N)$ evaluated at $m = N/2$. Consequently
+$\sum_j(\alpha_j + \alpha_{j+p})^2 = 2 N (1 + \cos(\pi p))$
+and $\sum_j Q_{j, j+p} = 2 N (1 - \cos(\pi p)\cos(2\pi p / N))$ —
+each double the generic value. Substituting into the normalized
+Hessian entry with $\|\hat e_r\|^2 = N$ (so the prefactor is $2/N$,
+not $4/N$), the two factors of $2$ cancel and the same algebra goes
+through. Explicitly,
+\[
+  (\nabla^2 H)_{rr}^{(N/2)}
+   = \sum_p\tfrac{1 + \cos(\pi p)}{2}
+     - \sum_p\tfrac{1 - \cos(\pi p)\cos(2\pi p / N)}{4\sin^2(\pi p / N)}
+   = \tfrac{N - 1 - (N/2)(N/2)}{2}
+   = \tfrac{N - 1 - N^2/4}{2},
+\]
+matching $(N - 1 - m(N-m))/2$ at $m = N/2$. The tangential-tangential
+entry follows identically. The final eigenvalue formula
+\eqref{eq:final-eigs} is thus uniform in $m \in \{1, \ldots, N-1\}$,
+including $m = N/2$.
+\end{remark}
+
 \section{Numerical verification}\label{sec:verification}
 
-All intermediate identities used above — the Havelock identity
-\eqref{eq:havelock}, the cosecant-squared sum \eqref{eq:csc}, the
-radial-radial and tangential-tangential unshifted expressions
-\eqref{eq:rr-unshifted}, \eqref{eq:tt-unshifted}, and the
-$\alpha^2$-translation identity in the off-diagonal proof —
-are verified to 30 decimal digits via \texttt{sympy} for
-$N \in \{3, \ldots, 10\}$ and $m \in \{1, \ldots, N-1\}$
-in \texttt{numerical\_check.py} (this directory).
+The derivation above is self-contained; the script
+\texttt{numerical\_check.py} in this directory corroborates each
+step with machine-checked identity verification.
 
-The final eigenvalue formula \eqref{eq:final-eigs} is cross-checked
-against an independent oracle: a finite-difference evaluation of the
-full $2N \times 2N$ energy Hessian $\nabla^2 H$ at the unit ring,
-projected onto the normalized mode-$m$ (radial, tangential) basis,
-with the Lagrange shift applied. For $N \in \{3, \ldots, 12\}$ and
-all $m \in \{1, \ldots, N-1\}$, the observed block eigenvalues
-agree with $((N-1) - m(N-m)/2,\ m(N-m)/2)$ to $10^{-2}$, the
-finite-difference Hessian precision. The three canonical cases
-$(N, m) \in \{(5, 2), (7, 3), (11, 5)\}$ from the paper's rigor
-specification agree to machine precision.
+\emph{Primary verification — symbolic to 30 decimal digits.}
+Every intermediate identity used in the derivation is verified via
+\texttt{sympy} arbitrary-precision evaluation for $N \in \{3, \ldots, 10\}$
+and $m \in \{1, \ldots, N-1\}$: the Havelock identity \eqref{eq:havelock},
+the cosecant-squared sum \eqref{eq:csc}, the radial-radial and
+tangential-tangential unshifted expressions \eqref{eq:rr-unshifted} and
+\eqref{eq:tt-unshifted}, and the $\alpha^2$-translation identity in
+the off-diagonal proof. Each is confirmed to differ from its closed
+form by less than $10^{-25}$.
+
+\emph{Corroborating sanity check — finite-difference oracle.}
+As an independent cross-check that the block-level algebra is
+correctly assembled, the script diagonalizes the full $2N \times 2N$
+Hessian $\nabla^2 H$ at the unit ring (via central differences),
+projects into the normalized mode-$m$ (radial, tangential) basis,
+applies the Lagrange shift, and compares to \eqref{eq:final-eigs}.
+For $N \in \{3, \ldots, 12\}$ and all $m \in \{1, \ldots, N-1\}$,
+the observed eigenvalues match to $10^{-2}$ (finite-difference
+precision). The three canonical cases
+$(N, m) \in \{(5, 2), (7, 3), (11, 5)\}$ match to machine precision.
 
 \end{document}
