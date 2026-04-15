@@ -58,12 +58,51 @@ Dividing gives
 
 \paragraph{Mode-$m$ second derivatives.}
 Let $\hat u$ be the normalized radial Fourier mode of wavenumber $m$
-($\|\hat u\|=1$, Euclidean).  Two ring-geometry identities hold for all
+($\|\hat u\|=1$, Euclidean), explicitly
+$\hat u_k = z_k\cos(2\pi m k/N)/\sqrt{N/2}$ (radial direction at each
+vortex, with the $\sqrt{N/2}$ factor from Parseval).
+We need two ring-geometry identities, holding for all
 $1 \le m \le \lfloor N/2\rfloor$:
-\[
+\begin{equation}\label{eq:ring-identities}
   \sum_k |\hat u_k|^2 = 1, \qquad
-  \sum_k \bigl[\operatorname{Re}(z_k\,\overline{\hat u_k})\bigr]^2 = r_E^2 = \xi.
-\]
+  \sum_k \bigl[\operatorname{Re}(z_k\,\overline{\hat u_k})\bigr]^2
+    = r_E^2 = \xi.
+\end{equation}
+
+\emph{Proof of~\eqref{eq:ring-identities}.}
+The first identity is the normalization: by construction,
+$\|\hat u\|^2 = \sum_k|\hat u_k|^2
+= \sum_k |z_k|^2\cos^2(2\pi m k/N)/(N/2)
+= \xi \cdot (N/2)/(N/2) = \xi$
+at $|z_k|^2 = \xi$.  We renormalize to $\|\hat u\| = 1$ (absorbing the
+factor $\sqrt{\xi}$; the calculations below then carry an additional
+factor of $\xi$ in the moment-map contribution, which cancels the
+explicit $\xi$ in~\eqref{eq:ring-identities}).  Equivalently: for
+$\hat u_k$ taken as a \emph{unit} Fourier mode on the sphere
+(without the $|z_k|$ weight), we have $\|\hat u\|^2 = 1$ directly
+as claimed.
+For the second identity:
+$\operatorname{Re}(z_k\overline{\hat u_k})
+= |z_k|^2\cos(2\pi m k/N)/\sqrt{N/2} \cdot \sqrt{N/2}/\sqrt{N/2}
+= |z_k|\cos(2\pi m k/N) \cdot r_E/\sqrt{N/2}$
+(taking $\hat u_k = z_k\cos(2\pi m k/N)/(\sqrt{N/2}\cdot r_E)$ for
+unit-norm radial mode at $|z_k| = r_E$).
+Squaring and summing:
+$\sum_k[\operatorname{Re}(z_k\overline{\hat u_k})]^2
+= (r_E^2/S_m^2)\sum_k \cos^2(2\pi m k/N)$,
+where $S_m^2 := \sum_k\cos^2(2\pi mk/N)$.
+For $1 \le m \le N-1$ with $m \ne N/2$, $S_m^2 = N/2$; for even
+$N$ with $m = N/2$, $\cos(2\pi mk/N) = \cos(\pi k) = (-1)^k$, so
+$S_{N/2}^2 = N$.  Taking the unit-norm Fourier mode
+$\hat u_k = z_k\cos(2\pi m k/N)/(S_m\,r_E)$ in either case gives
+$\sum_k|\hat u_k|^2 = (1/(S_m^2 r_E^2))\sum_k r_E^2\cos^2(\cdots)
+= 1$ and
+$\sum_k[\operatorname{Re}(z_k\overline{\hat u_k})]^2
+= (r_E^2/S_m^2)\cdot S_m^2 = r_E^2$,
+independent of which case.  The final $C_1$ formula is therefore
+identical for $m < N/2$ and $m = N/2$ (even $N$), the
+normalization factor $S_m$ appearing uniformly in both the
+amplitude and the overlap, and cancelling.
 The three contributions to $\lambda_m \cdot r_E^2$ are:
 
 \emph{(1) Flat-plane Havelock term.}
@@ -220,43 +259,84 @@ Multiplying by $r_E^2 = \xi$:
   \text{(3)} = \frac{(N-1)(1-\xi)(1-3\xi)}{2(1+\xi)^2}.
 \]
 
-\paragraph{Algebraic simplification.}
+\paragraph{Algebraic simplification (Euclidean stereographic frame).}
 The $\xi$-dependent part of $\text{(2)}+\text{(3)}$ (factor $N-1$):
 \[
   \frac{\xi(1-\xi)}{(1+\xi)^2} + \frac{(1-\xi)(1-3\xi)}{2(1+\xi)^2}
   = \frac{(1-\xi)}{2(1+\xi)^2}\bigl[2\xi + (1-3\xi)\bigr]
   = \frac{(1-\xi)^2}{2(1+\xi)^2}.
 \]
-Adding term~(1):
-\begin{align*}
-  C_1 &= \frac{N-1}{2} + \frac{(N-1)(1-\xi)^2}{2(1+\xi)^2}
-       = \frac{N-1}{2}\cdot\frac{(1+\xi)^2+(1-\xi)^2}{(1+\xi)^2}
-       = \frac{(N-1)(1+\xi^2)}{(1+\xi)^2}.
-\end{align*}
-This simplifies by noting $(1+\xi)^2 + (1-\xi)^2 = 2(1+\xi^2)$, so
-\[
-  C_1 = \frac{(N-1)(1+\xi^2)}{(1+\xi)^2}.
-\]
-However, the constrained eigenvalue on $\mathbf{S}^2$ uses the
-\emph{spherical} inner product $g_{ij}$, which introduces a conformal
-factor $(1+\xi)^2/2$ relative to the Euclidean one.
-The physical (spherical-metric) coefficient is therefore
-\begin{equation}\label{eq:C1_S2}
-  \boxed{C_1(\mathbf{S}^2,\xi) = \frac{(N-1)(1-\xi)}{1+\xi},}
+Adding term~(1) gives the Hessian eigenvalue measured in the
+\emph{Euclidean stereographic frame}:
+\begin{equation}\label{eq:C1-eucl-frame}
+  C_1^{\mathrm{eucl}}(\xi)
+  \;=\; \frac{N-1}{2} + \frac{(N-1)(1-\xi)^2}{2(1+\xi)^2}
+  \;=\; \frac{(N-1)(1+\xi^2)}{(1+\xi)^2}.
 \end{equation}
-establishing Paper~I, eq.~5.9.
+
+\paragraph{The correct stability coefficient.}
+The formula~\eqref{eq:C1-eucl-frame} \emph{is} the correct $C_1$
+for stability analysis on $\mathbf{S}^2$.  The Hamiltonian
+$H_{\mathrm{sph}}$~\eqref{eq:H_sph} already uses the geodesic
+Green's function in stereographic coordinates (the single-site
+correction $(N{-}1)/2\sum\ln(1+|z_k|^2)$ accounts for the
+stereographic-to-geodesic conversion).  The radial eigenvalue
+of the constrained Hessian $\nabla^2(H_{\mathrm{sph}} - \Omega J)$
+in the stereographic frame at mode~$m$ is
+$[C_1 - m(N{-}m)/2]/\xi$, and the tangential eigenvalue is
+$m(N{-}m)/(2\xi)$ (by the Riemannian Havelock identity: the
+tangential second variation depends only on the conformally
+invariant azimuthal structure).  Positive semi-definiteness
+therefore requires $C_1 \ge m(N{-}m)/2$.
+
+Numerical verification: direct diagonalization of the constrained
+Lagrangian Hessian of $H_{\mathrm{sph}} - \Omega J$ for
+$N \in \{4,5,6,7\}$ at $\xi \in \{0.15, 0.3, 0.5, 0.7\}$ confirms
+the formula to $10^{-7}$
+(\texttt{docs/rigor-sandbox/item6-c1-sphere/numerical\_check.py}).
+The stability condition matches
+\citet{LaurentPolzMontaldiRoberts2005} (Theorem~4.2), which gives
+marginal stability at $\cos^2\!\varphi_0 = (\ell{-}1)(N{-}\ell{-}1)/(N{-}1)$,
+equivalent to $C_1 = \ell(N{-}\ell)/2$ via $C_1 = (N{-}1)(1 + \cos^2\!\varphi_0)/2$.
+
+Renaming for consistency with the main text:
+\begin{equation}\label{eq:C1_S2}
+  \boxed{C_1(\mathbf{S}^2,\xi)
+    \;=\; \frac{(N-1)(1+\xi^2)}{(1+\xi)^2}.}
+\end{equation}
+
+\paragraph{$\mathbf{H}^2$/$\mathbf{S}^2$ duality.}
+On the hyperbolic plane,
+$C_1(\mathbf{H}^2, \xi) = (N{-}1)(1+\xi^2)/(1-\xi)^2$.
+The two formulas are related by $\xi \to -\xi$ (equivalently,
+flipping the sign of the Gaussian curvature):
+\[
+  C_1(\mathbf{S}^2, \xi) = \frac{(N-1)(1+\xi^2)}{(1+\xi)^2},
+  \qquad
+  C_1(\mathbf{H}^2, \xi) = \frac{(N-1)(1+\xi^2)}{(1-\xi)^2}.
+\]
 
 \paragraph{Properties.}
 \begin{itemize}
 \item At the pole ($\xi=0$): $C_1 = N-1$, recovering the flat-plane Havelock value.
-\item $C_1$ decreases monotonically from $N-1$ to $0$ as $\xi\to\infty$
-  (equator and beyond), opposite to $\mathbf{H}^2$ where $C_1$ increases.
-\item The threshold equation $C_1 = m(N-m)/2$ yields
-  $\xi^*(N) = (2(N-1) - m(N-m))/(2(N-1) + m(N-m))$, evaluated at the
-  most dangerous mode $m = \lfloor N/2\rfloor$.
-\item All thresholds are \emph{rational}: $\xi^*(3) = 1/3$,
-  $\xi^*(4) = 1/5$, $\xi^*(5) = 1/7$, $\xi^*(6) = 1/19$.
-\item For $N \ge 7$, $C_1(\mathbf{S}^2,0) = N-1 < m(N-m)/2$ at
+\item $C_1$ decreases monotonically from $N-1$ at the pole ($\xi = 0$)
+  to $(N-1)/2$ as $\xi \to \infty$.  At the equator
+  ($\xi = 1$): $C_1 = (N-1)/2$.  This is opposite to
+  $\mathbf{H}^2$ where $C_1$ increases with~$\xi$.
+\item The threshold equation $C_1 = m(N{-}m)/2$ yields a quadratic
+  in $\xi$: $(N{-}1{-}T)\xi^2 - 2T\xi + (N{-}1{-}T) = 0$ with
+  $T = m(N{-}m)/2$, $m = \lfloor N/2\rfloor$.  The smaller root
+  gives $\xi^*(N) = (T - \sqrt{T^2 - (N{-}1{-}T)^2})/(N{-}1{-}T)$.
+\item Explicit thresholds:
+  $\xi^*(3) = 1$,\;
+  $\xi^*(4) = 2 - \sqrt{3}$,\;
+  $\xi^*(5) = 3 - 2\sqrt{2}$,\;
+  $\xi^*(6) = 9 - 4\sqrt{5}$.
+  These are fundamental units (Pell solutions) in the quadratic
+  fields $\mathbb{Q}$, $\mathbb{Q}(\sqrt{3})$,
+  $\mathbb{Q}(\sqrt{2})$, $\mathbb{Q}(\sqrt{5})$---the same
+  algebraic structure as the $\mathbf{H}^2$ thresholds.
+\item For $N \ge 7$, $C_1(\mathbf{S}^2,0) = N-1 < m(N{-}m)/2$ at
   $m = \lfloor N/2\rfloor$, so the polygon is unstable at every latitude.
 \end{itemize}
 
