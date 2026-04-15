@@ -1362,7 +1362,7 @@ coefficient (cf.\ \citealt{BoattoCabral2003}):
   C_1(\mathbf{S}^2,\,\xi) = \frac{(N-1)(1+\xi^2)}{(1+\xi)^2},
 \end{equation}
 where $\xi = \tan^2(\varphi_0/2)$ is the stereographic parameter
-(Appendix~\ref{app:c1_s2} gives the full derivation from the
+(Appendix~\ref{A-app:c1_s2} gives the full derivation from the
 stereographic Hamiltonian; the result matches
 \citealt{LaurentPolzMontaldiRoberts2005}, Theorem~4.2).
 Marginal stability $C_1 = T := m(N{-}m)/2$ at the most dangerous
@@ -1863,9 +1863,17 @@ Summing: $K w = \sum_i \lambda_i w^{(i)}$.
 
 Evaluating at $k = 0$: $(K w)_0 = \sum_i \lambda_i w^{(i)}_0$.
 We just showed $(K w)_0 = -T_\rho$ independently.
-Applying the same argument separately to each distinguished
-\emph{single}-isotypic vector $w^{(i)}$ (which is supported in
-$\rho_i$ alone), we have $(K w^{(i)})_0 = \lambda_i w^{(i)}_0$.
+Each projection $w^{(i)}_0 \ne 0$: since $w$ is the unique
+(up to scale) $H$-fixed vector in the $D^j$-isotypic component
+and each $\rho_i$ appears in $D^j|_G$ with multiplicity
+$\dim(\rho_i^H) \ge 1$ (by Frobenius reciprocity,
+$\langle \mathrm{Ind}_H^G \mathbf{1},\, \rho_i\rangle
+= \langle \mathbf{1},\, \rho_i|_H\rangle \ge 1$
+since $H$ fixes the pole), the projection $w^{(i)}$ is nonzero
+at $k = 0$.
+Applying the same argument separately to each
+$w^{(i)}$ (supported in $\rho_i$ alone),
+$(K w^{(i)})_0 = \lambda_i w^{(i)}_0$.
 Summing over~$i$: $\sum_i \lambda_i w^{(i)}_0 = (Kw)_0 = -T_\rho$.
 Since the isotypic components $\{w^{(i)}\}_i$ are linearly
 independent (as the $\rho_i$ are pairwise non-isomorphic) and
@@ -4049,13 +4057,16 @@ The other integer eigenvalues are excluded by graph theory:
 \item $\mu = 4$: the eigenvector alternates sign on the
   bipartition classes (every adjacent pair has opposite sign);
 \item $\mu = 3$: the bipartite conjugate of $\mu = 1$
-  (Theorem~\ref{thm:bipartite}), so $v_3 = S \cdot v_1$ where
-  $S$ flips exactly one node of each edge, converting every
-  same-sign pair into an opposite-sign pair;
-\item $\mu = 2$: the self-conjugate eigenvalue, whose eigenvector
-  vanishes on all even-mark nodes
-  (Corollary~\ref{cor:mu2-vanishing}),
-  so nonzero entries are never adjacent.
+  (since $\tilde{E}_8$ is bipartite with classes $B_0, B_1$,
+  if $Cv = \mu v$ then $\tilde v := (-1)^{B(i)} v_i$ satisfies
+  $C\tilde v = (4-\mu)\tilde v$; thus $v_3 = S \cdot v_1$
+  with $S$ flipping sign on one bipartition class), converting
+  every same-sign adjacent pair into an opposite-sign pair;
+\item $\mu = 2$: the self-conjugate eigenvalue ($4-2=2$), whose
+  eigenvector satisfies $v_i = (-1)^{B(i)} v_i$, forcing $v_i = 0$
+  on all nodes in one bipartition class; direct computation of
+  $Cv = 2v$ on $\tilde{E}_8$ confirms that the nonzero entries
+  are never adjacent.
 \end{itemize}
 Cross-check: $\mu = 1$ equals the BF threshold $\mu_4 = 1$
 derived from $\mathbf{H}^2$ spectral theory
@@ -4080,14 +4091,15 @@ doublets.} We rule out $\mu \in \{2, 3, 4\}$.
 The eigenvector at $\mu = 4$ has components proportional to
 $(-1)^{B(i)} d_i$ (Theorem~\ref{thm:spectral-diameter}),
 alternating sign on the bipartition, no same-sign pairs.
-At $\mu = 3 = 4 - 1$: $v_3 = S \cdot v_1$
-(Theorem~\ref{thm:bipartite}), so every same-sign
-adjacent pair of~$v_1$ becomes opposite-sign in~$v_3$.
-At $\mu = 2$: the self-conjugate eigenvector vanishes on
-all even-mark nodes
-(Corollary~\ref{cor:mu2-vanishing}),
-and the nonzero entries (on odd-mark nodes $\{0,2,4,8\}$)
-are never adjacent.
+At $\mu = 3 = 4 - 1$: the bipartite conjugation
+$\tilde v_i = (-1)^{B(i)} v_i$ maps the $\mu = 1$ eigenvector
+to $\mu = 3$, flipping sign on one bipartition class.
+Every same-sign adjacent pair of~$v_1$ becomes opposite-sign
+in~$v_3$.
+At $\mu = 2$: the self-conjugate eigenvector ($4-2=2$)
+satisfies $v_i = (-1)^{B(i)} v_i$, so $v_i = 0$ on one
+bipartition class; the nonzero entries (on odd-mark nodes)
+are never adjacent (direct computation).
 Hence among $\mu \in \{1, 2, 3, 4\}$, only $\mu = 1$ admits
 a doublet in its eigenvector.
 
@@ -4239,11 +4251,13 @@ The quantity $f(m,N)$ is simultaneously:
   at the $\mathbb{Z}_N$ point
   (Etingof--Frenkel--Kirillov 1998).
 \end{enumerate}
-These four quantities are equal because they are the
-\emph{same operator} (the Laplace--Beltrami operator
-on~$\mathbf{H}^2$) restricted to the \emph{same subspace}
-(the $m$-th $\mathbb{Z}_N$ Fourier mode of the tangential
-perturbation at the $N$-gon ring).
+Identifications (1) and (2) are proved below; (3) and (4)
+follow from \citealt{Witten1988} (CS Wilson lines equal
+Casimir eigenvalues) and \citealt{EtingofFrenkelKirillov1998}
+(Ch.~7, KZ connection at the CMS locus equals the CS
+holonomy).  All four represent the Laplace--Beltrami operator
+on $\mathbf{H}^2$ restricted to the $m$-th $\mathbb{Z}_N$
+Fourier mode of the tangential perturbation at the $N$-gon.
 \end{theorem}
 
 \begin{proof}
