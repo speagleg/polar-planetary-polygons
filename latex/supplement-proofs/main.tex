@@ -126,18 +126,27 @@ has roots
 $m_{\pm} = \tfrac{1}{2}\bigl(N \pm \sqrt{(N{-}4)^2 - 8}\bigr)$,
 and the negative modes are the integers
 $m \in (m_-, m_+)$.
-For $N \ge 8$, $(N{-}4)^2 - 8 \ge 8$, so
-$\sqrt{(N{-}4)^2{-}8} = N - 4 - \delta_N$
-with $\delta_N = 4/(N{-}4) + O(1/N^3) \in (0, 2)$.
-Thus $m_- \in (2, 3)$ and $m_+ = N - m_- \in (N{-}3, N{-}2)$,
-giving $\lceil m_- \rceil = 3$ and
-$\lfloor m_+ \rfloor = N - 3$.
+For $N \ge 8$, $(N{-}4)^2 - 8 \ge 8 > 0$, so the roots
+$m_\pm$ are real.  We show $m_- \in (2, 3)$ and
+$m_+ \in (N{-}3, N{-}2)$ by two elementary bounds:
+\emph{$m_- > 2$:} equivalent to $N{-}4 > \sqrt{(N{-}4)^2{-}8}$,
+which holds unconditionally since the RHS${}^2 =
+(N{-}4)^2 - 8 < (N{-}4)^2 =$ LHS${}^2$.
+\emph{$m_- < 3$:} equivalent to $N{-}6 < \sqrt{(N{-}4)^2{-}8}$.
+Squaring (valid since both sides are non-negative for $N \ge 6$):
+$(N{-}6)^2 < (N{-}4)^2 - 8$, i.e.\
+$-12N + 36 < -8N + 16 - 8$, i.e.\ $-4N + 28 < 0$,
+i.e.\ $N > 7$.  So for all $N \ge 8$, $m_- < 3$.
+Combined with $m_- > 2$: $m_- \in (2, 3)$.
+By symmetry ($m_+ = N - m_-$), $m_+ \in (N{-}3, N{-}2)$.
+Hence $\lceil m_- \rceil = 3$ and $\lfloor m_+ \rfloor = N{-}3$.
 The count of integers $m \in (m_-, m_+)$ is
 $\lfloor m_+ \rfloor - \lceil m_- \rceil + 1
 = (N{-}3) - 3 + 1 = N - 5$.
-Verified at $N = 8$: $\sqrt{8} \approx 2.83$,
-$m_\pm = (8 \pm 2.83)/2 \in \{2.59, 5.41\}$,
-integer solutions $\{3, 4, 5\}$, count $= 3 = N - 5$.
+Verified at $N = 8$: $\sqrt{8} = 2\sqrt{2} \approx 2.83$,
+$m_\pm = (8 \pm 2\sqrt{2})/2 = 4 \pm \sqrt{2}
+\in \{2.59, 5.41\}$, integer solutions $\{3, 4, 5\}$,
+count $= 3 = N - 5$.
 The complex Morse index is $N{-}5$; the real index is
 $2(N{-}5)$.
 \end{proof}
@@ -183,16 +192,21 @@ only for $N = 3$.
 By Theorem~\ref{thm:morse-bott}, for $N \le 6$ the
 $N$-gon has non-degenerate normal Hessian with all
 eigenvalues positive (Morse index~$0$).
-The classification of relative equilibria
-(\citealt{Aref2003}, Appendix~A; see also
-\citealt{LimMontaldiRoberts2001}) enumerates all critical
-points of $H$ on $\{P = 0, L = R^2\}$ for $N \le 7$:
-they consist of the regular $N$-gon (possibly with
-central vortex) plus an explicit list of saddle
-configurations, each with at least one negative
-normal eigenvalue.
+The classification of relative equilibria for
+$N \le 6$ is given by \citealt{Aref2003}, Appendix~A
+(see also \citealt{LimMontaldiRoberts2001}):
+the critical points of $H$ on $\{P = 0, L = R^2\}$
+consist of the regular $N$-gon (possibly with central
+vortex) plus an explicit list of saddle configurations,
+each with at least one negative normal eigenvalue.
 In particular, every non-$N$-gon critical point has
-Morse index $\ge 1$.
+Morse index $\ge 1$ for $N \le 6$.
+(The $N = 7$ case is treated by the explicit Morse--Bott
+calculation of Theorem~\ref{thm:morse-bott}, which
+identifies the degenerate modes $m \in \{3, 4\}$ and
+the associated quartic normal form; no independent
+classification of all critical points for $N = 7$ is
+invoked.)
 \end{proof}
 
 \begin{corollary}[Equivariant Euler class sign change]
@@ -360,9 +374,12 @@ center $z_0$ and acts on the mode space by scalar
 multiplication by $\omega^m$ on $\rho_m$.
 The Fuchsian group $\Gamma$ acts on $\mathbf{H}^2$ as
 deck transformations; these commute with the polygon
-symmetry because the polygon is centered at the
-$\Gamma$-invariant point $z_0$ and $\Gamma$ acts on
-$\mathbf{H}^2$ away from $z_0$.
+$\mathbb{Z}_N$ symmetry because the polygon is centered
+at a $\Gamma$-fixed basepoint $z_0 \in \mathbf{H}^2$
+(equivalently, a lift of a fixed point of $\Gamma$ on
+the quotient surface), which is preserved by both the
+$\mathbb{Z}_N$-rotations about~$z_0$ and by the
+$\Gamma$-action.
 Therefore the $\mathbb{Z}_N$-action on
 $\oplus_m \rho_m \otimes C^*_r(\Gamma)$
 factors through the $\rho_m$-decomposition with
@@ -384,7 +401,12 @@ $\Gamma \subset \mathrm{SL}(2,\mathbb{R})$ satisfies
 $\#\{\gamma : \ell_\gamma \le L\} = O(e^L)$ by the
 standard ball-volume estimate
 (\citealt{Buser1992}, \S 9).
-Writing this as a Stieltjes integral:
+Writing this as a Stieltjes integral (the orbit-counting
+function $L \mapsto \#\{\ell_\gamma \le L\}$ is a
+non-decreasing right-continuous step function of bounded
+variation on any compact interval, since $\Gamma$ acts
+properly discontinuously and each ball of radius~$L$
+contains finitely many orbit representatives):
 $\sum_{\gamma \ne 1} e^{-s\ell_\gamma}
 \le \int_0^\infty e^{-sL}\,d(\#\{\ell \le L\})
 \le s \int_0^\infty e^{-sL} \cdot C e^L\,dL
@@ -1322,7 +1344,7 @@ operator-level equivalence $H_{\mathrm{BO}} \sim \Delta_{X(7)}|_{\mathbb{Z}_7}$
 is \emph{false} (Weyl densities disagree by a factor of
 $\sim c_7$).  The conjecture therefore asserts only a
 \emph{weaker} semiclassical correspondence, in the spirit of the
-Langlands ``Beyond Endoscopy'' programme
+Langlands ``Beyond Endoscopy'' program
 (\citealt{Langlands2004,FrenkelLanglandsNgo2010}), where the
 trace-formula identity is expected to follow from functoriality
 of $\mathrm{Sym}^k$ representations rather than direct operator
@@ -1359,7 +1381,7 @@ approximation (Airy scaling $c^{-2/3}$), not by
 $c^{-1}$-harmonic scaling.
 The numerical proximity to $\sqrt{2/\pi}$ at $c = c_7$ is
 therefore empirical, and is used below only through the
-rearrangement in Corollary~\ref{cor:pell-three-term}.
+rearrangement in Observation~\ref{cor:pell-three-term}.
 A parallel large-$N$ asymptotic analysis (spiral-hexagon
 \texttt{mass\_gap.py}) gives $\Delta\varepsilon(c_N) \to
 \sqrt{2/3} \approx 0.8165$ as $N \to \infty$; the $N = 7$
@@ -1399,7 +1421,7 @@ conjectures) have not been made rigorous in the present
 setting.
 \end{observation}
 
-\begin{corollary}[Three-term rearrangement]
+\begin{observation}[Three-term rearrangement]
 \label{cor:pell-three-term}
 Define two distinct residuals:
 \begin{align*}
@@ -1445,7 +1467,7 @@ connection to $\delta_{\mathrm{harm}}$
 the two $\sqrt{2/\pi}$ occurrences (in the WDW gap match and
 in the three-term rearrangement) are logically distinct, tied
 together only by the numerical identity~\eqref{eq:pell-numerical}.
-\end{corollary}
+\end{observation}
 
 \begin{remark}[What is proved vs.\ observed]
 \label{rem:pell-status}
@@ -1460,7 +1482,7 @@ for the Pell structure).
 Observation~\ref{prop:harmonic-wdw-gap} (empirical match
 $\Delta\varepsilon(c_7) \approx \sqrt{2/\pi}$ to $0.65\%$);
 Observation~\ref{obs:pell-numerical} (leading coefficient
-$14 = 2N$); Corollary~\ref{cor:pell-three-term}
+$14 = 2N$); Observation~\ref{cor:pell-three-term}
 (three-term empirical rearrangement).
 \end{itemize}
 The hierarchy prediction in Paper~VI

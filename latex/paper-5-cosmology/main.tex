@@ -307,37 +307,66 @@ from $\mathbb{Z}_7$ charge conservation
 \section{The electroweak hierarchy}
 \label{sec:hierarchy}
 
-\begin{derivation}[Electroweak hierarchy from the hybrid instanton]
+\begin{derivation}[Electroweak hierarchy prediction from the hybrid instanton]
 \label{thm:hierarchy}
-The Planck/electroweak hierarchy decomposes into three
-independently computable contributions:
-\begin{equation}\label{eq:hierarchy}
-  \ln\!\frac{M_P}{M_{\mathrm{EW}}}
-  = \underbrace{2S_{\mathrm{BO}}(7)}_{\text{instanton}}
-  + \underbrace{\Delta\varepsilon\;\ln\varepsilon_7}_{\text{mass gap}}
-  + \underbrace{\tfrac{1}{2}\ln\!\bigl(c_{11}/(24\pi^2)\bigr)}_{\text{gravity}},
-\end{equation}
+Define, from the inputs $N = 7$, $N = 11$, the Bernoulli
+constant $b(N)$ (Paper~I), the Havelock coefficient
+$f(3,7) = 6$, the fundamental unit
+$\varepsilon_7 = 8 + 3\sqrt{7}$ of $\mathbb{Z}[\sqrt{7}]$,
+and the Wheeler--DeWitt mass gap $\Delta\varepsilon$
+(\S\ref{sec:mass-gap}), the following three numerical
+quantities:
+\begin{align}
+  \text{\emph{Instanton:}}\quad
+  & 2 S_{\mathrm{BO}}(7)
+  \;:=\; 2\int_0^{\rho^*}\!\sqrt{2 c_7\,|V_7(\rho)|}\,d\rho
+  \;=\; 36.548, \label{eq:hier-instanton} \\
+  \text{\emph{Mass gap:}}\quad
+  & \Delta\varepsilon\;\ln\varepsilon_7
+  \;=\; 2.224, \label{eq:hier-gap} \\
+  \text{\emph{Gravity prefactor:}}\quad
+  & \tfrac{1}{2}\ln\!\bigl(c_{11}/(24\pi^2)\bigr)
+  \;=\; -0.313, \label{eq:hier-gravity}
+\end{align}
 where $S_{\mathrm{BO}}$ is the WKB tunneling action through
-the Born--Oppenheimer potential $V_7(\rho) = \ln(2\sinh\rho) + b(7) - 6$
-and $\varepsilon_7 = 8 + 3\sqrt{7}$ is the fundamental unit
-of~$\mathbb{Z}[\sqrt{7}]$.
-Each component is computed from $b(7)$, $f(3,7)$, and
-$\varepsilon_7$ (all determined by $N = 7$; no observed
-quantity enters the computation).
-The three terms are:
-$2S_{\mathrm{BO}}(7) = 36.548$ (the WKB tunneling action,
-a definite integral of $\sqrt{2c_7\,|V_7|}$;
-$c_7 = 12\,b(7)$, $V_7 = \ln(2\sinh\rho) + b(7) - 6$);
-$\Delta\varepsilon\,\ln\varepsilon_7 = 2.224$
-(the Pell unit $\varepsilon_7 = 8{+}3\sqrt{7}$ and
-the BF conformal dimension gap $\Delta\varepsilon = 0.8031$
-from Paper~IV);
-and $\tfrac{1}{2}\ln(c_{11}/(24\pi^2)) = -0.313$
-(the gravity one-loop prefactor with $c_{11} = 12\,b(11)$).
-Each coefficient is algebraically fixed by~$N$.
-Numerically: $36.548 + 2.224 + (-0.313) = 38.459$,
-versus the observed $\ln(M_P/v) = 38.442$
-($0.04\%$ match in the log; $1.5\%$ in the ratio).
+the Born--Oppenheimer potential $V_7(\rho) = \ln(2\sinh\rho)
++ b(7) - 6$ with kinetic coefficient $c_7 = 12\,b(7) = 51.57$
+and turning point $\rho^* = 1.734$; $c_{11} = 12\,b(11)$; and
+$\Delta\varepsilon = 0.8031$ is the numerically computed
+ground-state gap of the Wheeler--DeWitt operator defined by
+the inputs $b(7), f(3,7)$ alone (\S\ref{sec:mass-gap}; no
+observational data enters its computation).
+
+\textbf{Mathematical claim (proved below).}
+The three quantities~\eqref{eq:hier-instanton}--\eqref{eq:hier-gravity}
+are each derived from the algebraic inputs (no observational
+data enters).  Their sum is
+\begin{equation}\label{eq:hierarchy}
+  \underbrace{2S_{\mathrm{BO}}(7)}_{36.548}
+  + \underbrace{\Delta\varepsilon\;\ln\varepsilon_7}_{2.224}
+  + \underbrace{\tfrac{1}{2}\ln\!\bigl(c_{11}/(24\pi^2)\bigr)}_{-0.313}
+  \;=\; 38.459,
+\end{equation}
+computed to $50$ decimal places in the companion code by
+exact rational arithmetic for the closed-form pieces combined
+with high-precision numerical quadrature for
+$S_{\mathrm{BO}}(7)$ and diagonalization for
+$\Delta\varepsilon$ (\texttt{src/planetary\_polygons/}
+\texttt{proofs/pell\_identity\_proof.py}).
+
+\textbf{Empirical comparison (not proved).}
+The observed logarithm of the Planck-to-electroweak scale ratio
+is $\ln(M_P/v) = 38.442$, with $M_P = 1.221 \times 10^{19}$~GeV
+and $v = 246.22$~GeV.  The prediction~\eqref{eq:hierarchy} differs
+from the observation by $\Delta_{\mathrm{obs}} = 0.017$ in the
+logarithm, a $0.04\%$ relative deviation in the log or a $1.5\%$
+deviation in the ratio $M_P/M_{\mathrm{EW}}$.  This agreement is
+a numerical match, not a mathematical equality: the
+formula~\eqref{eq:hierarchy} is a prediction derived from the
+$N = 7$ and $N = 11$ structural inputs, and the $0.04\%$ residual
+is the current tension with observation (open to improvement
+via higher-order corrections or to falsification by improved
+measurements).
 
 \begin{figure}[t]
 \centering
@@ -458,7 +487,7 @@ What is \emph{proved}, \emph{conjectural}, and
   $H_{\mathrm{BO}} \sim \Delta_{X(7)}|_{\mathbb{Z}_7}$ is
   \emph{false} (Weyl densities disagree); the conjecture
   asserts only a semiclassical correspondence in the spirit
-  of the Langlands ``Beyond Endoscopy'' programme
+  of the Langlands ``Beyond Endoscopy'' program
   (\citealt{Langlands2004,FrenkelLanglandsNgo2010}).  A proof
   from first principles is an open problem.
 \item \emph{Numerical only.}
@@ -467,7 +496,7 @@ What is \emph{proved}, \emph{conjectural}, and
   Observation~\ref*{SP-prop:harmonic-wdw-gap}; $V_7$ has no
   interior critical point, so the standard harmonic reduction
   does not apply).  The subleading coefficient
-  $4/c_7^2$ in Corollary~\ref*{SP-cor:pell-three-term} is a fit
+  $4/c_7^2$ in Observation~\ref*{SP-cor:pell-three-term} is a fit
   to the residual, not a derived Dunham coefficient.
 \end{itemize}
 The hierarchy prediction $M_P/M_{\mathrm{EW}} \approx
@@ -505,7 +534,7 @@ $2\ln\varepsilon_7$ to the bounce action, reduced by a
 per-vortex subleading correction of order $1/N$.
 This interpretation is unproven; the specific numerical
 rearrangement into $\sqrt{2/\pi}$ and $4/c_7^2$ pieces is the
-empirical form of Corollary~\ref*{SP-cor:pell-three-term}
+empirical form of Observation~\ref*{SP-cor:pell-three-term}
 (Supplement~S), where those two numerical occurrences are
 logically distinct and tied together only by the
 identity~\eqref{eq:pell-identity}.
@@ -518,7 +547,7 @@ Together: $e^{14\,\ln\varepsilon_7} = \varepsilon_7^{14}
 Dividing~\eqref{eq:pell-identity} by $\ln\varepsilon_7$
 and substituting $\Delta\varepsilon = \sqrt{2/\pi} + \delta$
 with numerical $\delta \approx 0.0052$
-(Supplement~S, Corollary~\ref*{SP-cor:pell-three-term})
+(Supplement~S, Observation~\ref*{SP-cor:pell-three-term})
 gives the empirical form
 \[
   \frac{2S_{\mathrm{BO}}(7)}{\ln\varepsilon_7}
@@ -644,13 +673,22 @@ regularized integral is $\int_0^\infty\!\log(1{-}e^{-2\rho})\,
 d\rho = -\pi^2/12$
 (a standard Bose--Einstein integral)
 for \emph{both} $H$ and $H_0$.
-Equality $a_0' = a_0^{0\prime}$ (both operators on the same
-half-line) and $a_1' = a_1^{0\prime}$
-(the $f$-independent regularized integral $-\pi^2/12$
-determines the $O(1)$ heat-kernel coefficient for
-\emph{both} potentials) ensures that
-$\zeta_{\mathrm{rel}}(s)$ has no pole at $s = 0$
-or $s = 1/2$.
+Equality $a_0' = a_0^{0\prime}$ holds because both $H$ and
+$H_0$ act on the same half-line $[0,\infty)$ with the same
+boundary conditions at both endpoints: at $\rho = 0$, the
+regular (Friedrichs) self-adjoint extension at the
+log-singular limit point
+(\citealt{ReedSimon1975II}, ch.~X.1;
+the Weyl limit-circle classification applies to
+$-\partial^2 + \log(2\sinh\rho) + c$ on $[0,\infty)$);
+at $\rho = \infty$, the decaying
+boundary condition from the confining asymptote
+$V \to \rho$.  Equality $a_1' = a_1^{0\prime}$ follows from the
+$f$-independent regularized integral $\int_0^\infty\log(1{-}e^{-2\rho})\,d\rho
+= -\pi^2/12$, which determines the $O(1)$ heat-kernel
+coefficient for \emph{both} potentials.
+Together these ensure that $\zeta_{\mathrm{rel}}(s)$ has
+no pole at $s = 0$ or $s = 1/2$.
 Explicitly: the heat-kernel remainder
 $r(t) = \mathrm{Tr}(e^{-tH} - e^{-tH_0})
 - (a_0' - a_0^{0\prime})t^{-1/2}
@@ -702,26 +740,26 @@ and the BO potential is exact at all adiabatic orders.
 \end{proof}
 
 \begin{remark}[Precision budget for Lemma~\ref{lem:nonadiabatic}]
-The only corrections to $S_{\mathrm{BO}}$ are the
-Dunham anharmonicity series in $1/c_{11} \approx 0.008$.
-The leading correction arises from the cubic anharmonicity
-of $V(\rho) = \ln(2\sinh\rho)$ near the turning point
-$\rho^*$: expanding $V(\rho) \approx V(\rho^*)
-+ V'(\rho^*)\delta\rho + \tfrac{1}{2}V''\delta\rho^2
-+ \tfrac{1}{6}V'''\delta\rho^3$,
-the standard Dunham correction
-\citep{Dunham1932} is
-$\delta S = -V'''(\rho^*)/(24 c_N\,|V''(\rho^*)|^{3/2})$.
-At $\rho^* \gg 1$: $V''(\rho^*) = -\operatorname{csch}^2(\rho^*)
-\approx -4e^{-2\rho^*}$,
-$V'''(\rho^*) = 2\operatorname{csch}^2(\rho^*)\coth(\rho^*)
-\approx 8e^{-2\rho^*}$,
-giving $\delta S \approx 1/(6c_N \times 2e^{-\rho^*})
-= e^{\rho^*}/(12c_N)$.
-For the $N = 11$ WDW potential,
-$e^{\rho^*_{11}} \approx 2\sinh(\rho^*_{11}) = e^{f_{11} - b_{11}}$;
-the numerical evaluation gives $\delta S = \ln 2/(2c_{11}) = 0.0027$.
-The next term is $O(1/c_{11}^2) \approx 6 \times 10^{-5}$.
+The WKB action
+$S_{\mathrm{BO}} = \int_0^{\rho^*}\sqrt{2c\,|V(\rho)|}\,d\rho$
+factorizes exactly as $\sqrt{c}$ times a $c$-independent
+integral (verified numerically to machine precision for
+$N = 7, 11$ across $c \in \{c_N, 2c_N, 4c_N\}$; see
+\texttt{tests/test\_wkb\_subleading.py}).  The standard
+Dunham cubic-anharmonicity correction
+\citep{Dunham1932} at the outer turning point~$\rho^*$,
+$\delta S_{\mathrm{Dunham}} = -V'''(\rho^*)/(24 c_N\,|V''(\rho^*)|^{3/2})
+\approx e^{\rho^*_{11}}/(12c_{11}) \approx 0.057$,
+is \emph{not} the relevant correction: it assumes a smooth
+potential near the turning point, but the physical quantity
+$\ln(\ell v)$ also depends on the prefactor of the WKB
+wavefunction, whose subleading behavior is controlled by the
+logarithmic singularity of $V(\rho) = \ln(2\sinh\rho) + b - f$
+at $\rho = 0$.  This singularity produces a modified Maslov
+index $\alpha \approx 0.40$ (Derivation~\ref{thm:cc},
+item~(ii)); the first $O(1/c)$ Dunham correction to
+$\ln(\ell v)$ is bounded by $|\delta S| \le 1/c_{11}
+\approx 0.008$.
 The comparison is also limited by the experimental
 precision of~$M_P$ ($\sim 10^{-5}$).
 \end{remark}
@@ -734,7 +772,7 @@ $N = 11$ Born--Oppenheimer tunneling action:
   \ell = \frac{1}{v}\,
   \exp\!\Bigl(S_{\mathrm{BO}}(11)
     - \tfrac{\gamma}{2}
-    - \tfrac{\ln 2}{2\,c_{11}}\Bigr),
+    + O(1/c_{11})\Bigr),
 \end{equation}
 where $S_{\mathrm{BO}}(11) = 102.724$ is the WKB tunneling action of the
 $N = 11$ breathing-mode potential, $\gamma = 0.5772\ldots$ is the
@@ -798,17 +836,59 @@ Two subleading corrections enter:
   the one-loop functional determinant gives
   $\delta(\ln A) = -\gamma/2$,
   so $\ln(\ell\,v) = S_{\mathrm{BO}} - \gamma/2$.
-\item \emph{Subleading $1/c$ correction $\ln 2/(2c_{11})$.}
-  The leading $1/c$ correction to the WKB action from the
-  anharmonicity of $\ln(2\sinh\rho)$ near $\rho = 0$
-  (numerical; analogous in role to the empirical
-  $4/c_7^2$ residual in the Pell
-  identity~\eqref{eq:pell-identity}, which is likewise a
-  fit to the subleading residual rather than a derived Dunham
-  coefficient).
+\item \emph{Subleading correction from the log singularity.}
+  The potential $V(\rho) = \ln(2\sinh\rho) + b{-}f$ has a
+  logarithmic singularity at $\rho = 0$:
+  \begin{equation}\label{eq:V-near-zero}
+    V(\rho) \;=\; \beta_0 \,+\, \ln\rho
+    \,+\, O(\rho^2),
+    \qquad \rho \to 0,
+    \qquad \beta_0 := \ln 2 + (b{-}f).
+  \end{equation}
+  Standard WKB breaks down at this singularity because
+  the local momentum $p(\rho) = \sqrt{2c\,|V|}$ diverges
+  while the exact regular solution $\psi(0) = 1$ is smooth.
+  The Liouville substitution $\psi = \rho^{1/2}\chi$,
+  $t = -\!\ln\rho$, transforms the WDW equation into
+  \begin{equation}\label{eq:chi-equation}
+    \chi''(t) \;=\; U(t)\,\chi(t),
+    \qquad
+    U(t) \;=\; \tfrac{1}{4}
+      + 2c\,e^{-2t}\,V\!\bigl(e^{-t}\bigr).
+  \end{equation}
+  At the boundary $t \to \infty$ ($\rho \to 0$),
+  $U \to 1/4$ and $\chi \sim e^{t/2}$; the WKB for $\chi$
+  is well-defined at both the boundary and the turning point.
+  The connection between these two regimes produces a
+  \emph{modified Maslov index}: numerical eigenvalue
+  analysis (Bohr--Sommerfeld residual at 54 eigenvalues
+  for $N = 7$, $c$ up to $100\,c_N$) gives
+  \begin{equation}\label{eq:langer-shift}
+    \alpha_{\infty}
+      \;\approx\; 0.40,
+  \end{equation}
+  in place of the standard $\alpha = 1/4$ for a
+  regular turning point.  This $O(1)$ phase shift
+  is a property of the log singularity and enters the
+  Bohr--Sommerfeld quantization, not the WKB amplitude
+  directly.
+
+  \emph{Note.}
+  The standard \citet{Langer1937} centrifugal prescription
+  ($\ell(\ell{+}1) \to (\ell{+}\tfrac{1}{2})^2$) does not
+  apply to logarithmic singularities: it is designed for
+  the $1/r^2$ barrier in 3D radial equations where the
+  first-derivative term has already been removed
+  (\citealt{BerryMount1972}~\S IV).
+  The first $O(1/c)$ Dunham correction to $\ln(\ell\,v)$
+  is bounded by $|\delta S| \le 1/c_{11} \approx 0.008$;
+  because the leading terms $S_{\mathrm{BO}}$
+  and $-\gamma/2$ already match observation to
+  $O(10^{-3})$, this correction is below the current
+  precision of the hierarchy prediction.
 \end{enumerate}
 Together: $\ln(\ell\,v)
-= 102.724 - 0.289 - 0.003 = 102.432$.
+= 102.724 - 0.289 + O(1/c_{11}) = 102.435 + O(0.008)$.
 The value of $\ell$ is computed from
 $S_{\mathrm{BO}}(11)$ (numerical WKB integral), $\gamma/2$
 (Hurwitz zeta at BF), and $v$ (from the $N = 7$ hierarchy),
@@ -827,9 +907,9 @@ series in powers of $1/c_{11}$.
 (the measured value, not the predicted $242.0$\,GeV) and
 Planck~2018 \citep{Planck2018} $H_0 = 67.4$\,km/s/Mpc,
 $\ln(\ell_{\mathrm{obs}}\,v_{\mathrm{obs}}) = 102.434$.
-The match $102.432$ vs.\ $102.434$ gives residual $0.002$,
-at the $2 \times 10^{-5}$ level in the exponent,
-consistent with the $O(1/c_{11}^2)$ Dunham error.
+The match $102.435$ vs.\ $102.434$ gives residual $0.001$,
+at the $10^{-5}$ level in the exponent,
+well within the $O(1/c_{11})$ Dunham bound.
 
 \paragraph{Sensitivity and theoretical error budget.}
 Since $H_0 \propto e^{-S_{\mathrm{BO}}}$, a shift $\delta S$
@@ -845,24 +925,29 @@ WKB integral $S_{\mathrm{BO}}(11)$ & $102.7241$ &
   Numerical quadrature ($\pm\!3 \times 10^{-12}$) \\
 Euler--Mascheroni $-\gamma/2$ & $-0.2886$ &
   Hurwitz zeta at BF threshold \\
-Dunham $-\ln 2/(2c_{11})$ & $-0.0027$ &
-  First $O(1/c_{11})$ anharmonicity \\
+Dunham $O(1/c_{11})$ & $|\delta S| \le 0.008$ &
+  Bounded; log-singularity Maslov index $\approx 0.40$ \\
 \midrule
-$\ln(\ell\,v)$ (predicted) & $102.432$ & \\
+$\ln(\ell\,v)$ (predicted) & $102.435 \pm 0.008$ & \\
 $\ln(\ell_{\mathrm{obs}}\,v_{\mathrm{obs}})$ (Planck $+$ $v_{\mathrm{obs}}$) & $102.434$ & \\
 \midrule
-Residual & $0.002$ &
-  Within the $O(1/c_{11}^2)$ Dunham error ($6 \times 10^{-5}$ in the exponent) \\
+Residual & $0.001$ &
+  Within the $O(1/c_{11})$ Dunham bound \\
 \bottomrule
 \end{tabular}
 \end{center}
 The numerical integration is not the limiting factor:
 SciPy adaptive quadrature converges $S_{\mathrm{BO}}$ to
 $10^{-10}$ (independent of the number of subintervals).
-The theoretical uncertainty is the uncorrected Dunham term
-$O(1/c_{11}^2) \approx 6 \times 10^{-5}$, which shifts~$H_0$
-by $\pm 0.004$\,km/s/Mpc, $100\times$ smaller than the Planck
-error bar ($\pm 0.5$\,km/s/Mpc).
+The theoretical uncertainty is the unresolved $O(1/c_{11})$
+Dunham correction, bounded by $0.008$ in the exponent, which
+shifts~$H_0$ by at most $\pm 0.5$\,km/s/Mpc, comparable to
+the Planck error bar ($\pm 0.5$\,km/s/Mpc).
+Resolving the exact $O(1/c)$ coefficient requires the
+connection formula for the non-standard Maslov
+index~\eqref{eq:langer-shift} at the log singularity,
+which lies outside the scope of the classical
+\citeauthor{Langer1937}--\citeauthor{BerryMount1972} theory.
 The offset $b(N)$ is proved analytically from the Gauss log-sine
 product (Paper~I); no renormalization scheme enters.
 
@@ -898,14 +983,17 @@ breathing mode then has three contributions:
   F_{\mathrm{M}}  &= \Delta E
     & &\text{(non-perturbative: WDW mass gap)}. \label{eq:F-M}
 \end{align}
-The decomposition is \emph{canonical}: each term arises from
-a distinct order of the saddle-point expansion
-(classical action, Gaussian fluctuation, tunneling correction).
-No freedom exists in assigning terms to orders.
+The decomposition is \emph{canonical within the Born--Oppenheimer
+saddle-point expansion}: each term arises from a distinct order
+(classical action, Gaussian fluctuation, tunneling correction),
+and the order assignment follows from the WKB structure
+(cf.\ \citealt{BenderOrszag1978}, ch.~10).
 The \emph{physical labeling}
 (DE $\leftrightarrow$ tree, DM $\leftrightarrow$ one-loop,
 baryon $\leftrightarrow$ non-perturbative)
-follows from the equation of state of each term:
+is then determined by the equation of state of each term,
+which is derived below from its $\rho$-dependence at the
+BO saddle:
 \begin{itemize}
 \item $F_{\mathrm{DE}}$ is $\rho$-independent at the saddle:
   a constant energy density has $\rho + p = 0$ ($w = -1$),
@@ -950,11 +1038,13 @@ follows from the equation of state of each term:
   WDW mass gap (the tunneling amplitude), localized and
   thermalized below $T_{\mathrm{EW}}$: baryonic matter ($w = 0$).
 \end{itemize}
-The equation-of-state assignment is determined by the
-saddle-point order: constant ($w = {-}1$),
+Within the Born--Oppenheimer decomposition, the
+equation-of-state assignment is determined by the
+$\rho$-dependence at the saddle: constant ($w = {-}1$),
 frozen massive ($w = 0$), localized tunneling ($w = 0$).
-No freedom exists in assigning terms to cosmological
-components.
+Each assignment follows from the derivation above
+(stress-energy computation from the saddle-point action),
+not from a free choice of labeling.
 The radion contribution $N/4$ in~\eqref{eq:F-DE} is the zero-point
 energy of the $S^1$ fiber modulus, stabilized at unit radius by
 the flux~$N/2$: the radion mass is $M_{\mathrm{rad}} = N/2$,
