@@ -215,8 +215,11 @@ yields $\lambda_m^\pm$.
 \begin{corollary}[Constrained minimum versus unconstrained saddle]
 \label{cor:min-not-max}
 For $N \le 7$, the $N$-gon is simultaneously a constrained energy
-\emph{minimum} on $\{L = NR^2,\, \mathbf{P} = 0\}$ and an
-unconstrained saddle point of~$H$.
+\emph{minimum} on $\{L = NR^2,\, \mathbf{P} = 0\}$ (strict for
+$N \le 6$; at $N = 7$ positive semi-definite at quadratic order,
+with strict minimality established by the quartic normal form
+$\alpha_0 = 45/14 > 0$, Section~\ref{sec:n7-bifurcation})
+and an unconstrained saddle point of~$H$.
 \end{corollary}
 
 \begin{proof}
@@ -661,13 +664,16 @@ $M$-gon on a ring of radius $R_1 < R_2$.
   \item[(i)] If $N \le 7$ (outer ring Thomson-stable), the two-ring
     configuration is \emph{unstable}: the Lagrangian Hessian has
     at least one negative eigenvalue.
-  \item[(ii)] If $N \ge 8$ (outer ring Thomson-unstable) and
-    $R_{\mathrm{in}}/R_{\mathrm{out}} \le 1/2$ (the
-    well-separated regime), the inner ring can reduce but
-    \emph{not eliminate} the instability: the two-ring
-    Hessian retains at least one negative eigenvalue.
-    (The non-separated regime is an open problem; see the
-    remark in the proof.)
+  \item[(ii)] If $N \ge 8$ (outer ring Thomson-unstable),
+    $R_{\mathrm{in}}/R_{\mathrm{out}} \le 1/2$, and the
+    inner-ring circulation satisfies the weak-coupling condition
+    $\kappa_{\mathrm{inner}}/R_{\mathrm{out}}^2
+    \le 10^{-2}|\lambda_{\lfloor N/2\rfloor}^{\mathrm{outer}}|$
+    (the well-separated, weakly-coupled regime), the inner ring
+    can reduce but \emph{not eliminate} the instability: the
+    two-ring Hessian retains at least one negative eigenvalue.
+    (The non-separated or strongly-coupled regime is an open
+    problem; see the remark in the proof.)
 \end{itemize}
 In contrast, a single central vortex ($M = 0$) at the
 $\mathbb{Z}_N$ fixed point produces a \emph{uniform} eigenvalue
