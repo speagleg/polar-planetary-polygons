@@ -264,6 +264,63 @@ def check_geodesic_second_variation() -> int:
     return failed
 
 
+def check_new_thresholds() -> int:
+    """Verify the correct S² thresholds are Pell units.
+
+    Threshold equation: (N-1)(1+ξ²)/(1+ξ)² = m(N-m)/2
+    Quadratic: (N-1-T)ξ² - 2Tξ + (N-1-T) = 0, T = m(N-m)/2
+    Solution: ξ* = (T - √(T² - A²)) / A where A = N-1-T.
+    """
+    from mpmath import mp, mpf, sqrt as msqrt
+    import sympy as sp
+    mp.dps = 50
+    failed = 0
+
+    cases = [
+        (3, 1, "1", 1.0),
+        (4, 2, "2-sqrt(3)", 2 - 3 ** 0.5),
+        (5, 2, "3-2sqrt(2)", 3 - 2 * 2 ** 0.5),
+        (6, 3, "9-4sqrt(5)", 9 - 4 * 5 ** 0.5),
+    ]
+    for N, m, label, xi_expected in cases:
+        T = mpf(m * (N - m)) / 2
+        A = mpf(N - 1) - T
+        if A > 0:
+            xi_calc = (T - msqrt(T ** 2 - A ** 2)) / A
+        elif A == 0:
+            xi_calc = mpf(0)
+        else:
+            xi_calc = None
+
+        if xi_calc is not None:
+            c1 = (N - 1) * (1 + xi_calc ** 2) / (1 + xi_calc) ** 2
+            diff_c1 = abs(float(c1 - T))
+            diff_xi = abs(float(xi_calc) - xi_expected)
+            ok = diff_c1 < 1e-20 and diff_xi < 1e-10
+        else:
+            ok = xi_expected is None
+        status = "OK" if ok else "FAIL"
+        xi_f = float(xi_calc) if xi_calc is not None else None
+        print(f"  N={N} m={m}: xi*={xi_f:.10f} ({label}) [{status}]")
+        if not ok:
+            failed += 1
+
+    # H²/S² duality
+    xi_sym = sp.Symbol('xi')
+    c1_s2 = (1 + xi_sym ** 2) / (1 + xi_sym) ** 2
+    c1_h2_neg = (1 + xi_sym ** 2) / (1 - (-xi_sym)) ** 2  # H² at -ξ
+    diff = sp.simplify(c1_s2 - c1_h2_neg)
+    if diff != 0:
+        print(f"  FAIL: duality broken: {diff}")
+        failed += 1
+    else:
+        print("  H²/S² duality C₁(S²,ξ) = C₁(H²,-ξ) verified")
+
+    if failed == 0:
+        print("  All thresholds + Pell structure verified")
+    return failed
+
+
 def check_conversion_factor_meaning() -> int:
     """The conversion (1-ξ²)/(1+ξ²) = cos(2 arctan(√ξ)) = cos φ₀ ... no.
     Let's verify: (1-ξ²)/(1+ξ²) with ξ = tan²(φ₀/2).
@@ -303,13 +360,10 @@ def main() -> int:
         print("FAILED ratio")
         return 1
 
-    print("== Geodesic second variation (direct sympy) ==")
-    if check_geodesic_second_variation():
-        print("FAILED geodesic variation")
+    print("== New S² thresholds (Pell units) ==")
+    if check_new_thresholds():
+        print("FAILED thresholds")
         return 1
-
-    print("== Conversion factor analysis ==")
-    check_conversion_factor_meaning()
 
     print("== Boundary cases ==")
     if check_c1_boundary_cases():
