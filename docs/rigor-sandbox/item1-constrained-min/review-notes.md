@@ -31,3 +31,26 @@
 ### Resolution plan
 
 Apply all 5 structural fixes + 5 stylistic (1, 2, 3, 5, 6). Stylistic 4 duplicates structural 1. Stylistic 7 is already correct (verified by `pdflatex` cross-refs with zero warnings).
+
+## Round 2 — 2026-04-14 — PASS
+
+**Score: 9.3 / 10**
+**Structural deductions: 0** (gate passes)
+**Stylistic deductions: 8**
+
+Independent reviewer verified: Havelock, cosecant-squared, rr second sum = (m(N-m)-1)/2, generic-m Fourier sums, tt bracket simplification, and μ_L = -(N-1)/4 all checked to 30 digits via mpmath. Normalization chain internally consistent. m=N/2 branch correctly captures factor-of-2 doubling cancellation.
+
+### Stylistic (non-blocking; optional polish)
+
+1. Cos-sin equivalence proof: add parenthetical "(as a labeled configuration up to Z_N relabeling)".
+2. Add one-line citation for Schur/isotypic decomposition (Serre or James-Liebeck).
+3. Theorem 1 proof reads as a roadmap; either relocate to end, or label "Proof (assembly)".
+4. H''(0) = 2β_m exposition could be tightened: β_m = (1/2) H''(0), eigenvalue = 2β_m / (N/2).
+5. Add explicit note that |z_k| = 1 on unit ring (removes unit-normalization ambiguity).
+6. Tangential linear-term cancellation: half-line on p = N/2 self-pairing (sin(π) = 0 handles it).
+7. Consider promoting trace-identity remark to a one-line corollary.
+8. Quote finite-difference step size and O(h²) truncation order to justify 10⁻² tolerance.
+
+### Gate
+
+**PASS.** Score ≥ 9.0 AND zero structural deductions. Sandbox is ready for diff proposal (Task 9).
