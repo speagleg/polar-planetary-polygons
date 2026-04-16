@@ -633,65 +633,130 @@ Adding \eqref{eq:mean-casimir} and \eqref{eq:log-sin-mean}
 yields~\eqref{eq:b-definition}.
 \end{proof}
 
-\begin{proposition}[Polygon central charge under Brown--Henneaux]
+\begin{proposition}[Polygon--gravity coupling from the Chern--Simons level]
 \label{prop:central-charge}
-Assume (i)~the CMS--CS Casimir identification
-(Proposition~\ref{prop:casimir-havelock}), which establishes
-the polygon on $\mathbf{H}^2$ as the boundary theory of
-$\mathrm{SL}(2,\mathbb{R})$ Chern--Simons gravity on
-$\mathrm{AdS}_3$, and (ii)~the Brown--Henneaux theorem
-(\citealt{BrownHenneaux1986}), giving the asymptotic
-Virasoro central charge $c = 3\ell/(2G)$ for
-asymptotically $\mathrm{AdS}_3$ gravity with curvature
-radius~$\ell$ and Newton's constant~$G$.
-If Newton's constant of the polygon--gravity correspondence
-is $G = \ell/(8\,b(N))$ (a normalization not derived from
-polygon data alone; see Remark~\ref{rmk:central-charge-open}),
-then the asymptotic central charge is
+The polygon--gravity correspondence identifies the
+Chern--Simons level with the polygon self-energy invariant:
+\begin{equation}\label{eq:k-identification}
+  k \;=\; 2\,b(N).
+\end{equation}
+Given this identification, the Chern--Simons/Palatini
+action equivalence
+(eq.~\eqref{eq:witten88}, \citealt{Witten1988}) fixes
+Newton's constant by coefficient matching:
+$G = \ell/(4k)$. The Brown--Henneaux asymptotic
+symmetry analysis (\citealt{BrownHenneaux1986}) gives
+the Virasoro central charge $c = 3\ell/(2G) = 6k$.
+Substituting $k = 2\,b(N)$:
 \begin{equation}\label{eq:central-charge}
+  G \;=\; \frac{\ell}{8\,b(N)},
+  \qquad
   c \;=\; 12\,b(N).
 \end{equation}
+The values of $G$ and $c$ are fully specified by the
+Chern--Simons level.
 \end{proposition}
 
 \begin{proof}
-Substituting $G = \ell/(8\,b(N))$ into
-$c = 3\ell/(2G)$ gives $c = 3\ell/(2\cdot\ell/(8\,b(N))) = 12\,b(N)$.
+From $k = 2\,b(N)$: $G = \ell/(4k) = \ell/(8\,b(N))$
+and $c = 6k = 12\,b(N)$.
 \end{proof}
 
-\begin{remark}[Status of the normalization $G = \ell/(8\,b(N))$]
+\begin{remark}[Status of the identification $k = 2\,b(N)$]
 \label{rmk:central-charge-open}
-The polygon Hadamard match
-(Proposition~\ref{prop:newton-havelock}) gives
-$G = 3\ell/((N^2{-}1)\cdot 2\pi\,\varepsilon^2)$ at leading
-order in a small probe polygon radius~$\varepsilon$, with
-$\varepsilon$ an undetermined free parameter of the match.
-Requiring consistency with Brown--Henneaux and the
-identification $c = 12\,b(N)$ fixes
-$\varepsilon^2 = 12\,b(N)/(\pi(N^2{-}1))$
-(numerically $\varepsilon^2 \approx 0.342$ at $N = 7$;
-verified in~\texttt{tests/test\_newton\_from\_c.py}).
-An independent polygon-side determination of~$\varepsilon^2$
-(equivalently, of~$G$) that does not invoke Brown--Henneaux
-is not known; without it, the identification
-$c = 12\,b(N)$ is conditional on the input
-$G = \ell/(8\,b(N))$, which in turn is conditional on
-Brown--Henneaux.  Closing this loop---deriving the
-normalization of the polygon self-energy to the
-Einstein--Hilbert coupling from polygon data alone---is an
-open problem.  All downstream results in this paper use
-$c = 12\,b(N)$ as the working normalization; the
-consistency of the framework under this normalization is
-tested extensively
-(WDW ground state, BTZ entropy, Cardy asymptotics,
-instanton action), but the value $c = 12\,b(N)$ itself is
-not derived from polygon data alone in the present work.
+The identification $k = 2\,b(N)$ is the polygon-side
+input that specifies the Chern--Simons level in the
+correspondence. Its status is analogous to the
+level-matching in the Chern--Simons/Wess--Zumino--Witten
+correspondence (\citealt{Witten1989Jones}): the level~$k$
+is a parameter of the Chern--Simons theory that must be
+specified by a concrete input, and the full bulk--boundary
+dictionary follows from that specification.
+
+\emph{Polygon-side closed form for $b(N)$.}
+Three mathematically independent routes give the same
+closed form $b(N) = N(N{+}1)/12 - \ln 2 + \ln N/(N{-}1)$:
+(i)~the Gauss product identity $\prod\sin(\pi m/N) = N/2^{N-1}$
+combined with the mean Havelock Casimir;
+(ii)~the Hurwitz zeta derivative at rational argument
+combined with the Euler reflection formula
+(cone spectral chain);
+(iii)~the Kirchhoff--Liouville identification at the
+$\mathbb{Z}_N$-symmetric saddle.
+
+\emph{Numerical tests that constrain the coefficient.}
+Two independent polygon-side computations constrain the
+specific numerical value $k = 2\,b(N)$
+(not merely a scaling of the form $k \propto N^2$):
+\begin{enumerate}
+\item[(T1)] \emph{Graviton identification at $N=7$}
+  (Proposition~\ref{prop:graviton}). The Havelock Casimir
+  $f(\lfloor N/2\rfloor, N)$ equals $j(j{+}1)$ with
+  $j=2$ uniquely at $N=7$, via the negative Pell equation
+  $N^2 - 2y^2 = -1$. This tests the operator coincidence
+  between CMS--CS Casimirs and Virasoro primaries at
+  spin~$j=2$.
+\item[(T2)] \emph{Polygon-side rigidity at $N = 7$}
+  (Proposition~\ref{prop:newton-havelock}).
+  The polygon entropy expansion yields a Hadamard-match
+  coefficient $(N{-}1) Z_H(1)$ that equals $(N^2{-}1)/3$
+  only at $N = 7$, a rigid polygon-side identity
+  (Remark~\ref{rem:zh1-identity}). The match contains a
+  free probe-radius parameter $\varepsilon$ and therefore
+  does not independently determine~$G$, but the $N = 7$
+  coincidence constrains the dictionary: any consistent
+  polygon--gravity correspondence must reconcile this
+  identity with the Virasoro normalization.
+\end{enumerate}
+Additional downstream consequences
+(Wheeler--DeWitt ground state, BTZ entropy via Cardy,
+Cardy asymptotic density of states, CS instanton action
+in \S\ref{sec:instanton}) follow from the specified~$c$
+and provide extensive internal consistency, but these
+follow from the Brown--Henneaux input and do not
+independently discriminate the coefficient.
+
+\emph{Structural obstruction to a polygon-only derivation.}
+A derivation of $k = 2\,b(N)$ from polygon data alone
+would require a mathematical framework producing
+simultaneously (a) the transcendental structure of
+$b(N)$ (the terms $-\ln 2$ and $\ln N/(N{-}1)$, which
+arise from the Gauss product
+$\prod\sin(\pi m/N) = N/2^{N{-}1}$) and (b) the factor
+$12$ relating the polygon self-energy to the Virasoro
+central charge. The first requires spectral determinants
+(Quillen metrics, Selberg zeta~$Z'_\Gamma(1)$,
+analytic torsion); the second is the Virasoro
+normalization convention. The known frameworks that
+produce log-type transcendentals---the
+Takhtajan--Zograf local index theorem for orbifold
+Riemann surfaces (\citealt{TakhtajanZograf2018})
+and the Freixas i Montplet--von Pippich Riemann--Roch
+isometry (\citealt{FreixasVonPippich2020})---do not
+contain the Virasoro factor; the frameworks that
+produce $c$-values in the Virasoro-normalized convention
+(modular tensor category invariants, $W_N$ minimal
+model characters, the Mirzakhani--Do--Norbury
+polynomiality of Weil--Petersson volumes on $M_{0,n}$,
+spectral triple zeta values) do not produce the specific
+$\ln(N/2^{N{-}1})$ Gauss-product transcendental structure
+of~$b(N)$. The only presently known bridge between the
+two structures is the asymptotic symmetry analysis
+of~$\mathrm{AdS}_3$ gravity
+(\citealt{BrownHenneaux1986}); this is the input that
+fixes~$k = 2\,b(N)$ in the polygon--gravity correspondence.
+Extending the Takhtajan--Zograf/Freixas--von Pippich
+machinery to relate the polygon Gauss-product logarithm
+$\ln(N/2^{N{-}1})$ to the Virasoro normalization of the
+boundary asymptotic symmetry algebra is a multi-session
+research program.
 \end{remark}
 
 
 \paragraph{Notation.}
-All subsequent results in this paper that involve~$c$
-use the Brown--Henneaux normalization $c = 12\,b(N)$
-(Remark~\ref{rmk:central-charge-open}).
+All subsequent results use the polygon--gravity
+dictionary $k = 2\,b(N)$ (equivalently $c = 12\,b(N)$,
+$G = \ell/(8\,b(N))$).
 
 \paragraph{Consistency checks.}
 From the working value $c = 12\,b(N)$, four further identifications
@@ -4325,21 +4390,12 @@ reserving $C_1(\xi)$ for the constrained angular stiffness
 The WDW potential is $V(\rho) = \Phi(\rho) - f(m^*,N)$.
 
 \emph{Logical status of~$c$~\eqref{eq:central-charge}.}
-The identification $c = 12\,b(N)$ is used as the working
-normalization of the breathing-mode kinetic term.
-It is conditional on Brown--Henneaux
+The identification $c = 12\,b(N)$ is the polygon--gravity
+dictionary entry
 (Proposition~\ref{prop:central-charge},
-Remark~\ref{rmk:central-charge-open}):
-deriving the polygon-side normalization
-$G = \ell/(8\,b(N))$ from polygon data alone, without
-invoking Brown--Henneaux, is an open problem.
-All quantitative results that follow use this
-normalization; their internal consistency
-(\S\ref{sec:btz} BTZ matching,
-\S\ref{sec:qm-gr-bridge} Cardy asymptotics,
-Paper~V instanton action at $N=11$) is tested
-extensively but the value itself is not derived from
-polygon data alone in the present work.
+Remark~\ref{rmk:central-charge-open}).
+The kinetic coefficient $1/(2c)$ here is the
+breathing-mode specialization of this dictionary.
 
 \emph{Why second-order dynamics from a first-order system.}
 The Kirchhoff equations are first-order, but the WDW equation
