@@ -179,12 +179,15 @@ no geometric input):
   $N = 4$ ($j = 1$, gauge boson), the only polygons with
   integer spin at the critical mode (Paper~VI, Proposition~\ref*{VI-prop:pell-unique}).
 \item[\textnormal{(ii)}]
-  The Havelock spectrum forces a one-dimensional fiber.
-  Four spectral properties of $\lambda_m = (N{-}1) - m(N{-}m)/2$
-  each independently require $d_{\mathrm{fiber}} = 1$:
-  mode count ($N{-}1$), single index, non-degeneracy,
-  and palindromic pairing (proof below).
-  The circle~$S^1$ is the unique compact connected $1$-manifold.
+  The CMS--CS Casimir identification
+  (Paper~III, Proposition~\ref*{III-prop:casimir-havelock})
+  equates the Havelock Casimir $f(m,N) = m(N{-}m)/2$ with
+  the $\mathbb{Z}_N$-invariant fiber Laplacian eigenvalue;
+  matching this structure forces the fiber to be
+  one-dimensional (single index, injective non-degeneracy
+  on $\{1,\ldots,\lfloor N/2\rfloor\}$, exact $2$-fold
+  palindromic pairing; proof below).  The circle~$S^1$
+  is the unique compact connected $1$-manifold.
 \item[\textnormal{(iii)}]
   With the $S^1$ fiber established, KK flux additivity
   gives $N = 11 = 4 + 7$
@@ -246,30 +249,43 @@ The $S^1$ fiber is derived from the Havelock spectrum
 Step~(i) is number theory (Paper~I).
 
 \emph{Step~(ii) (The fiber is $S^1$: spectral uniqueness).}
-The Havelock spectrum $\lambda_m = (N{-}1) - m(N{-}m)/2$
-uniquely determines a one-dimensional fiber by four
-spectral properties:
+The CMS--CS Casimir identification
+(Paper~III, Proposition~\ref*{III-prop:casimir-havelock})
+equates the Havelock Casimir $f(m,N) = m(N{-}m)/2$ with the
+eigenvalue of the $\mathbb{Z}_N$-invariant $m$-mode of the
+Laplacian on the fiber~$F$.  Matching the Havelock structure
+to a fiber Laplacian spectrum constrains~$F$:
 \begin{enumerate}
-\item \emph{Mode count.}
-  The polygon has $N{-}1$ independent modes ($m = 1,\ldots,N{-}1$).
-  On $S^1/\mathbb{Z}_N$: exactly $N{-}1$ nontrivial Fourier modes.
-  On any $d$-dimensional fiber with $d \ge 2$:
-  the mode count grows as $O(N^d)$, exceeding $N{-}1$.
 \item \emph{Single index.}
-  $\lambda_m$ depends on one integer~$m$.
-  Laplacian eigenvalues on $T^d$ ($d \ge 2$) or $S^d$ ($d \ge 2$)
-  depend on $d$ indices.
+  $f(m,N) = m(N{-}m)/2$ depends on one integer~$m$.
+  The Laplacian spectrum on $S^1$ (under the $\mathbb{Z}_N$
+  action $\varphi \mapsto \varphi + 2\pi/N$) is
+  $\{(2\pi m/L)^2 : m \in \mathbb{Z}\}$, single-indexed by~$m$.
+  Spectra on higher-dimensional compact fibers ($T^d$, $S^d$
+  for $d \ge 2$) are multi-indexed; no one-parameter labeling
+  reproduces $f(m, N)$ exactly for all~$m$.
 \item \emph{Non-degeneracy.}
-  $f(m,N) = m(N{-}m)/2$ is injective on $\{1,\ldots,\lfloor N/2\rfloor\}$.
-  On $S^d$ ($d \ge 2$), the eigenvalue $l(l{+}d{-}1)$ has
-  $(2l{+}d{-}1)\binom{l{+}d{-}2}{d{-}1}$-fold degeneracy.
+  $f(m,N)$ is injective on $\{1,\ldots,\lfloor N/2\rfloor\}$.
+  The $S^1$ Laplacian spectrum has exactly the palindromic
+  pairing $m \leftrightarrow N{-}m$ (complex conjugation
+  $z \leftrightarrow \bar z$), and no further degeneracy.
+  On $S^d$ ($d \ge 2$), the $\ell$-th eigenvalue
+  $\ell(\ell{+}d{-}1)$ has
+  $(2\ell{+}d{-}1)\binom{\ell{+}d{-}2}{d{-}1}$-fold degeneracy,
+  which is incompatible with the injective structure of
+  $f(m, N)$ on $\{1,\ldots,\lfloor N/2\rfloor\}$.
 \item \emph{Palindromic pairing.}
-  $\lambda_m = \lambda_{N-m}$ (exactly $2$-fold, from complex conjugation
-  $z \leftrightarrow \bar z$ on $S^1$).
-  Higher-dimensional fibers have larger pairing multiplicity.
+  $f(m, N) = f(N{-}m, N)$ is exactly $2$-fold.  This is the
+  charge-conjugation pairing $m \leftrightarrow N{-}m$ on
+  $S^1$.  Higher-dimensional fibers have larger pairing
+  multiplicity (e.g., $T^2$ has $(m_1, m_2) \leftrightarrow
+  (-m_1, -m_2)$ together with lattice symmetries).
 \end{enumerate}
-Each property independently forces $d_{\mathrm{fiber}} = 1$.
-The circle $S^1$ is the unique compact connected $1$-manifold.
+The single-index structure, the injective non-degeneracy
+on $\{1,\ldots,\lfloor N/2\rfloor\}$, and the exact $2$-fold
+palindromic pairing together force the compact connected
+fiber to be $1$-dimensional.  The unique such manifold
+is $S^1$.
 
 \emph{Step~(iii) (KK flux additivity).}
 With the $S^1$ fiber derived from the spectrum,
