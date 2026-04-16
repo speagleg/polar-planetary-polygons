@@ -1,8 +1,20 @@
-# Design: First-Principles Derivation of c = 12b(N) via Goldman-Hitchin Kähler Class (Route C3a)
+# Design: First-Principles Derivation of c = 12b(N) via Quillen/Takhtajan-Zograf Anomaly (Route C3a-extended)
 
-**Date:** 2026-04-16
-**Status:** proposed, awaiting Gordon's approval
-**Target gap:** The central charge c = 12b(N) in Paper III is currently a matching condition (via Brown-Henneaux), not a derivation from polygon data alone. This spec attempts to derive it rigorously through the Witten-Hitchin identification of the Weil-Petersson Kähler class with the CS level.
+**Date:** 2026-04-16 (v2, pivoted after Phase 0 literature audit)
+**Status:** approved by Gordon, pivoted from bare WP to Quillen/TZ anomaly
+**Target gap:** The central charge c = 12b(N) in Paper III is currently a matching condition (via Brown-Henneaux), not a derivation from polygon data alone. This spec attempts to derive it rigorously via the Chern form of the determinant line bundle on M_{0,N} with conical singularities.
+
+## 0. Pivot from v1
+
+**v1 was dead:** The Mirzakhani-Do-Norbury theorem proves ∫_{M̄_{0,N}} ω_WP at cone angles α_k is a rational multiple of π^(2(N-3)). This cannot equal 2b(N) because b(N) contains transcendental terms (ln 2, ln N) that don't arise from ψ-class / κ-class intersection theory.
+
+**v2 pivot:** The determinant line bundle λ_det on the universal curve over M_{0,N} has a Chern form that decomposes into WP and Takhtajan-Zograf (TZ) pieces:
+```
+c_1(λ_det) = (1/12π²) ω_WP − (1/9) ω_TZ + (Quillen anomaly terms)
+```
+The TZ metric and the Quillen metric anomaly produce LOG-TYPE terms via analytic torsion — exactly the transcendence type of b(N).
+
+**Reference:** Park-Takhtajan 2015 (arXiv:1508.02102) — "Potentials and Chern forms for Weil-Petersson and Takhtajan-Zograf metrics on moduli spaces of punctured Riemann surfaces."
 
 ## 1. The Mathematical Framework
 
@@ -214,12 +226,30 @@ Gordon has confirmed willingness to invest the time required, with the explicit 
 - `docs/investigations/2026-04-16-painleve-vi-wp-n4.md` (Phase 1)
 - `docs/investigations/2026-04-16-heun-wp-n5.md` (Phase 2)
 
-## 10. Immediate Next Step (Phase 0)
+## 10. Phase 0 Result (COMPLETED 2026-04-16)
 
-Dispatch a literature survey (physics-reviewer agent) to determine:
-1. Is there an explicit Zograf-Takhtajan formula for [ω_WP] at the Z_N-symmetric point of M_{0,N}?
-2. What's the precise statement of Witten-Hitchin for SL(2,R) CS on Σ × S¹ with cone defects?
-3. Are there published computations of [ω_WP]/(2π) for small N that we can validate against?
-4. Is the Takhtajan-Teo asymptotic formula for the WP metric near punctures useful here?
+Literature audit by physics-reviewer produced decisive findings:
+- Bare WP route is dead (Mirzakhani-Do-Norbury theorem: integral is rational · π^(2(N-3)), cannot equal 2b(N))
+- Quillen/TZ anomaly route is viable (log terms from analytic torsion match b(N) transcendence type)
+- Park-Takhtajan 2015 has explicit Chern form formula for c_1(λ_det)
 
-Once the literature is mapped, commit to Phase 1 (N=4 Painlevé VI computation).
+## 11. Immediate Next Step (Phase 0b)
+
+Deep-dive into Park-Takhtajan 2015 (arXiv:1508.02102) and Takhtajan-Zograf 2014 local index theorem for orbifolds. Extract:
+
+1. **Exact formula for c_1(λ_det)** in terms of ω_WP, ω_TZ, and Quillen metric log terms
+2. **Explicit computation** of the TZ Kähler form at the Z_N-symmetric point of M_{0,N}
+3. **Quillen metric anomaly** contributions: the log(det Δ) terms at conical cusps
+4. **Numerical check at N=4**: does c_1(λ_det) [with correct normalization] equal 2b(4)?
+
+If the N=4 numerical check matches 2b(4) = 2.871 to the expected precision, proceed to Phase 1 in full.
+If the numerical check fails, we have decisive negative evidence for C3a-extended as well.
+
+## 12. Revised Phase Plan (post-pivot)
+
+- **Phase 0** (done): Bare WP route eliminated; pivot to Quillen/TZ.
+- **Phase 0b** (current, 1-2 sessions): Extract Park-Takhtajan formula, numerical N=4 test.
+- **Phase 1** (2-3 sessions if 0b passes): Full N=4 c_1(λ_det) computation with test suite.
+- **Phase 2** (3-5 sessions): N=5, 6 via same machinery.
+- **Phase 3** (5+ sessions): General analytical derivation that c_1(λ_det)(Z_N-symmetric) = 2b(N).
+- **Phase 4** (2 sessions): Paper integration.
