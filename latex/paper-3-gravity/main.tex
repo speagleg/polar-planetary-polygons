@@ -645,7 +645,9 @@ Virasoro central charge $c = 3\ell/(2G)$ for
 asymptotically $\mathrm{AdS}_3$ gravity with curvature
 radius~$\ell$ and Newton's constant~$G$.
 If Newton's constant of the polygon--gravity correspondence
-is $G = \ell/(8\,b(N))$, then the asymptotic central charge is
+is $G = \ell/(8\,b(N))$ (a normalization not derived from
+polygon data alone; see Remark~\ref{rmk:central-charge-open}),
+then the asymptotic central charge is
 \begin{equation}\label{eq:central-charge}
   c \;=\; 12\,b(N).
 \end{equation}
@@ -1066,15 +1068,17 @@ Step~6 assembles the result.
     = 1 + O(1/c),
   \end{equation}
   since $\beta = 12/c$ and $\langle\delta H\rangle = O(1)$.
-  At $N = 7$: using $W_N = 153/7$ (the critical-mode
-  coupling) as an upper bound for the $m = 2$ quartic
-  coefficient, $\beta\,W_N/\lambda_2^2
-  \le (12/51.57)(153/7)/1 \approx 5.1\%$
+  At $N = 7$: the quartic coupling at the critical mode
+  is $W_3 = 153/7$ (Paper~II, eq.~(14)).
+  On each non-critical mode~$m$, the $\mathbb{Z}_N$
+  selection rule $\sum m_i \equiv 0 \pmod{N}$ restricts
+  the allowed quartic interactions, so $W_m \le W_3$
+  (a conservative bound; see footnote below).
+  Therefore $\beta\,W_m/\lambda_m^2
+  \le (12/c) \cdot W_3/\lambda_{\min}^2
+  = (12/51.57)(153/7)/1 \approx 5.1\%$
   on the softest non-critical mode ($m = 2$,
   $\lambda_2 = 1$);
-  the actual $m = 2$ quartic coupling is smaller by
-  the $\mathbb{Z}_N$ selection rule
-  (see footnote below);
   the harder modes ($m = 1$, $\lambda_1 = 3$)
   contribute $\approx 0.6\%$; the combined quartic
   correction is $\le 6\%$, consistent with the
@@ -2537,17 +2541,26 @@ This is a closed ball in the Hilbert space $L^2_0$, hence
 a complete metric space in the $L^2$-norm.
 \emph{(b)~$T$-invariance.}
 Cor.~\ref{cor:onsager-contraction} proves the contraction
-$\|\delta R(Tg) - \delta R(Tg')\|_{L^2}
-\le \kappa\,\|\delta R(g) - \delta R(g')\|_{L^2}$
+$\mathrm{Var}(R(Tg)) \le \kappa^2\,\mathrm{Var}(R(g))$
 with $\kappa = 0.044$ at $N = 7$ on the Bolza surface.
-Applied to $g' = $ constant-curvature metric (fixed point
-of $T$ with $\delta R = 0$),
+Applied to any $g \in \mathcal{B}$:
 $\|\delta R(Tg)\|_{L^2} \le \kappa\,\|\delta R(g)\|_{L^2}
 \le \kappa\sqrt{2} \approx 0.062 \le \sqrt{2}$,
 so $T(\mathcal{B}) \subseteq \mathcal{B}$.
-\emph{(c)~$L^2$-contraction.}
-By the same contraction bound, $T$ is Lipschitz on
-$\mathcal{B}$ with constant $\kappa = 0.044 < 1$.
+\emph{(c)~$L^2$-contraction (Lipschitz bound).}
+The map $T$ acts on $\delta R$ as
+$T(\delta R) = |\beta_{\mathrm{eff}} R_0|\,\delta R + Q(\delta R)$
+where $Q$ collects quadratic and higher terms.
+The linear part has $L^2$-norm $|\beta_{\mathrm{eff}} R_0|
+= 1/6$, and on the basin the nonlinear remainder satisfies
+$\|Q(\delta R_1) - Q(\delta R_2)\|_{L^2}
+\le C_2\,\|\delta R_1 - \delta R_2\|_{L^2}$
+with $C_2 \le \kappa - 1/6 < 0.03$ (from the same
+Taylor--Lipschitz bound used in
+Cor.~\ref{cor:onsager-contraction}).
+Therefore $\|T(\delta R_1) - T(\delta R_2)\|_{L^2}
+\le (1/6 + C_2)\,\|\delta R_1 - \delta R_2\|_{L^2}
+= \kappa\,\|\delta R_1 - \delta R_2\|_{L^2}$.
 
 \emph{Banach fixed-point.}
 Applying the Banach fixed-point theorem to
@@ -3160,9 +3173,10 @@ the departure from Einstein geometry.
 
 \begin{derivation}[Full Riemann curvature from the polygon number]
 \label{thm:full-riemann}
-On the Seifert manifold $\mathbf{H}^2 \times_N S^1$ with
-stabilized fiber ($\sigma = 1$) and quantized flux
-($F = N/(2\pi)$), the full $4$D Riemann tensor
+Assume the Seifert manifold $\mathbf{H}^2 \times_N S^1$ with
+stabilized fiber ($\sigma = 1$, derived in Paper~V) and
+quantized flux ($F = N/(2\pi)$, derived in Paper~IV).
+Then the full $4$D Riemann tensor
 $R^{(4)}_{MNPQ}$, including all $10$ Weyl
 components, is uniquely determined by~$N$.
 \end{derivation}
@@ -4493,7 +4507,7 @@ One-loop & $\delta_m$ &
 
 \begin{proposition}[Eigenvalue non-crossing at finite $c$]
 \label{prop:non-crossing}
-Since $c = 12\,b(N) = N^2 + N - 12\ln 2 + 12\ln(N{-}1)/(N{-}1) + O(1/N^2) > N^2$
+Since $c = 12\,b(N) = N^2 + N - 12\ln 2 + 12\ln N/(N{-}1) + O(1/N^2) > N^2$
 for all $N \ge 3$, the condition $c \ge N^2$ is automatic.
 For $N \ge 4$ (so that $\lfloor N/2 \rfloor \ge 2$),
 the mode-dependent part of the
