@@ -2214,24 +2214,39 @@ point is $g^*$ with $\mathrm{Var}(R(g^*)) = 0$,
 i.e.\ $R(g^*) = \mathrm{const}$.
 
 \emph{Extension to other compact surfaces.}
-The Sobolev constant $C_S$ depends on the surface
-through $\lambda_1$ and $\mathrm{Vol}$.
-For any compact hyperbolic surface~$\Sigma$ of
-genus~$g$ with $\lambda_1 > 1/4$
-(proved for all arithmetic surfaces by Selberg~1965
-and Gelbart--Jacquet~1978; the Bolza surface at $g = 2$
-has $\lambda_1 = 3.839$, well above the bound):
-$\lambda_1/(4\pi) \ge 1/(16\pi) \approx 0.020$
-and $1/(e\lambda_1) \le 4/e \approx 1.47$.
-The contraction constant
-$|\beta_{\mathrm{eff}}|^2 R_0^2 \times
-(1 + 2|V_2/V_1|\sqrt{\sigma^2})^2$
-scales as $1/f(m^*,N)^2$, which is $\le 1/36$
-at $N = 7$ regardless of the surface.
-The basin condition $\mathrm{Var}(R) \le 2$ is
-therefore sufficient on \emph{any} compact
-hyperbolic surface with $\lambda_1 > 1/4$,
-not just the Bolza surface.
+The proof uses three surface-dependent quantities:
+the Sobolev constant~$C_{\mathrm{Sob}}$,
+the spectral gap~$\lambda_1$, and the Robin-function
+norm~$\|\gamma\|_\infty$.  On any compact hyperbolic
+surface~$\Sigma$ of genus~$g \ge 2$ with
+$\lambda_1 \ge 1/4$ (proved for all arithmetic surfaces
+by Selberg~1965 and Gelbart--Jacquet~1978):
+\begin{itemize}
+\item
+The Sobolev embedding~\eqref{eq:sobolev-bound-bolza}
+gives $C_{\mathrm{Sob}} \le (4\pi)^{-1/2}(1+\lambda_1^{-1})^{1/2}
+\le (4\pi)^{-1/2}\sqrt{5} \approx 0.63$.
+\item
+Elliptic regularity with the resolvent bound gives
+$\|\gamma\|_\infty \le C_{\mathrm{Sob}}(1+\lambda_1^{-1})
+\sqrt{\mathrm{Var}(K)}$.
+On the basin $\mathrm{Var}(K) \le 2$:
+$\|\gamma\|_\infty \le 0.63 \cdot 5 \cdot \sqrt{2}
+\approx 4.5$.
+\item
+The mean curvature $|R_0| = |2\pi\chi/A| = 1$ on any
+constant-curvature hyperbolic surface (by Gauss--Bonnet),
+and is fixed under the conformal iteration.
+\end{itemize}
+Substituting these worst-case bounds into
+equation~\eqref{eq:044-decomposition}:
+$\kappa \le (1/36)\cdot e^{2 \cdot 4.5/6}
+\cdot (1.056)^2 \approx 0.14 < 1$.
+Therefore the contraction holds on \emph{any} compact
+hyperbolic surface with $\lambda_1 \ge 1/4$, not just
+the Bolza surface.
+(On Bolza, the sharper $\lambda_1 = 3.839$ gives
+$\kappa \approx 0.044$.)
 \end{proof}
 
 \begin{remark}[Lax conservation alternative]
