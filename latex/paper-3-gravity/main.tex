@@ -473,9 +473,9 @@ of Lagrangians up to boundary terms (i.e., on closed~$M$
 the actions agree), not a semiclassical analogy: it
 follows by expanding $S_{\mathrm{CS}}[A_+] - S_{\mathrm{CS}}[A_-]$
 in $\omega \pm e/\ell$, using bilinearity of
-$\langle\cdot,\cdot\rangle$ and the antisymmetry
-$[e\wedge e] = -[e\wedge e]$ on the
-$\mathfrak{so}(2,1)$-bracket to cancel the
+$\langle\cdot,\cdot\rangle$ and the sign flip
+$e/\ell \to -e/\ell$ between the two chiral
+sectors to cancel the
 $\langle\omega\wedge[\omega\wedge\omega]\rangle$ and
 $\langle e\wedge[e\wedge e]\rangle$ terms, leaving exactly
 the Palatini integrand of~\eqref{eq:palatini}.
@@ -686,8 +686,13 @@ not derived from polygon data alone in the present work.
 \end{remark}
 
 
+\paragraph{Notation.}
+All subsequent results in this paper that involve~$c$
+use the Brown--Henneaux normalization $c = 12\,b(N)$
+(Remark~\ref{rmk:central-charge-open}).
+
 \paragraph{Consistency checks.}
-From the derived value $c = 12\,b(N)$, four further identifications
+From the working value $c = 12\,b(N)$, four further identifications
 follow as immediate consequences of named theorems:
 \begin{enumerate}
 \item[(i)] \emph{WDW kinetic coefficient.}
@@ -1326,11 +1331,11 @@ appears precisely at $N = 7$: the CMS/CS Casimir identification
 places the $j = 2$ representation at the Havelock stability
 threshold.
 The total $\csc^2$ sum
-$\lambda_0 = \sum_{p=1}^{N-1}\csc^2(\pi p/N) = (N^2{-}1)/3$
+$\Lambda_N := \sum_{p=1}^{N-1}\csc^2(\pi p/N) = (N^2{-}1)/3$
 is the finite-$N$ Basel identity
 (Paper~I, Theorem~\ref*{I-thm:finite-basel}).
 In Casimir form:
-$\lambda_0 = (4/3)\,j(j{+}1)$ with $j = (N{-}1)/2$,
+$\Lambda_N = (4/3)\,j(j{+}1)$ with $j = (N{-}1)/2$,
 where $4/3 = 1 + 2B_2$
 (Paper~I, Proposition~\ref*{I-prop:four-thirds}).
 By the Legendre quadrupole identity
@@ -1687,7 +1692,7 @@ Then:
   $S_{\mathrm{total}}[\varphi]$ over
   $\{\varphi : \int e^{2\varphi}\,dA_{g_0} = A\}$ is the metric
   with \emph{constant} Gaussian curvature $R_g \equiv \bar R_0
-  := 2\pi\chi / A$.
+  := 4\pi\chi / A$.
 \end{enumerate}
 \end{proposition}
 
@@ -4459,7 +4464,7 @@ $O(1/c)$ Virasoro block correction satisfies
 \begin{equation}\label{eq:non-crossing}
   \frac{|\delta f_m - \delta f_{m+1}|}{f(m{+}1,N) - f(m,N)}
   = \frac{2m(N{-}m{-}1) + (N{-}1)}{2c}
-  \;\le\; \frac{1}{4} - \frac{1}{2N^2}
+  \;\le\; \frac{1}{4} - \frac{1}{4N^2}
   \;<\; \frac{1}{4}.
 \end{equation}
 In particular, no eigenvalue crossing occurs and the critical mode
@@ -4474,8 +4479,11 @@ $\delta f_m - \delta f_{m+1}
 = (N{-}2m{-}1)\bigl[2m(N{-}m{-}1)+(N{-}1)\bigr]/(4c)$.
 Dividing by the Casimir gap $f(m{+}1)-f(m) = (N{-}2m{-}1)/2$
 gives the ratio $R(m) = [2m(N{-}m{-}1)+(N{-}1)]/(2c)$.
-The maximum over $1 \le m < N/2$ is at $m = N/2 - 1$, giving
-$R_{\max} = (N^2{-}2)/(4N^2) = 1/4 - 1/(2N^2) < 1/4$.
+The numerator $g(m) = 2m(N{-}m{-}1)+(N{-}1)$ is a downward
+parabola with vertex at $m = (N{-}1)/2$.  The maximum on
+$1 \le m < N/2$ is $(N^2{-}2)/2$ (even $N$, at $m = N/2{-}1$)
+or $(N^2{-}1)/2$ (odd $N$, at $m = (N{-}1)/2$).
+In both cases $R_{\max} \le (N^2{-}1)/(4N^2) = 1/4 - 1/(4N^2) < 1/4$.
 Since $R < 1$ for all adjacent pairs: the residual gap is at least
 $3(N{-}2m{-}1)/8 > 0$, and no reordering occurs.
 \end{proof}
