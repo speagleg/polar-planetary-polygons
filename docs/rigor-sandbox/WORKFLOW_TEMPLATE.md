@@ -54,15 +54,26 @@ Proven through Paper I (Items #1, #2, #6 + minor fixes). Apply to every structur
 6. Iterate until gate passes
 7. Commit each round
 
+### Phase 4b: Downstream Impact Assessment
+**Before integrating any proof change, assess what breaks downstream.**
+1. List every proposition, corollary, remark, and equation in the SAME paper that cites or depends on the changed result
+2. For each: does the fix change the statement, the hypotheses, or only the proof internals?
+3. If statement or hypotheses change: trace further downstream (what cites THAT result?)
+4. If a numerical value changes (threshold, eigenvalue, constant): grep the entire `latex/` tree for the old value
+5. If the proof technique changes (e.g., new scaling law): check whether any later proof reuses the old technique or bound
+6. Document the impact chain in the sandbox review-notes.md BEFORE writing replacement text
+7. Present the impact chain to user alongside the diff
+
 ### Phase 5: Integration
 1. Identify ALL downstream references across ALL canonical files (use Explore agent, very thorough)
 2. Build replacement text for the canonical paper where the result lives
-3. Present diff to user for approval
+3. Present diff to user for approval (include downstream impact assessment from Phase 4b)
 4. Apply to canonical paper + every other series paper that references the result
-5. Update CLAUDE.md if formula is referenced there
-6. Run full test suite (4447+ pass, zero regression)
-7. Final sweep: grep all canonical files for old formula/values, confirm zero remaining
-8. Commit
+5. Propagate any changed statements/values to all downstream results identified in Phase 4b
+6. Update CLAUDE.md if formula is referenced there
+7. Run full test suite (4447+ pass, zero regression)
+8. Final sweep: grep all canonical files for old formula/values, confirm zero remaining
+9. Commit
 
 ## Key Principles (learned from Paper I)
 
@@ -70,6 +81,7 @@ Proven through Paper I (Items #1, #2, #6 + minor fixes). Apply to every structur
 - **No frame assumptions:** Verify which coordinate frame the formula applies in (Item #6: stereographic vs geodesic vs canonical).
 - **Check the cited result:** Don't assume cited formulas are correct. Verify against oracle. (Item #6: BC2003 citation was wrong.)
 - **Compare existing proofs:** Before writing a new proof, check if the canonical paper already has one (Item #2: paper-1-mathematics already had the full proof that paper/main.tex lacked).
+- **Downstream impact first:** Before integrating a fix, trace what depends on the changed result within the same paper AND across the series. A proof-only fix (internals change, statement unchanged) has no downstream impact. A statement/hypothesis/value change propagates — map the chain before editing.
 - **Series-wide sweep:** After fixing one paper, sweep ALL canonical files for the same formula/values. Use Explore agent with "very thorough" setting. A fix is not done until grep returns zero matches for old values across the entire `latex/` directory.
 - **No meta-commentary:** State what IS, not what was wrong in earlier versions.
 - **American English:** All paper text.

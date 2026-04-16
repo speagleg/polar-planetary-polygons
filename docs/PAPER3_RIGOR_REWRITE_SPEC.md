@@ -27,9 +27,11 @@ See `docs/rigor-sandbox/WORKFLOW_TEMPLATE.md` for the per-item workflow.
 
 **Fix**: Replace `1/4 - 1/(2N²)` with `1/4 - 1/(4N²)` (valid for all N), or distinguish even/odd cases.
 
+**Downstream impact**: Proof-only fix. The proposition statement bound `< 1/4` is unchanged, so Remark `rmk:field-preservation` (line 4483) and all citations of non-crossing are unaffected. No value changes propagate.
+
 **Difficulty**: Low. Formula fix + verify.
 
-**Estimated effort**: 30 minutes.
+**Estimated effort**: 30 minutes. **STATUS: DONE** (commit ab6c9a1).
 
 ---
 
@@ -40,6 +42,8 @@ See `docs/rigor-sandbox/WORKFLOW_TEMPLATE.md` for the per-item workflow.
 **Conclusion still holds**: The second (strictly negative) term dominates numerically, confirmed by the oracle. But the claim "strict concavity holds exactly, not just at leading order" is not established.
 
 **Fix**: Correct the sign, provide a quantitative bound showing dominance of the second term for all ε in the relevant range, or restrict the claim to sufficiently small ε.
+
+**Downstream impact**: The conclusion `d²S/dR² < 0` feeds into the Jensen argument (lines 2374-2376) which gives the unique entropy maximum at constant curvature. If d²S/dR² < 0 is weakened to "holds for ε small enough," then the Einstein derivation becomes conditional on ε being in the concavity domain. Check: does the subsequent Jensen argument use the "exact" claim, or just concavity in a neighborhood? The Einstein result (Prop `prop:einstein-from-onsager`) at line ~1685 uses S concave in R — if we restrict ε, the proposition hypotheses need updating.
 
 **Difficulty**: Medium. Need to bound the ratio of the two terms.
 
@@ -57,6 +61,8 @@ See `docs/rigor-sandbox/WORKFLOW_TEMPLATE.md` for the per-item workflow.
 
 **Plan**: Check if Gukov-Witten (2010) or Dimofte-Gukov-Lenells-Zagier handle the non-compact case. If not, state the result as conditional on one-loop exactness (with the cited evidence) rather than as proved.
 
+**Downstream impact**: The partition function correspondence is the bridge between vortex statistical mechanics and CS/gravity. If Step 5b becomes conditional, then Derivation `thm:partition-equality` becomes a conditional result ("under one-loop exactness for SL(2,R) CS"). Trace what cites `thm:partition-equality` — this likely affects the Regge bridge, the BTZ entropy matching, and the WDW ground state. Map the full chain before editing.
+
 **Estimated effort**: 1-2 days.
 
 ---
@@ -66,6 +72,10 @@ See `docs/rigor-sandbox/WORKFLOW_TEMPLATE.md` for the per-item workflow.
 **Current state**: The normalization `G = ℓ/(8b(N))` is presented as a conditional hypothesis (disclosed in Remark `rmk:central-charge-open`, line 660). But downstream quantitative results (WDW kinetic coefficient, BTZ matching, Cardy asymptotics) use `c = 12b(N)` as established fact without repeating the caveat.
 
 **Fix**: Systematically mark all results conditional on the Brown-Henneaux normalization. Add a remark at first downstream use reminding the reader of the conditional status.
+
+**Downstream impact**: c = 12b(N) appears 40+ times. The fix is a framing change (notation convention paragraph), not a mathematical change — no statements or values change. Downstream results remain valid conditional on the normalization. The key is that the reader can never encounter c = 12b(N) without knowing it's conditional.
+
+**STATUS: DONE** (commit ab6c9a1). Added "Notation" paragraph after rmk:central-charge-open.
 
 **Difficulty**: Low-medium. Tracking exercise across the paper.
 
@@ -79,6 +89,8 @@ See `docs/rigor-sandbox/WORKFLOW_TEMPLATE.md` for the per-item workflow.
 
 **Fix**: Either prove the extension rigorously (deriving surface-independent bounds on the Sobolev constant) or restrict the corollary to the Bolza surface and state the extension as a conjecture.
 
+**Downstream impact**: The Onsager contraction is used in the entropy bridge (linking vortex entropy to Bekenstein-Hawking). If restricted to Bolza, the BTZ/BH entropy match (Section ~5) remains valid only on Bolza. Check: does the BTZ argument use the general-surface claim, or does it only need the Bolza case? The gravity side is AdS₃ / BTZ, which corresponds to a specific surface — if that surface IS Bolza (or admits the same λ₁ bound), the restriction is harmless.
+
 **Difficulty**: Medium. The Sobolev constant bound from Aubin/Hebey may suffice but needs to be spelled out.
 
 **Estimated effort**: 1 day.
@@ -87,9 +99,9 @@ See `docs/rigor-sandbox/WORKFLOW_TEMPLATE.md` for the per-item workflow.
 
 ## Minor Issues
 
-1. **M1: R̄₀ factor of 2** (line 1689): Proposition states `R̄₀ = 2πχ/A`, proof derives `R̄₀ = 4πχ/A` (from `R = 2K` convention at line 1731). Fix: change proposition to `4πχ/A`.
-2. **M2: Antisymmetry tautology** (line 476): Claims `[e∧e] = -[e∧e]` which is a tautology. The actual mechanism is the SO(2,1) bracket structure. Clarify.
-3. **M3: λ₀ notation overload** (line 1329): `λ₀ = Σ csc²(πp/N) = (N²-1)/3` uses `λ₀` which elsewhere denotes the m=0 eigenvalue. Use different symbol.
+1. **M1: R̄₀ factor of 2** (line 1689): ~~Proposition states `R̄₀ = 2πχ/A`, proof derives `R̄₀ = 4πχ/A`.~~ **DONE** (commit ab6c9a1).
+2. **M2: Antisymmetry tautology** (line 476): ~~Claims `[e∧e] = -[e∧e]`.~~ **DONE** (commit ab6c9a1). Replaced with sign-flip mechanism.
+3. **M3: λ₀ notation overload** (line 1329): ~~`λ₀` collision.~~ **DONE** (commit ab6c9a1). Renamed to Λ_N.
 4. **M4: λ₀ undefined** (line 1333): `λ₀ = (4/3)j(j+1)` with `j=(N-1)/2` appears before definition. Define first.
 5. **M5: Pell sign convention** (prop:graviton, line 1343): Even-N uses positive Pell, odd-N uses negative Pell. Make the switch explicit in the proof.
 6. **M6: O-notation hides relevant coefficient** (line 4454): `c = N² + N - 12ln2 + O(ln N/N)` hides the coefficient 12 of the `ln(N)/(N-1)` term. Consider making it explicit.
