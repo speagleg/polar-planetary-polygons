@@ -1365,7 +1365,7 @@ For even $N = 2k$: $f(k, 2k) = k^2/2$.
 Then $j(j{+}1) = k^2/2$ gives
 $j = (-1 + \sqrt{1 + 2k^2})/2$.
 This is an integer iff $1 + 2k^2$ is a perfect square,
-i.e.\ $n^2 - 2k^2 = 1$ (Pell equation).
+i.e.\ $n^2 - 2k^2 = 1$ (positive Pell equation).
 Solutions: $(n,k) = (1,0), (3,2), (17,12), \ldots$
 No even~$N$ yields $j = 2$: at $k = 2$ ($N = 4$), $j = 1$;
 at $k = 12$ ($N = 24$), $j = 8$.
@@ -2194,7 +2194,14 @@ operator norm (\citealt{Hebey2000}, Thm.~2.5).
 The 2D Sobolev embedding $H^2(\Sigma) \hookrightarrow
 L^\infty(\Sigma)$ is continuous on any closed surface
 (\citealt{Aubin1998}, Thm.~2.30; \citealt{Hebey2000},
-Thm.~3.4) with constant
+Thm.~3.4).  The constant follows from the heat kernel
+bound $|K_t(x,x)| \le (4\pi t)^{-1}$ on a closed
+surface and the Laplace-transform representation
+$(-\Delta+1)^{-1} = \int_0^\infty e^{-t}e^{t\Delta}\,dt$,
+giving $\|u\|_\infty^2 \le (4\pi)^{-1}\|u\|_{H^1}^2$
+for $u \in H^2$;
+the $H^2 \to H^1$ step uses
+$\|u\|_{H^1}^2 \le (1+\lambda_1^{-1})\|u\|_{H^2}^2$:
 \begin{equation}\label{eq:sobolev-bound-bolza}
   C_{\mathrm{Sob}} \;\le\; \frac{1}{\sqrt{4\pi}}
   \bigl(1 + \lambda_1^{-1}\bigr)^{1/2}
@@ -4486,7 +4493,7 @@ One-loop & $\delta_m$ &
 
 \begin{proposition}[Eigenvalue non-crossing at finite $c$]
 \label{prop:non-crossing}
-Since $c = 12\,b(N) = N^2 + N - 12\ln 2 + O(\ln N/N) > N^2$
+Since $c = 12\,b(N) = N^2 + N - 12\ln 2 + 12\ln(N{-}1)/(N{-}1) + O(1/N^2) > N^2$
 for all $N \ge 3$, the condition $c \ge N^2$ is automatic.
 For $N \ge 4$ (so that $\lfloor N/2 \rfloor \ge 2$),
 the mode-dependent part of the
