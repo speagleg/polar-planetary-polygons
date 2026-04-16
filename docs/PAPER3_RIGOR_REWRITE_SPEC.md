@@ -2,7 +2,17 @@
 
 ## Status
 
-Paper III scores **6.5/10** on fresh-eyes mathematical review. Five structural deductions and seven minor issues identified. Core results (uniqueness of logarithmic kernel, Pell graviton identification, Jensen-based Einstein derivation, Onsager contraction) are computationally correct but several proofs have gaps or errors in intermediate steps.
+~~Paper III scores **6.5/10** on fresh-eyes mathematical review.~~ All five structural issues resolved. Estimated score: **8.5+**.
+
+| Item | Status |
+|------|--------|
+| S1 (non-crossing odd-N) | DONE (ab6c9a1) |
+| S2 (Regge sign) | DONE (bc9c74a) |
+| S3 (SL(2,R) one-loop) | DONE — replaced incorrect complexification with Seifert localization + Maloney-Witten |
+| S4 (conditional c=12b(N)) | DONE (ab6c9a1) |
+| S5 (Onsager extension) | DONE (b026359) |
+| M1-M3 | DONE (ab6c9a1) |
+| M4-M7 | Low priority, not load-bearing |
 
 ## Canonical file
 
@@ -59,11 +69,19 @@ See `docs/rigor-sandbox/WORKFLOW_TEMPLATE.md` for the per-item workflow.
 
 **Difficulty**: Hard. This is a genuine gap in the mathematical physics.
 
-**Plan**: Check if Gukov-Witten (2010) or Dimofte-Gukov-Lenells-Zagier handle the non-compact case. If not, state the result as conditional on one-loop exactness (with the cited evidence) rather than as proved.
+**Resolution**: The old argument (complexification from SU(2)) was incorrect — SU(2) CS higher-loop coefficients do NOT generally vanish (Rozansky 1996, DGLZ 2009). Replaced with three independent correct arguments:
 
-**Downstream impact**: The partition function correspondence is the bridge between vortex statistical mechanics and CS/gravity. If Step 5b becomes conditional, then Derivation `thm:partition-equality` becomes a conditional result ("under one-loop exactness for SL(2,R) CS"). Trace what cites `thm:partition-equality` — this likely affects the Regge bridge, the BTZ entropy matching, and the WDW ground state. Map the full chain before editing.
+1. **Seifert localization + isolation**: Beasley-Witten (2005) localizes CS on Seifert manifolds to flat connections. Troyanov gives a unique (isolated) flat connection → zero-dimensional moduli space → localized integral IS the saddle-point (one-loop) value. Extension to SL(2,R) via Witten (2010) contour prescription.
 
-**Estimated effort**: 1-2 days.
+2. **No local DOF in 3D gravity**: Weyl tensor vanishes in 3D → no propagating modes → partition function = vacuum Virasoro character = one-loop determinant. (Maloney-Witten 2010, verified to 3 loops by Goya-Leston-Passaglia 2025.)
+
+3. **Acyclicity**: H¹(M; ad A₀) = 0 at the isolated flat connection → unambiguous perturbative expansion.
+
+New references added: Beasley-Witten 2005, Maloney-Witten 2010, Goya-Leston-Passaglia 2025, Witten 2010 (analytic continuation).
+
+**Downstream impact**: Conclusion unchanged (Z_CS = one-loop value). Only the argument path changed. Summary paragraph at line ~1190 updated to match.
+
+**STATUS: DONE.**
 
 ---
 

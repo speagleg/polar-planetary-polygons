@@ -1090,19 +1090,8 @@ Step~6 assembles the result.
   $\sum m_i = 0 \bmod N$ restricts the allowed
   quartic interactions).}
 
-\item[\emph{5b.}] \emph{The CS partition function has no
-  higher-loop corrections at this saddle.}
-  For compact gauge groups, the one-loop CS partition function
-  around a flat connection equals the classical
-  action times the Ray--Singer torsion times the
-  level shift $k \to k{+}h^\vee$
-  (\citealt{Witten1989Jones};
-  each perturbative coefficient is a finite topological
-  invariant, \citealt{AxelrodSinger1994}).
-  For the non-compact group
-  $\mathrm{SL}(2,\mathbb{R})$ at the
-  $\mathbb{Z}_N$-symmetric flat connection,
-  higher-loop corrections vanish for two reasons:
+\item[\emph{5b.}] \emph{The CS partition function equals its
+  one-loop value at this saddle.}
 
   \emph{(i)~No instantons.}
   $\pi_3(\mathrm{SL}(2,\mathbb{R})) = 0$
@@ -1114,34 +1103,51 @@ Step~6 assembles the result.
   (\citealt{Witten1989Jones}, \S3);
   they vanish here.
 
-  \emph{(ii)~Isolated saddle with local analyticity.}
-  The flat connection at the $\mathbb{Z}_N$-symmetric
-  locus is unique by Troyanov uniformization
-  (Step~3; \citealt{Troyanov1991}).
-  The saddle-point expansion around this isolated
-  flat connection is a formal power series in $1/k$
-  whose coefficients are Feynman integrals on the
-  tangent space $\mathfrak{sl}(2,\mathbb{R})$.
-  Since $\mathfrak{sl}(2,\mathbb{R})$ and
-  $\mathfrak{su}(2)$ are real forms of the
-  same complexification $\mathfrak{sl}(2,\mathbb{C})$,
-  and the perturbative coefficients are polynomial in the
-  structure constants $f^{abc}$ and the Killing form $g_{ab}$
-  (both shared by the two real forms up to signs absorbed
-  into the Euclidean continuation),
-  each higher-loop coefficient for $\mathrm{SL}(2,\mathbb{R})$
-  is the analytic continuation of the corresponding
-  $\mathrm{SU}(2)$ coefficient.
-  The continuous Plancherel spectrum of
-  $\mathrm{SL}(2,\mathbb{R})$
-  does not enter the perturbative expansion
-  around an isolated flat connection:
-  the saddle-point expansion is
-  a sum over fluctuations in a \emph{neighborhood}
-  of the flat connection, where the tangent-space
-  structure controls the answer.
-  Therefore $Z_{\mathrm{CS}}$ equals its one-loop
-  value at this saddle.
+  \emph{(ii)~Localization at an isolated saddle on a
+  Seifert manifold.}
+  The manifold $\mathbf{H}^2 \times_N S^1$ is Seifert
+  fibered.  On Seifert manifolds, the CS path integral
+  localizes to a finite-dimensional integral over the
+  moduli space of flat connections
+  (\citealt{BeasleyWitten2005}; for $\mathrm{SL}(2,\mathbb{R})$,
+  the path integral is defined via the Witten contour
+  prescription in $\mathrm{SL}(2,\mathbb{C})$;
+  \citealt{Witten2010analytic}).
+  By Step~3 (Troyanov uniformization), the
+  $\mathbb{Z}_N$-symmetric flat connection is
+  \emph{isolated}: the moduli space at this locus is
+  a single point, and the first cohomology
+  $H^1(M;\mathrm{ad}\,A_0) = 0$ (acyclicity).
+  At a zero-dimensional moduli space, the
+  localized integral reduces to its saddle-point value:
+  \[
+    Z_{A_0} = e^{ik\,S_{\mathrm{CS}}(A_0)}
+    \;\tau(M, A_0)^{1/2}
+    \;\text{(phase and level shift)},
+  \]
+  which is exactly the one-loop (classical $\times$
+  Ray--Singer torsion) answer.  No higher-loop
+  corrections arise because the integration domain is
+  zero-dimensional.
+
+  \emph{(iii)~Gravity-side confirmation: no local
+  degrees of freedom in 3D.}
+  In three dimensions, the Weyl tensor vanishes
+  identically, so pure gravity has no propagating
+  local degrees of freedom.  The partition function
+  around a classical solution is determined entirely by
+  the asymptotic symmetry algebra (Brown--Henneaux
+  Virasoro, or its $\mathbb{Z}_N$ orbifold).
+  The vacuum character of this algebra equals the
+  one-loop determinant
+  (\citealt{MaloneyWitten2010};
+  verified by explicit Feynman-diagram computation
+  to three loops in the metric formulation by
+  \citealt{GoyaLestonPassaglia2025}).
+  This provides an independent derivation, entirely
+  within the metric (second-order) formalism, that
+  $Z_{\mathrm{CS}}$ at the isolated saddle equals its
+  one-loop value.
 
 \item[\emph{6.}] \emph{Assembly.}
   At $O(c^0)$:
@@ -1181,10 +1187,11 @@ with the quartic correction $\delta H = O(1)$ entering the
 partition function suppressed by
 $\beta = 12/c$ (Step~5a,
 eq.~\eqref{eq:quartic-suppression});
-(ii)~CS is one-loop exact (Step~5b): no instantons
-($\pi_3 = 0$) and the perturbative coefficients
-are shared between $\mathrm{SU}(2)$ and
-$\mathrm{SL}(2,\mathbb{R})$ by complexification.
+(ii)~CS is one-loop exact at this saddle (Step~5b):
+no instantons ($\pi_3 = 0$), the flat connection is
+isolated (Seifert localization at a zero-dimensional
+moduli space), and 3D gravity has no local
+propagating degrees of freedom.
 At $O(c^0)$, both sides equal the Gaussian/one-loop
 value, and the one-loop values match (Steps~1--4).
 The $O(1/c)$ correction in eq.~\eqref{eq:Z-equality}
