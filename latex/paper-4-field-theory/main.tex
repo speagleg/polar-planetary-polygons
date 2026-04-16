@@ -2954,13 +2954,19 @@ with no additional parameter.
 \subsection{Sector decoupling \textnormal{[exact]}}
 \label{sec:decoupling}
 
-The $N = 7$ and $N = 8$ polygon sectors are decoupled by the
-mod-$56$ arithmetic of the common overfield
-$\mathbb{Q}(\zeta_{56})$: the cross-sector Yukawa coupling
-requires $8(m_1 + m_2) \equiv 28 \pmod{56}$, which has no
-integer solution ($\gcd(8,56) = 8$ does not divide~$28$).
-The texture zeros of the $N = 7$ Yukawa are topologically
-protected.
+The $N = 7$ (SU(3)) and $N = 4$ (SU(2)) polygon sectors are
+decoupled by the mod-$28$ arithmetic of the common overfield
+$\mathbb{Q}(\zeta_{28})$: a non-trivial cross-sector Yukawa
+coupling between the $m_7 \in \{1,\ldots,6\}$ mode of the
+$N=7$ sector and the $m_4 \in \{1,2,3\}$ mode of the $N=4$
+sector carries a combined phase
+$\exp(2\pi i(4m_7 + 7m_4)/28)$,
+and $\mathbb{Z}_{28}$ invariance requires
+$4m_7 + 7m_4 \equiv 0 \pmod{28}$.
+Since $\gcd(4, 28) = 4$ and $\gcd(7, 4) = 1$, this forces
+$4 \mid m_4$, which has no solution in $\{1,2,3\}$.
+The texture zeros of the $N = 7$ Yukawa are therefore
+topologically protected.
 
 \subsection{CKM mixing matrix \textnormal{[derived: $\sigma = N{-}2$]}}
 \label{sec:ckm-tree}
@@ -3685,12 +3691,16 @@ form a generation, not what quantum numbers they carry.
 \paragraph{Proton stability.}
 \label{cor:proton-stability}%
 The $\mathrm{SU}(3)$ and $\mathrm{SU}(2)$ sectors live in different
-polygon numbers ($N = 7$ and $N = 4$).
-Cross-sector Yukawa couplings require
-$8(m_1 + m_2) \equiv 28 \pmod{56}$,
-which has no integer solution
-($\gcd(8, 56) = 8$ does not divide~$28$).
-This is exact $\mathbb{Z}_{56}$ charge conservation.
+polygon numbers ($N = 7$ and $N = 4$).  A non-trivial
+cross-sector Yukawa coupling carries a combined
+$\mathbb{Z}_{28}$ phase
+$\exp(2\pi i(4m_7 + 7m_4)/28)$ with $m_7 \in \{1,\ldots,6\}$
+and $m_4 \in \{1,2,3\}$.  Invariance requires
+$4m_7 + 7m_4 \equiv 0 \pmod{28}$; since $\gcd(4,28) = 4$
+and $\gcd(7,4) = 1$, this forces $4 \mid m_4$, which has no
+solution in $\{1,2,3\}$.
+This is exact $\mathbb{Z}_{28}$ charge conservation
+(\S\ref{sec:decoupling}).
 \emph{Prediction}: the proton is exactly stable, not just
 long-lived, distinguishing this theory from $\mathrm{SU}(5)$ GUTs
 ($\tau_p \sim 10^{34}$\,yr) and consistent with Super-Kamiokande
