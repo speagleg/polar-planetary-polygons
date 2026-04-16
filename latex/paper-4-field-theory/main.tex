@@ -175,9 +175,21 @@ determined by the Pell equation (pure number theory,
 no geometric input):
 \begin{enumerate}
 \item[\textnormal{(i)}]
-  The Pell equation selects $N = 7$ ($j = 2$, graviton) and
-  $N = 4$ ($j = 1$, gauge boson), the only polygons with
-  integer spin at the critical mode (Paper~VI, Proposition~\ref*{VI-prop:pell-unique}).
+  The Pell equation has solutions for integer spin at the
+  critical mode: even $N$: $(N,j) = (4,1)$; odd $N$:
+  $(N,j) = (1,0), (7,2), (41,14), (239,\ldots),\ldots$.
+  Restricted to the Havelock stability domain $N \le N_{\mathrm{crit}}(\mathbf{H}^2) + 4$
+  (Paper~I, Theorem~\ref*{I-thm:havelock-crit}; the flat
+  Havelock bound $N \le 7$ and its curved extension to
+  $\xi = \xi^*$), only $(4, 1)$ and $(7, 2)$ lie in the
+  physically admissible range.  The next solution at $N = 41$
+  is excluded by stability ($f(20, 41) = 210 \gg N{-}1$ forces
+  $\xi$ beyond $\xi^*(41)$; the polygon is not a constrained
+  energy minimum on any complete hyperbolic surface uniformized
+  by a cocompact Fuchsian group of signature $(0; 41, \ldots)$).
+  This restricts the physically viable solutions to
+  $\{N = 4, \, N = 7\}$
+  (Paper~VI, Proposition~\ref*{VI-prop:pell-unique}).
 \item[\textnormal{(ii)}]
   The CMS--CS Casimir identification
   (Paper~III, Proposition~\ref*{III-prop:casimir-havelock})
@@ -666,35 +678,25 @@ not phenomenological constraints.
 
 \emph{Step~(ii-b): $g = 2$ is the smallest nondegenerate genus
 [primary derivation].}
-The area of $\Sigma_g$ with $K = -1$ is
-$\mathrm{Area} = 4\pi(g{-}1)$ (Gauss--Bonnet),
-which grows linearly in~$g$.
-The CS Hilbert space dimension is
-$\dim\mathcal{H}(\Sigma_g, \mathrm{SU}(3)_1)
-= 3^g$ (Verlinde formula),
-which grows exponentially but with base $3$,
-far slower than the area cost at any
-curvature radius $\ell > 0$.
-The free energy
+Steps~(ii-a) excluded $g = 0$ (wrong-sign Boltzmann weight)
+and $g = 1$ (zero-volume moduli space on a torus).  The
+smallest allowed genus is therefore $g = 2$.  This is the
+primary selection: $g = 2$ is \emph{the smallest genus for
+which the classical CS path integral is non-degenerate and
+positive}, not the result of a thermodynamic extremization.
+A thermodynamic consistency check confirms stability:
+with $\mathrm{Area} = 4\pi(g{-}1)$ (Gauss--Bonnet at $K = -1$)
+and $\dim\mathcal{H}(\Sigma_g, \mathrm{SU}(3)_1) = 3^g$
+(Verlinde formula), the free energy
 $F(g) = 4\pi\ell^2(g{-}1) - T\,g\ln 3$
-is monotonically increasing in~$g$ for $g \ge 2$
-whenever $4\pi\ell^2 > T\ln 3$,
-i.e.\ whenever $\ell > \sqrt{T\ln 3/(4\pi)}$.
-This condition holds for \emph{any} positive
-temperature and curvature radius
-(at the Gibbons--Hawking temperature
-$T = 1/(2\pi\ell)$, the ratio is
-$4\pi\ell^2/(T\ln 3) = 8\pi^2\ell^3/\ln 3
-\approx 10^{27}$, but the conclusion $g = 2$
-is independent of~$T$: it requires only
-$\ell > 0$ and $T < 4\pi\ell^2/\ln 3$,
-which is satisfied at any subplanckian temperature).
-the minimum is at the \emph{smallest viable genus},
-$g = 2$.
-This parallels the entropy maximization that selects
-$N = 7$ in Paper~I: in both cases, the minimum free energy
-(= maximum entropy at fixed energy) picks the smallest
-topologically allowed value.
+is monotonically increasing in~$g$ for $g \ge 2$ whenever
+$4\pi\ell^2 > T\ln 3$, which holds at any subplanckian
+temperature (at the Gibbons--Hawking temperature
+$T = 1/(2\pi\ell)$, the ratio $4\pi\ell^2/(T\ln 3) =
+8\pi^2\ell^3/\ln 3 \approx 10^{27}$).  Under this condition,
+$g = 2$ is thermodynamically stable (no higher-genus fluctuation
+lowers the free energy), consistent with the $g \ge 2$
+topological constraint.
 
 \emph{Step~(ii-c): Consistency check [not part of the derivation].}
 At $g = 2$, $\Lambda_{\mathrm{QCD}} \approx 200$\,MeV
@@ -1041,10 +1043,13 @@ The combined asymmetry is
 $|k_L^{\mathrm{eff}} - k_R^{\mathrm{eff}}|
 = |\eta_{\mathrm{grav}}(N)| = (N{-}1)(2N{-}5)/(6N) > 0$
 for all $N \ge 3$.
-(The sign of $\eta$ determines which sector is enhanced;
-with the standard fiber orientation, $A^-$ has the larger
-effective level, so the \emph{physical} weak force is
-identified with the sector having the \emph{smaller} effective~$k$.)
+The sign of $\eta$ determines which sector is enhanced:
+with the standard fiber orientation, $\eta < 0$ at $N=7$
+enhances the $A^+$ sector through the Euler class, so the
+left-chiral $\mathrm{SU}(2)_L$ (which couples only to
+left-handed fermions) is identified with the sector having
+the \emph{larger} effective level (see the assignment at
+line~\pageref{assignment:SU2L} below).
 The mass gap follows from topologically massive gauge theory
 \citep{DeserJackiwTempleton1982}:
 a $2{+}1$D gauge field with both a YM kinetic term and
@@ -1067,7 +1072,9 @@ the lighter ($m_R$) is below $M_{\mathrm{poly}}$ but
 above the electroweak scale by a factor of~$440$,
 unobservable at the LHC.
 The assignment of $\mathrm{SU}(2)_L$ to the
-\emph{heavier} sector ($k_L = 23/14$) is derived from the
+\emph{heavier} sector ($k_L = 23/14$)%
+\label{assignment:SU2L}%
+is derived from the
 sign of~$\eta$: $\eta < 0$ at $N = 7$ means the sector
 with the larger $|k_{\mathrm{eff}}|$ couples more strongly
 to left-handed fermions (through the Euler class).
@@ -3251,6 +3258,12 @@ $m_\nu = C^T\!\operatorname{diag}(w)\,C$,
 where $C_{km} = \cos(2\pi km/N)$ is the pair cosine matrix
 ($k, m \in \{1, 2, 3\}$) and $w$ has equal
 components $w_1 = w_2 = w_3 \equiv w$.
+Parts~(a)--(c) follow from the $S_3$ structure of~$m_\nu$ alone;
+part~(d) requires the additional hypothesis that the basis
+within the $2$-dimensional degenerate eigenspace is fixed by
+diagonalizing the $\sigma_{23} \in S_3$ transposition
+(equivalently, by $\mu$--$\tau$ exchange symmetry
+of the mass-eigenstate basis).
 Then:
 \begin{enumerate}
 \item[\textup{(a)}] $m_\nu = w\,[(7/4)I_3 - (1/2)J_3]$
@@ -3793,10 +3806,13 @@ Two corrections, both derived from the orbifold structure, raise this:
   The critical mode dominates because it is the lightest excitation
   at the BF threshold ($\lambda_{m^*} = 0$).
   The central-charge suppression $1/c_{\mathrm{EW}}$,
-  where $c_{\mathrm{EW}} = c_7/3 = 51.57/3 = 17.2$
-  (the $N = 4$ subsector contributes $c_4 = 12\,b(4) = 17.2$
-  to the total $c_7 = 51.57$; the factor $1/3$ reflects the
-  $4/12$ partition of the central charge budget), gives:
+  where $c_{\mathrm{EW}} \approx c_7/3 \approx 17.2$
+  (the $N = 4$ subsector has $c_4 = 12\,b(4) = 17.23$,
+  and $c_7/3 = 17.19$ numerically; the two agree to within
+  $0.2\%$, reflecting the approximate $4/12$ partition of
+  the central-charge budget; this equality is not an exact
+  algebraic identity, since $c_N = 12\,b(N)$ is
+  transcendental in~$N$), gives:
   $\delta\lambda_{\mathrm{inst}} = \mathcal{K}^2\,h^2/c_{\mathrm{EW}}
   = 0.300 \times 0.444 / 17.2 = 0.008$.
 \end{enumerate}
