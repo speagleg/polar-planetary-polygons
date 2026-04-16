@@ -1,7 +1,7 @@
-# Honest Framing for c = 12b(N): Proposed Paper III Revisions (v2)
+# Honest Framing for c = 12b(N): Proposed Paper III Revisions (v3-final)
 
-**Date:** 2026-04-16 (v2, addressing physics-reviewer audit)
-**Status:** PROPOSAL — awaits Gordon's approval before paper edits
+**Date:** 2026-04-16 (v3-final, addressing final physics-reviewer audit after 14-framework exhaustion)
+**Status:** APPROVED — ready to apply to paper
 
 ## Context
 
@@ -22,7 +22,7 @@ Multiple sessions attempted to derive c = 12b(N) from polygon data alone:
 **What connects them:** the identification k = 2b(N) is a matching condition. Its numerical value is verified at two discriminating polygon-side predictions (see revised list below).
 
 **The open mathematical question (stated precisely):**
-Whether k = 2b(N) can be derived from the Quillen-metric / Deligne-isomorphism constant of the determinant line bundle on M_{0,N} with conical singularities, via the Takhtajan-Zograf local index theorem (arXiv:1701.00771) combined with the Freixas i Montplet-von Pippich Riemann-Roch isometry (arXiv:1604.00284). The specific gap: identifying the polygon's Gauss-product logarithm ln(N/2^(N-1)) with the Quillen-metric comparison constant for the orbifold Fuchsian group.
+The 14-framework exhaustion of this session shows a structural dichotomy: frameworks producing log-transcendentals (Quillen metrics, Selberg Z'(1), analytic torsion, Takhtajan-Zograf 2018, Freixas-von Pippich 2020) do not contain the Virasoro factor 12; frameworks producing c-values in the Virasoro-normalized convention (modular tensor category invariants, W_N minimal model characters, Mirzakhani-Do-Norbury WP polynomiality, spectral triple zeta values) do not produce the Gauss-product log structure of b(N). The Brown-Henneaux asymptotic symmetry analysis is the only presently known bridge. Extending this beyond the matching-condition framing remains an open research direction.
 
 ---
 
