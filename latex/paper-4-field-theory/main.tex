@@ -1015,7 +1015,11 @@ two contributions to the effective CS level:
   ($\lambda \leftrightarrow -\lambda$).
   The singular-fiber correction is determined by the
   local lens-space geometry $L(N,1)$ around the cone
-  point:
+  point.  Atiyah--Patodi--Singer (1975, Part~III,
+  \citealt{AtiyahPatodiSinger1975III})
+  computed the spectral asymmetry of the Dirac operator
+  on $L(N,1)$; in the Seifert adiabatic limit of
+  \citet{BismutCheeger1989, Dai1991}, this gives
   $\eta_{\mathrm{sing}} = -4\,s(1,N) + (N{-}1)/(6N)$,
   where $s(a,N) = (1/4N)\sum_{k=1}^{N-1}
   \cot(\pi k/N)\cot(\pi ak/N)$ is the Dedekind sum.
@@ -1473,7 +1477,7 @@ two results, each a theorem:
   and fusion ring).
   Two independent arguments fix $k = 1$:
   %
-  \emph{(a)~ALE/$K$-matrix.}
+  \emph{(a)~ALE/$K$-matrix (abelian topological order match).}
   The orbifold singularity $\mathbb{C}^2/\mathbb{Z}_3$ has
   a minimal resolution whose exceptional divisors form a
   chain of $(-2)$-curves with intersection matrix equal to
@@ -1481,15 +1485,24 @@ two results, each a theorem:
   $K = \bigl(\begin{smallmatrix} 2 & -1 \\ -1 & 2
   \end{smallmatrix}\bigr)$
   \citep{Kronheimer1989}.
-  By the Wen $K$-matrix classification \citep{Wen1995},
-  the abelian CS theory with this $K$-matrix
-  has the same topological order as the non-abelian
-  $\mathrm{SU}(3)_1$ CS theory: the discriminant group
-  $\mathbb{Z}^2/K\mathbb{Z}^2 \cong \mathbb{Z}_3$
-  matches the three integrable representations of
-  $\mathrm{SU}(3)_1$, and the mutual statistics
-  encoded in $K^{-1} \bmod 1$ match the
-  $\mathrm{SU}(3)_1$ braiding data.
+  The Wen $K$-matrix classification \citep{Wen1995} associates
+  an abelian $\mathrm{U}(1) \times \mathrm{U}(1)$ Chern--Simons
+  theory with this intersection form, whose abelian topological
+  data (discriminant group
+  $\mathbb{Z}^2/K\mathbb{Z}^2 \cong \mathbb{Z}_3$, with three
+  superselection sectors carrying mutual statistics determined
+  by $K^{-1} \bmod 1$) coincide with the abelian data of
+  $\mathrm{SU}(3)_1$ (three integrable representations, matching
+  braiding phases).  This establishes that the abelian subsector
+  of the non-abelian theory is fixed by the ALE resolution; it
+  does not on its own produce the non-abelian current algebra.
+  The non-abelian structure (current OPE
+  $[J^a, J^b] = if^{abc}J^c + k\,\delta^{ab}$ with
+  $\mathfrak{su}(3)$ structure constants) is fixed independently
+  by the McKay correspondence: the $A_2$ Dynkin diagram together
+  with Kronheimer's hyperk\"ahler resolution identifies the gauge
+  algebra as $\mathfrak{su}(3)$.  The discriminant-group match
+  then pins the level at $k = 1$.
   %
   \emph{(b)~Fusion ring.}
   The representation ring of
@@ -3054,12 +3067,32 @@ so $7 \mid 42$.
 Combined with Havelock stability ($\lambda_{\min}(7) = 0$,
 $\lambda_{\min}(8) < 0$), this selects $N = 7$.
 
-\emph{Step~2: Quadratic residues = Frobenius orbits.}
+\emph{Step~2: Quadratic residues = isospin orbits.}
 The quadratic residues mod~$7$ are $\mathrm{QR} = \{1,2,4\}$
-(since $1^2 \equiv 1$, $2^2 \equiv 4$, $3^2 \equiv 2 \pmod{7}$).
-The non-residues are $\mathrm{QNR} = \{3,5,6\}$.
-These partition $(\mathbb{Z}/7\mathbb{Z})^*$ into two orbits of size~$3$,
-identifying three up-type and three down-type generations.
+(since $1^2 \equiv 1$, $2^2 \equiv 4$, $3^2 \equiv 2 \pmod{7}$);
+the non-residues are $\mathrm{QNR} = \{3,5,6\}$.
+These partition $(\mathbb{Z}/7\mathbb{Z})^*$ into two orbits of size~$3$
+under the index-$2$ subgroup $\mathrm{QR} \subset (\mathbb{Z}/7)^*$.
+
+The up/down assignment is fixed by the SU(2) isospin selection
+rule.  The Legendre symbol $\chi_7(m) = (m/7) \in \{\pm 1\}$
+is the unique non-trivial character of $(\mathbb{Z}/7)^*$
+with order~$2$, and it coincides with $\chi_7 = +1$ on
+$\mathrm{QR}$ and $\chi_7 = -1$ on $\mathrm{QNR}$.
+The third component of weak isospin $T_3$ acts on the SU(2)
+doublet as $\mathrm{diag}(+1/2, -1/2)$ with eigenvalues
+$\pm 1/2$; after the $\mathbb{Z}_7$ orbifold projection, the
+isospin-graded characters reduce to $\pm 1$ on the
+$\mathbb{Z}_7$ sectors.  Gauge invariance under
+$\mathrm{SU}(2)_L \times \mathbb{Z}_7$ requires the fermion
+mode in sector~$m$ to carry isospin eigenvalue
+$T_3 \propto \chi_7(m)$: the three sectors $m \in \mathrm{QR}$
+with $\chi_7(m) = +1$ host the $T_3 = +1/2$ (up-type) modes,
+and the three sectors $m \in \mathrm{QNR}$ with $\chi_7(m) = -1$
+host the $T_3 = -1/2$ (down-type) modes.  This is the
+standard quadratic-character / orbifold-projection selection
+rule (\citealt{DixonHarveyVafaWitten1985}); it fixes the
+up/down labeling from the polygon data alone.
 
 \emph{Step~3: The partial Gauss sum.}
 $G(\mathrm{QR}) = \omega + \omega^2 + \omega^4 = (-1 + i\sqrt{7})/2$,
