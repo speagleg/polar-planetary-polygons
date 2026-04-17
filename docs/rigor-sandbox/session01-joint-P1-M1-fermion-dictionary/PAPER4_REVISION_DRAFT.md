@@ -129,27 +129,29 @@ not in $(\mathbb{Z}/7)^*$ and requires a separate specification; the
 choice $W_7(0) := 0$ is forced by the cohomology of the orbifold
 Wilson line.
 
-\emph{Derivation of $W_7(0) = 0$.}
-The orbifold Wilson line $W$ is a class in
-$H^1(\mathbb{Z}/7,\, \mathbb{Z}/2) \cong \mathrm{Hom}(\mathbb{Z}/7,\,
-\mathbb{Z}/2)$. Since $\gcd(7, 2) = 1$, this Hom-group is trivial:
-there is no non-trivial homomorphism $\mathbb{Z}/7 \to \mathbb{Z}/2$
-because $7$ is odd. The ``Wilson line'' $W_7$ therefore cannot be an
-honest $\mathbb{Z}/2$ character of the full orbifold group
-$\mathbb{Z}/7$; it is a character of the \emph{multiplicative}
-subgroup $(\mathbb{Z}/7)^* \subset \mathbb{Z}/7 \setminus \{0\}$
-(\emph{additive} $\mathbb{Z}/7$ and \emph{multiplicative}
-$(\mathbb{Z}/7)^*$ are distinct groups). The trivial orbit
-$\{0\}$ is a fixed point of the multiplicative action and lies outside
-the domain of $W_7$; the only compatible extension to $\mathbb{Z}/7$
-is $W_7(0) = 0$ (the zero element of the Legendre-valued group
-$\{-1, 0, +1\}$, corresponding to the absence of a Wilson-line phase
-at the fixed point). This matches the standard convention for the
-Legendre symbol at the $p$-adic fixed point (Gauss 1801, art.~108).
+\emph{Why $W_7(0)$ is separately specified.}
+The character-group computation $H^1(\mathbb{Z}/7,\, \mathbb{Z}/2)
+\cong \mathrm{Hom}(\mathbb{Z}/7,\, \mathbb{Z}/2) = 0$ (since
+$\gcd(7, 2) = 1$) shows that the \emph{additive} group $\mathbb{Z}/7$
+admits no non-trivial $\mathbb{Z}/2$ character. Hence $W_7$ cannot be
+a homomorphism from additive $\mathbb{Z}/7$; it must be a character of
+the \emph{multiplicative} group $(\mathbb{Z}/7)^*$, which does admit
+non-trivial $\mathbb{Z}/2$ characters (the Legendre symbol, step~(b)
+above). The domain of $W_7$ as a multiplicative character is
+$(\mathbb{Z}/7)^* = \mathbb{Z}/7 \setminus \{0\}$; the additive
+element $0$ lies outside this domain and requires a separate
+specification.
 
-Modes at $m_7 = 0$ therefore pass through the projection with
-$W(m_7, m_4) = 0 \cdot W_4(m_4) = 0 \in \{+1, 0\}$, i.e.\ they survive
-regardless of $m_4$. This is the lepton subsector.
+We specify $W_7(0) := 0$. This is the \emph{standard Legendre-symbol
+convention} for the $p$-adic fixed point (Gauss, \emph{Disquisitiones
+Arithmeticae} 1801, art.~108) — not a cohomological theorem. Its
+physical interpretation in the polygon theory is that the orbifold
+fixed point carries trivial Wilson-line holonomy ($0$ rather than
+$\pm 1$), so modes at $m_7 = 0$ bypass the projection constraint.
+
+Modes at $m_7 = 0$ therefore pass through with $W(m_7, m_4) = 0 \cdot
+W_4(m_4) = 0 \in \{+1, 0\}$, i.e.\ they survive regardless of $m_4$.
+This is the lepton subsector.
 
 \emph{(c) The $\mathbb{Z}/4$ factor with fermion CP.}
 The fermion KK spectrum on $N = 4$ has half-integer shift
@@ -288,23 +290,32 @@ determined by the sign of $\eta$ — a derived quantity — not by
 convention: the sector with $+|\eta|/2$ is uniquely the heavier one.
 
 \emph{Step 3 ($L$/$R$ labelling matches observation.)}
-The two CS sectors produce a genuinely parity-asymmetric theory: one
-chirality is weakly coupled (topological mass $\sim 107$\,TeV,
-visible at low energy), the other strongly coupled (topological mass
-$\sim 490$\,TeV, well above $M_{\mathrm{poly}}$). The Standard-Model
-label ``$L$'' is by convention the chirality of the observed
-left-handed weak doublets; identifying the lighter, surviving
-$\mathrm{SU}(2)$ sector with $\mathrm{SU}(2)_L$ matches this
-convention. The same identification is then propagated to the $m_4$
-CP-orbits: up-type pair $\{m_4 = 1, 2\}$ carries
-$\mathrm{SU}(2)_L$, down-type pair $\{m_4 = 0, 3\}$ carries
-$\mathrm{SU}(2)_R$ (Redlich-gapped at $m_R \sim 107$\,TeV).
+The two CS sectors produce a genuinely parity-asymmetric theory:
+following the paper's convention (\S\ref{sec:chiral-su2}, line 1069),
+the \emph{heavier} sector at $m_L \approx 490$\,TeV is
+$\mathrm{SU}(2)_L$, while the \emph{lighter} sector at
+$m_R \approx 107$\,TeV is the Redlich-gapped $\mathrm{SU}(2)_R$. The
+assignment of ``$L$'' to the heavier sector is set by the sign of~$\eta$
+together with the fiber orientation
+(paper \S\ref{sec:chiral-su2} Step 3): $\eta < 0$ at $N = 7$
+enhances the $A^+$ sector through the Euler class, and the larger
+$|k_{\mathrm{eff}}|$ sector couples more strongly to left-handed
+fermions — identifying it with $\mathrm{SU}(2)_L$.
 
-The \emph{physical predictions} (two CS sectors, topological-mass
-hierarchy $m_L/m_R \approx 4.6$, scale separation from EW) are
+Both topological masses $m_L \approx 490$\,TeV and $m_R \approx 107$\,TeV
+exceed the electroweak scale by factors of $\sim 10^3$; the
+$\mathrm{SU}(2)_R$ Redlich gap at 107\,TeV is unobservable at the LHC
+but predicted by the polygon Euler-class structure. The fermion
+assignment follows: up-type pair $\{m_4 = 1, 2\}$ carries
+$\mathrm{SU}(2)_L$, down-type pair $\{m_4 = 0, 3\}$ carries
+$\mathrm{SU}(2)_R$ (Redlich-gapped).
+
+The \emph{physical predictions} (two CS sectors; topological-mass
+hierarchy $m_L/m_R \approx 4.6$; scale separation from EW) are
 fixed by polygon geometry. The \emph{naming} ``$L$''/``$R$'' is a
-convention that matches the SM's labelling of left-handed doublets;
-swapping $L \leftrightarrow R$ leaves the physics invariant.
+convention that matches the SM's labelling of left-handed doublets
+once the polygon fiber orientation is chosen; the underlying
+parity-violation (which sector gaps at which scale) is geometric.
 
 \paragraph{Anomaly cancellation from derived charges.}
 \label{para:anomaly-cancellation}
@@ -370,30 +381,34 @@ Weyl fermions across generations.
 \emph{Cusp-to-generation bijection.}
 Cusps of the principal modular curve $X(p) = \Gamma(p) \backslash
 \mathbf{H}^2$ are parametrized by primitive pairs $(c, d)$ with
-$\gcd(c, d) = 1$, $c, d \in \mathbb{Z}/p$, modulo the equivalence
-$(c, d) \sim (\lambda c, \lambda d)$ for $\lambda \in (\mathbb{Z}/p)^*$
-and the additional central identification $(c, d) \sim (-c, -d)$
-(standard parametrization, e.g.\ Diamond–Shurman~§3.8). This gives
-$|X(p)^{\mathrm{cusps}}| = p(p-1)/2$ cusps for $p \ge 5$
-(here $p \cdot \varphi(p) / (2\,\varphi(\gcd(\cdot)))$ with the
-$\pm 1$ quotient); at $p = 7$ this is $21$, partitioned into
-$(p-1)/2 = 3$ orbits of length $p = 7$ under the Sylow-$\mathbb{Z}/p$
-action $(c, d) \mapsto (c, d + c)$.
-
-The Sylow-$\mathbb{Z}/p$ action fixes exactly those cusps with
-$c \equiv 0 \pmod{p}$, i.e.\ the classes $[(0, a)]$ for
-$a \in (\mathbb{Z}/p)^*$, modulo $a \sim -a$ (from the
-central $(0, a) \sim (0, -a)$ identification). The
-$\mathbb{Z}/p$-fixed cusps are therefore in canonical bijection with
-the $\{\pm 1\}$-orbits on $(\mathbb{Z}/p)^*$:
+$c, d \in \mathbb{Z}/p$, $(c, d) \ne (0, 0)$, modulo the central
+identification $(c, d) \sim (-c, -d)$ (Diamond–Shurman §3.8; $\Gamma(p)$
+acts trivially on residues mod~$p$, so no further $\mathrm{SL}(2,
+\mathbb{Z}/p)$ scaling quotient is taken). This gives
 \[
-  \text{fixed cusp } [(0, a)] \;\longleftrightarrow\;
-  \{\pm a\} \subset (\mathbb{Z}/p)^*.
+  |X(p)^{\mathrm{cusps}}| = \frac{p^2 - 1}{2}
 \]
-At $p = 7$ these are the three pairs
-$\{1, 6\}, \{2, 5\}, \{3, 4\}$ — precisely the polygon theory's three
-Havelock pair labels (\S\ref{sec:yukawa}, Paper~V~\S23). Each pair
-$\{m, 7-m\}$ indexes one fermion generation by this canonical map.
+cusps; at $p = 7$, $|X(7)^{\mathrm{cusps}}| = 24$.
+
+The Sylow-$\mathbb{Z}/p$ subgroup acts on cusps by the unipotent
+translation $(c, d) \mapsto (c, d + c) \pmod p$, lifted from
+$\begin{psmallmatrix} 1 & 1 \\ 0 & 1 \end{psmallmatrix}^d \in
+\mathrm{SL}(2, \mathbb{Z}/p)$. Fixed points of this action require
+$(c, d + c) \sim (c, d)$, i.e.\ either $c \equiv 0 \pmod p$
+(then the action is trivial on $(0, d)$) or $(c, d + c) = (-c, -d)$
+(impossible for $c \ne 0$, $p$ odd). The $\mathbb{Z}/p$-fixed cusps are
+therefore exactly the classes $[(0, a)]$ with $a \in (\mathbb{Z}/p)^*$,
+modulo the central identification $a \sim -a$. There are $(p - 1)/2$
+such classes.
+
+At $p = 7$ the three fixed cusps are $[(0, 1)], [(0, 2)], [(0, 3)]$, in
+canonical bijection with the three $\{\pm 1\}$-orbits on
+$(\mathbb{Z}/7)^*$: $\{1, 6\}, \{2, 5\}, \{3, 4\}$. These are
+precisely the polygon theory's three Havelock pair labels
+(\S\ref{sec:yukawa}, Paper~V~\S23). Each pair $\{m, 7-m\}$ indexes one
+fermion generation by the map $[(0, a)] \mapsto \{\pm a\}$. The total
+24 cusps decompose as $3$ fixed + $3$ orbits of length $7$ under
+$\mathbb{Z}/7$, total $3 + 21 = 24$, verified by direct enumeration.
 
 \paragraph{Higgs identification via BF-bound.}
 \label{para:higgs}
@@ -434,32 +449,77 @@ $c^2 < 1$ and is CP-self-paired. The identification is:
   \qquad (Y = 1/2).
 \]
 
-\emph{Asymmetry with the fermion doublets.}
-For fermions, $\mathrm{SU}(2)_L$ acts on the $m_4$ CP-orbit $\{1, 2\}$
-because the half-integer fermion KK shift
-$\mu^f_{m_4} = |m_4 - 3/2|$ makes $\{m_4 = 1, m_4 = 2\}$ a
-mass-degenerate pair. For scalars, the integer shift
-$\mu^s_{m_4} = |m_4 - 2|$ leaves $m_4 = 2$ as a unique minimum with no
-$m_4$-partner; the degenerate BF-unstable pair is instead realized in
-the $m_7 \in \{3, 4\}$ direction. $\mathrm{SU}(2)_L$ is a single
-gauge group acting on mass-degenerate KK pairs; which polygon index
-the degeneracy occurs in (fermion: $m_4$; Higgs: $m_7$) is determined
-by the shift structure of the respective KK tower, not by an ad hoc
-choice.
+\emph{Unified $\mathrm{SU}(2)_L$ action via the diagonal subgroup.}
+The polygon theory has \emph{two} emergent sources of $\mathrm{SU}(2)$
+structure:
+\begin{itemize}
+\item $\mathrm{SU}(2)_{\mathrm{iso}}$: the isospin $\mathrm{SU}(2)$
+  implicit in the $N = 4$ orbifold (Z/4 fiber); its discrete orbits on
+  $m_4$ are CP-pairs $\{0, 3\}$ and $\{1, 2\}$. Fermion doublets with
+  half-integer shift $\mu^f_{m_4} = |m_4 - 3/2|$ are mass-degenerate
+  within each orbit, transforming as $\mathrm{SU}(2)_{\mathrm{iso}}$
+  doublets.
+\item $\mathrm{SU}(2)_{\mathrm{CS}}$: the Witten Chern--Simons
+  gauge group from $A^+ = \omega + e/\ell$
+  (paper \S\ref{sec:gauge-derivation-chain}~Step~2). It couples to KK
+  modes through the Euler-class / Redlich parity anomaly and acts on
+  $\mathbb{Z}/7$ CP-pairs $\{m_7, 7 - m_7\}$.
+\end{itemize}
+The physical $\mathrm{SU}(2)_L$ gauge group of the Standard Model is
+the \emph{diagonal subgroup}
+$\mathrm{SU}(2)_L = \mathrm{diag}\bigl(\mathrm{SU}(2)_{\mathrm{iso}}
+\times \mathrm{SU}(2)_{\mathrm{CS}}\bigr)$,
+identified by the Euler-class coupling that forces both factors to act
+with matched chirality assignment (paper \S\ref{sec:chiral-su2};
+$\eta_{\mathrm{grav}} < 0$ locks the diagonal alignment).
+
+Under this diagonal $\mathrm{SU}(2)_L$, any field is a doublet iff it
+is a doublet of either factor (non-trivial under one, singlet under
+the other, projected to the diagonal):
+\begin{itemize}
+\item Fermion $Q_L$ at $(m_7 \in O_+, m_4 \in \{1, 2\})$ is a doublet
+  of $\mathrm{SU}(2)_{\mathrm{iso}}$ (realized on $m_4$) and a singlet
+  of $\mathrm{SU}(2)_{\mathrm{CS}}$ (single $\mathbb{Z}/7$ orbit
+  $O_+$, CP-closed). Diagonal: $\mathrm{SU}(2)_L$ doublet.
+\item Higgs $H$ at $(m_7 \in \{3, 4\}, m_4 = 2)$ is a doublet of
+  $\mathrm{SU}(2)_{\mathrm{CS}}$ (realized on the $m_7$ pair $\{3,4\}$)
+  and a singlet of $\mathrm{SU}(2)_{\mathrm{iso}}$ (single $m_4 = 2$
+  orbit, self-paired under $m_4 \to 3-m_4$). Diagonal:
+  $\mathrm{SU}(2)_L$ doublet.
+\end{itemize}
+The diagonal subgroup's single generator $T^a = T^a_{\mathrm{iso}} +
+T^a_{\mathrm{CS}}$ acts consistently on both field types: on $Q_L$,
+$T^a_{\mathrm{CS}}$ annihilates and $T^a_{\mathrm{iso}}$ rotates the
+$m_4$ doublet; on $H$, $T^a_{\mathrm{iso}}$ annihilates and
+$T^a_{\mathrm{CS}}$ rotates the $m_7$ doublet. The commutator algebra
+$[T^a, T^b] = i \varepsilon^{abc} T^c$ closes correctly in each sector
+(each factor closes on its own, and singlets commute), and the diagonal
+subgroup is a bona fide $\mathrm{SU}(2)$ gauge group acting on the
+full matter spectrum.
 
 \emph{Real-DOF count.}
-Each Seifert KK mode on $\mathbb{R} \times (\mathbf{H}^2 \times_7 S^1)$
-is a \emph{complex} scalar $\phi_m(x)\,e^{i m \varphi}$ (the Fourier
-index~$m$ is signed, so $\phi_m$ and $\phi_{-m}$ are independent
-complex coefficients paired by reality of the 5D field). The two
-BF-unstable modes at $m_4 = 2$ therefore carry
-$2 \times 2 = 4$ real scalar degrees of freedom, assembled into a
-single $\mathrm{SU}(2)_L$ doublet (not two independent doublets) via
-the pair-swap identification above. Three Goldstone modes are eaten
-by $W^\pm, Z$ after the polygon-scale instability triggers electroweak
-symmetry breaking, leaving one physical neutral scalar~$h$. Count:
-two BF-unstable complex modes $\to$ one $\mathrm{SU}(2)_L$ doublet
-$\to$ four real fields $\to$ one physical Higgs, matching the
+The underlying 5D scalar field is \emph{complex}, not real. This is
+forced by the physics: the Higgs couples to chiral fermions through
+Yukawa interactions $\bar\psi_L\,H\,\psi_R$, which are gauge-invariant
+only if $H$ is a complex doublet (reality would forbid chirality-
+changing couplings with distinct $T_3^L$ eigenvalues). For a complex
+5D scalar, the Fourier modes
+$\phi_{(m_7, m_4)}(x)\,e^{2\pi i(m_7 \varphi/7 + m_4 \psi/4)}$ are
+\emph{independent} complex coefficients: there is no reality
+constraint pairing $\phi_{(m_7, m_4)}$ with $\phi_{(-m_7, -m_4)}^*$.
+(A real 5D scalar would impose this pairing and collapse
+$\{(3,2), (4,2)\}$ to a single independent complex mode, i.e.\ 2 real
+DOF — insufficient for an SU(2)_L doublet. The physical requirement
+of chiral Yukawa couplings therefore forces complexity.)
+
+The two independent BF-unstable complex modes at $(3, 2)$ and $(4, 2)$
+therefore carry $2 \times 2 = 4$ real scalar degrees of freedom,
+assembled into a single $\mathrm{SU}(2)_L$ doublet via the pair-swap
+identification above. Three Goldstone modes are eaten by $W^\pm, Z$
+after the polygon-scale instability triggers electroweak symmetry
+breaking, leaving one physical neutral scalar~$h$. Count: two
+independent BF-unstable complex modes $\to$ one $\mathrm{SU}(2)_L$
+doublet $\to$ four real fields $\to$ one physical Higgs, matching the
 Standard-Model Higgs doublet exactly.
 
 \paragraph{Quark mass exponents from Havelock + isospin.}
@@ -567,27 +627,46 @@ produce $\mathrm{SU}(3)_c \times \mathrm{SU}(2)_L
 \times \mathrm{SU}(2)_R \times \mathrm{U}(1)_Y$, \emph{not} the full
 Pati--Salam $\mathrm{SU}(4)_c$.
 
-\emph{Absence of $\mathrm{SU}(4)$ leptoquarks — derivation.}
-The six would-be leptoquark gauge bosons of $\mathrm{SU}(4)_c$ live
-in the coset $\mathrm{SU}(4)/(\mathrm{SU}(3) \times \mathrm{U}(1))$;
-they carry $\mathrm{SU}(3)$-colour triplet and $\mathrm{U}(1)_{B-L}$
-charge $\pm 4/3$ simultaneously. In the polygon theory, the
-$\mathrm{SU}(3)_c$ gauge sector comes from the $\mathrm{McKay}$
-$A_6$ orbifold on the $\mathbb{Z}/7$ Frobenius set
-(\S\ref{sec:su3-mckay}), and $\mathrm{U}(1)_{B-L}$ comes from the
-Seifert $S^1$ KK charge (\S\ref{sec:u1-kk}). These are \emph{distinct
-geometric sources} on the polygon: the McKay orbifold is the
-$\mathbb{Z}/3$ Frobenius quotient of $\mathrm{SU}(3)$, living on the
-$\mathbf{H}^2$ base, while the $\mathrm{U}(1)_{B-L}$ charge lives on
-the $S^1$ fiber. A gauge boson that simultaneously carries both
-would need to be a KK mode that couples to both geometric sectors
-simultaneously; the product structure of the Seifert bundle
-$\mathbf{H}^2 \times_7 S^1$ does not admit such a mode at the
-polygon orbifold (each KK mode is labelled by $(m_7, m_4, \chi)$
-with $m_7$ fixing the $\mathrm{SU}(3)$ representation and $m_4$
-fixing the isospin representation independently). The leptoquarks
-are therefore excluded by the orbifold product structure, not
-merely asserted absent.
+\emph{Absence of $\mathrm{SU}(4)$ leptoquark gauge bosons — derivation.}
+Leptoquark gauge bosons of $\mathrm{SU}(4)_c$ live in the coset
+$\mathrm{SU}(4)/(\mathrm{SU}(3) \times \mathrm{U}(1))$ and carry
+$\mathrm{SU}(3)$-colour triplet and $\mathrm{U}(1)_{B-L}$ charge
+$\pm 4/3$ simultaneously. A gauge boson in the polygon theory arises
+as a massless $1$-form field in the CS-gauge sector of the low-energy
+EFT; its gauge group is the unbroken subgroup of the UV gauge
+structure. The polygon theory's UV gauge group is constructed as:
+\begin{itemize}
+\item $\mathrm{SU}(3)_c$ from the McKay $A_6 \hookrightarrow E_7$
+  orbifold embedded on the $\mathbf{H}^2$ base
+  (\S\ref{sec:su3-mckay});
+\item $\mathrm{SU}(2)_L \times \mathrm{SU}(2)_R$ from Witten CS on the
+  3D spacetime (\S\ref{sec:chiral-su2});
+\item $\mathrm{U}(1)_{B-L}$ from the Seifert $S^1$ KK charge
+  (\S\ref{sec:u1-kk}).
+\end{itemize}
+The full UV gauge group is therefore
+$\mathrm{SU}(3)_c \times \mathrm{SU}(2)_L \times \mathrm{SU}(2)_R
+\times \mathrm{U}(1)_{B-L}$, \emph{not} the full Pati--Salam
+$\mathrm{SU}(4)_c \times \mathrm{SU}(2)_L \times \mathrm{SU}(2)_R$.
+The leptoquark generators of the $\mathrm{SU}(4)/(\mathrm{SU}(3) \times
+\mathrm{U}(1))$ coset are never introduced in the UV: they would
+require \emph{one} gauge sector with both a $\mathbf{3}$ of
+$\mathrm{SU}(3)_c$ and a non-zero $\mathrm{U}(1)_{B-L}$ charge, but
+$\mathrm{SU}(3)_c$ and $\mathrm{U}(1)_{B-L}$ come from geometrically
+distinct polygon sectors (base McKay orbifold vs Seifert fiber) whose
+gauge bundles are \emph{a priori} independent in the Cartesian
+product $\mathbf{H}^2 \times_7 S^1$. No off-diagonal generator
+mixing the two gauge groups appears without an additional unification
+assumption, which the polygon theory does not make
+(Paper~VI, \S\ref*{VI-sec:predictions}, ``no GUT'').
+
+The absence is therefore a structural consequence of the polygon UV
+gauge construction, not just an observation about matter-spectrum KK
+labels. The $\mathrm{SU}(4)$ leptoquarks are excluded because the UV
+gauge group has no $\mathrm{SU}(4)$ factor to contain them, and the
+Seifert product structure provides no mechanism to generate mixed
+$\mathrm{SU}(3)$-coloured / $\mathrm{U}(1)_{B-L}$-charged gauge
+fields.
 
 This is consistent with the paper's position of no GUT-scale
 symmetry breaking (Paper~VI, \S\ref*{VI-sec:predictions}). The

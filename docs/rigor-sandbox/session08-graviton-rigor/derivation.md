@@ -229,25 +229,75 @@ $$
 = \frac{\pi\,c}{48}\,|k|^2\,e^{-4 i\phi_k}.
 $$
 
-### Relation to the 4D graviton propagator
+### Relation to the 4D graviton propagator (Fefferman–Graham construction)
 
-In AdS/CFT, the boundary 2-point function $\langle T T\rangle_{\mathrm{CFT}}$
-equals the boundary-to-boundary limit of the bulk graviton propagator
-with the appropriate Fefferman–Graham scaling (Henningson–Skenderis 1998,
-de Haro–Solodukhin–Skenderis 2001). In Lorentzian signature (Wick
-rotation $|k|^2 \to -k^2$ with $k^2$ the 4D Minkowski invariant), the
-boundary $\langle TT\rangle(k^2)$ encodes the 4D graviton pole via the
-holographic renormalization scheme: the bulk graviton propagator
-$1/k^2$ couples to $T_{\mu\nu}$ on the boundary, and the
-$\langle TT\rangle$ correlator's analytic structure at $k^2 = 0$
-reproduces the massless 4D pole.
+The boundary $\langle T T\rangle$ and the 4D bulk graviton pole are
+related by the standard Fefferman–Graham (FG) holographic
+reconstruction. We sketch the derivation, following
+Henningson–Skenderis (1998) and de Haro–Solodukhin–Skenderis (2001).
 
-Newton constant matching: the coefficient of the CFT central charge
-$c = 12\,b(N)$ fixes the bulk 3D Newton constant
-$G_3 = \ell/(2c) = \ell/[24\,b(N)]$ (Brown–Henneaux 1986, standard
-inversion). The 4D Newton constant is then $G_4 = G_3/(2\pi R_{S^1})$
-after $S^1$ KK reduction (Randall–Sundrum 1999). This matching fixes
-the graviton propagator residue at $k^2 = 0$.
+\emph{FG asymptotic expansion.} Near the conformal boundary
+$\rho \to \infty$, the bulk 4D metric $g_{MN}$ admits the FG expansion
+\[
+  g_{MN}\,dx^M\,dx^N = \ell^2\,d\rho^2 + e^{2\rho}\,\bigl(g^{(0)}_{\mu\nu}
+  + e^{-2\rho}\,g^{(2)}_{\mu\nu} + e^{-4\rho}\,g^{(4)}_{\mu\nu} + \cdots\bigr)
+  dx^\mu\,dx^\nu,
+\]
+with $g^{(0)}$ the 3D boundary metric (on $\mathbb{R}_t \times T^2$)
+and $g^{(2)}, g^{(4)}, \ldots$ determined by Einstein's equations in
+the bulk. The boundary stress tensor is
+$T_{\mu\nu}^{\mathrm{CFT}} \propto g^{(3)}_{\mu\nu}$ (the sub-leading
+undetermined coefficient in 3D bulk AdS → 2D boundary).
+
+\emph{Bulk-to-boundary propagator.} The linearized 4D graviton
+equation of motion around the background $\ell^2 d\rho^2 + e^{2\rho}
+g^{(0)}_{\mu\nu}\,dx^\mu dx^\nu$ has transverse-traceless solutions
+$h_{\mu\nu}(x, \rho)$; imposing normalizable boundary conditions at
+$\rho \to \infty$, the bulk-to-boundary propagator $K(x - y, \rho)$
+satisfies
+\[
+  (\Box_{g^{(0)}} + m^2_{\mathrm{graviton}})\,K = 0,
+  \qquad m^2_{\mathrm{graviton}} = 0
+\]
+(massless in 4D). In momentum space,
+$\widetilde K(k, \rho) \propto e^{-\rho\Delta_+}$ with
+$\Delta_+ = 3$ (the scaling dimension of a 3D massless spin-2 source).
+
+\emph{⟨TT⟩ from FG reconstruction.} Varying the on-shell bulk action
+$S_{\mathrm{grav}}[g^{(0)}]$ with respect to $g^{(0)}_{\mu\nu}$ gives
+the boundary stress tensor two-point function:
+\[
+  \langle T_{\mu\nu}(k)\,T_{\rho\sigma}(-k)\rangle
+  = \frac{c}{48\pi^2}\,|k|^2\,
+  \mathcal{P}_{\mu\nu,\rho\sigma}^{\mathrm{TT}}(k)
+  + (\text{contact terms}),
+\]
+where $\mathcal{P}^{\mathrm{TT}}$ is the transverse-traceless
+projector. This matches the 2D limit (zero-mode on $T^2$, flat-limit
+$T^2 \to \mathbb{R}^2$ of §4 above): the scalar part
+$\pi c\,|k|^2\,e^{-4 i\phi_k}/48$ computed in §5 is the helicity-$(+4)$
+spherical-harmonic component of the TT projector.
+
+\emph{4D graviton propagator.} The normalizable bulk mode $h_{\mu\nu}$
+at vanishing momentum $k \to 0$ has a massless pole in 4D
+because the FG asymptotic expansion's sub-leading term
+$g^{(3)}_{\mu\nu}$ is exactly the stress-tensor source, and its 2-point
+function's $|k|^2 \to -k^2$ analytic continuation supplies the
+massless pole $1/k^2$ in the bulk 4D propagator. The Newton-constant
+residue follows by matching coefficients: $G_3 = \ell/(2c)$
+(Brown–Henneaux 1986 inversion), and $G_4 = G_3/(2\pi R_{S^1})$ after
+$S^1$ KK reduction (Randall–Sundrum 1999).
+
+\emph{Continuum limit on $T^2$.} The boundary is topologically
+$T^2 = S^1_\theta \times S^1_\varphi$, and the $\langle TT\rangle$
+correlator is strictly a sum over discrete Fourier modes
+$(k_\theta, k_\varphi) \in \mathbb{Z}^2$ with spacing determined by the
+torus periods $(\ell, R_{S^1})$. At energies $E \ll 1/\ell, 1/R_{S^1}$,
+the sum is dominated by small $|k|$ and the discrete sum is
+well-approximated by the continuum integral $\int d^2k$ with
+correction $O(E/M_{\mathrm{poly}})^2$. The continuum
+$\pi c|k|^2 e^{-4 i\phi_k}/48$ is therefore the effective-field-theory
+limit of the exact boundary correlator.
 
 ### DOF count
 

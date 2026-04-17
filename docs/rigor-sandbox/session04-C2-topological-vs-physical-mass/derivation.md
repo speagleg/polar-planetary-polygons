@@ -76,16 +76,18 @@ different scaling for a different physical object.)
 ## SU(2)_L assignment to chirality sector
 
 The paper's argument (§8.1 lines 1076-1083):
-1. η_grav is always negative for N ≥ 3 (from formula).
-2. This breaks the A^+ ↔ A^- symmetry of the CS decomposition.
-3. The sector with the larger |k_eff| is the "L" sector by convention.
-4. The Euler class coupling to fermions fixes that the larger-|k_eff| sector couples more strongly to one chirality.
-5. By SM consistency (left-handed doublets gauge under SU(2)_L), the larger-|k_eff| sector IS SU(2)_L.
+1. η_grav is always negative for N ≥ 3 (from formula). GEOMETRIC.
+2. This breaks the A^+ ↔ A^- symmetry of the CS decomposition. GEOMETRIC.
+3. The sector with the larger |k_eff| is the "L" sector. NAMING CONVENTION.
+4. The Euler class coupling to fermions fixes that the larger-|k_eff| sector couples more strongly to one specific chirality. GEOMETRIC.
+5. The SM label "SU(2)_L" is, by convention, the gauge group coupling to left-handed doublets as observed. Matching polygon and SM labels gives the identification.
 
-This is RIGOROUS in the sense that:
-- The geometric input (η < 0, fiber orientation) is DERIVED
-- The chirality-sector assignment is a CONVENTION consistent with SM
-- The physical content (parity violation) follows from the geometry
+Precise status of each step:
+- Steps 1, 2, 4 are geometric facts derived from the polygon Euler class + Redlich mechanism; they do not depend on SM conventions.
+- Step 3 is a NAMING CHOICE: given two distinct CS sectors, we call the heavier one "L" to match the observed SM convention that left-handed doublets gauge under SU(2)_L. Swapping the labels L ↔ R in the polygon theory leaves the physics invariant.
+- Step 5 is the SM-matching statement: once the polygon is labelled, physical predictions (masses, mixing angles, etc.) match observation.
+
+There is NO circular use of SM inputs in the derivation of the physical content. The polygon theory predicts two CS sectors with a specific mass ratio m_heavier/m_lighter ≈ 4.6 at N=7, and parity violation follows from η ≠ 0. The naming "L"/"R" is a convention, but the physical content is independent of this choice.
 
 ## Status
 
