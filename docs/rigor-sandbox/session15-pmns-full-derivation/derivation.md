@@ -233,18 +233,53 @@ the Pell-signature structure derived here establishes the novel
 polygon prediction.
 ```
 
-## 7. Conclusion
+## 7. Negative result from direct Yukawa computation
+
+As part of this session, I attempted a direct diagonalization of the polygon neutrino Yukawa matrix to reproduce the target PMNS fractions.
+
+**Setup**:
+- Y_ν = Y(m_H=3) + Y(m_H=4) summed over the two Higgs modes.
+- Y(m_H)_ij = 1 if m_i + m_j + m_H ≡ 0 (mod 7), else 0.
+- Effective Yukawa Y_eff_ij = Y_ij · f_i · f_j with Havelock profiles f_i = exp(-λ_i σ_mass / N), λ = (3, 1, 0) for the 3 generations, σ_mass = 5√7.
+- Charged-lepton Y_ell from Y(m_H=3) with same profiles.
+- U_PMNS = U_ell^T · U_nu from diagonalizing M² = Y_eff Y_eff^T.
+
+**Result** (numerical):
+- sin²θ_13 ≈ 0.0005 (target 1/48 ≈ 0.021; off by 40×)
+- sin²θ_12 ≈ 0.501 (target (7-√7)/14 ≈ 0.311)
+- sin²(2θ_12) ≈ 1.0 (target 6/7 ≈ 0.857)
+- sin²θ_23 ≈ 0.000 (target 4/7 ≈ 0.571)
+
+The direct Yukawa-texture + Havelock-profile approach DOES NOT reproduce the polygon-theory predictions. This is a negative result.
+
+**Interpretation**:
+The polygon theory's PMNS predictions require more than the Yukawa texture + Havelock profiles. Specifically, the target values encode the FULL Klein-quartic structure at the CM point τ_0 = (1+i√7)/2, not just the Z/7 charge-conservation rule. Candidate missing pieces:
+1. Petersson inner products $G_{ij} = \langle \omega_i, \omega_j \rangle$ for the cusp-localized weight-2 forms (Elkies 1999 describes these).
+2. Hecke-eigenvalue action on $S_2(\Gamma(7))$ at the CM point, giving algebraic-number eigenvalues in ℚ(√-7).
+3. Z/3 Frobenius twisting with specific phases (CP-violation structure).
+4. Charged-lepton Yukawa structure different from neutrino (perhaps m_H = 4 only, or different profile).
+
+A FULL DERIVATION requires computing all four ingredients from the polygon theory's Klein-quartic realization. This is a specialized automorphic-form computation (Eichler-Shimura at the CM point), estimated at 2-3 focused sessions using sage modular-symbol software.
+
+## 8. Conclusion
 
 **Partial progress** (what Session 15 establishes):
 - UNIFIED PARAMETRIZATION: all three PMNS fractions at N=7 expressed in terms of x = 1/√N via closed forms (N-√N)/(2N), (N+1)/(2N), 1/(N²-1).
 - FIELD-THEORETIC SIGNATURE: the √N = √7 in sin²θ_12 belongs to the same quadratic field ℚ(√7) as the polygon's Pell unit ε_7 = 8+3√7.
-- HIERARCHICAL POWER-COUNTING: motivated from Frobenius-breaking orders (x, x², x⁴), though specific coefficients require Klein-quartic computation.
+- HIERARCHICAL POWER-COUNTING: the three angles scale as x, x², x⁴ in the Pell parameter.
 
-**What remains open** (deferred, not closed):
-- Klein-quartic Hecke eigenvalue computation at CM point τ_0 = (1+i√7)/2 (standard Eichler-Shimura automorphic-form work; sage modular-symbol software; ~1-2 sessions specialized).
-- Specific rational coefficient values (N-1)/N, (N+1)/(2N), 1/(N²-1) from explicit Petersson inner products.
-- Per-mode neutrino Yukawa texture verification of the 2×2 submatrix ansatz.
+**Negative result** (from direct Yukawa approach, §7 above):
+- The naive "Y-texture + Havelock-profile + diagonalize" computation DOES NOT reproduce the target fractions. Concretely missing: Petersson inner products at CM point, Hecke eigenvalues, Z/3 Frobenius phases, differentiated charged-lepton structure.
 
-**Framework impact**: PMNS Conjecture 16.6 is UPGRADED from "empirical match" to **"partially structurally parametrized in ℚ(√7) with specific coefficients deferred to Klein-quartic Hecke computation"**. The √7 appearance in θ_12 is a novel structural prediction connecting lepton mixing to the polygon's Pell field; no other theory predicts this specific field structure. However, the FULL DERIVATION (including the three coefficient values) is NOT achieved in this session.
+**What remains open** (genuinely deferred to specialized automorphic-form work):
+- Klein-quartic Hecke eigenvalue computation at CM point τ_0 = (1+i√7)/2.
+- Petersson inner products $G_{ij}$ for cusp-localized weight-2 forms.
+- Full PMNS matrix diagonalization via Eichler-Shimura with all four missing pieces.
 
-**Honest labeling for N=7 uniqueness claims**: Conjecture 16.6 status should be "partially structural (ℚ(√N) field membership derived + hierarchical power-counting motivated) + deferred technical computation (Klein-quartic Hecke eigenvalues)", not "fully structural". The N=7 uniqueness list should read "four fully structural + one partially structural" rather than "five structural".
+**Framework impact**: PMNS Conjecture 16.6 status is now:
+- √7 field signature: DERIVED (novel polygon prediction).
+- Hierarchical x-power-counting: MOTIVATED from Frobenius structure.
+- Specific rational coefficients: DEFERRED to Klein-quartic Hecke computation.
+- Direct Yukawa approach: DOES NOT WORK (negative result, documented).
+
+**Honest labeling for N=7 uniqueness claims**: Conjecture 16.6 remains "partially structural (√7 field signature derived + power-counting motivated) + deferred technical computation (Klein-quartic Hecke eigenvalues, with documented negative result from naive Yukawa approach)". The "four fully structural + one partially structural" framing is appropriate.
