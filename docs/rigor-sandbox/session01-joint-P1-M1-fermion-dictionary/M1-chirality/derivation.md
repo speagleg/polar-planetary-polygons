@@ -103,12 +103,13 @@ A 4D Dirac KK mode therefore gives 2 Weyl fermions in 4D: one L, one R. Both hav
 
 The 3D dynamics per KK mode is governed by the 3D Dirac equation (iγ^a ∂_a − M_m γ³), with M_m = (m+α)/R. The Redlich-parity-anomaly argument (§8.1 Step 3) selects one CS sector (A⁺) to survive at low energy; this breaks 4D parity by projecting out half the Weyl content of each KK mode.
 
-**Count correction for P1**:
-- 28 KK mode pairs (m_7, m_4) × 2 chiralities (L, R) × 2-component Weyl = 112 real dof
-- Which is 56 complex Weyl components
-- After the Redlich projection (A⁻ sector gapped at topological mass m_R ~ 100 TeV), only the A⁺ sector survives at E ≪ M_poly: **28 complex Weyl components accessible at low energy**.
+**Counting chain for P1** (resolved in PAPER4_REVISION_DRAFT.md):
+- 28 KK mode pairs (m_7, m_4) × 2 chiralities (L, R) × 2-component Weyl = 112 real dof per fixed cusp
+- After the Redlich projection (A⁻ sector gapped at m_R ~ 107 TeV), only the A⁺ sector (χ = L) survives at E ≪ M_poly: **28 complex Weyl components per cusp**.
+- After Legendre projection (Lemma lem:legendre): 16 complex Weyl survive per cusp.
+- Across three Z/7-fixed cusps on X(7) (Theorem thm:three-gens, DHVW twisted-sector construction): 3 × 16 = **48 Weyl per 3 generations = 16 per generation**, matching SM + ν_R.
 
-This is STILL not 48 Weyl (3 generations × 16). The discrepancy remains, but is now smaller (28 vs 48). P1 must address the remaining 20 Weyl deficit — likely via additional mode content from m_7 = 0 lepton tower or multi-copy structure.
+The full chain 56 → 28 → 16 → 48 is documented in PAPER4_REVISION_DRAFT.md; M1 handles the first arrow (the γ⁵ projection).
 
 ## Status
 
@@ -117,13 +118,8 @@ This is STILL not 48 Weyl (3 generations × 16). The discrepancy remains, but is
 - Paper's e^{iπm} claim shown to be imprecise
 - KK-mode chirality structure rigorously established
 - Proposed replacement language for Paper IV §8.1 Step 2
-
-**Blocker for P1**: the 28-Weyl-at-low-energy count is still short by 20 from the 48 needed. This requires further structural input (e.g., how the lepton sector is embedded; whether the theory has additional N-sectors beyond N=7 and N=4).
+- Counting chain closed via Legendre + 3-cusp multiplier (see PAPER4_REVISION_DRAFT.md).
 
 ## Next steps
 
 - M1 ready for reviewer cycle.
-- P1 cannot close without resolving the remaining counting. Options:
-  - (a) Gordon provides the intended multi-sector structure (e.g., "leptons come from N=7 × m_7=0 copies, so we need 3 copies").
-  - (b) We dispatch math-reviewer and physics-reviewer on M1 alone, and flag P1 as requiring additional input.
-  - (c) We re-examine the paper's implicit fermion assignment (§13 pair structure) to see if the counting is intended differently.

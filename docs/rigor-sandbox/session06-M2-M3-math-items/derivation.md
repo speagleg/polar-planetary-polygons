@@ -20,9 +20,13 @@ Three spectral criteria force the fiber to be 1-dim and hence S¹:
 
 ### Analysis
 
-**(a) Non-round S¹ metrics**. A general metric on S¹ gives Laplacian eigenvalues (2π m/L)² with varying L(φ). But the TOPOLOGICAL structure (single index m, palindromic pairing, no extra degeneracy) is INVARIANT under metric deformation. The paper's argument IDENTIFIES the TOPOLOGY of the fiber (S¹), not the metric.
+**(a) Non-round S¹ metrics**. The paper's argument identifies the fiber's TOPOLOGY, not its metric. The topology is forced by the 1-manifold classification theorem: a compact, connected, boundaryless 1-manifold is homeomorphic to S¹ (up to diffeomorphism, a standard result of smooth topology). Combined with the paper's spectral data (single-index spectrum m ∈ ℤ, palindromic pairing m ↔ N - m, no extra degeneracy), which rules out higher-dimensional and disconnected alternatives (see (c) below), the fiber topology is S¹.
 
-**The round metric is fixed separately** by Brown-Henneaux conformal boundary conditions (c = 12 b(N) requires specific boundary asymptotics). So the paper's combined structure fixes: fiber topology = S¹, metric = round (to leading order).
+(Note: metric deformations CAN split Laplacian degeneracies — the reviewer's correct observation. The topology argument does not rest on "spectrum-invariance under metric deformation." It rests on 1-manifold classification plus the spectral data ruling out higher dimensions.)
+
+**The round metric is fixed separately** by the Brown-Henneaux asymptotic-symmetry analysis: central charge c = 12 b(N) requires AdS₃-asymptotic boundary conditions at the conformal boundary, which pin the bulk metric (up to diffeomorphism) to the round H² × S¹ form. The identification is not circular: Brown-Henneaux takes the bulk metric asymptotics as input and computes c; the paper's independent derivation of c = 12 b(N) from the Seifert KK structure (Paper III §graviton) then forces the round metric to match.
+
+So the paper's combined structure fixes: fiber topology = S¹ (by 1-manifold classification + spectral dimension), metric = round (by Brown-Henneaux c = 12 b(N) matching).
 
 **(b) Orbifold circle quotients S¹/Γ**. Compact connected 1-manifolds admit only trivial finite group actions:
 - Γ = Z_k acting by rotation: S¹/Z_k ≃ S¹ (homeomorphic), just with different circumference L' = L/k.

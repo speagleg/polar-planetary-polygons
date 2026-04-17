@@ -1,6 +1,13 @@
 # 4D graviton emergence — rigorous construction
 
 **Date**: 2026-04-17
+**Supersedes**: Session 5 `session05-P4-graviton-emergence/derivation.md` and
+Session 7 `session07-rigor-pass/low_priority_items.md` Item 2 for the
+4D graviton construction. Session 5 verified the paper's four-step
+outline; Session 7 drafted the SO(2) identification; Session 8 (this
+document) provides the full rigorous construction. For Paper IV
+integration, cite Session 8 as the authoritative graviton-rigor
+derivation and Session 5/7 only for supporting context.
 **Scope**: close the reviewer gaps on Paper IV §5 (`sec:graviton`):
   1. Specify the 4D Lorentz frame (time vs spatial) on
      $M_4 = \mathbb{R}_t \times \mathbf{H}^2 \times S^1$.
@@ -107,26 +114,63 @@ $\bar T(\bar z)$) to $-J$. These are the two helicities $\pm 2$ of the
 
 ## 4. Helicity identification
 
-The stress tensor $T(z)$ has conformal weight $(2, 0)$ (paper Step 2).
-The defining property of a conformal primary of weight $h$ under
-$z \mapsto f(z)$ is
+The stress tensor $T(z)$ is a primary of conformal weight $h_T = (2, 0)$.
+Under a holomorphic coordinate transformation $z \mapsto f(z)$ with
+$f'(z) \neq 0$, a primary $\mathcal{O}(z)$ of weight $h$ transforms as
+a density of weight $h$:
 $$
-T(f(z)) \cdot \bigl(f'(z)\bigr)^h = T(z)\;\text{(primary part)}.
+\mathcal{O}'(f(z)) \cdot \bigl(f'(z)\bigr)^h = \mathcal{O}(z),
+\qquad\Longleftrightarrow\qquad
+\mathcal{O}'(w) = \bigl(\tfrac{dz}{dw}\bigr)^h \mathcal{O}(z(w)).
 $$
-For the $\mathrm{SO}(2)$ action $f(z) = e^{i\alpha} z$, $f'(z) = e^{i\alpha}$:
+Here $\mathcal{O}$ is the operator in coordinates $z$ and
+$\mathcal{O}'$ in coordinates $w$. This is the active-transformation
+convention: $\mathcal{O}'(w)$ evaluates the same physical operator at
+the transformed point.
+
+Apply to $f(z) = e^{i\alpha} z$, i.e.\ $w = e^{i\alpha} z$,
+$dz/dw = e^{-i\alpha}$:
 $$
-T(e^{i\alpha} z)\cdot e^{2 i\alpha} = T(z),
-\quad\Longleftrightarrow\quad
-T(e^{i\alpha}z) = e^{-2 i \alpha} T(z).
+\mathcal{O}'(w) = e^{-i h \alpha} \mathcal{O}(z(w))
+\quad\Longrightarrow\quad
+T'(w) = e^{-2 i \alpha} T(z(w))
+\;\text{(at } h = h_T = 2\text{).}
 $$
-The eigenvalue of $T$ under $R_\alpha$ is $e^{-2 i\alpha}$. Weinberg's
-definition (§2.5) of helicity: a massless 4D particle of helicity $h$
-transforms under the little-group rotation $R_\alpha$ by the phase
-$e^{i h \alpha}$. Matching, $T(z)$ has $h = -2$ — with orientation
-conventions, this becomes $+2$ (equivalently, take the complex
-conjugate $T$; convention determines the sign). $\bar T(\bar z)$
-likewise has the opposite helicity. The two Virasoro copies match the
-two 4D physical polarizations of a massless spin-2 field.
+
+Little-group matching (Weinberg QFT Vol.~1 §2.5, eq.~2.5.42).
+A massless 4D particle of helicity $\sigma$ in a helicity
+eigenstate $|k, \sigma\rangle$ transforms under the little-group
+rotation $R(\alpha)$ as
+$$
+U\bigl(R(\alpha)\bigr)\,|k, \sigma\rangle = e^{+i \sigma \alpha}\,|k, \sigma\rangle.
+$$
+The operator-level transformation of a field creating such a state
+is the inverse (passive, since creation operators transform
+contragradiently). Thus the local field $\Phi_\sigma(x)$
+associated with helicity $\sigma$ satisfies, under the active
+rotation of the transverse plane by $\alpha$,
+$\Phi'_\sigma(R\cdot x) = e^{-i \sigma \alpha}\,\Phi_\sigma(x)$.
+
+Matching the two formulas, $T(z)$ at $h_T = 2$ creates states of
+helicity $\sigma = +2$:
+$$
+\underbrace{T'(w) = e^{-2 i \alpha} T(z(w))}_{\text{weight-2 primary}}
+\;\longleftrightarrow\;
+\underbrace{\Phi'_{+2} = e^{-i (+2) \alpha} \Phi_{+2}}_{\text{helicity }+2\text{ field}}.
+$$
+No sign ambiguity remains: the conformal-primary transformation law
+at $h = 2$ and the Weinberg massless field of helicity $+2$ are the
+\emph{same} representation of $\mathrm{SO}(2)$. Likewise
+$\bar T(\bar z)$ at $\bar h = 2$ creates states of helicity $\sigma = -2$.
+
+CPT consistency. The two helicities $\pm 2$ are CPT conjugates: a
+physical massless spin-2 field in a CPT-invariant theory necessarily
+includes both helicities. The polygon theory's Chern–Simons sector
+is CPT-invariant (both Witten CS factors $A^\pm$ are exchanged by
+CPT, which reverses orientation), and the two Virasoro copies
+$T, \bar T$ realize the two helicities on a CPT-symmetric footing.
+DOF count is $2 = d(d - 3)/2$ at $d = 4$ for the massless spin-2
+representation.
 
 ## 5. Momentum-space $\langle TT\rangle$ and 4D graviton pole
 

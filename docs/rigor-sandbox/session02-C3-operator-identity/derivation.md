@@ -9,15 +9,11 @@
 
 **Setup.** Let $A = \omega + e/\ell$ be the Witten SL(2,ℝ) Chern–Simons connection on **H²** (Witten 1988), where $\omega$ is the spin connection and $e$ is the dreibein. Let $\Phi$ be a section of an associated vector bundle in representation $R$ of sl(2,ℝ) with generators $T^a_R$ (a = 1, 2, 3), and define the covariant derivative $D_\mu \Phi = \partial_\mu \Phi + A_\mu^a\,T^a_R\,\Phi$ in the local gauge.
 
-The covariant Laplacian is $D^2 \Phi = g^{\mu\nu} D_\mu D_\nu \Phi$, where $D_\mu$ also carries the metric Christoffel connection when needed. The Weitzenböck–Lichnerowicz identity is
+The covariant Laplacian is $D^2 \Phi = g^{\mu\nu} D_\mu D_\nu \Phi$, where $D_\mu$ also carries the metric Christoffel connection when needed. The Weitzenböck–Lichnerowicz identity has the explicit form
 $$
-D^2 \Phi = \nabla^*\nabla\,\Phi + \mathcal{R}(F, T_R)\,\Phi,
+D^2 \Phi = \nabla^*\nabla\,\Phi + \tfrac{1}{2}\,g^{\mu\rho}g^{\nu\sigma}\,[\Sigma_{\mu\nu},\,F_{\rho\sigma}]\,\Phi + (\text{rep-dependent curvature shift}),
 $$
-where $\nabla^*\nabla$ is the metric rough Laplacian and
-$$
-\mathcal{R}(F, T_R) = \tfrac{1}{2}\,g^{\mu\rho}g^{\nu\sigma}\,F^a_{\mu\nu}\,T^a_R \cdot (\text{spin connection coupling})
-$$
-is the standard Weitzenböck curvature term built from the field strength $F^a = dA^a + \tfrac{1}{2}\varepsilon^{abc} A^b \wedge A^c$ and the generators $T^a_R$. Its precise form depends on the tensor type of $\Phi$:
+where $\nabla^*\nabla = -g^{\mu\nu}\nabla_\mu \nabla_\nu$ is the metric rough Laplacian, $\Sigma_{\mu\nu}$ are the Lorentz generators acting on $\Phi$ in representation $R$ (e.g., $\Sigma_{\mu\nu} = \tfrac{1}{4}[\gamma_\mu, \gamma_\nu]$ for spinors), and $F^a_{\mu\nu}\,T^a_R \equiv F_{\mu\nu}$ is the gauge field strength in rep $R$. The explicit rep-dependent shift for the standard cases is given in the table below (Lichnerowicz 1963, Bär 1996).
 
 | $R$ | $\nabla^*\nabla - \Delta_{\mathbf{H}^2}$ | Curvature coupling $\mathcal{R}(F, T_R)$ |
 |-----|---|---|
