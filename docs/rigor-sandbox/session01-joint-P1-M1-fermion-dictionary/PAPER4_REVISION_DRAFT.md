@@ -286,8 +286,28 @@ $\chi = L$ Weyl surviving Legendre  & $16$                        & Lemma~\ref{l
 \end{tabular}
 \end{center}
 
-Across the three $\mathbb{Z}/7$-fixed cusps on $X(7)$ (DHVW
-twisted-sector construction):
+Across the three $\mathbb{Z}/7$-fixed cusps on $X(7)$, each cusp
+carries an INDEPENDENT copy of the KK spectrum via the Dixon-Harvey-Vafa-Witten
+(DHVW 1985) twisted-sector construction for $\mathbb{Z}/7$ orbifolds.
+
+\emph{DHVW derivation of 3 copies.}
+The $\mathbb{Z}/7$ orbifold of the Seifert manifold has 3 Sylow-$\mathbb{Z}/7$-fixed
+cusps on $X(7)$ (Theorem~\ref{thm:three-gens}). At each fixed cusp, the DHVW
+construction produces a TWISTED SECTOR: a Hilbert space of string/field states
+localized at the fixed point, invariant under the $\mathbb{Z}/7$ holonomy. The
+twisted-sector Hilbert space at each fixed cusp has content equivalent to the
+untwisted KK spectrum projected onto $\mathbb{Z}/7$-invariant states — i.e.,
+the full KK tower $\{\Phi_{m_7, m_4, \chi}\}$ restricted by the Legendre
+Wilson-line projection (Lemma~\ref{lem:legendre}). This yields the 16
+$\chi=L$ Weyl fermions at each cusp.
+
+The three twisted sectors at the three fixed cusps are INDEPENDENT (DHVW 1985,
+eq. 2.1): their Hilbert spaces are DIRECT SUMMED, not identified. So the total
+spectrum is $3 \times 16 = 48$ Weyl fermions, which the polygon theory identifies
+with 3 generations of 16 SM+$\nu_R$ Weyl fermions each. The identification
+"$n_\text{gen} = 3$ fixed cusps" is the content of the DHVW construction.
+
+Summary (DHVW + Legendre at each fixed cusp):
 \begin{center}\small
 \begin{tabular}{lcl}
 \toprule

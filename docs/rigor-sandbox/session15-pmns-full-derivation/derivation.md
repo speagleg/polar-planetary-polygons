@@ -41,11 +41,20 @@ The polygon theory at N=7 has √7 appearances throughout:
 
 All these quantities live in the quadratic field ℚ(√7). The value x = 1/√N = 1/√7 in the PMNS expansion ALSO lies in ℚ(√7).
 
-**Claim (field-theoretic, not numerical)**: the small parameter x = 1/√N in the PMNS expansion belongs to the SAME QUADRATIC FIELD ℚ(√7) that houses the Pell unit ε_7 = 8 + 3√7 and all other √7 structures in the polygon theory. This is a FIELD membership, not a scale identification; ε_7 ≈ 16.54 and 1/√7 ≈ 0.378 are different NUMBERS in the same FIELD.
+**Weaker version — field membership.** At the trivial level: sin²θ_12 = (7 - √7)/14 ∈ ℚ(√7). This is merely a CONTAINER statement (ℚ(√7) contains all quadratic surds involving √7); not a substantive prediction.
 
-This is a novel structural prediction: the polygon's Pell-field ℚ(√7) organizes BOTH the Pell unit AND the lepton mixing angle θ_12. Other theories do not predict this specific field structure for PMNS.
+**Stronger version — specific algebraic structure.** The element sin²θ_12 = (N - √N)/(2N) ∈ ℚ(√N) has SPECIFIC ALGEBRAIC PROPERTIES:
+- **Trace** (over ℚ): Tr(sin²θ_12) = sin²θ_12 + (N + √N)/(2N) = 1. So the two Galois conjugates sum to 1.
+- **Norm** (over ℚ): Nm(sin²θ_12) = sin²θ_12 · (N + √N)/(2N) = (N² - N)/(4N²) = (N-1)/(4N) = 6/28 = 3/14 at N=7.
+- **Product of conjugate ∗ self** gives the rational **sin²(2θ_12) = 4 · Nm(sin²θ_12) = (N-1)/N = 6/7** — the classical-limit rational prediction.
 
-(The same field membership holds at other primes: at N=11, both ε_11 and 1/√11 would be in ℚ(√11), etc. The polygon theory's N=7 selection picks out ℚ(√7) specifically.)
+The non-trivial structural content: sin²θ_12 and its Galois conjugate under √N → −√N are the two eigenvalues of a 2×2 symmetric matrix with rational entries {1/2, 1/2} and determinant Nm = (N-1)/(4N). This matrix must emerge from the polygon Yukawa diagonalization at the (ν_1, ν_2) sector.
+
+In other words: the polygon THEORY PREDICTS the specific quadratic-form $Q(x) = x^2 - x + (N-1)/(4N)$ on ℚ(√N) whose roots are the two neutrino mixing eigenvalues in the (1, 2) sector. The value (N-1)/(4N) at N=7 equals 3/14, and this specific rational is the substantive prediction (not just "in ℚ(√7)").
+
+**Polygon-specific test**: in a theory NOT based on the N=7 polygon (e.g., a random 3-generation lepton model), θ_12 could equally be parametrized by any rational number. The polygon predicts the specific (N-1)/(4N) norm. This is falsifiable: precision future measurements of sin²(2θ_12) vs PDG ± will either confirm (N-1)/N at N=7 or rule it out.
+
+(Similar field-theoretic statements hold for other N: at N=11, one would predict sin²(2θ_12) = 10/11, falsified by observation.)
 
 ## 3. Motivation by sector (not full derivation)
 

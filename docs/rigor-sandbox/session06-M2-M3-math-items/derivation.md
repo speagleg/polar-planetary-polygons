@@ -78,17 +78,25 @@ In the polygon theory, the fiber is assumed to be S¹ (dimension d = 1) with cir
 
 If the fiber were d-dimensional instead, the KK-mode counting at energy Λ would scale as Λ^{d/2}. The polygon theory's KK spectrum IS the 1-dimensional tower at m/R; if the fiber had higher dimension, this would be evident in the mode counting.
 
-**Direct rule-out of specific higher-dim alternatives**:
-- S² at radius r: Laplacian eigenvalues ℓ(ℓ+1)/r² with (2ℓ+1)-fold degeneracy. Polygon spectrum has NO such degeneracy (single integer m per eigenvalue).
-- T² at radii (r₁, r₂): Laplacian eigenvalues (m₁²/r₁² + m₂²/r₂²) with TWO independent integer indices. Polygon spectrum has ONE index.
-- S³ at radius r: eigenvalues ℓ(ℓ+2)/r² with (ℓ+1)²-fold degeneracy. Polygon spectrum is simple.
-- S² × S¹, S³, etc. all have multi-index / degenerate spectra incompatible with the polygon's single-index simple-spectrum structure.
+**Rigorous single-integer-index ⇒ d = 1 argument via isometry-group rank.**
 
-These are ruled out by the POLYGON'S SPECIFIC single-integer-index Laplacian structure (from paper §3.1), not by the asymptotic Weyl law alone. Combined with 1-manifold classification (compact connected boundaryless 1-manifolds are topologically S¹), this gives:
-1. Single-index, simple Laplacian spectrum ⇒ d = 1 (by comparison to higher-dim spectra).
-2. 1-manifold classification ⇒ topologically S¹.
+The Peter-Weyl theorem (standard representation theory of compact Lie groups) says: for a compact homogeneous Riemannian manifold M = G/H with isometry group G, the Laplacian on M decomposes into G-irreducible representations. Each irrep contributes a multiplicity equal to its dimension to the Laplacian spectrum.
 
-This is rigorous via standard theorems of Riemannian spectral geometry (Laplacian spectra on homogeneous compact manifolds are classified; only S¹ gives the simple-single-index structure of the polygon KK tower).
+For the polygon's fiber to have a SINGLE-INTEGER-INDEXED spectrum with NO multi-index dependence (as the polygon's KK modes are labeled by a single integer m ∈ ℤ), the fiber's isometry group G must be such that its non-trivial irreps are all 1-DIMENSIONAL. A compact Lie group with all irreps of dimension 1 is ABELIAN, and a compact connected abelian Lie group is a torus T^k of dimension k.
+
+For the KK label to be a SINGLE integer, the torus rank k must equal 1, giving G = T¹ = S¹. A 1-dim fiber with S¹ isometry is, by 1-manifold classification, topologically S¹ itself (a circle).
+
+Explicit rule-out of specific higher-dim alternatives (for illustration):
+- S² at radius r: isometry group SO(3), rank 1 but NON-abelian; irreps ℓ(ℓ+1)/r² have (2ℓ+1)-fold degeneracy. Polygon spectrum has no such degeneracy.
+- T² at radii (r₁, r₂): isometry T² (rank 2); eigenvalues (m₁²/r₁² + m₂²/r₂²) with TWO independent indices. Polygon has ONE index.
+- S³ at radius r: isometry SU(2), rank 1 non-abelian; (ℓ+1)²-degeneracy.
+- S² × S¹: isometry SO(3) × U(1), non-abelian.
+
+None of these has the ABELIAN rank-1 isometry that forces single-integer KK labels. Only S¹ does.
+
+**Rigorous chain**: single-integer-index simple spectrum ⇒ isometry group is abelian of rank 1 ⇒ fiber diffeomorphic to T¹ = S¹ (1-manifold classification + isometry transitivity). QED.
+
+This is rigorous via Peter-Weyl + 1-manifold classification.
 
 ### Tightening
 

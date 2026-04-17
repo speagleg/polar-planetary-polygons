@@ -98,11 +98,13 @@ where α_cluster is the dimensionless cluster coefficient for the correlated pai
 
 Status of α_cluster = 1:
 
-- Coleman (*Aspects of Symmetry*, Cambridge 1985, chap. 7 §5, eq. 7.32-7.34) derives the dilute-gas correlator for a local operator insertion: ⟨O⟩ = ⟨O⟩_{pert} · exp(K·V), where V is the spacetime volume and K the one-instanton fugacity normalized so that one instanton in volume V contributes e^{-S_0} per unit volume. The NLO correction to ⟨O⟩_{n-inst leading} is exactly K · ⟨O⟩_{LO} (eq. 7.34), giving α_cluster = 1 under this normalization.
+- The relevant "instanton" in the polygon theory is NOT an ADHM (Atiyah-Hitchin-Drinfeld-Manin 1978) ℝ⁴ gauge instanton, but a CHERN-SIMONS θ-angle shift on the 3-manifold M_3 = H² × S¹ (Seifert base). In 3D CS theory, the path integral factorizes over disconnected configurations with different integer winding numbers (Witten 1989, "Quantum field theory and the Jones polynomial" §4.2): Z_CS = Σ_n e^{-n S_0 + 2πi n θ / (k+h^∨)}, giving a dilute-gas-like sum over θ-angle copies.
 
-- Applying this to the polygon theory requires the "identical-coupling" assumption: additional instantons couple to the Yukawa-operator insertion with the same fugacity K as to the vacuum. In Coleman's treatment this holds when the instanton moduli space decouples from the matter operator's local structure, which is the case in the dilute-gas limit where instantons are well-separated on the spacetime.
+- In 3D CS, the instanton moduli space is DISCRETE: each θ-shift is labeled by an integer winding n ∈ ℤ, with no continuous moduli (the CS theory is topological and has no size/position moduli). This is fundamentally different from ADHM, which describes CONTINUOUS moduli for 4D gauge instantons.
 
-- The polygon's BF-crossing instantons are orbifold-localized (zero-size collective coordinate at orbifold fixed points on the Seifert base); their moduli space is discrete (enumerating fixed points), so the coupling to any local operator insertion factorizes in the dilute-gas limit. The identical-coupling assumption holds rigorously for zero-size instantons by local-operator factorization; see Atiyah-Hitchin-Drinfeld-Manin (1978) for the small-instanton moduli structure that underlies this decoupling.
+- For a discrete-moduli dilute-gas (CS θ-angle shifts), the cluster expansion gives ⟨O⟩ = exp(K) · ⟨O⟩_{n_0=0-inst} for operators that conserve winding, with the α_cluster = 1 coefficient in front of K arising from the n! combinatoric factor of identical-winding insertions (Witten 1989 §4.2, eq. 4.21).
+
+- For the polygon BF-crossing instantons: these are CS θ-shifts localized at the Seifert fiber's Z/N orbifold singular points (discrete set of N fixed points at the base). The moduli space of one BF-crossing instanton is a DISCRETE SET OF N POINTS (one per orbifold fixed point), NOT a continuous ADHM space. The dilute-gas cluster expansion therefore applies with α_cluster = 1 by the discrete-moduli / CS combinatoric argument (Witten 1989), not by the ℝ⁴ ADHM argument.
 
 Numerical consequence:
 

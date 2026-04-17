@@ -95,83 +95,82 @@ $$
 The Casimir is REPULSIVE in R: the fermion contribution dominates the
 bosonic one and gives positive vacuum energy, pushing R to larger values.
 
-## 4. Stabilization via AdS₃ bulk tension
+## 4. Stabilization — corrected analysis
 
-An AdS₃ bulk (as in the polygon theory, with negative $\Lambda_{\mathrm{AdS_3}}$)
-provides a fiber-tension counter-term
-$$
-V_{\mathrm{tension}}(R) \;=\; -\frac{|\Lambda_{\mathrm{AdS_3}}|}{8\,G_3} \cdot R
-\;=\; -T \cdot R,
-\qquad T \equiv \frac{|\Lambda|}{8\,G_3}.
-$$
-The total effective potential is
-$$
-V(R) \;=\; \frac{|C_{\mathrm{total}}|}{R^4} - T\,R.
-$$
-(Signs: $C_{\mathrm{total}} < 0$ made Casimir positive; $-TR$ is the AdS₃
-tension pulling $R$ inward.)
+### 4.1 The Casimir alone does not stabilize R
 
-Setting $dV/dR = 0$:
-$$
--\frac{4|C|}{R^5} - T \;=\; 0 \quad\Longleftrightarrow\quad
-R_\star^5 \;=\; -\frac{4|C|}{T}.
-$$
-For a stable minimum at positive $R_\star$, we need $T > 0$ (i.e.,
-$\Lambda_{\mathrm{AdS_3}} < 0$, which holds for AdS₃). With $T < 0$ from the
-sign convention, solve instead $dV/dR = 0$ with the correct sign:
-$$
-\frac{4|C|}{R_\star^5} \;=\; |T|
-\quad\Longleftrightarrow\quad
-R_\star^5 \;=\; \frac{4|C|}{|T|}.
-$$
+The 1-loop Casimir potential $V_{\mathrm{Casimir}}(R) = |C|/R^4$ (with
+$|C| \approx 36.4$ from fermion dominance) is MONOTONICALLY DECREASING
+in $R$: $dV_{\mathrm{Casimir}}/dR = -4|C|/R^5 < 0$ for all $R > 0$.
+With no counter-term, $R$ is driven to infinity (decompactification).
 
-Numerical values (polygon units, $M_{\mathrm{poly}} = 1/R$):
-- $G_3 = L/(8\,b(N)) = 1/(8 \cdot 3/7) = 7/24$ in units of $1/M_{\mathrm{poly}}$
-  (at $L = 1/M_{\mathrm{poly}}$, $b(7) = 3/7$)
-- $|\Lambda_{\mathrm{AdS_3}}| = 1/L^2 = M_{\mathrm{poly}}^2$
-- $|T| = |\Lambda|/(8\,G_3) = M_{\mathrm{poly}}^2 / (8 \cdot 7/24) = 3\,M_{\mathrm{poly}}^3/7$
+A stable minimum requires an ADDITIONAL potential contribution with
+$dV/dR > 0$ at large $R$. Naive candidates:
 
-Then
-$$
-R_\star^5 = \frac{4 \cdot 36.35}{3/7} = \frac{4 \cdot 36.35 \cdot 7}{3} \approx 339
-\quad\Longrightarrow\quad
-R_\star \approx 3.21 \cdot (1/M_{\mathrm{poly}}).
-$$
-Physical fiber radius at stable minimum: $R_\star \approx 3.2\,\ell = 3.2/M_{\mathrm{poly}}$.
+| Candidate | Form | $dV/dR$ sign | Stabilizing? |
+|-----------|------|--------------|----------------|
+| AdS₃ fiber tension (Λ₃ > 0) | $+T R$ | $+T$ | ✓ |
+| AdS₃ fiber tension (Λ₃ < 0) | $-T R$ | $-T$ | ✗ (same-sign as Casimir) |
+| Fiber Ricci (positive coefficient) | $+B/R$ | $-B/R^2$ | ✗ (same-sign) |
+| Quadratic mass term (positive) | $+(m^2/2)\,R^2$ | $+m^2 R$ | ✓ |
 
-## 5. Radion mass
+The polygon bulk CS theory is TOPOLOGICAL (metric-independent), so
+Einstein-Hilbert-derived terms (like $\Lambda R$) are NOT automatic —
+the CS action is linear in the curvature, not quadratic, and does NOT
+contribute a classical potential for $R$. The physical stabilizing
+mechanism must come from:
 
-At the stable minimum, the second derivative of $V$ gives:
-$$
-\frac{d^2 V}{d R^2}\bigg|_{R_\star}
-\;=\; \frac{20\,|C|}{R_\star^6}
-\;=\; \frac{20 \cdot 36.35}{3.21^6}
-\;\approx\; \frac{727}{1119}
-\;\approx\; 0.65\,M_{\mathrm{poly}}^6.
-$$
+(a) The boundary CFT's 4D effective cosmological constant (which for
+    the polygon's anti-de Sitter boundary $\Lambda_{\mathrm{eff}} > 0$
+    in the radion action — a de Sitter-like term).
+(b) Higher-loop Casimir contributions from SU(2)_L gauge bosons,
+    Higgs, etc. (not just fermions).
+(c) Non-perturbative stabilization from BF-crossing instantons or
+    orbifold-singularity effects.
 
-The canonical radion $\sigma$ has Jacobian
-$d\sigma/dR = M_P^{\mathrm{bulk}}\,\sqrt{3/2}/R$ (standard KK
-normalization for 4D → 3D + S¹ reduction on AdS₃). At $R = R_\star$:
-$$
-m_\sigma^2 \;=\; \frac{d^2 V}{d\sigma^2}\bigg|_{\sigma = 0}
-\;=\; \frac{R_\star^2}{(M_P^{\mathrm{bulk}})^2 \cdot 3/2} \cdot
-   \frac{d^2 V}{d R^2}\bigg|_{R_\star}
-\;=\; \frac{2}{3} \cdot \frac{R_\star^2 \cdot 20|C|/R_\star^6}{(M_P^{\mathrm{bulk}})^2}
-\;=\; \frac{40\,|C|}{3\,R_\star^4\,(M_P^{\mathrm{bulk}})^2}.
-$$
+### 4.2 Honest status: m_σ ∼ M_poly from dimensional analysis
 
-Plug in: $R_\star^4 = 3.21^4 \approx 106$, $|C| \approx 36.35$,
-$M_P^{\mathrm{bulk}} \approx 0.74\,M_{\mathrm{poly}}$:
+Without a specific polygon-theory derivation of the stabilizing
+mechanism, the radion mass is fixed by DIMENSIONAL ANALYSIS to
+$m_\sigma \sim M_{\mathrm{poly}}$: the only dimensionful scale in the
+problem is $M_{\mathrm{poly}}$, so whatever stabilization mechanism
+operates, its contribution to $V''(R_\star)$ is set by $M_{\mathrm{poly}}$.
+
+Specifically, the Casimir coefficient $|C| \approx 36.4$ gives
+$V_{\mathrm{Casimir}}(R_\star) \sim 36.4 M_{\mathrm{poly}}^4$ at
+$R_\star \sim 1/M_{\mathrm{poly}}$. The stabilizing term must be of
+the same order ($\sim M_{\mathrm{poly}}^4$) for the minimum to be at
+$R_\star \sim 1/M_{\mathrm{poly}}$. Then
 $$
-m_\sigma^2 \;\approx\; \frac{40 \cdot 36.35}{3 \cdot 106 \cdot 0.548\,M_{\mathrm{poly}}^2}
-\;\approx\; \frac{1454}{174}\,M_{\mathrm{poly}}^2
-\;\approx\; 0.69\,M_{\mathrm{poly}}^2.
+m_\sigma^2 \;\sim\; V''(R_\star) / M_P^{\mathrm{bulk},2}
+\;\sim\; 40 \cdot 36 / R_\star^6 \,/\, M_P^{\mathrm{bulk},2}
+\;\sim\; M_{\mathrm{poly}}^4 / M_P^{\mathrm{bulk},2}
+\;\sim\; M_{\mathrm{poly}}^2.
 $$
-$$
-\boxed{m_\sigma \;\approx\; 0.83\,M_{\mathrm{poly}} \;\approx\; 249\,\text{TeV}\;
-(\text{at } M_{\mathrm{poly}} = 300\,\text{TeV}).}
-$$
+Hence $m_\sigma \sim M_{\mathrm{poly}} \sim 300$\,TeV, consistent with
+the dimensional estimate quoted in Session 11 and Paper IV §5 Remark.
+
+### 4.3 Specific coefficient requires full stabilization mechanism
+
+A specific numerical coefficient (such as the previously-claimed
+$m_\sigma \approx 0.83\,M_{\mathrm{poly}}$) requires identifying which
+of (a), (b), or (c) above dominates and computing the specific
+contribution. The Casimir calculation in §3 fixes the attractive-force
+coefficient $|C| \approx 36.4$; the counterbalancing stabilizing
+coefficient is model-dependent.
+
+The original Session 14 derivation erroneously used $V(R) = |C|/R^4 -
+TR$ with $T > 0$, which has $dV/dR < 0$ always and NO stable minimum.
+The algebra "setting $dV/dR = 0$ gives $R_\star^5 = 4|C|/|T|$" silently
+flipped a sign and is incorrect. The corrected analysis (this section)
+retracts the specific $0.83\,M_{\mathrm{poly}}$ value and reports
+$m_\sigma \sim M_{\mathrm{poly}}$ at the level of dimensional analysis.
+
+## 5. Retraction of the 0.83 M_poly specific value
+
+The prior Session 14 claim m_σ ≈ 0.83 M_poly was based on V(R) = |C|/R⁴ − TR, which has no stable minimum (§4.1 above). The corrected analysis gives only the dimensional estimate m_σ ∼ M_poly.
+
+The specific numerical coefficient is retracted; the order-of-magnitude M_poly scale is robust and consistent with Paper IV §5 Remark.
 
 ## 6. Robustness check and caveats
 
