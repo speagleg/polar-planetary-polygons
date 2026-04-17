@@ -393,7 +393,7 @@ is negative for all $N \ge 3$, so the two CS sectors have distinct
 effective levels
 $k_\pm^{\mathrm{eff}} = k_{\mathrm{bare}} \pm |\eta|/2$ and distinct
 topological masses $m_\pm \propto |k_\pm^{\mathrm{eff}}|/\ell$. At
-$N = 7$, $|\eta| = 9/7$ gives $m_+ \approx 490$\,TeV
+$N = 7$, $|\eta| = 9/7$ gives $m_+ \approx 493$\,TeV
 and $m_- \approx 107$\,TeV. Which CS sector gets which mass is
 determined by the sign of $\eta$ — a derived quantity — not by
 convention: the sector with $+|\eta|/2$ is uniquely the heavier one.
@@ -401,7 +401,7 @@ convention: the sector with $+|\eta|/2$ is uniquely the heavier one.
 \emph{Step 3 ($L$/$R$ labelling matches observation.)}
 The two CS sectors produce a genuinely parity-asymmetric theory:
 following the paper's convention (\S\ref{sec:chiral-su2}, line 1069),
-the \emph{heavier} sector at $m_L \approx 490$\,TeV is
+the \emph{heavier} sector at $m_L \approx 493$\,TeV is
 $\mathrm{SU}(2)_L$, while the \emph{lighter} sector at
 $m_R \approx 107$\,TeV is the Redlich-gapped $\mathrm{SU}(2)_R$.
 
@@ -442,7 +442,7 @@ chirality-to-sector assignment is fixed by DERIVED geometric quantities
 ($\eta$-sign, Euler class, dreibein orientation), not by SM-consistency
 imposed externally.
 
-Both topological masses $m_L \approx 490$\,TeV and $m_R \approx 107$\,TeV
+Both topological masses $m_L \approx 493$\,TeV and $m_R \approx 107$\,TeV
 exceed the electroweak scale by factors of $\sim 10^3$; the
 $\mathrm{SU}(2)_R$ Redlich gap at 107\,TeV is unobservable at the LHC
 but predicted by the polygon Euler-class structure. The fermion
@@ -612,6 +612,32 @@ $\mathrm{SU}(2)_L = \mathrm{diag}\bigl(\mathrm{SU}(2)_{\mathrm{iso}}
 identified by the Euler-class coupling that forces both factors to act
 with matched chirality assignment (paper \S\ref{sec:chiral-su2};
 $\eta_{\mathrm{grav}} < 0$ locks the diagonal alignment).
+
+\emph{Why the diagonal and not the anti-diagonal subgroup.} The four
+$\mathrm{SU}(2)$ subgroups of $\mathrm{SU}(2)_{\mathrm{iso}}
+\times \mathrm{SU}(2)_{\mathrm{CS}}$ are: (i)
+$\mathrm{SU}(2)_{\mathrm{iso}}$ alone; (ii)
+$\mathrm{SU}(2)_{\mathrm{CS}}$ alone; (iii) diagonal $T^a =
+T^a_{\mathrm{iso}} + T^a_{\mathrm{CS}}$; (iv) anti-diagonal
+$T^a = T^a_{\mathrm{iso}} - T^a_{\mathrm{CS}}$. The gauge-invariance
+of the Yukawa coupling $\bar Q_L H d_R$ under each:
+\begin{itemize}
+\item (i) and (ii) alone cannot couple $Q_L$ (iso-doublet, CS-singlet)
+  to $H$ (CS-doublet, iso-singlet) gauge-invariantly — the gauge
+  rotation acts non-trivially on only one field at a time.
+\item (iii) Diagonal: $\delta T^a$ acts on $Q_L$ and $H$ via
+  $T^a_{\mathrm{iso}}$ and $T^a_{\mathrm{CS}}$ respectively, with the
+  \emph{same} sign; the Yukawa $\varepsilon$-contraction is invariant.
+\item (iv) Anti-diagonal: the relative sign is opposite, breaking the
+  Yukawa gauge invariance.
+\end{itemize}
+The choice between diagonal and anti-diagonal is fixed by the sign of
+the Redlich $\eta$-invariant together with M1 ($\gamma^5 = \gamma^{(3)}
+\gamma^3$). With $\eta(7) = -9/7 < 0$, the Euler-class shift assigns
+$\gamma^{(3)} = +1$ consistently to the up-type fermion pair
+$\{m_4 = 1, 2\}$ and to the Higgs pair $\{m_7 = 3, 4\}$ (both couple
+to the same $A^+$ CS sector). This consistent sign forces the
+DIAGONAL embedding, not the anti-diagonal.
 
 Under this diagonal $\mathrm{SU}(2)_L$, any field is a doublet iff it
 is a doublet of either factor (non-trivial under one, singlet under
@@ -832,21 +858,23 @@ at order $m_d^{\mathrm{bare}} \cdot (1 + \mathcal{O}(m_d^{\mathrm{bare}}/m_d^{\m
 
 The polygon theory's structural prediction is that
 $n_d^{\mathrm{bare}} = 8$ while the Gatto contribution scales as
-$|V_{us}|^2 \cdot (m_s/m_t) = |V_{us}|^2 \cdot e^{-4 \sigma_{\mathrm{mass}}/7}$.
+$|V_{us}|^2 \cdot (m_s/m_t) = |V_{us}|^2 \cdot e^{-4 \sigma_{\mathrm{mass}}/N}$.
 The ratio
 \[
   \frac{m_d^{\mathrm{Gatto}}}{m_d^{\mathrm{bare}}}
-  = \frac{|V_{us}|^2\,e^{-4 \sigma_{\mathrm{mass}}/7}}{e^{-8 \sigma_{\mathrm{mass}}/7}}
-  = |V_{us}|^2\,e^{+4 \sigma_{\mathrm{mass}}/7}.
+  = \frac{|V_{us}|^2\,e^{-4 \sigma_{\mathrm{mass}}/N}}{e^{-8 \sigma_{\mathrm{mass}}/N}}
+  = |V_{us}|^2\,e^{+4 \sigma_{\mathrm{mass}}/N}.
 \]
 With $\sigma_{\mathrm{mass}} = (N-2)\sqrt{N}\big|_{N=7} = 5\sqrt{7}$ (polygon
-value) and $|V_{us}|^2 \approx 0.053$:
+value), the exponent is $4 \sigma_{\mathrm{mass}}/N = 20/\sqrt{7} \approx 7.56$,
+and with $|V_{us}|^2 \approx 0.053$:
 \[
   \frac{m_d^{\mathrm{Gatto}}}{m_d^{\mathrm{bare}}}
-  \approx 0.053 \cdot e^{4 \sqrt{7}} \approx 0.053 \cdot 4.3 \times 10^4
-  \approx 2.3 \times 10^3.
+  \approx 0.053 \cdot e^{20/\sqrt{7}}
+  \approx 0.053 \cdot 1918
+  \approx 1.0 \times 10^2.
 \]
-Gatto DOMINATES by a factor of $\sim 2 \times 10^3$. This dominance is
+Gatto DOMINATES by a factor of $\sim 10^2$. This dominance is
 DERIVED from the polygon's own parameters: the bare Yukawa's
 $n_d = 8$ exponent, the Cabibbo angle $|V_{us}|$ (itself tree-level
 derived in paper \S\ref{sec:up-down}), and the $m_s$ exponent

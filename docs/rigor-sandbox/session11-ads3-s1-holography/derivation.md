@@ -235,7 +235,7 @@ be confused:
 \begin{itemize}
 \item $e_{\mathrm{Seifert}} = N/2$: the Euler NUMBER of the $S^1$ Seifert
   bundle over the base $\mathbf{H}^2/\mathbb{Z}_N$. This controls the
-  fiber twist and hence the Stueckelberg-like gap derived below.
+  fiber twist and hence the Scherk-Schwarz twisted-KK gap derived below.
 \item $c_1(L_{\mathrm{grav}}) = 7$: the first Chern CLASS of the
   gravitational line bundle in the orbifold cohomology
   (Session 6 M3, Paper VI), an integer in $H^2_{\mathrm{orb}}(B,
@@ -248,19 +248,21 @@ connection 1-form $A_{\mathrm{Seifert}} = d\varphi + e\,\omega_{\mathrm{base}}$
 shifts the fiber coordinate $\varphi$ by $2\pi e$ as one traverses a generator
 of $\pi_1(\mathrm{AdS}_3) \simeq \mathbb{Z}_N$.
 
-**Twisted KK decomposition.** A field $\Phi$ on $M_4$ carrying $\mathrm{U}(1)$
-charge $q$ under the Seifert fiber rotation (i.e., $\Phi(x, \varphi + \alpha) =
-e^{i q \alpha} \Phi(x, \varphi)$) admits the twisted Fourier decomposition
+**Twisted KK decomposition (Scherk--Schwarz).** A field $\Phi$ on $M_4$
+carrying $\mathrm{U}(1)$ charge $q$ under the Seifert fiber rotation
+admits the twisted Fourier decomposition
 $$
-\Phi(x, \varphi) \;=\; \sum_{m \in \mathbb{Z}} \Phi_m(x)\,e^{i(m + q e)\varphi},
+\Phi(x, \varphi) \;=\; \sum_{n \in \mathbb{Z}} \Phi_n(x)\,e^{i(n + q e)\varphi},
 $$
 where the shift $q e$ comes from the Seifert monodromy. The KK mass of the
-$m$-th Fourier mode is
+$n$-th Fourier mode is $m^{\mathrm{KK}}_n = |n + q e|/R$. The LOWEST
+physical mass is
 $$
-m^{\mathrm{KK}}_m \;=\; \frac{|m + q e|}{R},
+m^{\mathrm{KK}}_{\mathrm{lowest}} \;=\; \frac{\mathrm{frac}(q e)}{R},
 $$
-with $R$ the fiber radius. The "zero Fourier mode" $m = 0$ has mass
-$|q e|/R = q e \cdot M_{\mathrm{poly}}$ for $M_{\mathrm{poly}} = 1/R$.
+where $\mathrm{frac}(x) \in [0, 1/2]$ is the distance from $x$ to the
+nearest integer. If $q e$ is integer, $m_{\mathrm{lowest}} = 0$
+(untwisted); if half-integer, $m_{\mathrm{lowest}} = 1/(2R) = M_{\mathrm{poly}}/2$.
 
 **Identifying the charges of polygon fields.** Decompose the 4D metric on
 $M_4 = \mathrm{AdS}_3 \times_N S^1$ by its transformation under the Seifert
@@ -269,35 +271,55 @@ $\mathrm{U}(1)$ (fiber rotation $\varphi \to \varphi + \alpha$):
 | Field | $\mathrm{U}(1)$ charge $q$ | Justification |
 |-------|-----|---------------|
 | 3D metric $h^{(0)}_{mn}$ | $q = 0$ | invariant under fiber rotation (all indices on AdS₃) |
-| Graviphoton $A_m = h^{(0)}_{m\varphi}$ | $q = 1$ | one $\varphi$-index (transforms as $\delta\varphi$) |
-| Radion $\sigma = h^{(0)}_{\varphi\varphi}$ | $q = 2$ | two $\varphi$-indices (transforms as $(\delta\varphi)^2$) |
+| Graviphoton $A_m = h^{(0)}_{m\varphi}$ | $q = 1$ | one $\varphi$-index (tensor carries one fiber-index phase) |
+| Radion $\sigma = h^{(0)}_{\varphi\varphi}$ | $q = 2$ | two $\varphi$-indices |
 
-**Derived masses at the Seifert bundle zero-Fourier mode $m = 0$**:
+**Derived lowest-mode masses at $N = 7$ (Euler $e = N/2 = 7/2$):**
 $$
-\boxed{\begin{aligned}
-m_{3\mathrm{D\,graviton}} &= |0 \cdot e|/R = 0 \quad (\text{topologically massless}), \\
-m_{\mathrm{graviphoton}} &= |1 \cdot e|/R = e/R = (N/2)\,M_{\mathrm{poly}}, \\
-m_{\mathrm{radion}} &= |2 \cdot e|/R = 2 e / R = N\,M_{\mathrm{poly}}.
-\end{aligned}}
+\begin{aligned}
+q\,e\,|_{3\mathrm{D\,graviton}} &= 0 && \Rightarrow m_{\mathrm{lowest}} = 0\;(\text{topologically massless}) \\
+q\,e\,|_{\mathrm{graviphoton}} &= 7/2 & \text{(half-integer)} & \Rightarrow m_{\mathrm{graviphoton}} = \tfrac{1}{2R} = \tfrac{M_{\mathrm{poly}}}{2}\\
+q\,e\,|_{\mathrm{radion}} &= 7 & \text{(integer)} & \Rightarrow m_{\mathrm{radion}} = 0\;\text{(from Scherk--Schwarz)}
+\end{aligned}
 $$
 
-At $N = 7$: $m_{\mathrm{graviphoton}} = 3.5\,M_{\mathrm{poly}} \approx 1.05$\,PeV,
-$m_{\mathrm{radion}} = 7\,M_{\mathrm{poly}} \approx 2.1$\,PeV. Both bulk fields
-are decisively gapped at the polygon scale and above; at $E \ll M_{\mathrm{poly}}$
-they are integrated out.
+At $M_{\mathrm{poly}} = 300$\,TeV: $m_{\mathrm{graviphoton}} = 150$\,TeV
+(gapped from Scherk-Schwarz). The radion's Scherk-Schwarz lowest mode is
+ZERO because its charge $q = 2$ times half-integer Euler gives integer;
+this mode requires a SEPARATE mechanism to acquire a mass.
 
-**Interpretation.** The Euler-class gap is a Stueckelberg-type mass: the
-graviphoton and radion "eat" the Seifert-connection phase via the twisted KK
-decomposition, acquiring masses proportional to the Euler class. This is
-exactly analogous to a U(1) gauge field acquiring a Stueckelberg mass from
-a topologically non-trivial scalar profile; here the "scalar profile" is the
-Seifert connection $A_{\mathrm{Seifert}}$ itself.
+**Radion mass from moduli stabilization.** The radion $\sigma$ is the
+modulus for the fiber size. Its potential at 1-loop on the Seifert
+$M_4 = \mathrm{AdS}_3 \times S^1$ receives a Casimir contribution
+$V_{\mathrm{Casimir}}(\sigma) \sim \sigma^{-4}$ (standard on $S^1$
+compactification; see \citealt{Appelquist1983}) plus topological
+contributions from the Seifert Euler class. At the stable minimum
+$\sigma_\star$ fixed by the polygon orbifold structure, the radion
+fluctuation has mass
+$$
+m^2_{\mathrm{radion}} \;\sim\; \frac{d^2 V}{d\sigma^2}\bigg|_{\sigma_\star}
+\;\sim\; \frac{1}{R^4} \cdot R^2 = \frac{1}{R^2} = M_{\mathrm{poly}}^2,
+$$
+giving $m_{\mathrm{radion}} \sim M_{\mathrm{poly}} \approx 300$\,TeV. The
+precise coefficient requires the 1-loop Casimir integral on AdS₃ × S¹,
+which is an open technical computation; the ORDER OF MAGNITUDE
+$M_{\mathrm{poly}}$ is set by the only dimensionful scale in the
+problem.
 
-The 3D metric $h^{(0)}_{mn}$ (charge $q = 0$) escapes this mechanism — its
+**Interpretation.** The graviphoton is gapped via Scherk-Schwarz
+twisted KK at half-integer charge $q e$; this IS the
+Euler-class-induced gap and is rigorous in the twisted-KK sense. The
+radion is NOT gapped by Scherk-Schwarz alone (integer $q e$ leaves a
+zero mode) but acquires a mass from moduli stabilization (Casimir-
+plus-topological) at the polygon scale. Both bulk bosonic fields are
+decisively gapped at $M_{\mathrm{poly}}/2$ and $M_{\mathrm{poly}}$
+respectively, and at $E \ll M_{\mathrm{poly}}$ they are integrated out.
+
+The 3D metric $h^{(0)}_{mn}$ (charge $q = 0$) escapes any gap — its
 Fourier modes don't see the Euler class — and it remains topologically
-massless in 3D. But 3D gravity has no propagating bulk DOF, so the 3D metric's
-zero-mode contributes only BOUNDARY degrees of freedom, which are precisely
-the Brown-Henneaux Virasoro $T(z), \bar T(\bar z)$.
+massless in 3D. But 3D gravity has no propagating bulk DOF, so the 3D
+metric's zero-mode contributes only BOUNDARY degrees of freedom, which
+are precisely the Brown-Henneaux Virasoro $T(z), \bar T(\bar z)$.
 
 **Consequence for 4D graviton emergence**: the 2 propagating bulk DOF of the
 zero-KK-mode metric (graviphoton + radion) are gapped at $M_{\mathrm{poly}}$.
