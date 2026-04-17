@@ -306,17 +306,28 @@ $$
 giving $m_{\mathrm{radion}} \sim M_{\mathrm{poly}}^2 \cdot R = M_{\mathrm{poly}}$
 at $\sigma_\star \sim R$.
 
+Taking $\sigma_\star \sim R \sim 1/M_{\mathrm{poly}}$, the dimensional
+estimate gives
+$$
+m_{\mathrm{radion}} \;\sim\; \sqrt{1/R^4} \cdot R^{-1} \cdot R
+\;\sim\; 1/R \;=\; M_{\mathrm{poly}}.
+$$
+
 \emph{Status}: this is a PARAMETRIC estimate by dimensional analysis,
 NOT a derived value. The precise numerical coefficient (prefactor of
 $M_{\mathrm{poly}}$) requires a 1-loop Casimir integral on AdS_3 × S^1
-with Seifert boundary conditions, which is an open technical
-computation. The ORDER OF MAGNITUDE $M_{\mathrm{poly}} \sim 300$\,TeV
-is set by the only dimensionful scale in the problem.
+with Seifert boundary conditions — an open technical computation.
+Importantly, the radion's mass is NOT a Scherk-Schwarz effect (the
+Scherk-Schwarz twisted-KK gives zero mass for integer $q e$, which
+holds for any odd N at charge q=2); it is a MODULI-STABILIZATION
+effect from 1-loop quantum corrections. The order of magnitude is
+$M_{\mathrm{poly}} \sim 300$\,TeV, set by the only dimensionful scale.
 
 The Paper IV main-text claim (§5 Remark rmk:kk-dof) that the radion is
 massive "at polygon scale" is consistent with this parametric
 estimate; the honest status is "parametric, not derived" pending the
-full 1-loop calculation.
+full 1-loop calculation. Paper IV should explicitly label the radion
+mass as a parametric estimate, not as a derived scale.
 
 **Interpretation.** The graviphoton is gapped via Scherk-Schwarz
 twisted KK at half-integer charge $q e$; this IS the

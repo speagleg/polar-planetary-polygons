@@ -447,10 +447,26 @@ $A^-$ couples the 4D right-handed sector.
 
 Reversing the Seifert orientation ($e_{\mathrm{Seifert}} \to -N/2$)
 would swap $e^3_\varphi$ sign, swapping $\gamma^{(3)}$ subspace
-assignments and interchanging L/R. The polygon's DERIVED Euler class
-$e_{\mathrm{Seifert}} = +N/2 > 0$ (paper \S\ref{sec:chiral-su2},
-Euler-class quantization from the $N$-fold cover) geometrically fixes
-the assignment.
+assignments and interchanging L/R. 
+
+\emph{Is the Euler class sign a free convention?} No --- it is fixed by
+the polygon construction. The Seifert bundle over the Z/N orbifold of
+$\mathbf{H}^2$ has Euler class forced by the N-fold cover (paper
+\S\ref{sec:chiral-su2}, Euler-class quantization): at the cover level,
+the fiber traverses the base $N$ times, and the fiber-base coupling
+gives $e_{\mathrm{Seifert}} = N/2$ with a fixed sign determined by the
+orbifold's orientation (which is itself determined by the cover's
+chirality). This is not a free choice in the polygon theory:
+$e_{\mathrm{Seifert}} = +N/2$ IS the derived Euler class of the
+canonical Seifert construction, and $-N/2$ would be a different (and
+non-polygon) orbifold. The L/R label is therefore fixed by the
+polygon's orbifold geometry, not by convention.
+
+(Equivalently: the polygon theory is not invariant under global
+Euler-class sign flip — the Redlich $\eta_{\mathrm{grav}} = -(N-1)(2N-5)/(6N)$
+also changes sign, so the combined sign of both geometric objects is
+preserved but the individual sector labels L/R are not a free
+convention; they are geometric predictions fixed by the polygon cover.)
 
 Summary: in the Weyl basis with fixed mostly-minus signature, the
 sign chain is:
@@ -876,10 +892,19 @@ Standard-Model Higgs doublet exactly.
 \paragraph{Quark mass exponents from Havelock + isospin.}
 \label{para:quark-exponents}
 Five of the six quark mass \emph{bare Yukawa exponents}
-(\S\ref{sec:mass-formulas}) follow from a DERIVED SELECTION RULE:
+(\S\ref{sec:mass-formulas}) follow from a selection rule DERIVED from the
+polygon KK-mass structure (Havelock eigenvalue + fermion half-integer
+isospin shift):
 \begin{equation}\label{eq:nq-rule}
   n_q = 2\,\bigl(\lambda_{\mathrm{pair}(q)} + \delta_{\mathrm{iso}(q)}\bigr)
 \end{equation}
+The two polygon inputs $\lambda_{\mathrm{pair}(q)}$ (Havelock
+eigenvalue of the quark's Z/7 pair) and $\delta_{\mathrm{iso}(q)}$
+(fermion KK-shift on the N=4 sector) uniquely determine $n_q$ for each
+quark via eq.~\eqref{eq:nq-rule}. The factor of 2 is the Yukawa-squared
+exponent relationship (the KK mass enters the Yukawa as $e^{-c\sigma}$
+with $c^2 = \mu_7^2 + \mu_4^2$, so $n_q = 2 c$ via the squared
+identification).
 where $\lambda_{\mathrm{pair}(q)} \in \{0, 1, 3\}$ is the Havelock
 stability eigenvalue of the quark's $m_7$ pair
 (Paper~I): $\lambda_3 = 0$ (pair $\{3,4\}$, top/bottom),

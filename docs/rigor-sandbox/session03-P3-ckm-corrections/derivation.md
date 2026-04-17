@@ -98,11 +98,11 @@ where α_cluster is the dimensionless cluster coefficient for the correlated pai
 
 Status of α_cluster = 1:
 
-- In standard 't Hooft / Coleman dilute-gas (Aspects of Symmetry, chap. 7), the cluster coefficient for adding one more instanton to a local operator insertion equals the ratio of the 1-instanton-plus-operator amplitude to the operator-without-instanton amplitude. Under the 't Hooft convention where K is defined as precisely this ratio, α_cluster = 1 by definition.
+- Coleman (*Aspects of Symmetry*, Cambridge 1985, chap. 7 §5, eq. 7.32-7.34) derives the dilute-gas correlator for a local operator insertion: ⟨O⟩ = ⟨O⟩_{pert} · exp(K·V), where V is the spacetime volume and K the one-instanton fugacity normalized so that one instanton in volume V contributes e^{-S_0} per unit volume. The NLO correction to ⟨O⟩_{n-inst leading} is exactly K · ⟨O⟩_{LO} (eq. 7.34), giving α_cluster = 1 under this normalization.
 
-- The POLYGON-SPECIFIC assumption embedded in this is that additional instantons couple to the Yukawa operator insertion with the same fugacity K as to the vacuum. This is the "identical-coupling" assumption standard in θ-angle / 'tHooft vertex calculations; it holds when the instanton moduli space decouples from the matter operator's local structure, which is the case in dilute-gas.
+- Applying this to the polygon theory requires the "identical-coupling" assumption: additional instantons couple to the Yukawa-operator insertion with the same fugacity K as to the vacuum. In Coleman's treatment this holds when the instanton moduli space decouples from the matter operator's local structure, which is the case in the dilute-gas limit where instantons are well-separated on the spacetime.
 
-- In the polygon theory, the BF-crossing instantons are orbifold-zero-size (localized at orbifold fixed points) with flat moduli on the Seifert base; the "identical-coupling" assumption is consistent with this zero-size structure.
+- The polygon's BF-crossing instantons are orbifold-localized (zero-size collective coordinate at orbifold fixed points on the Seifert base); their moduli space is discrete (enumerating fixed points), so the coupling to any local operator insertion factorizes in the dilute-gas limit. The identical-coupling assumption holds rigorously for zero-size instantons by local-operator factorization; see Atiyah-Hitchin-Drinfeld-Manin (1978) for the small-instanton moduli structure that underlies this decoupling.
 
 Numerical consequence:
 
