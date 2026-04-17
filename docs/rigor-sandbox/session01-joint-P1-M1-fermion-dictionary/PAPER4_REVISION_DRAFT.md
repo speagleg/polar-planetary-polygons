@@ -294,13 +294,22 @@ The two CS sectors produce a genuinely parity-asymmetric theory:
 following the paper's convention (\S\ref{sec:chiral-su2}, line 1069),
 the \emph{heavier} sector at $m_L \approx 490$\,TeV is
 $\mathrm{SU}(2)_L$, while the \emph{lighter} sector at
-$m_R \approx 107$\,TeV is the Redlich-gapped $\mathrm{SU}(2)_R$. The
-assignment of ``$L$'' to the heavier sector is set by the sign of~$\eta$
-together with the fiber orientation
-(paper \S\ref{sec:chiral-su2} Step 3): $\eta < 0$ at $N = 7$
-enhances the $A^+$ sector through the Euler class, and the larger
-$|k_{\mathrm{eff}}|$ sector couples more strongly to left-handed
-fermions — identifying it with $\mathrm{SU}(2)_L$.
+$m_R \approx 107$\,TeV is the Redlich-gapped $\mathrm{SU}(2)_R$.
+
+\emph{Explicit coupling mechanism}: from paper \S\ref{sec:chiral-su2}
+Step 3, the effective CS level shift from the gravitational
+$\eta$-invariant is $\Delta k_{\mathrm{grav}}^\pm = \pm|\eta|/2$ with
+$\eta(7) = -9/7$. The M1 identity $\gamma^5 = \gamma^{(3)} \cdot \gamma^3$
+assigns 4D left-chirality ($\gamma^5 = +1$) to the
+$\gamma^{(3)} = +1$ CS sector. The Euler class $e = N/2 > 0$ gives
+the fiber orientation with $A^+$ identified as the $\gamma^{(3)} = +1$
+sector. Combining: $A^+$ (heavier, $k^+_{\mathrm{eff}} = 1 + |\eta|/2
+= 23/14$) couples to 4D left-handed fermions, hence is
+$\mathrm{SU}(2)_L$; $A^-$ (lighter, $k^-_{\mathrm{eff}} = 1 - |\eta|/2
+= 5/14$) couples to 4D right-handed fermions, hence is
+$\mathrm{SU}(2)_R$. The chirality-to-sector assignment is fixed by
+derived geometric quantities ($\eta$-sign, Euler class, dreibein
+orientation), not by SM-consistency imposed externally.
 
 Both topological masses $m_L \approx 490$\,TeV and $m_R \approx 107$\,TeV
 exceed the electroweak scale by factors of $\sim 10^3$; the
@@ -497,20 +506,93 @@ $[T^a, T^b] = i \varepsilon^{abc} T^c$ closes correctly in each sector
 subgroup is a bona fide $\mathrm{SU}(2)$ gauge group acting on the
 full matter spectrum.
 
+\emph{Yukawa-vertex gauge invariance.}
+The Yukawa coupling $\bar{Q}_L\,H\,d_R$ is the standard SM term. Its
+$\mathrm{SU}(2)_L$-invariance in the polygon theory requires a
+canonical isomorphism identifying the two doublet spaces. The
+up-type CP pair $\{m_4 = 1, m_4 = 2\}$ and the Higgs pair
+$\{m_7 = 3, m_7 = 4\}$ are both two-element CP orbits under their
+respective involutions ($m_4 \to 3-m_4$ and $m_7 \to 7-m_7$). We
+identify
+\[
+  m_4 = 1 \;\leftrightarrow\; m_7 = 3, \qquad
+  m_4 = 2 \;\leftrightarrow\; m_7 = 4,
+\]
+matching the ``upper'' and ``lower'' CP partners of each pair. This
+is the unique CP-respecting isomorphism between two-element orbits.
+Under the diagonal $\mathrm{SU}(2)_L$, both pairs carry the same
+doublet structure; the Yukawa coupling contracts them via the standard
+$\varepsilon$-symbol,
+\[
+  \bar{Q}_L\,H\,d_R \;=\; \varepsilon_{ij}\,
+   \bar{Q}^i_L\,H^j\,d_R
+\]
+where $i, j \in \{1, 2\}$ are the diagonal $\mathrm{SU}(2)_L$ indices
+(on $Q_L$ the index is realized by $m_4$, on $H$ by $m_7$ via the
+canonical isomorphism). Gauge invariance:
+\[
+  \delta_{T^a}\bigl(\varepsilon_{ij}\,\bar{Q}^i_L\,H^j\bigr)
+  = \varepsilon_{ij}\,(T^a_{\mathrm{iso}} \bar{Q}_L)^i\,H^j
+  + \varepsilon_{ij}\,\bar{Q}^i_L\,(T^a_{\mathrm{CS}} H)^j
+  = \bigl([\varepsilon, T^a]\bigr)_{ij}\,\bar{Q}^i_L\,H^j
+  = 0
+\]
+since $\varepsilon$ is the $\mathrm{SU}(2)$-invariant antisymmetric
+tensor. The Yukawa vertex closes.
+
+This matches Paper~\S\ref{sec:yukawa}'s $\mathbb{Z}/7$ charge-conservation
+rule $m_i - m_j + m_H \equiv 0 \pmod 7$, which enforces the CP-pair
+isomorphism at the level of the nonzero Yukawa entries in
+eq.~\eqref{eq:yukawa-texture}.
+
+\emph{Origin of the Higgs as a complex scalar: gauge-connection
+fluctuation.}
+The polygon Higgs is not a fundamental real 5D scalar; it arises as a
+specific complex combination of fluctuations of the Chern–Simons gauge
+connection $A^+ = \omega + e/\ell$ around its $N = 7, 4$-orbifold
+background. In non-abelian CS theory with gauge group $\mathrm{SU}(2)$,
+the connection $A^+ = A^{+, a}\,T^a$ with $T^a$ the $\mathrm{SU}(2)$
+generators has three real components ($a = 1, 2, 3$). The Cartan--Weyl
+basis splits $\mathrm{SU}(2)$ into a real Cartan $T^3$ and a complex
+raising/lowering pair $T^\pm = (T^1 \pm i\,T^2)/\sqrt{2}$, giving
+connection components
+\[
+  A^{+, 3}\,(\text{real, diagonal}),
+  \qquad
+  A^{+, \pm}
+  = (A^{+, 1} \pm i\,A^{+, 2})/\sqrt{2}
+  \;(\text{complex, off-diagonal}).
+\]
+The $A^{+, \pm}$ components are intrinsically complex 1-forms, not a
+reality-paired complex conjugate structure of a real scalar.
+
+The BF-crossing instability (Lemma~\ref{lem:higgs-bf}) operates on the
+off-diagonal fluctuations: the scalar mode that condenses is
+\[
+  \Phi(x)\,\sim\,A^{+, +}_{\theta}(x)\,e^{i m_7 \varphi}\,
+   \bigr|_{\text{near-boundary}},
+\]
+a component of the complex ladder operator $A^{+, +}$. There is no
+reality pairing between its $m_7 = 3$ and $m_7 = 4$ Fourier modes
+because $\Phi$ itself is intrinsically complex from the Cartan--Weyl
+decomposition; $\Phi$ and its complex conjugate $\Phi^*$ (which is a
+component of the OPPOSITE ladder operator $A^{+, -}$) are
+independent fluctuations.
+
+For the two BF-unstable modes at $(m_7 = 3, m_4 = 2)$ and
+$(m_7 = 4, m_4 = 2)$:
+\[
+  \phi_3 \equiv \Phi_{m_7 = 3},\qquad
+  \phi_4 \equiv \Phi_{m_7 = 4},
+\]
+these are two independent complex scalars (total $2 \times 2 = 4$ real
+DOF). They are NOT related by $\phi_4 = \phi_3^*$ because both come
+from the same ladder component $A^{+, +}$ at different Z/7 Fourier
+modes. (The analogous reality-paired modes would live in $A^{+, -}$,
+which is a DIFFERENT complex scalar entirely, with its own independent
+fluctuations.)
+
 \emph{Real-DOF count.}
-The underlying 5D scalar field is \emph{complex}, not real. This is
-forced by the physics: the Higgs couples to chiral fermions through
-Yukawa interactions $\bar\psi_L\,H\,\psi_R$, which are gauge-invariant
-only if $H$ is a complex doublet (reality would forbid chirality-
-changing couplings with distinct $T_3^L$ eigenvalues). For a complex
-5D scalar, the Fourier modes
-$\phi_{(m_7, m_4)}(x)\,e^{2\pi i(m_7 \varphi/7 + m_4 \psi/4)}$ are
-\emph{independent} complex coefficients: there is no reality
-constraint pairing $\phi_{(m_7, m_4)}$ with $\phi_{(-m_7, -m_4)}^*$.
-(A real 5D scalar would impose this pairing and collapse
-$\{(3,2), (4,2)\}$ to a single independent complex mode, i.e.\ 2 real
-DOF — insufficient for an SU(2)_L doublet. The physical requirement
-of chiral Yukawa couplings therefore forces complexity.)
 
 The two independent BF-unstable complex modes at $(3, 2)$ and $(4, 2)$
 therefore carry $2 \times 2 = 4$ real scalar degrees of freedom,

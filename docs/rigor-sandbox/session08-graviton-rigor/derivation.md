@@ -1,14 +1,17 @@
-# 4D graviton emergence — rigorous construction
+# 4D graviton emergence — SO(2) identification and boundary correlator
 
 **Date**: 2026-04-17
-**Supersedes**: Session 5 `session05-P4-graviton-emergence/derivation.md` and
-Session 7 `session07-rigor-pass/low_priority_items.md` Item 2 for the
-4D graviton construction. Session 5 verified the paper's four-step
-outline; Session 7 drafted the SO(2) identification; Session 8 (this
-document) provides the full rigorous construction. For Paper IV
-integration, cite Session 8 as the authoritative graviton-rigor
-derivation and Session 5/7 only for supporting context.
-**Scope**: close the reviewer gaps on Paper IV §5 (`sec:graviton`):
+**Status**: Session 8 supplies the 4D-helicity SO(2) identification, the
+Fourier-transform of the boundary Virasoro 2-point function, and the
+Weinberg-Witten evasion. Session 11
+(`session11-ads3-s1-holography/derivation.md`) is the authoritative
+derivation of the full polygon non-standard holographic dictionary
+(AdS_3 × S^1 bulk, 3D conformal boundary, Euler-class-gapped bulk
+graviphoton+radion, boundary Virasoro zero-mode as the surviving
+massless 4D graviton). For Paper IV integration, cite Session 11 as
+the primary graviton-rigor derivation and Session 8 for the
+SO(2)/helicity/Fourier consistency checks.
+**Scope** (this doc): specific consistency checks on Paper IV §5:
   1. Specify the 4D Lorentz frame (time vs spatial) on
      $M_4 = \mathbb{R}_t \times \mathbf{H}^2 \times S^1$.
   2. Identify the transverse 2-plane of a 4D massless momentum with the
