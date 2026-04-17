@@ -108,22 +108,77 @@ where $(\cdot / 7)$ is the Legendre symbol $\bmod\,7$.
 The Legendre selection is forced by consistency with the polygon theory's
 $\mathsf{CP}$ action
 $\mathsf{CP}\colon (m_7, m_4, \chi) \mapsto (7{-}m_7, 3{-}m_4, -\chi)$.
-Uniqueness rests on two standard facts:
-\begin{itemize}
-\item $(\mathbb{Z}/7)^{*}$ is cyclic of order $6$, so its character group
-  is $\mathbb{Z}/6$. The unique non-trivial $\mathbb{Z}/2$-valued
-  character is the Legendre symbol $(\cdot / 7)$ (Gauss, \emph{Disquisitiones
-  Arithmeticae} 1801, art.~108), extended to $\mathbb{Z}/7$ by
-  $(0/7) := 0$ at the Frobenius fixed point.
-\item $m_4 \mapsto 3 - m_4$ is the unique mass-preserving involution on
-  the $N = 4$ fermion KK spectrum with half-integer shift
-  $\mu^f_m = |m - 3/2|$; it leaves $|2m_4 - 3|$ invariant.
-\end{itemize}
-Any CP-consistent $\mathbb{Z}/2$ projection on the product orbifold
-$\mathbb{Z}/7 \times \mathbb{Z}/4$ is therefore the product character
-$(m_7/7) \cdot (|2m_4 - 3|/7)$ up to the trivial character.
+The argument proceeds in three steps.
+
+\emph{(a) Factoring.}
+Any $\mathbb{Z}/2$-valued Wilson line $W$ on the abelian orbifold
+$\mathbb{Z}/7 \times \mathbb{Z}/4$ is a group homomorphism
+$W\colon \mathbb{Z}/7 \times \mathbb{Z}/4 \to \{\pm 1, 0\}$
+(with value $0$ reserved for Frobenius-fixed orbifold points; on the
+multiplicative part $W$ is a genuine $\{\pm 1\}$-homomorphism). A
+homomorphism out of a direct product of finite abelian groups is
+uniquely determined by its restrictions to the two factors:
+$W(m_7, m_4) = W_7(m_7) \cdot W_4(m_4)$.
+
+\emph{(b) The $(\mathbb{Z}/7)^*$ factor.}
+$(\mathbb{Z}/7)^*$ is cyclic of order $6$; its character group is
+$\mathbb{Z}/6$. The unique non-trivial $\mathbb{Z}/2$-valued character
+is the Legendre symbol $(\cdot / 7)$ (Gauss, \emph{Disquisitiones
+Arithmeticae} 1801, art.~108). At the Frobenius fixed point $m_7 = 0$
+we set $W_7(0) := 0$, reflecting that the fixed point has trivial
+orbifold action and no Wilson-line phase — modes at $m_7 = 0$ pass
+through the projection unconstrained (this accounts for the lepton
+subsector $m_7 = 0$ below).
+
+\emph{(c) The $\mathbb{Z}/4$ factor with fermion CP.}
+The fermion KK spectrum on $N = 4$ has half-integer shift
+$\mu^f_m = |m_4 - 3/2|$; the mass-preserving involution
+$m_4 \mapsto 3 - m_4$ is the \emph{fermion CP} action on the
+isospin sector. $W_4$ must commute with this involution, i.e., factor
+through CP-orbits:
+\[
+  \{0, 3\} \;\text{(with $\mu^f = 3/2$, down-type)}, \qquad
+  \{1, 2\} \;\text{(with $\mu^f = 1/2$, up-type)}.
+\]
+A non-trivial $\mathbb{Z}/2$ character on this quotient assigns
+opposite values $\pm 1$ to the two CP-orbits. Up to an overall sign,
+there is exactly one such character: the one taking the up-type pair
+to $+1$ and the down-type pair to $-1$ (or vice versa). The
+polygon-theory convention (see §13.3 and paragraph below) picks the
+up-type pair $\{1, 2\}$ to match the surviving $\mathrm{SU}(2)_L$
+doublet, fixing $W_4(1) = W_4(2) = +1$, $W_4(0) = W_4(3) = -1$.
+
+Numerically, $W_4$ coincides with the Legendre symbol evaluated on the
+CP-invariant $|2m_4 - 3| \in \{1, 3\} \subset (\mathbb{Z}/7)^*$:
+$W_4(m_4) = (|2m_4 - 3|/7)$, since $(1/7) = +1$ and $(3/7) = -1$.
+This is the compact way the rule is usually written, but the content is
+the unique non-trivial Z/2 character on Z/4 CP-orbits; no cross-group
+embedding of $\mathbb{Z}/4$ into $\mathbb{Z}/7$ is invoked.
+
+\emph{Result.} The full Wilson line
+$W(m_7, m_4) = (m_7/7) \cdot W_4(m_4)$ is uniquely determined up to
+global sign. The surviving fermion KK modes are those with
+$W(m_7, m_4) \in \{+1, 0\}$, giving the standard selection rule.
 
 Selection outcome: $16$ $\chi = L$ modes per fixed cusp survive.
+
+\emph{Full count per cusp.} The KK spectrum on
+$\mathbb{R} \times (\mathbf{H}^2 \times_7 S^1) \times S^1_{\mathrm{iso}}$
+contains $7 \times 4 \times 2 = 56$ Weyl components per fixed cusp
+(indices $m_7 \in \mathbb{Z}/7$, $m_4 \in \mathbb{Z}/4$,
+$\chi \in \{L, R\}$). The counting chain is:
+\[
+  56 \;\xrightarrow{\text{Redlich } \chi = R \text{ gapped}}\; 28
+  \;\xrightarrow{\text{Legendre on } \chi = L}\; 16
+  \;\xrightarrow{\text{three cusps}}\; 48 \text{ Weyl / 3 generations}.
+\]
+The first arrow drops all $\chi = R$ modes via the Redlich
+$\eta$-shift (paper \S\ref{sec:chiral-su2}); the second applies
+Lemma~\ref{lem:legendre} to the remaining $7 \times 4 = 28$ $\chi = L$
+modes, keeping $16$ (breakdown: $4$ at $m_7 = 0$ freely passed, $6$
+at $W_7 = +1$ and $W_4 = +1$, $6$ at $W_7 = -1$ and $W_4 = -1$); the
+third applies the DHVW twisted-sector copy over the three
+$\mathbb{Z}/7$-fixed cusps of Theorem~\ref{thm:three-gens}.
 
 \paragraph{Fermion dictionary.}
 \label{para:fermion-dictionary}
@@ -162,28 +217,55 @@ hypercharges $\{1/6, -2/3, 1/3, -1/2, 1, 0\}$ exactly.
 
 \paragraph{$m_4$-to-$\mathrm{SU}(2)_{L/R}$ assignment.}
 \label{para:m4-isospin}
-The table's assignment $m_4 \in \{1, 2\} \to \mathrm{SU}(2)_L$ doublet,
-$m_4 \in \{0, 3\} \to \mathrm{SU}(2)_R$ doublet, is derived from the
-$N = 4$ fermion KK-mass structure together with the Witten CS splitting
-of $\S\ref{sec:chiral-su2}$:
-\begin{itemize}
-\item Fermion KK masses $\mu^f_{m_4} = |m_4 - 3/2|$ give two CP pairs:
-  $(m_4 = 1, 2)$ with $\mu^f = 1/2$ (up-type, lighter) and
-  $(m_4 = 0, 3)$ with $\mu^f = 3/2$ (down-type, heavier).
-\item In the Witten decomposition
-  $\mathrm{SL}(2,\mathbb{R})_L \times \mathrm{SL}(2,\mathbb{R})_R
-  \supset \mathrm{SU}(2)_L \times \mathrm{SU}(2)_R$, the Redlich parity
-  mechanism ($\S\ref{sec:chiral-su2}$) gaps the heavier $\mathrm{SU}(2)$
-  factor at $m_R \sim 107\,\mathrm{TeV}$.
-\item The LIGHTER up-type CP pair $(m_4 = 1, 2)$ survives ungapped to
-  electroweak energies, identifying it with $\mathrm{SU}(2)_L$; the
-  HEAVIER down-type pair $(m_4 = 0, 3)$ is identified with the gapped
-  $\mathrm{SU}(2)_R$.
-\end{itemize}
-This assignment is fixed by the KK-mass hierarchy plus the Redlich-gap
-direction; no choice remains after the polygon inputs
-$N_{\mathrm{iso}} = 4$, the fermion half-integer shift, and the sign of
-the Redlich $\eta$-invariant.
+The polygon geometry determines \emph{two inequivalent
+$\mathrm{SU}(2)$ gauge sectors} with distinct topological masses; the
+identification of which is ``$L$'' and which is ``$R$'' in the
+Standard-Model sense is fixed by matching to observed parity
+violation. The derivation has three steps.
+
+\emph{Step 1 (two sectors).}
+The Witten CS decomposition
+$\mathrm{SL}(2,\mathbb{R})_+ \times \mathrm{SL}(2,\mathbb{R})_-
+\supset \mathrm{SU}(2)_+ \times \mathrm{SU}(2)_-$ produces two gauge
+sectors labelled by the $\gamma^{(3)}$ eigenvalue $\pm 1$ on each KK
+fermion mode (\S\ref{sec:chiral-su2}, M1). The $N = 4$ isospin
+fiber distributes the four $m_4 \in \mathbb{Z}/4$ modes into two
+CP-orbits under the fermion involution $m_4 \mapsto 3 - m_4$
+(Lemma~\ref{lem:legendre} step~(c)): the up-type pair
+$\{1, 2\}$ with $\mu^f = 1/2$ and the down-type pair $\{0, 3\}$ with
+$\mu^f = 3/2$. The two CP-orbits match the two CS sectors
+one-to-one.
+
+\emph{Step 2 (topological-mass hierarchy is geometric).}
+The gravitational $\eta$-invariant
+$\eta_{\mathrm{grav}}(N) = -(N-1)(2N-5)/(6N)$ (paper \S\ref{sec:chiral-su2})
+is negative for all $N \ge 3$, so the two CS sectors have distinct
+effective levels
+$k_\pm^{\mathrm{eff}} = k_{\mathrm{bare}} \pm |\eta|/2$ and distinct
+topological masses $m_\pm \propto |k_\pm^{\mathrm{eff}}|/\ell$. At
+$N = 7$, $|\eta| = 9/7$ gives $m_+ \approx 490$\,TeV
+and $m_- \approx 107$\,TeV. Which CS sector gets which mass is
+determined by the sign of $\eta$ — a derived quantity — not by
+convention: the sector with $+|\eta|/2$ is uniquely the heavier one.
+
+\emph{Step 3 ($L$/$R$ labelling matches observation.)}
+The two CS sectors produce a genuinely parity-asymmetric theory: one
+chirality is weakly coupled (topological mass $\sim 107$\,TeV,
+visible at low energy), the other strongly coupled (topological mass
+$\sim 490$\,TeV, well above $M_{\mathrm{poly}}$). The Standard-Model
+label ``$L$'' is by convention the chirality of the observed
+left-handed weak doublets; identifying the lighter, surviving
+$\mathrm{SU}(2)$ sector with $\mathrm{SU}(2)_L$ matches this
+convention. The same identification is then propagated to the $m_4$
+CP-orbits: up-type pair $\{m_4 = 1, 2\}$ carries
+$\mathrm{SU}(2)_L$, down-type pair $\{m_4 = 0, 3\}$ carries
+$\mathrm{SU}(2)_R$ (Redlich-gapped at $m_R \sim 107$\,TeV).
+
+The \emph{physical predictions} (two CS sectors, topological-mass
+hierarchy $m_L/m_R \approx 4.6$, scale separation from EW) are
+fixed by polygon geometry. The \emph{naming} ``$L$''/``$R$'' is a
+convention that matches the SM's labelling of left-handed doublets;
+swapping $L \leftrightarrow R$ leaves the physics invariant.
 
 \paragraph{Anomaly cancellation from derived charges.}
 \label{para:anomaly-cancellation}
@@ -203,38 +285,58 @@ Verified in exact rational arithmetic; see Code Availability.
 \paragraph{Three generations from Riemann--Hurwitz on the Klein quartic.}
 \label{para:three-generations}
 
-\begin{theorem}[Three-generation count]
+\begin{theorem}[Three-generation count at $N = 7$]
 \label{thm:three-gens}
-Let $\mathbb{Z}/7 \subset \mathrm{PSL}(2, \mathbb{F}_7)$ be a Sylow-$7$
-subgroup acting on the Klein quartic $X(7) = \Gamma(7) \backslash \mathbf{H}^2$.
-The Riemann--Hurwitz formula for the degree-$7$ cyclic cover
-$X(7) \to X(7)/(\mathbb{Z}/7)$:
-\begin{equation}
-  2 g(X(7)) - 2 = 7 (2 g_Y - 2) + F(7 - 1)
-\end{equation}
-admits the unique nonnegative integer solution $g_Y = 0$, $F = 3$.
-The $\mathbb{Z}/7$ action therefore has exactly three fixed cusps on
-$X(7)$, matching $n_{\mathrm{gen}} = (N-1)/2 = 3$ of Paper~V,
-Corollary~4.
+Let $p$ be an odd prime and let $\mathbb{Z}/p \subset
+\mathrm{PSL}(2, \mathbb{F}_p)$ be a Sylow-$p$ subgroup acting on the
+principal modular curve $X(p) = \Gamma(p) \backslash \mathbf{H}^2$.
+The number of $\mathbb{Z}/p$-fixed cusps on $X(p)$ is
+\[
+  F_p \;=\; \frac{p - 1}{2},
+\]
+the number of $\{\pm 1\}$-orbits on $(\mathbb{Z}/p)^*$. The
+Riemann--Hurwitz formula for the quotient $X(p) \to X(p)/(\mathbb{Z}/p)$,
+\[
+  2 g(X(p)) - 2 = p\,\bigl(2 g_Y - 2\bigr) + F_p\,(p - 1),
+\]
+then determines the quotient genus
+\[
+  g_Y \;=\; 1 + \frac{2 g(X(p)) - 2 - F_p(p-1)}{2p}
+\]
+uniquely. At $p = 7$: $g(X(7)) = 3$, $F_7 = 3$, $g_Y = 0$, so the
+quotient is $\mathbb{P}^1$.
 \end{theorem}
 
-Verification over $N \in \{3, \ldots, 13\}$ confirms that the identity
-$F = (N-1)/2$ with integer $F$ and $g(X(N)) \ge 1$ is satisfied
-UNIQUELY at $N = 7$. Each of the three fixed cusps localizes one
+\emph{Remark (why $p = 7$?).}
+The count $F_p = (p-1)/2$ is forced for every odd prime $p$ by the
+Sylow-$p$ action's structure on cusps (bijection with
+$\{\pm 1\}$-orbits on $(\mathbb{Z}/p)^*$). Theorem~\ref{thm:three-gens}
+therefore assigns a generation count $n_{\mathrm{gen}}(p) = (p-1)/2$
+to every prime~$p$. The polygon-theory selection of $p = 7$ comes
+from the \emph{other} $N = 7$-forcing signals (Havelock stability
+$N \le 7$ on flat $\mathbb{R}^2$ per Paper~I; Pell unit
+$\varepsilon_7 = 8 + 3\sqrt{7}$; Dirac--$\sigma$
+coherence~\eqref{eq:sigma-unique}), which independently pick
+$N = 7$. Among primes, the specific coincidence
+$\bigl(g_Y = 0,\;g(X(p)) \ge 1\bigr)$ (i.e.\ a non-trivial cover of
+$\mathbb{P}^1$) is satisfied uniquely at $p = 7$ in the range $p \le
+100$: at $p = 11$, $g_Y = 1$; at $p = 13$, $g_Y = 2$; etc. Verified
+by direct enumeration.
+
+Each of the three fixed cusps of $X(7)/(\mathbb{Z}/7)$ localizes one
 copy of Table~\ref{para:fermion-dictionary}'s matter content via a
 DHVW twisted-sector construction; total $3 \times 16 = 48$ left-handed
-Weyl fermions.
+Weyl fermions across generations.
 
-The three fixed cusps $(a, 0)$ for $a \in \{1, 2, 3\}$ under $\pm$
-equivalence correspond EXACTLY to the paper's three pair labels:
-\begin{center}
-Cusp $(1, 0)$ $\sim$ Pair $(1, 6)$ — generation~$1$ \\
-Cusp $(2, 0)$ $\sim$ Pair $(2, 5)$ — generation~$2$ \\
-Cusp $(3, 0)$ $\sim$ Pair $(3, 4)$ — generation~$3$
-\end{center}
-establishing the mapping between the Riemann--Hurwitz theorem and the
-paper's generation-labeling convention
-(\S\ref{sec:yukawa}, Paper~V~\S23).
+\emph{Cusp-to-generation bijection.}
+The three $\mathbb{Z}/7$-fixed cusps on $X(7)$ are in canonical
+bijection with the three $\{\pm 1\}$-orbits on $(\mathbb{Z}/7)^*$:
+$\{1, 6\},\ \{2, 5\},\ \{3, 4\}$. These are precisely the polygon
+theory's three Havelock pair labels
+(\S\ref{sec:yukawa}, Paper~V~\S23) — each pair $\{m, 7-m\}$ indexes a
+fermion generation. The bijection is provided by the standard
+cusp-to-$\{\pm a\}$ parametrization for principal modular curves
+\citep{DiamondShurman2005}.
 
 \paragraph{Higgs identification via BF-bound.}
 \label{para:higgs}
