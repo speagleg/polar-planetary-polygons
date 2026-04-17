@@ -72,20 +72,14 @@ This is a pair of coupled 2-component 3D Dirac equations, equivalent to a single
 
 ### 4D chirality per KK mode
 
-γ⁵ = γ^(3) · γ³ has eigenvalues ±1. On the sector γ^(3) = +1, γ³ acts as the ±1 eigenstates of γ³ (which is purely off-diagonal in the γ^(3) basis). The product γ^(3) · γ³ has eigenvalues (+1)(±i) ... wait, γ³² = −1 so γ³ eigenvalues are ±i. And γ^(3) eigenvalues are ±1. So γ⁵ eigenvalues are (±1)(±i) = ±i? That can't be right because γ⁵² = +1.
+The identity γ⁵ = γ^(3) · γ³ (sympy-verified in `clifford_oracle.py`) is a matrix identity on the 4-component spinor space. Its algebraic properties:
 
-Let me recompute. γ⁵² = γ^(3) γ³ γ^(3) γ³ = γ^(3) (−γ^(3) γ³) γ³ = −(γ^(3))² (γ³)² = −(+1)(−1) = +1 ✓.
+- (γ⁵)² = +1, with eigenvalues ±1 and two-dimensional eigenspaces (the 4D left- and right-handed Weyl components).
+- γ^(3) ≡ i γ⁰γ¹γ² commutes with γ^a for a = 0, 1, 2 and anticommutes with γ³; (γ^(3))² = +1.
+- γ³ anticommutes with all other γ^μ; (γ³)² = −1 (mostly-plus metric convention used here), so γ³ has eigenvalues ±i.
+- (γ⁵)² = γ^(3) γ³ γ^(3) γ³ = −(γ^(3))² (γ³)² = −(+1)(−1) = +1, confirming ±1 eigenvalues despite γ³'s ±i spectrum: the factors γ^(3) and γ³ do not commute, so eigenvalues of the product are not products of eigenvalues.
 
-So γ⁵² = +1 with eigenvalues ±1. This is consistent, but then the eigenvalue factorization γ⁵ = γ^(3) · γ³ is not a pointwise eigenvalue product (the eigenvalues of a product of non-commuting operators ≠ products of eigenvalues).
-
-The correct statement: γ⁵ has 4-dim eigenspaces ±1 (each of dimension 2), corresponding to 4D left/right Weyl components. On the γ^(3) = +1 eigenspace (2-dimensional), γ³ acts as a 2×2 matrix with (γ³)² = −1 on this eigenspace. γ⁵ |_{γ^(3)=+1} = γ³ |_{γ^(3)=+1} with eigenvalues ±i · 1 = ±i — but this must equal ±1.
-
-Resolution: my block algebra above is slightly off. In the Weyl basis explicit matrices (confirmed by sympy), γ^(3) is block off-diagonal, not diagonal. The γ^(3) eigenbasis is a unitary rotation from the Weyl basis. In the γ^(3)-eigenbasis:
-- γ^(3) = diag(+1, +1, −1, −1) (after unitary transformation)
-- γ³ = anti-block-diagonal with eigenvalues ±i
-- γ⁵ = γ^(3) γ³ = ... (block structure)
-
-The key physics: γ⁵ eigenvalues are ±1 per KK mode, and the 4D chirality is preserved under KK reduction. This is enough for the physics argument, and is what Paper IV Step 2 should say.
+Physical content: γ⁵ eigenvalues label 4D chirality (±1 = L/R); the factorization γ⁵ = γ^(3)·γ³ says that the 4D chirality operator splits into a 3D volume-form action (γ^(3)) and a fiber-direction action (γ³). Under Witten's CS splitting of 2+1D gravity into SL(2,ℝ)_L × SL(2,ℝ)_R, the γ^(3) eigenvalue identifies which CS sector a given 4D Weyl component couples to. This is preserved per KK mode because γ⁵ acts on the spinor index only, not on the scalar KK wavefunction e^{i(m+1/2)φ}.
 
 ## What to write in Paper IV
 

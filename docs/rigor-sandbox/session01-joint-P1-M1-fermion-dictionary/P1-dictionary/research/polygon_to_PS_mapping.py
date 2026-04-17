@@ -2,6 +2,15 @@
 Explicit polygon (m_7, m_4, χ) → Pati-Salam rep assignment.
 ===========================================================
 
+NOTE ON PS FRAMING (z3_extensions_analysis.md, Paper VI §683):
+  The labels (4, 2, 1) and (4bar, 1, 2) are used here as a MATTER-REP
+  organizing scheme only — an accounting convenience that bundles the
+  16 SM+ν_R Weyl fields of a generation under a single SU(4) × SU(2)_L
+  × SU(2)_R label. They are NOT a claim that the polygon theory's UV
+  gauge group is Pati-Salam (Paper VI §683: "no GUT"). The UV gauge
+  structure is the SL(2,R) × SL(2,R) Chern-Simons theory of §5; the
+  4D SM gauge group emerges in the IR via the mechanisms of §8.
+
 Framework established in gauge_theory_derivation.md:
 
   One generation (within ONE twisted sector of the Z/3 Frobenius orbifold):
@@ -22,7 +31,9 @@ Verify:
 1. Each assignment gives the correct SM charges.
 2. Counting is correct per generation (16 Weyl).
 3. Anomaly cancellation verified from the assignments.
-4. sin²θ_W = 3/11 consistent with g_R²/g_{B-L}² = 8/5.
+4. sin²θ_W = 3/11 from the polygon formula h_Y/(h_Y + h_W); the algebraic
+   equivalence to a PS coupling ratio ρ² = 8/5 is an accounting match,
+   not a UV-gauge-group claim.
 """
 
 from __future__ import annotations
@@ -220,42 +231,48 @@ def mapping_to_weyl_fields(mapping: List[dict]) -> List[WeylFermion]:
 # -------------------------------------------------------------
 
 def verify_sin2_theta_W():
-    """In Pati-Salam, sin²θ_W = g_Y² / (g_Y² + g_L²) at the PS breaking scale.
+    """Verify the polygon-formula value sin²θ_W = 3/11 (tree-level).
 
-    The paper derives sin²θ_W = 3/11 from:
+    The paper DERIVES sin²θ_W from the polygon Sugawara structure:
       sin²θ_W = h_Y / (h_Y + h_W)
       h_Y = Q² / k_Y = (1/2)² / 1 = 1/4
       h_W = f(m*, N) / (k + h^∨) = 2 / 3  (f(2,4) = 2, k+h^∨ = 1+2 = 3)
       sin²θ_W = (1/4) / (1/4 + 2/3) = (3/12) / (11/12) = 3/11  ✓
 
-    In Pati-Salam:
-      sin²θ_W = 3 / (3 + 5 · (g_R/g_{B-L})²)
-    Setting this = 3/11:
-      3 + 5·ρ² = 11  ⇒  ρ² = 8/5
-    So g_R² = (8/5) g_{B-L}² at the breaking scale.
+    The same numerical value ALSO arises as a PS Clebsch:
+      sin²θ_W = 3 / (3 + 5 · ρ²)  with  ρ² = g_R²/g_{B-L}² = 8/5
+    This is an ALGEBRAIC EQUIVALENCE at the level of weight assignments
+    (both formulas encode the Y = T_3R + (B-L)/2 embedding of SM
+    hypercharge). It is NOT evidence for a PS UV gauge group
+    (retracted in Paper VI §683; see z3_extensions_analysis.md).
 
-    We verify the formula-match numerically.
+    Running sin²θ_W(M_Z) observed = 0.231; the tree-level polygon value
+    0.273 differs from observation by ~3.9 % (paper acknowledges this as
+    a running correction of the tree-level prediction).
     """
     import math
 
-    # Paper derivation
+    # Paper derivation (polygon Sugawara)
     h_Y = Fraction(1, 4)
     h_W = Fraction(2, 3)
     sin2_paper = h_Y / (h_Y + h_W)
-    print(f"  Paper's sin²θ_W = {sin2_paper}")
+    print(f"  Paper's sin²θ_W (tree) = {sin2_paper} ≈ {float(sin2_paper):.4f}")
     assert sin2_paper == Fraction(3, 11)
 
-    # Pati-Salam formula sin²θ_W = 3/(3 + 5ρ²)
-    # Solve: 3/(3 + 5ρ²) = 3/11  ⇒  ρ² = (11-3)/5 = 8/5
+    # Algebraic cross-check via PS Clebsch
     rho_sq = Fraction(8, 5)
     sin2_PS = Fraction(3) / (Fraction(3) + Fraction(5) * rho_sq)
-    print(f"  Pati-Salam sin²θ_W at ρ² = g_R²/g_{{B-L}}² = {rho_sq}: {sin2_PS}")
+    print(f"  PS Clebsch form (matter-rep accounting) at ρ² = {rho_sq}: {sin2_PS}")
     assert sin2_PS == Fraction(3, 11)
 
-    print(f"\n  ✓ Paper's sin²θ_W = 3/11 matches Pati-Salam at ρ² = 8/5")
-    print(f"  This is a NON-TRIVIAL prediction: the polygon theory's gauge coupling")
-    print(f"  ratio g_R / g_{{B-L}} = sqrt(8/5) ≈ {math.sqrt(8/5):.4f} is fixed by")
-    print(f"  the Havelock eigenvalue structure f(2,4) = 2 and k+h^∨ = 3.")
+    print()
+    print("  The two formulas agree because both encode the same")
+    print("  Y = T_3R + (B-L)/2 embedding. The POLYGON derivation is the")
+    print("  primary one; the PS Clebsch is a matter-rep cross-check,")
+    print("  not a UV gauge-group claim (Paper VI §683: no GUT).")
+    print()
+    print("  Running to M_Z: observed sin²θ_W ≈ 0.231, tree-level 3/11 ≈")
+    print(f"  {float(sin2_paper):.4f}; ~3.9% running correction is an open item.")
 
 
 # -------------------------------------------------------------
@@ -305,13 +322,15 @@ def main():
     print()
     print("=" * 72)
     if ok and total_weyl == 16:
-        print("✓✓✓ POLYGON → PATI-SALAM MAPPING VERIFIED")
+        print("✓✓✓ POLYGON → PS-STRUCTURE MATTER-REP MAPPING VERIFIED")
         print()
-        print("  - Every (m_7, m_4, χ) slot in one generation has a specific PS label")
-        print("    and a derived Y value matching SM.")
+        print("  - Every (m_7, m_4, χ) slot in one generation has a specific")
+        print("    (4, 2, 1) / (4bar, 1, 2) matter label and a derived Y value")
+        print("    matching SM.")
         print("  - 16 Weyl fermions per generation ✓")
         print("  - All 5 anomaly traces vanish ✓")
-        print("  - sin²θ_W = 3/11 = Pati-Salam prediction at ρ² = 8/5 ✓")
+        print("  - Polygon sin²θ_W = 3/11 (tree, §13); PS Clebsch ρ² = 8/5 is")
+        print("    an algebraic cross-check, not a UV gauge-group claim.")
     else:
         print("✗ POLYGON → PATI-SALAM MAPPING FAILED")
 

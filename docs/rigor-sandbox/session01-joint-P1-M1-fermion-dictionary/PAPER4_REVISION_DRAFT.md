@@ -20,7 +20,7 @@ Session 1 derived the Standard Model fermion content from the polygon theory, ad
 7. **3-generation mechanism**: Riemann-Hurwitz on X(7) gives 3 fixed cusps
 8. **PMNS fractions**: structural rational forms uniquely at N=7
 
-**Five independent N = 7 uniqueness arguments** now established.
+**Four structural + one empirical $N = 7$ uniqueness signals** now established.
 
 ---
 
@@ -108,10 +108,20 @@ where $(\cdot / 7)$ is the Legendre symbol $\bmod\,7$.
 The Legendre selection is forced by consistency with the polygon theory's
 $\mathsf{CP}$ action
 $\mathsf{CP}\colon (m_7, m_4, \chi) \mapsto (7{-}m_7, 3{-}m_4, -\chi)$.
-It is UNIQUE: the Legendre symbol is the only non-trivial $\mathbb{Z}/2$
-character of $\mathbb{Z}/7$, and $m_4 \mapsto 3-m_4$ is the unique
-mass-preserving involution on the $N=4$ fermion KK spectrum
-(half-integer shift $\mu^f_m = |m - 3/2|$).
+Uniqueness rests on two standard facts:
+\begin{itemize}
+\item $(\mathbb{Z}/7)^{*}$ is cyclic of order $6$, so its character group
+  is $\mathbb{Z}/6$. The unique non-trivial $\mathbb{Z}/2$-valued
+  character is the Legendre symbol $(\cdot / 7)$ (Gauss, \emph{Disquisitiones
+  Arithmeticae} 1801, art.~108), extended to $\mathbb{Z}/7$ by
+  $(0/7) := 0$ at the Frobenius fixed point.
+\item $m_4 \mapsto 3 - m_4$ is the unique mass-preserving involution on
+  the $N = 4$ fermion KK spectrum with half-integer shift
+  $\mu^f_m = |m - 3/2|$; it leaves $|2m_4 - 3|$ invariant.
+\end{itemize}
+Any CP-consistent $\mathbb{Z}/2$ projection on the product orbifold
+$\mathbb{Z}/7 \times \mathbb{Z}/4$ is therefore the product character
+$(m_7/7) \cdot (|2m_4 - 3|/7)$ up to the trivial character.
 
 Selection outcome: $16$ $\chi = L$ modes per fixed cusp survive.
 
@@ -149,6 +159,31 @@ with coefficients $(1, 1/2)$ uniquely derived from:
 This dictionary reproduces the Standard Model fermion content
 (16 left-handed Weyl fermions per generation including $\nu_R^c$) with
 hypercharges $\{1/6, -2/3, 1/3, -1/2, 1, 0\}$ exactly.
+
+\paragraph{$m_4$-to-$\mathrm{SU}(2)_{L/R}$ assignment.}
+\label{para:m4-isospin}
+The table's assignment $m_4 \in \{1, 2\} \to \mathrm{SU}(2)_L$ doublet,
+$m_4 \in \{0, 3\} \to \mathrm{SU}(2)_R$ doublet, is derived from the
+$N = 4$ fermion KK-mass structure together with the Witten CS splitting
+of $\S\ref{sec:chiral-su2}$:
+\begin{itemize}
+\item Fermion KK masses $\mu^f_{m_4} = |m_4 - 3/2|$ give two CP pairs:
+  $(m_4 = 1, 2)$ with $\mu^f = 1/2$ (up-type, lighter) and
+  $(m_4 = 0, 3)$ with $\mu^f = 3/2$ (down-type, heavier).
+\item In the Witten decomposition
+  $\mathrm{SL}(2,\mathbb{R})_L \times \mathrm{SL}(2,\mathbb{R})_R
+  \supset \mathrm{SU}(2)_L \times \mathrm{SU}(2)_R$, the Redlich parity
+  mechanism ($\S\ref{sec:chiral-su2}$) gaps the heavier $\mathrm{SU}(2)$
+  factor at $m_R \sim 107\,\mathrm{TeV}$.
+\item The LIGHTER up-type CP pair $(m_4 = 1, 2)$ survives ungapped to
+  electroweak energies, identifying it with $\mathrm{SU}(2)_L$; the
+  HEAVIER down-type pair $(m_4 = 0, 3)$ is identified with the gapped
+  $\mathrm{SU}(2)_R$.
+\end{itemize}
+This assignment is fixed by the KK-mass hierarchy plus the Redlich-gap
+direction; no choice remains after the polygon inputs
+$N_{\mathrm{iso}} = 4$, the fermion half-integer shift, and the sign of
+the Redlich $\eta$-invariant.
 
 \paragraph{Anomaly cancellation from derived charges.}
 \label{para:anomaly-cancellation}
@@ -219,6 +254,21 @@ gives exactly 2 BF-unstable: $(3, 2)$ and $(4, 2)$, both with
 $c^2 = 1/4$. These form the Higgs $\mathrm{SU}(2)_L$ doublet with
 $Y = 1/2$. \qed
 
+\paragraph{Higgs real degree-of-freedom count.}
+Each Seifert KK mode on $\mathbb{R} \times (\mathbf{H}^2 \times_7 S^1)$
+is a \emph{complex} scalar $\phi_m(x)\,e^{i m \varphi}$ (the Fourier
+index $m$ is signed, so $\phi_m$ and $\phi_{-m}$ are independent complex
+coefficients paired by reality of the 5D field). The two BF-unstable
+modes $(m_7, m_4) \in \{(3, 2), (4, 2)\}$ therefore carry
+$2 \times 2 = 4$ real scalar degrees of freedom. Under
+$\mathrm{SU}(2)_L$ these assemble into the doublet
+$H = (H^+, H^0) = (\phi_{(4,2)}, \phi_{(3,2)})$ with hypercharge
+$Y = 1/2$; three Goldstone modes are eaten by $W^\pm, Z$ after the
+polygon-scale instability triggers electroweak symmetry breaking,
+leaving one physical neutral scalar $h$. The count $2$ BF-unstable
+complex modes $\to$ $4$ real fields $\to$ $1$ physical Higgs matches
+the Standard-Model Higgs doublet exactly.
+
 \paragraph{Quark mass exponents from Havelock + isospin.}
 \label{para:quark-exponents}
 The quark mass hierarchy
@@ -270,22 +320,39 @@ the paper's position of no GUT-scale symmetry breaking
 (Paper~VI, \S\ref*{VI-sec:predictions}).
 \end{remark}
 
-\paragraph{Five independent $N = 7$ uniqueness arguments.}
+\paragraph{Five $N = 7$ uniqueness signals: four structural, one empirical.}
 \label{para:n7-uniqueness}
-The polygon theory's choice $N = 7$ is multiply determined across
-distinct mathematical structures:
+The polygon theory's choice $N = 7$ is cross-checked by five
+tests that probe structurally distinct mathematical objects:
 \begin{enumerate}
-\item Pell equation (Paper~I): fundamental unit
-  $\varepsilon_7 = 8 + 3\sqrt{7}$ of $\mathbb{Z}[\sqrt{7}]$.
-\item Riemann--Hurwitz on $X(7)$ (Theorem~\ref{thm:three-gens}):
-  $F = (N-1)/2$ with integer $F$ and $g(X(N)) \ge 1$ UNIQUELY at $N=7$.
-\item Legendre selection rule (Lemma~\ref{lem:legendre}): $(3/N) = -1$
-  with $N_4 = 4$ minimal for $\mathbb{Z}/2$ projection.
-\item Dirac--$\sigma$ identity~\eqref{eq:sigma-unique}:
-  $(N^2+7)/8 = N$ UNIQUELY at $N=7$.
-\item PMNS $1/(N^2-1)$ match (Conjecture~\ref{conj:pmns}):
-  observed $\theta_{13}$ compatible only at $N=7$.
+\item \emph{(Structural, units.)} Pell equation (Paper~I): fundamental
+  unit $\varepsilon_7 = 8 + 3\sqrt{7}$ of $\mathbb{Z}[\sqrt{7}]$; the
+  stability threshold $\xi^\star = \varepsilon_7^{-1}$ is the smallest
+  totally-real quadratic unit producing the required $N = 7$ critical
+  flow.
+\item \emph{(Structural, modular curves.)} Riemann--Hurwitz on $X(N)$
+  (Theorem~\ref{thm:three-gens}): under the hypothesis $g(X(N)) \ge 1$
+  (excluding the trivial case $X(5)$ of genus~$0$), the identity
+  $F = (N-1)/2$ with integer $F$ is satisfied UNIQUELY at $N = 7$.
+\item \emph{(Structural, algebraic identity.)} Dirac--$\sigma$
+  identity~\eqref{eq:sigma-unique}: $(N^2+7)/8 = N \iff
+  (N-1)(N-7) = 0$, so $N = 7$ is the unique non-trivial solution.
+\item \emph{(Structural, characters.)} Legendre selection rule
+  (Lemma~\ref{lem:legendre}): $(\cdot / 7)$ is the unique non-trivial
+  $\mathbb{Z}/2$-valued character of $(\mathbb{Z}/7)^*$, and the $16/28$
+  kept/gapped split is a rigid consequence.
+\item \emph{(Empirical.)} PMNS fraction $1/(N^2-1)$ match
+  (Conjecture~\ref{conj:pmns}): observed $\theta_{13}$ is within
+  experimental range only at $N = 7$, while $\sin^2\theta_{13}$ is
+  $-2.2\sigma$ off the PDG central value; this is a
+  \emph{structural-fit} signal, not a uniqueness theorem.
 \end{enumerate}
+
+Items (1)--(4) are structurally independent tests; they share the
+underlying ``$7$-ness'' of $N = 7$ but probe different mathematical
+structures (real quadratic units, modular-curve genus, algebraic
+identities, and finite-group characters). Item (5) is an empirical
+match and is labelled as such.
 
 \paragraph{Proton stability.}
 \label{cor:proton-stability}
