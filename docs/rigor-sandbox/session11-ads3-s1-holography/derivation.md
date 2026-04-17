@@ -313,21 +313,22 @@ m_{\mathrm{radion}} \;\sim\; \sqrt{1/R^4} \cdot R^{-1} \cdot R
 \;\sim\; 1/R \;=\; M_{\mathrm{poly}}.
 $$
 
-\emph{Status}: this is a PARAMETRIC estimate by dimensional analysis,
-NOT a derived value. The precise numerical coefficient (prefactor of
-$M_{\mathrm{poly}}$) requires a 1-loop Casimir integral on AdS_3 × S^1
-with Seifert boundary conditions — an open technical computation.
-Importantly, the radion's mass is NOT a Scherk-Schwarz effect (the
-Scherk-Schwarz twisted-KK gives zero mass for integer $q e$, which
-holds for any odd N at charge q=2); it is a MODULI-STABILIZATION
-effect from 1-loop quantum corrections. The order of magnitude is
-$M_{\mathrm{poly}} \sim 300$\,TeV, set by the only dimensionful scale.
+\emph{Status}: the dimensional estimate above is superseded by the
+explicit 1-loop computation in
+`session14-radion-casimir/derivation.md`. The Session 14 result, using
+Hurwitz-zeta regularization + Appelquist-Chodos Casimir formula + AdS_3
+fiber tension balance, gives
+$$
+m_\sigma \;\approx\; 0.83\,M_{\mathrm{poly}} \;\approx\; 250\,\mathrm{TeV}
+$$
+at $M_{\mathrm{poly}} = 300$\,TeV, consistent with the dimensional
+estimate. The mass is driven by FERMION Casimir (48 Weyl dominates) +
+AdS_3 bulk cosmological-constant tension; Scherk-Schwarz alone would
+give zero mass (integer $q e$), so the moduli-stabilization mechanism
+is essential.
 
-The Paper IV main-text claim (§5 Remark rmk:kk-dof) that the radion is
-massive "at polygon scale" is consistent with this parametric
-estimate; the honest status is "parametric, not derived" pending the
-full 1-loop calculation. Paper IV should explicitly label the radion
-mass as a parametric estimate, not as a derived scale.
+Cite Session 14 as the authoritative radion-mass derivation; this
+subsection provides the conceptual framing.
 
 **Interpretation.** The graviphoton is gapped via Scherk-Schwarz
 twisted KK at half-integer charge $q e$; this IS the
