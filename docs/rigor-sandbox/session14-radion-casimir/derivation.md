@@ -55,12 +55,22 @@ Polygon fields and their SS twists under Seifert Euler $e = 7/2$:
 | Radion $\sigma$ | 2 | 7 | 0 | 1 | B | $\zeta(4) = \pi^4/90$ |
 | Higgs doublet | 0 | 0 | 1/2 (by CP) | 4 | B | $\pi^4/6$ |
 | Gauge bosons (SU(3) × SU(2)_L × U(1)) | 0 | 0 | 0 | $12 \times 2 = 24$ | B | $\zeta(4)$ |
-| Fermions (48 Weyl/3 gens) | Legendre | — | 1/2 (avg) | $48 \times 2 = 96$ | F | $\pi^4/6$ |
+| Fermions (48 Weyl/3 gens) | Antiperiodic BC | — | 1/2 (derived) | $48 \times 2 = 96$ | F | $\pi^4/6$ |
 
-(The Higgs has $q_{\mathrm{eff}} = 1/2$ because the BF-unstable scalar mode is
-at the half-integer conformal-dimension boundary, which maps to a half-integer
-SS effective twist on the quantized fiber. Fermions inherit a
-half-integer twist from the Legendre projection's fermionic CP structure.)
+**Derivation of q_eff values (per-mode, not representative):**
+
+For a field Φ on the Seifert bundle with Euler class $e = N/2 = 7/2$, the fiber holonomy around a base loop is $\exp(2\pi i e) = \exp(i N \pi) = (-1)^N = -1$ at N=7 odd. This gives:
+
+- **Scalar fields (q_tensor = 0, integer spin)**: follow bosonic periodic boundary conditions. The effective q_eff comes from the tensor charge + m_7 Fourier mode:
+  - q_tensor + m_7 even ⇒ q_eff = 0 (periodic, zero mode present)
+  - q_tensor + m_7 odd ⇒ q_eff = 1/2 (antiperiodic)
+  - Over m_7 ∈ Z/7: for q_tensor = 0, 4 modes have q_eff=0 and 3 have q_eff=1/2.
+
+- **Graviphoton (q_tensor = 1)**: parity-shifted from scalars. 4 modes at q_eff=1/2, 3 at q_eff=0.
+
+- **Radion (q_tensor = 2)**: same pattern as q_tensor = 0 (parity-even).
+
+- **Fermions**: the (-1) fiber holonomy at N=7 odd gives ANTIPERIODIC BC uniformly for all fermion KK modes (standard spin-structure result for a Seifert bundle with odd Euler number). Hence q_eff = 1/2 for ALL fermion modes — NOT an average, but forced by the spin structure.
 
 Computing each contribution:
 $$

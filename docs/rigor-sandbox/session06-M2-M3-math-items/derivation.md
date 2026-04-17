@@ -78,25 +78,21 @@ In the polygon theory, the fiber is assumed to be S¹ (dimension d = 1) with cir
 
 If the fiber were d-dimensional instead, the KK-mode counting at energy Λ would scale as Λ^{d/2}. The polygon theory's KK spectrum IS the 1-dimensional tower at m/R; if the fiber had higher dimension, this would be evident in the mode counting.
 
-**Rigorous single-integer-index ⇒ d = 1 argument via isometry-group rank.**
+**Single-integer spectrum + 1-manifold classification ⇒ fiber is S¹.**
 
-The Peter-Weyl theorem (standard representation theory of compact Lie groups) says: for a compact homogeneous Riemannian manifold M = G/H with isometry group G, the Laplacian on M decomposes into G-irreducible representations. Each irrep contributes a multiplicity equal to its dimension to the Laplacian spectrum.
+The rigorous chain proceeds in two steps, using only standard theorems:
 
-For the polygon's fiber to have a SINGLE-INTEGER-INDEXED spectrum with NO multi-index dependence (as the polygon's KK modes are labeled by a single integer m ∈ ℤ), the fiber's isometry group G must be such that its non-trivial irreps are all 1-DIMENSIONAL. A compact Lie group with all irreps of dimension 1 is ABELIAN, and a compact connected abelian Lie group is a torus T^k of dimension k.
+Step 1 (spectral dimension). The polygon KK spectrum has Laplacian eigenvalues labeled by a SINGLE integer m ∈ ℤ, with f(m, N) = m(N-m)/2 bounded (finite set for 1 ≤ m ≤ N-1). Extended to the full untwisted KK tower, the spectrum is {m²/R² : m ∈ ℤ}, giving Weyl counting N(λ) ~ √λ (asymptotic density of states λ^{d/2-1}). This matches a 1-dimensional Riemannian manifold via the Weyl asymptotic law.
 
-For the KK label to be a SINGLE integer, the torus rank k must equal 1, giving G = T¹ = S¹. A 1-dim fiber with S¹ isometry is, by 1-manifold classification, topologically S¹ itself (a circle).
+Step 2 (classification). By the classification of compact connected Riemannian 1-manifolds (standard result; see e.g. Lee, Introduction to Smooth Manifolds, Theorem 15.20), such a manifold is diffeomorphic to S¹. The specific Riemannian metric is parametrized by the circumference L (a single positive real number).
 
-Explicit rule-out of specific higher-dim alternatives (for illustration):
-- S² at radius r: isometry group SO(3), rank 1 but NON-abelian; irreps ℓ(ℓ+1)/r² have (2ℓ+1)-fold degeneracy. Polygon spectrum has no such degeneracy.
-- T² at radii (r₁, r₂): isometry T² (rank 2); eigenvalues (m₁²/r₁² + m₂²/r₂²) with TWO independent indices. Polygon has ONE index.
-- S³ at radius r: isometry SU(2), rank 1 non-abelian; (ℓ+1)²-degeneracy.
-- S² × S¹: isometry SO(3) × U(1), non-abelian.
+**Chain**: single-integer Laplacian spectrum ⇒ 1D Weyl density ⇒ 1-manifold classification ⇒ fiber diffeomorphic to S¹ with metric fixed by a single length scale.
 
-None of these has the ABELIAN rank-1 isometry that forces single-integer KK labels. Only S¹ does.
+This uses only:
+- Weyl asymptotic density of Laplacian eigenvalues (Weyl 1911).
+- Classification of compact connected boundaryless 1-manifolds (standard differential topology).
 
-**Rigorous chain**: single-integer-index simple spectrum ⇒ isometry group is abelian of rank 1 ⇒ fiber diffeomorphic to T¹ = S¹ (1-manifold classification + isometry transitivity). QED.
-
-This is rigorous via Peter-Weyl + 1-manifold classification.
+No Peter-Weyl / isometry-group machinery required; the Weyl asymptotic alone identifies the dimension from the eigenvalue counting.
 
 ### Tightening
 

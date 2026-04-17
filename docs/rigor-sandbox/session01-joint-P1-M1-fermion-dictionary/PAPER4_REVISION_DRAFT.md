@@ -237,32 +237,28 @@ polygon-theory convention (see §13.3 and paragraph below) picks the
 up-type pair $\{1, 2\}$ to match the surviving $\mathrm{SU}(2)_L$
 doublet, fixing $W_4(1) = W_4(2) = +1$, $W_4(0) = W_4(3) = -1$.
 
-\emph{Numerical coincidence: $W_4$ matches a Legendre evaluation.}
-$W_4$ assigns $+1$ to up-type $\{1, 2\}$ and $-1$ to down-type
-$\{0, 3\}$. The CP-invariant $|2m_4 - 3|$ evaluates to $1$ on the
-up-type pair and $3$ on the down-type pair:
+\emph{Native Z/4 formulation of $W_4$.}
+We write $W_4$ directly as a function on Z/4 CP-orbits, without
+invoking any Z/7 Legendre evaluation:
 \[
-  m_4 \in \{1, 2\}: \;|2m_4 - 3| = 1,
+  W_4\colon \mathbb{Z}/4 \to \{+1, -1\},
   \qquad
-  m_4 \in \{0, 3\}: \;|2m_4 - 3| = 3.
+  W_4(m_4) \;=\; \begin{cases}
+    +1 & m_4 \in \{1, 2\} \;(\text{up-type, } \mu^f = 1/2), \\
+    -1 & m_4 \in \{0, 3\} \;(\text{down-type, } \mu^f = 3/2).
+  \end{cases}
 \]
-The Legendre symbol $(1/7) = +1$ and $(3/7) = -1$, so NUMERICALLY
-$W_4(m_4) = (|2m_4 - 3|/7)$. This is a notational coincidence — the
-integers $\{1, 3\}$ happen to also lie in $(\mathbb{Z}/7)^*$ and their
-Legendre values happen to match the $W_4$ assignments — but the
-STRUCTURAL content is just the unique non-trivial Z/2 character on
-Z/4 CP-orbits. No cross-group embedding $\mathbb{Z}/4 \hookrightarrow
-\mathbb{Z}/7$ is invoked in the derivation of $W_4$.
+This is the unique (up to overall sign) non-trivial $\mathbb{Z}/2$
+character on Z/4-CP-orbits from step (c). No cross-group embedding
+into $\mathbb{Z}/7$ is invoked.
 
-The coincidence is convenient for compact notation: one can write
-$W(m_7, m_4) = (m_7/7) \cdot (|2m_4 - 3|/7)$ using a single Legendre
-symbol, provided one understands that the second factor is a $W_4$
-function, not a genuine Legendre evaluation on $\mathbb{Z}/4$.
-
-\emph{Result.} The full Wilson line
-$W(m_7, m_4) = (m_7/7) \cdot W_4(m_4)$ is uniquely determined up to
-global sign. The surviving fermion KK modes are those with
-$W(m_7, m_4) \in \{+1, 0\}$, giving the standard selection rule.
+\emph{Result.} The full Wilson line is
+\[
+  W(m_7, m_4) \;=\; (m_7/7)_L \cdot W_4(m_4),
+\]
+with $(m_7/7)_L$ the Legendre symbol mod 7 (extended by
+$(0/7)_L := 0$) and $W_4$ the native Z/4 character above. The
+surviving fermion KK modes are those with $W(m_7, m_4) \in \{+1, 0\}$.
 
 Selection outcome: $16$ $\chi = L$ modes per fixed cusp survive.
 
