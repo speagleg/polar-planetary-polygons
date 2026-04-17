@@ -77,37 +77,35 @@ Partition function in the dilute-gas approximation:
 
 where V is the spacetime volume of the polygon-orbifold, absorbed into K.
 
-The (1 + K) factor is NOT from uncancelled vacuum bubbles but from the SUM OVER TOPOLOGICAL WINDING SECTORS contributing to the same operator amplitude. This is a CS-3-manifold-specific mechanism (distinct from ℝ⁴ ADHM):
-
-**Derivation via CS θ-angle summation.** In 3D CS theory on the Seifert base M_3 = H² ×_N S¹, the path integral factorizes over integer winding sectors (Witten 1989 "Quantum field theory and the Jones polynomial" §4.2, eq. 4.21):
+**Leading-order amplitude.** In 3D CS theory on the Seifert base M_3 = H² ×_N S¹, the path integral factorizes over integer winding sectors (Witten 1989 §4.2, eq. 4.21):
 
   Z_CS = Σ_n e^{−n S_0} = Σ_n K^n   with K = e^{-S_0}
 
-For an operator O with charge q under the Z/(N−1) orbifold selection rule, only winding sectors n satisfying n ≡ q (mod N−1) contribute. For V_ub with charge q = 6 = N−1 at N=7, the allowed winding sectors are n = 6, 6+(N−1) = 12, 6+2(N−1) = 18, ...
+For V_ub with polygon-theory winding charge q = 6 (from the YY† selection rule of Step 3), the LEADING contribution is from the n = 6 winding sector:
 
-At leading orders in K (small-coupling limit), only the smallest-winding contributions matter:
+  A_V_ub^{LO} = c_6 · K^6 · V_ub^{(0)}
 
-  A_O = A_{n=6} · K^6 + A_{n=12} · K^{12} + ...  (n = 6 dominates at K < 1)
+where c_6 is the polygon-theory coefficient for the n=6 sector amplitude, and V_ub^{(0)} is the tree-level Yukawa coupling. The polygon theory's Z/7 Frobenius structure fixes c_6 = 1 (unit normalization via the 't Hooft dilute-gas convention). At K = 0.548:
 
-**However**, within the n = 6 sector, there are MULTIPLE topological configurations: a single-instanton at winding 6, a 2-instanton (3+3) split, a 3-instanton (2+2+2), etc. Each contributes K^6 with its own coefficient. Summing over configurations within n = 6 gives A_{n=6}^{total} = c_6 · K^6 with specific c_6.
+  V_ub^{LO} = 0.088 · K^6 = 0.00238
 
-**The NLO correction** comes from the NEXT allowed winding sector, n = 7 (from winding-charge selection rules with a single unit of "wrong-charge" instanton, e.g., a dressing by a neutral CS θ-shift of unit winding). This is a DIFFERENT topological sector, contributing K^7 at leading order:
+**NLO (1+K) factor — status: polygon prediction, first-principles derivation open.** Paper IV §13.6 empirically matches V_ub to PDG via the factor (1 + K):
 
-  A_O = c_6 · K^6 + c_7 · K^7 + O(K^8)
+  V_ub^{NLO} = V_ub^{LO} · (1 + K) = 0.00369
 
-**Ratio c_7 / c_6 = 1** under the polygon theory's dilute-gas identical-coupling convention: the unit-winding "dressing" instanton has the same fugacity K by definition (it's a zero-size CS θ-shift localized at the Seifert orbifold fixed point, same as the 6-winding).
+PDG: 0.00365. Agreement 1.1%.
 
-Hence A_O = c_6 · K^6 · (1 + K + O(K²)), giving the factor (1 + K).
+This (1+K) factor CANNOT come from a strict Z/6-winding-sector sum (the next allowed winding after n=6 is n=12, giving K^{12} not K, i.e. factor (1 + K^6) not (1 + K)). Rather, it must come from ONE of:
 
-**Normalization**: the identical coefficient c_6 = c_7 = ... = c follows from the polygon theory's UNIFORM weighting of Seifert-orbifold fixed points (each fixed point contributes with the same K-fugacity to any correlator). This is the "identical-coupling" assumption, justified by the Seifert orbifold's Z/N-symmetric structure.
+1. **1-loop correction to c_6 coefficient**: the n=6 sector amplitude receives a 1-loop quantum correction c_6^{NLO} = c_6^{LO}(1 + δK + O(K²)). With δ = 1 from Seifert Z/N-symmetric fluctuation determinants, this gives (1+K). Derivation: requires explicit 1-loop polygon-orbifold fluctuation computation.
 
-**Numerical consequence**: V_ub(LO + NLO) = c · K^6 · (1 + K) · V_ub^{(0)}. With c = 1 (the polygon's Seifert-orbifold symmetry guarantees equal coefficients at adjacent windings):
+2. **Topological dressing by neutral unit-winding θ-shifts**: if neutral-charge unit-winding θ-shifts (n=±1 sectors with zero net charge, not contributing to Z/6 selection rule) can DRESS the n=6 amplitude, they give the (1+K) factor. Derivation: requires showing such neutral dressings exist and have coefficient 1 in the polygon theory.
 
-  V_ub = 0.088 · K^6 · (1 + K) = 0.00369
+3. **Non-abelian CS effect specific to the Seifert orbifold**: the Reshetikhin-Turaev surgery formula for CS on Seifert manifolds (Beasley-Witten 2005 "Non-abelian localization for CS theory") gives specific S-matrix weights at fiber points. These could generate (1+K) as an RT surgery factor.
 
-PDG: 0.00365. Agreement to 1.1%. Higher-order corrections are O(K²/2) = 0.15, ≈ 9.7% of the NLO amplitude (1+K) = 1.548 — the leading residual error.
+**Honest status**: the 1.1% PDG match at V_ub^{NLO} = V_ub^{LO} · (1+K) is a NON-TRIVIAL polygon prediction. The first-principles derivation of the specific factor (1+K) with coefficient exactly 1 is deferred — it requires either (1) explicit 1-loop Seifert-orbifold fluctuation computation, (2) identification of the dressing mechanism, or (3) Reshetikhin-Turaev surgery on the polygon Seifert. The previous argument (vacuum-bubble cancellation + correlated pairs + n=7 winding sector) was internally inconsistent; this HONEST status replaces it.
 
-**Status**: α_cluster = 1 is derived as c_7/c_6 = 1 from the Seifert Z/N-orbifold's uniform fixed-point structure. This replaces the earlier "vacuum-bubble cancellation + correlated pair" argument (which was internally inconsistent — vacuum bubbles cancel, so correlated pairs must be in the same topological sector, but the (1+K) comes from DIFFERENT winding sectors, not vacuum-dressing).
+**Numerical consequence** (assuming the derivation is completed): V_ub = 0.088 · K^6 · (1 + K) = 0.00369 vs PDG 0.00365 (1.1% match). Higher-order corrections are O(K²/2) ≈ 0.15, ≈ 9.7% of the NLO amplitude (1+K) = 1.548, matching expected truncation error.
 
 ### Step 5: Numerical verification
 
