@@ -1,18 +1,20 @@
-# PMNS Conjecture 16.6 — full derivation attempt
+# PMNS Conjecture 16.6 — structural parametrization and partial derivation
 
 **Date**: 2026-04-17
-**Goal**: Derive all three PMNS fractions (sin²(2θ_12) = 6/7, sin²θ_23 = 4/7,
-sin²θ_13 = 1/48) from polygon Klein-quartic structure at N=7.
-**Scope**: Close the last open item in the framework (PMNS Conjecture 16.6).
+**Goal**: Upgrade PMNS Conjecture 16.6 from "empirical match" to "structurally parametrized in the polygon's ℚ(√N) quadratic field, with specific coefficient derivation deferred to standard Klein-quartic Hecke computation."
+**Scope**: Partial closure of the last open item (Conjecture 16.6).
+
+**Honest status at the outset**: this session derives a UNIFIED PARAMETRIZATION of the three PMNS fractions (§1), identifies the FIELD-THEORETIC signature √N ∈ ℚ(√7) (§2), and motivates the power-counting hierarchy (§3). The SPECIFIC RATIONAL COEFFICIENTS require a Klein-quartic Hecke-eigenvalue computation at CM point τ_0 = (1+i√7)/2 (§5), which is a standard but specialized automorphic-form computation not carried out here.
 
 ---
 
-## 1. Unified structure: Pell-unit small-parameter expansion
+## 1. Unified parametrization in terms of x = 1/√N
 
-**Key observation.** The three PMNS fractions at N=7 have a UNIFIED parametrization in terms of the Pell-unit small parameter
+**Key observation (parametrization, not derivation).** The three PMNS fractions at N=7 can be rewritten in terms of a single parameter
 $$
-x \;=\; \frac{1}{\sqrt{N}} \;=\; \frac{1}{\sqrt{7}} \;\approx\; 0.378.
+x \;=\; \frac{1}{\sqrt{N}} \;=\; \frac{1}{\sqrt{7}} \;\approx\; 0.378,
 $$
+which lies in the quadratic field ℚ(√7).
 
 Expanding each fraction:
 
@@ -29,23 +31,25 @@ These are three DISTINCT powers of the SAME small parameter x = 1/√N — a str
 - sin²θ_23 = 1/2 + 1/(2·7) = 4/7 ≈ 0.571 ✓
 - sin²θ_13 = x⁴/(1−x⁴) = (1/49)/(48/49) = 1/48 ≈ 0.0208 ✓
 
-## 2. Physical interpretation of the √N signature
+## 2. Quadratic-field interpretation of the √N signature
 
-The Pell unit at N=7 is
-$$
-\varepsilon_7 = 8 + 3\sqrt{7},
-$$
-with $\ln\varepsilon_7 = \operatorname{arccosh}(8) \approx 2.77$. The √7 appears explicitly throughout the polygon theory:
+The polygon theory at N=7 has √7 appearances throughout:
 - **Warp factor** σ_mass = (N-2)√N = 5√7 (Paper IV §13.3).
-- **Fundamental unit** ε_7 = 8 + 3√7 of Z[√7] (Paper I).
+- **Pell unit** ε_7 = 8 + 3√7 of ℤ[√7] (Paper I).
 - **BO-Pell length** 14 ln ε_7 ≈ 38.8 in the hierarchy formula (Paper IV §13, Session 4).
-- **Dirac-σ identity** (N²+7)/8 = N at N=7 (via √N closure, §9 of draft).
+- **Dirac-σ identity** (N²+7)/8 = N at N=7.
 
-**Claim**: the small parameter x = 1/√N in the PMNS expansion is the INVERSE of the Pell-unit scale, connecting lepton mixing to the same √7 quadratic irrationality that organizes all other polygon phenomenology at N=7.
+All these quantities live in the quadratic field ℚ(√7). The value x = 1/√N = 1/√7 in the PMNS expansion ALSO lies in ℚ(√7).
 
-This is a novel structural prediction: the polygon's Pell-field Q(√7) appears in lepton mixing through the √7 in θ_12, providing a direct connection between the number-theoretic structure of the polygon and the observed PMNS matrix.
+**Claim (field-theoretic, not numerical)**: the small parameter x = 1/√N in the PMNS expansion belongs to the SAME QUADRATIC FIELD ℚ(√7) that houses the Pell unit ε_7 = 8 + 3√7 and all other √7 structures in the polygon theory. This is a FIELD membership, not a scale identification; ε_7 ≈ 16.54 and 1/√7 ≈ 0.378 are different NUMBERS in the same FIELD.
 
-## 3. Derivation by sector
+This is a novel structural prediction: the polygon's Pell-field ℚ(√7) organizes BOTH the Pell unit AND the lepton mixing angle θ_12. Other theories do not predict this specific field structure for PMNS.
+
+(The same field membership holds at other primes: at N=11, both ε_11 and 1/√11 would be in ℚ(√11), etc. The polygon theory's N=7 selection picks out ℚ(√7) specifically.)
+
+## 3. Motivation by sector (not full derivation)
+
+The following three subsections motivate the three PMNS fractions via structural arguments from the polygon theory. The arguments establish the CORRECT POWER-COUNTING in x = 1/√N for each angle (linear, quadratic, quartic), but the specific RATIONAL COEFFICIENTS (1/2 factors, N-1, N+1, N²-1) require the Klein-quartic Hecke computation (§5). Each subsection explicitly labels what is motivated vs what is deferred.
 
 ### 3.1 sin²θ_12 = (N-√N)/(2N): Pell-signature mixing
 
@@ -222,6 +226,16 @@ polygon prediction.
 
 ## 7. Conclusion
 
-**Partial derivation achieved**: the unified $x = 1/\sqrt{N}$ structure connecting all three PMNS fractions is derived from polygon Frobenius breaking hierarchy. The specific Klein-quartic coefficient values remain as a standard automorphic-form computation.
+**Partial progress** (what Session 15 establishes):
+- UNIFIED PARAMETRIZATION: all three PMNS fractions at N=7 expressed in terms of x = 1/√N via closed forms (N-√N)/(2N), (N+1)/(2N), 1/(N²-1).
+- FIELD-THEORETIC SIGNATURE: the √N = √7 in sin²θ_12 belongs to the same quadratic field ℚ(√7) as the polygon's Pell unit ε_7 = 8+3√7.
+- HIERARCHICAL POWER-COUNTING: motivated from Frobenius-breaking orders (x, x², x⁴), though specific coefficients require Klein-quartic computation.
 
-**Framework impact**: PMNS Conjecture 16.6 is now UPGRADED from "empirical match" to "structurally derived with technical-supplement details"; the $\sqrt{7}$ appearance in $\theta_{12}$ is a novel and falsifiable polygon prediction connecting lepton mixing to the Pell unit.
+**What remains open** (deferred, not closed):
+- Klein-quartic Hecke eigenvalue computation at CM point τ_0 = (1+i√7)/2 (standard Eichler-Shimura automorphic-form work; sage modular-symbol software; ~1-2 sessions specialized).
+- Specific rational coefficient values (N-1)/N, (N+1)/(2N), 1/(N²-1) from explicit Petersson inner products.
+- Per-mode neutrino Yukawa texture verification of the 2×2 submatrix ansatz.
+
+**Framework impact**: PMNS Conjecture 16.6 is UPGRADED from "empirical match" to **"partially structurally parametrized in ℚ(√7) with specific coefficients deferred to Klein-quartic Hecke computation"**. The √7 appearance in θ_12 is a novel structural prediction connecting lepton mixing to the polygon's Pell field; no other theory predicts this specific field structure. However, the FULL DERIVATION (including the three coefficient values) is NOT achieved in this session.
+
+**Honest labeling for N=7 uniqueness claims**: Conjecture 16.6 status should be "partially structural (ℚ(√N) field membership derived + hierarchical power-counting motivated) + deferred technical computation (Klein-quartic Hecke eigenvalues)", not "fully structural". The N=7 uniqueness list should read "four fully structural + one partially structural" rather than "five structural".

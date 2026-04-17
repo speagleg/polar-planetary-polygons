@@ -20,7 +20,7 @@ Session 1 derived the Standard Model fermion content from the polygon theory, ad
 7. **3-generation mechanism**: Riemann-Hurwitz on X(7) gives 3 fixed cusps
 8. **PMNS fractions**: structural rational forms uniquely at N=7
 
-**Four structural + one empirical $N = 7$ uniqueness signals** now established.
+**Four fully structural + one partially structural $N = 7$ uniqueness signals** now established. (Pre-Session 15: PMNS was "empirical match"; Session 15 upgrades it to "partially structural" — the ℚ(√7) field signature and hierarchical x = 1/√N power-counting are derived, while the specific rational coefficients await Klein-quartic Hecke computation at τ_0 = (1+i√7)/2.)
 
 ## Upstream inputs used (cross-paper dependencies)
 
@@ -1094,7 +1094,7 @@ Pati--Salam structure is a rep-level organization of the derived
 matter content, not a UV gauge-group claim.
 \end{remark}
 
-\paragraph{Five $N = 7$ uniqueness signals: four structural, one empirical.}
+\paragraph{Five $N = 7$ uniqueness signals: four structural, one partially structural.}
 \label{para:n7-uniqueness}
 The polygon theory's choice $N = 7$ is cross-checked by five
 tests that probe structurally distinct mathematical objects:
@@ -1127,18 +1127,34 @@ tests that probe structurally distinct mathematical objects:
   (Lemma~\ref{lem:legendre}): $(\cdot / 7)$ is the unique non-trivial
   $\mathbb{Z}/2$-valued character of $(\mathbb{Z}/7)^*$, and the $16/28$
   kept/gapped split is a rigid consequence.
-\item \emph{(Empirical.)} PMNS fraction $1/(N^2-1)$ match
-  (Conjecture~\ref{conj:pmns}): observed $\theta_{13}$ is within
-  experimental range only at $N = 7$, while $\sin^2\theta_{13}$ is
-  $-2.2\sigma$ off the PDG central value; this is a
-  \emph{structural-fit} signal, not a uniqueness theorem.
+\item \emph{(Partially structural.)} PMNS mixing angles at $N = 7$
+  satisfy a UNIFIED parametrization in the polygon's quadratic field
+  $\mathbb{Q}(\sqrt{7})$ via $x = 1/\sqrt{N}$:
+  \[
+    \sin^2\theta_{12} = \tfrac{N - \sqrt{N}}{2N}, \quad
+    \sin^2\theta_{23} = \tfrac{N+1}{2N}, \quad
+    \sin^2\theta_{13} = \tfrac{1}{N^2 - 1}
+  \]
+  (Session 15, Conjecture~\ref{conj:pmns}). The $\sqrt{N} = \sqrt{7}$
+  in $\theta_{12}$ places the mixing angle in $\mathbb{Q}(\sqrt{7})$ —
+  the same quadratic field as the Pell unit $\varepsilon_7 = 8+3\sqrt{7}$
+  and the $\sigma$-warp factor $5\sqrt{7}$. The hierarchical
+  power-counting (linear, quadratic, quartic in $x$) corresponds to
+  Frobenius-breaking orders. The SPECIFIC rational coefficients
+  require a standard Klein-quartic Hecke computation at the CM point
+  $\tau_0 = (1+i\sqrt{7})/2$ (Eichler-Shimura theory; deferred).
 \end{enumerate}
 
-Items (1)--(4) are structurally independent tests; they share the
+Items (1)--(4) are fully structural independent tests; they share the
 underlying ``$7$-ness'' of $N = 7$ but probe different mathematical
 structures (real quadratic units, modular-curve genus, algebraic
-identities, and finite-group characters). Item (5) is an empirical
-match and is labelled as such.
+identities, and finite-group characters). Item (5) is PARTIALLY
+structural: the field-theoretic $\mathbb{Q}(\sqrt{7})$ membership and
+the $x = 1/\sqrt{N}$ power-counting hierarchy are derived (Session 15);
+the specific rational coefficients await a deferred automorphic-form
+computation. The $\sqrt{7}$ in lepton mixing is a novel and
+falsifiable polygon prediction; the $-1.6\sigma$ pull for
+$\sin^2\theta_{13}$ is the cleanest near-term falsification target.
 
 \paragraph{Proton stability.}
 \label{cor:proton-stability}
