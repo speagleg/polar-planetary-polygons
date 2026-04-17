@@ -54,7 +54,24 @@ The physical W mass does NOT depend on the topological mass. It's determined by 
 
 **Ratio**: m_L / m_W ~ 6000 (factor of 1000s separation)
 
-The two scales are RELATED (through M_poly, which enters both via the Seifert radius ℓ = 1/M_poly and via the Higgs scale v ≈ M_poly · ε_7^7 through the electroweak hierarchy formula). But they're NOT the same physical object.
+The two scales enter the theory through different mechanisms. The
+Seifert radius ℓ = 1/M_poly sets the topological mass scale directly
+(m_L, m_R ~ |k_eff|/ℓ, DJT formula). The physical W mass uses the
+Higgs VEV v, which is set by the Planck-to-EW hierarchy formula
+(Paper IV §13, eq. for v at line 3497 ≡ Paper VI Theorem
+`VI-thm:hierarchy`):
+
+  v = M_P / exp(𝓗_7),
+  𝓗_7 = 2·S_BO(7) + Δε·ln(ε_7) + (1/2)·ln(c_11/(24π²)) ≈ 38.46
+
+where S_BO(7) = 18.274 is the WKB tunnelling action of the N=7
+breathing mode and Δε = 0.8031 is the WDW eigenvalue gap. Numerical
+check: M_P/exp(38.46) = 242 GeV vs observed 246.2 GeV (1.7%). The
+Pell unit ε_7 = 8 + 3√7 enters the hierarchy only through the
+sub-leading regulator piece Δε·ln(ε_7) = 2.22, not as a pure power
+ε_7^n. (The pure power ε_7^7 scales M_poly → M_KK for the neutrino
+Dirac seesaw, M_KK = M_poly · ε_7^7 · 6 ≈ 4.7×10^14 GeV, which is a
+different scaling for a different physical object.)
 
 ## SU(2)_L assignment to chirality sector
 

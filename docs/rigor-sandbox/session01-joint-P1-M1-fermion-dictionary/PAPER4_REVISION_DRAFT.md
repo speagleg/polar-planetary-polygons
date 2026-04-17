@@ -291,14 +291,51 @@ Verification: all five exponents $\{n_t, n_c, n_u, n_b, n_s\}
 
 \paragraph{Warp factor coherence.}
 \label{para:sigma-coherence}
-The three warp factors ($\sigma_{\mathrm{geo}} = N$,
-$\sigma_{\mathrm{CKM}} = N-2$, $\sigma_{\mathrm{mass}} = (N-2)\sqrt{N}$)
+The three warp factors
+($\sigma_{\mathrm{geo}} = N$,
+$\sigma_{\mathrm{CKM}} = N-2$,
+$\sigma_{\mathrm{mass}} = (N-2)\sqrt{N}$)
 of \S\ref{sec:warp-tower} derive from $N$ alone via distinct Seifert
-KK processes. Structural identity:
+KK processes; coherence is a \emph{non-trivial consistency} between
+two independent computations of the ratio
+$\sigma_{\mathrm{mass}}/\sigma_{\mathrm{CKM}}$:
+\begin{enumerate}
+\item[(A)] From the $\mathbb{Z}_N$ Yukawa texture plus the RS
+  $e$-fold accounting (\S\ref{sec:warp-tower} (ii), (iii)), in which
+  the CKM warp probes the $S^1$ fiber only and the mass warp probes
+  the full Seifert Dirac operator:
+  \[
+    \sigma_{\mathrm{mass}}/\sigma_{\mathrm{CKM}} = \sqrt{N}.
+  \]
+\item[(B)] From the squared Seifert Dirac eigenvalue
+  $\Lambda^2 = f(m^*, N) + m^2$ on
+  $\mathbf{H}^2 \times_N S^1$ evaluated at the critical mode
+  $m^* = (N-1)/2$, with the RS exponent computed as
+  $\Lambda_{\mathrm{Seifert}}/\Lambda_{S^1}$ at $m = 1$:
+  \[
+    \sigma_{\mathrm{mass}}/\sigma_{\mathrm{CKM}}
+    = \sqrt{f(m^*, N) + 1}
+    = \sqrt{\tfrac{N^2 - 1}{8} + 1}
+    = \sqrt{\tfrac{N^2 + 7}{8}}.
+  \]
+\end{enumerate}
+Route~(A) uses the Yukawa-texture count of massive KK modes (polygon
+combinatorics); route~(B) uses the Havelock Casimir on $\mathbf{H}^2$
+at the critical mode. They are independent derivations, and their
+consistency
 \begin{equation}\label{eq:sigma-unique}
-  \sigma_{\mathrm{mass}} / \sigma_{\mathrm{CKM}} = \sqrt{(N^2 + 7)/8}
+  \sqrt{N} = \sqrt{\tfrac{N^2 + 7}{8}}
+  \qquad\Longleftrightarrow\qquad
+  (N-1)(N-7) = 0
 \end{equation}
-equals $\sqrt{N}$ iff $(N-1)(N-7) = 0$. Non-trivial: $N = 7$ UNIQUELY.
+selects $N \in \{1, 7\}$. The trivial case $N = 1$ is excluded
+(single-vortex has no polygon structure); hence $N = 7$ uniquely.
+
+This is \emph{not} an identity among the definitions: definitions give
+$\sigma_{\mathrm{mass}}/\sigma_{\mathrm{CKM}} = \sqrt{N}$
+tautologically, whereas route~(B) computes the same ratio from an
+independent geometric object (the Dirac spectrum on the Seifert
+manifold). The two agree only at $N = 7$.
 
 \begin{remark}[UV gauge group: Position B]
 \label{rem:uv-gauge}

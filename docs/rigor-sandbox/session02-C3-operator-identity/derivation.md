@@ -7,32 +7,42 @@
 
 ## Theorem (Operator identity with domain)
 
-**Theorem**. Let A = ω + e/ℓ be the Chern-Simons connection on H², where ω is the spin connection and e is the dreibein (Witten 1988 CS/gravity decomposition). Let Φ be a section of a bundle over H² transforming in representation R of the gauge group, with covariant derivative D_μ = ∂_μ − i A_μ^a T^a_R.
+**Setup.** Let $A = \omega + e/\ell$ be the Witten SL(2,ℝ) Chern–Simons connection on **H²** (Witten 1988), where $\omega$ is the spin connection and $e$ is the dreibein. Let $\Phi$ be a section of an associated vector bundle in representation $R$ of sl(2,ℝ) with generators $T^a_R$ (a = 1, 2, 3), and define the covariant derivative $D_\mu \Phi = \partial_\mu \Phi + A_\mu^a\,T^a_R\,\Phi$ in the local gauge.
 
-Then the covariant Laplacian D² = g^{μν} D_μ D_ν satisfies:
+The covariant Laplacian is $D^2 \Phi = g^{\mu\nu} D_\mu D_\nu \Phi$, where $D_\mu$ also carries the metric Christoffel connection when needed. The Weitzenböck–Lichnerowicz identity is
+$$
+D^2 \Phi = \nabla^*\nabla\,\Phi + \mathcal{R}(F, T_R)\,\Phi,
+$$
+where $\nabla^*\nabla$ is the metric rough Laplacian and
+$$
+\mathcal{R}(F, T_R) = \tfrac{1}{2}\,g^{\mu\rho}g^{\nu\sigma}\,F^a_{\mu\nu}\,T^a_R \cdot (\text{spin connection coupling})
+$$
+is the standard Weitzenböck curvature term built from the field strength $F^a = dA^a + \tfrac{1}{2}\varepsilon^{abc} A^b \wedge A^c$ and the generators $T^a_R$. Its precise form depends on the tensor type of $\Phi$:
 
-**Case 1 (trivial R = 1, scalars)**:
-```
-D² φ = Δ_{H²} φ
-```
-exactly, for any scalar φ on H².
+| $R$ | $\nabla^*\nabla - \Delta_{\mathbf{H}^2}$ | Curvature coupling $\mathcal{R}(F, T_R)$ |
+|-----|---|---|
+| **trivial** (scalar) | $0$ | $0$ (since $T^a_R \equiv 0$) |
+| **spinor** ($s = 1/2$) | $0$ | $R_{\mathrm{scalar}}/4$ (Lichnerowicz) |
+| **vector** ($s = 1$) | $0$ | $\mathrm{Ric}$-coupling |
+| **spin-$k$ tensor** | $0$ | $\propto k(k+1)\cdot R_{\mathrm{scalar}}$ |
 
-**Case 2 (non-trivial R)**:
-```
-D² φ = Δ_{H²} φ + C_R(A) · φ
-```
-where C_R(A) is a representation-dependent curvature/commutator correction given by:
-```
-C_R(A) = -(1/2) R_{μν}^{ab} T^a_R T^b_R · (something)
-```
-Concretely, for representation R with generators T^a_R and curvature F = dA + A ∧ A:
+**Case 1 (trivial $R$, scalars).** Because $T^a_R \equiv 0$ in the trivial representation, every term in $D_\mu$ and $\mathcal{R}(F, T_R)$ involving $T^a$ vanishes identically:
+$$
+D_\mu \phi = \partial_\mu \phi + \underbrace{A^a_\mu T^a_R}_{= 0}\phi = \partial_\mu \phi.
+$$
+The gauge connection $A = \omega + e/\ell$, whose components $\omega_\mu^{ab}$ and $(e/\ell)_\mu^{ab}$ act on Lorentz indices, drops out. The only remaining contribution to $D^2\phi$ is the metric Laplace–Beltrami operator,
+$$
+D^2 \phi = g^{\mu\nu}\,\partial_\mu \partial_\nu \phi
+        - g^{\mu\nu}\,\Gamma^\lambda_{\mu\nu}\,\partial_\lambda \phi
+        = \Delta_{\mathbf{H}^2}\,\phi.
+$$
+This is an exact identity, not an approximation.
 
-- **R = trivial (scalar)**: C_R = 0.
-- **R = fundamental of sl(2,ℝ) (e.g., spinor, 2-component)**: C_R = R_{scalar}/4 (Lichnerowicz).
-- **R = adjoint (j = 1, spin-1)**: C_R = R_{scalar}/2 (for spin-1 Laplacian: "rough Laplacian" + Ricci correction).
-- **R = tensor (spin-k)**: C_R scales with k(k+1).
-
-On H² with Gauss curvature K = −1 (hence scalar curvature R = −2K = 2... wait, sign conventions).
+**Case 2 (non-trivial $R$).** For non-trivial $T^a_R$, $D^2\Phi$ picks up (a) the gauge-kinetic pieces $A^\mu A_\mu \Phi$ and $(\nabla \cdot A)\Phi$ and (b) the Weitzenböck curvature term $\mathcal{R}(F, T_R)\Phi$. The Lichnerowicz formula gives the clean result
+$$
+D^2 \Phi = \Delta_{\mathbf{H}^2}\,\Phi + C_R\,R_{\mathrm{scalar}}\,\Phi + (\text{terms in } F^a_{\mu\nu})
+$$
+with $C_R$ a representation-dependent constant (Lichnerowicz 1963, Weitzenböck 1923): $C_R = 1/4$ for spinors, $C_R = 0$ for scalars, $C_R \propto$ higher in tensor rank for higher spin. On $\mathbf{H}^2$ with Gauss curvature $K = -1$, the scalar curvature is $R_{\mathrm{scalar}} = -2$ (metric convention: $R^\rho{}_{\sigma\mu\nu} = \partial_\mu \Gamma^\rho_{\nu\sigma} - \ldots$ and Ricci $R_{\mu\nu} = K g_{\mu\nu}$ in 2D), giving the standard Dirac shift $D^2_{\mathrm{Dirac}} = \Delta - 1/2$ on spinors.
 
 ### Restricted to Z/N-equivariant scalars
 
