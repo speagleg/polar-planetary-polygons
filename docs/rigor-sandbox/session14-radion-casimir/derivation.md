@@ -174,70 +174,60 @@ The specific numerical coefficient is retracted; the order-of-magnitude M_poly s
 
 ## 6. Robustness check and caveats
 
-**Cross-checks:**
-- Fermion dominance of $|C_{\mathrm{total}}|$: with 48 Weyl vs ~27 bosonic DOF,
-  the imbalance is structural, not fine-tuned.
-- $R_\star \sim 3\,\ell$: slightly larger than the naive $\ell$-scale; reflects
-  the specific coefficient from the DOF counting.
-- $m_\sigma/M_{\mathrm{poly}} \sim 0.83$: within the "O(1) of $M_{\mathrm{poly}}$"
-  expected from dimensional analysis.
+**What IS established:**
+- The 1-loop Casimir coefficient $|C_{\mathrm{total}}| \approx 36.4$ is
+  rigorously computed from Hurwitz-zeta regularization + representative
+  Scherk-Schwarz twist assignments. Fermion dominance (|C_fermion|/|C_boson|
+  ~ 10) is structural.
+- The Casimir potential $V_{\mathrm{Casimir}}(R) = |C|/R^4$ with
+  $|C| \approx 36.4$ is well-defined.
+- The radion mass is $m_\sigma \sim M_{\mathrm{poly}}$ by dimensional analysis.
+
+**What is NOT established** (see §4-5 above):
+- A specific numerical coefficient for $m_\sigma$ in terms of $M_{\mathrm{poly}}$.
+  The prior claim "$m_\sigma \approx 0.83\,M_{\mathrm{poly}}$" is RETRACTED
+  (based on an incorrect potential with no stable minimum).
+- The specific stabilization mechanism (boundary-CFT Λ_eff, higher-loop
+  corrections, non-perturbative effects, or topological orbifold effects).
 
 **Caveats:**
 1. The SS twist assignments ($q_{\mathrm{eff}} = 1/2$ for Higgs and average
    fermion, $q_{\mathrm{eff}} = 0$ for gauge bosons) are representative; a full
    polygon-specific calculation would enumerate each field's exact twist from
    its Z/7 × Z/4 quantum numbers and Legendre projection assignment.
-2. The AdS₃ cosmological constant contribution to the fiber tension is
-   standard Appelquist–Chodos; the coefficient may receive O(1) corrections
-   from the Seifert orbifold structure.
-3. The numerical coefficient $0.83$ is accurate to ~20 % from the
-   representative-twist approximation; a precise coefficient would require
-   per-mode enumeration.
+2. The Casimir alone (V = |C|/R⁴) is monotonic and does NOT stabilize R.
+   A specific stabilizing mechanism (boundary-CFT Λ, higher-order, or
+   non-perturbative) is required to fix R_star.
 
-**What IS established at this level:**
-- The radion is massive (not massless as pure Scherk–Schwarz would suggest).
-- The mass scale is $\sim M_{\mathrm{poly}}$ (order unity in polygon units).
-- Specifically, $m_\sigma \approx 0.83\,M_{\mathrm{poly}} \approx 250$ TeV at
-  the polygon scale, consistent with the dimensional estimate in
-  Session 11 §3.
-- The mass is driven by FERMION Casimir + AdS₃ tension balance, not by
-  Scherk–Schwarz alone.
-
-## 7. Integration with Session 11
-
-This derivation supersedes the parametric estimate in Session 11 §3 ("Radion
-mass from moduli stabilization"). The numerical value $m_\sigma \approx 0.83\,
-M_{\mathrm{poly}}$ is the leading-order explicit result; the O(1) uncertainty
-from per-mode twist enumeration is labeled in Paper IV main text.
-
-Proposed Paper IV §5 Remark update:
+## 7. Proposed Paper IV §5 Remark update
 
 ```latex
-\emph{Radion mass.} The radion $\sigma$ is gapped at 1-loop via Casimir
-tension + AdS$_3$ fiber tension (Session 14). Specifically, the 1-loop
-Casimir sum over polygon KK towers gives a total coefficient
-$C_{\mathrm{Casimir}} \approx -36.4$ (fermion-dominated), balanced by
-an AdS$_3$ tension $T = |\Lambda|/(8\,G_3) = 3\,M_{\mathrm{poly}}^3/7$,
-giving a stable minimum at $R_\star \approx 3.2/M_{\mathrm{poly}}$ and
-radion mass
-\[
-  m_\sigma \;\approx\; 0.83\,M_{\mathrm{poly}} \;\approx\; 250\,\text{TeV}
-  \qquad (\text{at } M_{\mathrm{poly}} = 300\,\text{TeV}).
-\]
-This is consistent with the order-of-magnitude estimate $m_\sigma \sim
-M_{\mathrm{poly}}$ from Session 11, now with explicit numerical
-coefficient at leading Casimir order.
+\emph{Radion mass.} The radion $\sigma$ is heavy at the polygon scale.
+The 1-loop Casimir sum over polygon KK towers gives a total coefficient
+$|C_{\mathrm{Casimir}}| \approx 36.4$ (fermion-dominated, Hurwitz-zeta
+regularized; Session~14). By dimensional analysis, the radion mass is
+$m_\sigma \sim M_{\mathrm{poly}} \sim 300$\,TeV. A specific numerical
+coefficient requires identifying the stabilizing mechanism (boundary-CFT
+$\Lambda_{\mathrm{eff}}$, higher-loop Casimir, or non-perturbative
+orbifold effects); this is deferred. The order-of-magnitude estimate
+suffices to place the radion above the EW scale by $\sim 10^3$ and thus
+hidden from current experiments.
 ```
 
 ## 8. Status
 
-**Radion 1-loop Casimir DERIVED**:
+**Radion 1-loop Casimir COEFFICIENT DERIVED**:
 - Hurwitz-zeta regularization applied to each polygon KK tower.
 - Explicit DOF counting: 96 fermion DOF (twisted) + ~30 boson DOF (mixed twist).
-- Stable minimum at $R_\star \approx 3.2\,\ell$ from Casimir + AdS₃ tension
-  balance.
-- Radion mass $m_\sigma \approx 0.83\,M_{\mathrm{poly}}$ at leading order.
+- Total Casimir coefficient $|C_{\mathrm{total}}| \approx 36.4$ (fermion-dominated).
 
-The last parametric item in the rigor sandbox is now closed with an explicit
-numerical value. Remaining open item: PMNS Conjecture 16.6 (Klein-quartic
-modular forms), Task #13 — distinct physics (mixing angles, not masses).
+**Radion mass SCALE established**:
+- $m_\sigma \sim M_{\mathrm{poly}}$ from dimensional analysis.
+- Specific numerical coefficient DEFERRED to a full polygon-specific
+  stabilization mechanism.
+- Previous claim $m_\sigma \approx 0.83\,M_{\mathrm{poly}}$ is RETRACTED
+  (§4.1 shows V = |C|/R⁴ alone has no stable minimum; the prior sign flip
+  was incorrect).
+
+Remaining open item: PMNS Conjecture 16.6 (Klein-quartic modular forms),
+Task #13 — distinct physics (mixing angles, not masses).

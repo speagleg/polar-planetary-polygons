@@ -313,22 +313,23 @@ m_{\mathrm{radion}} \;\sim\; \sqrt{1/R^4} \cdot R^{-1} \cdot R
 \;\sim\; 1/R \;=\; M_{\mathrm{poly}}.
 $$
 
-\emph{Status}: the dimensional estimate above is superseded by the
-explicit 1-loop computation in
-`session14-radion-casimir/derivation.md`. The Session 14 result, using
-Hurwitz-zeta regularization + Appelquist-Chodos Casimir formula + AdS_3
-fiber tension balance, gives
+\emph{Status}: Session 14 (`session14-radion-casimir/derivation.md`) rigorously
+derives the 1-loop Casimir coefficient $|C_{\mathrm{Casimir}}| \approx 36.4$
+(fermion-dominated, Hurwitz-zeta regularized). However, the Casimir alone
+$V(R) = |C|/R^4$ is monotonically decreasing in $R$ and does NOT stabilize
+the radion; a specific stabilizing mechanism is required. The resulting
+radion mass is
 $$
-m_\sigma \;\approx\; 0.83\,M_{\mathrm{poly}} \;\approx\; 250\,\mathrm{TeV}
+m_\sigma \;\sim\; M_{\mathrm{poly}} \;\sim\; 300\,\mathrm{TeV}
 $$
-at $M_{\mathrm{poly}} = 300$\,TeV, consistent with the dimensional
-estimate. The mass is driven by FERMION Casimir (48 Weyl dominates) +
-AdS_3 bulk cosmological-constant tension; Scherk-Schwarz alone would
-give zero mass (integer $q e$), so the moduli-stabilization mechanism
-is essential.
+by dimensional analysis, with the specific numerical coefficient deferred
+pending identification of the stabilization mechanism (boundary-CFT
+$\Lambda_{\mathrm{eff}}$, higher-loop Casimir, or non-perturbative
+orbifold effects). Scherk-Schwarz alone gives zero mass (integer $q e$ at
+$q = 2$), so moduli stabilization is essential.
 
-Cite Session 14 as the authoritative radion-mass derivation; this
-subsection provides the conceptual framing.
+Cite Session 14 for the Casimir coefficient and dimensional-estimate
+conclusion; the specific stabilization mechanism is an open item.
 
 **Interpretation.** The graviphoton is gapped via Scherk-Schwarz
 twisted KK at half-integer charge $q e$; this IS the
