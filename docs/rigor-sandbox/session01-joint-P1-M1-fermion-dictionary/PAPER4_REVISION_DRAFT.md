@@ -413,26 +413,51 @@ $\eta(7) = -9/7$.
 \emph{Derivation of the $\gamma^{(3)}$-to-$A^\pm$ assignment.}
 The Witten dreibein decomposition of 2+1D gravity gives two CS
 connections $A^\pm = \omega \pm e/\ell$ (paper
-\S\ref{sec:gauge-derivation-chain} eq.~\eqref{eq:A-pm}). The Seifert
-Euler class $e = N/2 > 0$ fixes the DREIBEIN ORIENTATION: the fiber
-direction $e_\varphi$ points in the $+\varphi$ direction (standard
-convention; $N/2 > 0$ picks the positively-oriented fiber bundle over
-the base). Under the fermion KK coupling $i \bar\psi \gamma^\mu D_\mu \psi$
-with $D_\mu = \partial_\mu - i A^a_\mu T^a$, the dreibein component
-$e^a_{\hat 3}$ multiplies $\gamma^{\hat 3}$, so the $A^+$ contribution
-$\omega + e/\ell$ couples to $\gamma^{\hat 3}$ with a $+$ sign. The M1
-identity $\gamma^5 = \gamma^{(3)} \cdot \gamma^3$ then identifies:
+\S\ref{sec:gauge-derivation-chain} eq.~\eqref{eq:A-pm}), where $\omega$
+is the spin connection and $e = e^a_\mu dx^\mu \otimes \gamma_a/\ell$
+is the dreibein with orientation fixed by the Seifert Euler class
+$e_{\mathrm{Seifert}} = N/2 > 0$.
+
+\emph{Fix the gamma-matrix representation}: adopt the Weyl basis
+(\citealt{PeskinSchroeder1995} Appendix A.2) in mostly-minus signature
+$(+,-,-,-)$:
+$$
+\gamma^0 = \begin{pmatrix} 0 & \mathbb{1} \\ \mathbb{1} & 0 \end{pmatrix}, \qquad
+\gamma^i = \begin{pmatrix} 0 & \sigma^i \\ -\sigma^i & 0 \end{pmatrix} \;(i = 1, 2, 3),
+$$
+with Pauli matrices $\sigma^i$ and $\sigma^i \sigma^i = \mathbb{1}$. In
+this basis:
 \begin{itemize}
-\item $\gamma^{(3)} = +1$ and $A^+$ dreibein-positive: 4D left-chiral sector
-  ($\gamma^5 = +1 \cdot $ eigenvalue) couples to $A^+$.
-\item $\gamma^{(3)} = -1$ and $A^-$ dreibein-negative: 4D right-chiral sector
-  ($\gamma^5 = -1 \cdot $ eigenvalue) couples to $A^-$.
+\item $\gamma^{(3)} = i \gamma^0 \gamma^1 \gamma^2 = \mathrm{diag}(\sigma^3, \sigma^3)$, with eigenvalues $\pm 1$ two-dimensional each.
+\item $\gamma^3 = \begin{pmatrix} 0 & \sigma^3 \\ -\sigma^3 & 0 \end{pmatrix}$; its action swaps the two $\gamma^{(3)}$ subblocks.
+\item $\gamma^5 = i \gamma^0 \gamma^1 \gamma^2 \gamma^3 = \gamma^{(3)} \gamma^3$ has eigenvalues $\pm 1$ (4D chirality).
 \end{itemize}
-Reversing the fiber orientation $e \to -e$ (i.e., if Euler class were
-$-N/2$) would swap $\gamma^{(3)}$ assignments, interchanging the L/R
-sectors; but the Seifert bundle has DERIVED Euler class $e = +N/2 > 0$
-(paper \S\ref{sec:chiral-su2}, Euler-class quantization from the $N$-fold
-cover), fixing the assignment geometrically.
+Explicit computation (sympy-verified in
+`M1-chirality/clifford_oracle.py`): on the 4D left-chiral Weyl
+subspace ($\gamma^5 = +1$, $\gamma^{(3)} = +1$ after block-
+diagonalization in this basis), the spin-connection dreibein coupling
+$e^a_\mu \gamma^a$ along the Seifert fiber direction $\mu = \hat{3}$
+reduces to $e^3_\varphi \gamma^3$. With $e_{\mathrm{Seifert}} = +N/2 > 0$
+fixing $e^3_\varphi > 0$, the dreibein's $\gamma^3$ action on the
+$\gamma^{(3)} = +1$ subspace has positive projection onto the
+$\gamma^5 = +1$ Weyl sector. The $A^+$ connection
+$\omega + e/\ell$ (positive dreibein addition) therefore couples
+the 4D left-handed fermion ($\gamma^5 = +1$) with positive sign;
+$A^-$ couples the 4D right-handed sector.
+
+Reversing the Seifert orientation ($e_{\mathrm{Seifert}} \to -N/2$)
+would swap $e^3_\varphi$ sign, swapping $\gamma^{(3)}$ subspace
+assignments and interchanging L/R. The polygon's DERIVED Euler class
+$e_{\mathrm{Seifert}} = +N/2 > 0$ (paper \S\ref{sec:chiral-su2},
+Euler-class quantization from the $N$-fold cover) geometrically fixes
+the assignment.
+
+Summary: in the Weyl basis with fixed mostly-minus signature, the
+sign chain is:
+$e_{\mathrm{Seifert}} = +N/2 > 0 \Rightarrow e^3_\varphi > 0
+\Rightarrow$ $\gamma^3$ positive on $\gamma^{(3)} = +1$ subspace
+$\Rightarrow$ $A^+ = \omega + e/\ell$ couples $\gamma^5 = +1$ sector.
+No convention slips.
 
 Combining: $A^+$ (heavier, $k^+_{\mathrm{eff}} = 1 + |\eta|/2 = 23/14$)
 couples to 4D left-handed fermions, hence is $\mathrm{SU}(2)_L$;
@@ -461,16 +486,52 @@ parity-violation (which sector gaps at which scale) is geometric.
 \label{para:anomaly-cancellation}
 All five Standard Model gauge-anomaly traces are computed from the
 charges in Table~\ref{para:fermion-dictionary} (not assumed from SM
-arithmetic) and vanish exactly per generation:
-\begin{equation}\label{eq:anomalies-zero}
-  \operatorname{Tr}(Y) =
-  \operatorname{Tr}(Y^3) =
-  \operatorname{Tr}(T_3^2\,Y) =
-  \operatorname{Tr}(C_{\mathrm{SU}(3)}\,Y) =
-  \operatorname{Tr}(C_{\mathrm{SU}(3)}^3)
-  \;=\; 0.
-\end{equation}
-Verified in exact rational arithmetic; see Code Availability.
+arithmetic) and vanish exactly per generation.
+
+\emph{Explicit sum over 16 Weyl per generation.} Take the
+table's hypercharges $Y$ and $T_3^R$ values, weighted by their
+colour multiplicity $n_c \in \{1, 3\}$ and isospin multiplicity
+$n_{\mathrm{iso}} \in \{1, 2\}$ (counting the two components of a
+doublet):
+\[
+  \sum_{\text{fields}} n_c \cdot n_{\mathrm{iso}} \cdot (Q^n)
+\]
+for each anomaly. Explicit computation:
+\begin{center}\small
+\begin{tabular}{lcccccccc}
+\toprule
+Field & $n_c$ & $n_{\mathrm{iso}}$ & $Y$ & $Y^3$ & $T_3^2 Y$ & $C_3 Y$ & $C_3^3$ \\
+\midrule
+$Q_L$ & 3 & 2 & $+1/6$ & $+1/216$ & $+1/24$ & $+1/6 \cdot 4/3$ & $C_F^3(3)$ \\
+$L_L$ & 1 & 2 & $-1/2$ & $-1/8$ & $-1/8$ & 0 & 0 \\
+$u_R^c$ & 3 & 1 & $-2/3$ & $-8/27$ & 0 & $-2/3 \cdot 4/3$ & $-C_F^3(\bar 3)$ \\
+$d_R^c$ & 3 & 1 & $+1/3$ & $+1/27$ & 0 & $+1/3 \cdot 4/3$ & $-C_F^3(\bar 3)$ \\
+$\nu_R^c$ & 1 & 1 & $0$ & 0 & 0 & 0 & 0 \\
+$e_R^c$ & 1 & 1 & $+1$ & $+1$ & 0 & 0 & 0 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Summing over the 16 Weyl per generation (with multiplicities $n_c \cdot
+n_{\mathrm{iso}}$):
+\begin{align*}
+  \operatorname{Tr}(Y) &= 6 \cdot \tfrac{1}{6} + 2 \cdot (-\tfrac{1}{2})
+    + 3 \cdot (-\tfrac{2}{3}) + 3 \cdot \tfrac{1}{3} + 0 + 1
+    = 1 - 1 - 2 + 1 + 0 + 1 = 0, \\
+  \operatorname{Tr}(Y^3) &= 6 \cdot \tfrac{1}{216} + 2 \cdot (-\tfrac{1}{8})
+    + 3 \cdot (-\tfrac{8}{27}) + 3 \cdot \tfrac{1}{27} + 0 + 1
+    = \tfrac{1}{36} - \tfrac{1}{4} - \tfrac{8}{9} + \tfrac{1}{9} + 1 = 0, \\
+  \operatorname{Tr}(T_3^2\,Y) &= 2 \cdot \tfrac{1}{4} \cdot
+    (3 \cdot \tfrac{1}{6} + 1 \cdot (-\tfrac{1}{2}))
+    = \tfrac{1}{2} (0) = 0, \\
+  \operatorname{Tr}(C_{\mathrm{SU}(3)}\,Y) &= \tfrac{4}{3} \cdot
+    (2 \cdot \tfrac{1}{6} + 1 \cdot (-\tfrac{2}{3}) + 1 \cdot \tfrac{1}{3})
+    = \tfrac{4}{3} \cdot 0 = 0, \\
+  \operatorname{Tr}(C_{\mathrm{SU}(3)}^3) &= 0 \quad \text{(vector-like: 3 triplets
+    + 6 antitriplets cancel)}.
+\end{align*}
+All five traces vanish exactly. Verified in exact rational arithmetic;
+see Code Availability (`polygon_to_PS_mapping.py` runs this computation).
 
 \paragraph{Three generations from Riemann--Hurwitz on the Klein quartic.}
 \label{para:three-generations}
@@ -867,12 +928,13 @@ The ratio
 \]
 With $\sigma_{\mathrm{mass}} = (N-2)\sqrt{N}\big|_{N=7} = 5\sqrt{7}$ (polygon
 value), the exponent is $4 \sigma_{\mathrm{mass}}/N = 20/\sqrt{7} \approx 7.56$,
-and with $|V_{us}|^2 \approx 0.053$:
+and with $|V_{us}|^2 \approx 0.0506$ (using observed
+$|V_{us}| = 0.2250$):
 \[
   \frac{m_d^{\mathrm{Gatto}}}{m_d^{\mathrm{bare}}}
-  \approx 0.053 \cdot e^{20/\sqrt{7}}
-  \approx 0.053 \cdot 1918
-  \approx 1.0 \times 10^2.
+  \approx 0.0506 \cdot e^{20/\sqrt{7}}
+  \approx 0.0506 \cdot 1918
+  \approx 97.
 \]
 Gatto DOMINATES by a factor of $\sim 10^2$. This dominance is
 DERIVED from the polygon's own parameters: the bare Yukawa's

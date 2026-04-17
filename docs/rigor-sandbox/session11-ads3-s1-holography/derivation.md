@@ -288,23 +288,35 @@ At $M_{\mathrm{poly}} = 300$\,TeV: $m_{\mathrm{graviphoton}} = 150$\,TeV
 ZERO because its charge $q = 2$ times half-integer Euler gives integer;
 this mode requires a SEPARATE mechanism to acquire a mass.
 
-**Radion mass from moduli stabilization.** The radion $\sigma$ is the
-modulus for the fiber size. Its potential at 1-loop on the Seifert
-$M_4 = \mathrm{AdS}_3 \times S^1$ receives a Casimir contribution
-$V_{\mathrm{Casimir}}(\sigma) \sim \sigma^{-4}$ (standard on $S^1$
-compactification; see \citealt{Appelquist1983}) plus topological
-contributions from the Seifert Euler class. At the stable minimum
-$\sigma_\star$ fixed by the polygon orbifold structure, the radion
-fluctuation has mass
+**Radion mass from moduli stabilization (parametric estimate).** The
+radion $\sigma$ is the modulus for the fiber size. Its potential at
+1-loop on the Seifert $M_4 = \mathrm{AdS}_3 \times S^1$ receives a
+Casimir contribution $V_{\mathrm{Casimir}}(\sigma)$ from the KK tower on
+$S^1$ plus topological contributions from the Seifert Euler class
+(\citealt{Appelquist1983}; Seifert corrections analogous to those in
+orbifold-compactification literature). By dimensional analysis, with
+the stable minimum $\sigma_\star \sim R$ (fiber radius) and $V \sim 1/R^4$
+(inverse 4-volume scaling), the radion fluctuation mass satisfies
 $$
 m^2_{\mathrm{radion}} \;\sim\; \frac{d^2 V}{d\sigma^2}\bigg|_{\sigma_\star}
-\;\sim\; \frac{1}{R^4} \cdot R^2 = \frac{1}{R^2} = M_{\mathrm{poly}}^2,
+\;\sim\; \frac{1}{\sigma_\star^6} \cdot \sigma_\star^2
+\;=\; \frac{1}{\sigma_\star^4}
+\;\sim\; M_{\mathrm{poly}}^4,
 $$
-giving $m_{\mathrm{radion}} \sim M_{\mathrm{poly}} \approx 300$\,TeV. The
-precise coefficient requires the 1-loop Casimir integral on AdS₃ × S¹,
-which is an open technical computation; the ORDER OF MAGNITUDE
-$M_{\mathrm{poly}}$ is set by the only dimensionful scale in the
-problem.
+giving $m_{\mathrm{radion}} \sim M_{\mathrm{poly}}^2 \cdot R = M_{\mathrm{poly}}$
+at $\sigma_\star \sim R$.
+
+\emph{Status}: this is a PARAMETRIC estimate by dimensional analysis,
+NOT a derived value. The precise numerical coefficient (prefactor of
+$M_{\mathrm{poly}}$) requires a 1-loop Casimir integral on AdS_3 × S^1
+with Seifert boundary conditions, which is an open technical
+computation. The ORDER OF MAGNITUDE $M_{\mathrm{poly}} \sim 300$\,TeV
+is set by the only dimensionful scale in the problem.
+
+The Paper IV main-text claim (§5 Remark rmk:kk-dof) that the radion is
+massive "at polygon scale" is consistent with this parametric
+estimate; the honest status is "parametric, not derived" pending the
+full 1-loop calculation.
 
 **Interpretation.** The graviphoton is gapped via Scherk-Schwarz
 twisted KK at half-integer charge $q e$; this IS the
