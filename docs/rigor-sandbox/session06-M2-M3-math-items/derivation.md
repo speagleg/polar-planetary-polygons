@@ -24,9 +24,41 @@ Three spectral criteria force the fiber to be 1-dim and hence S¹:
 
 (Note: metric deformations CAN split Laplacian degeneracies — the reviewer's correct observation. The topology argument does not rest on "spectrum-invariance under metric deformation." It rests on 1-manifold classification plus the spectral data ruling out higher dimensions.)
 
-**The round metric is fixed separately** by the Brown-Henneaux asymptotic-symmetry analysis: central charge c = 12 b(N) requires AdS₃-asymptotic boundary conditions at the conformal boundary, which pin the bulk metric (up to diffeomorphism) to the round H² × S¹ form. The identification is not circular: Brown-Henneaux takes the bulk metric asymptotics as input and computes c; the paper's independent derivation of c = 12 b(N) from the Seifert KK structure (Paper III §graviton) then forces the round metric to match.
+**The round metric of the base AdS_3 is fixed separately** by the
+Brown-Henneaux asymptotic-symmetry analysis. Crucially, Brown-Henneaux
+applies to the AdS_3 BASE (= R × H² with the hyperbolic metric),
+not to the S¹ fiber. The mechanism:
+- Brown-Henneaux on AdS_3: conformal boundary asymptotics require the
+  AdS_3 metric to be locally hyperbolic with specific 2D boundary
+  structure at ρ → ∞. This fixes the H² part of the bulk metric to
+  the round hyperbolic form (up to diffeomorphism).
+- The S¹ fiber metric: its size (radius R) is fixed by the Seifert
+  bundle Euler class and the AdS_3 boundary central charge; its
+  SHAPE (the 1D metric profile) is constant by rotational isometry
+  (any non-round S¹ metric on a fiber breaks the U(1) Seifert
+  isometry, which is required for the gauge structure).
 
-So the paper's combined structure fixes: fiber topology = S¹ (by 1-manifold classification + spectral dimension), metric = round (by Brown-Henneaux c = 12 b(N) matching).
+So the metric-fixing argument has two INDEPENDENT uses of
+Brown-Henneaux / asymptotic symmetry:
+1. On ∂AdS_3 (the 2D cylinder): gives c = 12 b(N) Virasoro
+   (Session 11 §1). Fixes the H² base metric to round.
+2. On the S¹ fiber: U(1) rotational isometry of the Seifert bundle
+   (required for KK modes to be well-defined) fixes the fiber metric
+   to constant radius.
+
+These are two SEPARATE applications to two SEPARATE factors
+(AdS_3 base vs S¹ fiber); no circularity or double-use.
+
+Cross-reference: Session 11 uses Brown-Henneaux on ∂AdS_3 to compute
+the boundary Virasoro; Session 6 (this document) uses it on the base
+metric only. The fiber-metric fix is by U(1) isometry, not by
+Brown-Henneaux.
+
+So the paper's combined structure fixes: fiber topology = S¹ (by
+1-manifold classification + Weyl-law spectral dimension), fiber
+metric = constant radius (by U(1) isometry of Seifert bundle), base
+metric = round hyperbolic (by Brown-Henneaux on ∂AdS_3 with
+c = 12 b(N) matching).
 
 **(b) Orbifold circle quotients S¹/Γ**. Compact connected 1-manifolds admit only trivial finite group actions:
 - Γ = Z_k acting by rotation: S¹/Z_k ≃ S¹ (homeomorphic), just with different circumference L' = L/k.

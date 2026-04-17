@@ -1,11 +1,18 @@
 # Session 7 — LOW priority rigor items
 
+**⚠ PARTIALLY SUPERSEDED**: the 4D-graviton SO(2) identification
+(Item 2 below) is superseded by:
+- `session08-graviton-rigor/derivation.md` (full SO(2) + Fourier derivation)
+- `session11-ads3-s1-holography/derivation.md` (authoritative holographic dictionary)
+
+The $\sin^2\theta_W$ running discussion (Item 1) remains current.
+
 **Date**: 2026-04-17
 **Scope**: finish the two LOW-priority reviewer items from
 `session01-joint-P1-M1-fermion-dictionary/REVIEWER_FEEDBACK.md`:
-  1. Honest $\sin^2\theta_W$ running language
+  1. Honest $\sin^2\theta_W$ running language (current)
   2. 4D graviton KK lift — explicit boundary-SO(2) ↔ 4D transverse-SO(2)
-     construction
+     construction (SUPERSEDED by 08/11)
 
 ---
 

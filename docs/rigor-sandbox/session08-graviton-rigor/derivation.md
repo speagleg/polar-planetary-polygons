@@ -176,7 +176,26 @@ T^\prime = e^{-2 i \alpha}\,T.
 $$
 Matching to the helicity field rule $\Phi_\sigma^\prime = e^{-i \sigma \alpha} \Phi_\sigma$ with the SAME sign convention: $-\sigma = -2$, so $\sigma = +2$.
 
-Both formulas are in the passive-rotation convention and apply at fixed $w = 0$; no active/passive ambiguity remains. $T(z)$ at conformal weight $(2, 0)$ creates helicity $+2$ states; $\bar T(\bar z)$ at weight $(0, 2)$ creates helicity $-2$ states. CPT pairs the two: the massless graviton has both polarizations.
+Both formulas are in the passive-rotation convention and apply at fixed $w = 0$; no active/passive ambiguity remains.
+
+\emph{Complex-structure choice.} The 2-plane spanned by $(e^{\hat 2}, e^{\hat 3})$ admits two complex structures $J, -J$, corresponding to:
+$$
+z^+ := x^{\hat 2} + i x^{\hat 3}\;(\text{complex structure }+J),
+\qquad
+z^- := x^{\hat 2} - i x^{\hat 3}\;(\text{complex structure }-J).
+$$
+Under $R(\alpha)$, $z^+ \mapsto e^{i\alpha} z^+$ and $z^- \mapsto e^{-i\alpha} z^-$. Tabulating both choices:
+
+| Choice | $T$ on $z^+$, $\bar T$ on $\bar z^+$ | Helicity |
+|--------|--------------------------------------|----------|
+| $+J$ | $T^\prime = e^{-2i\alpha} T$ | $\sigma_T = +2$ |
+|       | $\bar T^\prime = e^{+2i\alpha} \bar T$ | $\sigma_{\bar T} = -2$ |
+| $-J$ | $T^\prime = e^{+2i\alpha} T$ | $\sigma_T = -2$ |
+|       | $\bar T^\prime = e^{-2i\alpha} \bar T$ | $\sigma_{\bar T} = +2$ |
+
+Either choice gives the same physics: the two Virasoro sectors $\{T, \bar T\}$ realize the two helicity states $\{+2, -2\}$; only their labels are swapped. CPT pairs the two helicities, so the physical content (both polarizations of the massless graviton) is identical. We adopt the $+J$ convention throughout, matching the standard CFT convention that $T(z)$ is holomorphic.
+
+$T(z)$ at conformal weight $(2, 0)$ creates helicity $+2$ states; $\bar T(\bar z)$ at weight $(0, 2)$ creates helicity $-2$ states. CPT pairs the two: the massless graviton has both polarizations.
 
 CPT consistency. The two helicities $\pm 2$ are CPT conjugates: a
 physical massless spin-2 field in a CPT-invariant theory necessarily
