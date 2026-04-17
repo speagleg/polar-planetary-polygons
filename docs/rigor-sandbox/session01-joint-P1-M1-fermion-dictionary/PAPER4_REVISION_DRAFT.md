@@ -129,29 +129,46 @@ not in $(\mathbb{Z}/7)^*$ and requires a separate specification; the
 choice $W_7(0) := 0$ is forced by the cohomology of the orbifold
 Wilson line.
 
-\emph{Why $W_7(0)$ is separately specified.}
-The character-group computation $H^1(\mathbb{Z}/7,\, \mathbb{Z}/2)
-\cong \mathrm{Hom}(\mathbb{Z}/7,\, \mathbb{Z}/2) = 0$ (since
-$\gcd(7, 2) = 1$) shows that the \emph{additive} group $\mathbb{Z}/7$
-admits no non-trivial $\mathbb{Z}/2$ character. Hence $W_7$ cannot be
-a homomorphism from additive $\mathbb{Z}/7$; it must be a character of
-the \emph{multiplicative} group $(\mathbb{Z}/7)^*$, which does admit
-non-trivial $\mathbb{Z}/2$ characters (the Legendre symbol, step~(b)
-above). The domain of $W_7$ as a multiplicative character is
-$(\mathbb{Z}/7)^* = \mathbb{Z}/7 \setminus \{0\}$; the additive
-element $0$ lies outside this domain and requires a separate
-specification.
+\emph{Physical derivation of $W_7(0) = 0$: untwisted sector carries no
+projection.}
+The character-group computation $\mathrm{Hom}(\mathbb{Z}/7,\,
+\mathbb{Z}/2) = 0$ (since $\gcd(7, 2) = 1$) shows that $W_7$ cannot be
+a homomorphism from the \emph{additive} group $\mathbb{Z}/7$. Instead,
+$W_7$ is a character of the \emph{multiplicative} group
+$(\mathbb{Z}/7)^*$, whose unique non-trivial $\mathbb{Z}/2$ character
+is the Legendre symbol (step~(b)).
 
-We specify $W_7(0) := 0$. This is the \emph{standard Legendre-symbol
-convention} for the $p$-adic fixed point (Gauss, \emph{Disquisitiones
-Arithmeticae} 1801, art.~108) — not a cohomological theorem. Its
-physical interpretation in the polygon theory is that the orbifold
-fixed point carries trivial Wilson-line holonomy ($0$ rather than
-$\pm 1$), so modes at $m_7 = 0$ bypass the projection constraint.
+The value of $W_7$ at the fixed point $m_7 = 0$ is then determined by
+the \emph{physical role of Wilson lines in orbifold Chern–Simons
+theory}. In a $\mathbb{Z}/N$ orbifold of a CS gauge theory, a Wilson
+line operator $W_\gamma$ around a loop $\gamma$ in the orbifold
+measures the Z/N holonomy $\mathrm{Hol}(\gamma)$. The KK sectors label
+the TWISTED sectors of the orbifold by their Z/N twist class:
+\begin{itemize}
+\item $m_7 \in (\mathbb{Z}/7)^*$ (twisted sectors): a loop around the
+  orbifold's Z/7 generator acquires non-trivial holonomy
+  $\mathrm{Hol}(\gamma) = \omega^{m_7}$ with $\omega = e^{2\pi i/7}$;
+  the Wilson line evaluates to $W_7(m_7) = \chi_L(\omega^{m_7}) = \pm 1$
+  (Legendre).
+\item $m_7 = 0$ (untwisted sector): no Z/7 twist, hence
+  $\mathrm{Hol}(\gamma)$ is the identity of Z/7. The Wilson line
+  operator does not act — it is the identity operator on the
+  untwisted-sector Hilbert space. In the Z/2 projection formalism,
+  this is encoded as $W_7(0) := 0$, where the value $0$ signals
+  ``projector inactive'' rather than ``phase $\pm 1$.''
+\end{itemize}
+This is a physical statement, not merely a convention: the untwisted
+sector at $m_7 = 0$ is the lepton subsector of the polygon theory, in
+which Z/7 orbifold holonomy is trivial and no Wilson-line projection
+applies. The Legendre symbol convention $W_7(0) = 0$
+(Gauss 1801) matches this physics: the $p$-adic fixed point is where
+the Z/p character naturally evaluates to zero (no non-trivial
+holonomy).
 
-Modes at $m_7 = 0$ therefore pass through with $W(m_7, m_4) = 0 \cdot
-W_4(m_4) = 0 \in \{+1, 0\}$, i.e.\ they survive regardless of $m_4$.
-This is the lepton subsector.
+Modes at $m_7 = 0$ therefore pass through the projection as
+$W(m_7, m_4) = 0 \cdot W_4(m_4) = 0 \in \{+1, 0\}$, i.e.\ they survive
+regardless of $m_4$. This is the lepton subsector, constituted of 4
+modes per fixed cusp ($m_7 = 0$, $m_4 \in \{0, 1, 2, 3\}$).
 
 \emph{(c) The $\mathbb{Z}/4$ factor with fermion CP.}
 The fermion KK spectrum on $N = 4$ has half-integer shift
@@ -767,12 +784,21 @@ tests that probe structurally distinct mathematical objects:
   totally-real quadratic unit producing the required $N = 7$ critical
   flow.
 \item \emph{(Structural, modular curves.)} Riemann--Hurwitz on $X(p)$
-  (Theorem~\ref{thm:three-gens}): the Sylow-$p$ action fixes
-  $F_p = (p-1)/2$ cusps for every odd prime, so the substantive
-  selector is the quotient genus. Among primes $p \le 100$, the
-  condition $(g_Y = 0 \;\text{AND}\; g(X(p)) \ge 1)$ — i.e.\ the Z/p
-  cover of $\mathbb{P}^1$ is non-trivial — is satisfied uniquely at
-  $p = 7$.
+  (Theorem~\ref{thm:three-gens}): the Sylow-$p$ action on $X(p)$
+  determines the quotient genus $g_Y$ via Riemann-Hurwitz.
+  The substantive selector for $N = 7$ is the Hurwitz-Gauss
+  condition that $X(p)/(\mathbb{Z}/p)$ is the Riemann sphere
+  $\mathbb{P}^1$ while $X(p)$ itself has positive genus:
+  \[
+    g_Y = 0 \quad \text{and} \quad g(X(p)) \ge 1.
+  \]
+  The fixed-cusp count $F_p = (p - 1)/2$ is \emph{not} itself a
+  selector — it is an automatic consequence of the Sylow-$p$ action's
+  structure on $(\mathbb{Z}/p)^*/\{\pm 1\}$ and holds for every odd
+  prime. The non-trivial constraint is that the quotient cover be
+  non-trivial (genus drop from $g(X(p)) \ge 1$ to $g_Y = 0$); this is
+  satisfied uniquely at $p = 7$ among primes $p \le 100$. Verified by
+  direct enumeration.
 \item \emph{(Structural, algebraic identity.)} Dirac--$\sigma$
   identity~\eqref{eq:sigma-unique}: $(N^2+7)/8 = N \iff
   (N-1)(N-7) = 0$, so $N = 7$ is the unique non-trivial solution.

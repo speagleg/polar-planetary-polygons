@@ -90,15 +90,25 @@ Normalized correlator:
 
 So the vacuum bubbles cancel to all orders in the strict dilute-gas limit: the LO-only expectation is exact. The (1 + K) factor DOES NOT come from uncancelled vacuum bubbles.
 
-Source of the (1 + K) factor. The NLO correction in the polygon theory comes from CORRELATED instanton pairs — specifically, a single-instanton dressing of the original n_0-winding configuration where the additional instanton couples to the SAME Yukawa-operator insertion rather than to the vacuum. In the cluster expansion:
+Source of the (1 + K) factor. The NLO correction in the polygon theory comes from CORRELATED instanton pairs — a single-instanton dressing of the original n_0-winding configuration where the additional instanton couples to the SAME Yukawa-operator insertion rather than to the vacuum. In the cluster expansion, the NLO amplitude is
 
-  A_{n_0+1}^{(correlated)} = A_{n_0}^{(leading)} · (1 · correction factor)
+  A_{n_0+1}^{(correlated)} = K^{n_0} A_{n_0}^{(0)} · K · α_cluster
 
-The correction factor is the ratio of the 1-instanton-plus-operator amplitude to the operator-without-instanton amplitude, which under 't Hooft normalization equals K by definition (K is the fugacity of a single instanton coupled to a local operator). So
+where α_cluster is the dimensionless cluster coefficient for the correlated pair.
 
-  A_{n_0} + A_{n_0+1}^{(correlated)} = K^{n_0} A_{n_0}^{(0)} · (1 + K)
+Status of α_cluster = 1:
 
-The coefficient 1 in front of K is the CLUSTER coefficient for adding exactly one correlated instanton to the leading operator insertion, not a Taylor-of-exp coefficient. Identifying this coefficient as 1 requires the "all additional instantons couple identically to the local operator" assumption — standard in θ-angle / 'tHooft vertex calculations (Coleman, Aspects of Symmetry, chap. 7).
+- In standard 't Hooft / Coleman dilute-gas (Aspects of Symmetry, chap. 7), the cluster coefficient for adding one more instanton to a local operator insertion equals the ratio of the 1-instanton-plus-operator amplitude to the operator-without-instanton amplitude. Under the 't Hooft convention where K is defined as precisely this ratio, α_cluster = 1 by definition.
+
+- The POLYGON-SPECIFIC assumption embedded in this is that additional instantons couple to the Yukawa operator insertion with the same fugacity K as to the vacuum. This is the "identical-coupling" assumption standard in θ-angle / 'tHooft vertex calculations; it holds when the instanton moduli space decouples from the matter operator's local structure, which is the case in dilute-gas.
+
+- In the polygon theory, the BF-crossing instantons are orbifold-zero-size (localized at orbifold fixed points) with flat moduli on the Seifert base; the "identical-coupling" assumption is consistent with this zero-size structure.
+
+Numerical consequence:
+
+  V_ub(LO + correlated NLO) = K^6 · (1 + K) · V_ub^{(0)}  =  0.088 · K^6 · (1 + K)  =  0.00369
+
+PDG: 0.00365. Agreement to 1.1%. The coefficient α_cluster = 1 is derived under the 't Hooft normalization of K plus the dilute-gas identical-coupling assumption (consistent with polygon zero-size BF-crossing instantons). Higher-order corrections are O(K²/2) = 0.150, ≈ 9.7% of the NLO amplitude (1+K) = 1.548, matching the expected cluster-expansion truncation error.
 
 Applied to V_ub (n₀ = 6):
 

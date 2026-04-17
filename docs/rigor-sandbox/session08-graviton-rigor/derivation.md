@@ -141,30 +141,42 @@ T'(w) = e^{-2 i \alpha} T(z(w))
 $$
 
 Little-group matching (Weinberg QFT Vol.~1 §2.5, eq.~2.5.42).
-A massless 4D particle of helicity $\sigma$ in a helicity
-eigenstate $|k, \sigma\rangle$ transforms under the little-group
-rotation $R(\alpha)$ as
+We fix conventions carefully: let $R(\alpha)$ denote the passive
+rotation of the transverse plane by angle $\alpha$ (i.e., the
+coordinate system rotates by $+\alpha$, so the field at fixed
+physical point has its coordinates transformed by $\alpha$). Weinberg's
+convention (eq.~2.5.42): under the little-group rotation, the state
+transforms as
 $$
-U\bigl(R(\alpha)\bigr)\,|k, \sigma\rangle = e^{+i \sigma \alpha}\,|k, \sigma\rangle.
+U\bigl(R(\alpha)\bigr)\,|k, \sigma\rangle = e^{+i \sigma \alpha}\,|k, \sigma\rangle,
 $$
-The operator-level transformation of a field creating such a state
-is the inverse (passive, since creation operators transform
-contragradiently). Thus the local field $\Phi_\sigma(x)$
-associated with helicity $\sigma$ satisfies, under the active
-rotation of the transverse plane by $\alpha$,
-$\Phi'_\sigma(R\cdot x) = e^{-i \sigma \alpha}\,\Phi_\sigma(x)$.
+and a local field $\Phi_\sigma(x)$ that creates this state transforms in the INVERSE representation:
+$$
+U\bigl(R(\alpha)\bigr)\,\Phi_\sigma(x)\,U^{-1}\bigl(R(\alpha)\bigr)
+= e^{-i \sigma \alpha}\,\Phi_\sigma\bigl(R(\alpha)^{-1} x\bigr).
+$$
+Evaluating at $x = 0$ (so the coordinate transformation is trivial) or
+equivalently in momentum space where $\Phi_\sigma(k)$ at fixed $k$
+transforms by the phase alone:
+$$
+\Phi_\sigma^\prime = e^{-i \sigma \alpha}\,\Phi_\sigma.
+$$
+This is the phase rule for a helicity-$\sigma$ field in the passive
+rotation convention.
 
-Matching the two formulas, $T(z)$ at $h_T = 2$ creates states of
-helicity $\sigma = +2$:
+Comparison to CFT primary. The 2D CFT primary transformation law
+(written above) under $w = e^{i\alpha}z$ gives, at fixed $w$ (i.e.,
+the field at a physical point with the coordinate frame rotated),
 $$
-\underbrace{T'(w) = e^{-2 i \alpha} T(z(w))}_{\text{weight-2 primary}}
-\;\longleftrightarrow\;
-\underbrace{\Phi'_{+2} = e^{-i (+2) \alpha} \Phi_{+2}}_{\text{helicity }+2\text{ field}}.
+T^\prime(w) = e^{-2 i \alpha}\,T(z(w)).
 $$
-No sign ambiguity remains: the conformal-primary transformation law
-at $h = 2$ and the Weinberg massless field of helicity $+2$ are the
-\emph{same} representation of $\mathrm{SO}(2)$. Likewise
-$\bar T(\bar z)$ at $\bar h = 2$ creates states of helicity $\sigma = -2$.
+Reading off the phase at $w = 0$:
+$$
+T^\prime = e^{-2 i \alpha}\,T.
+$$
+Matching to the helicity field rule $\Phi_\sigma^\prime = e^{-i \sigma \alpha} \Phi_\sigma$ with the SAME sign convention: $-\sigma = -2$, so $\sigma = +2$.
+
+Both formulas are in the passive-rotation convention and apply at fixed $w = 0$; no active/passive ambiguity remains. $T(z)$ at conformal weight $(2, 0)$ creates helicity $+2$ states; $\bar T(\bar z)$ at weight $(0, 2)$ creates helicity $-2$ states. CPT pairs the two: the massless graviton has both polarizations.
 
 CPT consistency. The two helicities $\pm 2$ are CPT conjugates: a
 physical massless spin-2 field in a CPT-invariant theory necessarily
