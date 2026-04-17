@@ -102,31 +102,37 @@ $$
 with $z = \theta + i t_{\mathrm E}$ (Euclidean continuation). This is the
 standard 2D Virasoro form.
 
-\emph{Central charge from the CS level (bypassing the bulk coefficient match).}
-We do not derive $c = 12\,b(N)$ from the 3D bulk coefficient $C_{\mathcal{T}}$
-(which would require the full bulk-to-boundary propagator normalization
-computed in Step (ii) and risks circularity with Step (iv)). Instead, we
-invoke the standard Chern–Simons / boundary-WZW correspondence
-(\citealt{Witten1988, Witten1989Jones}): the 3D Chern–Simons gauge theory
-with $\mathrm{SU}(2)_L \times \mathrm{SU}(2)_R$ gauge group at CS level
-$k = 2\,b(N)$ induces a 2D boundary WZW model with Kac–Moody current algebra
-$\widehat{\mathfrak{su}}(2)_k \times \widehat{\mathfrak{su}}(2)_k$ and
-Sugawara stress tensor $T = (1/(k + h^\vee))\,J^a J^a$ (with dual Coxeter
-$h^\vee = 2$). The central charge of this stress tensor is
-$$
-c = 2 \cdot \frac{k \cdot \dim \mathfrak{su}(2)}{k + h^\vee} \cdot 2
-  = \frac{4 k \cdot 3}{k + 2}
-  \;\bigg|_{k = 2 b(N)}
-  = \frac{24 b(N)}{b(N) + 1}
-$$
-In the polygon semiclassical limit (large $b(N)$), this reduces to
-$c = 12\,b(N)$. The Paper IV § graviton derivation (line 874) confirms the
-normalization $k = c/6 = 2 b(N)$ via the bulk AdS radius matching.
+\emph{Central charge $c = 12\,b(N)$ — upstream input from Paper III.}
+The value $c = 12\,b(N)$ is NOT derived in Session 11. It is derived
+INDEPENDENTLY in Paper III §graviton via the Seifert KK-mode trace of
+the bulk graviton action (cone spectral chain: Hurwitz zeta $\to$
+Gamma reflection $\to$ log sin; see `project_session_20260414.md`).
+Session 11 takes $c = 12\,b(N)$ as an upstream input derived there.
 
-Alternatively, $c = 12\,b(N)$ is derived from the Seifert KK-mode trace of
-the bulk graviton action (Paper III §graviton); Sessions 11 uses this as an
-input derived there, not as an assumption. The cross-session consistency is
-verified against the Paper III / Paper IV derivation chain.
+Brown–Henneaux then relates $c$ to the 3D bulk gravitational coupling:
+$$
+c = \frac{3 L}{2 G_3}
+\qquad\Longleftrightarrow\qquad
+G_3 = \frac{3 L}{2 c} = \frac{L}{8\,b(N)}
+\qquad(\text{using } c = 12\,b(N)).
+$$
+This fixes $G_3$ in terms of the AdS radius $L$ and the polygon parameter $b(N)$.
+
+Common attempts to "re-derive" $c = 12\,b(N)$ from Sugawara-style CS/WZW
+formulas (e.g., $c_{\mathrm{Sugawara}} = 2 \cdot 3k/(k + h^\vee)$ at two
+factors) give $c = 6k/(k+2)$, which at finite $k = 2\,b(N)$ does NOT
+equal $12\,b(N)$ (at $b(7) = 3/7$: $c_{\mathrm{Sugawara}} = 9/5 = 1.8$
+vs $12 b(7) = 36/7 \approx 5.14$). The reason is that the polygon's
+central charge includes an ADDITIONAL contribution from the graviton
+sector (pure AdS_3 gravity with Brown-Henneaux, not just matter CS);
+this is what Paper III derives via the Seifert trace. The Session 11
+construction uses this as input and does not attempt a standalone
+derivation.
+
+\emph{Explicit cross-reference.} Paper III derives $c = 12\,b(N)$ via
+the cone spectral chain on the polygon Seifert geometry; the derivation
+is independent of Session 11's KK / Euler-class story, so using
+$c = 12\,b(N)$ here is not circular.
 
 **Result of Step (i)**: the 3D boundary stress tensor $\mathcal{T}_{ab}$ on
 $\mathbb{R}_t \times T^2$, restricted to its zero KK mode on $S^1_\varphi$,
@@ -218,9 +224,26 @@ We derive the graviphoton and radion masses from the Seifert Euler class
 directly, using the twisted KK decomposition on the fibered S¹.
 
 **Setup.** The Seifert bundle $\pi\colon M_4 \to \mathrm{AdS}_3 / \mathbb{Z}_N$
-has Euler number $e = N/2$ on the base AdS₃ (the base is $\mathbf{H}^2/\mathbb{Z}_N$
-after the $\mathbb{Z}_N$ orbifold action; the bundle's Euler class measures the
-fiber twist around the $\mathbf{H}^2$ base). Concretely, the Seifert
+has $S^1$-bundle Euler number $e_{\mathrm{Seifert}} = N/2$ on the base AdS₃
+(the base is $\mathbf{H}^2/\mathbb{Z}_N$ after the $\mathbb{Z}_N$ orbifold
+action; the bundle's Euler class measures the fiber twist around the
+$\mathbf{H}^2$ base). At $N = 7$ this is $e_{\mathrm{Seifert}} = 7/2$.
+
+\emph{Note on Euler class conventions across sessions.} There are TWO
+distinct "Euler-class" objects in the polygon framework that must not
+be confused:
+\begin{itemize}
+\item $e_{\mathrm{Seifert}} = N/2$: the Euler NUMBER of the $S^1$ Seifert
+  bundle over the base $\mathbf{H}^2/\mathbb{Z}_N$. This controls the
+  fiber twist and hence the Stueckelberg-like gap derived below.
+\item $c_1(L_{\mathrm{grav}}) = 7$: the first Chern CLASS of the
+  gravitational line bundle in the orbifold cohomology
+  (Session 6 M3, Paper VI), an integer in $H^2_{\mathrm{orb}}(B,
+  \mathbb{Z})$ on the polygon base orbifold. This controls the N=11 = 4+7
+  additivity.
+\end{itemize}
+Both involve the integer 7 at $N = 7$, but they are Chern classes of
+DIFFERENT bundles on DIFFERENT (but related) base spaces. Concretely, the Seifert
 connection 1-form $A_{\mathrm{Seifert}} = d\varphi + e\,\omega_{\mathrm{base}}$
 shifts the fiber coordinate $\varphi$ by $2\pi e$ as one traverses a generator
 of $\pi_1(\mathrm{AdS}_3) \simeq \mathbb{Z}_N$.

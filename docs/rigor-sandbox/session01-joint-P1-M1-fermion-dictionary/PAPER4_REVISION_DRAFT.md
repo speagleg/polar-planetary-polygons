@@ -22,6 +22,41 @@ Session 1 derived the Standard Model fermion content from the polygon theory, ad
 
 **Four structural + one empirical $N = 7$ uniqueness signals** now established.
 
+## Upstream inputs used (cross-paper dependencies)
+
+The Session 1 draft relies on the following derivations from other papers/sessions:
+
+1. **Central charge $c = 12\,b(N)$**: derived in Paper III §graviton via
+   the Seifert KK-mode trace (cone spectral chain). Session 11 uses this
+   as input; Session 1 cites it for anomaly and Higgs structure.
+2. **BF-instanton hierarchy $\mathcal{H}_7 \approx 38.46$**: derived in
+   Paper IV §13 (WKB tunneling action $S_{\mathrm{BO}}(7) = 18.274$; WDW
+   gap $\Delta\varepsilon = 0.8031$; central charges $c_{11}$). Used in
+   Session 4 for $v = M_P/\exp(\mathcal{H}_7)$.
+3. **$\sigma$ warp factors $\sigma_{\mathrm{geo}} = N$,
+   $\sigma_{\mathrm{CKM}} = N-2$, $\sigma_{\mathrm{mass}} = (N-2)\sqrt{N}$**:
+   derived in paper \S\ref{sec:warp-tower}. Session 1 uses these in the
+   $\sigma$-coherence identity.
+4. **Havelock eigenvalue spectrum $\lambda_m = (N-1) - m(N-m)/2$**:
+   Paper I Theorem~1. Used in n_q rule derivation.
+5. **CKM fugacity $K = 0.548 = e^{-2\pi k_{\mathrm{frac}}}$**: derived in
+   paper \S13.6 from BF-crossing instanton action. Used in CKM
+   selection rule (Session 3).
+6. **Weyl asymptotic law for Laplacian eigenvalues**: classical
+   theorem (Weyl 1911); used in Session 6 M2 fiber uniqueness.
+7. **Fefferman–Graham / Henningson–Skenderis holographic
+   reconstruction**: standard AdS/CFT dictionary; used in Session 8
+   consistency checks.
+8. **Gatto–Sartori–Tonin relation $m_d = |V_{us}|^2\,m_s$**: standard
+   (Gatto 1968); used in quark-mass derivation.
+9. **'t Hooft dilute-gas normalization of instanton fugacity $K$**:
+   standard (Coleman, \emph{Aspects of Symmetry}, chap. 7); used in
+   Session 3 cluster expansion.
+
+All other derivation chain steps (counting, Legendre factoring, RH,
+Higgs BF, diagonal SU(2)_L, Euler-class gap, fiber uniqueness) are
+internal to the sandbox.
+
 ---
 
 ## CHANGE 1: §8.1 Step 2 (lines 975–981) — M1 fix
@@ -277,9 +312,12 @@ $W_7 = -1, W_4 = -1$ ($m_7 \in \{3, 5, 6\}, m_4 \in \{0, 3\}$) pass.
 \paragraph{Fermion dictionary.}
 \label{para:fermion-dictionary}
 The $16$ surviving modes per cusp organize under
-$\mathrm{SU}(3) \times \mathrm{SU}(2)_L \times \mathrm{SU}(2)_R \times \mathrm{U}(1)_Y$
-(with $B{-}L$ a global quantum number from the
-Frobenius-orbit $\{0\} \cup O_\pm$ structure):
+$\mathrm{SU}(3)_c \times \mathrm{SU}(2)_L \times \mathrm{SU}(2)_R
+\times \mathrm{U}(1)_{B-L}$, the UV gauge group of the polygon theory
+(\S\ref{sec:u1-kk}), with hypercharge $Y = T_3^R + (B-L)/2$ a derived
+low-energy combination after SU(2)_R Redlich gap. The table lists the
+16 Weyl fields with their UV charges $(B-L, T_3^R)$ and the derived
+SM $Y$:
 
 \begin{center}\small
 \begin{tabular}{llllll}
@@ -801,7 +839,7 @@ The ratio
   = \frac{|V_{us}|^2\,e^{-4 \sigma_{\mathrm{mass}}/7}}{e^{-8 \sigma_{\mathrm{mass}}/7}}
   = |V_{us}|^2\,e^{+4 \sigma_{\mathrm{mass}}/7}.
 \]
-With $\sigma_{\mathrm{mass}} = 5\sqrt{7}/7 \cdot 7 = 5\sqrt{7}$ (polygon
+With $\sigma_{\mathrm{mass}} = (N-2)\sqrt{N}\big|_{N=7} = 5\sqrt{7}$ (polygon
 value) and $|V_{us}|^2 \approx 0.053$:
 \[
   \frac{m_d^{\mathrm{Gatto}}}{m_d^{\mathrm{bare}}}
@@ -881,9 +919,18 @@ $\mathrm{SU}(4)$ under $\mathrm{SU}(4) \to \mathrm{SU}(3) \times
 \mathrm{U}(1)_{B-L}$: $\mathbf{4} \to \mathbf{3} + \mathbf{1}$.
 The polygon theory's explicit UV gauge derivations
 (\S\S\ref{sec:chiral-su2}, \ref{sec:su3-mckay}, \ref{sec:u1-kk})
-produce $\mathrm{SU}(3)_c \times \mathrm{SU}(2)_L
-\times \mathrm{SU}(2)_R \times \mathrm{U}(1)_Y$, \emph{not} the full
-Pati--Salam $\mathrm{SU}(4)_c$.
+produce
+\[
+  G_{\mathrm{UV}} = \mathrm{SU}(3)_c \times \mathrm{SU}(2)_L
+    \times \mathrm{SU}(2)_R \times \mathrm{U}(1)_{B-L},
+\]
+\emph{not} the full Pati--Salam $\mathrm{SU}(4)_c$. The low-energy
+SM gauge group $\mathrm{SU}(3)_c \times \mathrm{SU}(2)_L \times
+\mathrm{U}(1)_Y$ emerges after the Redlich-gapping of
+$\mathrm{SU}(2)_R$ at $m_R \approx 107$\,TeV, with hypercharge
+$Y = T_3^R + (B-L)/2$ being a derived LOW-ENERGY charge (linear
+combination of the UV-level $T_3^R$ and $B-L$ quantum numbers), not
+itself a UV factor.
 
 \emph{Absence of $\mathrm{SU}(4)$ leptoquark gauge bosons — derivation.}
 Leptoquark gauge bosons of $\mathrm{SU}(4)_c$ live in the coset

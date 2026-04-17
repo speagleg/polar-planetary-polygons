@@ -42,14 +42,21 @@ The SL(2,ℝ) × SL(2,ℝ) Chern-Simons gauge theory on R × (H² ×_N S¹) prod
 
 ### Step 3: 2D weight → 4D helicity (the critical bridge)
 
-**Paper**: at E ≪ M_poly, the boundary T² = S¹_θ × S¹_φ is indistinguishable from R² (the transverse plane of 4D massless little group). T(z) transforms with eigenvalue e^{2iα} under SO(2) rotation z → e^{iα}z, matching the definition of helicity ±2 (Weinberg §2.5).
+**⚠ SIGN CORRECTION (see Sessions 8/11 for authoritative treatment)**:
+Under the passive-rotation convention (Weinberg §2.5 eq. 2.5.42), T(z)
+of weight (2, 0) transforms as T'(w) = e^{-2iα} T under z → e^{iα}z,
+matching helicity +2 of a massless 4D field via Φ'_{σ} = e^{-iσα}Φ_σ.
+The old "e^{+2iα}" notation below conflated active and passive
+conventions; Sessions 8 and 11 supply the correct bookkeeping.
 
-**Rigor check**:
+**Paper**: at E ≪ M_poly, the boundary T² = S¹_θ × S¹_φ is indistinguishable from R² (the transverse plane of 4D massless little group). T(z) transforms with phase e^{-2iα} under SO(2) rotation z → e^{iα}z (passive convention), matching the definition of helicity +2 (Weinberg §2.5).
+
+**Rigor check** (corrected):
 1. SO(2) is the little group of a massless particle in 4D Lorentz.
-2. Helicity ±h means phase e^{±ihα} under SO(2) rotation by α.
-3. T(z) with weight (2, 0) picks up e^{2iα} under z → e^{iα}z by DEFINITION of conformal weight.
-4. Therefore T(z) carries SO(2) eigenvalue e^{+2iα}, i.e., HELICITY +2.
-5. Conjugate bar T(z̄) gives helicity −2.
+2. Helicity σ means phase e^{-iσα} on the local field (passive convention; see Session 8 §4).
+3. T(z) with weight (2, 0) picks up e^{-2iα} under z → e^{iα}z by the conformal primary transformation law.
+4. Matching: T(z) has σ = +2 (HELICITY +2).
+5. Conjugate T̄(z̄) gives σ = -2.
 
 **Key subtlety**: the SO(2) used here is the boundary-torus SO(2) rotation, not directly the 4D Lorentz SO(2). The identification is:
 - At low energies (E ≪ M_poly), the boundary T² is LOCALLY EQUIVALENT to R² up to O(E²/M_poly²) corrections.
