@@ -76,7 +76,7 @@ The identity γ⁵ = γ^(3) · γ³ (sympy-verified in `clifford_oracle.py`) is 
 
 - (γ⁵)² = +1, with eigenvalues ±1 and two-dimensional eigenspaces (the 4D left- and right-handed Weyl components).
 - γ^(3) ≡ i γ⁰γ¹γ² commutes with γ^a for a = 0, 1, 2 and anticommutes with γ³; (γ^(3))² = +1.
-- γ³ anticommutes with all other γ^μ; (γ³)² = −1 (mostly-plus metric convention used here), so γ³ has eigenvalues ±i.
+- γ³ anticommutes with all other γ^μ; (γ³)² = η^{33} = −1 in the (+,−,−,−) mostly-minus signature declared at line 11 (γ³ is spacelike), so γ³ has eigenvalues ±i.
 - (γ⁵)² = γ^(3) γ³ γ^(3) γ³ = −(γ^(3))² (γ³)² = −(+1)(−1) = +1, confirming ±1 eigenvalues despite γ³'s ±i spectrum: the factors γ^(3) and γ³ do not commute, so eigenvalues of the product are not products of eigenvalues.
 
 Physical content: γ⁵ eigenvalues label 4D chirality (±1 = L/R); the factorization γ⁵ = γ^(3)·γ³ says that the 4D chirality operator splits into a 3D volume-form action (γ^(3)) and a fiber-direction action (γ³). Under Witten's CS splitting of 2+1D gravity into SL(2,ℝ)_L × SL(2,ℝ)_R, the γ^(3) eigenvalue identifies which CS sector a given 4D Weyl component couples to. This is preserved per KK mode because γ⁵ acts on the spinor index only, not on the scalar KK wavefunction e^{i(m+1/2)φ}.

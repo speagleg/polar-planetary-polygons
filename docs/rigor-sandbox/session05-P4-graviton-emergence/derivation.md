@@ -1,5 +1,12 @@
 # P4: graviton emergence rigor — verification and strengthening
 
+**⚠ SUPERSEDED**: this document's graviton-emergence analysis is superseded
+by:
+- `session08-graviton-rigor/derivation.md` (SO(2) identification, Fourier transform of 1/z^4, helicity via Weinberg §2.5)
+- `session11-ads3-s1-holography/derivation.md` (authoritative non-standard holographic derivation: AdS_3 × S^1 bulk → 3D conformal boundary, Euler-class graviphoton/radion gap, Newton-constant matching)
+
+This file remains as historical context (Session 5 verification). For paper integration, cite Session 11 as authoritative.
+
 **Date**: 2026-04-16
 **Goal**: verify that the paper's §5 derivation of the 4D graviton is rigorous. Specifically address the three rigor-plan concerns:
 1. "Boundary T(z) has helicity +2" as a 4D Lorentz statement.

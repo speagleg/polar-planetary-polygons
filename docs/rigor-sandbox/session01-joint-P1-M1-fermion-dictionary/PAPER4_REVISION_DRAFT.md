@@ -111,14 +111,28 @@ $\mathsf{CP}\colon (m_7, m_4, \chi) \mapsto (7{-}m_7, 3{-}m_4, -\chi)$.
 The argument proceeds in three steps.
 
 \emph{(a) Factoring.}
-Any $\mathbb{Z}/2$-valued Wilson line $W$ on the abelian orbifold
-$\mathbb{Z}/7 \times \mathbb{Z}/4$ is a group homomorphism
-$W\colon \mathbb{Z}/7 \times \mathbb{Z}/4 \to \{\pm 1, 0\}$
-(with value $0$ reserved for Frobenius-fixed orbifold points; on the
-multiplicative part $W$ is a genuine $\{\pm 1\}$-homomorphism). A
-homomorphism out of a direct product of finite abelian groups is
-uniquely determined by its restrictions to the two factors:
-$W(m_7, m_4) = W_7(m_7) \cdot W_4(m_4)$.
+Define the Wilson-line projection function (NOT a group homomorphism)
+as
+\[
+  W\colon \mathbb{Z}/7 \times \mathbb{Z}/4 \longrightarrow \{-1, 0, +1\},
+\]
+with the interpretation: $W(m_7, m_4) \in \{+1, -1\}$ projects to one
+of the two $\mathbb{Z}/2$ phases on the \emph{twisted} sectors, and
+$W(m_7, m_4) = 0$ flags the \emph{untwisted} sector where no projection
+applies (derived physical interpretation below). We require $W$ to
+satisfy the multiplicative factorization property
+\[
+  W(m_7, m_4) = W_7(m_7) \cdot W_4(m_4),
+\]
+where $W_7\colon \mathbb{Z}/7 \to \{-1, 0, +1\}$ and
+$W_4\colon \mathbb{Z}/4 \to \{+1, -1\}$ are the factor-projection
+functions. On the multiplicative-group restriction
+$W_7|_{(\mathbb{Z}/7)^*}\colon (\mathbb{Z}/7)^* \to \{\pm 1\}$, the
+factorization reduces to a standard homomorphism, since
+$(\mathbb{Z}/7)^*$ is a multiplicative group. At the fixed point
+$m_7 = 0$, $W_7(0) = 0$ specifies the untwisted-sector value (see
+justification below). The factorization is then well-defined as a
+function on $\mathbb{Z}/7 \times \mathbb{Z}/4$.
 
 \emph{(b) The $(\mathbb{Z}/7)^*$ factor.}
 $(\mathbb{Z}/7)^*$ is cyclic of order $6$; its character group is
@@ -202,23 +216,48 @@ $W(m_7, m_4) \in \{+1, 0\}$, giving the standard selection rule.
 
 Selection outcome: $16$ $\chi = L$ modes per fixed cusp survive.
 
-\emph{Full count per cusp.} The KK spectrum on
-$\mathbb{R} \times (\mathbf{H}^2 \times_7 S^1) \times S^1_{\mathrm{iso}}$
-contains $7 \times 4 \times 2 = 56$ Weyl components per fixed cusp
-(indices $m_7 \in \mathbb{Z}/7$, $m_4 \in \mathbb{Z}/4$,
-$\chi \in \{L, R\}$). The counting chain is:
-\[
-  56 \;\xrightarrow{\text{Redlich } \chi = R \text{ gapped}}\; 28
-  \;\xrightarrow{\text{Legendre on } \chi = L}\; 16
-  \;\xrightarrow{\text{three cusps}}\; 48 \text{ Weyl / 3 generations}.
-\]
-The first arrow drops all $\chi = R$ modes via the Redlich
-$\eta$-shift (paper \S\ref{sec:chiral-su2}); the second applies
-Lemma~\ref{lem:legendre} to the remaining $7 \times 4 = 28$ $\chi = L$
-modes, keeping $16$ (breakdown: $4$ at $m_7 = 0$ freely passed, $6$
-at $W_7 = +1$ and $W_4 = +1$, $6$ at $W_7 = -1$ and $W_4 = -1$); the
-third applies the DHVW twisted-sector copy over the three
-$\mathbb{Z}/7$-fixed cusps of Theorem~\ref{thm:three-gens}.
+\emph{Canonical counting: Weyl fermions per cusp and per generation.}
+The 4D KK spectrum on $\mathbb{R} \times (\mathbf{H}^2 \times_7 S^1)
+\times S^1_{\mathrm{iso}}$ contains $7 \times 4 = 28$ Dirac KK mode
+LABELS $(m_7, m_4)$ per fixed cusp. Each 4D Dirac KK mode is a
+4-component spinor $=$ 2 Weyl fermions (one $\chi_L$, one $\chi_R$).
+Per fixed cusp, the chain is:
+\begin{center}\small
+\begin{tabular}{lcl}
+\toprule
+Count                               & Value                       & Mechanism \\
+\midrule
+Dirac KK labels                     & $7 \times 4 = 28$           & $(m_7, m_4)$ enumeration \\
+Total 4D Weyl fermions              & $28 \times 2 = 56$          & each Dirac $=$ $\chi_L + \chi_R$ \\
+$\chi = L$ Weyl fermions            & $28$                        & Redlich $\eta$-shift gaps $\chi_R$ sector \\
+$\chi = L$ Weyl surviving Legendre  & $16$                        & Lemma~\ref{lem:legendre} projection \\
+\midrule
+\bottomrule
+\end{tabular}
+\end{center}
+
+Across the three $\mathbb{Z}/7$-fixed cusps on $X(7)$ (DHVW
+twisted-sector construction):
+\begin{center}\small
+\begin{tabular}{lcl}
+\toprule
+Weyl per cusp                       & $16$                        & per Theorem~\ref{thm:three-gens} \\
+Three cusps                         & $3 \times 16 = 48$          & one generation per cusp \\
+\midrule
+Weyl per generation                 & $16 = 48/3$                 & single cusp's contribution \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Summary chain: $28 \text{ Dirac labels} \to 56 \text{ Weyl} \to 28 \text{ } \chi{=}L \text{ Weyl (Redlich)}
+\to 16 \text{ Weyl kept (Legendre), per cusp}
+\to 48 \text{ Weyl across 3 cusps} = 3 \text{ generations} \times 16 \text{ Weyl}
+= $ SM + $\nu_R$.
+
+Breakdown of the 16 kept per cusp: 4 modes at $m_7 = 0$ (lepton
+subsector, $m_4 \in \{0, 1, 2, 3\}$) freely pass; 6 modes at $W_7 = +1,
+W_4 = +1$ ($m_7 \in \{1, 2, 4\}, m_4 \in \{1, 2\}$) pass; 6 modes at
+$W_7 = -1, W_4 = -1$ ($m_7 \in \{3, 5, 6\}, m_4 \in \{0, 3\}$) pass.
 
 \paragraph{Fermion dictionary.}
 \label{para:fermion-dictionary}
@@ -523,23 +562,47 @@ $[T^a, T^b] = i \varepsilon^{abc} T^c$ closes correctly in each sector
 subgroup is a bona fide $\mathrm{SU}(2)$ gauge group acting on the
 full matter spectrum.
 
-\emph{Yukawa-vertex gauge invariance.}
+\emph{Yukawa-vertex gauge invariance and SU(2)-intertwiner.}
 The Yukawa coupling $\bar{Q}_L\,H\,d_R$ is the standard SM term. Its
-$\mathrm{SU}(2)_L$-invariance in the polygon theory requires a
-canonical isomorphism identifying the two doublet spaces. The
-up-type CP pair $\{m_4 = 1, m_4 = 2\}$ and the Higgs pair
-$\{m_7 = 3, m_7 = 4\}$ are both two-element CP orbits under their
-respective involutions ($m_4 \to 3-m_4$ and $m_7 \to 7-m_7$). We
-identify
+$\mathrm{SU}(2)_L$-invariance in the polygon theory requires an
+intertwiner identifying the two doublet representations. The up-type
+fermion CP pair $\{m_4 = 1, m_4 = 2\}$ carries the fundamental
+representation of $\mathrm{SU}(2)_{\mathrm{iso}}$ (generators $T^a_{\mathrm{iso}}$),
+while the Higgs pair $\{m_7 = 3, m_7 = 4\}$ carries the fundamental of
+$\mathrm{SU}(2)_{\mathrm{CS}}$ (generators $T^a_{\mathrm{CS}}$). We
+define the canonical CP-pair map
 \[
-  m_4 = 1 \;\leftrightarrow\; m_7 = 3, \qquad
-  m_4 = 2 \;\leftrightarrow\; m_7 = 4,
+  \phi\colon \{1, 2\} \xrightarrow{\sim} \{3, 4\},
+  \qquad 1 \mapsto 3,\ 2 \mapsto 4.
 \]
-matching the ``upper'' and ``lower'' CP partners of each pair. This
-is the unique CP-respecting isomorphism between two-element orbits.
-Under the diagonal $\mathrm{SU}(2)_L$, both pairs carry the same
-doublet structure; the Yukawa coupling contracts them via the standard
-$\varepsilon$-symbol,
+\emph{Claim}: $\phi$ is an SU(2)-intertwiner, meaning
+$\phi(T^a_{\mathrm{iso}}\,v) = T^a_{\mathrm{CS}}\,\phi(v)$ for all
+$a \in \{1, 2, 3\}$ and $v$ in the fundamental.
+
+\emph{Proof.}
+Both $\{1, 2\}$ and $\{3, 4\}$ are two-element sets with a Z/2
+involution (CP on each pair). The fundamental of $\mathrm{SU}(2)$ is
+the unique irreducible 2-dimensional representation of $\mathrm{SU}(2)$;
+up to unitary change of basis there is a UNIQUE such representation.
+Choose Pauli-matrix bases on each pair:
+$T^a_{\mathrm{iso}} = \tau^a/2$ acting on $(v_1, v_2) = (v_{m_4=1}, v_{m_4=2})$
+and $T^a_{\mathrm{CS}} = \tau^a/2$ acting on $(w_1, w_2) = (w_{m_7=3}, w_{m_7=4})$
+with the SAME Pauli matrices $\tau^a$. The map $\phi\colon (v_1, v_2)
+\mapsto (w_1, w_2)$ sends the $\tau^a$ action to itself:
+\[
+  \phi(T^a_{\mathrm{iso}}\,v) = \phi(\tau^a v/2) = \tau^a \phi(v)/2 = T^a_{\mathrm{CS}}\,\phi(v).
+\]
+The ORIENTATION of $\phi$ is fixed by the CP-involution compatibility:
+$m_4 \to 3 - m_4$ exchanges $1 \leftrightarrow 2$, and $m_7 \to 7 - m_7$
+exchanges $3 \leftrightarrow 4$. Requiring $\phi$ to commute with the CP
+involutions ($\phi(3 - m_4) = 7 - \phi(m_4)$) gives $\phi(1) = 3$ and
+$\phi(2) = 4$, the unique CP-consistent choice. $\blacksquare$
+
+Under the diagonal $\mathrm{SU}(2)_L$ generator
+$T^a = T^a_{\mathrm{iso}} + T^a_{\mathrm{CS}}$, both $Q_L$ (doublet via iso)
+and $H$ (doublet via CS) transform identically as fundamental SU(2)
+doublets, with $\phi$ providing the canonical identification. The Yukawa
+coupling contracts them via the standard $\varepsilon$-symbol,
 \[
   \bar{Q}_L\,H\,d_R \;=\; \varepsilon_{ij}\,
    \bar{Q}^i_L\,H^j\,d_R
@@ -605,9 +668,36 @@ $(m_7 = 4, m_4 = 2)$:
 these are two independent complex scalars (total $2 \times 2 = 4$ real
 DOF). They are NOT related by $\phi_4 = \phi_3^*$ because both come
 from the same ladder component $A^{+, +}$ at different Z/7 Fourier
-modes. (The analogous reality-paired modes would live in $A^{+, -}$,
-which is a DIFFERENT complex scalar entirely, with its own independent
-fluctuations.)
+modes.
+
+\emph{The conjugate ladder $A^{+, -}$ gives the conjugate Higgs, not a
+second doublet.}
+The complex conjugate ladder component $A^{+, -} = (A^{+, 1} - i A^{+, 2})/\sqrt{2}$
+has its own BF-unstable mode at the same $(m_7, m_4) \in \{(3, 2), (4, 2)\}$
+with the same conformal dimension $c^2 = 1/4$. The fluctuation
+$\Phi^- \equiv A^{+, -}$ carries hypercharge $Y = -1/2$ (opposite sign
+to $\Phi^+ \equiv A^{+, +}$ which has $Y = +1/2$), since the ladder
+operators $T^\pm$ of $\mathrm{SU}(2)$ raise and lower $T_3$ by unit
+steps.
+
+In the polygon theory, $\Phi^+$ and $\Phi^-$ are identified with the
+SM Higgs doublet $H$ and its CP-conjugate $\tilde H = \varepsilon H^*$,
+both realized as components of the SAME underlying
+gauge-connection fluctuation $A^+ = A^{+, a} T^a$. This is the standard
+SM bookkeeping: there is ONE complex Higgs doublet $H$ carrying $Y = 1/2$,
+and its conjugate $\tilde H$ at $Y = -1/2$ is not an independent field
+but the CP partner of $H$. BF-instability applies to BOTH components
+$A^{+, +}$ and $A^{+, -}$ simultaneously (they're related by CP); they
+give a single complex scalar doublet, not two.
+
+This identification is consistent with the counting: one complex
+Higgs doublet $H = (H^+, H^0)$ has 4 real components, matching the 2
+BF-unstable complex modes $(\phi_3, \phi_4)$ we identified. No doubling
+of the Higgs.
+
+(The analogous reality-paired modes between $A^{+, +}$ and $A^{+, -}$
+do not produce an extra Higgs because they ARE complex conjugates
+by CP, collapsing the would-be 8 real DOF to 4.)
 
 \emph{Real-DOF count.}
 
