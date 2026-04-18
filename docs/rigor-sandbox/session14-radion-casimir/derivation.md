@@ -15,7 +15,21 @@ stabilization"); provides an explicit numerical value at leading order.
 The radion $\sigma$ parametrizes the physical fiber radius $R(\sigma)$ of the
 Seifert $S^1$ fiber. In canonical normalization (4D Einstein–Hilbert after KK
 reduction), $\sigma = \sqrt{3/2}\,M_P^{\mathrm{bulk}}\,\ln(R/R_\star)$ with
-$M_P^{\mathrm{bulk}} \approx 0.74\,M_{\mathrm{poly}}$ (Session 11 §4).
+$M_P^{\mathrm{bulk}} \equiv 1/\sqrt{G_4^{\mathrm{bulk}}}$ and
+$G_4^{\mathrm{bulk}} = \pi\,L\,R / (4\,b(N))$ from Brown–Henneaux + KK
+reduction (Session 11 §4).  The numerical value of
+$M_P^{\mathrm{bulk}} / M_{\mathrm{poly}}$ is convention-dependent:
+Session 11 takes $LR \sim 1/M_{\mathrm{poly}}^2$ (democratic, the
+natural bulk length scale $\ell = 1/M_{\mathrm{poly}}$) giving
+$M_P^{\mathrm{bulk}} \approx 2.34\,M_{\mathrm{poly}}$; the present
+session honors the Seifert-Scott aspect ratio $R_\star/\ell \approx 4.63$
+(§4.1 below) and uses $L = 1/M_{\mathrm{poly}}$, $R = 4.63/M_{\mathrm{poly}}$,
+giving $M_P^{\mathrm{bulk}} \approx 1.087\,M_{\mathrm{poly}}$ (§3 line 170).
+Both conventions agree on the final radion mass $m_\sigma^2 = (2\kappa|\chi_{\mathrm{orb}}|/3)/\alpha_\star^2$
+because $G_4^{\mathrm{bulk}}\cdot(M_P^{\mathrm{bulk}})^2 \equiv 1$ cancels in
+eq. (§3.165). Session 43 (scale hierarchy) adopts Session 11's
+convention ($2.34\,M_{\mathrm{poly}}$) for the three-scale hierarchy
+$M_{\mathrm{poly}} \to M_P^{\mathrm{bulk}} \to M_P^{(4D)}$.
 
 The 1-loop effective potential for $R$ comes from summing the Casimir
 contributions of all bulk fields on $S^1_R$ (with their Scherk–Schwarz twists
@@ -166,20 +180,22 @@ m_\sigma^2 \;=\; \frac{2\,\kappa_{\mathrm{SL}(2,\mathbb{R})}\,|\chi_{\mathrm{orb
 $$
 
 Plugging in polygon values:
-- G_4 = πℓR_*/(4 b(N)) = π · 1 · 4.63/(4 · 3/7) ≈ 8.48 / M_poly² (from Session 11)
-- M_P^bulk = 1/√G_4 ≈ 0.343 M_poly
+- G_4 = πℓR_*/(4 b(N)) = π · 1 · 4.63/(4 · 4.298) ≈ 0.846 / M_poly² (b(7) = 4.298 from Paper III)
+- M_P^bulk = 1/√G_4 ≈ 1.087 M_poly
 - |χ_orb| = 4/7
 - α_* = R_* ≈ 4.63/M_poly, so α_*² ≈ 21.4/M_poly²
 
 $$
-m_\sigma^2 \;\approx\; \frac{2 \kappa \cdot (4/7)}{3 \cdot 8.48 \cdot 0.118 \cdot 21.4} \cdot M_{\mathrm{poly}}^2
-\;\approx\; 0.011 \kappa \cdot M_{\mathrm{poly}}^2.
+m_\sigma^2 \;\approx\; \frac{2 \kappa \cdot (4/7)}{3 \cdot 0.846 \cdot 1.18 \cdot 21.4} \cdot M_{\mathrm{poly}}^2
+\;\approx\; 0.018 \kappa \cdot M_{\mathrm{poly}}^2.
 $$
+
+(Values updated to use the Paper~III value $b(7) = 4.298$, giving $G_4 = 0.846/M_{\mathrm{poly}}^2$ and $M_P^{\mathrm{bulk}} = 1.087\,M_{\mathrm{poly}}$; see Session~17 for reconciliation.)
 
 For κ_{SL(2,ℝ)} ∈ [1, 100] (the range of O(1) coefficients in 3-manifold elastic actions; the specific value requires the second-order SL(2,ℝ)^~ perturbation tensor from Thurston geometrization literature):
 
 $$
-m_\sigma \in [0.10, 1.05]\,M_{\mathrm{poly}} \;=\; [30, 315]\,\mathrm{TeV}.
+m_\sigma \in [0.13, 1.33]\,M_{\mathrm{poly}} \;=\; [40, 400]\,\mathrm{TeV}.
 $$
 
 ### 4.4 Mechanism summary

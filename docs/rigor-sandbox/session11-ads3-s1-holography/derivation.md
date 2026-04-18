@@ -121,8 +121,8 @@ This fixes $G_3$ in terms of the AdS radius $L$ and the polygon parameter $b(N)$
 Common attempts to "re-derive" $c = 12\,b(N)$ from Sugawara-style CS/WZW
 formulas (e.g., $c_{\mathrm{Sugawara}} = 2 \cdot 3k/(k + h^\vee)$ at two
 factors) give $c = 6k/(k+2)$, which at finite $k = 2\,b(N)$ does NOT
-equal $12\,b(N)$ (at $b(7) = 3/7$: $c_{\mathrm{Sugawara}} = 9/5 = 1.8$
-vs $12 b(7) = 36/7 \approx 5.14$). The reason is that the polygon's
+equal $12\,b(N)$ (at $b(7) = 4.298$: $c_{\mathrm{Sugawara}} \approx 6(2b(7))/(2b(7)+2) = 6\cdot 8.60/10.60 \approx 4.87$
+vs $12\,b(7) = 51.57$). The reason is that the polygon's
 central charge includes an ADDITIONAL contribution from the graviton
 sector (pure AdS_3 gravity with Brown-Henneaux, not just matter CS);
 this is what Paper III derives via the Seifert trace. The Session 11
@@ -449,14 +449,14 @@ G_4^{\mathrm{bulk}} \;\sim\; \frac{\pi}{4\,b(N)\,M_{\mathrm{poly}}^2}.
 $$
 
 This is the BULK-LEVEL 4D Newton constant, valid at the polygon scale. At
-$N = 7$ with $b(7) = 3/7$ (paper convention):
+$N = 7$ with $b(7) = 4.298$ (Paper~III Definition~\ref*{def:polygon-self-energy}):
 $$
-G_4^{\mathrm{bulk}} \;\approx\; \frac{\pi \cdot 7}{12\,M_{\mathrm{poly}}^2}
-\;\approx\; \frac{1.83}{M_{\mathrm{poly}}^2}.
+G_4^{\mathrm{bulk}} \;\approx\; \frac{\pi}{4 \cdot 4.298\,M_{\mathrm{poly}}^2}
+\;\approx\; \frac{0.183}{M_{\mathrm{poly}}^2}.
 $$
 
 The associated bulk Planck scale $M_P^{\mathrm{bulk}} = 1/\sqrt{G_4^{\mathrm{bulk}}}
-\approx 0.74\,M_{\mathrm{poly}} \approx 220$\,TeV at $M_{\mathrm{poly}} = 300$\,TeV.
+\approx 2.34\,M_{\mathrm{poly}} \approx 700$\,TeV at $M_{\mathrm{poly}} = 300$\,TeV.
 
 ### Relation to observed 4D $M_{\mathrm{Planck}}$
 
